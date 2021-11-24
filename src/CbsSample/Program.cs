@@ -1,0 +1,64 @@
+﻿using System;
+using Hl7.Fhir.Model;
+using Hl7.Fhir.Serialization;
+using GaTech.Chai.Cbs.CbsCaseOfDeathProfile;
+using GaTech.Chai.Cbs.CbsLabObservationProfile;
+using GaTech.Chai.Cbs.CbsPatientProfile;
+using GaTech.Chai.Cbs.CbsConditionProfile;
+
+namespace CbsSample
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // CbsPatient
+            Patient patient = CbsPatient.Create();
+            patient.CbsPatient().Race.Category = RaceCategory.Encode("2106-3", "White");
+            patient.CbsPatient().Race.Description = "Mixed";
+            patient.CbsPatient().Race.ExtendedRaceCodes = new Coding[] { DetailedRace.Encode("1010-8", "Apache") };
+            patient.CbsPatient().Race.Other = "Apache";
+            patient.CbsPatient().BirthSex = BirthSex.Female;
+            patient.CbsPatient().BirthPlace = new Address() { City = "Austin", State = "TX" };
+            var address = new Address() { City = "Dallas", State = "TX" };
+            address.CbsAddress().CdcAddressUse = CdcAddressUse.UsualResidence;
+            address.CbsAddress().CensusTract = "030500";
+            patient.Address.Add(address);
+            patient.Telecom.Add(new ContactPoint(ContactPoint.ContactPointSystem.Phone, 
+                ContactPoint.ContactPointUse.Home, "867-5309"));
+
+            // CbsLabObservation
+            Observation labObs = CbsLabObservation.Create();
+            labObs.Subject = patient.CbsPatient().AsReference();
+            labObs.Code = new CodeableConcept("urn:oid:2.16.840.1.114222.4.5.232", "LAB723", "DNA Sequencing", null);
+            labObs.Value = new CodeableConcept("http://snomed.info/sct", "10828004", "Positive", null);
+            labObs.Method = new CodeableConcept(null, "D1D2", "D1/D2", null);
+
+            // CbsCondition
+            Condition condition = CbsCondition.Create();
+            condition.Subject = patient.CbsPatient().AsReference();
+            condition.CbsCondition().ClassificationStatus = CaseClassificationStatus.ConfirmedPresent;
+            condition.CbsCondition().DiagnosisDate = new FhirDateTime("2021-03-01");
+            condition.CbsCondition().IllnesDuration = new Quantity(6, "d");
+            condition.Code = CbsConditionCode.Encode("11550", "Hemolytic Uremic Syndrome");
+            condition.Onset = new FhirDateTime("2021-02-28");
+            condition.ClinicalStatus = new CodeableConcept("http://terminology.hl7.org/CodeSystem/condition-clinical", "inactive");
+
+            // CbsCaseOfDeath
+            Observation caseOfDeathObs = CbsCaseOfDeath.Create();
+            caseOfDeathObs.Subject = patient.CbsPatient().AsReference();
+            caseOfDeathObs.Focus.Add(condition.CbsCondition().AsReference());
+
+            FhirJsonSerializer serializer = new(new SerializerSettings() { Pretty = true });
+            Console.WriteLine("CbsPatient:");
+            Console.WriteLine(serializer.SerializeToString(patient));
+            Console.WriteLine("CbsLabObservation:");
+            Console.WriteLine(serializer.SerializeToString(labObs));
+            Console.WriteLine("CbsCaseOfDeath:");
+            Console.WriteLine(serializer.SerializeToString(caseOfDeathObs));
+            Console.WriteLine("CbsCondition:");
+            Console.WriteLine(serializer.SerializeToString(condition));
+
+        }
+    }
+}

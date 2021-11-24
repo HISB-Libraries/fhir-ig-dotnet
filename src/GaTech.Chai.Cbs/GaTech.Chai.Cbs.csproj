@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	<TargetFrameworks>net5.0;netstandard2.0</TargetFrameworks>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove=".DS_Store" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Hl7.Fhir.R4" Version="3.6.0" />
+    <PackageReference Include="Hl7.Fhir.Specification.R4" Version="3.6.0" />
+  </ItemGroup>
+</Project>

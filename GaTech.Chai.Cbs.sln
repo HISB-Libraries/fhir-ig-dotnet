@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.810.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GaTech.Chai.Cbs", "src\GaTech.Chai.Cbs\GaTech.Chai.Cbs.csproj", "{AFDDEA78-A8C0-44D8-9434-599BF9AA2A1E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CbsSample", "src\CbsSample\CbsSample.csproj", "{46DCBA04-A42D-4C1A-9308-A62E5DA75F2F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AFDDEA78-A8C0-44D8-9434-599BF9AA2A1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFDDEA78-A8C0-44D8-9434-599BF9AA2A1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFDDEA78-A8C0-44D8-9434-599BF9AA2A1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFDDEA78-A8C0-44D8-9434-599BF9AA2A1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46DCBA04-A42D-4C1A-9308-A62E5DA75F2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46DCBA04-A42D-4C1A-9308-A62E5DA75F2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46DCBA04-A42D-4C1A-9308-A62E5DA75F2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46DCBA04-A42D-4C1A-9308-A62E5DA75F2F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E1740256-4137-4182-AD1D-62D56DF581DF}
+	EndGlobalSection
+EndGlobal
