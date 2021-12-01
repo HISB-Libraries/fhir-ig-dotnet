@@ -1,7 +1,7 @@
 ﻿using System;
 using Hl7.Fhir.Model;
 
-namespace GaTech.Chai.Cbs.CbsConditionProfile
+namespace GaTech.Chai.Cbs.CbsTravelHistoryProfile
 {
     /// <summary>
     /// Case Classification Status (2.16.840.1.114222.4.11.968)

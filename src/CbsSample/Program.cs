@@ -1,10 +1,13 @@
 ﻿using System;
 using Hl7.Fhir.Model;
 using Hl7.Fhir.Serialization;
-using GaTech.Chai.Cbs.CbsCaseOfDeathProfile;
+using GaTech.Chai.Cbs.CbsCauseOfDeathProfile;
 using GaTech.Chai.Cbs.CbsLabObservationProfile;
 using GaTech.Chai.Cbs.CbsPatientProfile;
 using GaTech.Chai.Cbs.CbsConditionProfile;
+using GaTech.Chai.Cbs.CbsTravelHistoryProfile;
+using GaTech.Chai.Cbs.CbsVaccinationIndicationProfile;
+using GaTech.Chai.Cbs.CbsVaccinationRecordProfile;
 
 namespace CbsSample
 {
@@ -45,9 +48,32 @@ namespace CbsSample
             condition.ClinicalStatus = new CodeableConcept("http://terminology.hl7.org/CodeSystem/condition-clinical", "inactive");
 
             // CbsCaseOfDeath
-            Observation caseOfDeathObs = CbsCaseOfDeath.Create();
+            Observation caseOfDeathObs = CbsCauseOfDeath.Create();
             caseOfDeathObs.Subject = patient.CbsPatient().AsReference();
             caseOfDeathObs.Focus.Add(condition.CbsCondition().AsReference());
+
+            // CbsTravelHistory
+            var travelHistory = CbsTravelHistory.Create();
+            travelHistory.CbsTravelHistory().ProgramSpecificTimeWindow.RelativeTo =
+                CbsTimeWindowRelativeToValue.ConditionOnsetDatePeriodStart;
+            travelHistory.CbsTravelHistory().ProgramSpecificTimeWindow.TimeWindow = new Quantity(1, "day");
+            travelHistory.CbsTravelHistory().ProgramSpecificTimeWindow.RelativeReference = patient.CbsPatient().AsReference();
+            travelHistory.CbsTravelHistory().TravelHistoryAddress.Address = new Address() { City = "Dallas", State = "TX" };
+            travelHistory.CbsTravelHistory().TravelHistoryAddress.Location = GeographicalLocation.Encode("48", "Texas");
+            travelHistory.CbsTravelHistory().TravelHistoryAddress.TimeSpent = FhirDateTime.Now();
+
+            // CbsVaccinationRecord
+            var vaccinationRecord = CbsVaccinationRecord.Create();
+            vaccinationRecord.ReportOrigin = VaccineEventInformationSource.FromBirthCertificate;
+            vaccinationRecord.ProtocolApplied.Add(new Immunization.ProtocolAppliedComponent() { DoseNumber = new Integer(1) });
+            vaccinationRecord.Occurrence = FhirDateTime.Now();
+            vaccinationRecord.VaccineCode = VaccineAdministered.Encode("05", "measles");
+            vaccinationRecord.Patient = patient.CbsPatient().AsReference();
+
+            // CbsVaccinationIndication
+            var vaccinationIndication = CbsVaccinationIndication.Create();
+            vaccinationIndication.Subject = patient.CbsPatient().AsReference();
+            vaccinationIndication.Value = YesNoUnknown.Yes;
 
             FhirJsonSerializer serializer = new(new SerializerSettings() { Pretty = true });
             Console.WriteLine("CbsPatient:");
@@ -58,6 +84,12 @@ namespace CbsSample
             Console.WriteLine(serializer.SerializeToString(caseOfDeathObs));
             Console.WriteLine("CbsCondition:");
             Console.WriteLine(serializer.SerializeToString(condition));
+            Console.WriteLine("CbsTravelHistory:");
+            Console.WriteLine(serializer.SerializeToString(travelHistory));
+            Console.WriteLine("CbsVaccinationRecord:");
+            Console.WriteLine(serializer.SerializeToString(vaccinationRecord));
+            Console.WriteLine("CbsVaccinationIndication:");
+            Console.WriteLine(serializer.SerializeToString(vaccinationIndication));
 
         }
     }
