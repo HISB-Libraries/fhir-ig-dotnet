@@ -17,9 +17,6 @@ namespace GaTech.Chai.Cbs.CbsPatientProfile
 
         public const string ProfileUrl = "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-race";
 
-        /// <summary>
-        /// The official URL for the Case Based Surveillance Race profile
-        /// </summary>
         public Coding Category
         {
             set

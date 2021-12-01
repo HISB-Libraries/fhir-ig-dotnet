@@ -11,8 +11,8 @@ namespace GaTech.Chai.Cbs.CbsPatientProfile
     {
         public const string ValueSetUrl = "http://cbsig.chai.gatech.edu/CodeSystem/cbs-temp-code-system";
 
-        public static CodeableConcept AddressAtDiagnosis => new CodeableConcept(ValueSetUrl, "Address-at-Diagnosis", "Address at time of Diagnosis", null);
-        public static CodeableConcept UsualResidence => new CodeableConcept(ValueSetUrl, "Usual-Residence", "Usual Residence", null);
+        public static CodeableConcept AddressAtDiagnosis => Encode("Address-at-Diagnosis", "Address at time of Diagnosis");
+        public static CodeableConcept UsualResidence => Encode("Usual-Residence", "Usual Residence");
         public static CodeableConcept Encode(string value, string display) => new CodeableConcept(ValueSetUrl, value, display, null);
     }
 }

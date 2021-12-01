@@ -34,13 +34,7 @@ namespace GaTech.Chai.Cbs.CbsPatientProfile
         /// Patient Race
         /// http://cbsig.chai.gatech.edu/StructureDefinition/cbs-race
         /// </summary>
-        public CbsPatientRace Race
-        {
-            get
-            {
-                return patientRace;
-            }
-        }
+        public CbsPatientRace Race => patientRace;
 
         /// <summary>
         /// Patient Birth Sex
@@ -97,7 +91,6 @@ namespace GaTech.Chai.Cbs.CbsPatientProfile
         /// <summary>
         /// Set the assertion that a patient object conforms to the Case Based Surveillance Patient Profile.
         /// </summary>
-        /// <param name="patient"></param>
         public void AddProfile()
         {
             patient.AddProfile(ProfileUrl);

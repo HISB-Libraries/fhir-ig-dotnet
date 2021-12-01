@@ -16,7 +16,7 @@ namespace GaTech.Chai.Cbs.CbsPatientProfile
         public static Coding Encode(string code, string text)
         {
             return new Coding("http://terminology.hl7.org/CodeSystem/v2-0005", code)
-            { Display = text };
+                              { Display = text };
         }
     }
 }

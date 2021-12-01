@@ -11,9 +11,9 @@ namespace GaTech.Chai.Cbs.CbsPatientProfile
     {
         public const string ValueSetOid = "urn:oid:2.16.840.1.114222.4.11.1038";
 
-        public static CodeableConcept Female => new CodeableConcept(ValueSetOid, "F", "Female", null);
-        public static CodeableConcept Male => new CodeableConcept(ValueSetOid, "M", "Male", null);
-        public static CodeableConcept Unknown => new CodeableConcept(ValueSetOid, "U", "Unknown", null);
+        public static CodeableConcept Female => Encode("F", "Female");
+        public static CodeableConcept Male => Encode("M", "Male");
+        public static CodeableConcept Unknown => Encode("U", "Unknown");
         public static CodeableConcept Encode(string value, string display) => new CodeableConcept(ValueSetOid, value, display, null);
     }
 }

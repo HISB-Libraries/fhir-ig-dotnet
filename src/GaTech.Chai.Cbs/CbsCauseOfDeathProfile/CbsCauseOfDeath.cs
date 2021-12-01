@@ -1,17 +1,17 @@
 ﻿using Hl7.Fhir.Model;
 using GaTech.Chai.Cbs.Extensions;
 
-namespace GaTech.Chai.Cbs.CbsCaseOfDeathProfile
+namespace GaTech.Chai.Cbs.CbsCauseOfDeathProfile
 {
     /// <summary>
     /// Case Based Surveillance Lab Cause of Death Profile Extensions
     /// http://cbsig.chai.gatech.edu/StructureDefinition/cbs-cause-of-death
     /// </summary>
-    public class CbsCaseOfDeath
+    public class CbsCauseOfDeath
     {
         readonly Observation observation;
 
-        internal CbsCaseOfDeath(Observation o)
+        internal CbsCauseOfDeath(Observation o)
         {
             this.observation = o;
         }
