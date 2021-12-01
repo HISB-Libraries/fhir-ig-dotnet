@@ -6,9 +6,17 @@
 
   <ItemGroup>
     <None Remove=".DS_Store" />
+    <None Remove="CbsVaccinationRecordProfile\" />
+    <None Remove="CbsVaccinationIndicationProfile\" />
+    <None Remove="CbsTravelHistoryProfile\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Hl7.Fhir.R4" Version="3.6.0" />
     <PackageReference Include="Hl7.Fhir.Specification.R4" Version="3.6.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="CbsVaccinationRecordProfile\" />
+    <Folder Include="CbsVaccinationIndicationProfile\" />
+    <Folder Include="CbsTravelHistoryProfile\" />
   </ItemGroup>
 </Project>
