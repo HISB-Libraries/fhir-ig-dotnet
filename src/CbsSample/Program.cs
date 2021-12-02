@@ -8,6 +8,10 @@ using GaTech.Chai.Cbs.CbsConditionProfile;
 using GaTech.Chai.Cbs.CbsTravelHistoryProfile;
 using GaTech.Chai.Cbs.CbsVaccinationIndicationProfile;
 using GaTech.Chai.Cbs.CbsVaccinationRecordProfile;
+using GaTech.Chai.Cbs.CbsLabTestReportProfile;
+using GaTech.Chai.Cbs.CbsPerformingLaboratoryProfile;
+using GaTech.Chai.Cbs.CbsPersonReportingToCDCProfile;
+using GaTech.Chai.Cbs.CbsReportingSourceOrganizationProfile;
 
 namespace CbsSample
 {
@@ -15,62 +19,62 @@ namespace CbsSample
     {
         static void Main(string[] args)
         {
-            // CbsPatient
+            // CbsPatientProfile
             Patient patient = CbsPatient.Create();
-            patient.CbsPatient().Race.Category = RaceCategory.Encode("2106-3", "White");
+            patient.CbsPatient().Race.Category = CbsPatientRace.RaceCategory.Encode("2106-3", "White");
             patient.CbsPatient().Race.Description = "Mixed";
-            patient.CbsPatient().Race.ExtendedRaceCodes = new Coding[] { DetailedRace.Encode("1010-8", "Apache") };
+            patient.CbsPatient().Race.ExtendedRaceCodes = new Coding[] { CbsPatientRace.DetailedRace.Encode("1010-8", "Apache") };
             patient.CbsPatient().Race.Other = "Apache";
-            patient.CbsPatient().BirthSex = BirthSex.Female;
+            patient.CbsPatient().BirthSex = CbsPatient.Sex.Female;
             patient.CbsPatient().BirthPlace = new Address() { City = "Austin", State = "TX" };
             var address = new Address() { City = "Dallas", State = "TX" };
-            address.CbsAddress().CdcAddressUse = CdcAddressUse.UsualResidence;
+            address.CbsAddress().CdcAddressUse = CbsAddress.AddressUse.UsualResidence;
             address.CbsAddress().CensusTract = "030500";
             patient.Address.Add(address);
             patient.Telecom.Add(new ContactPoint(ContactPoint.ContactPointSystem.Phone, 
                 ContactPoint.ContactPointUse.Home, "867-5309"));
 
-            // CbsLabObservation
+            // CbsLabObservationProfile
             Observation labObs = CbsLabObservation.Create();
             labObs.Subject = patient.CbsPatient().AsReference();
             labObs.Code = new CodeableConcept("urn:oid:2.16.840.1.114222.4.5.232", "LAB723", "DNA Sequencing", null);
             labObs.Value = new CodeableConcept("http://snomed.info/sct", "10828004", "Positive", null);
             labObs.Method = new CodeableConcept(null, "D1D2", "D1/D2", null);
 
-            // CbsCondition
+            // CbsConditionProfile
             Condition condition = CbsCondition.Create();
             condition.Subject = patient.CbsPatient().AsReference();
-            condition.CbsCondition().ClassificationStatus = CaseClassificationStatus.ConfirmedPresent;
+            condition.CbsCondition().ClassificationStatus = CbsCondition.CaseClassificationStatus.ConfirmedPresent;
             condition.CbsCondition().DiagnosisDate = new FhirDateTime("2021-03-01");
             condition.CbsCondition().IllnesDuration = new Quantity(6, "d");
-            condition.Code = CbsConditionCode.Encode("11550", "Hemolytic Uremic Syndrome");
+            condition.Code = CbsCondition.ConditionCode.Encode("11550", "Hemolytic Uremic Syndrome");
             condition.Onset = new FhirDateTime("2021-02-28");
             condition.ClinicalStatus = new CodeableConcept("http://terminology.hl7.org/CodeSystem/condition-clinical", "inactive");
 
-            // CbsCaseOfDeath
+            // CbsCaseOfDeathProfile
             Observation caseOfDeathObs = CbsCauseOfDeath.Create();
             caseOfDeathObs.Subject = patient.CbsPatient().AsReference();
             caseOfDeathObs.Focus.Add(condition.CbsCondition().AsReference());
 
-            // CbsTravelHistory
+            // CbsTravelHistoryProfile
             var travelHistory = CbsTravelHistory.Create();
             travelHistory.CbsTravelHistory().ProgramSpecificTimeWindow.RelativeTo =
-                CbsTimeWindowRelativeToValue.ConditionOnsetDatePeriodStart;
+                CbsTravelHistory.TimeWindowRelativeToValue.ConditionOnsetDatePeriodStart;
             travelHistory.CbsTravelHistory().ProgramSpecificTimeWindow.TimeWindow = new Quantity(1, "day");
             travelHistory.CbsTravelHistory().ProgramSpecificTimeWindow.RelativeReference = patient.CbsPatient().AsReference();
             travelHistory.CbsTravelHistory().TravelHistoryAddress.Address = new Address() { City = "Dallas", State = "TX" };
-            travelHistory.CbsTravelHistory().TravelHistoryAddress.Location = GeographicalLocation.Encode("48", "Texas");
+            travelHistory.CbsTravelHistory().TravelHistoryAddress.Location = CbsTravelHistory.GeographicalLocation.Encode("48", "Texas");
             travelHistory.CbsTravelHistory().TravelHistoryAddress.TimeSpent = FhirDateTime.Now();
 
-            // CbsVaccinationRecord
+            // CbsVaccinationRecordProfile
             var vaccinationRecord = CbsVaccinationRecord.Create();
-            vaccinationRecord.ReportOrigin = VaccineEventInformationSource.FromBirthCertificate;
+            vaccinationRecord.ReportOrigin = CbsVaccinationRecord.VaccineEventInformationSource.FromBirthCertificate;
             vaccinationRecord.ProtocolApplied.Add(new Immunization.ProtocolAppliedComponent() { DoseNumber = new Integer(1) });
             vaccinationRecord.Occurrence = FhirDateTime.Now();
-            vaccinationRecord.VaccineCode = VaccineAdministered.Encode("05", "measles");
+            vaccinationRecord.VaccineCode = CbsVaccinationRecord.VaccineAdministered.Encode("05", "measles");
             vaccinationRecord.Patient = patient.CbsPatient().AsReference();
 
-            // CbsVaccinationIndication
+            // CbsVaccinationIndicationProfile
             var vaccinationIndication = CbsVaccinationIndication.Create();
             vaccinationIndication.Subject = patient.CbsPatient().AsReference();
             vaccinationIndication.Value = YesNoUnknown.Yes;

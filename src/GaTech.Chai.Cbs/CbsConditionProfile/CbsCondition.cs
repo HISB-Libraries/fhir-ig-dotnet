@@ -94,5 +94,40 @@ namespace GaTech.Chai.Cbs.CbsConditionProfile
             set => this.condition.Extension.AddOrUpdateExtension(
                     "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-illness-duration", value);
         }
+
+        /// <summary>
+        /// Nationally Notifiable Disease Surveillance System (NNDSS) & Other Conditions of Public Health Importance
+        /// 2.16.840.1.114222.4.11.1015
+        /// </summary>
+        public static class ConditionCode
+        {
+            /// <summary>
+            /// Nationally Notifiable Disease Surveillance System (NNDSS) & Other Conditions of Public Health Importance
+            /// 2.16.840.1.114222.4.11.1015
+            /// </summary>
+            /// <param name="code"></param>
+            /// <param name="display"></param>
+            /// <returns></returns>
+            public static CodeableConcept Encode(string code, string display)
+            {
+                return new CodeableConcept("urn:oid:2.16.840.1.114222.4.11.1015", code, display, null);
+            }
+        }
+
+        /// <summary>
+        /// Case Classification Status (2.16.840.1.114222.4.11.968)
+        /// Indicates how the Nationally Notifiable Disease case was classified at its close
+        /// </summary>
+        public static class CaseClassificationStatus
+        {
+            public const string ValueSetOid = "urn:oid:2.16.840.1.114222.4.11.968";
+
+            public static CodeableConcept ConfirmedPresent => Encode("410605003", "Confirmed present");
+            public static CodeableConcept NotACase => Encode("PHC178", "Not a Case");
+            public static CodeableConcept ProbableDiagnosis => Encode("2931005", "Probable diagnosis");
+            public static CodeableConcept Suspected => Encode("415684004", "Suspected");
+            public static CodeableConcept Unknown => Encode("UNK", "Unknown");
+            public static CodeableConcept Encode(string value, string display) => new CodeableConcept(ValueSetOid, value, display, null);
+        }
     }
 }
