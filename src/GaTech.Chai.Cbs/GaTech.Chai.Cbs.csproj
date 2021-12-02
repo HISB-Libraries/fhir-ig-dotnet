@@ -9,6 +9,10 @@
     <None Remove="CbsVaccinationRecordProfile\" />
     <None Remove="CbsVaccinationIndicationProfile\" />
     <None Remove="CbsTravelHistoryProfile\" />
+    <None Remove="CbsLabTestReport\" />
+    <None Remove="CbsPerformingLaboratoryProfile\" />
+    <None Remove="CbsPersonReportingToCDCProfile\" />
+    <None Remove="CbsReportingSourceOrganizationProfile\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Hl7.Fhir.R4" Version="3.6.0" />
@@ -18,5 +22,9 @@
     <Folder Include="CbsVaccinationRecordProfile\" />
     <Folder Include="CbsVaccinationIndicationProfile\" />
     <Folder Include="CbsTravelHistoryProfile\" />
+    <Folder Include="CbsLabTestReportProfile\" />
+    <Folder Include="CbsPerformingLaboratoryProfile\" />
+    <Folder Include="CbsPersonReportingToCDCProfile\" />
+    <Folder Include="CbsReportingSourceOrganizationProfile\" />
   </ItemGroup>
 </Project>

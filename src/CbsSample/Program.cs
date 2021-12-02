@@ -77,7 +77,25 @@ namespace CbsSample
             // CbsVaccinationIndicationProfile
             var vaccinationIndication = CbsVaccinationIndication.Create();
             vaccinationIndication.Subject = patient.CbsPatient().AsReference();
-            vaccinationIndication.Value = YesNoUnknown.Yes;
+            vaccinationIndication.Value = CbsVaccinationIndication.YesNoUnknown.Yes;
+
+            // CbsLabTestReportProfile
+            var labTestReport = CbsLabTestReport.Create();
+            labTestReport.Code = new CodeableConcept("http://loinc.org", "85069-3");
+            labTestReport.Subject = patient.CbsPatient().AsReference();
+
+            // CbsPerformingLaboratoryProfile
+            var performingLab = CbsPerformingLaboratory.Create();
+            performingLab.Name = "Jab Lab, Dallas";
+
+            // CbsPersonReportingToCDCProfile
+            var reporter = CbsPersonReportingToCDC.Create();
+            reporter.Name.Add(new HumanName() { Family = "Smith", Given = new[] { "Sandra" } });
+            reporter.Telecom.Add(new ContactPoint() { System = ContactPoint.ContactPointSystem.Email, Value = "ssmith@gmail.com" });
+
+            // CbsReportingSourceOrganizationProfile
+            var org = CbsReportingSourceOrganization.Create("PHC247", "Laboratory");
+            org.Name = "Jab Labs, Inc.";
 
             FhirJsonSerializer serializer = new(new SerializerSettings() { Pretty = true });
             Console.WriteLine("CbsPatient:");
@@ -94,7 +112,14 @@ namespace CbsSample
             Console.WriteLine(serializer.SerializeToString(vaccinationRecord));
             Console.WriteLine("CbsVaccinationIndication:");
             Console.WriteLine(serializer.SerializeToString(vaccinationIndication));
-
+            Console.WriteLine("CbsLabTestReport:");
+            Console.WriteLine(serializer.SerializeToString(labTestReport));
+            Console.WriteLine("CbsPerformingLaboratory:");
+            Console.WriteLine(serializer.SerializeToString(performingLab));
+            Console.WriteLine("CbsPersonReportingToCDC:");
+            Console.WriteLine(serializer.SerializeToString(reporter));
+            Console.WriteLine("CbsReportingSourceOrganization:");
+            Console.WriteLine(serializer.SerializeToString(org));
         }
     }
 }
