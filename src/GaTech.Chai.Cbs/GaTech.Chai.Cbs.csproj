@@ -13,6 +13,7 @@
     <None Remove="CbsPerformingLaboratoryProfile\" />
     <None Remove="CbsPersonReportingToCDCProfile\" />
     <None Remove="CbsReportingSourceOrganizationProfile\" />
+    <None Remove="CbsSocialDeterminantsOfHealthProfile\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Hl7.Fhir.R4" Version="3.6.0" />
@@ -26,5 +27,6 @@
     <Folder Include="CbsPerformingLaboratoryProfile\" />
     <Folder Include="CbsPersonReportingToCDCProfile\" />
     <Folder Include="CbsReportingSourceOrganizationProfile\" />
+    <Folder Include="CbsSocialDeterminantsOfHealthProfile\" />
   </ItemGroup>
 </Project>

@@ -1,6 +1,7 @@
 ﻿using System;
 using Hl7.Fhir.Model;
 using Hl7.Fhir.Serialization;
+using GaTech.Chai.Cbs;
 using GaTech.Chai.Cbs.CbsCauseOfDeathProfile;
 using GaTech.Chai.Cbs.CbsLabObservationProfile;
 using GaTech.Chai.Cbs.CbsPatientProfile;
@@ -12,6 +13,8 @@ using GaTech.Chai.Cbs.CbsLabTestReportProfile;
 using GaTech.Chai.Cbs.CbsPerformingLaboratoryProfile;
 using GaTech.Chai.Cbs.CbsPersonReportingToCDCProfile;
 using GaTech.Chai.Cbs.CbsReportingSourceOrganizationProfile;
+using GaTech.Chai.Cbs.CbsSocialDeterminantsOfHealthProfile;
+
 
 namespace CbsSample
 {
@@ -59,7 +62,7 @@ namespace CbsSample
             // CbsTravelHistoryProfile
             var travelHistory = CbsTravelHistory.Create();
             travelHistory.CbsTravelHistory().ProgramSpecificTimeWindow.RelativeTo =
-                CbsTravelHistory.TimeWindowRelativeToValue.ConditionOnsetDatePeriodStart;
+                TimeWindowRelativeToValue.ConditionOnsetDatePeriodStart;
             travelHistory.CbsTravelHistory().ProgramSpecificTimeWindow.TimeWindow = new Quantity(1, "day");
             travelHistory.CbsTravelHistory().ProgramSpecificTimeWindow.RelativeReference = patient.CbsPatient().AsReference();
             travelHistory.CbsTravelHistory().TravelHistoryAddress.Address = new Address() { City = "Dallas", State = "TX" };
@@ -97,6 +100,16 @@ namespace CbsSample
             var org = CbsReportingSourceOrganization.Create("PHC247", "Laboratory");
             org.Name = "Jab Labs, Inc.";
 
+            // CbsSocialDeterminantsOfHealthProfile
+            var socialDeterminant = CbsSocialDeterminantsOfHealth.Create();
+            socialDeterminant.Status = ObservationStatus.Final;
+            socialDeterminant.Category.Add(CbsSocialDeterminantsOfHealth.Categories.HousingOrResidence);
+            socialDeterminant.Code = CbsSocialDeterminantsOfHealth.Codes.CharacteristicsOfResidence;
+            socialDeterminant.CbsSocialDeterminantsOfHealth().ProgramSpecificTimeWindow.RelativeTo =
+                    TimeWindowRelativeToValue.ConditionOnsetDateTime;
+            socialDeterminant.CbsSocialDeterminantsOfHealth().ProgramSpecificTimeWindow.TimeWindow = new Quantity(1, "year");
+            socialDeterminant.CbsSocialDeterminantsOfHealth().ProgramSpecificTimeWindow.RelativeReference = patient.CbsPatient().AsReference();
+
             FhirJsonSerializer serializer = new(new SerializerSettings() { Pretty = true });
             Console.WriteLine("CbsPatient:");
             Console.WriteLine(serializer.SerializeToString(patient));
@@ -120,6 +133,9 @@ namespace CbsSample
             Console.WriteLine(serializer.SerializeToString(reporter));
             Console.WriteLine("CbsReportingSourceOrganization:");
             Console.WriteLine(serializer.SerializeToString(org));
+            Console.WriteLine("CbsSocialDeterminantsOfHealth:");
+            Console.WriteLine(serializer.SerializeToString(socialDeterminant));
+
         }
     }
 }
