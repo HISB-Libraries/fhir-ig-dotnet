@@ -14,6 +14,8 @@
     <None Remove="CbsPersonReportingToCDCProfile\" />
     <None Remove="CbsReportingSourceOrganizationProfile\" />
     <None Remove="CbsSocialDeterminantsOfHealthProfile\" />
+    <None Remove="CbsCaseNotificationPanelProfile\" />
+    <None Remove="Common\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Hl7.Fhir.R4" Version="3.6.0" />
@@ -28,5 +30,7 @@
     <Folder Include="CbsPersonReportingToCDCProfile\" />
     <Folder Include="CbsReportingSourceOrganizationProfile\" />
     <Folder Include="CbsSocialDeterminantsOfHealthProfile\" />
+    <Folder Include="CbsCaseNotificationPanelProfile\" />
+    <Folder Include="Common\" />
   </ItemGroup>
 </Project>

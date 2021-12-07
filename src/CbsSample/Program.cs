@@ -1,7 +1,7 @@
 ﻿using System;
 using Hl7.Fhir.Model;
 using Hl7.Fhir.Serialization;
-using GaTech.Chai.Cbs;
+using GaTech.Chai.Cbs.Common;
 using GaTech.Chai.Cbs.CbsCauseOfDeathProfile;
 using GaTech.Chai.Cbs.CbsLabObservationProfile;
 using GaTech.Chai.Cbs.CbsPatientProfile;
@@ -14,7 +14,8 @@ using GaTech.Chai.Cbs.CbsPerformingLaboratoryProfile;
 using GaTech.Chai.Cbs.CbsPersonReportingToCDCProfile;
 using GaTech.Chai.Cbs.CbsReportingSourceOrganizationProfile;
 using GaTech.Chai.Cbs.CbsSocialDeterminantsOfHealthProfile;
-
+using GaTech.Chai.Cbs.CbsCaseNotificationPanelProfile;
+using GaTech.Chai.Cbs.Extensions;
 
 namespace CbsSample
 {
@@ -39,14 +40,14 @@ namespace CbsSample
 
             // CbsLabObservationProfile
             Observation labObs = CbsLabObservation.Create();
-            labObs.Subject = patient.CbsPatient().AsReference();
+            labObs.Subject = patient.AsReference();
             labObs.Code = new CodeableConcept("urn:oid:2.16.840.1.114222.4.5.232", "LAB723", "DNA Sequencing", null);
             labObs.Value = new CodeableConcept("http://snomed.info/sct", "10828004", "Positive", null);
             labObs.Method = new CodeableConcept(null, "D1D2", "D1/D2", null);
 
             // CbsConditionProfile
             Condition condition = CbsCondition.Create();
-            condition.Subject = patient.CbsPatient().AsReference();
+            condition.Subject = patient.AsReference();
             condition.CbsCondition().ClassificationStatus = CbsCondition.CaseClassificationStatus.ConfirmedPresent;
             condition.CbsCondition().DiagnosisDate = new FhirDateTime("2021-03-01");
             condition.CbsCondition().IllnesDuration = new Quantity(6, "d");
@@ -56,7 +57,7 @@ namespace CbsSample
 
             // CbsCaseOfDeathProfile
             Observation caseOfDeathObs = CbsCauseOfDeath.Create();
-            caseOfDeathObs.Subject = patient.CbsPatient().AsReference();
+            caseOfDeathObs.Subject = patient.AsReference();
             caseOfDeathObs.Focus.Add(condition.CbsCondition().AsReference());
 
             // CbsTravelHistoryProfile
@@ -64,7 +65,7 @@ namespace CbsSample
             travelHistory.CbsTravelHistory().ProgramSpecificTimeWindow.RelativeTo =
                 TimeWindowRelativeToValue.ConditionOnsetDatePeriodStart;
             travelHistory.CbsTravelHistory().ProgramSpecificTimeWindow.TimeWindow = new Quantity(1, "day");
-            travelHistory.CbsTravelHistory().ProgramSpecificTimeWindow.RelativeReference = patient.CbsPatient().AsReference();
+            travelHistory.CbsTravelHistory().ProgramSpecificTimeWindow.RelativeReference = patient.AsReference();
             travelHistory.CbsTravelHistory().TravelHistoryAddress.Address = new Address() { City = "Dallas", State = "TX" };
             travelHistory.CbsTravelHistory().TravelHistoryAddress.Location = CbsTravelHistory.GeographicalLocation.Encode("48", "Texas");
             travelHistory.CbsTravelHistory().TravelHistoryAddress.TimeSpent = FhirDateTime.Now();
@@ -75,17 +76,17 @@ namespace CbsSample
             vaccinationRecord.ProtocolApplied.Add(new Immunization.ProtocolAppliedComponent() { DoseNumber = new Integer(1) });
             vaccinationRecord.Occurrence = FhirDateTime.Now();
             vaccinationRecord.VaccineCode = CbsVaccinationRecord.VaccineAdministered.Encode("05", "measles");
-            vaccinationRecord.Patient = patient.CbsPatient().AsReference();
+            vaccinationRecord.Patient = patient.AsReference();
 
             // CbsVaccinationIndicationProfile
             var vaccinationIndication = CbsVaccinationIndication.Create();
-            vaccinationIndication.Subject = patient.CbsPatient().AsReference();
-            vaccinationIndication.Value = CbsVaccinationIndication.YesNoUnknown.Yes;
+            vaccinationIndication.Subject = patient.AsReference();
+            vaccinationIndication.Value = YesNoUnknown.Yes;
 
             // CbsLabTestReportProfile
             var labTestReport = CbsLabTestReport.Create();
             labTestReport.Code = new CodeableConcept("http://loinc.org", "85069-3");
-            labTestReport.Subject = patient.CbsPatient().AsReference();
+            labTestReport.Subject = patient.AsReference();
 
             // CbsPerformingLaboratoryProfile
             var performingLab = CbsPerformingLaboratory.Create();
@@ -108,7 +109,27 @@ namespace CbsSample
             socialDeterminant.CbsSocialDeterminantsOfHealth().ProgramSpecificTimeWindow.RelativeTo =
                     TimeWindowRelativeToValue.ConditionOnsetDateTime;
             socialDeterminant.CbsSocialDeterminantsOfHealth().ProgramSpecificTimeWindow.TimeWindow = new Quantity(1, "year");
-            socialDeterminant.CbsSocialDeterminantsOfHealth().ProgramSpecificTimeWindow.RelativeReference = patient.CbsPatient().AsReference();
+            socialDeterminant.CbsSocialDeterminantsOfHealth().ProgramSpecificTimeWindow.RelativeReference = patient.AsReference();
+
+            // CbsCaseNotificationPanel
+            var notificationPanel = CbsCaseNotificationPanel.Create();
+            notificationPanel.Code = CbsCaseNotificationPanel.CaseNotificationPanelValues.Hospitalized;
+            notificationPanel.Subject = patient.AsReference();
+            notificationPanel.Value = YesNoUnknown.Yes;
+
+            var exposure = CbsExposureObservation.Create();
+            exposure.CbsExposureObservation().CountryOfExposure = new CodeableConcept("urn:iso:std:iso:3166", "USA", "United States of America");
+            exposure.CbsExposureObservation().StateOrProvinceOfExposure = new CodeableConcept("urn:oid:2.16.840.1.113883.6.92", "48", "Texas");
+            exposure.CbsExposureObservation().CityOfExposure = "Houston";
+            exposure.CbsExposureObservation().CountyOfExposure = "Harris";
+            exposure.Subject = patient.AsReference();
+            exposure.Focus.Add(condition.AsReference());
+
+            var mmwr = CbsMmwr.Create();
+            mmwr.Subject = patient.AsReference();
+            mmwr.CbsMmwr().MMWRWeek = 12;
+            mmwr.CbsMmwr().MMWRYear = 2021;
+
 
             FhirJsonSerializer serializer = new(new SerializerSettings() { Pretty = true });
             Console.WriteLine("CbsPatient:");
@@ -135,6 +156,13 @@ namespace CbsSample
             Console.WriteLine(serializer.SerializeToString(org));
             Console.WriteLine("CbsSocialDeterminantsOfHealth:");
             Console.WriteLine(serializer.SerializeToString(socialDeterminant));
+
+            Console.WriteLine("CbsCaseNotificationPanel:");
+            Console.WriteLine(serializer.SerializeToString(notificationPanel));
+            Console.WriteLine("CbsExposureObservation:");
+            Console.WriteLine(serializer.SerializeToString(exposure));
+            Console.WriteLine("CbsMmwr:");
+            Console.WriteLine(serializer.SerializeToString(mmwr));
 
         }
     }
