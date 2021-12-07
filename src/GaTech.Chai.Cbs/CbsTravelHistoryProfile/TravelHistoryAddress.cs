@@ -97,7 +97,6 @@ namespace GaTech.Chai.Cbs.CbsTravelHistoryProfile
             var component = observation.Component.Find(
                 c => c.Code.Coding.Exists(coding => coding.Code == "LOC" && coding.System == LocationUri));
             return component;
-
         }
     }
 }

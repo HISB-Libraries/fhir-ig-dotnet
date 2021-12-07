@@ -93,5 +93,16 @@ namespace GaTech.Chai.Cbs.Extensions
         {
             extensions.AddOrUpdateExtension(new Extension(url, value));
         }
+
+        /// <summary>
+        /// Get Reference to Resource
+        /// </summary>
+        /// <returns></returns>
+        public static ResourceReference AsReference(this Resource resource)
+        {
+            if (string.IsNullOrEmpty(resource.Id))
+                resource.Id = Guid.NewGuid().ToString();
+            return new ResourceReference($"{resource.TypeName}/{resource.Id}");
+        }
     }
 }

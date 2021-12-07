@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using GaTech.Chai.Cbs.Extensions;
 using Hl7.Fhir.Model;
 
-namespace GaTech.Chai.Cbs
+namespace GaTech.Chai.Cbs.Common
 {
     /// <summary>
     /// Time window of interest in relationship to a specified event as determined by individual case based surveillance programs.

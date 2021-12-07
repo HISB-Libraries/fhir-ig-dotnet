@@ -73,17 +73,6 @@ namespace GaTech.Chai.Cbs.CbsPatientProfile
         }
 
         /// <summary>
-        /// Get Reference to Resource
-        /// </summary>
-        /// <returns></returns>
-        public ResourceReference AsReference()
-        {
-            if (string.IsNullOrEmpty(patient.Id))
-                patient.Id = Guid.NewGuid().ToString();
-            return new ResourceReference("Patient/" + patient.Id);
-        }
-
-        /// <summary>
         /// The official URL for the Case Based Surveillance Patient profile, used to assert conformance.
         /// </summary>
         public const string ProfileUrl = "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-patient";

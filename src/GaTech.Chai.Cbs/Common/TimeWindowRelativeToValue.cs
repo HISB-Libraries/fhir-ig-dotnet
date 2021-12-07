@@ -1,7 +1,7 @@
 ﻿using System;
 using Hl7.Fhir.Model;
 
-namespace GaTech.Chai.Cbs
+namespace GaTech.Chai.Cbs.Common
 {
     /// <summary>
     /// CBS Time Window Relative To Value Set (http://cbsig.chai.gatech.edu/CodeSystem/cbs-temp-code-system)
