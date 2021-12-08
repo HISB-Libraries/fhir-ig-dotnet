@@ -5,7 +5,7 @@ using Hl7.Fhir.Model;
 
 namespace GaTech.Chai.Cbs.Extensions
 {
-    public static class FhirProfile
+    public static class FhirResourceExtensions
     {
         /// <summary>
         /// Set the assertion that a resource object conforms to the given profile.
@@ -78,20 +78,6 @@ namespace GaTech.Chai.Cbs.Extensions
 
                 resource.Meta.ProfileElement.RemoveAt(index);
             }
-        }
-
-        public static void AddOrUpdateExtension(this List<Extension> extensions, Extension extension)
-        {
-            var ext = extensions.Find(e => e.Url == extension.Url);
-            if (ext != null)
-                extensions.Remove(ext);
-
-            extensions.Add(extension);
-        }
-
-        public static void AddOrUpdateExtension(this List<Extension> extensions, string url, DataType value)
-        {
-            extensions.AddOrUpdateExtension(new Extension(url, value));
         }
 
         /// <summary>
