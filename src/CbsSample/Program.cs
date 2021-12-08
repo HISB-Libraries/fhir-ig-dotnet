@@ -2,6 +2,7 @@
 using Hl7.Fhir.Model;
 using Hl7.Fhir.Serialization;
 using GaTech.Chai.Cbs.Common;
+using GaTech.Chai.Cbs.Extensions;
 using GaTech.Chai.Cbs.CbsCauseOfDeathProfile;
 using GaTech.Chai.Cbs.CbsLabObservationProfile;
 using GaTech.Chai.Cbs.CbsPatientProfile;
@@ -15,7 +16,7 @@ using GaTech.Chai.Cbs.CbsPersonReportingToCDCProfile;
 using GaTech.Chai.Cbs.CbsReportingSourceOrganizationProfile;
 using GaTech.Chai.Cbs.CbsSocialDeterminantsOfHealthProfile;
 using GaTech.Chai.Cbs.CbsCaseNotificationPanelProfile;
-using GaTech.Chai.Cbs.Extensions;
+using GaTech.Chai.Cbs.CbsHospitalizationEncounterProfile;
 
 namespace CbsSample
 {
@@ -130,6 +131,10 @@ namespace CbsSample
             mmwr.CbsMmwr().MMWRWeek = 12;
             mmwr.CbsMmwr().MMWRYear = 2021;
 
+            // CbsHospitalizationEncounterProfile
+            var hospitalization = CbsHospitalization.Create();
+            hospitalization.Subject = patient.AsReference();
+            hospitalization.CbsHospitalization().Condition = condition.AsReference();
 
             FhirJsonSerializer serializer = new(new SerializerSettings() { Pretty = true });
             Console.WriteLine("CbsPatient:");
