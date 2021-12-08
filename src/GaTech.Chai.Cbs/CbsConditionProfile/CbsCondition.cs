@@ -29,17 +29,6 @@ namespace GaTech.Chai.Cbs.CbsConditionProfile
         }
 
         /// <summary>
-        /// Get Reference to Resource
-        /// </summary>
-        /// <returns></returns>
-        public ResourceReference AsReference()
-        {
-            if (string.IsNullOrEmpty(condition.Id))
-                condition.Id = Guid.NewGuid().ToString();
-            return new ResourceReference("Condition/" + condition.Id);
-        }
-
-        /// <summary>
         /// The official URL for the Case Based Surveillance Lab Condition profile, used to assert conformance.
         /// </summary>
         public const string ProfileUrl = "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-condition";

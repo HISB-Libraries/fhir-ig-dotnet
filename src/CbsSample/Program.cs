@@ -59,7 +59,7 @@ namespace CbsSample
             // CbsCaseOfDeathProfile
             Observation caseOfDeathObs = CbsCauseOfDeath.Create();
             caseOfDeathObs.Subject = patient.AsReference();
-            caseOfDeathObs.Focus.Add(condition.CbsCondition().AsReference());
+            caseOfDeathObs.Focus.Add(condition.AsReference());
 
             // CbsTravelHistoryProfile
             var travelHistory = CbsTravelHistory.Create();
