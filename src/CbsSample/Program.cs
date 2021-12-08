@@ -17,6 +17,7 @@ using GaTech.Chai.Cbs.CbsReportingSourceOrganizationProfile;
 using GaTech.Chai.Cbs.CbsSocialDeterminantsOfHealthProfile;
 using GaTech.Chai.Cbs.CbsCaseNotificationPanelProfile;
 using GaTech.Chai.Cbs.CbsHospitalizationEncounterProfile;
+using GaTech.Chai.Cbs.CbsSpecimenProfile;
 
 namespace CbsSample
 {
@@ -118,6 +119,7 @@ namespace CbsSample
             notificationPanel.Subject = patient.AsReference();
             notificationPanel.Value = YesNoUnknown.Yes;
 
+            // CbsExposureObservationProfile
             var exposure = CbsExposureObservation.Create();
             exposure.CbsExposureObservation().CountryOfExposure = new CodeableConcept("urn:iso:std:iso:3166", "USA", "United States of America");
             exposure.CbsExposureObservation().StateOrProvinceOfExposure = new CodeableConcept("urn:oid:2.16.840.1.113883.6.92", "48", "Texas");
@@ -126,6 +128,7 @@ namespace CbsSample
             exposure.Subject = patient.AsReference();
             exposure.Focus.Add(condition.AsReference());
 
+            // CbsMmwrProfile
             var mmwr = CbsMmwr.Create();
             mmwr.Subject = patient.AsReference();
             mmwr.CbsMmwr().MMWRWeek = 12;
@@ -136,6 +139,19 @@ namespace CbsSample
             hospitalization.Subject = patient.AsReference();
             hospitalization.CbsHospitalization().Condition = condition.AsReference();
 
+            // CbsSpecimenProfile
+            var specimen = CbsSpecimen.Create();
+            specimen.CbsSpecimen().SpecimenRole = CbsSpecimen.Roles.BlindSample;
+            specimen.CbsSpecimen().FillerAssignedId = new Identifier() { Value = "IDR908765140" };
+            specimen.CbsSpecimen().PlacerAssignedId = new Identifier() { Value = "198374-9" };
+            specimen.Type = CbsSpecimen.Types.Encode("258497007", "Abscess swab (specimen)");
+            specimen.Subject = patient.AsReference();
+            specimen.Collection.Collected = FhirDateTime.Now();
+            specimen.Collection.Quantity = new Quantity(1, "ml");
+            specimen.Collection.BodySite = CbsSpecimen.BodySites.Encode("64700008", "7 nm filaments(cell structure)");
+
+
+            // Serialize each object to display results
             FhirJsonSerializer serializer = new(new SerializerSettings() { Pretty = true });
             Console.WriteLine("CbsPatient:");
             Console.WriteLine(serializer.SerializeToString(patient));
@@ -168,7 +184,10 @@ namespace CbsSample
             Console.WriteLine(serializer.SerializeToString(exposure));
             Console.WriteLine("CbsMmwr:");
             Console.WriteLine(serializer.SerializeToString(mmwr));
-
+            Console.WriteLine("CbsHospitalization:");
+            Console.WriteLine(serializer.SerializeToString(hospitalization));
+            Console.WriteLine("CbsSpecimen:");
+            Console.WriteLine(serializer.SerializeToString(specimen));
         }
     }
 }
