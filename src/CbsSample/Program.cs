@@ -18,6 +18,8 @@ using GaTech.Chai.Cbs.CbsSocialDeterminantsOfHealthProfile;
 using GaTech.Chai.Cbs.CbsCaseNotificationPanelProfile;
 using GaTech.Chai.Cbs.CbsHospitalizationEncounterProfile;
 using GaTech.Chai.Cbs.CbsSpecimenProfile;
+using GaTech.Chai.Cbs.CbsDocumentBundleProfile;
+using GaTech.Chai.Cbs.CbsQuestionnaireProfile;
 
 namespace CbsSample
 {
@@ -146,10 +148,30 @@ namespace CbsSample
             specimen.CbsSpecimen().PlacerAssignedId = new Identifier() { Value = "198374-9" };
             specimen.Type = CbsSpecimen.Types.Encode("258497007", "Abscess swab (specimen)");
             specimen.Subject = patient.AsReference();
-            specimen.Collection.Collected = FhirDateTime.Now();
-            specimen.Collection.Quantity = new Quantity(1, "ml");
-            specimen.Collection.BodySite = CbsSpecimen.BodySites.Encode("64700008", "7 nm filaments(cell structure)");
+            specimen.Collection = new Specimen.CollectionComponent()
+            {
+                Collected = FhirDateTime.Now(),
+                Quantity = new Quantity(1, "ml"),
+                BodySite = CbsSpecimen.BodySites.Encode("64700008", "7 nm filaments(cell structure)")
+            };
 
+            // CbsDocumentBundle
+            var documents = CbsDocumentBundle.Create();
+            var doc = new Bundle.EntryComponent()
+            {
+                FullUrl = "http://fhir.healthintersections.com.au/open/Composition/180f219f-97a8-486d-99d9-ed631fe4fc57"
+            };
+            documents.Entry.Add(doc);
+
+            // CbsQuestionnaireProfile
+            var questionnaire = CbsQuestionnaire.Create();
+            var item = new Questionnaire.ItemComponent()
+            {
+                LinkId = "1",
+                Text = "Do you have allergies?",
+                Type = Questionnaire.QuestionnaireItemType.Boolean
+            };
+            questionnaire.Item.Add(item);
 
             // Serialize each object to display results
             FhirJsonSerializer serializer = new(new SerializerSettings() { Pretty = true });
@@ -188,6 +210,12 @@ namespace CbsSample
             Console.WriteLine(serializer.SerializeToString(hospitalization));
             Console.WriteLine("CbsSpecimen:");
             Console.WriteLine(serializer.SerializeToString(specimen));
+
+            Console.WriteLine("CbsDocumentBundle:");
+            Console.WriteLine(serializer.SerializeToString(documents));
+            Console.WriteLine("CbsQuestionnaireProfile:");
+            Console.WriteLine(serializer.SerializeToString(questionnaire));
+
         }
     }
 }

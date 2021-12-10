@@ -18,6 +18,8 @@
     <None Remove="Common\" />
     <None Remove="CbsHospitalizationEncounterProfile\" />
     <None Remove="CbsSpecimenProfile\" />
+    <None Remove="CbsQuestionnaireProfile\" />
+    <None Remove="CbsDocumentBundle\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Hl7.Fhir.R4" Version="3.6.0" />
@@ -36,5 +38,7 @@
     <Folder Include="Common\" />
     <Folder Include="CbsHospitalizationEncounterProfile\" />
     <Folder Include="CbsSpecimenProfile\" />
+    <Folder Include="CbsQuestionnaireProfile\" />
+    <Folder Include="CbsDocumentBundle\" />
   </ItemGroup>
 </Project>
