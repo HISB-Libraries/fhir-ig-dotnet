@@ -5,11 +5,8 @@ using GaTech.Chai.Cbs.Common;
 using GaTech.Chai.Cbs.Extensions;
 using GaTech.Chai.Cbs.CbsCauseOfDeathProfile;
 using GaTech.Chai.Cbs.CbsLabObservationProfile;
-using GaTech.Chai.Cbs.CbsPatientProfile;
-using GaTech.Chai.Cbs.CbsConditionProfile;
 using GaTech.Chai.Cbs.CbsTravelHistoryProfile;
 using GaTech.Chai.Cbs.CbsVaccinationIndicationProfile;
-using GaTech.Chai.Cbs.CbsVaccinationRecordProfile;
 using GaTech.Chai.Cbs.CbsLabTestReportProfile;
 using GaTech.Chai.Cbs.CbsPerformingLaboratoryProfile;
 using GaTech.Chai.Cbs.CbsPersonReportingToCDCProfile;
@@ -17,9 +14,9 @@ using GaTech.Chai.Cbs.CbsReportingSourceOrganizationProfile;
 using GaTech.Chai.Cbs.CbsSocialDeterminantsOfHealthProfile;
 using GaTech.Chai.Cbs.CbsCaseNotificationPanelProfile;
 using GaTech.Chai.Cbs.CbsHospitalizationEncounterProfile;
-using GaTech.Chai.Cbs.CbsSpecimenProfile;
 using GaTech.Chai.Cbs.CbsDocumentBundleProfile;
 using GaTech.Chai.Cbs.CbsQuestionnaireProfile;
+using GaTech.Chai.Cbs.CbsCompositionProfile;
 
 namespace CbsSample
 {
@@ -28,19 +25,15 @@ namespace CbsSample
         static void Main(string[] args)
         {
             // CbsPatientProfile
-            Patient patient = CbsPatient.Create();
-            patient.CbsPatient().Race.Category = CbsPatientRace.RaceCategory.Encode("2106-3", "White");
-            patient.CbsPatient().Race.Description = "Mixed";
-            patient.CbsPatient().Race.ExtendedRaceCodes = new Coding[] { CbsPatientRace.DetailedRace.Encode("1010-8", "Apache") };
-            patient.CbsPatient().Race.Other = "Apache";
-            patient.CbsPatient().BirthSex = CbsPatient.Sex.Female;
-            patient.CbsPatient().BirthPlace = new Address() { City = "Austin", State = "TX" };
-            var address = new Address() { City = "Dallas", State = "TX" };
-            address.CbsAddress().CdcAddressUse = CbsAddress.AddressUse.UsualResidence;
-            address.CbsAddress().CensusTract = "030500";
-            patient.Address.Add(address);
-            patient.Telecom.Add(new ContactPoint(ContactPoint.ContactPointSystem.Phone, 
-                ContactPoint.ContactPointUse.Home, "867-5309"));
+            Patient patient = SamplePatient.Create();
+            // CbsConditionProfile
+            // CbsExposureObservationProfile
+            (Condition condition, Observation exposure) = SamplePatient.HemolyticUremicSyndrome(patient);
+            // CbsSpecimenProfile
+            Specimen specimen = SamplePatient.SampleSpecimen(patient);
+            // CbsVaccinationRecordProfile
+            var vaccinationRecord = SamplePatient.MeaslesVaccine(patient);
+
 
             // CbsLabObservationProfile
             Observation labObs = CbsLabObservation.Create();
@@ -48,16 +41,6 @@ namespace CbsSample
             labObs.Code = new CodeableConcept("urn:oid:2.16.840.1.114222.4.5.232", "LAB723", "DNA Sequencing", null);
             labObs.Value = new CodeableConcept("http://snomed.info/sct", "10828004", "Positive", null);
             labObs.Method = new CodeableConcept(null, "D1D2", "D1/D2", null);
-
-            // CbsConditionProfile
-            Condition condition = CbsCondition.Create();
-            condition.Subject = patient.AsReference();
-            condition.CbsCondition().ClassificationStatus = CbsCondition.CaseClassificationStatus.ConfirmedPresent;
-            condition.CbsCondition().DiagnosisDate = new FhirDateTime("2021-03-01");
-            condition.CbsCondition().IllnesDuration = new Quantity(6, "d");
-            condition.Code = CbsCondition.ConditionCode.Encode("11550", "Hemolytic Uremic Syndrome");
-            condition.Onset = new FhirDateTime("2021-02-28");
-            condition.ClinicalStatus = new CodeableConcept("http://terminology.hl7.org/CodeSystem/condition-clinical", "inactive");
 
             // CbsCaseOfDeathProfile
             Observation caseOfDeathObs = CbsCauseOfDeath.Create();
@@ -74,14 +57,6 @@ namespace CbsSample
             travelHistory.CbsTravelHistory().TravelHistoryAddress.Location = CbsTravelHistory.GeographicalLocation.Encode("48", "Texas");
             travelHistory.CbsTravelHistory().TravelHistoryAddress.TimeSpent = FhirDateTime.Now();
 
-            // CbsVaccinationRecordProfile
-            var vaccinationRecord = CbsVaccinationRecord.Create();
-            vaccinationRecord.ReportOrigin = CbsVaccinationRecord.VaccineEventInformationSource.FromBirthCertificate;
-            vaccinationRecord.ProtocolApplied.Add(new Immunization.ProtocolAppliedComponent() { DoseNumber = new Integer(1) });
-            vaccinationRecord.Occurrence = FhirDateTime.Now();
-            vaccinationRecord.VaccineCode = CbsVaccinationRecord.VaccineAdministered.Encode("05", "measles");
-            vaccinationRecord.Patient = patient.AsReference();
-
             // CbsVaccinationIndicationProfile
             var vaccinationIndication = CbsVaccinationIndication.Create();
             vaccinationIndication.Subject = patient.AsReference();
@@ -91,6 +66,25 @@ namespace CbsSample
             var labTestReport = CbsLabTestReport.Create();
             labTestReport.Code = new CodeableConcept("http://loinc.org", "85069-3");
             labTestReport.Subject = patient.AsReference();
+
+            // CbsCaseNotificationPanel
+            var notificationPanel = CbsCaseNotificationPanel.Create();
+            notificationPanel.Code = CbsCaseNotificationPanel.CaseNotificationPanelValues.Hospitalized;
+            notificationPanel.Subject = patient.AsReference();
+            notificationPanel.Value = YesNoUnknown.Yes;
+
+            // CbsMmwrProfile
+            var mmwr = CbsMmwr.Create();
+            mmwr.Subject = patient.AsReference();
+            mmwr.CbsMmwr().MMWRWeek = 12;
+            mmwr.CbsMmwr().MMWRYear = 2021;
+
+            // CbsHospitalizationEncounterProfile
+            var hospitalization = CbsHospitalization.Create();
+            hospitalization.Subject = patient.AsReference();
+            hospitalization.CbsHospitalization().Condition = condition.AsReference();
+
+            ///////////////////////////////////////////
 
             // CbsPerformingLaboratoryProfile
             var performingLab = CbsPerformingLaboratory.Create();
@@ -115,47 +109,7 @@ namespace CbsSample
             socialDeterminant.CbsSocialDeterminantsOfHealth().ProgramSpecificTimeWindow.TimeWindow = new Quantity(1, "year");
             socialDeterminant.CbsSocialDeterminantsOfHealth().ProgramSpecificTimeWindow.RelativeReference = patient.AsReference();
 
-            // CbsCaseNotificationPanel
-            var notificationPanel = CbsCaseNotificationPanel.Create();
-            notificationPanel.Code = CbsCaseNotificationPanel.CaseNotificationPanelValues.Hospitalized;
-            notificationPanel.Subject = patient.AsReference();
-            notificationPanel.Value = YesNoUnknown.Yes;
-
-            // CbsExposureObservationProfile
-            var exposure = CbsExposureObservation.Create();
-            exposure.CbsExposureObservation().CountryOfExposure = new CodeableConcept("urn:iso:std:iso:3166", "USA", "United States of America");
-            exposure.CbsExposureObservation().StateOrProvinceOfExposure = new CodeableConcept("urn:oid:2.16.840.1.113883.6.92", "48", "Texas");
-            exposure.CbsExposureObservation().CityOfExposure = "Houston";
-            exposure.CbsExposureObservation().CountyOfExposure = "Harris";
-            exposure.Subject = patient.AsReference();
-            exposure.Focus.Add(condition.AsReference());
-
-            // CbsMmwrProfile
-            var mmwr = CbsMmwr.Create();
-            mmwr.Subject = patient.AsReference();
-            mmwr.CbsMmwr().MMWRWeek = 12;
-            mmwr.CbsMmwr().MMWRYear = 2021;
-
-            // CbsHospitalizationEncounterProfile
-            var hospitalization = CbsHospitalization.Create();
-            hospitalization.Subject = patient.AsReference();
-            hospitalization.CbsHospitalization().Condition = condition.AsReference();
-
-            // CbsSpecimenProfile
-            var specimen = CbsSpecimen.Create();
-            specimen.CbsSpecimen().SpecimenRole = CbsSpecimen.Roles.BlindSample;
-            specimen.CbsSpecimen().FillerAssignedId = new Identifier() { Value = "IDR908765140" };
-            specimen.CbsSpecimen().PlacerAssignedId = new Identifier() { Value = "198374-9" };
-            specimen.Type = CbsSpecimen.Types.Encode("258497007", "Abscess swab (specimen)");
-            specimen.Subject = patient.AsReference();
-            specimen.Collection = new Specimen.CollectionComponent()
-            {
-                Collected = FhirDateTime.Now(),
-                Quantity = new Quantity(1, "ml"),
-                BodySite = CbsSpecimen.BodySites.Encode("64700008", "7 nm filaments(cell structure)")
-            };
-
-            // CbsDocumentBundle
+            // CbsDocumentBundleProfile
             var documents = CbsDocumentBundle.Create();
             var doc = new Bundle.EntryComponent()
             {

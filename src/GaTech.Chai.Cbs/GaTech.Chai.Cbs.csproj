@@ -20,6 +20,7 @@
     <None Remove="CbsSpecimenProfile\" />
     <None Remove="CbsQuestionnaireProfile\" />
     <None Remove="CbsDocumentBundle\" />
+    <None Remove="CbsComposition\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Hl7.Fhir.R4" Version="3.6.0" />
@@ -40,5 +41,6 @@
     <Folder Include="CbsSpecimenProfile\" />
     <Folder Include="CbsQuestionnaireProfile\" />
     <Folder Include="CbsDocumentBundle\" />
+    <Folder Include="CbsCompositionProfile\" />
   </ItemGroup>
 </Project>
