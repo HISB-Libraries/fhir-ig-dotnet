@@ -127,6 +127,26 @@ namespace CbsSample
             };
             questionnaire.Item.Add(item);
 
+            ///////////////////////////////////////////
+
+            // CbsCompositionProfile
+            var composition = CbsComposition.Create();
+            composition.Subject = patient.AsReference();
+            composition.Date = DateTime.Now.ToString();
+            composition.Author.Add(org.AsReference());
+            composition.CbsComposition().LabRelated.Entry.Add(labObs.AsReference());
+            composition.CbsComposition().LabRelated.Entry.Add(specimen.AsReference());
+            composition.CbsComposition().LabRelated.Entry.Add(labTestReport.AsReference());
+            composition.CbsComposition().LabRelated.Entry.Add(performingLab.AsReference());
+            composition.CbsComposition().Vaccination.Entry.Add(vaccinationRecord.AsReference());
+            composition.CbsComposition().TravelHistory.Entry.Add(travelHistory.AsReference());
+            composition.CbsComposition().ReportingEntities.Entry.Add(reporter.AsReference());
+            composition.CbsComposition().Sdoh.Entry.Add(socialDeterminant.AsReference());
+            composition.CbsComposition().VitalRecords.Entry.Add(caseOfDeathObs.AsReference());
+            composition.CbsComposition().RelatedPerson.Entry.Add(reporter.AsReference());
+
+            ///////////////////////////////////////////
+
             // Serialize each object to display results
             FhirJsonSerializer serializer = new(new SerializerSettings() { Pretty = true });
             Console.WriteLine("CbsPatient:");
@@ -169,7 +189,9 @@ namespace CbsSample
             Console.WriteLine(serializer.SerializeToString(documents));
             Console.WriteLine("CbsQuestionnaireProfile:");
             Console.WriteLine(serializer.SerializeToString(questionnaire));
-
+            Console.WriteLine("CbsCompositionProfile:");
+            Console.WriteLine(serializer.SerializeToString(composition));
         }
+
     }
 }
