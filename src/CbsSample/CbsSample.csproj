@@ -8,4 +8,107 @@
   <ItemGroup>
     <ProjectReference Include="..\GaTech.Chai.Cbs\GaTech.Chai.Cbs.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <None Remove="profiles\StructureDefinition-cbs-cause-of-death.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="profiles\StructureDefinition-cbs-cause-of-death.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="profiles\StructureDefinition-cbs-document-bundle.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="profiles\StructureDefinition-cbs-condition.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="profiles\StructureDefinition-cbs-composition.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="profiles\StructureDefinition-cbs-lab-diagnosticreport.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="profiles\StructureDefinition-cbs-hospitalization.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="profiles\StructureDefinition-cbs-performing-lab.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="profiles\StructureDefinition-cbs-patient.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="profiles\StructureDefinition-cbs-reporting-source-organization.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="profiles\StructureDefinition-cbs-lab-observation.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="profiles\StructureDefinition-cbs-race.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="profiles\StructureDefinition-cbs-program-specific-time-window.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="profiles\StructureDefinition-cbs-illness-duration.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="profiles\StructureDefinition-cbs-ethnicity.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="profiles\StructureDefinition-cbs-diagnosis-date.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="profiles\StructureDefinition-cbs-cdc-address-use.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="profiles\StructureDefinition-cbs-case-class-status.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="profiles\StructureDefinition-cbs-birthsex.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="profiles\StructureDefinition-cbs-travel-history.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="profiles\StructureDefinition-cbs-vaccination-indication.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="profiles\StructureDefinition-cbs-vaccination-record.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="profiles\StructureDefinition-cbs-specimen.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="profiles\StructureDefinition-cbs-questionnaire.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="profiles\StructureDefinition-cbs-social-determinants-of-health.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="profiles\StructureDefinition-cbs-person-reporting-to-cdc.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="profiles\StructureDefinition-cbs-specimen-role.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="profiles\StructureDefinition-cbs-related-case.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="profiles\StructureDefinition-cbs-reason-not-vaccinated-per-ACIP-recommendations.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="profiles\StructureDefinition-cbs-case-notification-panel.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="profiles\StructureDefinition-cbs-mmwr.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="profiles\StructureDefinition-cbs-exposure-observation.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="profiles\StructureDefinition-us-ph-address-extension.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
 </Project>

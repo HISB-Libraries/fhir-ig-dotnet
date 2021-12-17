@@ -1,6 +1,5 @@
 ﻿using System;
 using Hl7.Fhir.Model;
-using Hl7.Fhir.Serialization;
 using GaTech.Chai.Cbs.Common;
 using GaTech.Chai.Cbs.Extensions;
 using GaTech.Chai.Cbs.CbsCauseOfDeathProfile;
@@ -42,7 +41,7 @@ namespace CbsSample
             labObs.Value = new CodeableConcept("http://snomed.info/sct", "10828004", "Positive", null);
             labObs.Method = new CodeableConcept(null, "D1D2", "D1/D2", null);
 
-            // CbsCaseOfDeathProfile
+            // CbsCauseOfDeathProfile
             Observation caseOfDeathObs = CbsCauseOfDeath.Create();
             caseOfDeathObs.Subject = patient.AsReference();
             caseOfDeathObs.Focus.Add(condition.AsReference());
@@ -59,11 +58,13 @@ namespace CbsSample
 
             // CbsVaccinationIndicationProfile
             var vaccinationIndication = CbsVaccinationIndication.Create();
+            vaccinationIndication.Status = ObservationStatus.Final;
             vaccinationIndication.Subject = patient.AsReference();
             vaccinationIndication.Value = YesNoUnknown.Yes;
 
             // CbsLabTestReportProfile
             var labTestReport = CbsLabTestReport.Create();
+            labTestReport.Status = DiagnosticReport.DiagnosticReportStatus.Final;
             labTestReport.Code = new CodeableConcept("http://loinc.org", "85069-3");
             labTestReport.Subject = patient.AsReference();
 
@@ -97,11 +98,11 @@ namespace CbsSample
 
             // CbsReportingSourceOrganizationProfile
             var org = CbsReportingSourceOrganization.Create("PHC247", "Laboratory");
-            org.Name = "Jab Labs, Inc.";
 
             // CbsSocialDeterminantsOfHealthProfile
             var socialDeterminant = CbsSocialDeterminantsOfHealth.Create();
             socialDeterminant.Status = ObservationStatus.Final;
+            socialDeterminant.Subject = patient.AsReference();
             socialDeterminant.Category.Add(CbsSocialDeterminantsOfHealth.Categories.HousingOrResidence);
             socialDeterminant.Code = CbsSocialDeterminantsOfHealth.Codes.CharacteristicsOfResidence;
             socialDeterminant.CbsSocialDeterminantsOfHealth().ProgramSpecificTimeWindow.RelativeTo =
@@ -119,6 +120,10 @@ namespace CbsSample
 
             // CbsQuestionnaireProfile
             var questionnaire = CbsQuestionnaire.Create();
+            questionnaire.Name = "Onboarding";
+            questionnaire.Status = PublicationStatus.Active;
+            questionnaire.Publisher = "Acme, Inc.";
+            questionnaire.Version = "1.0";
             var item = new Questionnaire.ItemComponent()
             {
                 LinkId = "1",
@@ -132,7 +137,7 @@ namespace CbsSample
             // CbsCompositionProfile
             var composition = CbsComposition.Create();
             composition.Subject = patient.AsReference();
-            composition.Date = DateTime.Now.ToString();
+            composition.Date = DateTime.Now.ToString("yyyy-MM-dd");
             composition.Author.Add(org.AsReference());
             composition.CbsComposition().LabRelated.Entry.Add(labObs.AsReference());
             composition.CbsComposition().LabRelated.Entry.Add(specimen.AsReference());
@@ -147,50 +152,12 @@ namespace CbsSample
 
             ///////////////////////////////////////////
 
-            // Serialize each object to display results
-            FhirJsonSerializer serializer = new(new SerializerSettings() { Pretty = true });
-            Console.WriteLine("CbsPatient:");
-            Console.WriteLine(serializer.SerializeToString(patient));
-            Console.WriteLine("CbsLabObservation:");
-            Console.WriteLine(serializer.SerializeToString(labObs));
-            Console.WriteLine("CbsCaseOfDeath:");
-            Console.WriteLine(serializer.SerializeToString(caseOfDeathObs));
-            Console.WriteLine("CbsCondition:");
-            Console.WriteLine(serializer.SerializeToString(condition));
-            Console.WriteLine("CbsTravelHistory:");
-            Console.WriteLine(serializer.SerializeToString(travelHistory));
-            Console.WriteLine("CbsVaccinationRecord:");
-            Console.WriteLine(serializer.SerializeToString(vaccinationRecord));
-            Console.WriteLine("CbsVaccinationIndication:");
-            Console.WriteLine(serializer.SerializeToString(vaccinationIndication));
-            Console.WriteLine("CbsLabTestReport:");
-            Console.WriteLine(serializer.SerializeToString(labTestReport));
-            Console.WriteLine("CbsPerformingLaboratory:");
-            Console.WriteLine(serializer.SerializeToString(performingLab));
-            Console.WriteLine("CbsPersonReportingToCDC:");
-            Console.WriteLine(serializer.SerializeToString(reporter));
-            Console.WriteLine("CbsReportingSourceOrganization:");
-            Console.WriteLine(serializer.SerializeToString(org));
-            Console.WriteLine("CbsSocialDeterminantsOfHealth:");
-            Console.WriteLine(serializer.SerializeToString(socialDeterminant));
-
-            Console.WriteLine("CbsCaseNotificationPanel:");
-            Console.WriteLine(serializer.SerializeToString(notificationPanel));
-            Console.WriteLine("CbsExposureObservation:");
-            Console.WriteLine(serializer.SerializeToString(exposure));
-            Console.WriteLine("CbsMmwr:");
-            Console.WriteLine(serializer.SerializeToString(mmwr));
-            Console.WriteLine("CbsHospitalization:");
-            Console.WriteLine(serializer.SerializeToString(hospitalization));
-            Console.WriteLine("CbsSpecimen:");
-            Console.WriteLine(serializer.SerializeToString(specimen));
-
-            Console.WriteLine("CbsDocumentBundle:");
-            Console.WriteLine(serializer.SerializeToString(documents));
-            Console.WriteLine("CbsQuestionnaireProfile:");
-            Console.WriteLine(serializer.SerializeToString(questionnaire));
-            Console.WriteLine("CbsCompositionProfile:");
-            Console.WriteLine(serializer.SerializeToString(composition));
+            ValidatorHelper.ValidateResources(new Resource[] { patient, labObs,
+                caseOfDeathObs, condition, travelHistory, vaccinationRecord,
+                vaccinationIndication, labTestReport, performingLab,
+                reporter, org, socialDeterminant, notificationPanel,
+                exposure, mmwr, hospitalization, specimen, documents,
+                questionnaire, composition });
         }
 
     }
