@@ -14,6 +14,7 @@ namespace CbsSample
         public static Patient Create()
         {
             Patient patient = CbsPatient.Create();
+            patient.Identifier.Add(new Identifier("urn:temp:national-reporting-jurisdiction:48", "340227"));
             patient.CbsPatient().Race.Category = CbsPatientRace.RaceCategory.Encode("2106-3", "White");
             patient.CbsPatient().Race.Description = "Mixed";
             patient.CbsPatient().Race.ExtendedRaceCodes = new Coding[] { CbsPatientRace.DetailedRace.Encode("1010-8", "Apache") };
@@ -71,8 +72,9 @@ namespace CbsSample
         public static Immunization MeaslesVaccine(Patient patient)
         {
             var vaccinationRecord = CbsVaccinationRecord.Create();
+            vaccinationRecord.Status = Immunization.ImmunizationStatusCodes.Completed;
             vaccinationRecord.ReportOrigin = CbsVaccinationRecord.VaccineEventInformationSource.FromBirthCertificate;
-            vaccinationRecord.ProtocolApplied.Add(new Immunization.ProtocolAppliedComponent() { DoseNumber = new Integer(1) });
+            vaccinationRecord.ProtocolApplied.Add(new Immunization.ProtocolAppliedComponent() { DoseNumber = new PositiveInt(1) });
             vaccinationRecord.Occurrence = FhirDateTime.Now();
             vaccinationRecord.VaccineCode = CbsVaccinationRecord.VaccineAdministered.Encode("05", "measles");
             vaccinationRecord.Patient = patient.AsReference();

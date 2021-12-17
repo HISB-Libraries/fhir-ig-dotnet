@@ -62,14 +62,14 @@ namespace GaTech.Chai.Cbs.CbsPatientProfile
 
         /// <summary>
         /// Patient Birth Sex
-        /// http://hl7.org/fhir/StructureDefinition/patient-birthPlace
+        /// http://cbsig.chai.gatech.edu/StructureDefinition/cbs-birthsex
         /// </summary>
         public CodeableConcept BirthSex
         {
             get => patient.GetExtension(
-                    "http://hl7.org/fhir/StructureDefinition/patient-birth-sex")?.Value as CodeableConcept;
+                    "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-birthsex")?.Value as CodeableConcept;
             set => patient.Extension.AddOrUpdateExtension(
-                    "http://hl7.org/fhir/StructureDefinition/patient-birth-sex", value);
+                    "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-birthsex", value);
         }
 
         /// <summary>

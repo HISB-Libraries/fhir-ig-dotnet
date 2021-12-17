@@ -6,7 +6,7 @@ namespace GaTech.Chai.Cbs.CbsLabTestReportProfile
 {
     /// <summary>
     /// Case Based Surveillance Lab Test Report Profile Extensions
-    /// http://cbsig.chai.gatech.edu/StructureDefinition/cbs-vaccination-indication
+    /// http://cbsig.chai.gatech.edu/StructureDefinition/cbs-lab-diagnosticreport
     /// </summary>
     public class CbsLabTestReport
     {
@@ -19,7 +19,7 @@ namespace GaTech.Chai.Cbs.CbsLabTestReportProfile
 
         /// <summary>
         /// Factory for Case Based Surveillance Lab Test Report Profile
-        /// http://cbsig.chai.gatech.edu/StructureDefinition/cbs-vaccination-indication
+        /// http://cbsig.chai.gatech.edu/StructureDefinition/cbs-lab-diagnosticreport
         /// </summary>
         public static DiagnosticReport Create()
         {

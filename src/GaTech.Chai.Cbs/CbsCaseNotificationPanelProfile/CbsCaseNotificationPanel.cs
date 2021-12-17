@@ -1,6 +1,7 @@
 ﻿using System;
 using Hl7.Fhir.Model;
 using GaTech.Chai.Cbs.Extensions;
+using System.Linq;
 
 namespace GaTech.Chai.Cbs.CbsCaseNotificationPanelProfile
 {
@@ -27,8 +28,9 @@ namespace GaTech.Chai.Cbs.CbsCaseNotificationPanelProfile
             var observation = new Observation();
             observation.CbsCaseNotificationPanel().AddProfile();
             observation.Status = ObservationStatus.Final;
-            observation.Category.Add(new CodeableConcept("http://loinc.org", "78000-7",
-                "Case notification panel [CDC.PHIN]"));
+            var code = new CodeableConcept("http://loinc.org", "78000-7");
+            code.Coding.First().Display = "Case notification panel [CDC.PHIN]";
+            observation.Category.Add(code);
             return observation;
         }
 

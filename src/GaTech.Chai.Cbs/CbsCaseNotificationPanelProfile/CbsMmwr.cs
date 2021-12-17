@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Hl7.Fhir.Model;
 
 namespace GaTech.Chai.Cbs.CbsCaseNotificationPanelProfile
@@ -21,10 +22,11 @@ namespace GaTech.Chai.Cbs.CbsCaseNotificationPanelProfile
         public static new Observation Create()
         {
             var observation = new Observation();
-            observation.CbsExposureObservation().AddProfile();
+            observation.CbsMmwr().AddProfile();
             observation.Status = ObservationStatus.Final;
-            observation.Category.Add(new CodeableConcept(
-                "http://loinc.org", "78000-7", "Case notification panel [CDC.PHIN]"));
+            var catCode = new CodeableConcept("http://loinc.org", "78000-7");
+            catCode.Coding.First().Display = "Case notification panel [CDC.PHIN]";
+            observation.Category.Add(catCode);
             observation.Code = new CodeableConcept(
                 "http://cbsig.chai.gatech.edu/CodeSystem/cbs-temp-code-system", "MMWR");
             return observation;

@@ -7,7 +7,7 @@ namespace GaTech.Chai.Cbs.CbsTravelHistoryProfile
 {
     /// <summary>
     /// Case Based Surveillance Travel History Profile Extensions
-    /// http://cbsig.chai.gatech.edu/StructureDefinition/cbs-vaccination-indication
+    /// http://cbsig.chai.gatech.edu/StructureDefinition/cbs-travel-history
     /// </summary>
     public class CbsTravelHistory
     {
@@ -24,7 +24,7 @@ namespace GaTech.Chai.Cbs.CbsTravelHistoryProfile
 
         /// <summary>
         /// Factory for Case Based Surveillance Travel History Record Profile
-        /// http://cbsig.chai.gatech.edu/StructureDefinition/cbs-vaccination-indication
+        /// http://cbsig.chai.gatech.edu/StructureDefinition/cbs-travel-history
         /// </summary>
         public static Observation Create()
         {
@@ -46,7 +46,7 @@ namespace GaTech.Chai.Cbs.CbsTravelHistoryProfile
         /// <summary>
         /// The official URL for the Case Based Surveillance Travel History profile, used to assert conformance.
         /// </summary>
-        public const string ProfileUrl = "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-vaccination-indication";
+        public const string ProfileUrl = "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-travel-history";
 
         /// <summary>
         /// Set the assertion that a observation object conforms to the Case Based Surveillance Travel History Profile.

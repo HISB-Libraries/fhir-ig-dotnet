@@ -25,6 +25,7 @@ namespace GaTech.Chai.Cbs.CbsReportingSourceOrganizationProfile
         {
             var organization = new Organization();
             organization.CbsReportingSourceOrganization().AddProfile();
+            organization.Name = "Reporting Source";
 
             return organization;
         }
@@ -38,6 +39,7 @@ namespace GaTech.Chai.Cbs.CbsReportingSourceOrganizationProfile
         {
             var organization = new Organization();
             organization.CbsReportingSourceOrganization().AddProfile();
+            organization.Name = "Reporting Source";
             organization.Type.Add(CbsReportingSourceOrganization.ReportingSourceType.Encode(typeSystem, typeValue));
 
             return organization;

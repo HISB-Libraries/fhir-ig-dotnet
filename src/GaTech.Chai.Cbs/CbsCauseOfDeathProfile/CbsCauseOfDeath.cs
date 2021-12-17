@@ -24,7 +24,7 @@ namespace GaTech.Chai.Cbs.CbsCauseOfDeathProfile
         {
             var observation = new Observation();
             observation.CbsCaseOfDeath().AddProfile();
-            observation.Category.Add(new CodeableConcept("http://loinc.org", "79378-6"));
+            observation.Code = new CodeableConcept("http://loinc.org", "79378-6");
             observation.Status = ObservationStatus.Final;
             return observation;
         }

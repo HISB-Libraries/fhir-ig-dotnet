@@ -1,6 +1,7 @@
 ﻿using System;
 using Hl7.Fhir.Model;
 using GaTech.Chai.Cbs.Extensions;
+using System.Linq;
 
 namespace GaTech.Chai.Cbs.CbsVaccinationIndicationProfile
 {
@@ -25,8 +26,8 @@ namespace GaTech.Chai.Cbs.CbsVaccinationIndicationProfile
         {
             var observation = new Observation();
             observation.CbsVaccinationIndication().AddProfile();
-            observation.Code = new CodeableConcept("urn:oid:2.16.840.1.114222.4.5.232", "vac126",
-                "Did the Subject Ever Receive a Vaccine Against This Disease");
+            observation.Code = new CodeableConcept("urn:oid:2.16.840.1.114222.4.5.232", "vac126");
+            observation.Code.Coding.First().Display = "Did the Subject Ever Receive a Vaccine Against This Disease";
 
             return observation;
         }
