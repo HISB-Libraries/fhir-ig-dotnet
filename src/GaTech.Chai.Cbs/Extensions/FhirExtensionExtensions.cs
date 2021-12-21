@@ -6,13 +6,17 @@ namespace GaTech.Chai.Cbs.Extensions
 {
     public static class FhirExtensionExtensions
     {
-        public static void AddOrUpdateExtension(this List<Extension> extensions, Extension extension)
+        public static Extension AddOrUpdateExtension(this List<Extension> extensions, Extension extension)
         {
             var ext = extensions.Find(e => e.Url == extension.Url);
-            if (ext != null)
-                extensions.Remove(ext);
-
-            extensions.Add(extension);
+            if (ext == null)
+            {
+                extensions.Add(extension);
+                ext = extension;
+            }
+            else
+                ext.Value = extension.Value;
+            return ext;
         }
 
         public static void AddOrUpdateExtension(this List<Extension> extensions, string url, DataType value)

@@ -48,11 +48,12 @@ namespace CbsSample
 
             // CbsTravelHistoryProfile
             var travelHistory = CbsTravelHistory.Create();
+            travelHistory.Status = ObservationStatus.Final;
             travelHistory.CbsTravelHistory().ProgramSpecificTimeWindow.RelativeTo =
                 TimeWindowRelativeToValue.ConditionOnsetDatePeriodStart;
             travelHistory.CbsTravelHistory().ProgramSpecificTimeWindow.TimeWindow = new Quantity(1, "day");
             travelHistory.CbsTravelHistory().ProgramSpecificTimeWindow.RelativeReference = patient.AsReference();
-            travelHistory.CbsTravelHistory().TravelHistoryAddress.Address = new Address() { City = "Dallas", State = "TX" };
+            travelHistory.CbsTravelHistory().TravelHistoryAddress.Address = new Address() { City = "Dallas", State = "TX", Country = "USA" };
             travelHistory.CbsTravelHistory().TravelHistoryAddress.Location = CbsTravelHistory.GeographicalLocation.Encode("48", "Texas");
             travelHistory.CbsTravelHistory().TravelHistoryAddress.TimeSpent = FhirDateTime.Now();
 
@@ -110,14 +111,6 @@ namespace CbsSample
             socialDeterminant.CbsSocialDeterminantsOfHealth().ProgramSpecificTimeWindow.TimeWindow = new Quantity(1, "year");
             socialDeterminant.CbsSocialDeterminantsOfHealth().ProgramSpecificTimeWindow.RelativeReference = patient.AsReference();
 
-            // CbsDocumentBundleProfile
-            var documents = CbsDocumentBundle.Create();
-            var doc = new Bundle.EntryComponent()
-            {
-                FullUrl = "http://fhir.healthintersections.com.au/open/Composition/180f219f-97a8-486d-99d9-ed631fe4fc57"
-            };
-            documents.Entry.Add(doc);
-
             // CbsQuestionnaireProfile
             var questionnaire = CbsQuestionnaire.Create();
             questionnaire.Name = "Onboarding";
@@ -149,6 +142,17 @@ namespace CbsSample
             composition.CbsComposition().Sdoh.Entry.Add(socialDeterminant.AsReference());
             composition.CbsComposition().VitalRecords.Entry.Add(caseOfDeathObs.AsReference());
             composition.CbsComposition().RelatedPerson.Entry.Add(reporter.AsReference());
+            composition.CbsComposition().ConditionOfInterest.Entry.Add(condition.AsReference());
+            composition.CbsComposition().CaseNotification.Entry.Add(notificationPanel.AsReference());
+
+            // CbsDocumentBundleProfile
+            var documents = CbsDocumentBundle.Create();
+            var doc = new Bundle.EntryComponent();
+            documents.Timestamp = DateTimeOffset.Now;
+            documents.Identifier = new Identifier() { System = "my-fhir-document-id", Value = "123" };
+            documents.Entry.Add(doc);
+            doc.Resource = composition;
+         
 
             ///////////////////////////////////////////
 

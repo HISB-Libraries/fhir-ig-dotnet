@@ -72,9 +72,7 @@ namespace GaTech.Chai.Cbs.Common
 
         private Extension AddOrUpdateExtension()
         {
-            var ext = new Extension() { Url = ExtensionUrl };
-            observation.Extension.AddOrUpdateExtension(ext);
-            return ext;
+            return observation.Extension.AddOrUpdateExtension(new Extension() { Url = ExtensionUrl });
         }
     }
 }

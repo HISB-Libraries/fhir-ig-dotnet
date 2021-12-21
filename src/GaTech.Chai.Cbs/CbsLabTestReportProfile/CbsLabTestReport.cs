@@ -25,7 +25,7 @@ namespace GaTech.Chai.Cbs.CbsLabTestReportProfile
         {
             var diagnosticReport = new DiagnosticReport();
             diagnosticReport.CbsLabTestReport().AddProfile();
-            diagnosticReport.Category.Add(new CodeableConcept("http://terminology.hl7.org/CodeSystem/v2-00742", "LAB"));
+            diagnosticReport.Category.Add(new CodeableConcept("http://terminology.hl7.org/CodeSystem/v2-0074", "LAB"));
 
             return diagnosticReport;
         }

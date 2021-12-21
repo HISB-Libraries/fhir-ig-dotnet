@@ -24,9 +24,9 @@ namespace GaTech.Chai.Cbs.CbsCompositionProfile
         public SectionComponent ConditionOfInterest
         {
             get => GetOrAddSection("condition-of-interest",
-                    "Condition of Interest", "Condition of Interest/Reportable Condition");
+                    "Condition of Interest/Reportable Condition", "Condition of Interest");
             set => AddOrUpdateSection( "condition-of-interest",
-                    "Condition of Interest", "Condition of Interest/Reportable Condition", value);
+                    "Condition of Interest/Reportable Condition", "Condition of Interest", value);
         }
 
         /// <summary>
@@ -118,6 +118,15 @@ namespace GaTech.Chai.Cbs.CbsCompositionProfile
         {
             get => GetOrAddSection("occupational-data", "Occupational Data");
             set => AddOrUpdateSection("occupational-data", "Occupational Data", value);
+        }
+
+        /// <summary>
+        /// Case Notification
+        /// </summary>
+        public SectionComponent CaseNotification
+        {
+            get => GetOrAddSection("case-notification-panel", "Case Notification Panel");
+            set => AddOrUpdateSection("case-notification-panel", "Case Notification Panel", value);
         }
 
         /// <summary>

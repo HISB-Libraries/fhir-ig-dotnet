@@ -69,8 +69,6 @@ namespace GaTech.Chai.Cbs.CbsTravelHistoryProfile
             {
                 var component = GetOrAddComponent();
                 component.Value = value;
-
-
             }
         }
 
@@ -78,8 +76,9 @@ namespace GaTech.Chai.Cbs.CbsTravelHistoryProfile
         {
             var component = new Observation.ComponentComponent()
             {
-                Code = new CodeableConcept(LocationUri, "LOC", "Location")
+                Code = new CodeableConcept(LocationUri, "LOC")
             };
+            component.Code.Coding.First().Display = "Location";
             observation.Component.Add(component);
             return component;
         }

@@ -17,10 +17,10 @@ namespace GaTech.Chai.Cbs.CbsPatientProfile
         /// Additional codes for Address.use
         /// http://cbsig.chai.gatech.edu/StructureDefinition/cbs-cdc-address-use
         /// </summary>
-        public CodeableConcept CdcAddressUse
+        public Coding CdcAddressUse
         {
             get => address.GetExtension(
-                    "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-cdc-address-use")?.Value as CodeableConcept;
+                    "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-cdc-address-use")?.Value as Coding;
             set => address.Extension.AddOrUpdateExtension(
                     "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-cdc-address-use", value);
         }
@@ -60,9 +60,9 @@ namespace GaTech.Chai.Cbs.CbsPatientProfile
         {
             public const string ValueSetUrl = "http://cbsig.chai.gatech.edu/CodeSystem/cbs-temp-code-system";
 
-            public static CodeableConcept AddressAtDiagnosis => Encode("Address-at-Diagnosis", "Address at time of Diagnosis");
-            public static CodeableConcept UsualResidence => Encode("Usual-Residence", "Usual Residence");
-            public static CodeableConcept Encode(string value, string display) => new CodeableConcept(ValueSetUrl, value, display, null);
+            public static Coding AddressAtDiagnosis => Encode("Address-at-Diagnosis", "Address at time of Diagnosis");
+            public static Coding UsualResidence => Encode("Usual-Residence", "Usual Residence");
+            public static Coding Encode(string value, string display) => new Coding(ValueSetUrl, value, display);
         }
     }
 }
