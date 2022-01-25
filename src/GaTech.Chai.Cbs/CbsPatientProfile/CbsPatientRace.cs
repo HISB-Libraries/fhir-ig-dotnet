@@ -84,8 +84,7 @@ namespace GaTech.Chai.Cbs.CbsPatientProfile
         private Extension AddOrUpdateRaceExtension()
         {
             var raceExt = new Extension() { Url = ProfileUrl };
-            patient.Extension.AddOrUpdateExtension(raceExt);
-            return raceExt;
+            return patient.Extension.AddOrUpdateExtension(raceExt);
         }
 
         /// <summary>
