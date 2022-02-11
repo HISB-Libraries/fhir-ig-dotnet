@@ -12,11 +12,13 @@ namespace GaTech.Chai.Cbs.CbsPatientProfile
     {
         readonly Patient patient;
         readonly CbsPatientRace patientRace;
+        readonly CbsPatientEthnicity patientEthnicity;
 
         internal CbsPatient(Patient p)
         {
             this.patient = p;
             this.patientRace = new CbsPatientRace(p);
+            this.patientEthnicity = new CbsPatientEthnicity(p);
         }
 
         /// <summary>
@@ -35,6 +37,12 @@ namespace GaTech.Chai.Cbs.CbsPatientProfile
         /// http://cbsig.chai.gatech.edu/StructureDefinition/cbs-race
         /// </summary>
         public CbsPatientRace Race => patientRace;
+
+        /// <summary>
+        /// Patient Race
+        /// http://cbsig.chai.gatech.edu/StructureDefinition/cbs-ethnicity
+        /// </summary>
+        public CbsPatientEthnicity Ethnicity => patientEthnicity;
 
         /// <summary>
         /// Patient Birth Sex

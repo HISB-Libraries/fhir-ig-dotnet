@@ -6,7 +6,7 @@ using Hl7.Fhir.Serialization;
 using Hl7.Fhir.Specification.Source;
 using Hl7.Fhir.Validation;
 
-namespace CbsSample
+namespace CbsProfileInitialization
 {
     public class ValidatorHelper
     {

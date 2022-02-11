@@ -11,8 +11,11 @@ namespace GaTech.Chai.Cbs.Extensions
             Composition.SectionComponent section)
         {
             section.Title = title;
-     
-            if (!section.Code?.Coding?.Exists(c => c.System == system && c.Code == code) == true)
+
+            bool? isExist = section.Code?.Coding?.Exists(c => c.System == system && c.Code == code);
+            if (isExist == null)
+                section.Code = new CodeableConcept(system, code, display, null);
+            else if (isExist == false)
                 section.Code.Coding.Add(new Coding() { System = system, Code = code, Display = display });
             var s = sections.GetSection(system, code);
             if (s != null)
