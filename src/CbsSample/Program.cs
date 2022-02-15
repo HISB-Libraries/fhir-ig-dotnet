@@ -32,12 +32,15 @@ namespace CbsSample
              * https://cbsig.chai.gatech.edu/examples.html#genv2-test-case-1-hemolytic-uremic-syndrome-hus
              */
 
-            Console.WriteLine(DataAbsentReason.NotAsked);
-
             FhirJsonSerializer serializer = new(new SerializerSettings() { Pretty = true });
 
             // CbsPatientProfile
             Patient patient = CbsGenV2Patient.Create();
+
+            string output = serializer.SerializeToString(patient);
+            //File.WriteAllText("GenV2.json", output);
+            Console.WriteLine(output);
+
 
             // CbsConditionProfile
             Condition HemolyticUremicSyndromeCondition = ConditionOfInterest.Create(patient, "11550", "Hemolytic Uremic Syndrome", new Quantity(6, "d"), new FhirDateTime("2021-03-01"), new FhirDateTime("2021-02-28"));

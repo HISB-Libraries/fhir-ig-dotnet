@@ -7,6 +7,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\GaTech.Chai.Cbs\GaTech.Chai.Cbs.csproj" />
+    <ProjectReference Include="..\..\GaTech.Chai.Share\GaTech.Chai.Share.csproj" />
+    <ProjectReference Include="..\..\GaTech.Chai.UsCore\GaTech.Chai.UsCore.csproj" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="profiles\StructureDefinition-cbs-cause-of-death.xml" />

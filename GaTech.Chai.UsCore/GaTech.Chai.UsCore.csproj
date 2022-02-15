@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	<TargetFrameworks>net5.0;netstandard2.0</TargetFrameworks>
+	<PackageId>uscore-ig-donet</PackageId>
+	<PackageVersion>0.2.0</PackageVersion>
+	<Authors>Brian Ritchie, Myung Choi</Authors>
+	<PackageProjectUrl>https://cbsig.chai.gatech.edu/</PackageProjectUrl>
+	<Description>A .NET Library for US Core FHIR IG</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="UsCorePatientProfile\" />
+    <None Remove="Hl7.Fhir.R4" />
+    <None Remove="Hl7.Fhir.Specification.R4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="UsCorePatientProfile\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GaTech.Chai.Share\GaTech.Chai.Share.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Hl7.Fhir.R4" Version="3.8.0" />
+    <PackageReference Include="Hl7.Fhir.Specification.R4" Version="3.8.0" />
+  </ItemGroup>
+</Project>

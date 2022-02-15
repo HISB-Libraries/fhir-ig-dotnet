@@ -60,8 +60,13 @@ namespace GaTech.Chai.Cbs.UsCbsHospitalizationEncounterProfile
         {
             get => encounter.Participant?[0].GetExtension(
                     "http://hl7.org/fhir/StructureDefinition/data-absent-reason")?.Value as Code;
-            set => encounter.Extension.AddOrUpdateExtension(
+            set
+            {
+                if (encounter.Participant.Count == 0)
+                    encounter.Participant.Add(new Encounter.ParticipantComponent());
+                encounter.Participant[0].Extension.AddOrUpdateExtension(
                     "http://hl7.org/fhir/StructureDefinition/data-absent-reason", new FhirString("masked"));
+            }
         }
 
         /// <summary>
@@ -71,8 +76,13 @@ namespace GaTech.Chai.Cbs.UsCbsHospitalizationEncounterProfile
         {
             get => encounter.Location?[0].GetExtension(
                     "http://hl7.org/fhir/StructureDefinition/data-absent-reason")?.Value as Code;
-            set => encounter.Extension.AddOrUpdateExtension(
+            set
+            {
+                if (encounter.Location == null || encounter.Location.Count == 0)
+                    encounter.Location.Add(new Encounter.LocationComponent());
+                encounter.Location[0].Extension.AddOrUpdateExtension(
                     "http://hl7.org/fhir/StructureDefinition/data-absent-reason", new FhirString("masked"));
+            }
         }
 
         /// <summary>

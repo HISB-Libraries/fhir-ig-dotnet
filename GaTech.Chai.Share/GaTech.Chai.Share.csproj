@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	<TargetFrameworks>net5.0;netstandard2.0</TargetFrameworks>
+	<PackageId>fhir-ig-common-donet</PackageId>
+	<PackageVersion>0.2.0</PackageVersion>
+	<Authors>Brian Ritchie, Myung Choi</Authors>
+	<PackageProjectUrl>https://cbsig.chai.gatech.edu/</PackageProjectUrl>
+	<Description>A .NET Library for Commonly Shared Definitions in FHIR IG</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Common\" />
+    <None Remove="Extensions\" />
+    <None Remove="Hl7.Fhir.Specification.R4" />
+    <None Remove="Hl7.Fhir.R4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Common\" />
+    <Folder Include="Extensions\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Hl7.Fhir.R4" Version="3.8.0" />
+    <PackageReference Include="Hl7.Fhir.Specification.R4" Version="3.8.0" />
+  </ItemGroup>
+</Project>

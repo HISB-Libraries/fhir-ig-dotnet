@@ -11,14 +11,10 @@ namespace GaTech.Chai.Cbs.CbsPatientProfile
     public class CbsPatient
     {
         readonly Patient patient;
-        readonly CbsPatientRace patientRace;
-        readonly CbsPatientEthnicity patientEthnicity;
 
         internal CbsPatient(Patient p)
         {
             this.patient = p;
-            this.patientRace = new CbsPatientRace(p);
-            this.patientEthnicity = new CbsPatientEthnicity(p);
         }
 
         /// <summary>
@@ -30,54 +26,6 @@ namespace GaTech.Chai.Cbs.CbsPatientProfile
             var patient = new Patient();
             patient.CbsPatient().AddProfile();
             return patient;
-        }
-
-        /// <summary>
-        /// Patient Race
-        /// http://cbsig.chai.gatech.edu/StructureDefinition/cbs-race
-        /// </summary>
-        public CbsPatientRace Race => patientRace;
-
-        /// <summary>
-        /// Patient Race
-        /// http://cbsig.chai.gatech.edu/StructureDefinition/cbs-ethnicity
-        /// </summary>
-        public CbsPatientEthnicity Ethnicity => patientEthnicity;
-
-        /// <summary>
-        /// Patient Birth Sex
-        /// http://hl7.org/fhir/StructureDefinition/patient-birth-sex
-        /// </summary>
-        public Address BirthPlace
-        {
-            get => patient.GetExtension(
-                    "http://hl7.org/fhir/StructureDefinition/patient-birthPlace")?.Value as Address;
-            set => patient.Extension.AddOrUpdateExtension(
-                    "http://hl7.org/fhir/StructureDefinition/patient-birthPlace", value);
-        }
-
-        /// <summary>
-        /// Patient Gender Identity
-        /// http://hl7.org/fhir/StructureDefinition/patient-genderIdentity
-        /// </summary>
-        public CodeableConcept GenderIdentity
-        {
-            get => patient.GetExtension(
-                    "http://hl7.org/fhir/StructureDefinition/patient-genderIdentity")?.Value as CodeableConcept;
-            set => patient.Extension.AddOrUpdateExtension(
-                    "http://hl7.org/fhir/StructureDefinition/patient-genderIdentity", value);
-        }
-
-        /// <summary>
-        /// Patient Birth Sex
-        /// http://cbsig.chai.gatech.edu/StructureDefinition/cbs-birthsex
-        /// </summary>
-        public CodeableConcept BirthSex
-        {
-            get => patient.GetExtension(
-                    "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-birthsex")?.Value as CodeableConcept;
-            set => patient.Extension.AddOrUpdateExtension(
-                    "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-birthsex", value);
         }
 
         /// <summary>
