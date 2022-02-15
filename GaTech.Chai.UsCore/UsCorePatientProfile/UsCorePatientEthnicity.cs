@@ -4,18 +4,18 @@ using System.Linq;
 using GaTech.Chai.Cbs.Extensions;
 using Hl7.Fhir.Model;
 
-namespace GaTech.Chai.Cbs.CbsPatientProfile
+namespace GaTech.Chai.UsCore.UsCorePatientProfile
 {
-    public class CbsPatientEthnicity
+    public class UsCorePatientEthnicity
     {
         readonly Patient patient;
 
-        internal CbsPatientEthnicity(Patient patient)
+        internal UsCorePatientEthnicity(Patient patient)
         {
             this.patient = patient;
         }
 
-        public const string ProfileUrl = "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-ethnicity";
+        public const string ProfileUrl = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity";
 
         public Coding Category
         {
@@ -26,36 +26,8 @@ namespace GaTech.Chai.Cbs.CbsPatientProfile
             }
             get
             {
-                var ethnicityExt = patient.GetExtension("http://cbsig.chai.gatech.edu/StructureDefinition/cbs-ethnicity");
+                var ethnicityExt = patient.GetExtension("http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity");
                 return ethnicityExt?.GetExtension("ombCategory").Value as Coding;
-            }
-        }
-
-        public string Description
-        {
-            set
-            {
-                var ethnicityExt = AddOrUpdateEthnicityExtension();
-                ethnicityExt.Extension.AddOrUpdateExtension(new Extension("text", new FhirString(value)));
-            }
-            get
-            {
-                var ethnicityExt = patient.GetExtension("http://cbsig.chai.gatech.edu/StructureDefinition/cbs-ethnicity");
-                return (ethnicityExt?.GetExtension("text").Value as FhirString).ToString();
-            }
-        }
-
-        public string Other
-        {
-            set
-            {
-                var ethnicityExt = AddOrUpdateEthnicityExtension();
-                ethnicityExt.Extension.AddOrUpdateExtension(new Extension("other", new FhirString(value)));
-            }
-            get
-            {
-                var ethnicityExt = patient.GetExtension("http://cbsig.chai.gatech.edu/StructureDefinition/cbs-ethnicity");
-                return (ethnicityExt?.GetExtension("other").Value as FhirString).ToString();
             }
         }
 
@@ -71,7 +43,7 @@ namespace GaTech.Chai.Cbs.CbsPatientProfile
             }
             get
             {
-                var ethnicityExt = patient.GetExtension("http://cbsig.chai.gatech.edu/StructureDefinition/cbs-ethnicity");
+                var ethnicityExt = patient.GetExtension("http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity");
                 if (ethnicityExt == null)
                     return Array.Empty<Coding>();
                 return from r in ethnicityExt.Extension
@@ -80,6 +52,19 @@ namespace GaTech.Chai.Cbs.CbsPatientProfile
             }
         }
 
+        public string EthnicityText
+        {
+            set
+            {
+                var ethnicityExt = AddOrUpdateEthnicityExtension();
+                ethnicityExt.Extension.AddOrUpdateExtension(new Extension("text", new FhirString(value)));
+            }
+            get
+            {
+                var ethnicityExt = patient.GetExtension("http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity");
+                return (ethnicityExt?.GetExtension("text").Value as FhirString).ToString();
+            }
+        }
 
         private Extension AddOrUpdateEthnicityExtension()
         {
@@ -93,14 +78,14 @@ namespace GaTech.Chai.Cbs.CbsPatientProfile
         public static class EthnicityCategory
         {
             /// <summary>
-            /// Create coding for http://terminology.hl7.org/CodeSystem/v2-0005
+            /// Create coding for http://hl7.org/fhir/us/core/ValueSet/omb-ethnicity-category
             /// </summary>
             /// <param name="code"></param>
             /// <param name="text"></param>
             /// <returns></returns>
             public static Coding Encode(string code, string text)
             {
-                return new Coding("http://terminology.hl7.org/CodeSystem/v2-0005", code)
+                return new Coding("urn:oid:2.16.840.1.113883.6.238", code)
                 { Display = text };
             }
         }

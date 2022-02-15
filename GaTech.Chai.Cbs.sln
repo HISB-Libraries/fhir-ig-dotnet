@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GaTech.Chai.Cbs", "src\GaTe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CbsExamples", "src\CbsSample\CbsExamples.csproj", "{46DCBA04-A42D-4C1A-9308-A62E5DA75F2F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GaTech.Chai.UsCore", "GaTech.Chai.UsCore\GaTech.Chai.UsCore.csproj", "{B0DF07F4-E751-48AA-A4C3-1A1C2093948C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GaTech.Chai.Share", "GaTech.Chai.Share\GaTech.Chai.Share.csproj", "{D1F7312A-80BE-4D20-850D-DEF49137B037}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{46DCBA04-A42D-4C1A-9308-A62E5DA75F2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{46DCBA04-A42D-4C1A-9308-A62E5DA75F2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{46DCBA04-A42D-4C1A-9308-A62E5DA75F2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0DF07F4-E751-48AA-A4C3-1A1C2093948C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0DF07F4-E751-48AA-A4C3-1A1C2093948C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0DF07F4-E751-48AA-A4C3-1A1C2093948C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0DF07F4-E751-48AA-A4C3-1A1C2093948C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1F7312A-80BE-4D20-850D-DEF49137B037}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1F7312A-80BE-4D20-850D-DEF49137B037}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1F7312A-80BE-4D20-850D-DEF49137B037}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1F7312A-80BE-4D20-850D-DEF49137B037}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

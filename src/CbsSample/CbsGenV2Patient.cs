@@ -1,6 +1,9 @@
 ﻿using System;
 using GaTech.Chai.Cbs.CbsPatientProfile;
+using GaTech.Chai.UsCore.UsCorePatientProfile;
+using GaTech.Chai.Cbs.UsPublicHealthPatientProfile;
 using Hl7.Fhir.Model;
+using static Hl7.Fhir.Model.ContactPoint;
 
 namespace CbsProfileInitialization
 {
@@ -17,19 +20,20 @@ namespace CbsProfileInitialization
             var patient = CbsPatient.Create();
 
             // Race
-            patient.CbsPatient().Race.Category = CbsPatientRace.RaceCategory.Encode("2106-3", "White");
-            patient.CbsPatient().Race.Description = "Mixed";
-            patient.CbsPatient().Race.ExtendedRaceCodes = new Coding[] { CbsPatientRace.DetailedRace.Encode("1010-8", "Apache") };
-            patient.CbsPatient().Race.Other = "Apache";
+            patient.UsCorePatient().Race.Category = UsCorePatientRace.OmbRaceCategory.Encode("2106-3", "White");
+            patient.UsCorePatient().Race.ExtendedRaceCodes = new Coding[] { UsCorePatientRace.DetailedRace.Encode("1010-8", "Apache") };
+            patient.UsCorePatient().Race.RaceText = "Apache";
 
             // Ethnicity
-            patient.CbsPatient().Ethnicity.Category = CbsPatientEthnicity.EthnicityCategory.Encode("2186-5", "Not Hispanic or Latino");
-            patient.CbsPatient().Ethnicity.Description = "Not Hispanic or Latino";
+            patient.UsCorePatient().Ethnicity.Category = UsCorePatientEthnicity.EthnicityCategory.Encode("2186-5", "Not Hispanic or Latino");
+            patient.UsCorePatient().Ethnicity.ExtendedEthnicityCodes = new Coding[] { UsCorePatientEthnicity.DetailedEthnicity.Encode("2186-5", "Not Hispanic or Latino") };
+            patient.UsCorePatient().Ethnicity.EthnicityText = "Not Hispanic or Latino";
 
             // Birth Related
-            patient.BirthDateElement = new Date(1965, 5, 2);
-            patient.CbsPatient().BirthSex = CbsPatient.Sex.Female;
-            patient.CbsPatient().BirthPlace = new Address() { Country = "USA" };
+            // patient.BirthDateElement = new Date(1965, 5, 2);
+            patient.UsPublicHealthPatient().SetBrithDateDataAbsentReason();
+            patient.UsCorePatient().BirthSex.Extension = new Code("F");
+            patient.UsPublicHealthPatient().BirthPlace = new Address() { Country = "USA" };
             patient.Gender = AdministrativeGender.Female;
 
             // Address
@@ -39,7 +43,8 @@ namespace CbsProfileInitialization
             patient.Address.Add(address);
 
             // Contact
-            patient.Telecom.Add(new ContactPoint(ContactPoint.ContactPointSystem.Phone, ContactPoint.ContactPointUse.Home, "867-5309"));
+            patient.UsPublicHealthPatient().TelecomPhone = (ContactPointUse.Home, "212-867-5309");
+            patient.UsPublicHealthPatient().TelecomEmail = (ContactPointUse.Work, "mywork@gtri.org");
 
             // Deceased
             patient.Deceased = new FhirDateTime(2014, 3, 2);

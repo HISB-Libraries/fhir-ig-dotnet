@@ -58,11 +58,11 @@ namespace GaTech.Chai.Cbs.CbsPatientProfile
         /// </summary>
         public static class AddressUse
         {
-            public const string ValueSetUrl = "http://cbsig.chai.gatech.edu/CodeSystem/cbs-temp-code-system";
+            public const string CodeSystemUrl = "http://cbsig.chai.gatech.edu/CodeSystem/cbs-temp-code-system";
 
             public static Coding AddressAtDiagnosis => Encode("Address-at-Diagnosis", "Address at time of Diagnosis");
             public static Coding UsualResidence => Encode("Usual-Residence", "Usual Residence");
-            public static Coding Encode(string value, string display) => new Coding(ValueSetUrl, value, display);
+            public static Coding Encode(string value, string display) => new Coding(CodeSystemUrl, value, display);
         }
     }
 }

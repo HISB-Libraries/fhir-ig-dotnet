@@ -12,7 +12,7 @@ namespace GaTech.Chai.Cbs.Common
     {
         readonly Observation observation;
 
-        internal ProgramSpecificTimeWindow(Observation observation)
+        public ProgramSpecificTimeWindow(Observation observation)
         {
             this.observation = observation;
         }

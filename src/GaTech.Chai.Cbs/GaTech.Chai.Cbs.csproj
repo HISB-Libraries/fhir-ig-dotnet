@@ -20,16 +20,15 @@
     <None Remove="CbsReportingSourceOrganizationProfile\" />
     <None Remove="CbsSocialDeterminantsOfHealthProfile\" />
     <None Remove="CbsCaseNotificationPanelProfile\" />
-    <None Remove="Common\" />
     <None Remove="CbsHospitalizationEncounterProfile\" />
     <None Remove="CbsSpecimenProfile\" />
     <None Remove="CbsQuestionnaireProfile\" />
     <None Remove="CbsDocumentBundle\" />
     <None Remove="CbsComposition\" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="Hl7.Fhir.R4" Version="3.6.0" />
-    <PackageReference Include="Hl7.Fhir.Specification.R4" Version="3.6.0" />
+    <None Remove="UsPublicHealthConditionProfile\" />
+    <None Remove="CbsPatientProfile %28copy%29\" />
+    <None Remove="Hl7.Fhir.R4" />
+    <None Remove="Hl7.Fhir.Specification.R4" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="CbsVaccinationRecordProfile\" />
@@ -41,11 +40,18 @@
     <Folder Include="CbsReportingSourceOrganizationProfile\" />
     <Folder Include="CbsSocialDeterminantsOfHealthProfile\" />
     <Folder Include="CbsCaseNotificationPanelProfile\" />
-    <Folder Include="Common\" />
     <Folder Include="UsCbsHospitalizationEncounterProfile\" />
     <Folder Include="CbsSpecimenProfile\" />
     <Folder Include="CbsQuestionnaireProfile\" />
     <Folder Include="CbsDocumentBundle\" />
     <Folder Include="CbsCompositionProfile\" />
+    <Folder Include="UsPublicHealthConditionProfile\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\GaTech.Chai.Share\GaTech.Chai.Share.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Hl7.Fhir.R4" Version="3.8.0" />
+    <PackageReference Include="Hl7.Fhir.Specification.R4" Version="3.8.0" />
   </ItemGroup>
 </Project>
