@@ -18,6 +18,8 @@ namespace CbsProfileInitialization
         {
             // Patient Profile
             var patient = CbsPatient.Create();
+            patient.UsPublicHealthPatient().AddProfile();
+            patient.UsCorePatient().AddProfile();
 
             // Race
             patient.UsCorePatient().Race.Category = UsCorePatientRace.OmbRaceCategory.Encode("2106-3", "White");
