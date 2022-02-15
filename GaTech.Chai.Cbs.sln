@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GaTech.Chai.UsCore", "GaTec
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GaTech.Chai.Share", "GaTech.Chai.Share\GaTech.Chai.Share.csproj", "{D1F7312A-80BE-4D20-850D-DEF49137B037}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GaTech.Chai.UsPublicHealth", "GaTech.Chai.UsPublicHealth\GaTech.Chai.UsPublicHealth.csproj", "{BEF9C81D-53A6-4691-A714-577B19366211}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{D1F7312A-80BE-4D20-850D-DEF49137B037}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D1F7312A-80BE-4D20-850D-DEF49137B037}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D1F7312A-80BE-4D20-850D-DEF49137B037}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BEF9C81D-53A6-4691-A714-577B19366211}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEF9C81D-53A6-4691-A714-577B19366211}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEF9C81D-53A6-4691-A714-577B19366211}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEF9C81D-53A6-4691-A714-577B19366211}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
