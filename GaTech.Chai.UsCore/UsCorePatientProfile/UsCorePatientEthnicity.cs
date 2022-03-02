@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using GaTech.Chai.Cbs.Extensions;
+using GaTech.Chai.FhirIg.Extensions;
 using Hl7.Fhir.Model;
 
 namespace GaTech.Chai.UsCore.UsCorePatientProfile
@@ -15,7 +15,7 @@ namespace GaTech.Chai.UsCore.UsCorePatientProfile
             this.patient = patient;
         }
 
-        public const string ProfileUrl = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity";
+        public const string ExtUrl = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity";
 
         public Coding Category
         {
@@ -26,7 +26,7 @@ namespace GaTech.Chai.UsCore.UsCorePatientProfile
             }
             get
             {
-                var ethnicityExt = patient.GetExtension("http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity");
+                var ethnicityExt = patient.GetExtension(ExtUrl);
                 return ethnicityExt?.GetExtension("ombCategory").Value as Coding;
             }
         }
@@ -43,7 +43,7 @@ namespace GaTech.Chai.UsCore.UsCorePatientProfile
             }
             get
             {
-                var ethnicityExt = patient.GetExtension("http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity");
+                var ethnicityExt = patient.GetExtension(ExtUrl);
                 if (ethnicityExt == null)
                     return Array.Empty<Coding>();
                 return from r in ethnicityExt.Extension
@@ -61,24 +61,24 @@ namespace GaTech.Chai.UsCore.UsCorePatientProfile
             }
             get
             {
-                var ethnicityExt = patient.GetExtension("http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity");
+                var ethnicityExt = patient.GetExtension(ExtUrl);
                 return (ethnicityExt?.GetExtension("text").Value as FhirString).ToString();
             }
         }
 
         private Extension AddOrUpdateEthnicityExtension()
         {
-            var ethnicityExt = new Extension() { Url = ProfileUrl };
+            var ethnicityExt = new Extension() { Url = ExtUrl };
             return patient.Extension.AddOrUpdateExtension(ethnicityExt);
         }
 
         /// <summary>
-        /// http://terminology.hl7.org/CodeSystem/v2-0005
+        /// Detailed coding of Ethnicity
         /// </summary>
-        public static class EthnicityCategory
+        public static class EthnicityCoding
         {
             /// <summary>
-            /// Create coding for http://hl7.org/fhir/us/core/ValueSet/omb-ethnicity-category
+            /// Create coding for ombCategory
             /// </summary>
             /// <param name="code"></param>
             /// <param name="text"></param>
@@ -87,23 +87,6 @@ namespace GaTech.Chai.UsCore.UsCorePatientProfile
             {
                 return new Coding("urn:oid:2.16.840.1.113883.6.238", code)
                 { Display = text };
-            }
-        }
-
-        /// <summary>
-        /// https://build.fhir.org/ig/HL7/US-Core/ValueSet-detailed-ethnicity.html
-        /// </summary>
-        public static class DetailedEthnicity
-        {
-            /// <summary>
-            /// Create coding for https://build.fhir.org/ig/HL7/US-Core/ValueSet-detailed-ethnicity.html
-            /// </summary>
-            /// <param name="code"></param>
-            /// <param name="text"></param>
-            /// <returns></returns>
-            public static Coding Encode(string code, string text)
-            {
-                return new Coding("urn:oid:2.16.840.1.113883.6.238", code) { Display = text };
             }
         }
     }

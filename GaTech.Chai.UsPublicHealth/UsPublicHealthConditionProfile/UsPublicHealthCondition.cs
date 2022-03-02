@@ -1,8 +1,8 @@
 ﻿using System;
-using GaTech.Chai.Cbs.Extensions;
+using GaTech.Chai.FhirIg.Extensions;
 using Hl7.Fhir.Model;
 
-namespace GaTech.Chai.Cbs.UsPublicHealthConditionProfile
+namespace GaTech.Chai.UsPublicHealth.ConditionProfile
 {
     /// <summary>
     /// US Core Public Health Condition Profile Extensions
@@ -11,10 +11,12 @@ namespace GaTech.Chai.Cbs.UsPublicHealthConditionProfile
     public class UsPublicHealthCondition
     {
         readonly Condition condition;
+        readonly UsPublicHealthConditionAssertedDate conditionAssertedDate;
 
         internal UsPublicHealthCondition(Condition condition)
         {
             this.condition = condition;
+            this.conditionAssertedDate = new UsPublicHealthConditionAssertedDate(condition);
         }
 
         /// <summary>
@@ -27,6 +29,12 @@ namespace GaTech.Chai.Cbs.UsPublicHealthConditionProfile
             condition.UsPublicHealthCondition().AddProfile();
             return condition;
         }
+
+        /// <summary>
+        /// condition-assertedDateTime extension
+        /// http://hl7.org/fhir/StructureDefinition/condition-assertedDate
+        /// </summary>
+        public UsPublicHealthConditionAssertedDate AssertedDate => this.conditionAssertedDate;
 
         /// <summary>
         /// The official URL for the Case Based Surveillance Lab Condition profile, used to assert conformance.

@@ -1,7 +1,7 @@
 ﻿using System;
 using Hl7.Fhir.Model;
 
-namespace GaTech.Chai.Cbs.UsPublicHealthPatientProfile
+namespace GaTech.Chai.UsPublicHealth.PatientProfile
 {
     /// <summary>
     /// Class with Patient extensions for US Puablic Health Patient Profile

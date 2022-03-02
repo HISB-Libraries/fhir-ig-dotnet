@@ -1,7 +1,7 @@
 ﻿using System;
 using Hl7.Fhir.Model;
 
-namespace GaTech.Chai.Cbs.UsPublicHealthConditionProfile
+namespace GaTech.Chai.UsPublicHealth.ConditionProfile
 {
     /// <summary>
     /// Class with Observation extensions for Case Based Surveillance Condition profile.

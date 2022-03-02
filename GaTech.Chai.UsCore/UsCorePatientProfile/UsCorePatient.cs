@@ -1,6 +1,6 @@
 using System;
 using Hl7.Fhir.Model;
-using GaTech.Chai.Cbs.Extensions;
+using GaTech.Chai.FhirIg.Extensions;
 
 namespace GaTech.Chai.UsCore.UsCorePatientProfile
 {

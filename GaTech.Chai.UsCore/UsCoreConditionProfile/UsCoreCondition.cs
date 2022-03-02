@@ -1,37 +1,38 @@
 ﻿using System;
 using Hl7.Fhir.Model;
-using GaTech.Chai.FhirIg.Extensions;
+using GaTech.Chai.Cbs.Extensions;
+using System.Collections.Generic;
 
-namespace GaTech.Chai.Cbs.UsCbsConditionProfile
+namespace GaTech.Chai.Cbs.UsCoreConditionProfile
 {
     /// <summary>
-    /// Case Based Surveillance Lab Condition Profile Extensions
-    /// http://cbsig.chai.gatech.edu/StructureDefinition/us-cbs-condition
+    /// US Core Condition Profile Extensions
+    /// http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition
     /// </summary>
-    public class UsCbsCondition
+    public class UsCoreCondition
     {
         readonly Condition condition;
 
-        internal UsCbsCondition(Condition condition)
+        internal UsCoreCondition(Condition condition)
         {
             this.condition = condition;
         }
 
         /// <summary>
-        /// Factory for Case Based Surveillance Lab Condition Profile
-        /// http://cbsig.chai.gatech.edu/StructureDefinition/us-cbs-condition
+        /// Factory for US Core Condition Profile
+        /// http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition
         /// </summary>
         public static Condition Create()
         {
             var condition = new Condition();
-            condition.UsCbsCondition().AddProfile();
+            condition.UsCoreCondition().AddProfile();
             return condition;
         }
 
         /// <summary>
-        /// The official URL for the Case Based Surveillance Lab Condition profile, used to assert conformance.
+        /// The official URL for the US Core Condition profile, used to assert conformance.
         /// </summary>
-        public const string ProfileUrl = "http://cbsig.chai.gatech.edu/StructureDefinition/us-cbs-condition";
+        public const string ProfileUrl = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition";
 
         /// <summary>
         /// Set the assertion that an condition object conforms to the Case Based Surveillance Lab Condition profile.
@@ -47,6 +48,52 @@ namespace GaTech.Chai.Cbs.UsCbsConditionProfile
         public void RemoveProfile()
         {
             this.condition.RemoveProfile(ProfileUrl);
+        }
+
+        /// <summary>
+        /// Clinical Status Code Getter/Setter function
+        /// </summary>
+        public void SetClinicalStatus(Condition.ConditionClinicalStatusCodes clinicalStatusCode)
+        {
+            this.condition.ClinicalStatus = new CodeableConcept("http://terminology.hl7.org/CodeSystem/condition-clinical", clinicalStatusCode.ToString().ToLower(), clinicalStatusCode.ToString(), null);
+        }
+
+        public CodeableConcept GetClinicalStatus()
+        {
+            return this.condition.ClinicalStatus;
+        }
+
+        /// <summary>
+        /// Verification Status Code Getter/Setter function
+        /// </summary>
+        public void SetVerificationStatus(Condition.ConditionVerificationStatus verificationStatusCode)
+        {
+            if (verificationStatusCode == Condition.ConditionVerificationStatus.EnteredInError)
+            {
+                this.condition.ClinicalStatus = new CodeableConcept("http://terminology.hl7.org/CodeSystem/condition-ver-status", "entered-in-error", verificationStatusCode.ToString(), null);
+            }
+            else
+            {
+                this.condition.ClinicalStatus = new CodeableConcept("http://terminology.hl7.org/CodeSystem/condition-ver-status", verificationStatusCode.ToString().ToLower(), verificationStatusCode.ToString(), null);
+            }
+        }
+
+        public CodeableConcept GetVerificationStatus()
+        {
+            return this.condition.VerificationStatus;
+        }
+
+        /// <summary>
+        /// Category category codes
+        /// This is a helper class that provides easy creation of category codes.
+        /// US Core Condition category is extensible.
+        /// </summary>
+        public static class CategoryEncode
+        {
+            public static CodeableConcept ProblemListItem => new CodeableConcept("http://terminology.hl7.org/CodeSystem/condition-category", "problem-list-item", "Problem List Item", null);
+            public static CodeableConcept EncounterDiagnosis => new CodeableConcept("http://terminology.hl7.org/CodeSystem/condition-category", "encounter-diagnosis", "Encounter Diagnosis", null);
+            public static CodeableConcept HealthConcern => new CodeableConcept("http://hl7.org/fhir/us/core/CodeSystem/condition-category", "health-concern", "Health Concern", null);
+            public static CodeableConcept DeathDiagnosis => new CodeableConcept("http://snomed.info/sct", "16100001", "Death diagnosis", null);
         }
 
         /// <summary>

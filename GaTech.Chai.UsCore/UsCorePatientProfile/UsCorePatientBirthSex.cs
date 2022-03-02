@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using GaTech.Chai.Cbs.Extensions;
+using GaTech.Chai.FhirIg.Extensions;
 using Hl7.Fhir.Model;
 
 namespace GaTech.Chai.UsCore.UsCorePatientProfile
@@ -15,26 +15,26 @@ namespace GaTech.Chai.UsCore.UsCorePatientProfile
             this.patient = patient;
         }
 
-        public const string ProfileUrl = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex";
+        public const string ExtUrl = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex";
 
         public Code Extension
         {
             set
             {
-                var raceExt = AddOrUpdateRaceExtension();
-                raceExt.Value = value as Code;
+                var bithSexExt = AddOrUpdateBirthSexExtension();
+                bithSexExt.Value = value as Code;
             }
             get
             {
-                var raceExt = patient.GetExtension("http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex");
-                return raceExt?.Value as Code;
+                var bithSexExt = patient.GetExtension(ExtUrl);
+                return bithSexExt?.Value as Code;
             }
         }
 
-        private Extension AddOrUpdateRaceExtension()
+        private Extension AddOrUpdateBirthSexExtension()
         {
-            var raceExt = new Extension() { Url = ProfileUrl };
-            return patient.Extension.AddOrUpdateExtension(raceExt);
+            var birthSExExt = new Extension() { Url = ExtUrl };
+            return patient.Extension.AddOrUpdateExtension(birthSExExt);
         }
 
         /// <summary>
