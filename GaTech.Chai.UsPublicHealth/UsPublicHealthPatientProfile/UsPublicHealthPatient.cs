@@ -1,9 +1,9 @@
 using System;
 using Hl7.Fhir.Model;
-using GaTech.Chai.Cbs.Extensions;
+using GaTech.Chai.FhirIg.Extensions;
 using static Hl7.Fhir.Model.ContactPoint;
 
-namespace GaTech.Chai.Cbs.UsPublicHealthPatientProfile
+namespace GaTech.Chai.UsPublicHealth.PatientProfile
 {
     /// <summary>
     /// US Public Health Patient Profile Extensions

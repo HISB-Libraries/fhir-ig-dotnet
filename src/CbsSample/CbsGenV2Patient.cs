@@ -1,7 +1,7 @@
 ﻿using System;
 using GaTech.Chai.Cbs.CbsPatientProfile;
 using GaTech.Chai.UsCore.UsCorePatientProfile;
-using GaTech.Chai.Cbs.UsPublicHealthPatientProfile;
+using GaTech.Chai.UsPublicHealth.PatientProfile;
 using Hl7.Fhir.Model;
 using static Hl7.Fhir.Model.ContactPoint;
 
@@ -22,13 +22,13 @@ namespace CbsProfileInitialization
             patient.UsCorePatient().AddProfile();
 
             // Race
-            patient.UsCorePatient().Race.Category = UsCorePatientRace.OmbRaceCategory.Encode("2106-3", "White");
-            patient.UsCorePatient().Race.ExtendedRaceCodes = new Coding[] { UsCorePatientRace.DetailedRace.Encode("1010-8", "Apache") };
+            patient.UsCorePatient().Race.Category = UsCorePatientRace.RaceCoding.Encode("2106-3", "White");
+            patient.UsCorePatient().Race.ExtendedRaceCodes = new Coding[] { UsCorePatientRace.RaceCoding.Encode("1010-8", "Apache") };
             patient.UsCorePatient().Race.RaceText = "Apache";
 
             // Ethnicity
-            patient.UsCorePatient().Ethnicity.Category = UsCorePatientEthnicity.EthnicityCategory.Encode("2186-5", "Not Hispanic or Latino");
-            patient.UsCorePatient().Ethnicity.ExtendedEthnicityCodes = new Coding[] { UsCorePatientEthnicity.DetailedEthnicity.Encode("2186-5", "Not Hispanic or Latino") };
+            patient.UsCorePatient().Ethnicity.Category = UsCorePatientEthnicity.EthnicityCoding.Encode("2186-5", "Not Hispanic or Latino");
+            patient.UsCorePatient().Ethnicity.ExtendedEthnicityCodes = new Coding[] { UsCorePatientEthnicity.EthnicityCoding.Encode("2186-5", "Not Hispanic or Latino") };
             patient.UsCorePatient().Ethnicity.EthnicityText = "Not Hispanic or Latino";
 
             // Birth Related

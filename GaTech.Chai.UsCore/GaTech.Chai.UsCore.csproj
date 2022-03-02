@@ -13,9 +13,11 @@
     <None Remove="UsCorePatientProfile\" />
     <None Remove="Hl7.Fhir.R4" />
     <None Remove="Hl7.Fhir.Specification.R4" />
+    <None Remove="UsCbsConditionProfile\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="UsCorePatientProfile\" />
+    <Folder Include="UsCoreConditionProfile\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GaTech.Chai.Share\GaTech.Chai.Share.csproj" />

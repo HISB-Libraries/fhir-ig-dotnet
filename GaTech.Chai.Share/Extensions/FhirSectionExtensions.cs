@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Hl7.Fhir.Model;
 
-namespace GaTech.Chai.Cbs.Extensions
+namespace GaTech.Chai.FhirIg.Extensions
 {
     public static class FhirSectionExtensions
     {
