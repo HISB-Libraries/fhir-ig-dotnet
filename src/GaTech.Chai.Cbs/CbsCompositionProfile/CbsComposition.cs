@@ -1,6 +1,6 @@
 using System;
 using Hl7.Fhir.Model;
-using GaTech.Chai.Cbs.Extensions;
+using GaTech.Chai.FhirIg.Extensions;
 using static Hl7.Fhir.Model.Composition;
 
 namespace GaTech.Chai.Cbs.CbsCompositionProfile

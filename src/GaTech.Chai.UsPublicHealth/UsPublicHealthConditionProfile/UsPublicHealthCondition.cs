@@ -11,12 +11,10 @@ namespace GaTech.Chai.UsPublicHealth.ConditionProfile
     public class UsPublicHealthCondition
     {
         readonly Condition condition;
-        readonly UsPublicHealthConditionAssertedDate conditionAssertedDate;
 
         internal UsPublicHealthCondition(Condition condition)
         {
-            this.condition = condition;
-            this.conditionAssertedDate = new UsPublicHealthConditionAssertedDate(condition);
+            this.condition = condition; 
         }
 
         /// <summary>
@@ -29,12 +27,6 @@ namespace GaTech.Chai.UsPublicHealth.ConditionProfile
             condition.UsPublicHealthCondition().AddProfile();
             return condition;
         }
-
-        /// <summary>
-        /// condition-assertedDateTime extension
-        /// http://hl7.org/fhir/StructureDefinition/condition-assertedDate
-        /// </summary>
-        public UsPublicHealthConditionAssertedDate AssertedDate => this.conditionAssertedDate;
 
         /// <summary>
         /// The official URL for the Case Based Surveillance Lab Condition profile, used to assert conformance.
@@ -55,6 +47,17 @@ namespace GaTech.Chai.UsPublicHealth.ConditionProfile
         public void RemoveProfile()
         {
             this.condition.RemoveProfile(ProfileUrl);
+        }
+
+        /// <summary>
+        /// condition-assertedDateTime extension
+        /// http://hl7.org/fhir/StructureDefinition/condition-assertedDate
+        /// </summary>
+        public FhirDateTime conditionAssertedDate
+        {
+            get => this.condition.GetExtension("http://hl7.org/fhir/StructureDefinition/condition-assertedDate")?.Value as FhirDateTime;
+            set => this.condition.Extension.AddOrUpdateExtension("http://hl7.org/fhir/StructureDefinition/condition-assertedDate", value);
+
         }
     }
 }

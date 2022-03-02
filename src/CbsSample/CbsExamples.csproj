@@ -6,12 +6,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\GaTech.Chai.Cbs\GaTech.Chai.Cbs.csproj" />
-    <ProjectReference Include="..\..\GaTech.Chai.Share\GaTech.Chai.Share.csproj" />
-    <ProjectReference Include="..\..\GaTech.Chai.UsCore\GaTech.Chai.UsCore.csproj" />
-    <ProjectReference Include="..\..\GaTech.Chai.UsPublicHealth\GaTech.Chai.UsPublicHealth.csproj" />
-  </ItemGroup>
-  <ItemGroup>
     <None Remove="profiles\StructureDefinition-cbs-cause-of-death.xml" />
   </ItemGroup>
   <ItemGroup>
@@ -113,5 +107,11 @@
     <None Update="profiles\StructureDefinition-us-ph-address-extension.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GaTech.Chai.Cbs\GaTech.Chai.Cbs.csproj" />
+    <ProjectReference Include="..\GaTech.Chai.Share\GaTech.Chai.Share.csproj" />
+    <ProjectReference Include="..\GaTech.Chai.UsCore\GaTech.Chai.UsCore.csproj" />
+    <ProjectReference Include="..\GaTech.Chai.UsPublicHealth\GaTech.Chai.UsPublicHealth.csproj" />
   </ItemGroup>
 </Project>

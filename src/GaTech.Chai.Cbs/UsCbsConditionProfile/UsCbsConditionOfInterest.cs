@@ -2,17 +2,17 @@
 using Hl7.Fhir.Model;
 using GaTech.Chai.FhirIg.Extensions;
 
-namespace GaTech.Chai.Cbs.UsCbsConditionProfile
+namespace GaTech.Chai.Cbs.UsCbsConditionOfInterestProfile
 {
     /// <summary>
     /// Case Based Surveillance Lab Condition Profile Extensions
     /// http://cbsig.chai.gatech.edu/StructureDefinition/us-cbs-condition
     /// </summary>
-    public class UsCbsCondition
+    public class UsCbsConditionOfInterest
     {
         readonly Condition condition;
 
-        internal UsCbsCondition(Condition condition)
+        internal UsCbsConditionOfInterest(Condition condition)
         {
             this.condition = condition;
         }
@@ -24,7 +24,7 @@ namespace GaTech.Chai.Cbs.UsCbsConditionProfile
         public static Condition Create()
         {
             var condition = new Condition();
-            condition.UsCbsCondition().AddProfile();
+            condition.UsCbsConditionOfInterest().AddProfile();
             return condition;
         }
 
@@ -50,33 +50,22 @@ namespace GaTech.Chai.Cbs.UsCbsConditionProfile
         }
 
         /// <summary>
-        /// Diagnosis Date
-        /// http://cbsig.chai.gatech.edu/StructureDefinition/cbs-diagnosis-date
-        /// </summary>
-        public FhirDateTime DiagnosisDate
-        {
-            get => this.condition.GetExtension(
-                    "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-diagnosis-date")?.Value as FhirDateTime;
-            set => this.condition.Extension.AddOrUpdateExtension(
-                    "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-diagnosis-date", value);
-        }
-
-        /// <summary>
         /// Set Classification Status
         /// http://cbsig.chai.gatech.edu/StructureDefinition/cbs-case-class-status
         /// </summary>
-        public CodeableConcept ClassificationStatus
+        public CodeableConcept CaseClassStatus
         {
             get => this.condition.GetExtension(
                     "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-case-class-status")?.Value as CodeableConcept;
             set => this.condition.Extension.AddOrUpdateExtension(
                     "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-case-class-status", value);
         }
+
         /// <summary>
         /// Illness Duration
         /// http://cbsig.chai.gatech.edu/StructureDefinition/cbs-illness-duration
         /// </summary>
-        public Quantity IllnesDuration
+        public Quantity CaseIllnesDuration
         {
             get => this.condition.GetExtension(
                     "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-illness-duration")?.Value as Quantity;
@@ -108,7 +97,7 @@ namespace GaTech.Chai.Cbs.UsCbsConditionProfile
         /// Indicates how the Nationally Notifiable Disease case was classified at its close
         /// There are three systems involved, SNOMED-CT, PHINVS, and NullFlavor
         /// </summary>
-        public static class CaseClassificationStatus
+        public static class CaseClassStatusValues
         {
             public static CodeableConcept ConfirmedPresent => new CodeableConcept("http://snomed.info/sct", "410605003", "Confirmed present", null);
             public static CodeableConcept NotACase => new CodeableConcept("urn:oid:2.16.840.1.114222.4.5.274", "PHC178", "Not a Case", null);

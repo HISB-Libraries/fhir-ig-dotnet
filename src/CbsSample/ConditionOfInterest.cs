@@ -1,6 +1,8 @@
 ﻿using System;
-using GaTech.Chai.Cbs.UsCbsConditionProfile;
-using GaTech.Chai.Cbs.Extensions;
+using GaTech.Chai.Cbs.UsCbsConditionOfInterestProfile;
+using GaTech.Chai.Cbs.UsCoreConditionProfile;
+using GaTech.Chai.FhirIg.Extensions;
+using GaTech.Chai.UsPublicHealth.ConditionProfile;
 using Hl7.Fhir.Model;
 
 namespace CbsProfileInitialization
@@ -11,16 +13,18 @@ namespace CbsProfileInitialization
         {
         }
 
-        public static Condition Create(Patient patient, String code, String name, Quantity duration, FhirDateTime diagnosisDate, FhirDateTime onSetDate)
+        public static Condition Create(Patient patient, String code, String name, Quantity duration, FhirDateTime onSetDate)
         {
-            var condition = UsCbsCondition.Create();
+            var condition = UsCbsConditionOfInterest.Create();
+            condition.UsPublicHealthCondition().AddProfile();
+            condition.UsCoreCondition().AddProfile();
 
             condition.Subject = patient.AsReference();
-            condition.UsCbsCondition().ClassificationStatus = UsCbsCondition.CaseClassificationStatus.ConfirmedPresent;
-            condition.UsCbsCondition().DiagnosisDate = diagnosisDate;
-            condition.UsCbsCondition().IllnesDuration = duration;
-            condition.Code = UsCbsCondition.ConditionCode.Encode(code, name);
+            condition.UsCbsConditionOfInterest().CaseClassStatus = UsCbsConditionOfInterest.CaseClassStatusValues.ConfirmedPresent;
+            condition.UsCbsConditionOfInterest().CaseIllnesDuration = duration;
+            condition.Code = UsCbsConditionOfInterest.ConditionCode.Encode(code, name);
             condition.Onset = onSetDate;
+            condition.UsPublicHealthCondition().conditionAssertedDate = onSetDate;
             condition.ClinicalStatus = new CodeableConcept("http://terminology.hl7.org/CodeSystem/condition-clinical", "inactive");
 
             return condition;

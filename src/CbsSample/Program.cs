@@ -1,7 +1,5 @@
 ﻿using System;
 using Hl7.Fhir.Model;
-using GaTech.Chai.Cbs.Common;
-using GaTech.Chai.Cbs.Extensions;
 using GaTech.Chai.Cbs.CbsCauseOfDeathProfile;
 using GaTech.Chai.Cbs.CbsLabObservationProfile;
 using GaTech.Chai.Cbs.CbsTravelHistoryProfile;
@@ -20,6 +18,8 @@ using Hl7.Fhir.Serialization;
 using CbsProfileInitialization;
 using System.Collections.Generic;
 using System.IO;
+using GaTech.Chai.FhirIg.Extensions;
+using GaTech.Chai.FhirIg.Common;
 
 namespace CbsSample
 {
@@ -37,13 +37,12 @@ namespace CbsSample
             // CbsPatientProfile
             Patient patient = CbsGenV2Patient.Create();
 
-            string output = serializer.SerializeToString(patient);
+            // CbsConditionProfile
+            Condition HemolyticUremicSyndromeCondition = ConditionOfInterest.Create(patient, "11550", "Hemolytic Uremic Syndrome", new Quantity(6, "d"), new FhirDateTime("2021-02-28"));
+
+            string output = serializer.SerializeToString(HemolyticUremicSyndromeCondition);
             //File.WriteAllText("GenV2.json", output);
             Console.WriteLine(output);
-
-
-            // CbsConditionProfile
-            Condition HemolyticUremicSyndromeCondition = ConditionOfInterest.Create(patient, "11550", "Hemolytic Uremic Syndrome", new Quantity(6, "d"), new FhirDateTime("2021-03-01"), new FhirDateTime("2021-02-28"));
 
             // CbsVaccinationRecordProfile
             var measlesVaccine = VaccineRecord.RecordFromBirthCertificate(patient, "05", "measles", new PositiveInt(1), new FhirDateTime("1965-07-02"));
@@ -231,7 +230,7 @@ namespace CbsSample
              * HAI-CA Test Case 2: Candida auris, Clinical
              * 
              */
-            Condition candidaAurisCondition = ConditionOfInterest.Create(patient, "50263", "Candida auris, clinical", null, null, new FhirDateTime("2018-11-22"));
+            Condition candidaAurisCondition = ConditionOfInterest.Create(patient, "50263", "Candida auris, clinical", null, new FhirDateTime("2018-11-22"));
             var hAICaHospitalizationEncounter = HospitalizationEncounter.Create(patient, candidaAurisCondition, new List<CodeableConcept> { new CodeableConcept("http://www.ama-assn.org/go/cpt", "42628595", "Inpatient Hospital", null) }, new Period(new FhirDateTime(2018, 11, 24), null));
 
             // CbsSpecimenProfile

@@ -1,6 +1,6 @@
 ﻿using System;
 using GaTech.Chai.Cbs.CbsVaccinationRecordProfile;
-using GaTech.Chai.Cbs.Extensions;
+using GaTech.Chai.FhirIg.Extensions;
 using Hl7.Fhir.Model;
 
 namespace CbsProfileInitialization

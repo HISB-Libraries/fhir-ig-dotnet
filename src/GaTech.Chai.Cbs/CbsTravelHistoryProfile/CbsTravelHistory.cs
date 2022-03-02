@@ -1,7 +1,7 @@
 ﻿using System;
 using Hl7.Fhir.Model;
-using GaTech.Chai.Cbs.Extensions;
-using GaTech.Chai.Cbs.Common;
+using GaTech.Chai.FhirIg.Extensions;
+using GaTech.Chai.FhirIg.Common;
 
 namespace GaTech.Chai.Cbs.CbsTravelHistoryProfile
 {

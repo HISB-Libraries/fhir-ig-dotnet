@@ -1,6 +1,6 @@
 ﻿using System;
 using GaTech.Chai.Cbs.CbsCauseOfDeathProfile;
-using GaTech.Chai.Cbs.Extensions;
+using GaTech.Chai.FhirIg.Extensions;
 using Hl7.Fhir.Model;
 
 namespace CbsProfileInitialization

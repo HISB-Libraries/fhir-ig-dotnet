@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using GaTech.Chai.Cbs.CbsCaseNotificationPanelProfile;
-using GaTech.Chai.Cbs.Extensions;
+using GaTech.Chai.FhirIg.Extensions;
 using Hl7.Fhir.Model;
 
 namespace CbsProfileInitialization
