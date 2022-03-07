@@ -1,6 +1,6 @@
 ﻿using Hl7.Fhir.Model;
 
-namespace GaTech.Chai.Cbs.UsCbsHospitalizationEncounterProfile
+namespace GaTech.Chai.UsCbs.HospitalizationEncounterProfile
 {
     /// <summary>
     /// Class with Encounter extensions for Case Based Surveillance Hospitalization Encounter profile.

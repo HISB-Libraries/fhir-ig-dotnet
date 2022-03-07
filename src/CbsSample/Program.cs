@@ -1,7 +1,6 @@
 ﻿using System;
 using Hl7.Fhir.Model;
 using GaTech.Chai.Cbs.CbsCauseOfDeathProfile;
-using GaTech.Chai.Cbs.CbsLabObservationProfile;
 using GaTech.Chai.Cbs.CbsTravelHistoryProfile;
 using GaTech.Chai.Cbs.CbsVaccinationIndicationProfile;
 using GaTech.Chai.Cbs.CbsLabTestReportProfile;
@@ -10,7 +9,7 @@ using GaTech.Chai.Cbs.CbsPersonReportingToCDCProfile;
 using GaTech.Chai.Cbs.CbsReportingSourceOrganizationProfile;
 using GaTech.Chai.Cbs.CbsSocialDeterminantsOfHealthProfile;
 using GaTech.Chai.Cbs.CbsCaseNotificationPanelProfile;
-using GaTech.Chai.Cbs.UsCbsHospitalizationEncounterProfile;
+using GaTech.Chai.UsCbs.HospitalizationEncounterProfile;
 using GaTech.Chai.Cbs.CbsDocumentBundleProfile;
 using GaTech.Chai.Cbs.CbsQuestionnaireProfile;
 using GaTech.Chai.Cbs.CbsCompositionProfile;
@@ -40,15 +39,21 @@ namespace CbsSample
             // CbsConditionProfile
             Condition HemolyticUremicSyndromeCondition = ConditionOfInterest.Create(patient, "11550", "Hemolytic Uremic Syndrome", new Quantity(6, "d"), new FhirDateTime("2021-02-28"));
 
-            string output = serializer.SerializeToString(HemolyticUremicSyndromeCondition);
+            // Hospitalization Encounter
+            var hospitalizationEncounter = HospitalizationEncounter.Create(patient, HemolyticUremicSyndromeCondition, new List<CodeableConcept> { new CodeableConcept("http://www.ama-assn.org/go/cpt", "42628595", "Inpatient Hospital", null) }, new Period(new FhirDateTime(2014, 2, 26), new FhirDateTime(2014, 3, 2)));
+
+            var measlesImmunization = MeaslesImmunization.Create(patient, new FhirDateTime("2014-02-25"));
+
+            var haicaLobResultObservation = HaicalLabObservation.Create(patient);
+
+            var haicaLabDiagnosticReport = HAICALabDiagnosticReport.Create(patient, haicaLobResultObservation);
+
+            string output = serializer.SerializeToString(haicaLabDiagnosticReport);
             //File.WriteAllText("GenV2.json", output);
             Console.WriteLine(output);
 
             // CbsVaccinationRecordProfile
             var measlesVaccine = VaccineRecord.RecordFromBirthCertificate(patient, "05", "measles", new PositiveInt(1), new FhirDateTime("1965-07-02"));
-
-            // Hospitalization Encounter
-            var hospitalizationEncounter = HospitalizationEncounter.Create(patient, HemolyticUremicSyndromeCondition, new List<CodeableConcept> {new CodeableConcept("http://www.ama-assn.org/go/cpt", "42628595", "Inpatient Hospital", null)}, new Period(new FhirDateTime(2014, 2, 26), new FhirDateTime(2014, 3, 2)));
 
             // Cause of Death Observation
             var causeOfDeathObservation = CauseOfDeathObservation.Create(patient, HemolyticUremicSyndromeCondition);
@@ -235,14 +240,6 @@ namespace CbsSample
 
             // CbsSpecimenProfile
             Specimen specimen = MySpecimen.Create(patient);
-
-
-            // CbsLabObservationProfile
-            Observation labObs = CbsLabObservation.Create();
-            labObs.Subject = patient.AsReference();
-            labObs.Code = new CodeableConcept("urn:oid:2.16.840.1.114222.4.5.232", "LAB723", "DNA Sequencing", null);
-            labObs.Value = new CodeableConcept("http://snomed.info/sct", "10828004", "Positive", null);
-            labObs.Method = new CodeableConcept(null, "D1D2", "D1/D2", null);
 
 
             // CbsTravelHistoryProfile

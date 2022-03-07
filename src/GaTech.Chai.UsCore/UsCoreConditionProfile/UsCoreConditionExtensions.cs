@@ -1,6 +1,6 @@
 ﻿using Hl7.Fhir.Model;
 
-namespace GaTech.Chai.Cbs.UsCoreConditionProfile
+namespace GaTech.Chai.UsCore.ConditionProfile
 {
     /// <summary>
     /// Class with Observation extensions for Case Based Surveillance Condition profile.

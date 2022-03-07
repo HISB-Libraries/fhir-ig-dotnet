@@ -1,6 +1,6 @@
 ﻿using Hl7.Fhir.Model;
 
-namespace GaTech.Chai.Cbs.CbsPatientProfile
+namespace GaTech.Chai.UsCbs.PatientProfile
 {
     /// <summary>
     /// Class with Patient extensions for Case Based Surveillance Patient Profile
@@ -8,9 +8,9 @@ namespace GaTech.Chai.Cbs.CbsPatientProfile
     /// </summary>
     public static class CbsPatientExtensions
     {
-        public static CbsPatient CbsPatient(this Patient patient)
+        public static UsCbsPatient UsCbsPatient(this Patient patient)
         {
-            return new CbsPatient(patient);
+            return new UsCbsPatient(patient);
         }
     }
 }

@@ -1,19 +1,38 @@
 ﻿using System;
+using System.Collections.Generic;
 using Hl7.Fhir.Model;
 
 namespace GaTech.Chai.FhirIg.Extensions
 {
-    public static class FhirCodeableConceptDataAbsentReasonExtensions
+    public static class FhirCodeableConceptCategoryExtensions
     {
-        public static void AddDataAbsentReason(this CodeableConcept codeableConcept, Code code)
+        public static void SetCategory(this List<CodeableConcept> codeableConcepts, Coding coding)
         {
-            codeableConcept.Extension.AddOrUpdateExtension(
-                    "http://hl7.org/fhir/StructureDefinition/data-absent-reason", code);
+            foreach (CodeableConcept categoryConcept in codeableConcepts)
+            {
+                Coding extCoding = categoryConcept?.Coding.Find(e => e.System == coding.System && e.Code == coding.Code);
+                if (coding != null)
+                {
+                    // we have LAB category already. 
+                    return;
+                }
+            }
+
+            codeableConcepts.Add(new CodeableConcept() { Coding = new List<Coding> { coding } });
         }
 
-        public static Code GetDataAbsentReason(this CodeableConcept codeableConcept)
+        public static CodeableConcept GetCategory(this List<CodeableConcept> codeableConcepts, Coding coding)
         {
-            return codeableConcept.GetExtension("http://hl7.org/fhir/StructureDefinition/data-absent-reason")?.Value as Code;
+            foreach (CodeableConcept categoryConcept in codeableConcepts)
+            {
+                Coding extCoding = categoryConcept?.Coding.Find(e => e.System == coding.System && e.Code == coding.Code);
+                if (extCoding != null)
+                {
+                    return categoryConcept;
+                }
+            }
+
+            return null;
         }
     }
 }

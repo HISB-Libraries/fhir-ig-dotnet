@@ -1,6 +1,6 @@
 ﻿using Hl7.Fhir.Model;
 
-namespace GaTech.Chai.UsCore.UsCorePatientProfile
+namespace GaTech.Chai.UsCore.PatientProfile
 {
     /// <summary>
     /// Class with Patient extensions for US Core Patient Profile

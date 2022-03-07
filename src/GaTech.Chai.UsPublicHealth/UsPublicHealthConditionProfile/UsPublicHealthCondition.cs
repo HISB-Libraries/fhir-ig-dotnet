@@ -53,7 +53,7 @@ namespace GaTech.Chai.UsPublicHealth.ConditionProfile
         /// condition-assertedDateTime extension
         /// http://hl7.org/fhir/StructureDefinition/condition-assertedDate
         /// </summary>
-        public FhirDateTime conditionAssertedDate
+        public FhirDateTime ConditionAssertedDate
         {
             get => this.condition.GetExtension("http://hl7.org/fhir/StructureDefinition/condition-assertedDate")?.Value as FhirDateTime;
             set => this.condition.Extension.AddOrUpdateExtension("http://hl7.org/fhir/StructureDefinition/condition-assertedDate", value);

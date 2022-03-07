@@ -1,31 +1,32 @@
 ﻿using System;
 using Hl7.Fhir.Model;
 using GaTech.Chai.FhirIg.Extensions;
+using GaTech.Chai.UsCore.LabResultObservationProfile;
 
-namespace GaTech.Chai.Cbs.CbsLabObservationProfile
+namespace GaTech.Chai.UsCbs.LabObservationProfile
 {
     /// <summary>
     /// Case Based Surveillance Lab Observation Profile Extensions
     /// http://cbsig.chai.gatech.edu/StructureDefinition/cbs-lab-observation
     /// </summary>
-    public class CbsLabObservation
+    public class UsCbsLabObservation
     {
         readonly Observation observation;
 
-        internal CbsLabObservation(Observation o)
+        internal UsCbsLabObservation(Observation o)
         {
             this.observation = o;
         }
 
         /// <summary>
         /// Factory for Case Based Surveillance Lab Observation Profile
-        /// http://cbsig.chai.gatech.edu/StructureDefinition/cbs-lab-observation
+        /// http://cbsig.chai.gatech.edu/StructureDefinition/us-cbs-lab-observation
         /// </summary>
         public static Observation Create()
         {
             var observation = new Observation();
-            observation.CbsLabObservation().AddProfile();
-            observation.Category.Add(new CodeableConcept("http://terminology.hl7.org/CodeSystem/observation-category", "laboratory"));
+            observation.UsCbsLabObservation().AddProfile();
+            observation.UsCoreLabResultObservation().AddProfile();
             observation.Status = ObservationStatus.Final;
             return observation;
         }
@@ -33,7 +34,7 @@ namespace GaTech.Chai.Cbs.CbsLabObservationProfile
         /// <summary>
         /// The official URL for the Case Based Surveillance Lab Observation profile, used to assert conformance.
         /// </summary>
-        public const string ProfileUrl = "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-lab-observation";
+        public const string ProfileUrl = "http://cbsig.chai.gatech.edu/StructureDefinition/us-cbs-lab-observation";
 
         /// <summary>
         /// Set the assertion that an observation object conforms to the Case Based Surveillance Lab Observation profile.

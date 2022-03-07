@@ -2,7 +2,7 @@
 using Hl7.Fhir.Model;
 using GaTech.Chai.FhirIg.Extensions;
 
-namespace GaTech.Chai.Cbs.UsCbsHospitalizationEncounterProfile
+namespace GaTech.Chai.UsCbs.HospitalizationEncounterProfile
 {
     /// <summary>
     /// Case Based Surveillance Hospitalization Encounter Profile Extensions

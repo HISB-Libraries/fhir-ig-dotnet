@@ -14,10 +14,18 @@
     <None Remove="Hl7.Fhir.R4" />
     <None Remove="Hl7.Fhir.Specification.R4" />
     <None Remove="UsCbsConditionProfile\" />
+    <None Remove="UsCoreConditionProfile %28copy%29\" />
+    <None Remove="UsCoreEncounterProfile %28copy%29\" />
+    <None Remove="UsCoreImmunizationProfile %28copy%29\" />
+    <None Remove="USCoreDiagnosticReportLabProfile %28copy%29\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="UsCorePatientProfile\" />
     <Folder Include="UsCoreConditionProfile\" />
+    <Folder Include="UsCoreEncounterProfile\" />
+    <Folder Include="UsCoreImmunizationProfile\" />
+    <Folder Include="USCoreDiagnosticReportLabProfile\" />
+    <Folder Include="USCoreLabResultObservationProfile\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GaTech.Chai.Share\GaTech.Chai.Share.csproj" />

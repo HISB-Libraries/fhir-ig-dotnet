@@ -2,17 +2,17 @@ using System;
 using Hl7.Fhir.Model;
 using GaTech.Chai.FhirIg.Extensions;
 
-namespace GaTech.Chai.Cbs.CbsPatientProfile
+namespace GaTech.Chai.UsCbs.PatientProfile
 {
     /// <summary>
     /// Case Based Surveillance Patient Profile Extensions
     /// http://cbsig.chai.gatech.edu/StructureDefinition/cbs-patient
     /// </summary>
-    public class CbsPatient
+    public class UsCbsPatient
     {
         readonly Patient patient;
 
-        internal CbsPatient(Patient p)
+        internal UsCbsPatient(Patient p)
         {
             this.patient = p;
         }
@@ -24,7 +24,7 @@ namespace GaTech.Chai.Cbs.CbsPatientProfile
         public static Patient Create()
         {
             var patient = new Patient();
-            patient.CbsPatient().AddProfile();
+            patient.UsCbsPatient().AddProfile();
             return patient;
         }
 

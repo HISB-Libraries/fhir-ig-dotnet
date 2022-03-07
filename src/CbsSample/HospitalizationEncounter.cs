@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using GaTech.Chai.Cbs.UsCbsHospitalizationEncounterProfile;
+using GaTech.Chai.UsCbs.HospitalizationEncounterProfile;
 using GaTech.Chai.FhirIg.Extensions;
 using Hl7.Fhir.Model;
 

@@ -4,7 +4,7 @@ using System.Linq;
 using GaTech.Chai.FhirIg.Extensions;
 using Hl7.Fhir.Model;
 
-namespace GaTech.Chai.UsCore.UsCorePatientProfile
+namespace GaTech.Chai.UsCore.PatientProfile
 {
     public class UsCorePatientEthnicity
     {

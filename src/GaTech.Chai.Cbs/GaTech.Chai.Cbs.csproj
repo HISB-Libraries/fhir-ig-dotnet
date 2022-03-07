@@ -28,6 +28,8 @@
     <None Remove="CbsPatientProfile %28copy%29\" />
     <None Remove="Hl7.Fhir.R4" />
     <None Remove="Hl7.Fhir.Specification.R4" />
+    <None Remove="UsCbsConditionProfile %28copy%29\" />
+    <None Remove="UsCbsTemporaryValueSet\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="CbsVaccinationRecordProfile\" />
@@ -44,6 +46,9 @@
     <Folder Include="CbsQuestionnaireProfile\" />
     <Folder Include="CbsDocumentBundle\" />
     <Folder Include="CbsCompositionProfile\" />
+    <Folder Include="UsCbsImmunizationProfile\" />
+    <Folder Include="UsCbsLabDiagnosticReportProfile\" />
+    <Folder Include="Common\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GaTech.Chai.UsCore\GaTech.Chai.UsCore.csproj" />

@@ -1,6 +1,6 @@
 ﻿using System;
-using GaTech.Chai.Cbs.UsCbsConditionOfInterestProfile;
-using GaTech.Chai.Cbs.UsCoreConditionProfile;
+using GaTech.Chai.UsCbs.ConditionOfInterestProfile;
+using GaTech.Chai.UsCore.ConditionProfile;
 using GaTech.Chai.FhirIg.Extensions;
 using GaTech.Chai.UsPublicHealth.ConditionProfile;
 using Hl7.Fhir.Model;
@@ -24,7 +24,7 @@ namespace CbsProfileInitialization
             condition.UsCbsConditionOfInterest().CaseIllnesDuration = duration;
             condition.Code = UsCbsConditionOfInterest.ConditionCode.Encode(code, name);
             condition.Onset = onSetDate;
-            condition.UsPublicHealthCondition().conditionAssertedDate = onSetDate;
+            condition.UsPublicHealthCondition().ConditionAssertedDate = onSetDate;
             condition.ClinicalStatus = new CodeableConcept("http://terminology.hl7.org/CodeSystem/condition-clinical", "inactive");
 
             return condition;

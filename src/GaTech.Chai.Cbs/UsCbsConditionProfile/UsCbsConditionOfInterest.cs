@@ -2,7 +2,7 @@
 using Hl7.Fhir.Model;
 using GaTech.Chai.FhirIg.Extensions;
 
-namespace GaTech.Chai.Cbs.UsCbsConditionOfInterestProfile
+namespace GaTech.Chai.UsCbs.ConditionOfInterestProfile
 {
     /// <summary>
     /// Case Based Surveillance Lab Condition Profile Extensions

@@ -2,13 +2,13 @@
 using GaTech.Chai.FhirIg.Extensions;
 using Hl7.Fhir.Model;
 
-namespace GaTech.Chai.Cbs.CbsPatientProfile
+namespace GaTech.Chai.UsCbs.PatientProfile
 {
-    public class CbsAddress
+    public class UsCbsAddress
     {
         readonly Address address;
 
-        internal CbsAddress(Address address)
+        internal UsCbsAddress(Address address)
         {
             this.address = address;
         }
@@ -17,7 +17,7 @@ namespace GaTech.Chai.Cbs.CbsPatientProfile
         /// Additional codes for Address.use
         /// http://cbsig.chai.gatech.edu/StructureDefinition/cbs-cdc-address-use
         /// </summary>
-        public Coding CdcAddressUse
+        public Coding CbsCdcAddressUse
         {
             get => address.GetExtension(
                     "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-cdc-address-use")?.Value as Coding;
@@ -50,19 +50,6 @@ namespace GaTech.Chai.Cbs.CbsPatientProfile
                     address.LineElement.Add(line);
                 }
             }
-        }
-
-        /// <summary>
-        /// Additional codes for Address.use
-        /// Codes for Address.use which are used as slice discriminators to capture address history at relevant points in time to case surveillance
-        /// </summary>
-        public static class AddressUse
-        {
-            public const string CodeSystemUrl = "http://cbsig.chai.gatech.edu/CodeSystem/cbs-temp-code-system";
-
-            public static Coding AddressAtDiagnosis => Encode("Address-at-Diagnosis", "Address at time of Diagnosis");
-            public static Coding UsualResidence => Encode("Usual-Residence", "Usual Residence");
-            public static Coding Encode(string value, string display) => new Coding(CodeSystemUrl, value, display);
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿using System;
-using GaTech.Chai.Cbs.CbsPatientProfile;
-using GaTech.Chai.UsCore.UsCorePatientProfile;
+using GaTech.Chai.UsCbs.PatientProfile;
+using GaTech.Chai.UsCore.PatientProfile;
 using GaTech.Chai.UsPublicHealth.PatientProfile;
 using Hl7.Fhir.Model;
 using static Hl7.Fhir.Model.ContactPoint;
@@ -17,7 +17,7 @@ namespace CbsProfileInitialization
         public static Patient Create()
         {
             // Patient Profile
-            var patient = CbsPatient.Create();
+            var patient = UsCbsPatient.Create();
             patient.UsPublicHealthPatient().AddProfile();
             patient.UsCorePatient().AddProfile();
 
@@ -40,8 +40,8 @@ namespace CbsProfileInitialization
 
             // Address
             var address = new Address() { Use = Address.AddressUse.Home, State = "TX", PostalCode = "77018", Country = "USA" };
-            address.CbsAddress().CdcAddressUse = CbsAddress.AddressUse.UsualResidence;
-            address.CbsAddress().CensusTract = "030500";
+            address.Use = Address.AddressUse.Home;
+            address.UsCbsAddress().CensusTract = "030500";
             patient.Address.Add(address);
 
             // Contact
