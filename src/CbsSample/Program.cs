@@ -4,7 +4,6 @@ using GaTech.Chai.Cbs.CbsCauseOfDeathProfile;
 using GaTech.Chai.Cbs.CbsTravelHistoryProfile;
 using GaTech.Chai.Cbs.CbsVaccinationIndicationProfile;
 using GaTech.Chai.Cbs.CbsLabTestReportProfile;
-using GaTech.Chai.Cbs.CbsPerformingLaboratoryProfile;
 using GaTech.Chai.Cbs.CbsPersonReportingToCDCProfile;
 using GaTech.Chai.Cbs.CbsReportingSourceOrganizationProfile;
 using GaTech.Chai.Cbs.CbsSocialDeterminantsOfHealthProfile;
@@ -19,6 +18,7 @@ using System.Collections.Generic;
 using System.IO;
 using GaTech.Chai.FhirIg.Extensions;
 using GaTech.Chai.FhirIg.Common;
+using GaTech.Chai.UsCbs.PerformingLaboratoryProfile;
 
 namespace CbsSample
 {
@@ -37,7 +37,7 @@ namespace CbsSample
             Patient patient = CbsGenV2Patient.Create();
 
             // CbsConditionProfile
-            Condition HemolyticUremicSyndromeCondition = ConditionOfInterest.Create(patient, "11550", "Hemolytic Uremic Syndrome", new Quantity(6, "d"), new FhirDateTime("2021-02-28"));
+            var HemolyticUremicSyndromeCondition = ConditionOfInterest.Create(patient, "11550", "Hemolytic Uremic Syndrome", new Quantity(6, "d"), new FhirDateTime("2021-02-28"));
 
             // Hospitalization Encounter
             var hospitalizationEncounter = HospitalizationEncounter.Create(patient, HemolyticUremicSyndromeCondition, new List<CodeableConcept> { new CodeableConcept("http://www.ama-assn.org/go/cpt", "42628595", "Inpatient Hospital", null) }, new Period(new FhirDateTime(2014, 2, 26), new FhirDateTime(2014, 3, 2)));
@@ -48,10 +48,15 @@ namespace CbsSample
 
             var haicaLabDiagnosticReport = HAICALabDiagnosticReport.Create(patient, haicaLobResultObservation);
 
-            string output = serializer.SerializeToString(haicaLabDiagnosticReport);
+            // CbsPerformingLaboratoryProfile
+            var performingLab = UsCbsPerformingLaboratory.Create();
+            performingLab.UsCbsPerformingLaboratory().SetNameDataAbsentReason(DataAbsentReason.AskedUnknown);
+
+            string output = serializer.SerializeToString(performingLab);
             //File.WriteAllText("GenV2.json", output);
             Console.WriteLine(output);
 
+            /////////////////////////////////////////////////////////////////////////////
             // CbsVaccinationRecordProfile
             var measlesVaccine = VaccineRecord.RecordFromBirthCertificate(patient, "05", "measles", new PositiveInt(1), new FhirDateTime("1965-07-02"));
 
@@ -273,10 +278,6 @@ namespace CbsSample
 
 
             ///////////////////////////////////////////
-
-            // CbsPerformingLaboratoryProfile
-            var performingLab = CbsPerformingLaboratory.Create();
-            performingLab.Name = "Jab Lab, Dallas";
 
             // CbsReportingSourceOrganizationProfile
             var org = CbsReportingSourceOrganization.Create("PHC247", "Laboratory");

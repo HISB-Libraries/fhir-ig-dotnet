@@ -2,6 +2,7 @@
 using Hl7.Fhir.Model;
 using GaTech.Chai.FhirIg.Extensions;
 using System.Collections.Generic;
+using GaTech.Chai.Share.Extensions;
 
 namespace GaTech.Chai.UsCore.ConditionProfile
 {
@@ -55,7 +56,7 @@ namespace GaTech.Chai.UsCore.ConditionProfile
         /// </summary>
         public void SetClinicalStatus(Condition.ConditionClinicalStatusCodes clinicalStatusCode)
         {
-            this.condition.ClinicalStatus = new CodeableConcept("http://terminology.hl7.org/CodeSystem/condition-clinical", clinicalStatusCode.ToString().ToLower(), clinicalStatusCode.ToString(), null);
+            this.condition.ClinicalStatus = new CodeableConcept("http://terminology.hl7.org/CodeSystem/condition-clinical", clinicalStatusCode.GetEnumCode(), clinicalStatusCode.ToString(), null);
         }
 
         public CodeableConcept GetClinicalStatus()
@@ -68,14 +69,7 @@ namespace GaTech.Chai.UsCore.ConditionProfile
         /// </summary>
         public void SetVerificationStatus(Condition.ConditionVerificationStatus verificationStatusCode)
         {
-            if (verificationStatusCode == Condition.ConditionVerificationStatus.EnteredInError)
-            {
-                this.condition.ClinicalStatus = new CodeableConcept("http://terminology.hl7.org/CodeSystem/condition-ver-status", "entered-in-error", verificationStatusCode.ToString(), null);
-            }
-            else
-            {
-                this.condition.ClinicalStatus = new CodeableConcept("http://terminology.hl7.org/CodeSystem/condition-ver-status", verificationStatusCode.ToString().ToLower(), verificationStatusCode.ToString(), null);
-            }
+            this.condition.VerificationStatus = new CodeableConcept("http://terminology.hl7.org/CodeSystem/condition-ver-status", verificationStatusCode.GetEnumCode(), null);
         }
 
         public CodeableConcept GetVerificationStatus()

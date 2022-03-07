@@ -26,6 +26,7 @@ namespace CbsProfileInitialization
             condition.Onset = onSetDate;
             condition.UsPublicHealthCondition().ConditionAssertedDate = onSetDate;
             condition.ClinicalStatus = new CodeableConcept("http://terminology.hl7.org/CodeSystem/condition-clinical", "inactive");
+            condition.UsCoreCondition().SetVerificationStatus(Condition.ConditionVerificationStatus.Confirmed);
 
             return condition;
         }

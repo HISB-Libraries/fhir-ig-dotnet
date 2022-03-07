@@ -36,7 +36,7 @@
     <Folder Include="CbsVaccinationIndicationProfile\" />
     <Folder Include="CbsTravelHistoryProfile\" />
     <Folder Include="CbsLabTestReportProfile\" />
-    <Folder Include="CbsPerformingLaboratoryProfile\" />
+    <Folder Include="UsCbsPerformingLaboratoryProfile\" />
     <Folder Include="CbsPersonReportingToCDCProfile\" />
     <Folder Include="CbsReportingSourceOrganizationProfile\" />
     <Folder Include="CbsSocialDeterminantsOfHealthProfile\" />

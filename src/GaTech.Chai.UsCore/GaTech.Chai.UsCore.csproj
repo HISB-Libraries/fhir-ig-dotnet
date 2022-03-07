@@ -24,8 +24,9 @@
     <Folder Include="UsCoreConditionProfile\" />
     <Folder Include="UsCoreEncounterProfile\" />
     <Folder Include="UsCoreImmunizationProfile\" />
-    <Folder Include="USCoreDiagnosticReportLabProfile\" />
-    <Folder Include="USCoreLabResultObservationProfile\" />
+    <Folder Include="UsCoreDiagnosticReportLabProfile\" />
+    <Folder Include="UssCoreLabResultObservationProfile\" />
+    <Folder Include="UsCoreOrganizationProfile\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GaTech.Chai.Share\GaTech.Chai.Share.csproj" />

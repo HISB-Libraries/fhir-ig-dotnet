@@ -1,31 +1,35 @@
 ﻿using System;
 using Hl7.Fhir.Model;
 using GaTech.Chai.FhirIg.Extensions;
+using GaTech.Chai.UsCore.OrganizationProfile;
+using GaTech.Chai.Share.Extensions;
 
-namespace GaTech.Chai.Cbs.CbsPerformingLaboratoryProfile
+namespace GaTech.Chai.UsCbs.PerformingLaboratoryProfile
 {
     /// <summary>
     /// Case Based Surveillance Performing Laboratory Profile Extensions
-    /// http://cbsig.chai.gatech.edu/StructureDefinition/cbs-performing-lab
+    /// http://cbsig.chai.gatech.edu/StructureDefinition/us-cbs-performing-lablab
     /// </summary>
-    public class CbsPerformingLaboratory
+    public class UsCbsPerformingLaboratory
     {
         readonly Organization organization;
 
-        internal CbsPerformingLaboratory(Organization organization)
+        internal UsCbsPerformingLaboratory(Organization organization)
         {
             this.organization = organization;
         }
 
         /// <summary>
         /// Factory for Case Based Surveillance Performing Laboratory Profile
-        /// http://cbsig.chai.gatech.edu/StructureDefinition/cbs-performing-lab
+        /// http://cbsig.chai.gatech.edu/StructureDefinition/us-cbs-performing-lab
         /// </summary>
         public static Organization Create()
         {
             var organization = new Organization();
-            organization.CbsPerformingLaboratory().AddProfile();
+            organization.UsCbsPerformingLaboratory().AddProfile();
             organization.Type.Add(new CodeableConcept("http://cbsig.chai.gatech.edu/CodeSystem/cbs-temp-code-system", "LAB"));
+            organization.UsPublicHealthOrganization().AddProfile();
+            organization.UsCoreOrganization().AddProfile();
 
             return organization;
         }
@@ -33,7 +37,7 @@ namespace GaTech.Chai.Cbs.CbsPerformingLaboratoryProfile
         /// <summary>
         /// The official URL for the Case Based Surveillance Performing Laboratory profile, used to assert conformance.
         /// </summary>
-        public const string ProfileUrl = "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-performing-lab";
+        public const string ProfileUrl = "http://cbsig.chai.gatech.edu/StructureDefinition/us-cbs-performing-lab";
 
         /// <summary>
         /// Set the assertion that a observation object conforms to the Case Based Surveillance Performing Laboratory Profile.
@@ -49,6 +53,12 @@ namespace GaTech.Chai.Cbs.CbsPerformingLaboratoryProfile
         public void RemoveProfile()
         {
             organization.RemoveProfile(ProfileUrl);
+        }
+
+        public void SetNameDataAbsentReason(DataAbsentReason reason)
+        {
+            organization.NameElement = new FhirString();
+            organization.NameElement.AddDataAbsentReason(new Code(reason.GetEnumCode()));
         }
     }
 }
