@@ -23,7 +23,7 @@ namespace GaTech.Chai.Cbs.CaseNotificationPanelProfile
         {
             var observation = new Observation();
             observation.CbsCaseNotificationPanel().AddProfile();
-            observation.CbsAgeAtCaseInvestigation().AddProfile();
+            observation.CbsBinationalReportingCriteria().AddProfile();
             observation.Code = new CodeableConcept("http://loinc.org", "77988-4", "Binational reporting criteria [CDC.PHIN]", null);
             return observation;
         }

@@ -4,16 +4,13 @@ using Hl7.Fhir.Model;
 namespace GaTech.Chai.FhirIg.Common
 {
     /// <summary>
-    /// Yes No Unknown (YNU) (2.16.840.1.114222.4.11.888)
+    /// Yes No Unknown (YNU) https://phinvads.cdc.gov/vads/ViewValueSet.action?oid=2.16.840.1.114222.4.11.888
     /// Value set used to respond to any question that can be answered Yes, No, or Unknown.
     /// </summary>
     public static class YesNoUnknown
     {
-        public const string ValueSetOid = "urn:oid:2.16.840.1.114222.4.11.888";
-
-        public static CodeableConcept Yes => Encode("Y", "Yes");
-        public static CodeableConcept No => Encode("N", "No");
-        public static CodeableConcept Unknown => Encode("U", "Unknown");
-        public static CodeableConcept Encode(string value, string display) => new CodeableConcept(ValueSetOid, value, display, null);
+        public static CodeableConcept Yes => new CodeableConcept("urn:oid:2.16.840.1.113883.12.136", "Y", "Yes", null);
+        public static CodeableConcept No => new CodeableConcept("urn:oid:2.16.840.1.113883.12.136", "N", "No", null);
+        public static CodeableConcept Unknown => new CodeableConcept("urn:oid:2.16.840.1.113883.5.1008", "UNK", "Unknown", null);
     }
 }

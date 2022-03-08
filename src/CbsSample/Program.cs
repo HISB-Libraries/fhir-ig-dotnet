@@ -84,11 +84,20 @@ namespace CbsSample
             binationalReportingCriteria.CbsBinationalReportingCriteria().Value = new CodeableConcept("urn:oid:2.16.840.1.114222.4.5.274", "PHC1140", "Exposure to suspected product from Canada or Mexico", null);
             caseNotificationPanel.HasMember.Add(binationalReportingCriteria.AsReference());
 
+            var investigationStartDate = CbsCaseInvestigationStartDate.Create();
+            investigationStartDate.CbsCaseInvestigationStartDate().Value = new FhirDateTime("2022-01-30");
+            caseNotificationPanel.HasMember.Add(investigationStartDate.AsReference());
+
+            var caseOutbreak = CbsCaseOutbreak.Create();
+            caseOutbreak.CbsCaseOutbreak().AddOutbreakName = "HANSENOUTB1";
+            caseOutbreak.CbsCaseOutbreak().AddOutbreakIndicator = YesNoUnknown.Yes;
+            caseNotificationPanel.HasMember.Add(caseOutbreak.AsReference());
+
             string output = serializer.SerializeToString(caseNotificationPanel);
             //File.WriteAllText("GenV2.json", output);
             Console.WriteLine(output);
 
-            output = serializer.SerializeToString(binationalReportingCriteria);
+            output = serializer.SerializeToString(caseOutbreak);
             Console.WriteLine(output);
 
             /////////////////////////////////////////////////////////////////////////////
