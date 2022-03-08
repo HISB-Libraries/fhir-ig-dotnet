@@ -14,9 +14,19 @@ namespace GaTech.Chai.Cbs.CaseNotificationPanelProfile
             return new CbsCaseNotificationPanel(observation);
         }
 
-        public static CbsExposureObservation CbsAgeAtCaseInvestigation(this Observation observation)
+        public static CbsExposureObservation CbsExposureObservation(this Observation observation)
         {
             return new CbsExposureObservation(observation); 
+        }
+
+        public static CbsAgeAtCaseInvestigation CbsAgeAtCaseInvestigation(this Observation observation)
+        {
+            return new CbsAgeAtCaseInvestigation(observation);
+        }
+
+        public static CbsBinationalReportingCriteria CbsBinationalReportingCriteria(this Observation observation)
+        {
+            return new CbsBinationalReportingCriteria(observation);
         }
 
         public static CbsMmwr CbsMmwr(this Observation observation)

@@ -17,6 +17,8 @@ namespace GaTech.Chai.Cbs.CaseNotificationPanelProfile
         {
             this.observation = observation;
             this.ProfileUrl = "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-case-notification-panel";
+            observation.Status = ObservationStatus.Final;
+            observation.Category.SetCategory(new Coding("http://loinc.org", "78000-7", "Case notification panel [CDC.PHIN]"));
         }
 
         /// <summary>
@@ -25,26 +27,8 @@ namespace GaTech.Chai.Cbs.CaseNotificationPanelProfile
         /// </summary>
         public static Observation Create()
         {
-            return Create("http://cbsig.chai.gatech.edu/StructureDefinition/cbs-case-notification-panel");
-        }
-
-        /// <summary>
-        /// Factory for Case Based Surveillance Case Notification Panel Member Profile
-        /// http://cbsig.chai.gatech.edu/StructureDefinition/cbs-cnp-member
-        /// </summary>
-        public static Observation CreateMember()
-        {
-            return Create("http://cbsig.chai.gatech.edu/StructureDefinition/cbs-cnp-member");
-        }
-
-        public static Observation Create(String profileUrl)
-        {
             var observation = new Observation();
-            observation.CbsCaseNotificationPanel().AddProfile(profileUrl);
-            observation.Status = ObservationStatus.Final;
-            var code = new CodeableConcept("http://loinc.org", "78000-7");
-            code.Coding.First().Display = "Case notification panel [CDC.PHIN]";
-            observation.Category.Add(code);
+            observation.CbsCaseNotificationPanel().AddProfile();
             return observation;
         }
 
@@ -61,12 +45,7 @@ namespace GaTech.Chai.Cbs.CaseNotificationPanelProfile
         /// </summary>
         public void AddProfile()
         {
-            AddProfile(ProfileUrl);
-        }
-
-        public void AddProfile(String profileUrl)
-        {
-            observation.AddProfile(profileUrl);
+            observation.AddProfile(ProfileUrl);
         }
 
         /// <summary>

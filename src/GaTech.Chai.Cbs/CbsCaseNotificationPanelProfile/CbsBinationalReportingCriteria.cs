@@ -6,31 +6,31 @@ namespace GaTech.Chai.Cbs.CaseNotificationPanelProfile
 {
     /// <summary>
     /// Case Based Surveillance Exposure Observation
-    /// http://cbsig.chai.gatech.edu/StructureDefinition/cbs-age-at-investigation
+    /// http://cbsig.chai.gatech.edu/StructureDefinition/cbs-binational-reporting-criteria
     /// </summary>
-    public class CbsAgeAtCaseInvestigation : CbsCaseNotificationPanel
+    public class CbsBinationalReportingCriteria : CbsCaseNotificationPanel
     {
-        internal CbsAgeAtCaseInvestigation(Observation observation) : base(observation)
+        internal CbsBinationalReportingCriteria(Observation observation) : base(observation)
         {
-            this.ProfileUrl = "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-age-at-investigation";
+            this.ProfileUrl = "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-binational-reporting-criteria";
         }
 
         /// <summary>
         /// Factory for Case Based Surveillance Exposure Observation Profile
-        /// http://cbsig.chai.gatech.edu/StructureDefinition/cbs-age-at-investigation
+        /// http://cbsig.chai.gatech.edu/StructureDefinition/cbs-binational-reporting-criteria
         /// </summary>
         public static new Observation Create()
         {
             var observation = new Observation();
             observation.CbsCaseNotificationPanel().AddProfile();
             observation.CbsAgeAtCaseInvestigation().AddProfile();
-            observation.Code = new CodeableConcept("http://loinc.org", "77998-3", "Age at time of case investigation", null);
+            observation.Code = new CodeableConcept("http://loinc.org", "77988-4", "Binational reporting criteria [CDC.PHIN]", null);
             return observation;
         }
 
-        public Quantity Value
+        public CodeableConcept Value
         {
-            get => this.observation.Value as Quantity;
+            get => this.observation.Value as CodeableConcept;
             set => this.observation.Value = value;
         }
     }
