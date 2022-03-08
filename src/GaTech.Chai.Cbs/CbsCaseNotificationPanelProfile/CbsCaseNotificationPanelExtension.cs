@@ -1,7 +1,7 @@
 ﻿using System;
 using Hl7.Fhir.Model;
 
-namespace GaTech.Chai.Cbs.CbsCaseNotificationPanelProfile
+namespace GaTech.Chai.Cbs.CaseNotificationPanelProfile
 {
     /// <summary>
     /// Class with Observation extensions for Case Based Surveillance Case Notification Panel Profile
@@ -14,7 +14,7 @@ namespace GaTech.Chai.Cbs.CbsCaseNotificationPanelProfile
             return new CbsCaseNotificationPanel(observation);
         }
 
-        public static CbsExposureObservation CbsExposureObservation(this Observation observation)
+        public static CbsExposureObservation CbsAgeAtCaseInvestigation(this Observation observation)
         {
             return new CbsExposureObservation(observation); 
         }

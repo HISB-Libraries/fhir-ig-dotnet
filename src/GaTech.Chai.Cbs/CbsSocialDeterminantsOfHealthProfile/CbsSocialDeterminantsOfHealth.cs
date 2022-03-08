@@ -2,6 +2,7 @@
 using Hl7.Fhir.Model;
 using GaTech.Chai.FhirIg.Extensions;
 using GaTech.Chai.FhirIg.Common;
+using GaTech.Chai.UsCbs.Common;
 
 namespace GaTech.Chai.Cbs.CbsSocialDeterminantsOfHealthProfile
 {
@@ -12,12 +13,12 @@ namespace GaTech.Chai.Cbs.CbsSocialDeterminantsOfHealthProfile
     public class CbsSocialDeterminantsOfHealth
     {
         readonly Observation observation;
-        readonly ProgramSpecificTimeWindow programSpecificTimeWindow;
+        readonly UsCbsProgramSpecificTimeWindow programSpecificTimeWindow;
 
         internal CbsSocialDeterminantsOfHealth(Observation observation)
         {
             this.observation = observation;
-            this.programSpecificTimeWindow = new ProgramSpecificTimeWindow(observation);
+            this.programSpecificTimeWindow = new UsCbsProgramSpecificTimeWindow(observation);
 
         }
 
@@ -36,7 +37,7 @@ namespace GaTech.Chai.Cbs.CbsSocialDeterminantsOfHealthProfile
         /// <summary>
         /// Case Based Surveillance Program Specific Time Window
         /// </summary>
-        public ProgramSpecificTimeWindow ProgramSpecificTimeWindow => this.programSpecificTimeWindow;
+        public UsCbsProgramSpecificTimeWindow ProgramSpecificTimeWindow => this.programSpecificTimeWindow;
 
         /// <summary>
         /// The official URL for the Case Based Surveillance Social Determinants of Health profile, used to assert conformance.

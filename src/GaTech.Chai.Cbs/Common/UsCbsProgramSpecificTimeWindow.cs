@@ -2,22 +2,22 @@
 using GaTech.Chai.FhirIg.Extensions;
 using Hl7.Fhir.Model;
 
-namespace GaTech.Chai.FhirIg.Common
+namespace GaTech.Chai.UsCbs.Common
 {
     /// <summary>
     /// Time window of interest in relationship to a specified event as determined by individual case based surveillance programs.
-    /// http://cbsig.chai.gatech.edu/StructureDefinition/cbs-program-specific-time-window
+    /// http://cbsig.chai.gatech.edu/StructureDefinition/us-cbs-program-specific-time-window
     /// </summary>
-    public class ProgramSpecificTimeWindow
+    public class UsCbsProgramSpecificTimeWindow
     {
         readonly Observation observation;
 
-        public ProgramSpecificTimeWindow(Observation observation)
+        public UsCbsProgramSpecificTimeWindow(Observation observation)
         {
             this.observation = observation;
         }
 
-        public const string ExtensionUrl = "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-program-specific-time-window";
+        public const string ExtensionUrl = "http://cbsig.chai.gatech.edu/StructureDefinition/us-cbs-program-specific-time-window";
 
         /// <summary>
         /// The quantity value of the program specific time window.

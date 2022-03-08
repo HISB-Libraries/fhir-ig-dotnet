@@ -12,12 +12,14 @@
     <None Remove="UsPublicHealthPatientProfile\" />
     <None Remove="UsPublicHealthConditionProfile %28copy%29\" />
     <None Remove="USCoreOrganizationProfile\" />
+    <None Remove="UsPublicHealthEncounterProfile %28copy%29\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="UsPublicHealthConditionProfile\" />
     <Folder Include="UsPublicHealthPatientProfile\" />
     <Folder Include="UsPublicHealthEncounterProfile\" />
-    <Folder Include="UssublicHealthOrganizationProfile\" />
+    <Folder Include="UsPublicHealthOrganizationProfile\" />
+    <Folder Include="UsPublicHealthTravelHistoryProfile\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GaTech.Chai.Share\GaTech.Chai.Share.csproj" />

@@ -34,11 +34,11 @@
   <ItemGroup>
     <Folder Include="CbsVaccinationRecordProfile\" />
     <Folder Include="CbsVaccinationIndicationProfile\" />
-    <Folder Include="CbsTravelHistoryProfile\" />
+    <Folder Include="UsCbsTravelHistoryProfile\" />
     <Folder Include="CbsLabTestReportProfile\" />
     <Folder Include="UsCbsPerformingLaboratoryProfile\" />
     <Folder Include="CbsPersonReportingToCDCProfile\" />
-    <Folder Include="CbsReportingSourceOrganizationProfile\" />
+    <Folder Include="UsCbsReportingSourceOrganizationProfile\" />
     <Folder Include="CbsSocialDeterminantsOfHealthProfile\" />
     <Folder Include="CbsCaseNotificationPanelProfile\" />
     <Folder Include="UsCbsHospitalizationEncounterProfile\" />

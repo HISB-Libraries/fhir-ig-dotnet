@@ -1,13 +1,13 @@
 ﻿using System;
 using Hl7.Fhir.Model;
 
-namespace GaTech.Chai.FhirIg.Common
+namespace GaTech.Chai.UsCbs.Common
 {
     /// <summary>
     /// CBS Time Window Relative To Value Set (http://cbsig.chai.gatech.edu/CodeSystem/cbs-temp-code-system)
     /// Codes for specific resource elements referenced by the CBS Program Specific Time Window extension, to convey to which element in the referenced resource a time window is relative.
     /// </summary>
-    public static class TimeWindowRelativeToValue
+    public static class TimeWindowRelativeToValueSet
     {
         public const string ValueSetOid = "http://cbsig.chai.gatech.edu/CodeSystem/cbs-temp-code-system";
 

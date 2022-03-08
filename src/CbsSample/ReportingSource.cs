@@ -1,6 +1,7 @@
 ﻿using System;
 using Hl7.Fhir.Model;
-using GaTech.Chai.Cbs.CbsReportingSourceOrganizationProfile;
+using GaTech.Chai.FhirIg.Extensions;
+using GaTech.Chai.UsCbs.ReportingSourceOrganizationProfile;
 
 namespace CbsProfileInitialization
 {
@@ -12,11 +13,11 @@ namespace CbsProfileInitialization
 
         public static Organization Create(CodeableConcept source, Address address)
         {
-            Organization organization = CbsReportingSourceOrganization.Create();
-            organization.Name = "Reporting Source";
+            Organization organization = UsCbsReportingSourceOrganization.Create();
             organization.Type.Add(source);
             organization.Address.Add(address);
 
+            organization.Telecom.AddTelecom(ContactPoint.ContactPointSystem.Email, ContactPoint.ContactPointUse.Work, "myorg@reportingagent.org");
             return organization;
         }
     }

@@ -2,7 +2,7 @@
 using System.Linq;
 using Hl7.Fhir.Model;
 
-namespace GaTech.Chai.Cbs.CbsCaseNotificationPanelProfile
+namespace GaTech.Chai.Cbs.CaseNotificationPanelProfile
 {
     /// <summary>
     /// Case Based Surveillance Exposure Observation

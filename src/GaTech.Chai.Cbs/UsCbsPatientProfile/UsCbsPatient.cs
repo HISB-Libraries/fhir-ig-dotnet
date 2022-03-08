@@ -1,12 +1,14 @@
 using System;
 using Hl7.Fhir.Model;
 using GaTech.Chai.FhirIg.Extensions;
+using GaTech.Chai.UsPublicHealth.PatientProfile;
+using GaTech.Chai.UsCore.PatientProfile;
 
 namespace GaTech.Chai.UsCbs.PatientProfile
 {
     /// <summary>
     /// Case Based Surveillance Patient Profile Extensions
-    /// http://cbsig.chai.gatech.edu/StructureDefinition/cbs-patient
+    /// http://cbsig.chai.gatech.edu/StructureDefinition/us-cbs-patient
     /// </summary>
     public class UsCbsPatient
     {
@@ -19,19 +21,22 @@ namespace GaTech.Chai.UsCbs.PatientProfile
 
         /// <summary>
         /// Factory for Case Based Surveillance Patient Profile
-        /// http://cbsig.chai.gatech.edu/StructureDefinition/cbs-patient
+        /// http://cbsig.chai.gatech.edu/StructureDefinition/us-cbs-patient
         /// </summary>
         public static Patient Create()
         {
             var patient = new Patient();
             patient.UsCbsPatient().AddProfile();
+            patient.UsPublicHealthPatient().AddProfile();
+            patient.UsCorePatient().AddProfile();
+
             return patient;
         }
 
         /// <summary>
         /// The official URL for the Case Based Surveillance Patient profile, used to assert conformance.
         /// </summary>
-        public const string ProfileUrl = "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-patient";
+        public const string ProfileUrl = "http://cbsig.chai.gatech.edu/StructureDefinition/us-cbs-patient";
 
         /// <summary>
         /// Set the assertion that a patient object conforms to the Case Based Surveillance Patient Profile.

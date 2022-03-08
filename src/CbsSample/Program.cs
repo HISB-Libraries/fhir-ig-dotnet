@@ -1,11 +1,8 @@
 ﻿using System;
 using Hl7.Fhir.Model;
-using GaTech.Chai.Cbs.CbsCauseOfDeathProfile;
-using GaTech.Chai.Cbs.CbsTravelHistoryProfile;
 using GaTech.Chai.Cbs.CbsVaccinationIndicationProfile;
 using GaTech.Chai.Cbs.CbsLabTestReportProfile;
 using GaTech.Chai.Cbs.CbsPersonReportingToCDCProfile;
-using GaTech.Chai.Cbs.CbsReportingSourceOrganizationProfile;
 using GaTech.Chai.Cbs.CbsSocialDeterminantsOfHealthProfile;
 using GaTech.Chai.Cbs.CbsCaseNotificationPanelProfile;
 using GaTech.Chai.UsCbs.HospitalizationEncounterProfile;
@@ -19,6 +16,10 @@ using System.IO;
 using GaTech.Chai.FhirIg.Extensions;
 using GaTech.Chai.FhirIg.Common;
 using GaTech.Chai.UsCbs.PerformingLaboratoryProfile;
+using GaTech.Chai.UsCbs.ReportingSourceOrganizationProfile;
+using GaTech.Chai.UsCbs.TravelHistoryProfile;
+using GaTech.Chai.UsPublicHealth.TravelHistoryProfile;
+using GaTech.Chai.UsCbs.Common;
 
 namespace CbsSample
 {
@@ -52,7 +53,26 @@ namespace CbsSample
             var performingLab = UsCbsPerformingLaboratory.Create();
             performingLab.UsCbsPerformingLaboratory().SetNameDataAbsentReason(DataAbsentReason.AskedUnknown);
 
-            string output = serializer.SerializeToString(performingLab);
+            // Reporting Source
+            var reportingSource = ReportingSource.Create(new CodeableConcept("http://terminology.hl7.org/CodeSystem/v2-0406", "H", "Hospital", null), new Address() { PostalCode = "77018" });
+
+            // CbsTravelHistoryProfile
+            var travelHistory = UsCbsTravelHistory.Create();
+            travelHistory.Status = ObservationStatus.Final;
+            travelHistory.UsCbsTravelHistory().PeriodAndModeOfTravel.DateOrPeriodOfTravel = new Period(new FhirDateTime("2018-11-02"), new FhirDateTime("2018-11-12"));
+            travelHistory.UsCbsTravelHistory().PeriodAndModeOfTravel.ModeOfTravel = UsCbsPeriodAndModeOfTravel.TravelMode.Aircraft;
+            travelHistory.UsCbsTravelHistory().PeriodAndModeOfTravel.RelevantLocation = new Address[] { new Address { Country = "Mumbai" } };
+
+            travelHistory.UsCbsTravelHistory().ProgramSpecificTimeWindow.RelativeTo = TimeWindowRelativeToValueSet.ConditionOnsetDatePeriodStart;
+            travelHistory.UsCbsTravelHistory().ProgramSpecificTimeWindow.TimeWindow = new Quantity(1, "day");
+            travelHistory.UsCbsTravelHistory().ProgramSpecificTimeWindow.RelativeReference = patient.AsReference();
+            travelHistory.UsPublicHealthTravelHistory().TravelLocation.Address = new Address() { City = "Dallas", State = "TX", Country = "USA" };
+            travelHistory.UsPublicHealthTravelHistory().TravelLocation.Location = new CodeableConcept("urn:oid:2.16.840.1.113883.6.92", "48", "Texas", null);
+            travelHistory.UsPublicHealthTravelHistory().TravelLocation.TimeSpent = FhirDateTime.Now();
+
+            travelHistory.UsPublicHealthTravelHistory().TravelPurpose.Purpose = TravelPurpose.PurposeValueSet.Business;
+
+            string output = serializer.SerializeToString(travelHistory);
             //File.WriteAllText("GenV2.json", output);
             Console.WriteLine(output);
 
@@ -67,9 +87,6 @@ namespace CbsSample
             var personReporting = PersonReporting.Create("Smith", "Sandra");
             personReporting.Telecom.Add(new ContactPoint() { System = ContactPoint.ContactPointSystem.Email, Value = "ssmith@gmail.com" });
             personReporting.Telecom.Add(new ContactPoint(ContactPoint.ContactPointSystem.Phone, null, "444-321-1234"));
-
-            // Reporting Source
-            var reportingSource = ReportingSource.Create(new CodeableConcept("http://terminology.hl7.org/CodeSystem/v2-0406", "H", "Hospital", null), new Address() {PostalCode = "77018"});
 
             // Case Notification Panel
             var caseNotificationPanel = CaseNotificationPanel.Create(patient);
@@ -246,18 +263,6 @@ namespace CbsSample
             // CbsSpecimenProfile
             Specimen specimen = MySpecimen.Create(patient);
 
-
-            // CbsTravelHistoryProfile
-            var travelHistory = CbsTravelHistory.Create();
-            travelHistory.Status = ObservationStatus.Final;
-            travelHistory.CbsTravelHistory().ProgramSpecificTimeWindow.RelativeTo =
-                TimeWindowRelativeToValue.ConditionOnsetDatePeriodStart;
-            travelHistory.CbsTravelHistory().ProgramSpecificTimeWindow.TimeWindow = new Quantity(1, "day");
-            travelHistory.CbsTravelHistory().ProgramSpecificTimeWindow.RelativeReference = patient.AsReference();
-            travelHistory.CbsTravelHistory().TravelHistoryAddress.Address = new Address() { City = "Dallas", State = "TX", Country = "USA" };
-            travelHistory.CbsTravelHistory().TravelHistoryAddress.Location = CbsTravelHistory.GeographicalLocation.Encode("48", "Texas");
-            travelHistory.CbsTravelHistory().TravelHistoryAddress.TimeSpent = FhirDateTime.Now();
-
             // CbsVaccinationIndicationProfile
             var vaccinationIndication = CbsVaccinationIndication.Create();
             vaccinationIndication.Status = ObservationStatus.Final;
@@ -279,9 +284,6 @@ namespace CbsSample
 
             ///////////////////////////////////////////
 
-            // CbsReportingSourceOrganizationProfile
-            var org = CbsReportingSourceOrganization.Create("PHC247", "Laboratory");
-
             // CbsSocialDeterminantsOfHealthProfile
             var socialDeterminant = CbsSocialDeterminantsOfHealth.Create();
             socialDeterminant.Status = ObservationStatus.Final;
@@ -289,7 +291,7 @@ namespace CbsSample
             socialDeterminant.Category.Add(CbsSocialDeterminantsOfHealth.Categories.HousingOrResidence);
             socialDeterminant.Code = CbsSocialDeterminantsOfHealth.Codes.CharacteristicsOfResidence;
             socialDeterminant.CbsSocialDeterminantsOfHealth().ProgramSpecificTimeWindow.RelativeTo =
-                    TimeWindowRelativeToValue.ConditionOnsetDateTime;
+                    TimeWindowRelativeToValueSet.ConditionOnsetDateTime;
             socialDeterminant.CbsSocialDeterminantsOfHealth().ProgramSpecificTimeWindow.TimeWindow = new Quantity(1, "year");
             socialDeterminant.CbsSocialDeterminantsOfHealth().ProgramSpecificTimeWindow.RelativeReference = patient.AsReference();
 

@@ -1,17 +1,17 @@
 ﻿using System;
 using Hl7.Fhir.Model;
 
-namespace GaTech.Chai.Cbs.CbsTravelHistoryProfile
+namespace GaTech.Chai.UsCbs.TravelHistoryProfile
 {
     /// <summary>
     /// Class with Observation extensions for Case Based Surveillance Travel History Profile
     /// http://cbsig.chai.gatech.edu/StructureDefinition/cbs-travel-history
     /// </summary>
-    public static class CbsTravelHistoryExtension
+    public static class UsCbsTravelHistoryExtension
     {
-        public static CbsTravelHistory CbsTravelHistory(this Observation observation)
+        public static UsCbsTravelHistory UsCbsTravelHistory(this Observation observation)
         {
-            return new CbsTravelHistory(observation);
+            return new UsCbsTravelHistory(observation);
         }
     }
 }

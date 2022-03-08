@@ -102,37 +102,6 @@ namespace GaTech.Chai.UsPublicHealth.PatientProfile
         }
 
         /// <summary>
-        /// Set Phone number to Telecom
-        /// </summary>
-        public (ContactPointUse?, string) TelecomPhone
-        {
-            get {
-                ContactPoint cp = patient.Telecom?.Find(t => t.System == ContactPoint.ContactPointSystem.Phone);
-                if (cp != null)
-                    return (cp.Use, cp.Value);
-                else
-                    return (null, null);
-            }
-            set => patient.Telecom?.Add(new ContactPoint(){System = ContactPoint.ContactPointSystem.Phone, Use = value.Item1, Value = value.Item2 });
-        }
-
-        /// <summary>
-        /// Set Phone number to Email
-        /// </summary>
-        public (ContactPointUse?, string) TelecomEmail
-        {
-            get
-            {
-                ContactPoint cp = patient.Telecom?.Find(t => t.System == ContactPoint.ContactPointSystem.Email);
-                if (cp != null)
-                    return (cp.Use, cp.Value);
-                else
-                    return (null, null);
-            }
-            set => patient.Telecom?.Add(new ContactPoint() { System = ContactPoint.ContactPointSystem.Email, Use = value.Item1, Value = value.Item2 });
-        }
-
-        /// <summary>
         /// Set data-absent-reason extension to Telecom
         /// </summary>
         public void SetTelecomDataAbsentReason()

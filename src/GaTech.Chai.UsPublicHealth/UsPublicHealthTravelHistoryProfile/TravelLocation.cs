@@ -4,16 +4,16 @@ using System.Linq;
 using GaTech.Chai.FhirIg.Extensions;
 using Hl7.Fhir.Model;
 
-namespace GaTech.Chai.Cbs.CbsTravelHistoryProfile
+namespace GaTech.Chai.UsPublicHealth.TravelHistoryProfile
 {
     /// <summary>
     /// Travel History Address
     /// </summary>
-    public class TravelHistoryAddress
+    public class TravelLocation
     {
         readonly Observation observation;
 
-        internal TravelHistoryAddress(Observation observation)
+        internal TravelLocation(Observation observation)
         {
             this.observation = observation;
         }
@@ -55,7 +55,7 @@ namespace GaTech.Chai.Cbs.CbsTravelHistoryProfile
         }
 
         /// <summary>
-        /// Geographical location (2.16.840.1.114222.4.11.3201)
+        /// Geographical location should be from the valueset Geographical location history
         /// https://phinvads.cdc.gov/vads/ViewValueSet.action?oid=2.16.840.1.114222.4.11.3201
         /// </summary>
         public CodeableConcept Location

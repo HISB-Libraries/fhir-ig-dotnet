@@ -2,8 +2,8 @@
 using GaTech.Chai.UsCbs.PatientProfile;
 using GaTech.Chai.UsCore.PatientProfile;
 using GaTech.Chai.UsPublicHealth.PatientProfile;
+using GaTech.Chai.FhirIg.Extensions;
 using Hl7.Fhir.Model;
-using static Hl7.Fhir.Model.ContactPoint;
 
 namespace CbsProfileInitialization
 {
@@ -45,8 +45,10 @@ namespace CbsProfileInitialization
             patient.Address.Add(address);
 
             // Contact
-            patient.UsPublicHealthPatient().TelecomPhone = (ContactPointUse.Home, "212-867-5309");
-            patient.UsPublicHealthPatient().TelecomEmail = (ContactPointUse.Work, "mywork@gtri.org");
+            patient.Telecom.AddTelecom(ContactPoint.ContactPointSystem.Phone, ContactPoint.ContactPointUse.Home, "212-867-5309");
+            patient.Telecom.AddTelecom(ContactPoint.ContactPointSystem.Phone, ContactPoint.ContactPointUse.Home, "212-867-5310");
+            patient.Telecom.AddTelecom(ContactPoint.ContactPointSystem.Phone, ContactPoint.ContactPointUse.Home, "212-867-5310"); // duplicate entry demo
+            patient.Telecom.AddTelecom(ContactPoint.ContactPointSystem.Email, ContactPoint.ContactPointUse.Work, "mywork@gtri.org");
 
             // Deceased
             patient.Deceased = new FhirDateTime(2014, 3, 2);
