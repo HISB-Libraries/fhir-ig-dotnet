@@ -93,11 +93,23 @@ namespace CbsSample
             caseOutbreak.CbsCaseOutbreak().AddOutbreakIndicator = YesNoUnknown.Yes;
             caseNotificationPanel.HasMember.Add(caseOutbreak.AsReference());
 
+            var dateOfFirstReportToPublicHealthDept = CbsDateOfFirstReportToPublicHealthDept.Create();
+            dateOfFirstReportToPublicHealthDept.CbsDateOfFirstReportToPublicHealthDept().Value = new FhirDateTime("2022-01-30");
+            caseNotificationPanel.HasMember.Add(dateOfFirstReportToPublicHealthDept.AsReference());
+
+            var dateOfInitialReport = CbsDateOfInitialReport.Create();
+            dateOfInitialReport.CbsDateOfInitialReport().Value = new FhirDateTime("2022-01-30");
+            caseNotificationPanel.HasMember.Add(dateOfInitialReport.AsReference());
+
+            var earliestDateReported = CbsEarliestDateReported.Create();
+            earliestDateReported.CbsEarliestDateReported().Value = new FhirDateTime("2022-01-30");
+            caseNotificationPanel.HasMember.Add(earliestDateReported.AsReference());
+
             string output = serializer.SerializeToString(caseNotificationPanel);
             //File.WriteAllText("GenV2.json", output);
             Console.WriteLine(output);
 
-            output = serializer.SerializeToString(caseOutbreak);
+            output = serializer.SerializeToString(earliestDateReported);
             Console.WriteLine(output);
 
             /////////////////////////////////////////////////////////////////////////////

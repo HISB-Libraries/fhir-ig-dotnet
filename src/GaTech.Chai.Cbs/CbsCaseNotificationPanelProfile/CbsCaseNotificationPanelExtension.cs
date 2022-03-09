@@ -39,6 +39,21 @@ namespace GaTech.Chai.Cbs.CaseNotificationPanelProfile
             return new CbsCaseOutbreak(observation);
         }
 
+        public static CbsDateOfFirstReportToPublicHealthDept CbsDateOfFirstReportToPublicHealthDept(this Observation observation)
+        {
+            return new CbsDateOfFirstReportToPublicHealthDept(observation);
+        }
+
+        public static CbsDateOfInitialReport CbsDateOfInitialReport(this Observation observation)
+        {
+            return new CbsDateOfInitialReport(observation);
+        }
+
+        public static CbsEarliestDateReported CbsEarliestDateReported(this Observation observation)
+        {
+            return new CbsEarliestDateReported(observation);
+        }
+
         public static CbsMmwr CbsMmwr(this Observation observation)
         {
             return new CbsMmwr(observation);
