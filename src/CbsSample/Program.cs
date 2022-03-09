@@ -78,38 +78,64 @@ namespace CbsSample
 
             var ageAtInvestigation = CbsAgeAtCaseInvestigation.Create();
             ageAtInvestigation.CbsAgeAtCaseInvestigation().Value = new Quantity(35, "year") { Code = "a" };
+            ageAtInvestigation.Subject = patient.AsReference();
             caseNotificationPanel.HasMember.Add(ageAtInvestigation.AsReference());
 
             var binationalReportingCriteria = CbsBinationalReportingCriteria.Create();
             binationalReportingCriteria.CbsBinationalReportingCriteria().Value = new CodeableConcept("urn:oid:2.16.840.1.114222.4.5.274", "PHC1140", "Exposure to suspected product from Canada or Mexico", null);
+            binationalReportingCriteria.Subject = patient.AsReference();
             caseNotificationPanel.HasMember.Add(binationalReportingCriteria.AsReference());
 
             var investigationStartDate = CbsCaseInvestigationStartDate.Create();
             investigationStartDate.CbsCaseInvestigationStartDate().Value = new FhirDateTime("2022-01-30");
+            investigationStartDate.Subject = patient.AsReference();
             caseNotificationPanel.HasMember.Add(investigationStartDate.AsReference());
 
             var caseOutbreak = CbsCaseOutbreak.Create();
-            caseOutbreak.CbsCaseOutbreak().AddOutbreakName = "HANSENOUTB1";
-            caseOutbreak.CbsCaseOutbreak().AddOutbreakIndicator = YesNoUnknown.Yes;
+            caseOutbreak.CbsCaseOutbreak().OutbreakName = "HANSENOUTB1";
+            caseOutbreak.CbsCaseOutbreak().OutbreakIndicator = YesNoUnknown.Yes;
+            caseOutbreak.Subject = patient.AsReference();
             caseNotificationPanel.HasMember.Add(caseOutbreak.AsReference());
 
             var dateOfFirstReportToPublicHealthDept = CbsDateOfFirstReportToPublicHealthDept.Create();
             dateOfFirstReportToPublicHealthDept.CbsDateOfFirstReportToPublicHealthDept().Value = new FhirDateTime("2022-01-30");
+            dateOfFirstReportToPublicHealthDept.Subject = patient.AsReference();
             caseNotificationPanel.HasMember.Add(dateOfFirstReportToPublicHealthDept.AsReference());
 
             var dateOfInitialReport = CbsDateOfInitialReport.Create();
             dateOfInitialReport.CbsDateOfInitialReport().Value = new FhirDateTime("2022-01-30");
+            dateOfInitialReport.Subject = patient.AsReference();
             caseNotificationPanel.HasMember.Add(dateOfInitialReport.AsReference());
 
-            var earliestDateReported = CbsEarliestDateReported.Create();
-            earliestDateReported.CbsEarliestDateReported().Value = new FhirDateTime("2022-01-30");
-            caseNotificationPanel.HasMember.Add(earliestDateReported.AsReference());
+            var earliestDateReportedToCounty = CbsEarliestDateReportedToCounty.Create();
+            earliestDateReportedToCounty.CbsEarliestDateReportedToCounty().Value = new FhirDateTime("2022-01-30");
+            earliestDateReportedToCounty.Subject = patient.AsReference();
+            caseNotificationPanel.HasMember.Add(earliestDateReportedToCounty.AsReference());
+
+            var earliestDateReportedToState = CbsEarliestDateReportedToState.Create();
+            earliestDateReportedToState.CbsEarliestDateReportedToState().Value = new FhirDateTime("2021-01-30");
+            earliestDateReportedToState.Subject = patient.AsReference();
+            caseNotificationPanel.HasMember.Add(earliestDateReportedToState.AsReference());
+
+            var exposureObservation = CbsExposureObservation.Create();
+            exposureObservation.CbsExposureObservation().CountryOfExposure = new CodeableConcept("urn:iso:std:iso:3166", "USA", "United States of America", null);
+            exposureObservation.CbsExposureObservation().StateOrProvinceOfExposure = new CodeableConcept("urn:oid:2.16.840.1.113883.6.92", "48", "Texas", null);
+            exposureObservation.CbsExposureObservation().CityOfExposure = "Houston";
+            exposureObservation.CbsExposureObservation().CountyOfExposure = "Harris";
+            exposureObservation.Subject = patient.AsReference();
+            exposureObservation.Focus.Add(HemolyticUremicSyndromeCondition.AsReference());
+            caseNotificationPanel.HasMember.Add(exposureObservation.AsReference());
+
+            var immediateNationalNotifiableCondition = CbsImmediateNationalNotifiableCondition.Create();
+            immediateNationalNotifiableCondition.CbsImmediateNationalNotifiableCondition().Value = YesNoUnknown.No;
+            immediateNationalNotifiableCondition.Subject = patient.AsReference();
+            caseNotificationPanel.HasMember.Add(immediateNationalNotifiableCondition.AsReference());
 
             string output = serializer.SerializeToString(caseNotificationPanel);
             //File.WriteAllText("GenV2.json", output);
             Console.WriteLine(output);
 
-            output = serializer.SerializeToString(earliestDateReported);
+            output = serializer.SerializeToString(immediateNationalNotifiableCondition);
             Console.WriteLine(output);
 
             /////////////////////////////////////////////////////////////////////////////
@@ -130,15 +156,6 @@ namespace CbsSample
 
             var mmwrHUS = MMWR.Create(patient, HemolyticUremicSyndromeCondition, 9, 2014);
             listCPNMembers.Add(mmwrHUS.AsReference());
-
-            var exposureObservation = ExposureObservation.Create(patient, HemolyticUremicSyndromeCondition, new CodeableConcept("urn:iso:std:iso:3166", "USA", "United States of America"), new CodeableConcept("urn:oid:2.16.840.1.113883.6.92", "48", "Texas"), "Houston", "Harris");
-            listCPNMembers.Add(exposureObservation.AsReference());
-
-            //var immediateNationalNotifiableCondition = CbsCaseNotificationPanel.CreateMember();
-            //immediateNationalNotifiableCondition.Subject = patient.AsReference();
-            //immediateNationalNotifiableCondition.Code = CbsCaseNotificationPanel.CaseNotificationPanelValues.ImmediateNationalNotifiableCondition;
-            //immediateNationalNotifiableCondition.Value = YesNoUnknown.No;
-            //listCPNMembers.Add(immediateNationalNotifiableCondition.AsReference());
 
             //var reportingState = CbsCaseNotificationPanel.CreateMember();
             //reportingState.Subject = patient.AsReference();

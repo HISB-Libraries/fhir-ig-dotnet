@@ -8,9 +8,9 @@ namespace GaTech.Chai.Cbs.CaseNotificationPanelProfile
     /// Case Based Surveillance Date of Initial Report Observation
     /// http://cbsig.chai.gatech.edu/StructureDefinition/cbs-earliest-date-reported-to-county
     /// </summary>
-    public class CbsEarliestDateReported : CbsCaseNotificationPanel
+    public class CbsEarliestDateReportedToCounty : CbsCaseNotificationPanel
     {
-        internal CbsEarliestDateReported(Observation observation) : base(observation)
+        internal CbsEarliestDateReportedToCounty(Observation observation) : base(observation)
         {
             this.ProfileUrl = "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-earliest-date-reported-to-county";
         }
@@ -23,7 +23,7 @@ namespace GaTech.Chai.Cbs.CaseNotificationPanelProfile
         {
             var observation = new Observation();
             observation.CbsCaseNotificationPanel().AddProfile();
-            observation.CbsEarliestDateReported().AddProfile();
+            observation.CbsEarliestDateReportedToCounty().AddProfile();
             observation.Code = new CodeableConcept("http://loinc.org", "77972-8", "Earliest Date Reported to County", null);
             return observation;
         }

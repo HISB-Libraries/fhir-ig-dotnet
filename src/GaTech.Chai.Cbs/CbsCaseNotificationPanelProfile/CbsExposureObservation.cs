@@ -23,13 +23,9 @@ namespace GaTech.Chai.Cbs.CaseNotificationPanelProfile
         public static new Observation Create()
         {
             var observation = new Observation();
+            observation.CbsCaseNotificationPanel().AddProfile();
             observation.CbsExposureObservation().AddProfile();
-            observation.Status = ObservationStatus.Final;
-            var catCode = new CodeableConcept("http://loinc.org", "78000-7");
-            catCode.Coding.First().Display = "Case notification panel [CDC.PHIN]";
-            observation.Category.Add(catCode);
-            observation.Code = new CodeableConcept(
-                "http://cbsig.chai.gatech.edu/CodeSystem/cbs-temp-code-system", "Location-of-Exposure");
+            observation.Code = new CodeableConcept("http://cbsig.chai.gatech.edu/CodeSystem/cbs-temp-code-system", "Location-of-Exposure");
             return observation;
         }
 
@@ -39,15 +35,11 @@ namespace GaTech.Chai.Cbs.CaseNotificationPanelProfile
         /// </summary>
         public CodeableConcept CountryOfExposure
         {
-            get
-            {
-                var component = GetComponent("77984-3");
-                return component?.Value as CodeableConcept;
-            }
+            get => this.observation.Component.GetComponent("http://loinc.org", "77984-3").Value as CodeableConcept;
             set
             {
-                var component = GetOrAddComponent("77984-3");
-                component.Value = value;
+                Observation.ComponentComponent componentComponent = this.observation.Component.GetOrAddComponent("http://loinc.org", "77984-3", null);
+                componentComponent.Value = value;
             }
         }
 
@@ -57,15 +49,11 @@ namespace GaTech.Chai.Cbs.CaseNotificationPanelProfile
         /// </summary>
         public CodeableConcept StateOrProvinceOfExposure
         {
-            get
-            {
-                var component = GetComponent("77985-0");
-                return component?.Value as CodeableConcept;
-            }
+            get => this.observation.Component.GetComponent("http://loinc.org", "77985-0").Value as CodeableConcept;
             set
             {
-                var component = GetOrAddComponent("77985-0");
-                component.Value = value;
+                Observation.ComponentComponent componentComponent = this.observation.Component.GetOrAddComponent("http://loinc.org", "77985-0", null);
+                componentComponent.Value = value;
             }
         }
 
@@ -75,15 +63,11 @@ namespace GaTech.Chai.Cbs.CaseNotificationPanelProfile
         /// </summary>
         public string CityOfExposure
         {
-            get
-            {
-                var component = GetComponent("77986-8");
-                return (component?.Value as FhirString)?.Value;
-            }
+            get => this.observation.Component.GetComponent("http://loinc.org", "77986-8").Value.ToString();
             set
             {
-                var component = GetOrAddComponent("77986-8");
-                component.Value = new FhirString(value);
+                Observation.ComponentComponent componentComponent = this.observation.Component.GetOrAddComponent("http://loinc.org", "77986-8", null);
+                componentComponent.Value = new FhirString(value);
             }
         }
 
@@ -93,43 +77,12 @@ namespace GaTech.Chai.Cbs.CaseNotificationPanelProfile
         /// </summary>
         public string CountyOfExposure
         {
-            get
-            {
-                var component = GetComponent("77987-6");
-                return (component?.Value as FhirString)?.Value;
-            }
+            get => this.observation.Component.GetComponent("http://loinc.org", "77987-6").Value.ToString();
             set
             {
-                var component = GetOrAddComponent("77987-6");
-                component.Value = new FhirString(value);
+                Observation.ComponentComponent componentComponent = this.observation.Component.GetOrAddComponent("http://loinc.org", "77987-6", null);
+                componentComponent.Value = new FhirString(value);
             }
-        }
-
-        private string loincUrl = "http://loinc.org";
-
-        private Observation.ComponentComponent AddComponent(string code)
-        {
-            var component = new Observation.ComponentComponent()
-            {
-                Code = new CodeableConcept(loincUrl, code)
-            };
-            observation.Component.Add(component);
-            return component;
-        }
-
-        private Observation.ComponentComponent GetOrAddComponent(string code)
-        {
-            var component = GetComponent(code);
-            if (component == null)
-                component = AddComponent(code);
-            return component;
-        }
-
-        private Observation.ComponentComponent GetComponent(string code)
-        {
-            var component = observation.Component.Find(
-                c => c.Code.Coding.Exists(coding => coding.Code == code && coding.System == loincUrl));
-            return component;
         }
     }
 }

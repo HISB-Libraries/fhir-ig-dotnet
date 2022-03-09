@@ -14,11 +14,6 @@ namespace GaTech.Chai.Cbs.CaseNotificationPanelProfile
             return new CbsCaseNotificationPanel(observation);
         }
 
-        public static CbsExposureObservation CbsExposureObservation(this Observation observation)
-        {
-            return new CbsExposureObservation(observation); 
-        }
-
         public static CbsAgeAtCaseInvestigation CbsAgeAtCaseInvestigation(this Observation observation)
         {
             return new CbsAgeAtCaseInvestigation(observation);
@@ -49,9 +44,24 @@ namespace GaTech.Chai.Cbs.CaseNotificationPanelProfile
             return new CbsDateOfInitialReport(observation);
         }
 
-        public static CbsEarliestDateReported CbsEarliestDateReported(this Observation observation)
+        public static CbsEarliestDateReportedToCounty CbsEarliestDateReportedToCounty(this Observation observation)
         {
-            return new CbsEarliestDateReported(observation);
+            return new CbsEarliestDateReportedToCounty(observation);
+        }
+
+        public static CbsEarliestDateReportedToState CbsEarliestDateReportedToState(this Observation observation)
+        {
+            return new CbsEarliestDateReportedToState(observation);
+        }
+
+        public static CbsExposureObservation CbsExposureObservation(this Observation observation)
+        {
+            return new CbsExposureObservation(observation);
+        }
+
+        public static CbsImmediateNationalNotifiableCondition CbsImmediateNationalNotifiableCondition(this Observation observation)
+        {
+            return new CbsImmediateNationalNotifiableCondition(observation);
         }
 
         public static CbsMmwr CbsMmwr(this Observation observation)
