@@ -11,7 +11,6 @@
 
   <ItemGroup>
     <None Remove=".DS_Store" />
-    <None Remove="CbsVaccinationRecordProfile\" />
     <None Remove="CbsVaccinationIndicationProfile\" />
     <None Remove="CbsTravelHistoryProfile\" />
     <None Remove="CbsLabTestReport\" />
@@ -32,7 +31,6 @@
     <None Remove="UsCbsTemporaryValueSet\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="CbsVaccinationRecordProfile\" />
     <Folder Include="CbsVaccinationACIPRecommendationProfile\" />
     <Folder Include="UsCbsTravelHistoryProfile\" />
     <Folder Include="UsCbsPerformingLaboratoryProfile\" />
