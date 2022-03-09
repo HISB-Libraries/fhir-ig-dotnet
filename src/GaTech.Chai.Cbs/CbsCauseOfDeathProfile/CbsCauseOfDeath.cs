@@ -14,6 +14,8 @@ namespace GaTech.Chai.Cbs.CbsCauseOfDeathProfile
         internal CbsCauseOfDeath(Observation o)
         {
             this.observation = o;
+            observation.Code = new CodeableConcept("http://loinc.org", "79378-6");
+            observation.Status = ObservationStatus.Final;
         }
 
         /// <summary>
@@ -24,8 +26,6 @@ namespace GaTech.Chai.Cbs.CbsCauseOfDeathProfile
         {
             var observation = new Observation();
             observation.CbsCaseOfDeath().AddProfile();
-            observation.Code = new CodeableConcept("http://loinc.org", "79378-6");
-            observation.Status = ObservationStatus.Final;
             return observation;
         }
         /// <summary>

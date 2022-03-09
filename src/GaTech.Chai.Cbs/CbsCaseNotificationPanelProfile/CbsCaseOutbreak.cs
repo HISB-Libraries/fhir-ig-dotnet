@@ -33,7 +33,7 @@ namespace GaTech.Chai.Cbs.CaseNotificationPanelProfile
 
         public string OutbreakName
         {
-            get => this.observation.Component.GetComponent("http://loinc.org", "77981-9").Value.ToString();
+            get => this.observation.Component.GetComponent("http://loinc.org", "77981-9")?.Value.ToString();
             set
             {
                 Observation.ComponentComponent componentComponent = this.observation.Component.GetOrAddComponent("http://loinc.org", "77981-9", "Case Outbreak Name");
@@ -43,7 +43,7 @@ namespace GaTech.Chai.Cbs.CaseNotificationPanelProfile
 
         public CodeableConcept OutbreakIndicator
         {
-            get => this.observation.Component.GetComponent("http://loinc.org", "77980-1").Value as CodeableConcept;
+            get => this.observation.Component.GetComponent("http://loinc.org", "77980-1")?.Value as CodeableConcept;
             set
             {
                 Observation.ComponentComponent componentComponent = this.observation.Component.GetOrAddComponent("http://loinc.org", "77980-1", "Case is associated with a known outbreak");

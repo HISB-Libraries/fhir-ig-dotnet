@@ -1,6 +1,6 @@
 ﻿using Hl7.Fhir.Model;
 
-namespace GaTech.Chai.Cbs.CbsCompositionProfile
+namespace GaTech.Chai.Cbs.CompositionProfile
 {
     /// <summary>
     /// Class with Composition extensions for Case Based Surveillance Composition Profile

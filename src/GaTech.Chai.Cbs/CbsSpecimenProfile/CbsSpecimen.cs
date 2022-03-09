@@ -2,7 +2,7 @@ using System;
 using Hl7.Fhir.Model;
 using GaTech.Chai.FhirIg.Extensions;
 
-namespace GaTech.Chai.Cbs.CbsSpecimenProfile
+namespace GaTech.Chai.Cbs.SpecimenProfile
 {
     /// <summary>
     /// Case Based Surveillance Specimen Profile Extensions

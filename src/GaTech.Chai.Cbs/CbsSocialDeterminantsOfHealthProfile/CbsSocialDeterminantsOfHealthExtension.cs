@@ -1,7 +1,7 @@
 ﻿using System;
 using Hl7.Fhir.Model;
 
-namespace GaTech.Chai.Cbs.CbsSocialDeterminantsOfHealthProfile
+namespace GaTech.Chai.Cbs.SocialDeterminantsOfHealthProfile
 {
     /// <summary>
     /// Class with Observation extensions for Case Based Surveillance Social Determinants of Health Profile

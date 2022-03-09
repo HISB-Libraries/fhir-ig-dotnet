@@ -35,7 +35,7 @@ namespace GaTech.Chai.Cbs.CaseNotificationPanelProfile
         /// </summary>
         public CodeableConcept CountryOfExposure
         {
-            get => this.observation.Component.GetComponent("http://loinc.org", "77984-3").Value as CodeableConcept;
+            get => this.observation.Component.GetComponent("http://loinc.org", "77984-3")?.Value as CodeableConcept;
             set
             {
                 Observation.ComponentComponent componentComponent = this.observation.Component.GetOrAddComponent("http://loinc.org", "77984-3", null);
@@ -49,7 +49,7 @@ namespace GaTech.Chai.Cbs.CaseNotificationPanelProfile
         /// </summary>
         public CodeableConcept StateOrProvinceOfExposure
         {
-            get => this.observation.Component.GetComponent("http://loinc.org", "77985-0").Value as CodeableConcept;
+            get => this.observation.Component.GetComponent("http://loinc.org", "77985-0")?.Value as CodeableConcept;
             set
             {
                 Observation.ComponentComponent componentComponent = this.observation.Component.GetOrAddComponent("http://loinc.org", "77985-0", null);
@@ -63,7 +63,7 @@ namespace GaTech.Chai.Cbs.CaseNotificationPanelProfile
         /// </summary>
         public string CityOfExposure
         {
-            get => this.observation.Component.GetComponent("http://loinc.org", "77986-8").Value.ToString();
+            get => this.observation.Component.GetComponent("http://loinc.org", "77986-8")?.Value.ToString();
             set
             {
                 Observation.ComponentComponent componentComponent = this.observation.Component.GetOrAddComponent("http://loinc.org", "77986-8", null);
@@ -77,7 +77,7 @@ namespace GaTech.Chai.Cbs.CaseNotificationPanelProfile
         /// </summary>
         public string CountyOfExposure
         {
-            get => this.observation.Component.GetComponent("http://loinc.org", "77987-6").Value.ToString();
+            get => this.observation.Component.GetComponent("http://loinc.org", "77987-6")?.Value.ToString();
             set
             {
                 Observation.ComponentComponent componentComponent = this.observation.Component.GetOrAddComponent("http://loinc.org", "77987-6", null);

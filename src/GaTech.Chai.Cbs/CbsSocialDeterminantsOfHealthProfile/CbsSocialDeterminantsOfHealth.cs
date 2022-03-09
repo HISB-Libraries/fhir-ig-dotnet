@@ -4,7 +4,7 @@ using GaTech.Chai.FhirIg.Extensions;
 using GaTech.Chai.FhirIg.Common;
 using GaTech.Chai.UsCbs.Common;
 
-namespace GaTech.Chai.Cbs.CbsSocialDeterminantsOfHealthProfile
+namespace GaTech.Chai.Cbs.SocialDeterminantsOfHealthProfile
 {
     /// <summary>
     /// Case Based Surveillance Social Determinants of Health Profile Extensions

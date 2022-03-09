@@ -3,7 +3,7 @@ using Hl7.Fhir.Model;
 using GaTech.Chai.FhirIg.Extensions;
 using static Hl7.Fhir.Model.Composition;
 
-namespace GaTech.Chai.Cbs.CbsCompositionProfile
+namespace GaTech.Chai.Cbs.CompositionProfile
 {
     /// <summary>
     /// Case Based Surveillance Composition Profile Extensions
@@ -12,10 +12,50 @@ namespace GaTech.Chai.Cbs.CbsCompositionProfile
     public class CbsComposition
     {
         readonly Composition composition;
+        readonly CbsRelatedCase cbsRelatedCase;
 
         internal CbsComposition(Composition composition)
         {
             this.composition = composition;
+            this.cbsRelatedCase = new CbsRelatedCase(composition);
+
+            composition.Status = CompositionStatus.Final;
+            composition.Type = new CodeableConcept("http://loinc.org", "55751-2");
+            composition.Title = "Case Based Surveillance Composition";
+        }
+
+        public CbsRelatedCase RelatedCase => cbsRelatedCase;
+
+        /// <summary>
+        /// Factory for Case Based Surveillance Composition Profile
+        /// http://cbsig.chai.gatech.edu/StructureDefinition/cbs-composition
+        /// </summary>
+        public static Composition Create()
+        {
+            var composition = new Composition();
+            composition.CbsComposition().AddProfile();
+            return composition;
+        }
+
+        /// <summary>
+        /// The official URL for the Case Based Surveillance Composition profile, used to assert conformance.
+        /// </summary>
+        public const string ProfileUrl = "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-composition";
+
+        /// <summary>
+        /// Set the assertion that a questionnaire object conforms to the Case Based Surveillance Composition Profile.
+        /// </summary>
+        public void AddProfile()
+        {
+            composition.AddProfile(ProfileUrl);
+        }
+
+        /// <summary>
+        /// Clear the assertion that a questionnaire object conforms to the Case Based Surveillance Composition Profile.
+        /// </summary>
+        public void RemoveProfile()
+        {
+            composition.RemoveProfile(ProfileUrl);
         }
 
         /// <summary>
@@ -39,12 +79,39 @@ namespace GaTech.Chai.Cbs.CbsCompositionProfile
         }
 
         /// <summary>
+        /// Case Notification
+        /// </summary>
+        public SectionComponent CaseNotification
+        {
+            get => GetOrAddSection("case-notification-panel", "Case Notification Panel");
+            set => AddOrUpdateSection("case-notification-panel", "Case Notification Panel", value);
+        }
+
+        /// <summary>
         /// Reporting Entities
         /// </summary>
         public SectionComponent ReportingEntities
         {
             get => GetOrAddSection("reporting-entities", "Reporting Entities");
             set => AddOrUpdateSection("reporting-entities", "Reporting Entities", value);
+        }
+
+        /// <summary>
+        /// Epi Observations
+        /// </summary>
+        public SectionComponent EpiObservations
+        {
+            get => GetOrAddSection("epi-observations", "Epi Observations");
+            set => AddOrUpdateSection("epi-observations", "Epi Observations", value);
+        }
+
+        /// <summary>
+        /// Occupational Data
+        /// </summary>
+        public SectionComponent OccupationalData
+        {
+            get => GetOrAddSection("occupational-data", "Occupational Data");
+            set => AddOrUpdateSection("occupational-data", "Occupational Data", value);
         }
 
         /// <summary>
@@ -112,57 +179,12 @@ namespace GaTech.Chai.Cbs.CbsCompositionProfile
         }
 
         /// <summary>
-        /// Occupational Data
+        /// Vital Records Reporting
         /// </summary>
-        public SectionComponent OccupationalData
+        public SectionComponent VitalRecordsReporting
         {
-            get => GetOrAddSection("occupational-data", "Occupational Data");
-            set => AddOrUpdateSection("occupational-data", "Occupational Data", value);
-        }
-
-        /// <summary>
-        /// Case Notification
-        /// </summary>
-        public SectionComponent CaseNotification
-        {
-            get => GetOrAddSection("case-notification-panel", "Case Notification Panel");
-            set => AddOrUpdateSection("case-notification-panel", "Case Notification Panel", value);
-        }
-
-        /// <summary>
-        /// Factory for Case Based Surveillance Composition Profile
-        /// http://cbsig.chai.gatech.edu/StructureDefinition/cbs-composition
-        /// </summary>
-        public static Composition Create()
-        {
-            var composition = new Composition();
-            composition.CbsComposition().AddProfile();
-            composition.Status = CompositionStatus.Final;
-            composition.Type = new CodeableConcept();
-            composition.Type.Coding.Add(new Coding() { System = "http://loinc.org", Code = "55751-2" });
-            composition.Title = "Case Based Surveillance Composition";
-            return composition;
-        }
-
-        /// <summary>
-        /// The official URL for the Case Based Surveillance Composition profile, used to assert conformance.
-        /// </summary>
-        public const string ProfileUrl = "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-composition";
-
-        /// <summary>
-        /// Set the assertion that a questionnaire object conforms to the Case Based Surveillance Composition Profile.
-        /// </summary>
-        public void AddProfile()
-        {
-            composition.AddProfile(ProfileUrl);
-        }
-
-        /// <summary>
-        /// Clear the assertion that a questionnaire object conforms to the Case Based Surveillance Composition Profile.
-        /// </summary>
-        public void RemoveProfile()
-        {
-            composition.RemoveProfile(ProfileUrl);
+            get => GetOrAddSection("vital-records", "Vital Records Reporting (Death, Birth, or Fetal Death)");
+            set => AddOrUpdateSection("vital-records", "Vital Records Reporting (Death, Birth, or Fetal Death)", "Vital Records Reporting", value);
         }
 
         protected SectionComponent GetOrAddSection(string code, string display)

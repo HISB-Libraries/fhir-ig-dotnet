@@ -33,9 +33,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="CbsVaccinationRecordProfile\" />
-    <Folder Include="CbsVaccinationIndicationProfile\" />
+    <Folder Include="CbsVaccinationACIPRecommendationProfile\" />
     <Folder Include="UsCbsTravelHistoryProfile\" />
-    <Folder Include="CbsLabTestReportProfile\" />
     <Folder Include="UsCbsPerformingLaboratoryProfile\" />
     <Folder Include="CbsPersonReportingToCDCProfile\" />
     <Folder Include="UsCbsReportingSourceOrganizationProfile\" />

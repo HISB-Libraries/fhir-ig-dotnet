@@ -2,7 +2,7 @@ using System;
 using Hl7.Fhir.Model;
 using GaTech.Chai.FhirIg.Extensions;
 
-namespace GaTech.Chai.Cbs.CbsDocumentBundleProfile
+namespace GaTech.Chai.Cbs.DocumentBundleProfile
 {
     /// <summary>
     /// Case Based Surveillance Document Bundle Profile Extensions
@@ -15,6 +15,7 @@ namespace GaTech.Chai.Cbs.CbsDocumentBundleProfile
         internal CbsDocumentBundle(Bundle bundle)
         {
             this.bundle = bundle;
+            bundle.Type = Bundle.BundleType.Document;
         }
 
         /// <summary>
@@ -25,7 +26,6 @@ namespace GaTech.Chai.Cbs.CbsDocumentBundleProfile
         {
             var bundle = new Bundle();
             bundle.CbsDocumentBundle().AddProfile();
-            bundle.Type = Bundle.BundleType.Document;
             return bundle;
         }
 

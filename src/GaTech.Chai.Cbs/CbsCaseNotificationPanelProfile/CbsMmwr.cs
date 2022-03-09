@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using GaTech.Chai.FhirIg.Extensions;
 using Hl7.Fhir.Model;
 
 namespace GaTech.Chai.Cbs.CaseNotificationPanelProfile
@@ -23,12 +24,7 @@ namespace GaTech.Chai.Cbs.CaseNotificationPanelProfile
         {
             var observation = new Observation();
             observation.CbsMmwr().AddProfile();
-            observation.Status = ObservationStatus.Final;
-            var catCode = new CodeableConcept("http://loinc.org", "78000-7");
-            catCode.Coding.First().Display = "Case notification panel [CDC.PHIN]";
-            observation.Category.Add(catCode);
-            observation.Code = new CodeableConcept(
-                "http://cbsig.chai.gatech.edu/CodeSystem/cbs-temp-code-system", "MMWR");
+            observation.Code = new CodeableConcept("http://cbsig.chai.gatech.edu/CodeSystem/cbs-temp-code-system", "MMWR");
             return observation;
         }
 
@@ -37,15 +33,11 @@ namespace GaTech.Chai.Cbs.CaseNotificationPanelProfile
         /// </summary>
         public int? MMWRWeek
         {
-            get
-            {
-                var component = GetComponent("77991-8");
-                return (component?.Value as Integer)?.Value;
-            }
+            get => (this.observation.Component.GetComponent("http://loinc.org", "77991-8")?.Value as Integer)?.Value;
             set
             {
-                var component = GetOrAddComponent("77991-8");
-                component.Value = new Integer(value);
+                Observation.ComponentComponent componentComponent = this.observation.Component.GetOrAddComponent("http://loinc.org", "77991-8", null);
+                componentComponent.Value = new Integer(value);
             }
         }
 
@@ -54,43 +46,12 @@ namespace GaTech.Chai.Cbs.CaseNotificationPanelProfile
         /// </summary>
         public int? MMWRYear
         {
-            get
-            {
-                var component = GetComponent("77992-6");
-                return (component?.Value as Integer)?.Value;
-            }
+            get => (this.observation.Component.GetComponent("http://loinc.org", "77992-6")?.Value as Integer)?.Value;
             set
             {
-                var component = GetOrAddComponent("77992-6");
-                component.Value = new Integer(value);
+                Observation.ComponentComponent componentComponent = this.observation.Component.GetOrAddComponent("http://loinc.org", "77992-6", null);
+                componentComponent.Value = new Integer(value);
             }
-        }
-
-        private string loincUrl = "http://loinc.org";
-
-        private Observation.ComponentComponent AddComponent(string code)
-        {
-            var component = new Observation.ComponentComponent()
-            {
-                Code = new CodeableConcept(loincUrl, code)
-            };
-            observation.Component.Add(component);
-            return component;
-        }
-
-        private Observation.ComponentComponent GetOrAddComponent(string code)
-        {
-            var component = GetComponent(code);
-            if (component == null)
-                component = AddComponent(code);
-            return component;
-        }
-
-        private Observation.ComponentComponent GetComponent(string code)
-        {
-            var component = observation.Component.Find(
-                c => c.Code.Coding.Exists(coding => coding.Code == code && coding.System == loincUrl));
-            return component;
         }
     }
 }

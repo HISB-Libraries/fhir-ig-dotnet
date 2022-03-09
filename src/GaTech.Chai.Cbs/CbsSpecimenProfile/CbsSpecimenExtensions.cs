@@ -1,6 +1,6 @@
 ﻿using Hl7.Fhir.Model;
 
-namespace GaTech.Chai.Cbs.CbsSpecimenProfile
+namespace GaTech.Chai.Cbs.SpecimenProfile
 {
     /// <summary>
     /// Class with Specimen extensions for Case Based Surveillance Specimen Profile

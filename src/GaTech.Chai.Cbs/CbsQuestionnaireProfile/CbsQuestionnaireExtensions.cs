@@ -1,6 +1,6 @@
 ﻿using Hl7.Fhir.Model;
 
-namespace GaTech.Chai.Cbs.CbsQuestionnaireProfile
+namespace GaTech.Chai.Cbs.QuestionnaireProfile
 {
     /// <summary>
     /// Class with Questionnaire extensions for Case Based Surveillance Questionnaire Profile

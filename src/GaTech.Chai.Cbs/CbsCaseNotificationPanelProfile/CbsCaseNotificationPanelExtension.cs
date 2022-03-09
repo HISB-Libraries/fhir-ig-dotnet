@@ -64,9 +64,39 @@ namespace GaTech.Chai.Cbs.CaseNotificationPanelProfile
             return new CbsImmediateNationalNotifiableCondition(observation);
         }
 
+        public static CbsJurisdictionCode CbsJurisdictionCode(this Observation observation)
+        {
+            return new CbsJurisdictionCode(observation);
+        }
+
         public static CbsMmwr CbsMmwr(this Observation observation)
         {
             return new CbsMmwr(observation);
+        }
+
+        public static CbsNationalReportingJurisdiction CbsNationalReportingJurisdiction(this Observation observation)
+        {
+            return new CbsNationalReportingJurisdiction(observation);
+        }
+
+        public static CbsPregnancyStatus CbsPregnancyStatus(this Observation observation)
+        {
+            return new CbsPregnancyStatus(observation);
+        }
+
+        public static CbsReportingCounty CbsReportingCounty(this Observation observation)
+        {
+            return new CbsReportingCounty(observation);
+        }
+
+        public static CbsReportingState CbsReportingState(this Observation observation)
+        {
+            return new CbsReportingState(observation);
+        }
+
+        public static CbsTransmissionMode CbsTransmissionMode(this Observation observation)
+        {
+            return new CbsTransmissionMode(observation);
         }
     }
 }

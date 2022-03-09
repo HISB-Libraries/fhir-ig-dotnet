@@ -1,5 +1,5 @@
 ﻿using System;
-using GaTech.Chai.Cbs.CbsSpecimenProfile;
+using GaTech.Chai.Cbs.SpecimenProfile;
 using GaTech.Chai.FhirIg.Extensions;
 using Hl7.Fhir.Model;
 
