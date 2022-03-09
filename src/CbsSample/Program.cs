@@ -1,7 +1,5 @@
 ﻿using System;
 using Hl7.Fhir.Model;
-using GaTech.Chai.Cbs.VaccinationIndicationProfile;
-using GaTech.Chai.Cbs.CbsPersonReportingToCDCProfile;
 using GaTech.Chai.Cbs.SocialDeterminantsOfHealthProfile;
 using GaTech.Chai.UsCbs.HospitalizationEncounterProfile;
 using GaTech.Chai.Cbs.DocumentBundleProfile;
@@ -172,14 +170,6 @@ namespace CbsSample
             // Cause of Death Observation
             var causeOfDeath = CauseOfDeathObservation.Create(patient, HemolyticUremicSyndromeCondition);
 
-            string output = serializer.SerializeToString(causeOfDeath);
-            //File.WriteAllText("GenV2.json", output);
-            Console.WriteLine(output);
-
-            /////////////////////////////////////////////////////////////////////////////
-            // CbsVaccinationRecordProfile
-            var measlesVaccine = VaccineRecord.RecordFromBirthCertificate(patient, "05", "measles", new PositiveInt(1), new FhirDateTime("1965-07-02"));
-
             // Cause of Death Observation
             var causeOfDeathObservation = CauseOfDeathObservation.Create(patient, HemolyticUremicSyndromeCondition);
 
@@ -194,16 +184,16 @@ namespace CbsSample
             composition.Date = "2014-03-02";
             composition.Author.Add(reportingSource.AsReference());
             composition.Title = "Case Based Surveillance Composition";
-            composition.CbsComposition().ConditionOfInterest.Entry.Add(HemolyticUremicSyndromeCondition.AsReference());
-            composition.CbsComposition().Encounters.Entry.Add(hospitalizationEncounter.AsReference());
-            composition.CbsComposition().CaseNotification.Entry.Add(caseNotificationPanel.AsReference());
+            composition.CbsComposition().ConditionOfInterest = new Composition.SectionComponent() { Entry = new List<ResourceReference> { HemolyticUremicSyndromeCondition.AsReference() } };
+            composition.CbsComposition().Encounters = new Composition.SectionComponent() { Entry = new List<ResourceReference> { hospitalizationEncounter.AsReference() } };
+            composition.CbsComposition().CaseNotification = new Composition.SectionComponent() { Entry = new List<ResourceReference> { caseNotificationPanel.AsReference() } };
+            composition.CbsComposition().ReportingEntities = new Composition.SectionComponent() { Entry = new List<ResourceReference> { reportingSource.AsReference() } };
 
             // GenV2 Document
             Bundle document = CbsDocumentBundle.Create();
             document.Entry.Add(new Bundle.EntryComponent() { Resource = composition });
             document.Entry.Add(new Bundle.EntryComponent() { Resource = patient });
             document.Entry.Add(new Bundle.EntryComponent() { Resource = HemolyticUremicSyndromeCondition });
-            document.Entry.Add(new Bundle.EntryComponent() { Resource = measlesVaccine });
             document.Entry.Add(new Bundle.EntryComponent() { Resource = hospitalizationEncounter });
             document.Entry.Add(new Bundle.EntryComponent() { Resource = causeOfDeathObservation });
             document.Entry.Add(new Bundle.EntryComponent() { Resource = personReporting });
@@ -226,11 +216,13 @@ namespace CbsSample
             document.Entry.Add(new Bundle.EntryComponent() { Resource = dateOfFirstReportToPublicHealthDept });
             document.Entry.Add(new Bundle.EntryComponent() { Resource = pregnancyStatusAtTimeOfIllnessOrCondition });
             document.Entry.Add(new Bundle.EntryComponent() { Resource = ageAtInvestigation });
+            document.Entry.Add(new Bundle.EntryComponent() { Resource = measlesImmunization });
+            document.Entry.Add(new Bundle.EntryComponent() { Resource = haicaLabDiagnosticReport });
 
             // Print out the result
-            //string output = serializer.SerializeToString(document);
-            //File.WriteAllText("GenV2.json", output);
-            //Console.WriteLine(output);
+            string output = serializer.SerializeToString(document);
+            File.WriteAllText("GenV2.json", output);
+            Console.WriteLine(output);
 
             /*
              * HAI-CA Test Case 2: Candida auris, Clinical
