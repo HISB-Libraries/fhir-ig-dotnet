@@ -25,7 +25,6 @@
     <Folder Include="UsCoreEncounterProfile\" />
     <Folder Include="UsCoreImmunizationProfile\" />
     <Folder Include="UsCoreDiagnosticReportLabProfile\" />
-    <Folder Include="UssCoreLabResultObservationProfile\" />
     <Folder Include="UsCoreOrganizationProfile\" />
   </ItemGroup>
   <ItemGroup>
