@@ -218,7 +218,8 @@ namespace CbsSample
             document.Entry.Add(new Bundle.EntryComponent() { Resource = ageAtInvestigation });
             document.Entry.Add(new Bundle.EntryComponent() { Resource = measlesImmunization });
             document.Entry.Add(new Bundle.EntryComponent() { Resource = haicaLabDiagnosticReport });
-
+            document.Entry.Add(new Bundle.EntryComponent() { Resource = haicaLobResultObservation });
+            
             // Print out the result
             string output = serializer.SerializeToString(document);
             File.WriteAllText("GenV2.json", output);

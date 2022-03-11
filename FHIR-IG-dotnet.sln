@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GaTech.Chai.UsCore", "src\G
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GaTech.Chai.UsPublicHealth", "src\GaTech.Chai.UsPublicHealth\GaTech.Chai.UsPublicHealth.csproj", "{DD562F5B-9775-4E74-BA88-5AF8955F0B23}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GaTech.Chai.Mdi", "src\GaTech.Chai.Mdi\GaTech.Chai.Mdi.csproj", "{B663FAD7-3078-4D90-ADE5-5B975721419C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{DD562F5B-9775-4E74-BA88-5AF8955F0B23}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DD562F5B-9775-4E74-BA88-5AF8955F0B23}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DD562F5B-9775-4E74-BA88-5AF8955F0B23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B663FAD7-3078-4D90-ADE5-5B975721419C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B663FAD7-3078-4D90-ADE5-5B975721419C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B663FAD7-3078-4D90-ADE5-5B975721419C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B663FAD7-3078-4D90-ADE5-5B975721419C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
