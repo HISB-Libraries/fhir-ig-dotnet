@@ -18,7 +18,7 @@ namespace GaTech.Chai.UsCore.EncounterProfile
         }
 
         /// <summary>
-        /// Factory for US Core Condition Profile
+        /// Factory for US Core Encounter Profile
         /// http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter
         /// </summary>
         public static Encounter Create()
@@ -29,12 +29,12 @@ namespace GaTech.Chai.UsCore.EncounterProfile
         }
 
         /// <summary>
-        /// The official URL for the US Core Condition profile, used to assert conformance.
+        /// The official URL for the US Core Encounter profile, used to assert conformance.
         /// </summary>
         public const string ProfileUrl = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter";
 
         /// <summary>
-        /// Set the assertion that an condition object conforms to the Case Based Surveillance Lab Condition profile.
+        /// Set the assertion that an condition object conforms to the Case Based Surveillance Lab Encounter profile.
         /// </summary>
         public void AddProfile()
         {
@@ -42,7 +42,7 @@ namespace GaTech.Chai.UsCore.EncounterProfile
         }
 
         /// <summary>
-        /// Clear the assertion that an condition object conforms to the Case Based Surveillance Lab Condition profile.
+        /// Clear the assertion that an condition object conforms to the Case Based Surveillance Lab Encounter profile.
         /// </summary>
         public void RemoveProfile()
         {

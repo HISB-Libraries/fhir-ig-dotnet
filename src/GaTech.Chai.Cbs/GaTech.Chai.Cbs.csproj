@@ -41,7 +41,7 @@
     <Folder Include="UsCbsHospitalizationEncounterProfile\" />
     <Folder Include="CbsSpecimenProfile\" />
     <Folder Include="CbsQuestionnaireProfile\" />
-    <Folder Include="CbsDocumentBundle\" />
+    <Folder Include="CbsDocumentBundleProfile\" />
     <Folder Include="CbsCompositionProfile\" />
     <Folder Include="UsCbsImmunizationProfile\" />
     <Folder Include="UsCbsLabDiagnosticReportProfile\" />
