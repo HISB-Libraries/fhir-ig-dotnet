@@ -4,6 +4,7 @@ using GaTech.Chai.FhirIg.Extensions;
 using GaTech.Chai.Mdi.ListCauseOfDeathPathwayProfile;
 using GaTech.Chai.Mdi.MditoEdrsCompositionProfile;
 using GaTech.Chai.Mdi.ObservationCauseOfDeathConditionProfile;
+using GaTech.Chai.Mdi.ObservationConditionContributingToDeathProfile;
 using GaTech.Chai.Odh.UsualWorkProfile;
 using GaTech.Chai.UsCore.PatientProfile;
 using GaTech.Chai.UsCore.PractitionerProfile;
@@ -108,8 +109,15 @@ namespace MdiExample
             pathWayList.ListCauseOfDeathPathway().AddCauseOfDeathCondition(causeOfDeath1.AsReference());
             pathWayList.Subject = patient.AsReference();
             pathWayList.Source = practitioner.AsReference();
-   
-            string output = serializer.SerializeToString(pathWayList);
+
+            // Condition Contributing to Death
+            Observation conditionContributingToDeath = ObservationConditionContributingToDeath.Create();
+            conditionContributingToDeath.Status = ObservationStatus.Final;
+            conditionContributingToDeath.Subject = patient.AsReference();
+            conditionContributingToDeath.Performer.Add(practitioner.AsReference());
+            conditionContributingToDeath.ObservationConditionContributingToDeath().Value = new CodeableConcept(null, null, "Hypertensive heart disease");
+
+            string output = serializer.SerializeToString(conditionContributingToDeath);
             Console.WriteLine(output);
 
             //Composition composition = MdiToEdrsComposition.Create();
