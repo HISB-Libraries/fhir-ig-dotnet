@@ -13,7 +13,7 @@ namespace GaTech.Chai.FhirIg.Extensions
                 Coding extCoding = categoryConcept?.Coding.Find(e => e.System == coding.System && e.Code == coding.Code);
                 if (coding != null)
                 {
-                    // we have LAB category already. 
+                    // we have this category already. 
                     return;
                 }
             }

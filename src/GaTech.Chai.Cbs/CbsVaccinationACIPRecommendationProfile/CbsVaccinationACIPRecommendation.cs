@@ -58,7 +58,7 @@ namespace GaTech.Chai.Cbs.VaccinationACIPRecommendationProfile
         {
             get
             {
-                Coding coding = this.observation.Component?[0].Code.Coding.Find(e => e.System == "urn:oid:2.16.840.1.114222.4.5.232" && e.Code == "vac149");
+                Coding coding = this.observation.Component?[0].Code?.Coding?.Find(e => e.System == "urn:oid:2.16.840.1.114222.4.5.232" && e.Code == "vac149");
                 if (coding != null)
                 {
                     return this.observation.Component?[0].Code;
@@ -69,7 +69,7 @@ namespace GaTech.Chai.Cbs.VaccinationACIPRecommendationProfile
             }
             set
             {
-                Coding coding = this.observation.Component?[0].Code.Coding.Find(e => e.System == "urn:oid:2.16.840.1.114222.4.5.232" && e.Code == "vac149");
+                Coding coding = this.observation.Component?[0].Code?.Coding?.Find(e => e.System == "urn:oid:2.16.840.1.114222.4.5.232" && e.Code == "vac149");
                 if (coding == null)
                 {
                     this.observation.Component = new List<Observation.ComponentComponent> { new Observation.ComponentComponent() { Code = new CodeableConcept("urn:oid:2.16.840.1.114222.4.5.232", "vac149", "Reason Not Vaccinated per ACIP Recommendations", null), Value = value } };

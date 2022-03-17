@@ -1,7 +1,6 @@
 ﻿using System;
 using Hl7.Fhir.Model;
 using GaTech.Chai.Cbs.SocialDeterminantsOfHealthProfile;
-using GaTech.Chai.UsCbs.HospitalizationEncounterProfile;
 using GaTech.Chai.Cbs.DocumentBundleProfile;
 using GaTech.Chai.Cbs.QuestionnaireProfile;
 using GaTech.Chai.Cbs.CompositionProfile;
@@ -12,7 +11,6 @@ using System.IO;
 using GaTech.Chai.FhirIg.Extensions;
 using GaTech.Chai.FhirIg.Common;
 using GaTech.Chai.UsCbs.PerformingLaboratoryProfile;
-using GaTech.Chai.UsCbs.ReportingSourceOrganizationProfile;
 using GaTech.Chai.UsCbs.TravelHistoryProfile;
 using GaTech.Chai.UsPublicHealth.TravelHistoryProfile;
 using GaTech.Chai.UsCbs.Common;
