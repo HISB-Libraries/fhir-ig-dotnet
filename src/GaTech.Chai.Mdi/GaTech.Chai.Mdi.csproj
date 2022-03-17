@@ -8,11 +8,17 @@
     <None Remove="CbsDocumentBundle\" />
     <None Remove="CbsCompositionProfile\" />
     <None Remove="Common\" />
+    <None Remove="MdiToEdrsDocumentBundleProfile %28copy%29\" />
+    <None Remove="UsCoreLabResultObservationProfile\" />
+    <None Remove="ObservationCauseOfDeathConditionProfile %28copy%29\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="MdiToEdrsDocumentBundleProfile\" />
     <Folder Include="MdiToEdrsCompositionProfile\" />
     <Folder Include="Common\" />
+    <Folder Include="ListCauseOfDeathPathwayProfile\" />
+    <Folder Include="ObservationCauseOfDeathConditionProfile\" />
+    <Folder Include="ObservationConditionContributingToDeathProfile\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GaTech.Chai.Share\GaTech.Chai.Share.csproj" />

@@ -24,5 +24,16 @@ namespace GaTech.Chai.FhirIg.Extensions
         {
             return identifiers.Find(i => i.Type?.Coding?.Exists(c => c.System == system && c.Code == code) == true);
         }
+
+        public static void AddOrUpdateIdentifier(this List<Identifier> identifiers, string system, string value)
+        {
+            var id = identifiers.Find(c => c.System == system);
+            if (id != null)
+            {
+                identifiers.Remove(id);
+            }
+
+            identifiers.Add(new Identifier(system, value));
+        }
     }
 }

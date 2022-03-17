@@ -63,13 +63,18 @@ namespace GaTech.Chai.Odh.UsualWorkProfile
             }
             set
             {
+                if (value.System != OccupationCdcCensus2010Oid)
+                {
+                    throw(new ArgumentException("System must be " + OccupationCdcCensus2010Oid));
+                }
+
                 Coding coding = (this.observation.Value as CodeableConcept)?.Coding?.Find(c => c.System == OccupationCdcCensus2010Oid);
                 if (coding == null)
                 {
                     CodeableConcept valueCodeable = this.observation.Value as CodeableConcept;
                     if (valueCodeable == null)
                     {
-                        new CodeableConcept() { Coding = new List<Coding> { value } };
+                        this.observation.Value = new CodeableConcept() { Coding = new List<Coding> { value } };
                     } else
                     {
                         valueCodeable.Coding.Add(value);
@@ -94,13 +99,18 @@ namespace GaTech.Chai.Odh.UsualWorkProfile
             }
             set
             {
+                if (value.System != OccupationOdhOid)
+                {
+                    throw (new ArgumentException("System must be " + OccupationOdhOid));
+                }
+
                 Coding coding = (this.observation.Value as CodeableConcept)?.Coding?.Find(c => c.System == OccupationOdhOid);
                 if (coding == null)
                 {
                     CodeableConcept valueCodeable = this.observation.Value as CodeableConcept;
                     if (valueCodeable == null)
                     {
-                        new CodeableConcept() { Coding = new List<Coding> { value } };
+                        this.observation.Value = new CodeableConcept() { Coding = new List<Coding> { value } };
                     }
                     else
                     {
@@ -133,6 +143,11 @@ namespace GaTech.Chai.Odh.UsualWorkProfile
             }
             set
             {
+                if (value.System != IndustryCdcCensus2010Oid)
+                {
+                    throw (new ArgumentException("System must be " + IndustryCdcCensus2010Oid));
+                }
+
                 Observation.ComponentComponent component = this.observation.Component.GetOrAddComponent("http://loinc.org", "21844-6", "History of Usual industry");
                 Coding coding = (component.Value as CodeableConcept)?.Coding?.Find(c => c.System == IndustryCdcCensus2010Oid);
                 if (coding == null)
@@ -165,6 +180,11 @@ namespace GaTech.Chai.Odh.UsualWorkProfile
             }
             set
             {
+                if (value.System != IndustryCdcNaics2012Oid)
+                {
+                    throw (new ArgumentException("System must be " + IndustryCdcNaics2012Oid));
+                }
+
                 Observation.ComponentComponent component = this.observation.Component.GetOrAddComponent("http://loinc.org", "21844-6", "History of Usual industry");
                 Coding coding = (component.Value as CodeableConcept)?.Coding?.Find(c => c.System == IndustryCdcNaics2012Oid);
                 if (coding == null)

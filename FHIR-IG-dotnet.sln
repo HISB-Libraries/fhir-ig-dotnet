@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GaTech.Chai.Mdi", "src\GaTe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GaTech.Chai.Odh", "src\GaTech.Chai.Odh\GaTech.Chai.Odh.csproj", "{69C1EBB5-D68F-4B57-9A22-693BCF970804}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MdiExample", "src\MdiExample\MdiExample.csproj", "{8F5D002D-A864-45DB-8FFE-BB3398A04F41}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{69C1EBB5-D68F-4B57-9A22-693BCF970804}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{69C1EBB5-D68F-4B57-9A22-693BCF970804}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{69C1EBB5-D68F-4B57-9A22-693BCF970804}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F5D002D-A864-45DB-8FFE-BB3398A04F41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F5D002D-A864-45DB-8FFE-BB3398A04F41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F5D002D-A864-45DB-8FFE-BB3398A04F41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F5D002D-A864-45DB-8FFE-BB3398A04F41}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

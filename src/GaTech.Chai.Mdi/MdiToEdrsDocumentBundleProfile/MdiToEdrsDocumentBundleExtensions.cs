@@ -8,7 +8,6 @@ namespace GaTech.Chai.Mdi.MdiToEdrsDocumentBundleProfile
     /// </summary>
     public static class MdiToEdrsDocumentBundleExtensions
     {
-    {
         public static MdiToEdrsDocumentBundle MdiToEdrsDocumentBundle(this Bundle bundle)
         {
             return new MdiToEdrsDocumentBundle(bundle);

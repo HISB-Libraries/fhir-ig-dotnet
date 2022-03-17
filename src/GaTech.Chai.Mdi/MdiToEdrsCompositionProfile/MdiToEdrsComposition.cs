@@ -3,6 +3,7 @@ using Hl7.Fhir.Model;
 using GaTech.Chai.FhirIg.Extensions;
 using static Hl7.Fhir.Model.Composition;
 using GaTech.Chai.Mdi.Common;
+using System.Collections.Generic;
 
 namespace GaTech.Chai.Mdi.MditoEdrsCompositionProfile
 {
@@ -118,121 +119,57 @@ namespace GaTech.Chai.Mdi.MditoEdrsCompositionProfile
         }
 
         /// <summary>
-        /// Encounters
+        /// Circumstances
         /// </summary>
-        public SectionComponent Encounters
+        public SectionComponent Circumstances
         {
-            get => GetOrAddSection("history-of-encounters", "History of Encounters (Hospitalizations)");
-            set => AddOrUpdateSection("history-of-encounters", "History of Encounters (Hospitalizations)", value);
+            get => GetOrAddSection("circumstances", null);
+            set => AddOrUpdateSection("circumstances", null, value);
         }
 
         /// <summary>
-        /// Case Notification
+        /// Jurisdiction
         /// </summary>
-        public SectionComponent CaseNotification
+        public SectionComponent Jurisdiction
         {
-            get => GetOrAddSection("case-notification-panel", "Case Notification Panel");
-            set => AddOrUpdateSection("case-notification-panel", "Case Notification Panel", value);
+            get => GetOrAddSection("jurisdiction", null);
+            set => AddOrUpdateSection("jurisdiction", null, value);
         }
 
         /// <summary>
-        /// Reporting Entities
+        /// cause-manner
         /// </summary>
-        public SectionComponent ReportingEntities
+        public SectionComponent CauseManner
         {
-            get => GetOrAddSection("reporting-entities", "Reporting Entities");
-            set => AddOrUpdateSection("reporting-entities", "Reporting Entities", value);
+            get => GetOrAddSection("cause-manner", null);
+            set => AddOrUpdateSection("cause-manner", null, value);
         }
 
         /// <summary>
         /// Epi Observations
         /// </summary>
-        public SectionComponent EpiObservations
+        public SectionComponent MedicalHistory
         {
-            get => GetOrAddSection("epi-observations", "Epi Observations");
-            set => AddOrUpdateSection("epi-observations", "Epi Observations", value);
+            get => GetOrAddSection("medical-history", null);
+            set => AddOrUpdateSection("medical-history", null, value);
         }
 
         /// <summary>
-        /// Occupational Data
+        /// Exam Autopsy
         /// </summary>
-        public SectionComponent OccupationalData
+        public SectionComponent ExamAutopsy
         {
-            get => GetOrAddSection("occupational-data", "Occupational Data");
-            set => AddOrUpdateSection("occupational-data", "Occupational Data", value);
+            get => GetOrAddSection("exam-autopsy", null);
+            set => AddOrUpdateSection("exam-autopsy", null, value);
         }
 
         /// <summary>
-        /// Travel History
+        /// Narratives
         /// </summary>
-        public SectionComponent TravelHistory
+        public SectionComponent Narratives
         {
-            get => GetOrAddSection("travel-history", "Travel History");
-            set => AddOrUpdateSection("travel-history", "Travel History", value);
-        }
-
-        /// <summary>
-        /// Social Determinants of Health
-        /// </summary>
-        public SectionComponent Sdoh
-        {
-            get => GetOrAddSection("social-determinants-of-health", "Social Determinants of Health");
-            set => AddOrUpdateSection("social-determinants-of-health", "Social Determinants of Healthy", value);
-        }
-
-        /// <summary>
-        /// Lab Related - (Case Based Surveillance Lab Test Report | Case Based Surveillance Lab Observation |
-        /// Case Based Surveillance Performing Laboratory | Case Based Surveillance Specimen)
-        /// </summary>
-        public SectionComponent LabRelated
-        {
-            get => GetOrAddSection("lab-related", "Laboratory Related", "Laboratory Related Resources");
-            set => AddOrUpdateSection("lab-related", "Laboratory Related", "Laboratory Related Resources", value);
-        }
-
-        /// <summary>
-        /// Medication Administered
-        /// </summary>
-        public SectionComponent MedicationAdministered
-        {
-            get => GetOrAddSection("medication-administered", "Medication Administered");
-            set => AddOrUpdateSection("medication-administered", "Medication Administered", value);
-        }
-
-        /// <summary>
-        /// Vaccination
-        /// </summary>
-        public SectionComponent Vaccination
-        {
-            get => GetOrAddSection("vaccinations", "Vaccinations");
-            set => AddOrUpdateSection("vaccinations", "Vaccinations", value);
-        }
-
-        /// <summary>
-        /// Vital Records
-        /// </summary>
-        public SectionComponent VitalRecords
-        {
-            get => GetOrAddSection("vital-records", "Vital Records Reporting", "Vital Records Reporting (Death, Birth, or Fetal Death)");
-            set => AddOrUpdateSection("vital-records", "Vital Records Reporting", "Vital Records Reporting (Death, Birth, or Fetal Death)", value);
-        }
-
-        /// <summary>
-        /// Related Person
-        /// </summary>
-        public SectionComponent RelatedPerson
-        {
-            get => GetOrAddSection("related-persons", "Related Person");
-            set => AddOrUpdateSection("related-persons", "Related Person", value);
-        }
-
-        /// <summary>
-        /// Vital Records Reporting
-        /// </summary>
-        public SectionComponent VitalRecordsReporting
-        {
-            get => GetOrAddSection("vital-records", "Vital Records Reporting (Death, Birth, or Fetal Death)");
-            set => AddOrUpdateSection("vital-records", "Vital Records Reporting (Death, Birth, or Fetal Death)", "Vital Records Reporting", value);
+            get => GetOrAddSection("narratives", null);
+            set => AddOrUpdateSection("narratives", null, value);
         }
 
         protected SectionComponent GetOrAddSection(string code, string display)
