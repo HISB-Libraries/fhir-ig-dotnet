@@ -1,0 +1,16 @@
+﻿using Hl7.Fhir.Model;
+
+namespace GaTech.Chai.Mdi.ObservationDeathDateProfile
+{
+    /// <summary>
+    /// Class with Observation extensions for Death Date profile.
+    /// http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-death-date
+    /// </summary>
+    public static class ObservationCauseOfDeathConditionExtensions
+    {
+        public static ObservationDeathDate ObservationDeathDate(this Observation observation)
+        {
+            return new ObservationDeathDate(observation);
+        }
+    }
+}

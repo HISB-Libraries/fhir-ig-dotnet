@@ -11,6 +11,8 @@
     <None Remove="MdiToEdrsDocumentBundleProfile %28copy%29\" />
     <None Remove="UsCoreLabResultObservationProfile\" />
     <None Remove="ObservationCauseOfDeathConditionProfile %28copy%29\" />
+    <None Remove="ObservationDeathDateProfile %28copy%29\" />
+    <None Remove="ObservationDeathInjuryEventOccurredAtWorkProfile %28copy%29\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="MdiToEdrsDocumentBundleProfile\" />
@@ -19,6 +21,9 @@
     <Folder Include="ListCauseOfDeathPathwayProfile\" />
     <Folder Include="ObservationCauseOfDeathConditionProfile\" />
     <Folder Include="ObservationConditionContributingToDeathProfile\" />
+    <Folder Include="ObservationDeathDateProfile\" />
+    <Folder Include="ObservationDeathInjuryEventOccurredAtWorkProfile\" />
+    <Folder Include="ObservationHowDeathInjuryOccurredProfile\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GaTech.Chai.Share\GaTech.Chai.Share.csproj" />

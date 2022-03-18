@@ -74,7 +74,7 @@ namespace GaTech.Chai.Mdi.ObservationCauseOfDeathConditionProfile
         {
             get
             {
-                return (this.observation.Component.GetComponent("http://loinc.org", "69440-6").Value as FhirString).ToString();
+                return (this.observation.Component?.GetComponent("http://loinc.org", "69440-6").Value as FhirString).ToString();
             }
             set
             {
@@ -85,7 +85,7 @@ namespace GaTech.Chai.Mdi.ObservationCauseOfDeathConditionProfile
         {
             get
             {
-                return this.observation.Component.GetComponent("http://loinc.org", "69440-6").Value as Quantity;
+                return this.observation.Component?.GetComponent("http://loinc.org", "69440-6").Value as Quantity;
             }
             set
             {

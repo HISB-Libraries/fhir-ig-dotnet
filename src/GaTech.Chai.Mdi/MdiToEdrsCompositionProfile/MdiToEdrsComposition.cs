@@ -76,7 +76,7 @@ namespace GaTech.Chai.Mdi.MditoEdrsCompositionProfile
             set
             {
                 Extension ext = new Extension() { Url = "http://hl7.org/fhir/us/mdi/StructureDefinition/Extension-tracking-number" };
-                ext.Value = new Identifier() { Type = MdiValueSet.MdiCaseNumber, Value = value };
+                ext.Value = new Identifier() { Type = MdiCodeSystem.MdiCaseNumber, Value = value };
                 this.composition.Extension.AddOrUpdateExtension(ext);
             }
         }
@@ -103,7 +103,7 @@ namespace GaTech.Chai.Mdi.MditoEdrsCompositionProfile
             set
             {
                 Extension ext = new Extension() { Url = "http://hl7.org/fhir/us/mdi/StructureDefinition/Extension-tracking-number" };
-                ext.Value = new Identifier() { Type = MdiValueSet.EdrsFileNumber, Value = value };
+                ext.Value = new Identifier() { Type = MdiCodeSystem.EdrsFileNumber, Value = value };
                 this.composition.Extension.AddOrUpdateExtension(ext);
             }
         }
@@ -170,6 +170,12 @@ namespace GaTech.Chai.Mdi.MditoEdrsCompositionProfile
         {
             get => GetOrAddSection("narratives", null);
             set => AddOrUpdateSection("narratives", null, value);
+        }
+
+        protected SectionComponent GetOrAddSection(Coding coding)
+        {
+            return composition.Section.GetOrAddSection(coding.System, coding.Code,
+                    coding.Display, coding.Display);
         }
 
         protected SectionComponent GetOrAddSection(string code, string display)

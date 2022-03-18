@@ -1,11 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using GaTech.Chai.FhirIg.Extensions;
+using GaTech.Chai.Mdi.Common;
 using GaTech.Chai.Mdi.ListCauseOfDeathPathwayProfile;
 using GaTech.Chai.Mdi.MditoEdrsCompositionProfile;
 using GaTech.Chai.Mdi.ObservationCauseOfDeathConditionProfile;
 using GaTech.Chai.Mdi.ObservationConditionContributingToDeathProfile;
+using GaTech.Chai.Mdi.ObservationDeathDateProfile;
+using GaTech.Chai.Mdi.ObservationDeathInjuryEventOccurredAtWorkProfile;
+using GaTech.Chai.Mdi.ObservationHowDeathInjuryOccurredProfile;
 using GaTech.Chai.Odh.UsualWorkProfile;
+using GaTech.Chai.UsCore.LocationProfile;
 using GaTech.Chai.UsCore.PatientProfile;
 using GaTech.Chai.UsCore.PractitionerProfile;
 using Hl7.Fhir.Model;
@@ -117,7 +122,38 @@ namespace MdiExample
             conditionContributingToDeath.Performer.Add(practitioner.AsReference());
             conditionContributingToDeath.ObservationConditionContributingToDeath().Value = new CodeableConcept(null, null, "Hypertensive heart disease");
 
-            string output = serializer.SerializeToString(conditionContributingToDeath);
+            // Location Death
+            Location deathLocation = UsCoreLocation.Create();
+            deathLocation.Identifier.Add(new Identifier("http://www.acme.org/location", "29"));
+            deathLocation.Status = Location.LocationStatus.Active;
+            deathLocation.Name = "Atlanta GA Death Location - Freeman";
+            deathLocation.Address = new Address() { Use = Address.AddressUse.Home, Type = Address.AddressType.Physical, Line = new List<string>{
+                    "400 Windstream Street" }, City = "Atlanta", District = "Fulton County", State = "GA", Country = "USA" };
+
+            // Observation Death Date
+            Observation observationDeathDate = ObservationDeathDate.Create();
+            observationDeathDate.Subject = patient.AsReference();
+            observationDeathDate.Effective = new FhirDateTime("2022-01-08T15:30:00-05:00");
+            observationDeathDate.Value = new FhirDateTime("2022-01-08T14:04:00-05:00");
+            observationDeathDate.ObservationDeathDate().DateAndTimePronouncedDead = new FhirDateTime("2022-01-08T15:30:00-05:00");
+            observationDeathDate.ObservationDeathDate().ObservationLocation = deathLocation.AsReference();
+            observationDeathDate.Method = MdiCodeSystem.Exact;
+
+            // Observation Death Injury/Event Occurred at Work
+            Observation observationInjuryEventWork = ObservationDeathInjuryEventOccurredAtWork.Create();
+            observationInjuryEventWork.Status = ObservationStatus.Final;
+            observationInjuryEventWork.Subject = patient.AsReference();
+            observationInjuryEventWork.Value = MdiVsYesNoNotApplicable.No;
+
+            // Observation Death How Death Injury Occurred
+            Observation observationHowDeathInjuryOccurred = ObservationHowDeathInjuryOccurred.Create();
+            observationHowDeathInjuryOccurred.Status = ObservationStatus.Final;
+            observationHowDeathInjuryOccurred.Subject = patient.AsReference();
+            observationHowDeathInjuryOccurred.Effective = new FhirDateTime("2018-02-19T16:48:06-05:00");
+            observationHowDeathInjuryOccurred.Performer.Add(practitioner.AsReference());
+            observationHowDeathInjuryOccurred.Value = new FhirString("Ingested counterfeit medication");
+
+            string output = serializer.SerializeToString(observationHowDeathInjuryOccurred);
             Console.WriteLine(output);
 
             //Composition composition = MdiToEdrsComposition.Create();

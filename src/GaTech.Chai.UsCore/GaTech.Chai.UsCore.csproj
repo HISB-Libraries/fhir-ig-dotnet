@@ -18,6 +18,7 @@
     <None Remove="UsCoreEncounterProfile %28copy%29\" />
     <None Remove="UsCoreImmunizationProfile %28copy%29\" />
     <None Remove="USCoreDiagnosticReportLabProfile %28copy%29\" />
+    <None Remove="UsCorePractitionerProfile %28copy%29\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="UsCorePatientProfile\" />
@@ -26,7 +27,8 @@
     <Folder Include="UsCoreImmunizationProfile\" />
     <Folder Include="UsCoreDiagnosticReportLabProfile\" />
     <Folder Include="UsCoreOrganizationProfile\" />
-    <Folder Include="USsCorePractitionerProfile\" />
+    <Folder Include="UsCorePractitionerProfile\" />
+    <Folder Include="UsCoreLocationProfile\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GaTech.Chai.Share\GaTech.Chai.Share.csproj" />
