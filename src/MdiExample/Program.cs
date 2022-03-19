@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using GaTech.Chai.FhirIg.Extensions;
 using GaTech.Chai.Mdi.Common;
 using GaTech.Chai.Mdi.ListCauseOfDeathPathwayProfile;
-using GaTech.Chai.Mdi.MditoEdrsCompositionProfile;
 using GaTech.Chai.Mdi.ObservationCauseOfDeathConditionProfile;
 using GaTech.Chai.Mdi.ObservationConditionContributingToDeathProfile;
 using GaTech.Chai.Mdi.ObservationDeathDateProfile;
 using GaTech.Chai.Mdi.ObservationDeathInjuryEventOccurredAtWorkProfile;
+using GaTech.Chai.Mdi.ObservationDecedentPregnancyProfile;
 using GaTech.Chai.Mdi.ObservationHowDeathInjuryOccurredProfile;
+using GaTech.Chai.Mdi.ObservationMannerOfDeathProfile;
+using GaTech.Chai.Mdi.ObservationTobaccoUseContributedToDeathProfile;
 using GaTech.Chai.Odh.UsualWorkProfile;
 using GaTech.Chai.UsCore.LocationProfile;
 using GaTech.Chai.UsCore.PatientProfile;
@@ -153,7 +155,23 @@ namespace MdiExample
             observationHowDeathInjuryOccurred.Performer.Add(practitioner.AsReference());
             observationHowDeathInjuryOccurred.Value = new FhirString("Ingested counterfeit medication");
 
-            string output = serializer.SerializeToString(observationHowDeathInjuryOccurred);
+            // Observation Manner of Death
+            Observation observationMannerOfDeath = ObservationMannerOfDeath.Create();
+            observationMannerOfDeath.Subject = patient.AsReference();
+            observationMannerOfDeath.Performer.Add(patient.AsReference());
+            observationMannerOfDeath.Value = MdiVsMannerOfDeath.AccidentalDeath;
+
+            // Observation Decedent Pregnancy
+            Observation observationDecedentPregnancy = ObservationDecedentPregnancy.Create();
+            observationDecedentPregnancy.Subject = patient.AsReference();
+            observationDecedentPregnancy.Value = MdiVsDeathPregnancyStatus.NA;
+
+            // Observation Tobacco Use Contributed To Death
+            Observation observationTobaccoUseContributedToDeath = ObservationTobaccoUseContributedToDeath.Create();
+            observationTobaccoUseContributedToDeath.Subject = patient.AsReference();
+            observationTobaccoUseContributedToDeath.Value = MdiVsContributoryTobaccoUse.No;
+
+            string output = serializer.SerializeToString(observationTobaccoUseContributedToDeath);
             Console.WriteLine(output);
 
             //Composition composition = MdiToEdrsComposition.Create();

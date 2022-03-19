@@ -29,6 +29,7 @@
     <Folder Include="UsCoreOrganizationProfile\" />
     <Folder Include="UsCorePractitionerProfile\" />
     <Folder Include="UsCoreLocationProfile\" />
+    <Folder Include="UsCorePractitionerRoleProfile\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GaTech.Chai.Share\GaTech.Chai.Share.csproj" />

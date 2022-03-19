@@ -1,6 +1,6 @@
 ﻿using Hl7.Fhir.Model;
 
-namespace GaTech.Chai.Mdi.MditoEdrsCompositionProfile
+namespace GaTech.Chai.Mdi.CompositionMditoEdrsProfile
 {
     /// <summary>
     /// Class with Composition extensions for Case Based Surveillance Composition Profile
@@ -8,9 +8,9 @@ namespace GaTech.Chai.Mdi.MditoEdrsCompositionProfile
     /// </summary>
     public static class MdiToEdrsCompositionExtensions
     {
-        public static MdiToEdrsComposition CbsComposition(this Composition composition)
+        public static CompositionMdiToEdrs CompositionMdiToEdrs(this Composition composition)
         {
-            return new MdiToEdrsComposition(composition);
+            return new CompositionMdiToEdrs(composition);
         }
     }
 }

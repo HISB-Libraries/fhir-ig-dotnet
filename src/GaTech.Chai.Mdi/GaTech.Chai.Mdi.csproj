@@ -13,10 +13,15 @@
     <None Remove="ObservationCauseOfDeathConditionProfile %28copy%29\" />
     <None Remove="ObservationDeathDateProfile %28copy%29\" />
     <None Remove="ObservationDeathInjuryEventOccurredAtWorkProfile %28copy%29\" />
+    <None Remove="ObservationHowDeathInjuryOccurredProfile %28copy%29\" />
+    <None Remove="ObservationMannerOfDeathProfile %28copy%29\" />
+    <None Remove="BundleMdiToEdrsDocumentProfile %28copy%29\" />
+    <None Remove="BundleMessageToxicologyToMdiProfile %28copy%29\" />
+    <None Remove="CompositionMdiToEdrsProfile %28copy%29\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="MdiToEdrsDocumentBundleProfile\" />
-    <Folder Include="MdiToEdrsCompositionProfile\" />
+    <Folder Include="BundleDocumentMdiToEdrsProfile\" />
+    <Folder Include="CompositionMdiToEdrsProfile\" />
     <Folder Include="Common\" />
     <Folder Include="ListCauseOfDeathPathwayProfile\" />
     <Folder Include="ObservationCauseOfDeathConditionProfile\" />
@@ -24,6 +29,12 @@
     <Folder Include="ObservationDeathDateProfile\" />
     <Folder Include="ObservationDeathInjuryEventOccurredAtWorkProfile\" />
     <Folder Include="ObservationHowDeathInjuryOccurredProfile\" />
+    <Folder Include="ObservationMannerOfDeathProfile\" />
+    <Folder Include="ObservationDecedentPregnancyProfile\" />
+    <Folder Include="ObservationTobaccoUseContributedToDeathProfile\" />
+    <Folder Include="BundleMessageToxicologyToMdiProfile\" />
+    <Folder Include="MessageHeaderToxicologyToMdiProfile\" />
+    <Folder Include="DiagnosticReportToxicologyLabResultToMdiProfile\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GaTech.Chai.Share\GaTech.Chai.Share.csproj" />

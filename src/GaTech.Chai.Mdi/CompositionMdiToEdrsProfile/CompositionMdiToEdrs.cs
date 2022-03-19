@@ -5,17 +5,17 @@ using static Hl7.Fhir.Model.Composition;
 using GaTech.Chai.Mdi.Common;
 using System.Collections.Generic;
 
-namespace GaTech.Chai.Mdi.MditoEdrsCompositionProfile
+namespace GaTech.Chai.Mdi.CompositionMditoEdrsProfile
 {
     /// <summary>
     /// Medicolegal Deathh Investigation Composition Profile Extensions
     /// http://hl7.org/fhir/us/mdi/StructureDefinition/Composition-mdi-to-edrs
     /// </summary>
-    public class MdiToEdrsComposition
+    public class CompositionMdiToEdrs
     {
         readonly Composition composition;
 
-        internal MdiToEdrsComposition(Composition composition)
+        internal CompositionMdiToEdrs(Composition composition)
         {
             this.composition = composition;
 
@@ -29,7 +29,7 @@ namespace GaTech.Chai.Mdi.MditoEdrsCompositionProfile
         public static Composition Create()
         {
             var composition = new Composition();
-            composition.CbsComposition().AddProfile();
+            composition.CompositionMdiToEdrs().AddProfile();
             return composition;
         }
 
