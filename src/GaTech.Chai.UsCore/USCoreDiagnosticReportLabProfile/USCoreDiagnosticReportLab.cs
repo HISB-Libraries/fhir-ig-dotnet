@@ -15,7 +15,7 @@ namespace GaTech.Chai.UsCore.DiagnosticReportLabProfile
         internal UsCoreDiagnosticReportLab(DiagnosticReport diagnosticReport)
         {
             this.diagnosticReport = diagnosticReport;
-            this.diagnosticReport.Category.SetCategory(new Coding("http://terminology.hl7.org/CodeSystem/v2-0074", "LAB"));
+            this.diagnosticReport.Category.SetCategory(new Coding("http://terminology.hl7.org/CodeSystem/v2-0074", "LAB", "Laboratory"));
         }
 
         /// <summary>

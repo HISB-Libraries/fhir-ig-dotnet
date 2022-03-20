@@ -5,8 +5,8 @@ using GaTech.Chai.FhirIg.Extensions;
 namespace GaTech.Chai.UsCore.LabResultObservationProfile
 {
     /// <summary>
-    /// US Core DiagnosticReport Profile Extensions
-    /// hhttp://hl7.org/fhir/us/core/StructureDefinition/us-core-diagnosticreport-lab
+    /// UsCoreLabResultObservation Profile Extensions
+    /// http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab
     /// </summary>
     public class UsCoreLabResultObservation
     {
@@ -15,12 +15,12 @@ namespace GaTech.Chai.UsCore.LabResultObservationProfile
         internal UsCoreLabResultObservation(Observation observation)
         {
             this.observation = observation;
-            this.observation.Category.SetCategory(new Coding("http://terminology.hl7.org/CodeSystem/observation-category", "laboratory"));
+            this.observation.Category.SetCategory(new Coding("http://terminology.hl7.org/CodeSystem/observation-category", "laboratory", "Laboratory"));
         }
 
         /// <summary>
-        /// Factory for US Core DiagnosticReport Profile
-        /// http://hl7.org/fhir/us/core/StructureDefinition/us-core-diagnosticreport-lab
+        /// Factory for UsCoreLabResultObservation Profile
+        /// http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab
         /// </summary>
         public static Observation Create()
         {
@@ -30,12 +30,12 @@ namespace GaTech.Chai.UsCore.LabResultObservationProfile
         }
 
         /// <summary>
-        /// The official URL for the US Core DiagnosticReport profile, used to assert conformance.
+        /// The official URL for the UsCoreLabResultObservation profile, used to assert conformance.
         /// </summary>
         public const string ProfileUrl = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab";
 
         /// <summary>
-        /// Set the assertion that an DiagnosticReport object conforms to the Case Based Surveillance DiagnosticReport profile.
+        /// Set the assertion that an Observation object conforms to the UsCoreLabResultObservation profile.
         /// </summary>
         public void AddProfile()
         {

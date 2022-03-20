@@ -1,6 +1,7 @@
 ﻿using System;
 using Hl7.Fhir.Model;
 using GaTech.Chai.FhirIg.Extensions;
+using GaTech.Chai.UsCore.DiagnosticReportLabProfile;
 
 namespace GaTech.Chai.UsCbs.LabDiagnosticReportProfile
 {
@@ -25,6 +26,7 @@ namespace GaTech.Chai.UsCbs.LabDiagnosticReportProfile
         {
             var diagnosticReport = new DiagnosticReport();
             diagnosticReport.UsCbsLabDiagnosticReport().AddProfile();
+            diagnosticReport.UsCoreDiagnosticReportLab().AddProfile();
             return diagnosticReport;
         }
 

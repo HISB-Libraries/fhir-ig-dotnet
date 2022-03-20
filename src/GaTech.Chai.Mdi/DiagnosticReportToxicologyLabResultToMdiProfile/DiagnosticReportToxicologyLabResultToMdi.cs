@@ -2,6 +2,7 @@ using System;
 using Hl7.Fhir.Model;
 using GaTech.Chai.FhirIg.Extensions;
 using GaTech.Chai.Mdi.Common;
+using GaTech.Chai.UsCore.DiagnosticReportLabProfile;
 
 namespace GaTech.Chai.Mdi.DiagnosticReportToxicologyLabResultToMdiProfile
 {
@@ -26,6 +27,7 @@ namespace GaTech.Chai.Mdi.DiagnosticReportToxicologyLabResultToMdiProfile
         {
             var diagnosticReport = new DiagnosticReport();
             diagnosticReport.DiagnosticReportToxicologyLabResultToMdi().AddProfile();
+            diagnosticReport.UsCoreDiagnosticReportLab().AddProfile();
             return diagnosticReport;
         }
 

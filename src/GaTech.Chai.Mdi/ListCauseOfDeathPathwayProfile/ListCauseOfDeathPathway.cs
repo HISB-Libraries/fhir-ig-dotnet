@@ -63,7 +63,7 @@ namespace GaTech.Chai.Mdi.ListCauseOfDeathPathwayProfile
             }
             else
             {
-                throw (new ArgumentException("Total number of allowed causes of death condition exceeded."));
+                throw (new ArgumentException("The number of causes of death condition exceeded the allowed limit (5)."));
             }
         }
     }

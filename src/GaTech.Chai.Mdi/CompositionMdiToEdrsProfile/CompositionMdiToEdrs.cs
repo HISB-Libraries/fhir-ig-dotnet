@@ -114,8 +114,8 @@ namespace GaTech.Chai.Mdi.CompositionMditoEdrsProfile
         /// </summary>
         public SectionComponent Demographics
         {
-            get => GetOrAddSection("demographics", null);
-            set => AddOrUpdateSection("demographics", null, value);
+            get => GetOrAddSection("demographics", MdiCodeSystem.Demographics.Coding[0].Display);
+            set => AddOrUpdateSection("demographics", MdiCodeSystem.Demographics.Coding[0].Display, value);
         }
 
         /// <summary>
@@ -123,8 +123,8 @@ namespace GaTech.Chai.Mdi.CompositionMditoEdrsProfile
         /// </summary>
         public SectionComponent Circumstances
         {
-            get => GetOrAddSection("circumstances", null);
-            set => AddOrUpdateSection("circumstances", null, value);
+            get => GetOrAddSection("circumstances", MdiCodeSystem.Circumstances.Coding[0].Display);
+            set => AddOrUpdateSection("circumstances", MdiCodeSystem.Circumstances.Coding[0].Display, value);
         }
 
         /// <summary>
@@ -132,8 +132,8 @@ namespace GaTech.Chai.Mdi.CompositionMditoEdrsProfile
         /// </summary>
         public SectionComponent Jurisdiction
         {
-            get => GetOrAddSection("jurisdiction", null);
-            set => AddOrUpdateSection("jurisdiction", null, value);
+            get => GetOrAddSection("jurisdiction", MdiCodeSystem.Jurisdiction.Coding[0].Display);
+            set => AddOrUpdateSection("jurisdiction", MdiCodeSystem.Jurisdiction.Coding[0].Display, value);
         }
 
         /// <summary>
@@ -141,8 +141,8 @@ namespace GaTech.Chai.Mdi.CompositionMditoEdrsProfile
         /// </summary>
         public SectionComponent CauseManner
         {
-            get => GetOrAddSection("cause-manner", null);
-            set => AddOrUpdateSection("cause-manner", null, value);
+            get => GetOrAddSection("cause-manner", MdiCodeSystem.CauseManner.Coding[0].Display);
+            set => AddOrUpdateSection("cause-manner", MdiCodeSystem.CauseManner.Coding[0].Display, value);
         }
 
         /// <summary>
@@ -150,8 +150,8 @@ namespace GaTech.Chai.Mdi.CompositionMditoEdrsProfile
         /// </summary>
         public SectionComponent MedicalHistory
         {
-            get => GetOrAddSection("medical-history", null);
-            set => AddOrUpdateSection("medical-history", null, value);
+            get => GetOrAddSection("medical-history", MdiCodeSystem.MedicalHistory.Coding[0].Display);
+            set => AddOrUpdateSection("medical-history", MdiCodeSystem.MedicalHistory.Coding[0].Display, value);
         }
 
         /// <summary>

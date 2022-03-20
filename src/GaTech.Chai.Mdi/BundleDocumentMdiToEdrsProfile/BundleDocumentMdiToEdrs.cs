@@ -49,6 +49,5 @@ namespace GaTech.Chai.Mdi.BundleDocumentMdiToEdrsProfile
         {
             bundle.RemoveProfile(ProfileUrl);
         }
-
     }
 }

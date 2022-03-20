@@ -18,6 +18,7 @@
     <None Remove="BundleMdiToEdrsDocumentProfile %28copy%29\" />
     <None Remove="BundleMessageToxicologyToMdiProfile %28copy%29\" />
     <None Remove="CompositionMdiToEdrsProfile %28copy%29\" />
+    <None Remove="CbsSpecimenProfile\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="BundleDocumentMdiToEdrsProfile\" />
@@ -35,6 +36,8 @@
     <Folder Include="BundleMessageToxicologyToMdiProfile\" />
     <Folder Include="MessageHeaderToxicologyToMdiProfile\" />
     <Folder Include="DiagnosticReportToxicologyLabResultToMdiProfile\" />
+    <Folder Include="SpecimenToxicologyLabProfile\" />
+    <Folder Include="ObservationToxicologyLabResultProfile\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GaTech.Chai.Share\GaTech.Chai.Share.csproj" />

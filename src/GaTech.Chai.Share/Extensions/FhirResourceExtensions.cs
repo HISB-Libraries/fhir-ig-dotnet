@@ -84,11 +84,11 @@ namespace GaTech.Chai.FhirIg.Extensions
         /// Get Reference to Resource
         /// </summary>
         /// <returns></returns>
-        public static ResourceReference AsReference(this Resource resource)
+        public static ResourceReference AsReference(this Resource resource, string display=null)
         {
             if (string.IsNullOrEmpty(resource.Id))
                 resource.Id = Guid.NewGuid().ToString();
-            return new ResourceReference($"{resource.TypeName}/{resource.Id}");
+            return new ResourceReference($"{resource.TypeName}/{resource.Id}", display);
         }
     }
 }
