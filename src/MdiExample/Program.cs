@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.IO;
 using GaTech.Chai.FhirIg.Extensions;
 using GaTech.Chai.Mdi.BundleDocumentMdiToEdrsProfile;
+using GaTech.Chai.Mdi.BundleMessageToxicologyToMdiProfile;
 using GaTech.Chai.Mdi.Common;
 using GaTech.Chai.Mdi.CompositionMditoEdrsProfile;
 using GaTech.Chai.Mdi.DiagnosticReportToxicologyLabResultToMdiProfile;
 using GaTech.Chai.Mdi.ListCauseOfDeathPathwayProfile;
+using GaTech.Chai.Mdi.MessageHeaderToxicologyToMdiProfile;
 using GaTech.Chai.Mdi.ObservationCauseOfDeathConditionProfile;
 using GaTech.Chai.Mdi.ObservationConditionContributingToDeathProfile;
 using GaTech.Chai.Mdi.ObservationDeathDateProfile;
@@ -283,21 +285,93 @@ namespace MdiExample
             specimenStomachContents.Container.Add(new Specimen.ContainerComponent() { Description = "60mL sample of stomach contents specimen", SpecimenQuantity = new Quantity() { Value = 60, Unit = "ml" } });
 
             // Toxicology Lab Results to MDI
-            Observation toxLabResultChromatography = ObservationToxicologyLabResult.Create();
-            toxLabResultChromatography.Status = ObservationStatus.Final;
-            toxLabResultChromatography.Code = new CodeableConcept("http://loinc.org", "56478-1", "Ethanol [Mass/volume] in Blood by Gas chromatography", "Ethanol [Mass/volume] in Blood by Gas chromatography");
-            toxLabResultChromatography.Subject = patient.AsReference();
-            toxLabResultChromatography.Effective = new FhirDateTime("2021-12-03");
-            toxLabResultChromatography.Value = new Quantity() { Value = new Decimal(0.145), Unit = "g/dL", System = "http://unitsofmeasure.org" };
-            toxLabResultChromatography.Specimen = specimenBlood.AsReference();
+            Observation toxLabResultEthanolBlood = ObservationToxicologyLabResult.Create();
+            toxLabResultEthanolBlood.Status = ObservationStatus.Final;
+            toxLabResultEthanolBlood.Code = new CodeableConcept("http://loinc.org", "56478-1", "Ethanol [Mass/volume] in Blood by Gas chromatography", "Ethanol [Mass/volume] in Blood by Gas chromatography");
+            toxLabResultEthanolBlood.Subject = patient.AsReference();
+            toxLabResultEthanolBlood.Effective = new FhirDateTime("2021-12-03");
+            toxLabResultEthanolBlood.Value = new Quantity() { Value = new Decimal(0.145), Unit = "g/dL", System = "http://unitsofmeasure.org" };
+            toxLabResultEthanolBlood.Specimen = specimenBlood.AsReference();
 
-            Observation toxLabResult = ObservationToxicologyLabResult.Create();
-            toxLabResult.Status = ObservationStatus.Final;
-            toxLabResult.Code = new CodeableConcept("http://loinc.org", "73938-3", "fentaNYL [Mass/volume] in Blood by Confirmatory method", null);
-            toxLabResult.Subject = patient.AsReference();
-            toxLabResult.Effective = new FhirDateTime("2021-12-03");
-            toxLabResult.Value = new Quantity() { Value = 23, Unit = "ng/mL", System = "http://unitsofmeasure.org" };
-            toxLabResult.Specimen = specimenBlood.AsReference();
+            Observation toxLabResult4anppBlood = ObservationToxicologyLabResult.Create();
+            toxLabResult4anppBlood.Status = ObservationStatus.Final;
+            toxLabResult4anppBlood.Code = new CodeableConcept("http://loinc.org", "11072-6", "Despropionylfentanyl [Mass/volume] in Serum or Plasma", "Despropionylfentanyl [Mass/volume] in Serum or Plasma");
+            toxLabResult4anppBlood.Subject = patient.AsReference();
+            toxLabResult4anppBlood.Effective = new FhirDateTime("2021-12-03");
+            toxLabResult4anppBlood.Value = new FhirBoolean(true);
+            toxLabResult4anppBlood.Specimen = specimenBlood.AsReference();
+
+            Observation toxLabResultAcetylfentanylBlood = ObservationToxicologyLabResult.Create();
+            toxLabResultAcetylfentanylBlood.Status = ObservationStatus.Final;
+            toxLabResultAcetylfentanylBlood.Code = new CodeableConcept("http://loinc.org", "86223-5", "Acetyl norfentanyl [Mass/volume] in Serum, Plasma or Blood by Confirmatory method", "Acetyl norfentanyl [Mass/volume] in Serum, Plasma or Blood by Confirmatory method");
+            toxLabResultAcetylfentanylBlood.Subject = patient.AsReference();
+            toxLabResultAcetylfentanylBlood.Effective = new FhirDateTime("2021-12-03");
+            toxLabResultAcetylfentanylBlood.Value = new Quantity() { Value = 2, Unit = "ng/mL", System = "http://unitsofmeasure.org" };
+            toxLabResultAcetylfentanylBlood.Specimen = specimenBlood.AsReference();
+
+            Observation toxLabResultFentanylBlood = ObservationToxicologyLabResult.Create();
+            toxLabResultFentanylBlood.Status = ObservationStatus.Final;
+            toxLabResultFentanylBlood.Code = new CodeableConcept("http://loinc.org", "73938-3", "fentaNYL [Mass/volume] in Blood by Confirmatory method", "fentaNYL [Mass/volume] in Blood by Confirmatory method");
+            toxLabResultFentanylBlood.Subject = patient.AsReference();
+            toxLabResultFentanylBlood.Effective = new FhirDateTime("2021-12-03");
+            toxLabResultFentanylBlood.Value = new Quantity() { Value = 23, Unit = "ng/mL", System = "http://unitsofmeasure.org" };
+            toxLabResultFentanylBlood.Specimen = specimenBlood.AsReference();
+
+            Observation toxLabResultEthanolUrine = ObservationToxicologyLabResult.Create();
+            toxLabResultEthanolUrine.Status = ObservationStatus.Final;
+            toxLabResultEthanolUrine.Code = new CodeableConcept("http://loinc.org", "46983-3", "Ethanol [Mass/volume] in Urine by Confirmatory method", "Ethanol [Mass/volume] in Urine by Confirmatory method");
+            toxLabResultEthanolUrine.Subject = patient.AsReference();
+            toxLabResultEthanolUrine.Effective = new FhirDateTime("2021-12-03");
+            toxLabResultEthanolUrine.Value = new Quantity() { Value = new Decimal(0.16), Unit = "g/dL", System = "http://unitsofmeasure.org" };
+            toxLabResultEthanolUrine.Specimen = specimenUrine.AsReference();
+
+            Observation toxLabResult4anppUrine = ObservationToxicologyLabResult.Create();
+            toxLabResult4anppUrine.Status = ObservationStatus.Final;
+            toxLabResult4anppUrine.Code = new CodeableConcept("http://loinc.org", "11072-6", "Despropionylfentanyl [Mass/volume] in Serum or Plasma", "Despropionylfentanyl [Mass/volume] in Serum or Plasma");
+            toxLabResult4anppUrine.Subject = patient.AsReference();
+            toxLabResult4anppUrine.Effective = new FhirDateTime("2021-12-03");
+            toxLabResult4anppUrine.Value = new FhirBoolean(true);
+            toxLabResult4anppUrine.Specimen = specimenUrine.AsReference();
+
+            Observation toxLabResultAcetylfentanylUrine = ObservationToxicologyLabResult.Create();
+            toxLabResultAcetylfentanylUrine.Status = ObservationStatus.Final;
+            toxLabResultAcetylfentanylUrine.Code = new CodeableConcept("http://loinc.org", "74810-3", "Acetyl fentanyl [Presence] in Urine by Confirmatory method", "Acetyl fentanyl [Presence] in Urine by Confirmatory method");
+            toxLabResultAcetylfentanylUrine.Subject = patient.AsReference();
+            toxLabResultAcetylfentanylUrine.Effective = new FhirDateTime("2021-12-03");
+            toxLabResultAcetylfentanylUrine.Value = new FhirBoolean(true);
+            toxLabResultAcetylfentanylUrine.Specimen = specimenUrine.AsReference();
+
+            Observation toxLabResultFentanylUrine = ObservationToxicologyLabResult.Create();
+            toxLabResultFentanylUrine.Status = ObservationStatus.Final;
+            toxLabResultFentanylUrine.Code = new CodeableConcept("http://loinc.org", "11235-9", "fentaNYL [Presence] in Urine", "fentaNYL [Presence] in Urine");
+            toxLabResultFentanylUrine.Subject = patient.AsReference();
+            toxLabResultFentanylUrine.Effective = new FhirDateTime("2021-12-03");
+            toxLabResultFentanylUrine.Value = new FhirBoolean(true);
+            toxLabResultFentanylUrine.Specimen = specimenUrine.AsReference();
+
+            Observation toxLabResultNorfentanylUrine = ObservationToxicologyLabResult.Create();
+            toxLabResultNorfentanylUrine.Status = ObservationStatus.Final;
+            toxLabResultNorfentanylUrine.Code = new CodeableConcept("http://loinc.org", "43199-9", "Norfentanyl [Presence] in Urine", "Norfentanyl [Presence] in Urine");
+            toxLabResultNorfentanylUrine.Subject = patient.AsReference();
+            toxLabResultNorfentanylUrine.Effective = new FhirDateTime("2021-12-03");
+            toxLabResultNorfentanylUrine.Value = new FhirBoolean(true);
+            toxLabResultNorfentanylUrine.Specimen = specimenUrine.AsReference();
+
+            Observation toxLabResultXylazineUrine = ObservationToxicologyLabResult.Create();
+            toxLabResultXylazineUrine.Status = ObservationStatus.Final;
+            toxLabResultXylazineUrine.Code = new CodeableConcept("http://loinc.org", "12327-3", "Ketamine [Presence] in Urine", "Ketamine [Presence] in Urine");
+            toxLabResultXylazineUrine.Subject = patient.AsReference();
+            toxLabResultXylazineUrine.Effective = new FhirDateTime("2021-12-03");
+            toxLabResultXylazineUrine.Value = new FhirBoolean(true);
+            toxLabResultXylazineUrine.Specimen = specimenUrine.AsReference();
+
+            Observation toxLabResultEthanolVitreousHumor = ObservationToxicologyLabResult.Create();
+            toxLabResultEthanolVitreousHumor.Status = ObservationStatus.Final;
+            toxLabResultEthanolVitreousHumor.Code = new CodeableConcept("http://loinc.org", "12465-1", "Ethanol [Mass/volume] in Vitreous fluid", "Ethanol [Mass/volume] in Vitreous fluid");
+            toxLabResultEthanolVitreousHumor.Subject = patient.AsReference();
+            toxLabResultEthanolVitreousHumor.Effective = new FhirDateTime("2021-12-03");
+            toxLabResultEthanolVitreousHumor.Value = new Quantity() { Value = new Decimal(0.133), Unit = "g/dL", System = "http://unitsofmeasure.org" };
+            toxLabResultEthanolVitreousHumor.Specimen = specimenVitreousHumor.AsReference();
 
             // Us Core Practitioner (Tox Lab)
             Practitioner practitionerToxLab = UsCorePractitioner.Create();
@@ -326,16 +400,57 @@ namespace MdiExample
             diagnosticReport.Effective = new FhirDateTime("2021-12-03T11:00:00Z");
             diagnosticReport.IssuedElement = new Instant() { Value = new FhirDateTime("2022-01-05T11:00:00Z").ToDateTimeOffset(new TimeSpan()) };
             diagnosticReport.Performer.Add(practitionerToxLab.AsReference());
-            diagnosticReport.Specimen.Add(specimenBlood.AsReference());
-            diagnosticReport.Specimen.Add(specimenUrine.AsReference());
-            diagnosticReport.Specimen.Add(specimenVitreousHumor.AsReference());
-            diagnosticReport.Specimen.Add(specimenBile.AsReference());
-            diagnosticReport.Specimen.Add(specimenLiver.AsReference());
-            diagnosticReport.Specimen.Add(specimenStomachContents.AsReference());
+            diagnosticReport.Specimen.Add(specimenBlood.AsReference(specimenBlood.Type.Text));
+            diagnosticReport.Specimen.Add(specimenUrine.AsReference(specimenUrine.Type.Text));
+            diagnosticReport.Specimen.Add(specimenVitreousHumor.AsReference(specimenVitreousHumor.Type.Text));
+            diagnosticReport.Specimen.Add(specimenBile.AsReference(specimenBile.Type.Text));
+            diagnosticReport.Specimen.Add(specimenLiver.AsReference(specimenLiver.Type.Text));
+            diagnosticReport.Specimen.Add(specimenStomachContents.AsReference(specimenStomachContents.Type.Text));
 
-            diagnosticReport.Result.Add(toxLabResultChromatography.AsReference(toxLabResultChromatography.Code.Text));
+            diagnosticReport.Result.Add(toxLabResultEthanolBlood.AsReference(toxLabResultEthanolBlood.Code.Text));
+            diagnosticReport.Result.Add(toxLabResult4anppBlood.AsReference(toxLabResult4anppBlood.Code.Text));
+            diagnosticReport.Result.Add(toxLabResultAcetylfentanylBlood.AsReference(toxLabResultAcetylfentanylBlood.Code.Text));
+            diagnosticReport.Result.Add(toxLabResultFentanylBlood.AsReference(toxLabResultFentanylBlood.Code.Text));
+            diagnosticReport.Result.Add(toxLabResultEthanolUrine.AsReference(toxLabResultEthanolUrine.Code.Text));
+            diagnosticReport.Result.Add(toxLabResult4anppUrine.AsReference(toxLabResult4anppUrine.Code.Text));
+            diagnosticReport.Result.Add(toxLabResultAcetylfentanylUrine.AsReference(toxLabResultAcetylfentanylUrine.Code.Text));
+            diagnosticReport.Result.Add(toxLabResultFentanylUrine.AsReference(toxLabResultFentanylUrine.Code.Text));
+            diagnosticReport.Result.Add(toxLabResultNorfentanylUrine.AsReference(toxLabResultNorfentanylUrine.Code.Text));
+            diagnosticReport.Result.Add(toxLabResultXylazineUrine.AsReference(toxLabResultXylazineUrine.Code.Text));
+            diagnosticReport.Result.Add(toxLabResultEthanolVitreousHumor.AsReference(toxLabResultEthanolVitreousHumor.Code.Text));
 
-            output = serializer.SerializeToString(diagnosticReport);
+            MessageHeader messageHeader = MessageHeaderToxicologyToMdi.Create();
+            messageHeader.Source = new MessageHeader.MessageSourceComponent() { Name = "University of Florida Pathology Labs, Forensic Toxicology Laboratory", Software = "MS Access", Version = "1.2.3", Contact = new ContactPoint(ContactPoint.ContactPointSystem.Phone, null, "+1 (555) 123 4567"), Endpoint = "http://uf.org/access/endpoint/1" };
+            messageHeader.Focus.Add(diagnosticReport.AsReference());
+
+            // Tox Report Bundle
+            Bundle bundleMessageToxToMDI = BundleMessageToxicologyToMdi.Create();
+            bundleMessageToxToMDI.Identifier = new Identifier("urn:ietf:rfc:3986", "urn:uuid:683dde44f7664b03a20b6324f23986d9");
+            bundleMessageToxToMDI.AddResourceEntry(messageHeader, messageHeader.AsReference().Url.ToString());
+            bundleMessageToxToMDI.AddResourceEntry(patient, patient.AsReference().Url.ToString());
+            bundleMessageToxToMDI.AddResourceEntry(diagnosticReport, diagnosticReport.AsReference().Url.ToString());
+            bundleMessageToxToMDI.AddResourceEntry(practitionerToxLab, practitionerToxLab.AsReference().Url.ToString());
+            bundleMessageToxToMDI.AddResourceEntry(organizationLab, organizationLab.AsReference().Url.ToString());
+            bundleMessageToxToMDI.AddResourceEntry(specimenBlood, specimenBlood.AsReference().Url.ToString());
+            bundleMessageToxToMDI.AddResourceEntry(specimenUrine, specimenUrine.AsReference().Url.ToString());
+            bundleMessageToxToMDI.AddResourceEntry(specimenVitreousHumor, specimenVitreousHumor.AsReference().Url.ToString());
+            bundleMessageToxToMDI.AddResourceEntry(specimenBile, specimenBile.AsReference().Url.ToString());
+            bundleMessageToxToMDI.AddResourceEntry(specimenLiver, specimenLiver.AsReference().Url.ToString());
+            bundleMessageToxToMDI.AddResourceEntry(specimenStomachContents, specimenStomachContents.AsReference().Url.ToString());
+
+            bundleMessageToxToMDI.AddResourceEntry(toxLabResultEthanolBlood, toxLabResultEthanolBlood.AsReference().Url.ToString());
+            bundleMessageToxToMDI.AddResourceEntry(toxLabResult4anppBlood, toxLabResult4anppBlood.AsReference().Url.ToString());
+            bundleMessageToxToMDI.AddResourceEntry(toxLabResultAcetylfentanylBlood, toxLabResultAcetylfentanylBlood.AsReference().Url.ToString());
+            bundleMessageToxToMDI.AddResourceEntry(toxLabResultFentanylBlood, toxLabResultFentanylBlood.AsReference().Url.ToString());
+            bundleMessageToxToMDI.AddResourceEntry(toxLabResultEthanolUrine, toxLabResultEthanolUrine.AsReference().Url.ToString());
+            bundleMessageToxToMDI.AddResourceEntry(toxLabResult4anppUrine, toxLabResult4anppUrine.AsReference().Url.ToString());
+            bundleMessageToxToMDI.AddResourceEntry(toxLabResultAcetylfentanylUrine, toxLabResultAcetylfentanylUrine.AsReference().Url.ToString());
+            bundleMessageToxToMDI.AddResourceEntry(toxLabResultFentanylUrine, toxLabResultFentanylUrine.AsReference().Url.ToString());
+            bundleMessageToxToMDI.AddResourceEntry(toxLabResultNorfentanylUrine, toxLabResultNorfentanylUrine.AsReference().Url.ToString());
+            bundleMessageToxToMDI.AddResourceEntry(toxLabResultXylazineUrine, toxLabResultXylazineUrine.AsReference().Url.ToString());
+            bundleMessageToxToMDI.AddResourceEntry(toxLabResultEthanolVitreousHumor, toxLabResultEthanolVitreousHumor.AsReference().Url.ToString());
+
+            output = serializer.SerializeToString(bundleMessageToxToMDI);
             File.WriteAllText("ToxToCMS_Message.json", output);
             Console.WriteLine(output);
 
