@@ -7,7 +7,7 @@ namespace GaTech.Chai.Mdi.MessageHeaderToxicologyToMdiProfile
 {
     /// <summary>
     /// MessageHeaderToxicologyToMdi Profile Extensions
-    /// http://hl7.org/fhir/us/mdi/StructureDefinition/Bundle-message-tox-to-mdi
+    /// http://hl7.org/fhir/us/mdi/StructureDefinition/MessageHeader-toxicology-to-mdi
     /// </summary>
     public class MessageHeaderToxicologyToMdi
     {
@@ -21,7 +21,7 @@ namespace GaTech.Chai.Mdi.MessageHeaderToxicologyToMdiProfile
 
         /// <summary>
         /// Factory for BundleMessageToxicologyToMdi Profile
-        /// http://hl7.org/fhir/us/mdi/StructureDefinition/Bundle-message-tox-to-mdi
+        /// http://hl7.org/fhir/us/mdi/StructureDefinition/MessageHeader-toxicology-to-mdi
         /// </summary>
         public static MessageHeader Create()
         {
@@ -33,7 +33,7 @@ namespace GaTech.Chai.Mdi.MessageHeaderToxicologyToMdiProfile
         /// <summary>
         /// The official URL for the BundleMessageToxicologyToMdi profile, used to assert conformance.
         /// </summary>
-        public const string ProfileUrl = "http://hl7.org/fhir/us/mdi/StructureDefinition/Bundle-message-tox-to-mdi";
+        public const string ProfileUrl = "http://hl7.org/fhir/us/mdi/StructureDefinition/MessageHeader-toxicology-to-mdi";
 
         /// <summary>
         /// Set the assertion that a questionnaire object conforms to the BundleMessageToxicologyToMdi Profile.

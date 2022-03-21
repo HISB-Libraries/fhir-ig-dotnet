@@ -222,6 +222,11 @@ namespace MdiExample
             MdiDocument.AddResourceEntry(observationDecedentPregnancy, observationDecedentPregnancy.AsReference().Url.ToString());
             MdiDocument.AddResourceEntry(observationDeathDate, observationDeathDate.AsReference().Url.ToString());
             MdiDocument.AddResourceEntry(pathWayList, pathWayList.AsReference().Url.ToString());
+            MdiDocument.AddResourceEntry(causeOfDeath1, causeOfDeath1.AsReference().Url.ToString());
+            MdiDocument.AddResourceEntry(causeOfDeath2, causeOfDeath2.AsReference().Url.ToString());
+            MdiDocument.AddResourceEntry(causeOfDeath3, causeOfDeath3.AsReference().Url.ToString());
+            MdiDocument.AddResourceEntry(causeOfDeath4, causeOfDeath4.AsReference().Url.ToString());
+            MdiDocument.AddResourceEntry(causeOfDeath5, causeOfDeath5.AsReference().Url.ToString());
             MdiDocument.AddResourceEntry(conditionContributingToDeath, conditionContributingToDeath.AsReference().Url.ToString());
             MdiDocument.AddResourceEntry(observationMannerOfDeath, observationMannerOfDeath.AsReference().Url.ToString());
             MdiDocument.AddResourceEntry(observationHowDeathInjuryOccurred, observationHowDeathInjuryOccurred.AsReference().Url.ToString());
@@ -427,8 +432,8 @@ namespace MdiExample
             Bundle bundleMessageToxToMDI = BundleMessageToxicologyToMdi.Create();
             bundleMessageToxToMDI.Identifier = new Identifier("urn:ietf:rfc:3986", "urn:uuid:683dde44f7664b03a20b6324f23986d9");
             bundleMessageToxToMDI.AddResourceEntry(messageHeader, messageHeader.AsReference().Url.ToString());
-            bundleMessageToxToMDI.AddResourceEntry(patient, patient.AsReference().Url.ToString());
             bundleMessageToxToMDI.AddResourceEntry(diagnosticReport, diagnosticReport.AsReference().Url.ToString());
+            bundleMessageToxToMDI.AddResourceEntry(patient, patient.AsReference().Url.ToString());
             bundleMessageToxToMDI.AddResourceEntry(practitionerToxLab, practitionerToxLab.AsReference().Url.ToString());
             bundleMessageToxToMDI.AddResourceEntry(organizationLab, organizationLab.AsReference().Url.ToString());
             bundleMessageToxToMDI.AddResourceEntry(specimenBlood, specimenBlood.AsReference().Url.ToString());
