@@ -32,6 +32,27 @@ namespace GaTech.Chai.UsPublicHealth.PatientProfile
         }
 
         /// <summary>
+        /// The official URL for the Case Based Surveillance Patient profile, used to assert conformance.
+        /// </summary>
+        public const string ProfileUrl = "http://hl7.org/fhir/us/ecr/StructureDefinition/us-ph-patient";
+
+        /// <summary>
+        /// Set the assertion that a patient object conforms to the Case Based Surveillance Patient Profile.
+        /// </summary>
+        public void AddProfile()
+        {
+            patient.AddProfile(ProfileUrl);
+        }
+
+        /// <summary>
+        /// Clear the assertion that a patient object conforms to the Case Based Surveillance Patient Profile.
+        /// </summary>
+        public void RemoveProfile()
+        {
+            patient.RemoveProfile(ProfileUrl);
+        }
+
+        /// <summary>
         /// Patient Birth Place
         /// http://hl7.org/fhir/StructureDefinition/patient-birthPlace
         /// </summary>
@@ -280,25 +301,12 @@ namespace GaTech.Chai.UsPublicHealth.PatientProfile
             }
         }
 
-        /// <summary>
-        /// The official URL for the Case Based Surveillance Patient profile, used to assert conformance.
-        /// </summary>
-        public const string ProfileUrl = "http://hl7.org/fhir/us/ecr/StructureDefinition/us-ph-patient";
-
-        /// <summary>
-        /// Set the assertion that a patient object conforms to the Case Based Surveillance Patient Profile.
-        /// </summary>
-        public void AddProfile()
-        {
-            patient.AddProfile(ProfileUrl);
-        }
-
-        /// <summary>
-        /// Clear the assertion that a patient object conforms to the Case Based Surveillance Patient Profile.
-        /// </summary>
-        public void RemoveProfile()
-        {
-            patient.RemoveProfile(ProfileUrl);
-        }
+        public static CodeableConcept GenderMale = new CodeableConcept("http://hl7.org/fhir/gender-identity", "male", "male", null);
+        public static CodeableConcept GenderFemale = new CodeableConcept("http://hl7.org/fhir/gender-identity", "female", "female", null);
+        public static CodeableConcept NonBinary = new CodeableConcept("http://hl7.org/fhir/gender-identity", "non-binary", "non-binary", null);
+        public static CodeableConcept TransgenderMale = new CodeableConcept("http://hl7.org/fhir/gender-identity", "transgender-male", "transgender male", null);
+        public static CodeableConcept TransgenderFemale = new CodeableConcept("http://hl7.org/fhir/gender-identity", "transgender-male", "transgender male", null);
+        public static CodeableConcept Other = new CodeableConcept("http://hl7.org/fhir/gender-identity", "other", "other", null);
+        public static CodeableConcept NonDisclose = new CodeableConcept("http://hl7.org/fhir/gender-identity", "non-disclose", "non-disclose", null);
     }
 }

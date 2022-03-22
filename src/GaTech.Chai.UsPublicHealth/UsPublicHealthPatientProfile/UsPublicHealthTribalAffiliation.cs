@@ -13,7 +13,7 @@ namespace GaTech.Chai.UsPublicHealth.PatientProfile
             this.patient = patient;
         }
 
-        public const string ProfileUrl = "http://hl7.org/fhir/us/ecr/StructureDefinition/us-ph-tribal-affiliation-extension";
+        public const string ExtUrl = "http://hl7.org/fhir/us/ecr/StructureDefinition/us-ph-tribal-affiliation-extension";
 
         public Coding TribeName
         {
@@ -45,7 +45,7 @@ namespace GaTech.Chai.UsPublicHealth.PatientProfile
 
         private Extension AddOrUpdateTribeExtension()
         {
-            var raceExt = new Extension() { Url = ProfileUrl };
+            var raceExt = new Extension() { Url = ExtUrl };
             return patient.Extension.AddOrUpdateExtension(raceExt);
         }
 
