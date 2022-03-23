@@ -18,7 +18,7 @@ Firely .net FHIR classes are used as a basis for FHIR objects. All profiles are 
 Hl7.Fhir.R4 and Hl7.Fhir.Specification.R4 NuGet Packages are required. 
 
 ## Distribution
-The FHIR IG .net packages are still in draft stage. Once it reaches certain stage, they will be available as NuGet packages. In the mean time (before they are registered in NuGet.org), the NuGet packages will be available in the github release page.
+The FHIR IG .net packages are still in the early stage. Once it reaches certain stage, they can be available in the NuGet.org. In the mean time (before they are registered in the NuGet.org), the NuGet packages will be available in the github release page.
 
 ## How to use the FHIR IG .net Library
 Pleaase refer to the example codes below to see how to use the library. Name of extensions is in most cases from the name of profile. For any specific values or structures defined in the IG, helper methods in either properties or class functions should be available. Please refer to the source code of the profile to get the list of available helpers. 
