@@ -28,8 +28,75 @@ There are extensions that are applicable to multiple IG profiles. Those are impl
 First step of using this library is starting from the profile you are trying to use. If Us CBS Patient profile is the one you are trying to implement, then use the static Create() - note that all profiles have a static method called, "Create()". 
 ```
 var patient = UsCbsPatient.Create();
+
+ "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient",
+      "http://hl7.org/fhir/us/ecr/StructureDefinition/us-ph-patient",
+      "http://cbsig.chai.gatech.edu/StructureDefinition/us-cbs-patient"
+    ]
+  },
+  
+----- 
+
+patient.UsCorePatient().Ethnicity.Category = UsCorePatientEthnicity.EthnicityCoding.Encode("2186-5", "Not Hispanic or Latino");
+patient.UsCorePatient().Ethnicity.ExtendedEthnicityCodes = new Coding[] { UsCorePatientEthnicity.EthnicityCoding.Encode("2186-5", "Not Hispanic or Latino") };
+patient.UsCorePatient().Ethnicity.EthnicityText = "Not Hispanic or Latino";
+
+{
+   "extension": [
+     {
+       "url": "ombCategory",
+       "valueCoding": {
+         "system": "urn:oid:2.16.840.1.113883.6.238",
+         "code": "2186-5",
+         "display": "Not Hispanic or Latino"
+          }
+     },
+     {
+       "url": "detailed",
+       "valueCoding": {
+         "system": "urn:oid:2.16.840.1.113883.6.238",
+         "code": "2186-5",
+         "display": "Not Hispanic or Latino"
+       }
+     },
+     {
+       "url": "text",
+       "valueString": "Not Hispanic or Latino"
+     }
+   ],
+   "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity"
+},
+
 ```
 This will create patient resource with all based IGs' profiles. Since US CBS Patient profile is based on US Public Health Patient, and US Public Health Patient is based on US Core, all profile URLs will be added to the Meta section of your patient resource. Also, there are helpers for US Public Health and US Core data elements. Thses helpers will make developers' life easier. Race and ethincity in US Core and birth place and TribalAffiliation in US Public Health are the examples of the helpers.
+
+Another example is US CBS Lab Observation. 
+```
+Observation observation = UsCbsLabObservation.Create();
+```
+This will create the US CBS Lab Observation profile, which is based on US Core Lab Result Observation profile. This helper, Create(), will then add necessary profiles and fixed value of Category. 
+```
+ "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab",
+      "http://cbsig.chai.gatech.edu/StructureDefinition/us-cbs-lab-observation"
+    ]
+  },
+
+"category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "laboratory",
+          "display": "Laboratory"
+        }
+      ]
+    }
+  ],
+  ```
 
 #### US CBS Patient Profile
 In this example, UsCbsPatient and UsCorePatient are the C# extensions to Patient class. To start with US CBS Patient, UsCbsPatient.Create() will return Patient object with IG specific intialization(s). 
