@@ -13,12 +13,23 @@ All profiles built on top of standard .NET FHIR classes (https://github.com/Fire
 **Myung Choi, GTRI (@myungchoi)**
 
 ## Development Note
-Firely .net FHIR classes are used as a basis for FHIR objects. All profiles are implemented using C# extensions. Invidual profiles can used to extend the basic FHIR objects. When the profile extensions are added, their profile names are automatically added to the meta section of FHIR resources. And, all the fixed elements will be created. 
+Firely .net FHIR classes are used as a basis for FHIR objects. All profiles are implemented using C# extensions. Invidual profiles can be used to extend the basic FHIR objects. Whenever the profile extensions are used, the profile names are automatically added to the meta section of FHIR resources that are being implemeted. The class extensions that are used create the fixed elements as defined in the IG. However, any fixed values that are not required (with cardinality 0..) will not be created. Instead, the fixed values should be available as a static value or C# property.
 
 Hl7.Fhir.R4 and Hl7.Fhir.Specification.R4 NuGet Packages are required. 
 
+## Distribution
+The FHIR IG .net packages are still in draft stage. Once it reaches certain stage, they will be available as NuGet packages. In the mean time (before they are registered in NuGet.org), the NuGet packages will be available in the github release page.
+
 ## How to use the FHIR IG .net Library
-Pleaase refer to the example codes below to see how to use the library.
+Pleaase refer to the example codes below to see how to use the library. Name of extensions is in most cases from the name of profile. For any specific values or structures defined in the IG, helper methods in either properties or class functions should be available. Please refer to the source code of the profile to get the list of available helpers. 
+
+There are extensions that are applicable to multiple IG profiles. Those are implemented in Gatech.Chai.Share project. Please include this namespace to use those extensions.
+
+First step of using this library is starting from the profile you are trying to use. If Us CBS Patient profile is the one you are trying to implement, then use the static Create() - note that all profiles have a static method called, "Create()". 
+```
+var patient = UsCbsPatient.Create();
+```
+This will create patient resource with all based IGs' profiles. Since US CBS Patient profile is based on US Public Health Patient, and US Public Health Patient is based on US Core, all profile URLs will be added to the Meta section of your patient resource. Also, there are helpers for US Public Health and US Core data elements. Thses helpers will make developers' life easier. Race and ethincity in US Core and birth place and TribalAffiliation in US Public Health are the examples of the helpers.
 
 #### US CBS Patient Profile
 In this example, UsCbsPatient and UsCorePatient are the C# extensions to Patient class. To start with US CBS Patient, UsCbsPatient.Create() will return Patient object with IG specific intialization(s). 
