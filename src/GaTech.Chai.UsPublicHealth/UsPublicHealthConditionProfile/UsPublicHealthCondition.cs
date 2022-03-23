@@ -1,5 +1,6 @@
 ﻿using System;
 using GaTech.Chai.FhirIg.Extensions;
+using GaTech.Chai.UsCore.ConditionProfile;
 using Hl7.Fhir.Model;
 
 namespace GaTech.Chai.UsPublicHealth.ConditionProfile
@@ -14,7 +15,8 @@ namespace GaTech.Chai.UsPublicHealth.ConditionProfile
 
         internal UsPublicHealthCondition(Condition condition)
         {
-            this.condition = condition; 
+            this.condition = condition;
+            condition.UsCoreCondition().AddProfile();
         }
 
         /// <summary>

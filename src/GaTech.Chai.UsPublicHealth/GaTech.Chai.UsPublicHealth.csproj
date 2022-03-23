@@ -23,5 +23,6 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GaTech.Chai.Share\GaTech.Chai.Share.csproj" />
+    <ProjectReference Include="..\GaTech.Chai.UsCore\GaTech.Chai.UsCore.csproj" />
   </ItemGroup>
 </Project>

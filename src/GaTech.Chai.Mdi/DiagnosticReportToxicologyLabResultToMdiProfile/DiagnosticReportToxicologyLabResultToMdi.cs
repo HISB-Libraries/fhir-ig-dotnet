@@ -17,6 +17,7 @@ namespace GaTech.Chai.Mdi.DiagnosticReportToxicologyLabResultToMdiProfile
         internal DiagnosticReportToxicologyLabResultToMdi(DiagnosticReport diagnosticReport)
         {
             this.diagnosticReport = diagnosticReport;
+            diagnosticReport.UsCoreDiagnosticReportLab().AddProfile();
         }
 
         /// <summary>
@@ -27,7 +28,6 @@ namespace GaTech.Chai.Mdi.DiagnosticReportToxicologyLabResultToMdiProfile
         {
             var diagnosticReport = new DiagnosticReport();
             diagnosticReport.DiagnosticReportToxicologyLabResultToMdi().AddProfile();
-            diagnosticReport.UsCoreDiagnosticReportLab().AddProfile();
             return diagnosticReport;
         }
 

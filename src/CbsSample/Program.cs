@@ -16,6 +16,7 @@ using GaTech.Chai.UsPublicHealth.TravelHistoryProfile;
 using GaTech.Chai.UsCbs.Common;
 using GaTech.Chai.Cbs.CaseNotificationPanelProfile;
 using GaTech.Chai.Cbs.VaccinationACIPRecommendationProfile;
+using Newtonsoft.Json;
 
 namespace CbsSample
 {
@@ -34,7 +35,8 @@ namespace CbsSample
             Patient patient = CbsGenV2Patient.Create();
 
             // CbsConditionProfile
-            var HemolyticUremicSyndromeCondition = ConditionOfInterest.Create(patient, "11550", "Hemolytic Uremic Syndrome", new Quantity(6, "d"), new FhirDateTime("2021-02-28"));
+            var HemolyticUremicSyndromeCondition = ConditionOfInterest.Create(patient, "11550", "Hemolytic Uremic Syndrome", new Quantity(6, "day") { Code = "d" }, new FhirDateTime("2021-02-28"));
+            HemolyticUremicSyndromeCondition.Abatement = new FhirDateTime("2014-03-02");
 
             // Hospitalization Encounter
             var hospitalizationEncounter = HospitalizationEncounter.Create(patient, HemolyticUremicSyndromeCondition, new List<CodeableConcept> { new CodeableConcept("http://www.ama-assn.org/go/cpt", "42628595", "Inpatient Hospital", null) }, new Period(new FhirDateTime(2014, 2, 26), new FhirDateTime(2014, 3, 2)));
@@ -219,9 +221,18 @@ namespace CbsSample
             document.Entry.Add(new Bundle.EntryComponent() { Resource = haicaLobResultObservation });
             
             // Print out the result
-            string output = serializer.SerializeToString(document);
+            string output = serializer.SerializeToString(HemolyticUremicSyndromeCondition);
             File.WriteAllText("GenV2.json", output);
             Console.WriteLine(output);
+
+            // Deserialize the JSON to FHIR object
+            JsonTextReader reader = new JsonTextReader(new System.IO.StreamReader(@"GenV2.json"));
+            var parser = new FhirJsonParser();
+            Condition res = parser.Parse<Condition>(reader);
+
+            FhirXmlSerializer fhirXmlSerializer = new(new SerializerSettings() { Pretty = true });
+            string xmlText = fhirXmlSerializer.SerializeToString(res);
+            Console.WriteLine(xmlText);
 
             /*
              * HAI-CA Test Case 2: Candida auris, Clinical
@@ -302,7 +313,7 @@ namespace CbsSample
             documents.Entry.Add(doc);
             doc.Resource = composition;
          
-
+            
             ///////////////////////////////////////////
 
             //ValidatorHelper.ValidateResources(new Resource[] { patient, labObs,

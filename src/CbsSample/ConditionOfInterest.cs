@@ -16,8 +16,6 @@ namespace CbsProfileInitialization
         public static Condition Create(Patient patient, String code, String name, Quantity duration, FhirDateTime onSetDate)
         {
             var condition = UsCbsConditionOfInterest.Create();
-            condition.UsPublicHealthCondition().AddProfile();
-            condition.UsCoreCondition().AddProfile();
 
             condition.Subject = patient.AsReference();
             condition.UsCbsConditionOfInterest().CaseClassStatus = UsCbsConditionOfInterest.CaseClassStatusValues.ConfirmedPresent;

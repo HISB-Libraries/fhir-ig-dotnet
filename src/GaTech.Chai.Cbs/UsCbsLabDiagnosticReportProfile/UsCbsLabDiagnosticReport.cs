@@ -16,6 +16,7 @@ namespace GaTech.Chai.UsCbs.LabDiagnosticReportProfile
         internal UsCbsLabDiagnosticReport(DiagnosticReport diagnosticReport)
         {
             this.diagnosticReport = diagnosticReport;
+            diagnosticReport.UsCoreDiagnosticReportLab().AddProfile();
         }
 
         /// <summary>
