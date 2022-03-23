@@ -221,14 +221,14 @@ namespace CbsSample
             document.Entry.Add(new Bundle.EntryComponent() { Resource = haicaLobResultObservation });
             
             // Print out the result
-            string output = serializer.SerializeToString(HemolyticUremicSyndromeCondition);
+            string output = serializer.SerializeToString(patient);
             File.WriteAllText("GenV2.json", output);
             Console.WriteLine(output);
 
             // Deserialize the JSON to FHIR object
             JsonTextReader reader = new JsonTextReader(new System.IO.StreamReader(@"GenV2.json"));
             var parser = new FhirJsonParser();
-            Condition res = parser.Parse<Condition>(reader);
+            var res = parser.Parse<Patient>(reader);
 
             FhirXmlSerializer fhirXmlSerializer = new(new SerializerSettings() { Pretty = true });
             string xmlText = fhirXmlSerializer.SerializeToString(res);

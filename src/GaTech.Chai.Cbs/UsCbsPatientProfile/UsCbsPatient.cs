@@ -17,6 +17,7 @@ namespace GaTech.Chai.UsCbs.PatientProfile
         internal UsCbsPatient(Patient p)
         {
             this.patient = p;
+            p.UsPublicHealthPatient().AddProfile();
         }
 
         /// <summary>
@@ -27,9 +28,6 @@ namespace GaTech.Chai.UsCbs.PatientProfile
         {
             var patient = new Patient();
             patient.UsCbsPatient().AddProfile();
-            patient.UsPublicHealthPatient().AddProfile();
-            patient.UsCorePatient().AddProfile();
-
             return patient;
         }
 

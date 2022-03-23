@@ -16,6 +16,7 @@ namespace GaTech.Chai.UsCbs.LabObservationProfile
         internal UsCbsLabObservation(Observation o)
         {
             this.observation = o;
+            o.UsCoreLabResultObservation().AddProfile();
         }
 
         /// <summary>
@@ -26,7 +27,6 @@ namespace GaTech.Chai.UsCbs.LabObservationProfile
         {
             var observation = new Observation();
             observation.UsCbsLabObservation().AddProfile();
-            observation.UsCoreLabResultObservation().AddProfile();
             observation.Status = ObservationStatus.Final;
             return observation;
         }

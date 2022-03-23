@@ -2,6 +2,7 @@ using System;
 using Hl7.Fhir.Model;
 using GaTech.Chai.FhirIg.Extensions;
 using static Hl7.Fhir.Model.ContactPoint;
+using GaTech.Chai.UsCore.PatientProfile;
 
 namespace GaTech.Chai.UsPublicHealth.PatientProfile
 {
@@ -17,6 +18,7 @@ namespace GaTech.Chai.UsPublicHealth.PatientProfile
         internal UsPublicHealthPatient(Patient p)
         {
             this.patient = p;
+            p.UsCorePatient().AddProfile();
             this.patientTribalAffiliation = new UsPublicHealthTribalAffiliation(p);
         }
 

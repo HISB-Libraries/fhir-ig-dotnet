@@ -1,6 +1,7 @@
 ﻿using System;
 using Hl7.Fhir.Model;
 using GaTech.Chai.FhirIg.Extensions;
+using GaTech.Chai.UsCore.ImmunizationProfile;
 
 namespace GaTech.Chai.UsCbs.ImmunizationProfile
 {
@@ -15,6 +16,7 @@ namespace GaTech.Chai.UsCbs.ImmunizationProfile
         internal UsCbsImmunization(Immunization immunization)
         {
             this.immunization = immunization;
+            immunization.UsCoreImmunization().AddProfile();
         }
 
         /// <summary>

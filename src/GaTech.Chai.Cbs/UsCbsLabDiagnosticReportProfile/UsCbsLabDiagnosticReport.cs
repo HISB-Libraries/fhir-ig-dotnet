@@ -27,7 +27,6 @@ namespace GaTech.Chai.UsCbs.LabDiagnosticReportProfile
         {
             var diagnosticReport = new DiagnosticReport();
             diagnosticReport.UsCbsLabDiagnosticReport().AddProfile();
-            diagnosticReport.UsCoreDiagnosticReportLab().AddProfile();
             return diagnosticReport;
         }
 
