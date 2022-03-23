@@ -1,41 +1,72 @@
-# cbs-ig-dotnet
-A .NET Library for Case Based Surveillance FHIR IG \
-IG Docs: http://cbsig.chai.gatech.edu/ \
-**Brian Ritchie, GTRI (@dotnetpowered)**
+# fhir-ig-dotnet
+A .NET Library for the following FHIR Implementation Guides (IG)
+* Case Based Surveillance (CBS) FHIR IG | https://cbsig.chai.gatech.edu/
+* Medicolegal Death Investigation (MDI) FHIR IG | https://build.fhir.org/ig/HL7/fhir-mdi-ig/
+* US Public Health (US PH) FHIR IG | https://build.fhir.org/ig/HL7/fhir-us-ph-common-library-ig/
+* US Core FHIR IG | https://www.hl7.org/fhir/us/core/
+* Occupational Data for Health (ODH) FHIR IG | http://hl7.org/fhir/us/odh/STU1.1/
 
-Provides shortcuts for working with the CBS profiles built on top of standard .NET FHIR classes (https://github.com/FirelyTeam/firely-net-sdk)
+All profiles built on top of standard .NET FHIR classes (https://github.com/FirelyTeam/firely-net-sdk). Only referenced profiles of US PH, US Core, and ODH by CBS and MDI are implemented. Rest of profiles will be added based on the needs. 
 
-## Example code
+## Authors
+**Brian Ritchie, GTRI (@dotnetpowered)**<br/>
+**Myung Choi, GTRI (@myungchoi)**
 
-#### Travel History Profile
+## Development Note
+Firely .net FHIR classes are used as a basis for FHIR objects. All profiles are implemented using C# extensions. Invidual profiles can used to extend the basic FHIR objects. When the profile extensions are added, their profile names are automatically added to the meta section of FHIR resources. And, all the fixed elements will be created. 
+
+Hl7.Fhir.R4 and Hl7.Fhir.Specification.R4 NuGet Packages are required. 
+
+## How to use the FHIR IG .net Library
+Pleaase refer to the example codes below to see how to use the library.
+
+#### US CBS Patient Profile
+In this example, UsCbsPatient and UsCorePatient are the C# extensions to Patient class. To start with US CBS Patient, UsCbsPatient.Create() will return Patient object with IG specific intialization(s). 
 ```
-    using GaTech.Chai.Cbs.CbsTravelHistoryProfile;
+// Patient Profile
+var patient = UsCbsPatient.Create();
 
-    var travelHistory = CbsTravelHistory.Create();
-    travelHistory.Status = ObservationStatus.Final;
-    travelHistory.CbsTravelHistory().ProgramSpecificTimeWindow.RelativeTo =
-        TimeWindowRelativeToValue.ConditionOnsetDatePeriodStart;
-    travelHistory.CbsTravelHistory().ProgramSpecificTimeWindow.TimeWindow = new Quantity(1, "day");
-    travelHistory.CbsTravelHistory().ProgramSpecificTimeWindow.RelativeReference = patient.AsReference();
-    travelHistory.CbsTravelHistory().TravelHistoryAddress.Address = new Address() { City = "Dallas", State = "TX", Country = "USA" };
-    travelHistory.CbsTravelHistory().TravelHistoryAddress.Location = CbsTravelHistory.GeographicalLocation.Encode("48", "Texas");
-    travelHistory.CbsTravelHistory().TravelHistoryAddress.TimeSpent = FhirDateTime.Now();
+// Race
+patient.UsCorePatient().Race.Category = UsCorePatientRace.RaceCoding.Encode("2106-3", "White");
+patient.UsCorePatient().Race.RaceText = "White";
+
+// Ethnicity
+patient.UsCorePatient().Ethnicity.Category = UsCorePatientEthnicity.EthnicityCoding.Encode("2186-5", "Not Hispanic or Latino");
+patient.UsCorePatient().Ethnicity.ExtendedEthnicityCodes = new Coding[] { UsCorePatientEthnicity.EthnicityCoding.Encode("2186-5", "Not Hispanic or Latino") };
+patient.UsCorePatient().Ethnicity.EthnicityText = "Not Hispanic or Latino";
+
+// Birth Related
+// patient.BirthDateElement = new Date(1965, 5, 2);
+patient.UsCorePatient().BirthSex.Extension = new Code("F");
+
+patient.UsPublicHealthPatient().SetBrithDateDataAbsentReason();
+patient.UsPublicHealthPatient().BirthPlace = new Address() { Country = "USA" };
+patient.UsPublicHealthPatient().GenderIdentity = UsPublicHealthPatient.GenderFemale;
+patient.UsPublicHealthPatient().TribalAffiliation.TribeName = UsPublicHealthTribalAffiliation.TribalEntityUS.Encode("91", "Fort Mojave Indian Tribe of Arizona, California");
+patient.UsPublicHealthPatient().TribalAffiliation.EnrolledTribeMember = new FhirBoolean(true);
+patient.BirthDate = "1974-11-24";
+patient.Gender = AdministrativeGender.Female;
+patient.Identifier.Add(new Identifier() { Use = Identifier.IdentifierUse.Usual, Type = new CodeableConcept("http://terminology.hl7.org/CodeSystem/v2-0203", "MR", "Medical Record Number", "Medical Record Number"), System = "http://hospital.smarthealthit.org", Value = "1032702" });
+patient.Active = true;
+patient.Name.Add(new HumanName() { Family = "Everywoman", Given = new List<string> { "Eve", "L" } });
+
+// Address
+var address = new Address() { Use = Address.AddressUse.Home, Line = new List<string> { "5101 Peachtree St NE" }, City = "Atlanta", State = "GA", PostalCode = "30302", Country = "US" };
+address.UsCbsAddress().CensusTract = "030500";
+patient.Address.Add(address);
+
+// Contact
+patient.Telecom.AddTelecom(ContactPoint.ContactPointSystem.Phone, ContactPoint.ContactPointUse.Home, "1-(404)555-1212");
+patient.Telecom.AddTelecom(ContactPoint.ContactPointSystem.Phone, ContactPoint.ContactPointUse.Home, "1-(404)555-1212");
+patient.Telecom.AddTelecom(ContactPoint.ContactPointSystem.Phone, ContactPoint.ContactPointUse.Home, "1-(404)555-1212"); // duplicate entry demo
+patient.Telecom.AddTelecom(ContactPoint.ContactPointSystem.Email, ContactPoint.ContactPointUse.Work, "mywork@gtri.org");
 ```
-
-#### Specimen Profile
+#### JSON or XML Serialization
+Firely FHIR library has serialization classes for both JSON and XML. Your FHIR object(s) can be serialized to JSON or XML in the following way.
 ```
-    using GaTech.Chai.Cbs.CbsSpecimenProfile;
+FhirJsonSerializer fhirJsonSerializer = new(new SerializerSettings() { Pretty = true });
+string jsonText = fhirJsonSerializer.SerializeToString(patient);
 
-    var specimen = CbsSpecimen.Create();
-    specimen.CbsSpecimen().SpecimenRole = CbsSpecimen.Roles.BlindSample;
-    specimen.CbsSpecimen().FillerAssignedId = new Identifier() { Value = "IDR908765140" };
-    specimen.CbsSpecimen().PlacerAssignedId = new Identifier() { Value = "198374-9" };
-    specimen.Type = CbsSpecimen.Types.Encode("258497007", "Abscess swab (specimen)");
-    specimen.Subject = patient.AsReference();
-    specimen.Collection = new Specimen.CollectionComponent()
-    {
-        Collected = FhirDateTime.Now(),
-        Quantity = new Quantity(1, "ml"),
-        BodySite = CbsSpecimen.BodySites.Encode("64700008", "7 nm filaments(cell structure)")
-    };
+FhirXmlSerializer fhirXmlSerializer = new(new SerializerSettings() { Pretty = true });
+string xmlText = fhirXmlSerializer.SerializeToString(res);
 ```
