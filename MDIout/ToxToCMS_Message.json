@@ -1,0 +1,1174 @@
+{
+  "resourceType": "Bundle",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/mdi/StructureDefinition/Bundle-message-tox-to-mdi"
+    ]
+  },
+  "identifier": {
+    "system": "urn:ietf:rfc:3986",
+    "value": "urn:uuid:683dde44f7664b03a20b6324f23986d9"
+  },
+  "type": "message",
+  "entry": [
+    {
+      "fullUrl": "MessageHeader/e3fbcdb4-2f24-4c33-b199-ccd9bc5a0959",
+      "resource": {
+        "resourceType": "MessageHeader",
+        "id": "e3fbcdb4-2f24-4c33-b199-ccd9bc5a0959",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/mdi/StructureDefinition/MessageHeader-toxicology-to-mdi"
+          ]
+        },
+        "eventCoding": {
+          "system": "http://hl7.org/fhir/us/mdi/CodeSystem/CodeSystem-mdi-codes",
+          "code": "tox-result-report",
+          "display": "Toxicology Lab Results"
+        },
+        "source": {
+          "name": "University of Florida Pathology Labs, Forensic Toxicology Laboratory",
+          "software": "MS Access",
+          "version": "1.2.3",
+          "contact": {
+            "system": "phone",
+            "value": "+1 (555) 123 4567"
+          },
+          "endpoint": "http://uf.org/access/endpoint/1"
+        },
+        "focus": [
+          {
+            "reference": "DiagnosticReport/2d213771-ca9d-4600-8f10-4e787b02829a"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "DiagnosticReport/2d213771-ca9d-4600-8f10-4e787b02829a",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "id": "2d213771-ca9d-4600-8f10-4e787b02829a",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-diagnosticreport-lab",
+            "http://hl7.org/fhir/us/mdi/StructureDefinition/DiagnosticReport-toxicology-to-mdi"
+          ]
+        },
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/us/mdi/CodeSystem/CodeSystem-mdi-codes",
+                  "code": "tox-lab-case-number",
+                  "display": "Toxicology Laboratory Case Number"
+                }
+              ]
+            },
+            "system": "http://uf-path-labs.org/fhir/lab-cases",
+            "value": "R21-01578",
+            "assigner": {
+              "reference": "Organization/87922c6e-c441-4285-ad25-e610df880e21"
+            }
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                "code": "LAB",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "81273-5",
+              "display": "fentaNYL and Norfentanyl panel - Specimen"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/bc172aba-6aa0-49a4-9495-e71eaefdbafb",
+          "display": "FREEMAN, Alice"
+        },
+        "effectiveDateTime": "2021-12-03T11:00:00Z",
+        "issued": "2022-01-05T11:00:00+00:00",
+        "performer": [
+          {
+            "reference": "Practitioner/5c263628-bda3-446a-b02c-f1782474fc94"
+          }
+        ],
+        "specimen": [
+          {
+            "reference": "Specimen/792d50ad-9c18-4371-a823-a3afaebc3b2f",
+            "display": "Whole blood sample (specimen)"
+          },
+          {
+            "reference": "Specimen/f6ffef1e-59df-40dc-9181-649bce188916",
+            "display": "Urine specimen (specimen)"
+          },
+          {
+            "reference": "Specimen/1833cbcb-9b54-4552-8f2d-5e718a94af60",
+            "display": "Vitreous humor sample (specimen)"
+          },
+          {
+            "reference": "Specimen/484696b3-0973-4e05-92f4-05951d72349b",
+            "display": "Bile specimen (specimen)"
+          },
+          {
+            "reference": "Specimen/149be497-5e26-455e-b45c-b37f003bab80",
+            "display": "Tissue specimen from liver (specimen)"
+          },
+          {
+            "reference": "Specimen/e7da4da3-aa43-4751-bcef-c8a58e3e5d1f",
+            "display": "Specimen from stomach (specimen)"
+          }
+        ],
+        "result": [
+          {
+            "reference": "Observation/58dd87f4-065a-4f88-bb4f-eb9e288f1b2f",
+            "display": "Ethanol [Mass/volume] in Blood by Gas chromatography"
+          },
+          {
+            "reference": "Observation/7d45b492-09ab-4ef4-8b35-5b727aef08f5",
+            "display": "Despropionylfentanyl [Mass/volume] in Serum or Plasma"
+          },
+          {
+            "reference": "Observation/dd2a8447-68f0-4636-9362-adc3dd50b943",
+            "display": "Acetyl norfentanyl [Mass/volume] in Serum, Plasma or Blood by Confirmatory method"
+          },
+          {
+            "reference": "Observation/94b7bb23-896b-4a64-a8cd-7973a421d309",
+            "display": "fentaNYL [Mass/volume] in Blood by Confirmatory method"
+          },
+          {
+            "reference": "Observation/4dc5773c-d6cc-417d-a5b6-0d42d9736506",
+            "display": "Ethanol [Mass/volume] in Urine by Confirmatory method"
+          },
+          {
+            "reference": "Observation/c9aee910-458d-4ce7-8cec-d208a3454f8f",
+            "display": "Despropionylfentanyl [Mass/volume] in Serum or Plasma"
+          },
+          {
+            "reference": "Observation/afe29658-391e-45d1-9b12-70e5309b1e7c",
+            "display": "Acetyl fentanyl [Presence] in Urine by Confirmatory method"
+          },
+          {
+            "reference": "Observation/34428cdc-03c3-4435-83c1-7fac1704fa49",
+            "display": "fentaNYL [Presence] in Urine"
+          },
+          {
+            "reference": "Observation/b160cd9d-a405-4970-991a-9595499f9afa",
+            "display": "Norfentanyl [Presence] in Urine"
+          },
+          {
+            "reference": "Observation/4c170988-3d5f-4176-98f7-7ce656c169a3",
+            "display": "Ketamine [Presence] in Urine"
+          },
+          {
+            "reference": "Observation/2f214db2-8180-41a5-ba53-31bd60ed3fa8",
+            "display": "Ethanol [Mass/volume] in Vitreous fluid"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Patient/bc172aba-6aa0-49a4-9495-e71eaefdbafb",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "bc172aba-6aa0-49a4-9495-e71eaefdbafb",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
+          ]
+        },
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "ombCategory",
+                "valueCoding": {
+                  "system": "urn:oid:2.16.840.1.113883.6.238",
+                  "code": "2106-3",
+                  "display": "White"
+                }
+              },
+              {
+                "url": "detailed",
+                "valueCoding": {
+                  "system": "urn:oid:2.16.840.1.113883.6.238",
+                  "code": "1010-8",
+                  "display": "Apache"
+                }
+              },
+              {
+                "url": "text",
+                "valueString": "Apache"
+              }
+            ],
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race"
+          },
+          {
+            "extension": [
+              {
+                "url": "ombCategory",
+                "valueCoding": {
+                  "system": "urn:oid:2.16.840.1.113883.6.238",
+                  "code": "2186-5",
+                  "display": "Not Hispanic or Latino"
+                }
+              },
+              {
+                "url": "detailed",
+                "valueCoding": {
+                  "system": "urn:oid:2.16.840.1.113883.6.238",
+                  "code": "2162-6",
+                  "display": "Central American Indian"
+                }
+              },
+              {
+                "url": "text",
+                "valueString": "Not Hispanic or Latino"
+              }
+            ],
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity"
+          },
+          {
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex",
+            "valueCode": "F"
+          }
+        ],
+        "identifier": [
+          {
+            "use": "usual",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "SS",
+                  "display": "Social Security number"
+                }
+              ],
+              "text": "Social Security number"
+            },
+            "system": "http://hospital.smarthealthit.org",
+            "value": "987054321"
+          }
+        ],
+        "name": [
+          {
+            "family": "FREEMAN",
+            "given": [
+              "Alice",
+              "J"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "212-867-5309",
+            "use": "home"
+          },
+          {
+            "system": "phone",
+            "value": "212-867-5310",
+            "use": "home"
+          },
+          {
+            "system": "email",
+            "value": "mywork@gtri.org",
+            "use": "work"
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1965-05-02",
+        "deceasedDateTime": "2014-03-02",
+        "address": [
+          {
+            "use": "home",
+            "state": "TX",
+            "postalCode": "77018",
+            "country": "USA"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Practitioner/5c263628-bda3-446a-b02c-f1782474fc94",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "5c263628-bda3-446a-b02c-f1782474fc94",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "http://hl7.org/fhir/sid/us-npi",
+            "value": "555667777"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Goldberger",
+            "given": [
+              "Bruce"
+            ],
+            "prefix": [
+              "Dr"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Organization/87922c6e-c441-4285-ad25-e610df880e21",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "87922c6e-c441-4285-ad25-e610df880e21",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "http://hl7.org/fhir/sid/us-npi",
+            "value": "111223333"
+          }
+        ],
+        "active": true,
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+                "code": "prov",
+                "display": "Healthcare Provider"
+              }
+            ]
+          }
+        ],
+        "name": "UF Health Pathology Labs, Forensic Toxicology Laboratory",
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "(352) 265-9900",
+            "use": "work"
+          }
+        ],
+        "address": [
+          {
+            "line": [
+              "4800 SW 35th Drive"
+            ],
+            "city": "Gainesville",
+            "state": "FL",
+            "postalCode": "32608",
+            "country": "USA"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Specimen/792d50ad-9c18-4371-a823-a3afaebc3b2f",
+      "resource": {
+        "resourceType": "Specimen",
+        "id": "792d50ad-9c18-4371-a823-a3afaebc3b2f",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/mdi/StructureDefinition/Specimen-toxicology-lab"
+          ]
+        },
+        "accessionIdentifier": {
+          "system": "http://lab.acme.org/specimens/2021",
+          "value": "X352356"
+        },
+        "status": "available",
+        "type": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "258580003",
+              "display": "Whole blood sample (specimen)"
+            }
+          ],
+          "text": "Whole blood sample (specimen)"
+        },
+        "subject": {
+          "reference": "Patient/bc172aba-6aa0-49a4-9495-e71eaefdbafb"
+        },
+        "receivedTime": "2021-12-03T16:00:00Z",
+        "collection": {
+          "collectedDateTime": "2021-12-03T11:00:00Z",
+          "bodySite": {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "83419000",
+                "display": "Femoral vein structure (body structure)"
+              }
+            ]
+          }
+        },
+        "container": [
+          {
+            "description": "10mL GT tube",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "702287009",
+                  "display": "Non - evacuated blood collection tube, potassium oxalate / sodium fluoride(physical object)"
+                }
+              ],
+              "text": "GT tube"
+            },
+            "specimenQuantity": {
+              "value": 20,
+              "unit": "ml"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Specimen/f6ffef1e-59df-40dc-9181-649bce188916",
+      "resource": {
+        "resourceType": "Specimen",
+        "id": "f6ffef1e-59df-40dc-9181-649bce188916",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/mdi/StructureDefinition/Specimen-toxicology-lab"
+          ]
+        },
+        "accessionIdentifier": {
+          "system": "http://lab.acme.org/specimens/2021",
+          "value": "ZZZ352356"
+        },
+        "status": "available",
+        "type": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "122575003",
+              "display": "Urine specimen (specimen)"
+            }
+          ],
+          "text": "Urine specimen (specimen)"
+        },
+        "subject": {
+          "reference": "Patient/bc172aba-6aa0-49a4-9495-e71eaefdbafb"
+        },
+        "receivedTime": "2021-12-03T16:00:00Z",
+        "collection": {
+          "collectedDateTime": "2021-12-03T11:00:00Z",
+          "bodySite": {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "83419000",
+                "display": "Femoral vein structure (body structure)"
+              }
+            ]
+          }
+        },
+        "container": [
+          {
+            "description": "10mL RT tube",
+            "specimenQuantity": {
+              "value": 5,
+              "unit": "ml"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Specimen/1833cbcb-9b54-4552-8f2d-5e718a94af60",
+      "resource": {
+        "resourceType": "Specimen",
+        "id": "1833cbcb-9b54-4552-8f2d-5e718a94af60",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/mdi/StructureDefinition/Specimen-toxicology-lab"
+          ]
+        },
+        "accessionIdentifier": {
+          "system": "http://lab.acme.org/specimens/2021",
+          "value": "XXX352356"
+        },
+        "status": "available",
+        "type": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "258438000",
+              "display": "Vitreous humor sample (specimen)"
+            }
+          ],
+          "text": "Vitreous humor sample (specimen)"
+        },
+        "subject": {
+          "reference": "Patient/bc172aba-6aa0-49a4-9495-e71eaefdbafb"
+        },
+        "receivedTime": "2021-12-03T16:00:00Z",
+        "collection": {
+          "collectedDateTime": "2021-12-03T11:00:00Z",
+          "bodySite": {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "83419000",
+                "display": "Femoral vein structure (body structure)"
+              }
+            ]
+          }
+        },
+        "container": [
+          {
+            "description": "10mL RT tube",
+            "specimenQuantity": {
+              "value": 3,
+              "unit": "ml"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Specimen/484696b3-0973-4e05-92f4-05951d72349b",
+      "resource": {
+        "resourceType": "Specimen",
+        "id": "484696b3-0973-4e05-92f4-05951d72349b",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/mdi/StructureDefinition/Specimen-toxicology-lab"
+          ]
+        },
+        "accessionIdentifier": {
+          "system": "http://lab.acme.org/specimens/2021",
+          "value": "OO352356"
+        },
+        "status": "available",
+        "type": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "119341000",
+              "display": "Bile specimen (specimen)"
+            }
+          ],
+          "text": "Bile specimen (specimen)"
+        },
+        "subject": {
+          "reference": "Patient/bc172aba-6aa0-49a4-9495-e71eaefdbafb"
+        },
+        "receivedTime": "2021-12-03T16:00:00Z",
+        "container": [
+          {
+            "description": "3mL sample of bile specimen",
+            "specimenQuantity": {
+              "value": 3,
+              "unit": "ml"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Specimen/149be497-5e26-455e-b45c-b37f003bab80",
+      "resource": {
+        "resourceType": "Specimen",
+        "id": "149be497-5e26-455e-b45c-b37f003bab80",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/mdi/StructureDefinition/Specimen-toxicology-lab"
+          ]
+        },
+        "accessionIdentifier": {
+          "system": "http://lab.acme.org/specimens/2021",
+          "value": "DD352356"
+        },
+        "status": "available",
+        "type": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "119379005",
+              "display": "Tissue specimen from liver (specimen)"
+            }
+          ],
+          "text": "Tissue specimen from liver (specimen)"
+        },
+        "subject": {
+          "reference": "Patient/bc172aba-6aa0-49a4-9495-e71eaefdbafb"
+        },
+        "receivedTime": "2021-12-03T16:00:00Z",
+        "container": [
+          {
+            "description": "5mL sample of liver specimen",
+            "specimenQuantity": {
+              "value": 5,
+              "unit": "ml"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Specimen/e7da4da3-aa43-4751-bcef-c8a58e3e5d1f",
+      "resource": {
+        "resourceType": "Specimen",
+        "id": "e7da4da3-aa43-4751-bcef-c8a58e3e5d1f",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/mdi/StructureDefinition/Specimen-toxicology-lab"
+          ]
+        },
+        "accessionIdentifier": {
+          "system": "http://lab.acme.org/specimens/2021",
+          "value": "MM352356"
+        },
+        "status": "available",
+        "type": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "258580003",
+              "display": "Specimen from stomach (specimen)"
+            }
+          ],
+          "text": "Specimen from stomach (specimen)"
+        },
+        "subject": {
+          "reference": "Patient/bc172aba-6aa0-49a4-9495-e71eaefdbafb"
+        },
+        "receivedTime": "2021-12-03T16:00:00Z",
+        "collection": {
+          "collectedDateTime": "2021-12-03T11:00:00Z",
+          "bodySite": {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "83419000",
+                "display": "Femoral vein structure (body structure)"
+              }
+            ]
+          }
+        },
+        "container": [
+          {
+            "description": "60mL sample of stomach contents specimen",
+            "specimenQuantity": {
+              "value": 60,
+              "unit": "ml"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Observation/58dd87f4-065a-4f88-bb4f-eb9e288f1b2f",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "58dd87f4-065a-4f88-bb4f-eb9e288f1b2f",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab",
+            "http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-toxicology-lab-result"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "56478-1",
+              "display": "Ethanol [Mass/volume] in Blood by Gas chromatography"
+            }
+          ],
+          "text": "Ethanol [Mass/volume] in Blood by Gas chromatography"
+        },
+        "subject": {
+          "reference": "Patient/bc172aba-6aa0-49a4-9495-e71eaefdbafb"
+        },
+        "effectiveDateTime": "2021-12-03",
+        "valueQuantity": {
+          "value": 0.145,
+          "unit": "g/dL",
+          "system": "http://unitsofmeasure.org"
+        },
+        "specimen": {
+          "reference": "Specimen/792d50ad-9c18-4371-a823-a3afaebc3b2f"
+        }
+      }
+    },
+    {
+      "fullUrl": "Observation/7d45b492-09ab-4ef4-8b35-5b727aef08f5",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "7d45b492-09ab-4ef4-8b35-5b727aef08f5",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab",
+            "http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-toxicology-lab-result"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "11072-6",
+              "display": "Despropionylfentanyl [Mass/volume] in Serum or Plasma"
+            }
+          ],
+          "text": "Despropionylfentanyl [Mass/volume] in Serum or Plasma"
+        },
+        "subject": {
+          "reference": "Patient/bc172aba-6aa0-49a4-9495-e71eaefdbafb"
+        },
+        "effectiveDateTime": "2021-12-03",
+        "valueBoolean": true,
+        "specimen": {
+          "reference": "Specimen/792d50ad-9c18-4371-a823-a3afaebc3b2f"
+        }
+      }
+    },
+    {
+      "fullUrl": "Observation/dd2a8447-68f0-4636-9362-adc3dd50b943",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "dd2a8447-68f0-4636-9362-adc3dd50b943",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab",
+            "http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-toxicology-lab-result"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "86223-5",
+              "display": "Acetyl norfentanyl [Mass/volume] in Serum, Plasma or Blood by Confirmatory method"
+            }
+          ],
+          "text": "Acetyl norfentanyl [Mass/volume] in Serum, Plasma or Blood by Confirmatory method"
+        },
+        "subject": {
+          "reference": "Patient/bc172aba-6aa0-49a4-9495-e71eaefdbafb"
+        },
+        "effectiveDateTime": "2021-12-03",
+        "valueQuantity": {
+          "value": 2,
+          "unit": "ng/mL",
+          "system": "http://unitsofmeasure.org"
+        },
+        "specimen": {
+          "reference": "Specimen/792d50ad-9c18-4371-a823-a3afaebc3b2f"
+        }
+      }
+    },
+    {
+      "fullUrl": "Observation/94b7bb23-896b-4a64-a8cd-7973a421d309",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "94b7bb23-896b-4a64-a8cd-7973a421d309",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab",
+            "http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-toxicology-lab-result"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "73938-3",
+              "display": "fentaNYL [Mass/volume] in Blood by Confirmatory method"
+            }
+          ],
+          "text": "fentaNYL [Mass/volume] in Blood by Confirmatory method"
+        },
+        "subject": {
+          "reference": "Patient/bc172aba-6aa0-49a4-9495-e71eaefdbafb"
+        },
+        "effectiveDateTime": "2021-12-03",
+        "valueQuantity": {
+          "value": 23,
+          "unit": "ng/mL",
+          "system": "http://unitsofmeasure.org"
+        },
+        "specimen": {
+          "reference": "Specimen/792d50ad-9c18-4371-a823-a3afaebc3b2f"
+        }
+      }
+    },
+    {
+      "fullUrl": "Observation/4dc5773c-d6cc-417d-a5b6-0d42d9736506",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "4dc5773c-d6cc-417d-a5b6-0d42d9736506",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab",
+            "http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-toxicology-lab-result"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "46983-3",
+              "display": "Ethanol [Mass/volume] in Urine by Confirmatory method"
+            }
+          ],
+          "text": "Ethanol [Mass/volume] in Urine by Confirmatory method"
+        },
+        "subject": {
+          "reference": "Patient/bc172aba-6aa0-49a4-9495-e71eaefdbafb"
+        },
+        "effectiveDateTime": "2021-12-03",
+        "valueQuantity": {
+          "value": 0.16,
+          "unit": "g/dL",
+          "system": "http://unitsofmeasure.org"
+        },
+        "specimen": {
+          "reference": "Specimen/f6ffef1e-59df-40dc-9181-649bce188916"
+        }
+      }
+    },
+    {
+      "fullUrl": "Observation/c9aee910-458d-4ce7-8cec-d208a3454f8f",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "c9aee910-458d-4ce7-8cec-d208a3454f8f",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab",
+            "http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-toxicology-lab-result"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "11072-6",
+              "display": "Despropionylfentanyl [Mass/volume] in Serum or Plasma"
+            }
+          ],
+          "text": "Despropionylfentanyl [Mass/volume] in Serum or Plasma"
+        },
+        "subject": {
+          "reference": "Patient/bc172aba-6aa0-49a4-9495-e71eaefdbafb"
+        },
+        "effectiveDateTime": "2021-12-03",
+        "valueBoolean": true,
+        "specimen": {
+          "reference": "Specimen/f6ffef1e-59df-40dc-9181-649bce188916"
+        }
+      }
+    },
+    {
+      "fullUrl": "Observation/afe29658-391e-45d1-9b12-70e5309b1e7c",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "afe29658-391e-45d1-9b12-70e5309b1e7c",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab",
+            "http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-toxicology-lab-result"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "74810-3",
+              "display": "Acetyl fentanyl [Presence] in Urine by Confirmatory method"
+            }
+          ],
+          "text": "Acetyl fentanyl [Presence] in Urine by Confirmatory method"
+        },
+        "subject": {
+          "reference": "Patient/bc172aba-6aa0-49a4-9495-e71eaefdbafb"
+        },
+        "effectiveDateTime": "2021-12-03",
+        "valueBoolean": true,
+        "specimen": {
+          "reference": "Specimen/f6ffef1e-59df-40dc-9181-649bce188916"
+        }
+      }
+    },
+    {
+      "fullUrl": "Observation/34428cdc-03c3-4435-83c1-7fac1704fa49",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "34428cdc-03c3-4435-83c1-7fac1704fa49",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab",
+            "http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-toxicology-lab-result"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "11235-9",
+              "display": "fentaNYL [Presence] in Urine"
+            }
+          ],
+          "text": "fentaNYL [Presence] in Urine"
+        },
+        "subject": {
+          "reference": "Patient/bc172aba-6aa0-49a4-9495-e71eaefdbafb"
+        },
+        "effectiveDateTime": "2021-12-03",
+        "valueBoolean": true,
+        "specimen": {
+          "reference": "Specimen/f6ffef1e-59df-40dc-9181-649bce188916"
+        }
+      }
+    },
+    {
+      "fullUrl": "Observation/b160cd9d-a405-4970-991a-9595499f9afa",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "b160cd9d-a405-4970-991a-9595499f9afa",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab",
+            "http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-toxicology-lab-result"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "43199-9",
+              "display": "Norfentanyl [Presence] in Urine"
+            }
+          ],
+          "text": "Norfentanyl [Presence] in Urine"
+        },
+        "subject": {
+          "reference": "Patient/bc172aba-6aa0-49a4-9495-e71eaefdbafb"
+        },
+        "effectiveDateTime": "2021-12-03",
+        "valueBoolean": true,
+        "specimen": {
+          "reference": "Specimen/f6ffef1e-59df-40dc-9181-649bce188916"
+        }
+      }
+    },
+    {
+      "fullUrl": "Observation/4c170988-3d5f-4176-98f7-7ce656c169a3",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "4c170988-3d5f-4176-98f7-7ce656c169a3",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab",
+            "http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-toxicology-lab-result"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "12327-3",
+              "display": "Ketamine [Presence] in Urine"
+            }
+          ],
+          "text": "Ketamine [Presence] in Urine"
+        },
+        "subject": {
+          "reference": "Patient/bc172aba-6aa0-49a4-9495-e71eaefdbafb"
+        },
+        "effectiveDateTime": "2021-12-03",
+        "valueBoolean": true,
+        "specimen": {
+          "reference": "Specimen/f6ffef1e-59df-40dc-9181-649bce188916"
+        }
+      }
+    },
+    {
+      "fullUrl": "Observation/2f214db2-8180-41a5-ba53-31bd60ed3fa8",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "2f214db2-8180-41a5-ba53-31bd60ed3fa8",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab",
+            "http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-toxicology-lab-result"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "12465-1",
+              "display": "Ethanol [Mass/volume] in Vitreous fluid"
+            }
+          ],
+          "text": "Ethanol [Mass/volume] in Vitreous fluid"
+        },
+        "subject": {
+          "reference": "Patient/bc172aba-6aa0-49a4-9495-e71eaefdbafb"
+        },
+        "effectiveDateTime": "2021-12-03",
+        "valueQuantity": {
+          "value": 0.133,
+          "unit": "g/dL",
+          "system": "http://unitsofmeasure.org"
+        },
+        "specimen": {
+          "reference": "Specimen/1833cbcb-9b54-4552-8f2d-5e718a94af60"
+        }
+      }
+    }
+  ]
+}

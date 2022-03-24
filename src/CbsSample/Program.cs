@@ -30,6 +30,7 @@ namespace CbsSample
              */
 
             FhirJsonSerializer serializer = new(new SerializerSettings() { Pretty = true });
+            string outputPath = "/Users/mc142/Documents/workspace/MMG/cbs-ig-dotnet/CBSout/";
 
             // CbsPatientProfile
             Patient patient = CbsGenV2Patient.Create();
@@ -221,14 +222,14 @@ namespace CbsSample
             document.Entry.Add(new Bundle.EntryComponent() { Resource = haicaLobResultObservation });
             
             // Print out the result
-            string output = serializer.SerializeToString(patient);
-            File.WriteAllText("GenV2.json", output);
+            string output = serializer.SerializeToString(document);
+            File.WriteAllText(outputPath + "GenV2.json", output);
             Console.WriteLine(output);
 
             // Deserialize the JSON to FHIR object
             JsonTextReader reader = new JsonTextReader(new System.IO.StreamReader(@"GenV2.json"));
             var parser = new FhirJsonParser();
-            var res = parser.Parse<Patient>(reader);
+            var res = parser.Parse<Bundle>(reader);
 
             FhirXmlSerializer fhirXmlSerializer = new(new SerializerSettings() { Pretty = true });
             string xmlText = fhirXmlSerializer.SerializeToString(res);

@@ -34,6 +34,7 @@ namespace MdiExample
         static void Main(string[] args)
         {
             FhirJsonSerializer serializer = new(new SerializerSettings() { Pretty = true });
+            string outputPath = "/Users/mc142/Documents/workspace/MMG/cbs-ig-dotnet/MDIout/";
 
             // US Core PatientProfile
             Patient patient = UsCorePatient.Create();
@@ -130,7 +131,7 @@ namespace MdiExample
             pathWayList.ListCauseOfDeathPathway().AddCauseOfDeathCondition(causeOfDeath5.AsReference());
             ////
             // Demo: Total number of causes of death check
-            //pathWayList.ListCauseOfDeathPathway().AddCauseOfDeathCondition(causeOfDeath6.AsReference());
+            // pathWayList.ListCauseOfDeathPathway().AddCauseOfDeathCondition(causeOfDeath6.AsReference());
             pathWayList.Subject = patient.AsReference();
             pathWayList.Source = practitioner.AsReference();
 
@@ -233,7 +234,7 @@ namespace MdiExample
             MdiDocument.AddResourceEntry(observationHowDeathInjuryOccurred, observationHowDeathInjuryOccurred.AsReference().Url.ToString());
 
             string output = serializer.SerializeToString(MdiDocument);
-            File.WriteAllText("MDItoEDRS_Document.json", output);
+            File.WriteAllText(outputPath + "MDItoEDRS_Document.json", output);
             Console.WriteLine(output);
 
             /////////////////////////// Toxicology Lab Report ///////////////////////////////
@@ -457,7 +458,7 @@ namespace MdiExample
             bundleMessageToxToMDI.AddResourceEntry(toxLabResultEthanolVitreousHumor, toxLabResultEthanolVitreousHumor.AsReference().Url.ToString());
 
             output = serializer.SerializeToString(bundleMessageToxToMDI);
-            File.WriteAllText("ToxToCMS_Message.json", output);
+            File.WriteAllText(outputPath + "ToxToCMS_Message.json", output);
             Console.WriteLine(output);
 
         }
