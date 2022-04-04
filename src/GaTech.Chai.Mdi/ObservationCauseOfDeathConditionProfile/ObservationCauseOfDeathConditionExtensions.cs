@@ -3,7 +3,7 @@
 namespace GaTech.Chai.Mdi.ObservationCauseOfDeathConditionProfile
 {
     /// <summary>
-    /// Class with Observation extensions for US Core Lab Result profile.
+    /// Class with Observation extensions for ObservationCauseOfDeathConditionProfile
     /// http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-cause-of-death-condition
     /// </summary>
     public static class ObservationCauseOfDeathConditionExtensions

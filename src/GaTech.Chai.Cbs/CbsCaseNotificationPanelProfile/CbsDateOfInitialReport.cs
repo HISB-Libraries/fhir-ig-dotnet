@@ -5,7 +5,7 @@ using Hl7.Fhir.Model;
 namespace GaTech.Chai.Cbs.CaseNotificationPanelProfile
 {
     /// <summary>
-    /// Case Based Surveillance Date of Initial Report Observation
+    /// CBS Date Of Initial Report Profile
     /// http://cbsig.chai.gatech.edu/StructureDefinition/cbs-date-initial-report
     /// </summary>
     public class CbsDateOfInitialReport : CbsCaseNotificationPanel
@@ -16,7 +16,7 @@ namespace GaTech.Chai.Cbs.CaseNotificationPanelProfile
         }
 
         /// <summary>
-        /// Factory for Case Based Surveillance Date of Initial Report Observation Profile
+        /// Factory for CBS Date Of Initial Report Profile
         /// http://cbsig.chai.gatech.edu/StructureDefinition/cbs-date-initial-report
         /// </summary>
         public static new Observation Create()

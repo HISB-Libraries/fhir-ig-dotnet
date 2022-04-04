@@ -4,6 +4,9 @@ using Hl7.Fhir.Model;
 
 namespace GaTech.Chai.FhirIg.Extensions
 {
+    /// <summary>
+    /// ContactPoint extension for Telecom DataAbsentReason
+    /// </summary>
     public static class FhirTelecomExtensions
     {
         public static void AddDataAbsentReason(this ContactPoint contactPoint, Code code)

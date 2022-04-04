@@ -8,7 +8,7 @@ using System.Collections.Generic;
 namespace GaTech.Chai.Mdi.CompositionMditoEdrsProfile
 {
     /// <summary>
-    /// Medicolegal Deathh Investigation Composition Profile Extensions
+    /// CompositionMditoEdrsProfile
     /// http://hl7.org/fhir/us/mdi/StructureDefinition/Composition-mdi-to-edrs
     /// </summary>
     public class CompositionMdiToEdrs
@@ -23,7 +23,7 @@ namespace GaTech.Chai.Mdi.CompositionMditoEdrsProfile
         }
 
         /// <summary>
-        /// Factory for Medicolegal Deathh Investigation Composition Profile
+        /// Factory for CompositionMditoEdrsProfile
         /// http://hl7.org/fhir/us/mdi/StructureDefinition/Composition-mdi-to-edrs
         /// </summary>
         public static Composition Create()
@@ -34,12 +34,12 @@ namespace GaTech.Chai.Mdi.CompositionMditoEdrsProfile
         }
 
         /// <summary>
-        /// The official URL for the Medicolegal Deathh Investigation Composition profile, used to assert conformance.
+        /// The official URL for the CompositionMditoEdrsProfile, used to assert conformance.
         /// </summary>
         public const string ProfileUrl = "http://hl7.org/fhir/us/mdi/StructureDefinition/Composition-mdi-to-edrs";
 
         /// <summary>
-        /// Set the assertion that a questionnaire object conforms to the Case Based Surveillance Composition Profile.
+        /// Set profile for the CompositionMditoEdrsProfile
         /// </summary>
         public void AddProfile()
         {
@@ -47,7 +47,7 @@ namespace GaTech.Chai.Mdi.CompositionMditoEdrsProfile
         }
 
         /// <summary>
-        /// Clear the assertion that a questionnaire object conforms to the Case Based Surveillance Composition Profile.
+        /// Clear profile for the CompositionMditoEdrsProfile
         /// </summary>
         public void RemoveProfile()
         {

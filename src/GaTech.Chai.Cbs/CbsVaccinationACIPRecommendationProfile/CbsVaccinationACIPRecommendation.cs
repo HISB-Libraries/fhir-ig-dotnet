@@ -7,7 +7,7 @@ using System.Collections.Generic;
 namespace GaTech.Chai.Cbs.VaccinationACIPRecommendationProfile
 {
     /// <summary>
-    /// Case Based Surveillance Subject Vaccinated per ACIP Recommendations Profile Extensions
+    /// Case Based Surveillance Subject Vaccinated per ACIP Recommendations Profile
     /// http://cbsig.chai.gatech.edu/StructureDefinition/cbs-vaccination-ACIP-Recommendation
     /// </summary>
     public class CbsVaccinationACIPRecommendation
@@ -39,7 +39,7 @@ namespace GaTech.Chai.Cbs.VaccinationACIPRecommendationProfile
         public const string ProfileUrl = "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-vaccination-ACIP-Recommendation";
 
         /// <summary>
-        /// Set the assertion that a observation object conforms to the Case Based Surveillance Subject Vaccinated per ACIP Recommendations Profile.
+        /// Set profile for Case Based Surveillance Subject Vaccinated per ACIP Recommendations Profile
         /// </summary>
         public void AddProfile()
         {
@@ -47,7 +47,7 @@ namespace GaTech.Chai.Cbs.VaccinationACIPRecommendationProfile
         }
 
         /// <summary>
-        /// Clear the assertion that a observation object conforms to the Case Based Surveillance Subject Vaccinated per ACIP Recommendations Profile.
+        /// Clear profile for Case Based Surveillance Subject Vaccinated per ACIP Recommendations Profile
         /// </summary>
         public void RemoveProfile()
         {

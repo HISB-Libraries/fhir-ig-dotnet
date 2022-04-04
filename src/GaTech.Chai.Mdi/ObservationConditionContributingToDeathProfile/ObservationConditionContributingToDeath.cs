@@ -5,7 +5,7 @@ using GaTech.Chai.FhirIg.Extensions;
 namespace GaTech.Chai.Mdi.ObservationConditionContributingToDeathProfile
 {
     /// <summary>
-    /// MDI ObservationConditionContributingToDeath Profile Extensions
+    /// ObservationConditionContributingToDeathProfile
     /// http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-condition-contributing-to-death
     /// </summary>
     public class ObservationConditionContributingToDeath
@@ -19,7 +19,7 @@ namespace GaTech.Chai.Mdi.ObservationConditionContributingToDeathProfile
         }
 
         /// <summary>
-        /// Factory for MDI ObservationConditionContributingToDeath Profile
+        /// Factory for ObservationConditionContributingToDeathProfile
         /// http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-condition-contributing-to-death
         /// </summary>
         public static Observation Create()
@@ -30,12 +30,12 @@ namespace GaTech.Chai.Mdi.ObservationConditionContributingToDeathProfile
         }
 
         /// <summary>
-        /// The official URL for the MDI ObservationConditionContributingToDeath profile, used to assert conformance.
+        /// The official URL for the ObservationConditionContributingToDeathProfile, used to assert conformance.
         /// </summary>
         public const string ProfileUrl = "http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-condition-contributing-to-death";
 
         /// <summary>
-        /// Set the assertion that conforms to the ObservationConditionContributingToDeath profile.
+        /// Set profile for the ObservationConditionContributingToDeathProfile
         /// </summary>
         public void AddProfile()
         {
@@ -43,7 +43,7 @@ namespace GaTech.Chai.Mdi.ObservationConditionContributingToDeathProfile
         }
 
         /// <summary>
-        /// Clear the assertion that an ObservationCauseOfDeathCondition object conforms to the MDI ObservationCauseOfDeathCondition profile.
+        /// Clear profile for the ObservationConditionContributingToDeathProfile
         /// </summary>
         public void RemoveProfile()
         {

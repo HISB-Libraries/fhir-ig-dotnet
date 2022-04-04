@@ -7,7 +7,7 @@ using GaTech.Chai.UsCbs.Common;
 namespace GaTech.Chai.Cbs.SocialDeterminantsOfHealthProfile
 {
     /// <summary>
-    /// Case Based Surveillance Social Determinants of Health Profile Extensions
+    /// Case Based Surveillance Social Determinants of Health Profile
     /// http://cbsig.chai.gatech.edu/StructureDefinition/cbs-social-determinants-of-health
     /// </summary>
     public class CbsSocialDeterminantsOfHealth
@@ -35,6 +35,22 @@ namespace GaTech.Chai.Cbs.SocialDeterminantsOfHealthProfile
         }
 
         /// <summary>
+        /// Set profile for Case Based Surveillance Social Determinants of Health Profile
+        /// </summary>
+        public void AddProfile()
+        {
+            observation.AddProfile(ProfileUrl);
+        }
+
+        /// <summary>
+        /// Clear profile for Case Based Surveillance Social Determinants of Health Profile
+        /// </summary>
+        public void RemoveProfile()
+        {
+            observation.RemoveProfile(ProfileUrl);
+        }
+
+        /// <summary>
         /// Case Based Surveillance Program Specific Time Window
         /// </summary>
         public UsCbsProgramSpecificTimeWindow ProgramSpecificTimeWindow => this.programSpecificTimeWindow;
@@ -43,22 +59,6 @@ namespace GaTech.Chai.Cbs.SocialDeterminantsOfHealthProfile
         /// The official URL for the Case Based Surveillance Social Determinants of Health profile, used to assert conformance.
         /// </summary>
         public const string ProfileUrl = "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-social-determinants-of-health";
-
-        /// <summary>
-        /// Set the assertion that a observation object conforms to the Case Based Surveillance Social Determinants of Health Profile.
-        /// </summary>
-        public void AddProfile()
-        {
-            observation.AddProfile(ProfileUrl);
-        }
-
-        /// <summary>
-        /// Clear the assertion that a observation object conforms to the Case Based Surveillance Social Determinants of Health Profile.
-        /// </summary>
-        public void RemoveProfile()
-        {
-            observation.RemoveProfile(ProfileUrl);
-        }
 
         /// <summary>
         /// CBS Case Social Determinants of Health Category

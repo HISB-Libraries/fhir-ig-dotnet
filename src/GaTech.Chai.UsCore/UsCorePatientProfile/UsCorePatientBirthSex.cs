@@ -6,6 +6,9 @@ using Hl7.Fhir.Model;
 
 namespace GaTech.Chai.UsCore.PatientProfile
 {
+    /// <summary>
+    /// US Core Patient Birth Sex Extension Helper
+    /// </summary>
     public class UsCorePatientBirthSex
     {
         readonly Patient patient;

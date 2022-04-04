@@ -5,7 +5,7 @@ using GaTech.Chai.FhirIg.Extensions;
 namespace GaTech.Chai.Cbs.DocumentBundleProfile
 {
     /// <summary>
-    /// Case Based Surveillance Document Bundle Profile Extensions
+    /// Case Based Surveillance Document Bundle Profile
     /// http://cbsig.chai.gatech.edu/StructureDefinition/cbs-document-bundle
     /// </summary>
     public class CbsDocumentBundle
@@ -35,7 +35,7 @@ namespace GaTech.Chai.Cbs.DocumentBundleProfile
         public const string ProfileUrl = "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-document-bundle";
 
         /// <summary>
-        /// Set the assertion that a questionnaire object conforms to the Case Based Surveillance Document Bundle Profile.
+        /// Set profile for Case Based Surveillance Document Bundle Profile
         /// </summary>
         public void AddProfile()
         {
@@ -43,7 +43,7 @@ namespace GaTech.Chai.Cbs.DocumentBundleProfile
         }
 
         /// <summary>
-        /// Clear the assertion that a questionnaire object conforms to the Case Based Surveillance Document Bundle Profile.
+        /// Clear profile for Case Based Surveillance Document Bundle Profile
         /// </summary>
         public void RemoveProfile()
         {

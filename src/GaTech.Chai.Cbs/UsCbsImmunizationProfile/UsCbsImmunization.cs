@@ -6,7 +6,7 @@ using GaTech.Chai.UsCore.ImmunizationProfile;
 namespace GaTech.Chai.UsCbs.ImmunizationProfile
 {
     /// <summary>
-    /// Case Based Surveillance Lab Condition Profile Extensions
+    /// US Case Based Surveillance Immunization Profile 
     /// http://cbsig.chai.gatech.edu/StructureDefinition/us-cbs-immunization
     /// </summary>
     public class UsCbsImmunization
@@ -20,7 +20,7 @@ namespace GaTech.Chai.UsCbs.ImmunizationProfile
         }
 
         /// <summary>
-        /// Factory for Case Based Surveillance Immunization Profile
+        /// Factory for US Case Based Surveillance Immunization Profile 
         /// http://cbsig.chai.gatech.edu/StructureDefinition/us-cbs-immunization
         /// </summary>
         public static Immunization Create()
@@ -31,12 +31,12 @@ namespace GaTech.Chai.UsCbs.ImmunizationProfile
         }
 
         /// <summary>
-        /// The official URL for the Case Based Surveillance Immunization profile, used to assert conformance.
+        /// The official URL for the US Case Based Surveillance Immunization Profile, used to assert conformance.
         /// </summary>
         public const string ProfileUrl = "http://cbsig.chai.gatech.edu/StructureDefinition/us-cbs-immunization";
 
         /// <summary>
-        /// Set the assertion that an condition object conforms to the Case Based Surveillance Lab Condition profile.
+        /// Set profile for US Case Based Surveillance Immunization Profile 
         /// </summary>
         public void AddProfile()
         {
@@ -44,7 +44,7 @@ namespace GaTech.Chai.UsCbs.ImmunizationProfile
         }
 
         /// <summary>
-        /// Clear the assertion that an condition object conforms to the Case Based Surveillance Lab Condition profile.
+        /// Clear US Case Based Surveillance Immunization Profile 
         /// </summary>
         public void RemoveProfile()
         {

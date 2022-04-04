@@ -3,8 +3,8 @@
 namespace GaTech.Chai.Mdi.ObservationMannerOfDeathProfile
 {
     /// <summary>
-    /// Class with Observation extensions for How Death Injury Occurred profile.
-    /// http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-death-injury-at-work
+    /// Class with Observation extensions for ObservationMannerOfDeathProfile
+    /// http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-manner-of-death
     /// </summary>
     public static class ObservationMannerOfDeathExtensions
     {

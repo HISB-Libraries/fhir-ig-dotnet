@@ -5,6 +5,9 @@ using Hl7.Fhir.Model;
 
 namespace GaTech.Chai.FhirIg.Extensions
 {
+    /// <summary>
+    /// Resource extension to add Profile URL to FHIR Resource
+    /// </summary>
     public static class FhirResourceExtensions
     {
         /// <summary>

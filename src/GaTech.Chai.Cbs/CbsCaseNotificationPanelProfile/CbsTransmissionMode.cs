@@ -5,7 +5,7 @@ using Hl7.Fhir.Model;
 namespace GaTech.Chai.Cbs.CaseNotificationPanelProfile
 {
     /// <summary>
-    /// Case Based Surveillance Transmission Mode Observation
+    /// Case Based Surveillance Transmission Mode Observation Profile
     /// http://cbsig.chai.gatech.edu/StructureDefinition/cbs-transmission-mode
     /// </summary>
     public class CbsTransmissionMode : CbsCaseNotificationPanel

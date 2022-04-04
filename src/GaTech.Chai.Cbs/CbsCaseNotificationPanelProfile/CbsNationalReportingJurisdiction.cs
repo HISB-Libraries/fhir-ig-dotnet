@@ -5,7 +5,7 @@ using Hl7.Fhir.Model;
 namespace GaTech.Chai.Cbs.CaseNotificationPanelProfile
 {
     /// <summary>
-    /// Case Based Surveillance National Reporting Jurisdiction Observation
+    /// Case Based Surveillance National Reporting Jurisdiction Profile
     /// http://cbsig.chai.gatech.edu/StructureDefinition/cbs-national-reporting-jurisdiction
     /// </summary>
     public class CbsNationalReportingJurisdiction : CbsCaseNotificationPanel
@@ -16,7 +16,7 @@ namespace GaTech.Chai.Cbs.CaseNotificationPanelProfile
         }
 
         /// <summary>
-        /// Factory for Case Based Surveillance National Reporting Jurisdiction Observation Profile
+        /// Factory for Case Based Surveillance National Reporting Jurisdiction Profile
         /// http://cbsig.chai.gatech.edu/StructureDefinition/cbs-national-reporting-jurisdiction
         /// </summary>
         public static new Observation Create()

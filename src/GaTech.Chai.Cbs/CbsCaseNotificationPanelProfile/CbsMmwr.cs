@@ -6,7 +6,7 @@ using Hl7.Fhir.Model;
 namespace GaTech.Chai.Cbs.CaseNotificationPanelProfile
 {
     /// <summary>
-    /// Case Based Surveillance Morbidity and Mortality Weekly Report (MMWR) 
+    /// Case Based Surveillance Morbidity and Mortality Weekly Report (MMWR) Profile
     /// http://cbsig.chai.gatech.edu/StructureDefinition/cbs-mmwr
     /// </summary>
     public class CbsMmwr : CbsCaseNotificationPanel

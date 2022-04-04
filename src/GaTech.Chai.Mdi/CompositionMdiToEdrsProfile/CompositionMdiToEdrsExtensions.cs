@@ -3,8 +3,8 @@
 namespace GaTech.Chai.Mdi.CompositionMditoEdrsProfile
 {
     /// <summary>
-    /// Class with Composition extensions for Case Based Surveillance Composition Profile
-    /// http://cbsig.chai.gatech.edu/StructureDefinition/cbs-questionnaire
+    /// Class with Composition extensions for CompositionMditoEdrsProfile
+    /// http://hl7.org/fhir/us/mdi/StructureDefinition/Composition-mdi-to-edrs
     /// </summary>
     public static class MdiToEdrsCompositionExtensions
     {

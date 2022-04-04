@@ -3,7 +3,7 @@
 namespace GaTech.Chai.UsCore.ImmunizationProfile
 {
     /// <summary>
-    /// Class with Encounter extensions for Case Based Surveillance Encounter profile.
+    /// Class with Immunization extensions for US Core Immunization Profile
     /// http://hl7.org/fhir/us/core/StructureDefinition/us-core-immunization
     /// </summary>
     public static class UsCoreImmunizationExtensions

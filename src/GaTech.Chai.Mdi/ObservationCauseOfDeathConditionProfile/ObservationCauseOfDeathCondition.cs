@@ -5,7 +5,7 @@ using GaTech.Chai.FhirIg.Extensions;
 namespace GaTech.Chai.Mdi.ObservationCauseOfDeathConditionProfile
 {
     /// <summary>
-    /// MDI ObservationCauseOfDeathCondition Profile Extensions
+    /// ObservationCauseOfDeathConditionProfile
     /// http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-cause-of-death-condition
     /// </summary>
     public class ObservationCauseOfDeathCondition
@@ -19,7 +19,7 @@ namespace GaTech.Chai.Mdi.ObservationCauseOfDeathConditionProfile
         }
 
         /// <summary>
-        /// Factory for MDI ObservationCauseOfDeathCondition Profile
+        /// Factory for ObservationCauseOfDeathConditionProfile
         /// http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-cause-of-death-condition
         /// </summary>
         public static Observation Create()
@@ -30,12 +30,12 @@ namespace GaTech.Chai.Mdi.ObservationCauseOfDeathConditionProfile
         }
 
         /// <summary>
-        /// The official URL for the MDI ObservationCauseOfDeathCondition profile, used to assert conformance.
+        /// The official URL for the ObservationCauseOfDeathConditionProfile, used to assert conformance.
         /// </summary>
         public const string ProfileUrl = "http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-cause-of-death-condition";
 
         /// <summary>
-        /// Set the assertion that an DiagnosticReport object conforms to the Case Based Surveillance DiagnosticReport profile.
+        /// Set profile for the ObservationCauseOfDeathConditionProfile
         /// </summary>
         public void AddProfile()
         {
@@ -43,7 +43,7 @@ namespace GaTech.Chai.Mdi.ObservationCauseOfDeathConditionProfile
         }
 
         /// <summary>
-        /// Clear the assertion that an ObservationCauseOfDeathCondition object conforms to the MDI ObservationCauseOfDeathCondition profile.
+        /// Clear profile for the ObservationCauseOfDeathConditionProfile
         /// </summary>
         public void RemoveProfile()
         {

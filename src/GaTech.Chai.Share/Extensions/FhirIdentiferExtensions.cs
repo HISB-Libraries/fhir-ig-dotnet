@@ -4,6 +4,9 @@ using Hl7.Fhir.Model;
 
 namespace GaTech.Chai.FhirIg.Extensions
 {
+    /// <summary>
+    /// List Identifier extenstion for FHIR Identifier data
+    /// </summary>
     public static class FhirIdentiferExtensions
     {
         public static void AddOrUpdateIdentifier(this List<Identifier> identifiers,

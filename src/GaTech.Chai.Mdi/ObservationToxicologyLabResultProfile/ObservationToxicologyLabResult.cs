@@ -6,7 +6,7 @@ using GaTech.Chai.UsCore.LabResultObservationProfile;
 namespace GaTech.Chai.Mdi.ObservationToxicologyLabResultProfile
 {
     /// <summary>
-    /// ObservationToxicologyLabResult Profile Extensions
+    /// ObservationToxicologyLabResultProfile
     /// http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-toxicology-lab-result
     /// </summary>
     public class ObservationToxicologyLabResult
@@ -20,7 +20,7 @@ namespace GaTech.Chai.Mdi.ObservationToxicologyLabResultProfile
         }
 
         /// <summary>
-        /// Factory for ObservationToxicologyLabResult Profile
+        /// Factory for ObservationToxicologyLabResultProfile
         /// http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-toxicology-lab-result
         /// </summary>
         public static Observation Create()
@@ -31,12 +31,12 @@ namespace GaTech.Chai.Mdi.ObservationToxicologyLabResultProfile
         }
 
         /// <summary>
-        /// The official URL for the ObservationToxicologyLabResult profile, used to assert conformance.
+        /// The official URL for the ObservationToxicologyLabResultProfile, used to assert conformance.
         /// </summary>
         public const string ProfileUrl = "http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-toxicology-lab-result";
 
         /// <summary>
-        /// Set the assertion that an Observation object conforms to the ObservationToxicologyLabResult profile.
+        /// Set profile for ObservationToxicologyLabResultProfile
         /// </summary>
         public void AddProfile()
         {
@@ -44,7 +44,7 @@ namespace GaTech.Chai.Mdi.ObservationToxicologyLabResultProfile
         }
 
         /// <summary>
-        /// Clear the assertion that an Observation object conforms to the ObservationToxicologyLabResult profile.
+        /// Clear profile for ObservationToxicologyLabResultProfile
         /// </summary>
         public void RemoveProfile()
         {

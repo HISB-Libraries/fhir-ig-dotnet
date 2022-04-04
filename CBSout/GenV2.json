@@ -1,0 +1,1495 @@
+{
+  "resourceType": "Bundle",
+  "meta": {
+    "profile": [
+      "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-document-bundle"
+    ]
+  },
+  "type": "document",
+  "entry": [
+    {
+      "resource": {
+        "resourceType": "Composition",
+        "meta": {
+          "profile": [
+            "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-composition"
+          ]
+        },
+        "status": "final",
+        "type": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "55751-2"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/5b337c89-7232-48ff-8f92-699748851e8e"
+        },
+        "date": "2014-03-02",
+        "author": [
+          {
+            "reference": "Organization/deaccc38-fc3c-419c-ba7b-1e9c16fb602e"
+          }
+        ],
+        "title": "Case Based Surveillance Composition",
+        "section": [
+          {
+            "title": "Condition of Interest",
+            "code": {
+              "coding": [
+                {
+                  "system": "http://cbsig.chai.gatech.edu/CodeSystem/cbs-temp-code-system",
+                  "code": "condition-of-interest",
+                  "display": "Condition of Interest/Reportable Condition"
+                }
+              ]
+            },
+            "entry": [
+              {
+                "reference": "Condition/5d1f4e95-62e9-4739-96a6-2f6772f01bcf"
+              }
+            ]
+          },
+          {
+            "title": "History of Encounters (Hospitalizations)",
+            "code": {
+              "coding": [
+                {
+                  "system": "http://cbsig.chai.gatech.edu/CodeSystem/cbs-temp-code-system",
+                  "code": "history-of-encounters",
+                  "display": "History of Encounters (Hospitalizations)"
+                }
+              ]
+            },
+            "entry": [
+              {
+                "reference": "Encounter/b0dd736b-3e12-4490-ae6d-1ea7b47a8b1f"
+              }
+            ]
+          },
+          {
+            "title": "Case Notification Panel",
+            "code": {
+              "coding": [
+                {
+                  "system": "http://cbsig.chai.gatech.edu/CodeSystem/cbs-temp-code-system",
+                  "code": "case-notification-panel",
+                  "display": "Case Notification Panel"
+                }
+              ]
+            },
+            "entry": [
+              {
+                "reference": "Observation/1de753ed-8fab-48a3-905c-a2987853505c"
+              }
+            ]
+          },
+          {
+            "title": "Reporting Entities",
+            "code": {
+              "coding": [
+                {
+                  "system": "http://cbsig.chai.gatech.edu/CodeSystem/cbs-temp-code-system",
+                  "code": "reporting-entities",
+                  "display": "Reporting Entities"
+                }
+              ]
+            },
+            "entry": [
+              {
+                "reference": "Organization/deaccc38-fc3c-419c-ba7b-1e9c16fb602e"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "5b337c89-7232-48ff-8f92-699748851e8e",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient",
+            "http://hl7.org/fhir/us/ecr/StructureDefinition/us-ph-patient",
+            "http://cbsig.chai.gatech.edu/StructureDefinition/us-cbs-patient"
+          ]
+        },
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "ombCategory",
+                "valueCoding": {
+                  "system": "urn:oid:2.16.840.1.113883.6.238",
+                  "code": "2106-3",
+                  "display": "White"
+                }
+              },
+              {
+                "url": "text",
+                "valueString": "White"
+              }
+            ],
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race"
+          },
+          {
+            "extension": [
+              {
+                "url": "ombCategory",
+                "valueCoding": {
+                  "system": "urn:oid:2.16.840.1.113883.6.238",
+                  "code": "2186-5",
+                  "display": "Not Hispanic or Latino"
+                }
+              },
+              {
+                "url": "detailed",
+                "valueCoding": {
+                  "system": "urn:oid:2.16.840.1.113883.6.238",
+                  "code": "2186-5",
+                  "display": "Not Hispanic or Latino"
+                }
+              },
+              {
+                "url": "text",
+                "valueString": "Not Hispanic or Latino"
+              }
+            ],
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity"
+          },
+          {
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex",
+            "valueCode": "F"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/patient-birthPlace",
+            "valueAddress": {
+              "country": "USA"
+            }
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/patient-genderIdentity",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/gender-identity",
+                  "code": "female",
+                  "display": "female"
+                }
+              ]
+            }
+          },
+          {
+            "extension": [
+              {
+                "url": "TribeName",
+                "valueCoding": {
+                  "system": "http://terminology.hl7.org/CodeSystem/v3-TribalEntityUS",
+                  "code": "91",
+                  "display": "Fort Mojave Indian Tribe of Arizona, California"
+                }
+              },
+              {
+                "url": "EnrolledTribeMember",
+                "valueBoolean": true
+              }
+            ],
+            "url": "http://hl7.org/fhir/us/ecr/StructureDefinition/us-ph-tribal-affiliation-extension"
+          }
+        ],
+        "identifier": [
+          {
+            "use": "usual",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "MR",
+                  "display": "Medical Record Number"
+                }
+              ],
+              "text": "Medical Record Number"
+            },
+            "system": "http://hospital.smarthealthit.org",
+            "value": "1032702"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "family": "Everywoman",
+            "given": [
+              "Eve",
+              "L"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "1-(404)555-1212",
+            "use": "home"
+          },
+          {
+            "system": "email",
+            "value": "mywork@gtri.org",
+            "use": "work"
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1974-11-24",
+        "address": [
+          {
+            "use": "home",
+            "line": [
+              "5101 Peachtree St NE",
+              null
+            ],
+            "_line": [
+              null,
+              {
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-censusTract",
+                    "valueString": "030500"
+                  }
+                ]
+              }
+            ],
+            "city": "Atlanta",
+            "state": "GA",
+            "postalCode": "30302",
+            "country": "US"
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Condition",
+        "id": "5d1f4e95-62e9-4739-96a6-2f6772f01bcf",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition",
+            "http://hl7.org/fhir/us/ecr/StructureDefinition/us-ph-condition",
+            "http://cbsig.chai.gatech.edu/StructureDefinition/us-cbs-condition"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-case-class-status",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "410605003",
+                  "display": "Confirmed present"
+                }
+              ]
+            }
+          },
+          {
+            "url": "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-illness-duration",
+            "valueQuantity": {
+              "value": 6,
+              "unit": "day",
+              "system": "http://unitsofmeasure.org",
+              "code": "d"
+            }
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/condition-assertedDate",
+            "valueDateTime": "2021-02-28"
+          }
+        ],
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "inactive"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "urn:oid:2.16.840.1.114222.4.5.277",
+              "code": "11550",
+              "display": "Hemolytic Uremic Syndrome"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/5b337c89-7232-48ff-8f92-699748851e8e"
+        },
+        "onsetDateTime": "2021-02-28",
+        "abatementDateTime": "2014-03-02"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "b0dd736b-3e12-4490-ae6d-1ea7b47a8b1f",
+        "meta": {
+          "profile": [
+            "http://cbsig.chai.gatech.edu/StructureDefinition/us-cbs-hospitalization"
+          ]
+        },
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "IMP",
+          "display": "inpatient encounter"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://www.ama-assn.org/go/cpt",
+                "code": "42628595",
+                "display": "Inpatient Hospital"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/5b337c89-7232-48ff-8f92-699748851e8e"
+        },
+        "period": {
+          "start": "2014-02-26",
+          "end": "2014-03-02"
+        },
+        "reasonReference": [
+          {
+            "reference": "Condition/5d1f4e95-62e9-4739-96a6-2f6772f01bcf"
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "meta": {
+          "profile": [
+            "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-cause-of-death"
+          ]
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "79378-6"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/5b337c89-7232-48ff-8f92-699748851e8e"
+        },
+        "focus": [
+          {
+            "reference": "Condition/5d1f4e95-62e9-4739-96a6-2f6772f01bcf"
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Practitioner",
+        "meta": {
+          "profile": [
+            "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-person-reporting-to-cdc"
+          ]
+        },
+        "name": [
+          {
+            "family": "Smith",
+            "given": [
+              "Sandra"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "email",
+            "value": "ssmith@gmail.com"
+          },
+          {
+            "system": "phone",
+            "value": "444-321-1234"
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Organization",
+        "id": "deaccc38-fc3c-419c-ba7b-1e9c16fb602e",
+        "meta": {
+          "profile": [
+            "http://cbsig.chai.gatech.edu/StructureDefinition/us-cbs-reporting-source-organization",
+            "http://hl7.org/fhir/us/ecr/StructureDefinition/us-ph-organization",
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization"
+          ]
+        },
+        "active": true,
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0406",
+                "code": "H",
+                "display": "Hospital"
+              }
+            ]
+          }
+        ],
+        "name": "Reporting Source",
+        "telecom": [
+          {
+            "system": "email",
+            "value": "myorg@reportingagent.org",
+            "use": "work"
+          }
+        ],
+        "address": [
+          {
+            "postalCode": "77018"
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "1de753ed-8fab-48a3-905c-a2987853505c",
+        "meta": {
+          "profile": [
+            "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-case-notification-panel"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://loinc.org",
+                "code": "78000-7",
+                "display": "Case notification panel [CDC.PHIN]"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "77974-4",
+              "display": "Hospitalized"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/5b337c89-7232-48ff-8f92-699748851e8e"
+        },
+        "hasMember": [
+          {
+            "reference": "Observation/935368b6-7458-4713-adb5-fc494ac36fd0"
+          },
+          {
+            "reference": "Observation/9814a8a2-2626-47a0-97d7-6396cc28eeae"
+          },
+          {
+            "reference": "Observation/a032e07e-a3c9-4478-afc5-780b9bd0bdb0"
+          },
+          {
+            "reference": "Observation/dccb9791-3761-4cd3-9238-352e35ef0320"
+          },
+          {
+            "reference": "Observation/7ebc142c-0d25-41db-a093-a2301ea6ffc9"
+          },
+          {
+            "reference": "Observation/e5e90d6c-cc29-443c-8700-2d84806cd978"
+          },
+          {
+            "reference": "Observation/7f9686e0-12c3-4b4b-9b24-92af91d4f75e"
+          },
+          {
+            "reference": "Observation/6a91a4db-3c9b-41a3-aa09-a812e267c8c1"
+          },
+          {
+            "reference": "Observation/780202bf-214f-4947-9caf-411eb7a94050"
+          },
+          {
+            "reference": "Observation/2dce90b9-986f-4e61-ae99-76d4400384f8"
+          },
+          {
+            "reference": "Observation/d53aa4a0-858e-495f-82d7-9f4415c06750"
+          },
+          {
+            "reference": "Observation/4af521dd-8653-4ec2-bcbc-e8a1605d859f"
+          },
+          {
+            "reference": "Observation/23f519fb-123b-419f-b24b-1705cafc75e9"
+          },
+          {
+            "reference": "Observation/1e3fa56b-4146-4abd-889b-596d1dadf3cb"
+          },
+          {
+            "reference": "Observation/dc80ae54-31aa-4bf8-9f7e-a5f964719ff3"
+          },
+          {
+            "reference": "Observation/3dbfc1ae-d552-40fb-aef6-f56a71c7871e"
+          },
+          {
+            "reference": "Observation/a4f37ecf-3f83-4c08-a201-da6e725aa6fb"
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "4af521dd-8653-4ec2-bcbc-e8a1605d859f",
+        "meta": {
+          "profile": [
+            "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-mmwr"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://loinc.org",
+                "code": "78000-7",
+                "display": "Case notification panel [CDC.PHIN]"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://cbsig.chai.gatech.edu/CodeSystem/cbs-temp-code-system",
+              "code": "MMWR"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/5b337c89-7232-48ff-8f92-699748851e8e"
+        },
+        "component": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "77991-8"
+                }
+              ]
+            },
+            "valueInteger": 9
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "77992-6"
+                }
+              ]
+            },
+            "valueInteger": 2014
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "780202bf-214f-4947-9caf-411eb7a94050",
+        "meta": {
+          "profile": [
+            "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-case-notification-panel",
+            "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-exposure-observation"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://loinc.org",
+                "code": "78000-7",
+                "display": "Case notification panel [CDC.PHIN]"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://cbsig.chai.gatech.edu/CodeSystem/cbs-temp-code-system",
+              "code": "Location-of-Exposure"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/5b337c89-7232-48ff-8f92-699748851e8e"
+        },
+        "focus": [
+          {
+            "reference": "Condition/5d1f4e95-62e9-4739-96a6-2f6772f01bcf"
+          }
+        ],
+        "component": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "77984-3"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "urn:iso:std:iso:3166",
+                  "code": "USA",
+                  "display": "United States of America"
+                }
+              ]
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "77985-0"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "urn:oid:2.16.840.1.113883.6.92",
+                  "code": "48",
+                  "display": "Texas"
+                }
+              ]
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "77986-8"
+                }
+              ]
+            },
+            "valueString": "Houston"
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "77987-6"
+                }
+              ]
+            },
+            "valueString": "Harris"
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "2dce90b9-986f-4e61-ae99-76d4400384f8",
+        "meta": {
+          "profile": [
+            "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-case-notification-panel",
+            "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-immediate-nnc"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://loinc.org",
+                "code": "78000-7",
+                "display": "Case notification panel [CDC.PHIN]"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "77965-2",
+              "display": "Immediate National Notifiable Condition"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/5b337c89-7232-48ff-8f92-699748851e8e"
+        },
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "system": "urn:oid:2.16.840.1.113883.12.136",
+              "code": "N",
+              "display": "No"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "3dbfc1ae-d552-40fb-aef6-f56a71c7871e",
+        "meta": {
+          "profile": [
+            "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-case-notification-panel",
+            "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-reporting-state"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://loinc.org",
+                "code": "78000-7",
+                "display": "Case notification panel [CDC.PHIN]"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "77966-0",
+              "display": "Reporting State"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/5b337c89-7232-48ff-8f92-699748851e8e"
+        },
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "system": "urn:oid:2.16.840.1.113883.6.92",
+              "code": "48",
+              "display": "Texas"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "dc80ae54-31aa-4bf8-9f7e-a5f964719ff3",
+        "meta": {
+          "profile": [
+            "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-case-notification-panel",
+            "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-reporting-county"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://loinc.org",
+                "code": "78000-7",
+                "display": "Case notification panel [CDC.PHIN]"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "77967-8",
+              "display": "Reporting County"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/5b337c89-7232-48ff-8f92-699748851e8e"
+        },
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "system": "urn:oid:2.16.840.1.113883.6.93",
+              "code": "48201",
+              "display": "Harris"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "23f519fb-123b-419f-b24b-1705cafc75e9",
+        "meta": {
+          "profile": [
+            "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-case-notification-panel",
+            "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-national-reporting-jurisdiction"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://loinc.org",
+                "code": "78000-7",
+                "display": "Case notification panel [CDC.PHIN]"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "77968-6",
+              "display": "National Reporting Jurisdiction"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/5b337c89-7232-48ff-8f92-699748851e8e"
+        },
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "system": "urn:oid:2.16.840.1.113883.6.92",
+              "code": "48",
+              "display": "Texas"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "d53aa4a0-858e-495f-82d7-9f4415c06750",
+        "meta": {
+          "profile": [
+            "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-case-notification-panel",
+            "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-jurisdiction-code"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://loinc.org",
+                "code": "78000-7",
+                "display": "Case notification panel [CDC.PHIN]"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "77969-4",
+              "display": "Jurisdiction Code"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/5b337c89-7232-48ff-8f92-699748851e8e"
+        },
+        "valueString": "S01"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "e5e90d6c-cc29-443c-8700-2d84806cd978",
+        "meta": {
+          "profile": [
+            "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-case-notification-panel",
+            "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-date-initial-report"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://loinc.org",
+                "code": "78000-7",
+                "display": "Case notification panel [CDC.PHIN]"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "77970-2",
+              "display": "Date of Initial Report"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/5b337c89-7232-48ff-8f92-699748851e8e"
+        },
+        "valueDateTime": "2022-01-30"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "7f9686e0-12c3-4b4b-9b24-92af91d4f75e",
+        "meta": {
+          "profile": [
+            "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-case-notification-panel",
+            "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-earliest-date-reported-to-county"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://loinc.org",
+                "code": "78000-7",
+                "display": "Case notification panel [CDC.PHIN]"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "77972-8",
+              "display": "Earliest Date Reported to County"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/5b337c89-7232-48ff-8f92-699748851e8e"
+        },
+        "valueDateTime": "2022-01-30"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "6a91a4db-3c9b-41a3-aa09-a812e267c8c1",
+        "meta": {
+          "profile": [
+            "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-case-notification-panel",
+            "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-earliest-date-reported-to-state"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://loinc.org",
+                "code": "78000-7",
+                "display": "Case notification panel [CDC.PHIN]"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "77973-6",
+              "display": "Earliest Date Reported to State"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/5b337c89-7232-48ff-8f92-699748851e8e"
+        },
+        "valueDateTime": "2021-01-30"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "a032e07e-a3c9-4478-afc5-780b9bd0bdb0",
+        "meta": {
+          "profile": [
+            "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-case-notification-panel",
+            "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-investigation-start-date"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://loinc.org",
+                "code": "78000-7",
+                "display": "Case notification panel [CDC.PHIN]"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "77979-3",
+              "display": "Case Investigation Start Date"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/5b337c89-7232-48ff-8f92-699748851e8e"
+        },
+        "valueDateTime": "2014-02-25"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "dccb9791-3761-4cd3-9238-352e35ef0320",
+        "meta": {
+          "profile": [
+            "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-case-notification-panel",
+            "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-case-outbreak"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://loinc.org",
+                "code": "78000-7",
+                "display": "Case notification panel [CDC.PHIN]"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://cbsig.chai.gatech.edu/CodeSystem/cbs-temp-code-system",
+              "code": "case-outbreak",
+              "display": "Case Outbreak Name and Indicator"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/5b337c89-7232-48ff-8f92-699748851e8e"
+        },
+        "component": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "77981-9",
+                  "display": "Case Outbreak Name"
+                }
+              ]
+            },
+            "valueString": "HANSENOUTB1"
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "77980-1",
+                  "display": "Case is associated with a known outbreak"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "urn:oid:2.16.840.1.113883.12.136",
+                  "code": "Y",
+                  "display": "Yes"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "9814a8a2-2626-47a0-97d7-6396cc28eeae",
+        "meta": {
+          "profile": [
+            "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-case-notification-panel",
+            "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-binational-reporting-criteria"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://loinc.org",
+                "code": "78000-7",
+                "display": "Case notification panel [CDC.PHIN]"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "77988-4",
+              "display": "Binational reporting criteria [CDC.PHIN]"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/5b337c89-7232-48ff-8f92-699748851e8e"
+        },
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "system": "urn:oid:2.16.840.1.114222.4.5.274",
+              "code": "PHC1140",
+              "display": "Exposure to suspected product from Canada or Mexico"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "a4f37ecf-3f83-4c08-a201-da6e725aa6fb",
+        "meta": {
+          "profile": [
+            "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-case-notification-panel",
+            "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-transmission-mode"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://loinc.org",
+                "code": "78000-7",
+                "display": "Case notification panel [CDC.PHIN]"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "77989-2",
+              "display": "Disease transmission mode"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/5b337c89-7232-48ff-8f92-699748851e8e"
+        },
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "416086007",
+              "display": "Food-borne transmission"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "7ebc142c-0d25-41db-a093-a2301ea6ffc9",
+        "meta": {
+          "profile": [
+            "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-case-notification-panel",
+            "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-date-reported-to-phd"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://loinc.org",
+                "code": "78000-7",
+                "display": "Case notification panel [CDC.PHIN]"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "77995-9",
+              "display": "Date of first report to public health department"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/5b337c89-7232-48ff-8f92-699748851e8e"
+        },
+        "valueDateTime": "2014-02-25"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "1e3fa56b-4146-4abd-889b-596d1dadf3cb",
+        "meta": {
+          "profile": [
+            "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-case-notification-panel",
+            "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-pregnancy-status"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://loinc.org",
+                "code": "78000-7",
+                "display": "Case notification panel [CDC.PHIN]"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "77996-7",
+              "display": "Pregnancy status at time of illness or condition"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/5b337c89-7232-48ff-8f92-699748851e8e"
+        },
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "system": "urn:oid:2.16.840.1.113883.12.136",
+              "code": "N",
+              "display": "No"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "935368b6-7458-4713-adb5-fc494ac36fd0",
+        "meta": {
+          "profile": [
+            "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-case-notification-panel",
+            "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-age-at-investigation"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://loinc.org",
+                "code": "78000-7",
+                "display": "Case notification panel [CDC.PHIN]"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "77998-3",
+              "display": "Age at time of case investigation"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/5b337c89-7232-48ff-8f92-699748851e8e"
+        },
+        "valueQuantity": {
+          "value": 49,
+          "unit": "year",
+          "system": "http://unitsofmeasure.org",
+          "code": "a"
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Immunization",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-immunization",
+            "http://cbsig.chai.gatech.edu/StructureDefinition/us-cbs-immunization"
+          ]
+        },
+        "status": "completed",
+        "vaccineCode": {
+          "coding": [
+            {
+              "system": "urn:oid:2.16.840.1.113883.12.292",
+              "code": "05",
+              "display": "measles virus vaccine"
+            }
+          ]
+        },
+        "patient": {
+          "reference": "Patient/5b337c89-7232-48ff-8f92-699748851e8e"
+        },
+        "occurrenceDateTime": "2014-02-25",
+        "reportOrigin": {
+          "coding": [
+            {
+              "system": "urn:oid:2.16.840.1.114222.4.5.293",
+              "code": "07",
+              "display": "Historical information - from school record"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-diagnosticreport-lab",
+            "http://cbsig.chai.gatech.edu/StructureDefinition/us-cbs-lab-diagnosticreport"
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                "code": "LAB",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/5b337c89-7232-48ff-8f92-699748851e8e"
+        },
+        "_effectiveDateTime": {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+              "valueCode": "masked"
+            }
+          ]
+        },
+        "result": [
+          {
+            "reference": "Observation/1d69888f-9cfc-4f59-9fdd-fbe3109e121e"
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "1d69888f-9cfc-4f59-9fdd-fbe3109e121e",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab",
+            "http://cbsig.chai.gatech.edu/StructureDefinition/us-cbs-lab-observation"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "urn:oid:2.16.840.1.114222.4.5.232",
+              "code": "LAB723",
+              "display": "DNA Sequencing"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/5b337c89-7232-48ff-8f92-699748851e8e"
+        },
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "10828004",
+              "display": "Positive"
+            }
+          ]
+        },
+        "method": {
+          "coding": [
+            {
+              "code": "D1D2",
+              "display": "D1/D2"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

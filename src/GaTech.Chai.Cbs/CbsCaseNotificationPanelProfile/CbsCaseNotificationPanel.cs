@@ -6,7 +6,7 @@ using System.Linq;
 namespace GaTech.Chai.Cbs.CaseNotificationPanelProfile
 {
     /// <summary>
-    /// Case Based Surveillance Case Notification Panel Profile Extensions
+    /// Case Based Surveillance Case Notification Panel Profile
     /// http://cbsig.chai.gatech.edu/StructureDefinition/cbs-case-notification-panel
     /// </summary>
     public class CbsCaseNotificationPanel
@@ -41,7 +41,7 @@ namespace GaTech.Chai.Cbs.CaseNotificationPanelProfile
         }
 
         /// <summary>
-        /// Set the assertion that a observation object conforms to the Case Based Surveillance Case Notification Panel Profile.
+        /// Set Profile for Case Based Surveillance Case Notification Panel Profile
         /// </summary>
         public void AddProfile()
         {
@@ -49,7 +49,7 @@ namespace GaTech.Chai.Cbs.CaseNotificationPanelProfile
         }
 
         /// <summary>
-        /// Clear the assertion that a observation object conforms to the Case Based Surveillance Case Notification Panel Profile.
+        /// Clear profile for Case Based Surveillance Case Notification Panel Profile
         /// </summary>
         public void RemoveProfile()
         {

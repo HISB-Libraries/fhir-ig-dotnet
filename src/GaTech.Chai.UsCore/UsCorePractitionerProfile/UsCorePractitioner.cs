@@ -5,7 +5,7 @@ using GaTech.Chai.FhirIg.Extensions;
 namespace GaTech.Chai.UsCore.PractitionerProfile
 {
     /// <summary>
-    /// US Core Practitioner Profile Extensions
+    /// US Core Practitioner Profile
     /// http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner
     /// </summary>
     public class UsCorePractitioner
@@ -34,7 +34,7 @@ namespace GaTech.Chai.UsCore.PractitionerProfile
         public const string ProfileUrl = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner";
 
         /// <summary>
-        /// Set the assertion that an practitioner object conforms to the US Core Practitioner profile.
+        /// Set profile for US Core Practitioner Profile
         /// </summary>
         public void AddProfile()
         {
@@ -42,13 +42,16 @@ namespace GaTech.Chai.UsCore.PractitionerProfile
         }
 
         /// <summary>
-        /// Clear the assertion that an condition object conforms to the US Core Practitioner profile.
+        /// Clear profile for US Core Practitioner Profile
         /// </summary>
         public void RemoveProfile()
         {
             this.practitioner.RemoveProfile(ProfileUrl);
         }
 
+        /// <summary>
+        /// NPI property to set and get the NPI from Practitioner Identifier
+        /// </summary>
         public string NPI
         {
             get => this.practitioner.Identifier?.Find(c => c.System == "http://hl7.org/fhir/sid/us-npi")?.Value.ToString();

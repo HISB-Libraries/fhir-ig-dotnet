@@ -5,7 +5,7 @@ namespace GaTech.Chai.Cbs.CbsPersonReportingToCDCProfile
 {
     /// <summary>
     /// Class with Practioner extensions for Case Based Surveillance Person Reporting To CDC Profile Profile
-    /// http://cbsig.chai.gatech.edu/StructureDefinition/cbs-vaccination-indication
+    /// http://cbsig.chai.gatech.edu/StructureDefinition/cbs-person-reporting-to-cdc
     /// </summary>
     public static class CbsPersonReportingToCDCExtension
     {

@@ -5,7 +5,7 @@ using GaTech.Chai.FhirIg.Extensions;
 namespace GaTech.Chai.UsCore.ImmunizationProfile
 {
     /// <summary>
-    /// US Core Immunization Profile Extensions
+    /// US Core Immunization Profile
     /// http://hl7.org/fhir/us/core/StructureDefinition/us-core-immunization
     /// </summary>
     public class UsCoreImmunization
@@ -34,7 +34,7 @@ namespace GaTech.Chai.UsCore.ImmunizationProfile
         public const string ProfileUrl = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-immunization";
 
         /// <summary>
-        /// Set the assertion that an Immunization object conforms to the Case Based Surveillance Immunization profile.
+        /// Set profile for US Core Immunization Profile
         /// </summary>
         public void AddProfile()
         {
@@ -42,7 +42,7 @@ namespace GaTech.Chai.UsCore.ImmunizationProfile
         }
 
         /// <summary>
-        /// Clear the assertion that an Immunization object conforms to the Case Based Surveillance Immunization profile.
+        /// Clear profile for US Core Immunization Profile
         /// </summary>
         public void RemoveProfile()
         {

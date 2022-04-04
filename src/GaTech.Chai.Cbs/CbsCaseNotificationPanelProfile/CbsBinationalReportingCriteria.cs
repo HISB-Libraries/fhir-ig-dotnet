@@ -5,7 +5,7 @@ using Hl7.Fhir.Model;
 namespace GaTech.Chai.Cbs.CaseNotificationPanelProfile
 {
     /// <summary>
-    /// Case Based Surveillance Exposure Observation
+    /// CBS Binational Reporting Criteria Profile
     /// http://cbsig.chai.gatech.edu/StructureDefinition/cbs-binational-reporting-criteria
     /// </summary>
     public class CbsBinationalReportingCriteria : CbsCaseNotificationPanel
@@ -16,7 +16,7 @@ namespace GaTech.Chai.Cbs.CaseNotificationPanelProfile
         }
 
         /// <summary>
-        /// Factory for Case Based Surveillance Exposure Observation Profile
+        /// Factory for CBS Binational Reporting Criteria Profile
         /// http://cbsig.chai.gatech.edu/StructureDefinition/cbs-binational-reporting-criteria
         /// </summary>
         public static new Observation Create()

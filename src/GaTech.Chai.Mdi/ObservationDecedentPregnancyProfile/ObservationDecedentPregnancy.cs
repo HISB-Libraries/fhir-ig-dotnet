@@ -5,7 +5,7 @@ using GaTech.Chai.FhirIg.Extensions;
 namespace GaTech.Chai.Mdi.ObservationDecedentPregnancyProfile
 {
     /// <summary>
-    /// MDI ObservationDecedentPregnancy Profile Extensions
+    /// ObservationDecedentPregnancyProfile
     /// http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-decedent-pregnancy
     /// </summary>
     public class ObservationDecedentPregnancy
@@ -20,7 +20,7 @@ namespace GaTech.Chai.Mdi.ObservationDecedentPregnancyProfile
         }
 
         /// <summary>
-        /// Factory for MDI ObservationMannerOfDeath Profile
+        /// Factory for ObservationDecedentPregnancyProfile
         /// http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-decedent-pregnancy
         /// </summary>
         public static Observation Create()
@@ -31,12 +31,12 @@ namespace GaTech.Chai.Mdi.ObservationDecedentPregnancyProfile
         }
 
         /// <summary>
-        /// The official URL for the MDI ObservationMannerOfDeath profile, used to assert conformance.
+        /// The official URL for the ObservationDecedentPregnancyProfile, used to assert conformance.
         /// </summary>
         public const string ProfileUrl = "http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-decedent-pregnancy";
 
         /// <summary>
-        /// Set the assertion that conforms to the ObservationMannerOfDeath profile.
+        /// Set profile for ObservationDecedentPregnancyProfile
         /// </summary>
         public void AddProfile()
         {
@@ -44,7 +44,7 @@ namespace GaTech.Chai.Mdi.ObservationDecedentPregnancyProfile
         }
 
         /// <summary>
-        /// Clear the assertion that conforms to the MDI ObservationHowDeathInjuryOccurred profile.
+        /// Clear profile for ObservationDecedentPregnancyProfile
         /// </summary>
         public void RemoveProfile()
         {

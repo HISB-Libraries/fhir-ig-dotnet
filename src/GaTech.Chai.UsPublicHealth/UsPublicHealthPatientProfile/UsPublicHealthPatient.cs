@@ -7,7 +7,7 @@ using GaTech.Chai.UsCore.PatientProfile;
 namespace GaTech.Chai.UsPublicHealth.PatientProfile
 {
     /// <summary>
-    /// US Public Health Patient Profile Extensions
+    /// US Public Health Patient Profile
     /// http://hl7.org/fhir/us/ecr/StructureDefinition/us-ph-patient
     /// </summary>
     public class UsPublicHealthPatient
@@ -23,7 +23,7 @@ namespace GaTech.Chai.UsPublicHealth.PatientProfile
         }
 
         /// <summary>
-        /// Factory for Case Based Surveillance Patient Profile
+        /// Factory for US Public Health Patient Profile
         /// http://hl7.org/fhir/us/ecr/StructureDefinition/us-ph-patient
         /// </summary>
         public static Patient Create()
@@ -34,12 +34,12 @@ namespace GaTech.Chai.UsPublicHealth.PatientProfile
         }
 
         /// <summary>
-        /// The official URL for the Case Based Surveillance Patient profile, used to assert conformance.
+        /// The official URL for the US Public Health Patient Profile, used to assert conformance.
         /// </summary>
         public const string ProfileUrl = "http://hl7.org/fhir/us/ecr/StructureDefinition/us-ph-patient";
 
         /// <summary>
-        /// Set the assertion that a patient object conforms to the Case Based Surveillance Patient Profile.
+        /// Set profile for US Public Health Patient Profile
         /// </summary>
         public void AddProfile()
         {
@@ -47,7 +47,7 @@ namespace GaTech.Chai.UsPublicHealth.PatientProfile
         }
 
         /// <summary>
-        /// Clear the assertion that a patient object conforms to the Case Based Surveillance Patient Profile.
+        /// Clear profile for US Public Health Patient Profile
         /// </summary>
         public void RemoveProfile()
         {

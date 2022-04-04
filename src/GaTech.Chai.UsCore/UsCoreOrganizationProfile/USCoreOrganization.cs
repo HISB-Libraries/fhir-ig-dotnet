@@ -5,7 +5,7 @@ using GaTech.Chai.FhirIg.Extensions;
 namespace GaTech.Chai.UsCore.OrganizationProfile
 {
     /// <summary>
-    /// US Core Organization Profile Extensions
+    /// US Core Organization Profile
     /// http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization
     /// </summary>
     public class UsCoreOrganization
@@ -34,7 +34,7 @@ namespace GaTech.Chai.UsCore.OrganizationProfile
         public const string ProfileUrl = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization";
 
         /// <summary>
-        /// Set the assertion that an organization object conforms to the US Core Organization profile.
+        /// Set profile for US Core Organization Profile
         /// </summary>
         public void AddProfile()
         {
@@ -42,7 +42,7 @@ namespace GaTech.Chai.UsCore.OrganizationProfile
         }
 
         /// <summary>
-        /// Clear the assertion that an ogranization object conforms to the US Core Organization profile.
+        /// Clear profile for US Core Organization Profile
         /// </summary>
         public void RemoveProfile()
         {

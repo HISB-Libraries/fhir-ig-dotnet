@@ -5,26 +5,26 @@ using Hl7.Fhir.Model;
 namespace GaTech.Chai.Cbs.CaseNotificationPanelProfile
 {
     /// <summary>
-    /// Case Based Surveillance Date of Reported to State Observation
-    /// http://cbsig.chai.gatech.edu/StructureDefinition/cbs-earliest-date-reported-to-state
+    /// CBS Earliest Date Reported To County Profile
+    /// http://cbsig.chai.gatech.edu/StructureDefinition/cbs-earliest-date-reported-to-county
     /// </summary>
-    public class CbsEarliestDateReportedToState : CbsCaseNotificationPanel
+    public class CbsEarliestDateReportedToCounty : CbsCaseNotificationPanel
     {
-        internal CbsEarliestDateReportedToState(Observation observation) : base(observation)
+        internal CbsEarliestDateReportedToCounty(Observation observation) : base(observation)
         {
-            this.ProfileUrl = "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-earliest-date-reported-to-state";
+            this.ProfileUrl = "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-earliest-date-reported-to-county";
         }
 
         /// <summary>
-        /// Factory for Case Based Surveillance Date of Reported to State Observation Profile
-        /// http://cbsig.chai.gatech.edu/StructureDefinition/cbs-earliest-date-reported-to-state
+        /// Factory for CBS Earliest Date Reported To County Profile
+        /// http://cbsig.chai.gatech.edu/StructureDefinition/cbs-earliest-date-reported-to-county
         /// </summary>
         public static new Observation Create()
         {
             var observation = new Observation();
             observation.CbsCaseNotificationPanel().AddProfile();
-            observation.CbsEarliestDateReportedToState().AddProfile();
-            observation.Code = new CodeableConcept("http://loinc.org", "77973-6", "Earliest Date Reported to State", null);
+            observation.CbsEarliestDateReportedToCounty().AddProfile();
+            observation.Code = new CodeableConcept("http://loinc.org", "77972-8", "Earliest Date Reported to County", null);
             return observation;
         }
 

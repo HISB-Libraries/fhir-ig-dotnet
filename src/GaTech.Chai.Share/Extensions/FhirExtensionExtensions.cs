@@ -4,6 +4,9 @@ using Hl7.Fhir.Model;
 
 namespace GaTech.Chai.FhirIg.Extensions
 {
+    /// <summary>
+    /// List Extension extension for FHIR extension data
+    /// </summary>
     public static class FhirExtensionExtensions
     {
         public static Extension AddOrUpdateExtension(this List<Extension> extensions, Extension extension)

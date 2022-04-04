@@ -5,7 +5,7 @@ using GaTech.Chai.FhirIg.Extensions;
 namespace GaTech.Chai.Mdi.ListCauseOfDeathPathwayProfile
 {
     /// <summary>
-    /// List - Cause Of Death Pathway Profile Extensions
+    /// List - ListCauseOfDeathPathwayProfile
     /// http://hl7.org/fhir/us/mdi/StructureDefinition/List-cause-of-death-pathway
     /// </summary>
     public class ListCauseOfDeathPathway
@@ -20,7 +20,7 @@ namespace GaTech.Chai.Mdi.ListCauseOfDeathPathwayProfile
         }
 
         /// <summary>
-        /// Factory for Medicolegal Death Investigation List-Cause Of Death Pathway Profile
+        /// Factory for ListCauseOfDeathPathwayProfile
         /// http://hl7.org/fhir/us/mdi/StructureDefinition/List-cause-of-death-pathway
         /// </summary>
         public static List Create()
@@ -31,12 +31,12 @@ namespace GaTech.Chai.Mdi.ListCauseOfDeathPathwayProfile
         }
 
         /// <summary>
-        /// The official URL for the Medicolegal Death Investigation List-Cause Of Death Pathway profile, used to assert conformance.
+        /// The official URL for the ListCauseOfDeathPathwayProfile, used to assert conformance.
         /// </summary>
         public const string ProfileUrl = "http://hl7.org/fhir/us/mdi/StructureDefinition/List-cause-of-death-pathway";
 
         /// <summary>
-        /// Set the assertion that a questionnaire object conforms to the Medicolegal Death Investigation List-Cause Of Death Pathway Profile.
+        /// Set profile for the ListCauseOfDeathPathwayProfile
         /// </summary>
         public void AddProfile()
         {
@@ -44,7 +44,7 @@ namespace GaTech.Chai.Mdi.ListCauseOfDeathPathwayProfile
         }
 
         /// <summary>
-        /// Clear the assertion that a questionnaire object conforms to the Medicolegal Death Investigation List-Cause Of Death Pathway Profile.
+        /// Clear profile for the ListCauseOfDeathPathwayProfile
         /// </summary>
         public void RemoveProfile()
         {

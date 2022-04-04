@@ -5,6 +5,9 @@ using Hl7.Fhir.Utility;
 
 namespace GaTech.Chai.Share.Extensions
 {
+    /// <summary>
+    /// Enum extension for FHIR enum data
+    /// </summary>
     public static class FhirEnumExtensions
     {
         public static string GetEnumCode(this Enum value)

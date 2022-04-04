@@ -5,7 +5,7 @@ using GaTech.Chai.FhirIg.Extensions;
 namespace GaTech.Chai.Mdi.ObservationHowDeathInjuryOccurredProfile
 {
     /// <summary>
-    /// MDI ObservationHowDeathInjuryOccurred Profile Extensions
+    /// ObservationHowDeathInjuryOccurredProfile
     /// http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-how-death-injury-occurred
     /// </summary>
     public class ObservationHowDeathInjuryOccurred
@@ -19,7 +19,7 @@ namespace GaTech.Chai.Mdi.ObservationHowDeathInjuryOccurredProfile
         }
 
         /// <summary>
-        /// Factory for MDI ObservationHowDeathInjuryOccurred Profile
+        /// Factory for ObservationHowDeathInjuryOccurredProfile
         /// http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-how-death-injury-occurred
         /// </summary>
         public static Observation Create()
@@ -30,12 +30,12 @@ namespace GaTech.Chai.Mdi.ObservationHowDeathInjuryOccurredProfile
         }
 
         /// <summary>
-        /// The official URL for the MDI ObservationHowDeathInjuryOccurred profile, used to assert conformance.
+        /// The official URL for the ObservationHowDeathInjuryOccurredProfile, used to assert conformance.
         /// </summary>
         public const string ProfileUrl = "http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-how-death-injury-occurred";
 
         /// <summary>
-        /// Set the assertion that conforms to the ObservationHowDeathInjuryOccurred profile.
+        /// Set profile for ObservationHowDeathInjuryOccurredProfile
         /// </summary>
         public void AddProfile()
         {
@@ -43,7 +43,7 @@ namespace GaTech.Chai.Mdi.ObservationHowDeathInjuryOccurredProfile
         }
 
         /// <summary>
-        /// Clear the assertion that conforms to the MDI ObservationHowDeathInjuryOccurred profile.
+        /// Clear profile for ObservationHowDeathInjuryOccurredProfile
         /// </summary>
         public void RemoveProfile()
         {

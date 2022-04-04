@@ -3,7 +3,7 @@
 namespace GaTech.Chai.UsCore.PractitionerProfile
 {
     /// <summary>
-    /// Class with Encounter extensions for Case Based Surveillance Encounter profile.
+    /// Class with Practitioner extensions for US Core Practitioner Profile
     /// http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner
     /// </summary>
     public static class UsCorePractitionerExtensions

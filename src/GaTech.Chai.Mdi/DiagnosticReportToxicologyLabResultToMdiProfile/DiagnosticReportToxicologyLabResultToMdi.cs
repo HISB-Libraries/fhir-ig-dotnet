@@ -7,7 +7,7 @@ using GaTech.Chai.UsCore.DiagnosticReportLabProfile;
 namespace GaTech.Chai.Mdi.DiagnosticReportToxicologyLabResultToMdiProfile
 {
     /// <summary>
-    /// DiagnosticReportToxicologyLabResultToMdi Profile Extensions
+    /// DiagnosticReportToxicologyLabResultToMdiProfile
     /// http://hl7.org/fhir/us/mdi/StructureDefinition/DiagnosticReport-toxicology-to-mdi
     /// </summary>
     public class DiagnosticReportToxicologyLabResultToMdi
@@ -21,7 +21,7 @@ namespace GaTech.Chai.Mdi.DiagnosticReportToxicologyLabResultToMdiProfile
         }
 
         /// <summary>
-        /// Factory for DiagnosticReportToxicologyLabResultToMdi Profile
+        /// Factory for DiagnosticReportToxicologyLabResultToMdiProfile
         /// http://hl7.org/fhir/us/mdi/StructureDefinition/DiagnosticReport-toxicology-to-mdi
         /// </summary>
         public static DiagnosticReport Create()
@@ -37,7 +37,7 @@ namespace GaTech.Chai.Mdi.DiagnosticReportToxicologyLabResultToMdiProfile
         public const string ProfileUrl = "http://hl7.org/fhir/us/mdi/StructureDefinition/DiagnosticReport-toxicology-to-mdi";
 
         /// <summary>
-        /// Set the assertion that a questionnaire object conforms to the Case Based Surveillance Composition Profile.
+        /// Set profile for the DiagnosticReportToxicologyLabResultToMdiProfile
         /// </summary>
         public void AddProfile()
         {
@@ -45,7 +45,7 @@ namespace GaTech.Chai.Mdi.DiagnosticReportToxicologyLabResultToMdiProfile
         }
 
         /// <summary>
-        /// Clear the assertion that a questionnaire object conforms to the Case Based Surveillance Composition Profile.
+        /// Clear profile for DiagnosticReportToxicologyLabResultToMdiProfile
         /// </summary>
         public void RemoveProfile()
         {

@@ -7,7 +7,7 @@ using GaTech.Chai.UsCore.PatientProfile;
 namespace GaTech.Chai.UsCbs.PatientProfile
 {
     /// <summary>
-    /// Case Based Surveillance Patient Profile Extensions
+    /// US Case Based Surveillance Patient Profile
     /// http://cbsig.chai.gatech.edu/StructureDefinition/us-cbs-patient
     /// </summary>
     public class UsCbsPatient
@@ -21,7 +21,7 @@ namespace GaTech.Chai.UsCbs.PatientProfile
         }
 
         /// <summary>
-        /// Factory for Case Based Surveillance Patient Profile
+        /// Factory for US Case Based Surveillance Patient Profile
         /// http://cbsig.chai.gatech.edu/StructureDefinition/us-cbs-patient
         /// </summary>
         public static Patient Create()
@@ -32,12 +32,12 @@ namespace GaTech.Chai.UsCbs.PatientProfile
         }
 
         /// <summary>
-        /// The official URL for the Case Based Surveillance Patient profile, used to assert conformance.
+        /// The official URL for the US Case Based Surveillance Patient Profile, used to assert conformance.
         /// </summary>
         public const string ProfileUrl = "http://cbsig.chai.gatech.edu/StructureDefinition/us-cbs-patient";
 
         /// <summary>
-        /// Set the assertion that a patient object conforms to the Case Based Surveillance Patient Profile.
+        /// Set profile for US Case Based Surveillance Patient Profile
         /// </summary>
         public void AddProfile()
         {
@@ -45,7 +45,7 @@ namespace GaTech.Chai.UsCbs.PatientProfile
         }
 
         /// <summary>
-        /// Clear the assertion that a patient object conforms to the Case Based Surveillance Patient Profile.
+        /// Clear profile for US Case Based Surveillance Patient Profile
         /// </summary>
         public void RemoveProfile()
         {

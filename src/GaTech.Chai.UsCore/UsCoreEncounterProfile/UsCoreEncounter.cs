@@ -5,7 +5,7 @@ using GaTech.Chai.FhirIg.Extensions;
 namespace GaTech.Chai.UsCore.EncounterProfile
 {
     /// <summary>
-    /// US Core Encounter Profile Extensions
+    /// US Core Encounter Profile
     /// http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter
     /// </summary>
     public class UsCoreEncounter
@@ -34,7 +34,7 @@ namespace GaTech.Chai.UsCore.EncounterProfile
         public const string ProfileUrl = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter";
 
         /// <summary>
-        /// Set the assertion that an condition object conforms to the Case Based Surveillance Lab Encounter profile.
+        /// Set profile for US Core Encounter Profile
         /// </summary>
         public void AddProfile()
         {
@@ -42,7 +42,7 @@ namespace GaTech.Chai.UsCore.EncounterProfile
         }
 
         /// <summary>
-        /// Clear the assertion that an condition object conforms to the Case Based Surveillance Lab Encounter profile.
+        /// Clear profile for US Core Encounter Profile
         /// </summary>
         public void RemoveProfile()
         {

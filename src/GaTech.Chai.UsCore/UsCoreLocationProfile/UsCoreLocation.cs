@@ -5,7 +5,7 @@ using GaTech.Chai.FhirIg.Extensions;
 namespace GaTech.Chai.UsCore.LocationProfile
 {
     /// <summary>
-    /// Us Core Location Profile Extensions
+    /// Us Core Location Profile
     /// http://hl7.org/fhir/us/core/StructureDefinition/us-core-location
     /// </summary>
     public class UsCoreLocation
@@ -18,7 +18,7 @@ namespace GaTech.Chai.UsCore.LocationProfile
         }
 
         /// <summary>
-        /// Factory for US Core Practitioner Profile
+        /// Factory for Us Core Location Profile
         /// http://hl7.org/fhir/us/core/StructureDefinition/us-core-location
         /// </summary>
         public static Location Create()
@@ -29,12 +29,12 @@ namespace GaTech.Chai.UsCore.LocationProfile
         }
 
         /// <summary>
-        /// The official URL for the US Core Practitioner profile, used to assert conformance.
+        /// The official URL for the Us Core Location Profile, used to assert conformance.
         /// </summary>
         public const string ProfileUrl = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-location";
 
         /// <summary>
-        /// Set the assertion that an practitioner object conforms to the US Core Practitioner profile.
+        /// Set profile for Us Core Location Profile
         /// </summary>
         public void AddProfile()
         {
@@ -42,7 +42,7 @@ namespace GaTech.Chai.UsCore.LocationProfile
         }
 
         /// <summary>
-        /// Clear the assertion that an condition object conforms to the US Core Practitioner profile.
+        /// Clear profile for Us Core Location Profile
         /// </summary>
         public void RemoveProfile()
         {

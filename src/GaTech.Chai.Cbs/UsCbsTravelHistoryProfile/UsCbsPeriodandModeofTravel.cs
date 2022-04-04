@@ -6,6 +6,9 @@ using Hl7.Fhir.Model;
 
 namespace GaTech.Chai.UsCbs.TravelHistoryProfile
 {
+    /// <summary>
+    /// US CBS Period and Mode of Travel helper for US CBS Travel History profile
+    /// </summary>
     public class UsCbsPeriodAndModeOfTravel
     {
         readonly Observation observation;

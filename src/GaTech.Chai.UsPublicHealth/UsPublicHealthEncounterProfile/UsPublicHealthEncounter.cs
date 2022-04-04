@@ -6,7 +6,7 @@ using Hl7.Fhir.Model;
 namespace GaTech.Chai.UsPublicHealth.EncounterProfile
 {
     /// <summary>
-    /// US Core Public Health Encounter Profile Extensions
+    /// US Public Health Encounter Profile
     /// http://hl7.org/fhir/us/ecr/StructureDefinition/us-ph-encounter
     /// </summary>
     public class UsPublicHealthEncounter
@@ -19,7 +19,7 @@ namespace GaTech.Chai.UsPublicHealth.EncounterProfile
         }
 
         /// <summary>
-        /// Factory for US Core Public Health Encounter Profile
+        /// Factory for US Public Health Encounter Profile
         /// http://hl7.org/fhir/us/ecr/StructureDefinition/us-ph-encounter
         /// </summary>
         public static Encounter Create()
@@ -30,12 +30,12 @@ namespace GaTech.Chai.UsPublicHealth.EncounterProfile
         }
 
         /// <summary>
-        /// The official URL for Public Health Encounter profile, used to assert conformance.
+        /// The official URL for US Public Health Encounter Profile, used to assert conformance.
         /// </summary>
         public const string ProfileUrl = "http://hl7.org/fhir/us/ecr/StructureDefinition/us-ph-encounter";
 
         /// <summary>
-        /// Set the assertion that an condition object conforms to the US Core Condition profile.
+        /// Set profile for US Public Health Encounter Profile
         /// </summary>
         public void AddProfile()
         {
@@ -43,7 +43,7 @@ namespace GaTech.Chai.UsPublicHealth.EncounterProfile
         }
 
         /// <summary>
-        /// Clear the assertion that an condition object conforms to the US Core Condition profile.
+        /// Clear profile for US Public Health Encounter Profile
         /// </summary>
         public void RemoveProfile()
         {

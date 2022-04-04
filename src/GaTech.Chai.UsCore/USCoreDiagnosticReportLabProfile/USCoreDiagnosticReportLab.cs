@@ -5,7 +5,7 @@ using GaTech.Chai.FhirIg.Extensions;
 namespace GaTech.Chai.UsCore.DiagnosticReportLabProfile
 {
     /// <summary>
-    /// US Core DiagnosticReport Profile Extensions
+    /// US Core DiagnosticReport Profile
     /// hhttp://hl7.org/fhir/us/core/StructureDefinition/us-core-diagnosticreport-lab
     /// </summary>
     public class UsCoreDiagnosticReportLab
@@ -35,7 +35,7 @@ namespace GaTech.Chai.UsCore.DiagnosticReportLabProfile
         public const string ProfileUrl = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-diagnosticreport-lab";
 
         /// <summary>
-        /// Set the assertion that an DiagnosticReport object conforms to the Case Based Surveillance DiagnosticReport profile.
+        /// Set profile for US Core DiagnosticReport profile
         /// </summary>
         public void AddProfile()
         {
@@ -43,7 +43,7 @@ namespace GaTech.Chai.UsCore.DiagnosticReportLabProfile
         }
 
         /// <summary>
-        /// Clear the assertion that an DiagnosticReport object conforms to the Case Based Surveillance DiagnosticReport profile.
+        /// Clear profile for US Core DiagnosticReport profile
         /// </summary>
         public void RemoveProfile()
         {

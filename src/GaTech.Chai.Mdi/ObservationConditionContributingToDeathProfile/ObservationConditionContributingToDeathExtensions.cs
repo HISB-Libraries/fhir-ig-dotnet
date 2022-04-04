@@ -3,7 +3,7 @@
 namespace GaTech.Chai.Mdi.ObservationConditionContributingToDeathProfile
 {
     /// <summary>
-    /// Class with Observation extensions Observation Condition Contributing to Death profile.
+    /// Class with Observation extensions for ObservationConditionContributingToDeathProfile
     /// http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-condition-contributing-to-death
     /// </summary>
     public static class ObservationConditionContributingToDeathExtensions

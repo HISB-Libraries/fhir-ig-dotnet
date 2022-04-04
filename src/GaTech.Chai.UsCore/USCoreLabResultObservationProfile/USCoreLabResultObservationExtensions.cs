@@ -3,7 +3,7 @@
 namespace GaTech.Chai.UsCore.LabResultObservationProfile
 {
     /// <summary>
-    /// Class with Observation extensions for US Core Lab Result profile.
+    /// Class with Observation extensions for Us Core LabResultObservation Profile
     /// http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab
     /// </summary>
     public static class UsCoreLabResultObservationExtensions

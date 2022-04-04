@@ -5,7 +5,7 @@ using GaTech.Chai.FhirIg.Extensions;
 namespace GaTech.Chai.Mdi.ObservationTobaccoUseContributedToDeathProfile
 {
     /// <summary>
-    /// MDI ObservationTobaccoUseContributedToDeath Profile Extensions
+    /// ObservationTobaccoUseContributedToDeathProfile
     /// http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-tobacco-use-contributed-to-death
     /// </summary>
     public class ObservationTobaccoUseContributedToDeath
@@ -20,7 +20,7 @@ namespace GaTech.Chai.Mdi.ObservationTobaccoUseContributedToDeathProfile
         }
 
         /// <summary>
-        /// Factory for MDI ObservationTobaccoUseContributedToDeath Profile
+        /// Factory for ObservationTobaccoUseContributedToDeathProfile
         /// http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-tobacco-use-contributed-to-death
         /// </summary>
         public static Observation Create()
@@ -31,12 +31,12 @@ namespace GaTech.Chai.Mdi.ObservationTobaccoUseContributedToDeathProfile
         }
 
         /// <summary>
-        /// The official URL for the MDI ObservationTobaccoUseContributedToDeath profile, used to assert conformance.
+        /// The official URL for the ObservationTobaccoUseContributedToDeathProfile, used to assert conformance.
         /// </summary>
         public const string ProfileUrl = "http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-tobacco-use-contributed-to-death";
 
         /// <summary>
-        /// Set the assertion that conforms to the ObservationTobaccoUseContributedToDeath profile.
+        /// Set profile for ObservationTobaccoUseContributedToDeathProfile
         /// </summary>
         public void AddProfile()
         {
@@ -44,7 +44,7 @@ namespace GaTech.Chai.Mdi.ObservationTobaccoUseContributedToDeathProfile
         }
 
         /// <summary>
-        /// Clear the assertion that conforms to the MDI ObservationHowDeathInjuryOccurred profile.
+        /// Clear profile for ObservationTobaccoUseContributedToDeathProfile
         /// </summary>
         public void RemoveProfile()
         {

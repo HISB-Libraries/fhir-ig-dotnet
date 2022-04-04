@@ -4,7 +4,7 @@ using GaTech.Chai.FhirIg.Extensions;
 namespace GaTech.Chai.Cbs.CbsCauseOfDeathProfile
 {
     /// <summary>
-    /// Case Based Surveillance Lab Cause of Death Profile Extensions
+    /// Case Based Surveillance Cause of Death Profile
     /// http://cbsig.chai.gatech.edu/StructureDefinition/cbs-cause-of-death
     /// </summary>
     public class CbsCauseOfDeath
@@ -25,7 +25,7 @@ namespace GaTech.Chai.Cbs.CbsCauseOfDeathProfile
         public static Observation Create()
         {
             var observation = new Observation();
-            observation.CbsCaseOfDeath().AddProfile();
+            observation.CbsCauseOfDeath().AddProfile();
             return observation;
         }
         /// <summary>
@@ -34,7 +34,7 @@ namespace GaTech.Chai.Cbs.CbsCauseOfDeathProfile
         public const string ProfileUrl = "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-cause-of-death";
 
         /// <summary>
-        /// Set the assertion that an observation object conforms to the Cause of Death Profile.
+        /// Set profile for Case Based Surveillance Cause of Death Profile
         /// </summary>
         public void AddProfile()
         {
@@ -42,7 +42,7 @@ namespace GaTech.Chai.Cbs.CbsCauseOfDeathProfile
         }
 
         /// <summary>
-        /// Clear the assertion that an observation object conforms to the Cause of Death Profile.
+        /// Clear profile for Case Based Surveillance Cause of Death Profile
         /// </summary>
         public void RemoveProfile()
         {

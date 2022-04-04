@@ -4,7 +4,7 @@ using Hl7.Fhir.Model;
 namespace GaTech.Chai.Cbs.CaseNotificationPanelProfile
 {
     /// <summary>
-    /// Class with Observation extensions for Case Based Surveillance Case Notification Panel Profile
+    /// Class with Observation extensions for Case Based Surveillance Case Notification and Component Panel Profiles
     /// http://cbsig.chai.gatech.edu/StructureDefinition/cbs-case-notification-panel
     /// </summary>
     public static class CbsCaseNotificationPanelExtension

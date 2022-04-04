@@ -3,6 +3,9 @@ using Hl7.Fhir.Model;
 
 namespace GaTech.Chai.Cbs.Common
 {
+    /// <summary>
+    /// US CBS Temporary Code System.
+    /// </summary>
     public class UsCbsTemporaryCodeSystem
     {
         public static string CodeSystemUrl = "http://cbsig.chai.gatech.edu/CodeSystem/cbs-temp-code-system";

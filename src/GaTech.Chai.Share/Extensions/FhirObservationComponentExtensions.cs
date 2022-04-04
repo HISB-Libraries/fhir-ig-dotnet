@@ -4,6 +4,9 @@ using Hl7.Fhir.Model;
 
 namespace GaTech.Chai.FhirIg.Extensions
 {
+    /// <summary>
+    /// Observation Component extension for FHIR observation.component with DataAbsentReason
+    /// </summary>
     public static class FhirObservationComponentExtensions
     {
         public static void AddDataAbsentReason(this Observation.ComponentComponent componentComponent, Code code)

@@ -7,7 +7,7 @@ using Hl7.Fhir.Model;
 namespace GaTech.Chai.UsPublicHealth.TravelHistoryProfile
 {
     /// <summary>
-    /// Travel History Address
+    /// Travel History Purpose Helper
     /// </summary>
     public class TravelPurpose
     {

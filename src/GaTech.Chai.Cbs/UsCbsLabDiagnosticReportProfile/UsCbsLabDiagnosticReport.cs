@@ -6,7 +6,7 @@ using GaTech.Chai.UsCore.DiagnosticReportLabProfile;
 namespace GaTech.Chai.UsCbs.LabDiagnosticReportProfile
 {
     /// <summary>
-    /// Case Based Surveillance Lab Condition Profile Extensions
+    /// US Case Based Surveillance Lab Diagnostic Report Profile
     /// http://cbsig.chai.gatech.edu/StructureDefinition/us-cbs-lab-diagnosticreport
     /// </summary>
     public class UsCbsLabDiagnosticReport
@@ -20,7 +20,7 @@ namespace GaTech.Chai.UsCbs.LabDiagnosticReportProfile
         }
 
         /// <summary>
-        /// Factory for Case Based Surveillance Lab Condition Profile
+        /// Factory for US Case Based Surveillance Lab Diagnostic Report Profile
         /// http://cbsig.chai.gatech.edu/StructureDefinition/us-cbs-lab-diagnosticreport
         /// </summary>
         public static DiagnosticReport Create()
@@ -31,12 +31,12 @@ namespace GaTech.Chai.UsCbs.LabDiagnosticReportProfile
         }
 
         /// <summary>
-        /// The official URL for the Case Based Surveillance Lab Condition profile, used to assert conformance.
+        /// The official URL for the Us Case Based Surveillance Lab Diagnostic Report Profile, used to assert conformance.
         /// </summary>
         public const string ProfileUrl = "http://cbsig.chai.gatech.edu/StructureDefinition/us-cbs-lab-diagnosticreport";
 
         /// <summary>
-        /// Set the assertion that an condition object conforms to the Case Based Surveillance Lab Condition profile.
+        /// Set profile for US Case Based Surveillance Lab Diagnostic Report Profile
         /// </summary>
         public void AddProfile()
         {
@@ -44,7 +44,7 @@ namespace GaTech.Chai.UsCbs.LabDiagnosticReportProfile
         }
 
         /// <summary>
-        /// Clear the assertion that an condition object conforms to the Case Based Surveillance Lab Condition profile.
+        /// Clear profile for US Case Based Surveillance Lab Diagnostic Report Profile
         /// </summary>
         public void RemoveProfile()
         {

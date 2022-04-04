@@ -5,7 +5,7 @@ using GaTech.Chai.FhirIg.Extensions;
 namespace GaTech.Chai.Mdi.BundleDocumentMdiToEdrsProfile
 {
     /// <summary>
-    /// Medicolegal Death Investigation Document Bundle Profile Extensions
+    /// BundleDocumentMdiToEdrsProfile
     /// http://hl7.org/fhir/us/mdi/StructureDefinition/Bundle-document-mdi-to-edrs
     /// </summary>
     public class BundleDocumentMdiToEdrs
@@ -19,7 +19,7 @@ namespace GaTech.Chai.Mdi.BundleDocumentMdiToEdrsProfile
         }
 
         /// <summary>
-        /// Factory for Medicolegal Death Investigation Document Bundle Profile
+        /// Factory for BundleDocumentMdiToEdrsProfile
         /// http://hl7.org/fhir/us/mdi/StructureDefinition/Bundle-document-mdi-to-edrs
         /// </summary>
         public static Bundle Create()
@@ -30,12 +30,12 @@ namespace GaTech.Chai.Mdi.BundleDocumentMdiToEdrsProfile
         }
 
         /// <summary>
-        /// The official URL for the Medicolegal Death Investigation Document Bundle profile, used to assert conformance.
+        /// The official URL for the BundleDocumentMdiToEdrsProfile, used to assert conformance.
         /// </summary>
         public const string ProfileUrl = "http://hl7.org/fhir/us/mdi/StructureDefinition/Bundle-document-mdi-to-edrs";
 
         /// <summary>
-        /// Set the assertion that a questionnaire object conforms to the Medicolegal Death Investigation Document Bundle Profile.
+        /// Set the profile URL for the BundleDocumentMdiToEdrsProfile.
         /// </summary>
         public void AddProfile()
         {
@@ -43,7 +43,7 @@ namespace GaTech.Chai.Mdi.BundleDocumentMdiToEdrsProfile
         }
 
         /// <summary>
-        /// Clear the assertion that a questionnaire object conforms to the Medicolegal Death Investigation Document Bundle Profile.
+        /// Clear the profile URL for the BundleDocumentMdiToEdrsProfile.
         /// </summary>
         public void RemoveProfile()
         {

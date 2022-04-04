@@ -6,7 +6,7 @@ using Hl7.Fhir.Model;
 namespace GaTech.Chai.UsPublicHealth.ConditionProfile
 {
     /// <summary>
-    /// US Core Public Health Condition Profile Extensions
+    /// US Public Health Condition Profile
     /// http://hl7.org/fhir/us/ecr/StructureDefinition/us-ph-condition
     /// </summary>
     public class UsPublicHealthCondition
@@ -20,7 +20,7 @@ namespace GaTech.Chai.UsPublicHealth.ConditionProfile
         }
 
         /// <summary>
-        /// Factory for US Core Public Health Condition Profile
+        /// Factory for US Public Health Condition Profile
         /// http://hl7.org/fhir/us/ecr/StructureDefinition/us-ph-condition
         /// </summary>
         public static Condition Create()
@@ -31,12 +31,12 @@ namespace GaTech.Chai.UsPublicHealth.ConditionProfile
         }
 
         /// <summary>
-        /// The official URL for the Case Based Surveillance Lab Condition profile, used to assert conformance.
+        /// The official URL for the US Public Health Condition Profile, used to assert conformance.
         /// </summary>
         public const string ProfileUrl = "http://hl7.org/fhir/us/ecr/StructureDefinition/us-ph-condition";
 
         /// <summary>
-        /// Set the assertion that an condition object conforms to the US Core Condition profile.
+        /// Set profile for US Public Health Condition Profile
         /// </summary>
         public void AddProfile()
         {
@@ -44,7 +44,7 @@ namespace GaTech.Chai.UsPublicHealth.ConditionProfile
         }
 
         /// <summary>
-        /// Clear the assertion that an condition object conforms to the US Core Condition profile.
+        /// Clear profile for US Public Health Condition Profile
         /// </summary>
         public void RemoveProfile()
         {

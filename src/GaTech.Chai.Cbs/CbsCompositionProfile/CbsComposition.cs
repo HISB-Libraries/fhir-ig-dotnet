@@ -6,7 +6,7 @@ using static Hl7.Fhir.Model.Composition;
 namespace GaTech.Chai.Cbs.CompositionProfile
 {
     /// <summary>
-    /// Case Based Surveillance Composition Profile Extensions
+    /// Case Based Surveillance Composition Profile
     /// http://cbsig.chai.gatech.edu/StructureDefinition/cbs-composition
     /// </summary>
     public class CbsComposition
@@ -43,7 +43,7 @@ namespace GaTech.Chai.Cbs.CompositionProfile
         public const string ProfileUrl = "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-composition";
 
         /// <summary>
-        /// Set the assertion that a questionnaire object conforms to the Case Based Surveillance Composition Profile.
+        /// Set profile for Case Based Surveillance Composition Profile
         /// </summary>
         public void AddProfile()
         {
@@ -51,7 +51,7 @@ namespace GaTech.Chai.Cbs.CompositionProfile
         }
 
         /// <summary>
-        /// Clear the assertion that a questionnaire object conforms to the Case Based Surveillance Composition Profile.
+        /// Clear profile for Case Based Surveillance Composition Profile
         /// </summary>
         public void RemoveProfile()
         {

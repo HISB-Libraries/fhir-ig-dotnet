@@ -3,7 +3,7 @@
 namespace GaTech.Chai.UsCore.EncounterProfile
 {
     /// <summary>
-    /// Class with Encounter extensions for Case Based Surveillance Encounter profile.
+    /// Class with Encounter extensions for US Core Encounter Profile
     /// http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter
     /// </summary>
     public static class UsCoreEncounterExtensions

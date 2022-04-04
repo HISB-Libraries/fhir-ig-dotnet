@@ -5,7 +5,7 @@ using GaTech.Chai.FhirIg.Extensions;
 namespace GaTech.Chai.Cbs.SpecimenProfile
 {
     /// <summary>
-    /// Case Based Surveillance Specimen Profile Extensions
+    /// Case Based Surveillance Specimen Profile
     /// http://cbsig.chai.gatech.edu/StructureDefinition/cbs-specimen
     /// </summary>
     public class CbsSpecimen
@@ -26,6 +26,22 @@ namespace GaTech.Chai.Cbs.SpecimenProfile
             var specimen = new Specimen();
             specimen.CbsSpecimen().AddProfile();
             return specimen;
+        }
+
+        /// <summary>
+        /// Set profile for Case Based Surveillance Specimen Profile
+        /// </summary>
+        public void AddProfile()
+        {
+            specimen.AddProfile(ProfileUrl);
+        }
+
+        /// <summary>
+        /// Clear profile Case Based Surveillance Specimen Profile
+        /// </summary>
+        public void RemoveProfile()
+        {
+            specimen.RemoveProfile(ProfileUrl);
         }
 
         /// <summary>
@@ -66,22 +82,6 @@ namespace GaTech.Chai.Cbs.SpecimenProfile
         /// The official URL for the Case Based Surveillance Specimen profile, used to assert conformance.
         /// </summary>
         public const string ProfileUrl = "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-specimen";
-
-        /// <summary>
-        /// Set the assertion that a specimen object conforms to the Case Based Surveillance Specimen Profile.
-        /// </summary>
-        public void AddProfile()
-        {
-            specimen.AddProfile(ProfileUrl);
-        }
-
-        /// <summary>
-        /// Clear the assertion that a specimen object conforms to the Case Based Surveillance Specimen Profile.
-        /// </summary>
-        public void RemoveProfile()
-        {
-            specimen.RemoveProfile(ProfileUrl);
-        }
 
         /// <summary>
         /// Specimen Role (2.16.840.1.114222.4.11.1046)

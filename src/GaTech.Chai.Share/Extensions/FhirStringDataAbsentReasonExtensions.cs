@@ -3,6 +3,9 @@ using Hl7.Fhir.Model;
 
 namespace GaTech.Chai.FhirIg.Extensions
 {
+    /// <summary>
+    /// String extension for DataAbsentReason
+    /// </summary>
     public static class FhirStringDataAbsentReasonExtensions
     {
         public static void AddDataAbsentReason(this FhirString fhirString, Code code)

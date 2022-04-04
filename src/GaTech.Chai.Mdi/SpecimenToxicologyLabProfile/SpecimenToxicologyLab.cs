@@ -5,7 +5,7 @@ using GaTech.Chai.FhirIg.Extensions;
 namespace GaTech.Chai.Mdi.SpecimenToxicologyLabProfile
 {
     /// <summary>
-    /// SpecimenToxicologyLab Profile Extensions
+    /// SpecimenToxicologyLabProfile
     /// http://hl7.org/fhir/us/mdi/StructureDefinition/Specimen-toxicology-lab
     /// </summary>
     public class SpecimenToxicologyLab
@@ -18,7 +18,7 @@ namespace GaTech.Chai.Mdi.SpecimenToxicologyLabProfile
         }
 
         /// <summary>
-        /// Factory for SpecimenToxicologyLab Profile
+        /// Factory for SpecimenToxicologyLabProfile
         /// http://hl7.org/fhir/us/mdi/StructureDefinition/Specimen-toxicology-lab
         /// </summary>
         public static Specimen Create()
@@ -29,12 +29,12 @@ namespace GaTech.Chai.Mdi.SpecimenToxicologyLabProfile
         }
 
         /// <summary>
-        /// The official URL for the SpecimenToxicologyLab profile, used to assert conformance.
+        /// The official URL for the SpecimenToxicologyLabProfile, used to assert conformance.
         /// </summary>
         public const string ProfileUrl = "http://hl7.org/fhir/us/mdi/StructureDefinition/Specimen-toxicology-lab";
 
         /// <summary>
-        /// Set the assertion that a specimen object conforms to the SpecimenToxicologyLab Profile.
+        /// Set profile for SpecimenToxicologyLabProfile
         /// </summary>
         public void AddProfile()
         {
@@ -42,7 +42,7 @@ namespace GaTech.Chai.Mdi.SpecimenToxicologyLabProfile
         }
 
         /// <summary>
-        /// Clear the assertion that a specimen object conforms to the SpecimenToxicologyLab Profile.
+        /// Clear profile for SpecimenToxicologyLabProfile
         /// </summary>
         public void RemoveProfile()
         {

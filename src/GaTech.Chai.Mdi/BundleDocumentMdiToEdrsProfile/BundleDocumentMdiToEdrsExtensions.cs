@@ -3,7 +3,7 @@
 namespace GaTech.Chai.Mdi.BundleDocumentMdiToEdrsProfile
 {
     /// <summary>
-    /// Class with Bundle extensions for Case Based Surveillance Document Bundle Profile
+    /// Class with Bundle extensions for the BundleDocumentMdiToEdrsProfile
     /// http://hl7.org/fhir/us/mdi/StructureDefinition/Bundle-document-mdi-to-edrs
     /// </summary>
     public static class BundleDocumentMdiToEdrsExtensions

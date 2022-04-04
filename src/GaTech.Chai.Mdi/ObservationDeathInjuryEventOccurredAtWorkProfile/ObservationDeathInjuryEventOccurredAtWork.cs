@@ -5,7 +5,7 @@ using GaTech.Chai.FhirIg.Extensions;
 namespace GaTech.Chai.Mdi.ObservationDeathInjuryEventOccurredAtWorkProfile
 {
     /// <summary>
-    /// MDI ObservationDeathInjuryEventOccurredAtWork Profile Extensions
+    /// ObservationDeathInjuryEventOccurredAtWorkProfile
     /// http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-death-injury-at-work
     /// </summary>
     public class ObservationDeathInjuryEventOccurredAtWork
@@ -19,7 +19,7 @@ namespace GaTech.Chai.Mdi.ObservationDeathInjuryEventOccurredAtWorkProfile
         }
 
         /// <summary>
-        /// Factory for MDI ObservationDeathInjuryEventOccurredAtWork Profile
+        /// Factory for ObservationDeathInjuryEventOccurredAtWorkProfile
         /// http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-death-injury-at-work
         /// </summary>
         public static Observation Create()
@@ -30,12 +30,12 @@ namespace GaTech.Chai.Mdi.ObservationDeathInjuryEventOccurredAtWorkProfile
         }
 
         /// <summary>
-        /// The official URL for the MDI ObservationDeathInjuryEventOccurredAtWork profile, used to assert conformance.
+        /// The official URL for the ObservationDeathInjuryEventOccurredAtWorkProfile, used to assert conformance.
         /// </summary>
         public const string ProfileUrl = "http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-death-injury-at-work";
 
         /// <summary>
-        /// Set the assertion that conforms to the ObservationDeathInjuryEventOccurredAtWork profile.
+        /// Set profile for ObservationDeathInjuryEventOccurredAtWorkProfile
         /// </summary>
         public void AddProfile()
         {
@@ -43,7 +43,7 @@ namespace GaTech.Chai.Mdi.ObservationDeathInjuryEventOccurredAtWorkProfile
         }
 
         /// <summary>
-        /// Clear the assertion that conforms to the MDI ObservationDeathInjuryEventOccurredAtWork profile.
+        /// Clear profile for ObservationDeathInjuryEventOccurredAtWorkProfile
         /// </summary>
         public void RemoveProfile()
         {

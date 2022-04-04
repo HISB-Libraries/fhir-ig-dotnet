@@ -3,7 +3,7 @@
 namespace GaTech.Chai.Mdi.ObservationDeathDateProfile
 {
     /// <summary>
-    /// Class with Observation extensions for Death Date profile.
+    /// Class with Observation extensions for ObservationDeathDateProfile
     /// http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-death-date
     /// </summary>
     public static class ObservationCauseOfDeathConditionExtensions

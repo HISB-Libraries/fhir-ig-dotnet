@@ -4,7 +4,7 @@ namespace GaTech.Chai.Cbs.CompositionProfile
 {
     /// <summary>
     /// Class with Composition extensions for Case Based Surveillance Composition Profile
-    /// http://cbsig.chai.gatech.edu/StructureDefinition/cbs-questionnaire
+    /// http://cbsig.chai.gatech.edu/StructureDefinition/cbs-composition
     /// </summary>
     public static class CbsCompositionExtensions
     {

@@ -5,7 +5,7 @@ using GaTech.Chai.FhirIg.Extensions;
 namespace GaTech.Chai.Mdi.ObservationMannerOfDeathProfile
 {
     /// <summary>
-    /// MDI ObservationMannerOfDeath Profile Extensions
+    /// ObservationMannerOfDeathProfile
     /// http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-manner-of-death
     /// </summary>
     public class ObservationMannerOfDeath
@@ -20,7 +20,7 @@ namespace GaTech.Chai.Mdi.ObservationMannerOfDeathProfile
         }
 
         /// <summary>
-        /// Factory for MDI ObservationMannerOfDeath Profile
+        /// Factory for ObservationMannerOfDeathProfile
         /// http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-manner-of-death
         /// </summary>
         public static Observation Create()
@@ -31,12 +31,12 @@ namespace GaTech.Chai.Mdi.ObservationMannerOfDeathProfile
         }
 
         /// <summary>
-        /// The official URL for the MDI ObservationMannerOfDeath profile, used to assert conformance.
+        /// The official URL for ObservationMannerOfDeathProfile, used to assert conformance.
         /// </summary>
         public const string ProfileUrl = "http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-manner-of-death";
 
         /// <summary>
-        /// Set the assertion that conforms to the ObservationMannerOfDeath profile.
+        /// Set profile for ObservationMannerOfDeathProfile
         /// </summary>
         public void AddProfile()
         {
@@ -44,7 +44,7 @@ namespace GaTech.Chai.Mdi.ObservationMannerOfDeathProfile
         }
 
         /// <summary>
-        /// Clear the assertion that conforms to the MDI ObservationHowDeathInjuryOccurred profile.
+        /// Clear profile for ObservationMannerOfDeathProfile
         /// </summary>
         public void RemoveProfile()
         {

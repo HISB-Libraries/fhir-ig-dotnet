@@ -3,8 +3,8 @@
 namespace GaTech.Chai.Mdi.ObservationToxicologyLabResultProfile
 {
     /// <summary>
-    /// Class with Observation extensions for US Core Lab Result profile.
-    /// http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab
+    /// Class with Observation extensions for ObservationToxicologyLabResultProfile
+    /// http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-toxicology-lab-result
     /// </summary>
     public static class ObservationToxicologyLabResultExtensions
     {

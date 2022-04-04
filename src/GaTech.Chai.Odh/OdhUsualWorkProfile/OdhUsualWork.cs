@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace GaTech.Chai.Odh.UsualWorkProfile
 {
     /// <summary>
-    /// Occupational Data for Health Usual Work Profile Extensions
+    /// UsualWorkProfile
     /// http://hl7.org/fhir/us/odh/StructureDefinition/odh-UsualWork
     /// </summary>
     public class OdhUsualWork
@@ -32,12 +32,12 @@ namespace GaTech.Chai.Odh.UsualWorkProfile
         }
 
         /// <summary>
-        /// The official URL for the ODH usual work profile, used to assert conformance.
+        /// The official URL for UsualWorkProfile, used to assert conformance.
         /// </summary>
         public const string ProfileUrl = "http://hl7.org/fhir/us/odh/StructureDefinition/odh-UsualWork";
 
         /// <summary>
-        /// Set the assertion that a observation object conforms to the Case Based Surveillance Social Determinants of Health Profile.
+        /// Set profile for UsualWorkProfile
         /// </summary>
         public void AddProfile()
         {
@@ -45,7 +45,7 @@ namespace GaTech.Chai.Odh.UsualWorkProfile
         }
 
         /// <summary>
-        /// Clear the assertion that a observation object conforms to the ODH usual work Profile.
+        /// Clear profile for UsualWorkProfile
         /// </summary>
         public void RemoveProfile()
         {

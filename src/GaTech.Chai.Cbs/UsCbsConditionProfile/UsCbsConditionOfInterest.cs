@@ -6,7 +6,7 @@ using GaTech.Chai.UsPublicHealth.ConditionProfile;
 namespace GaTech.Chai.UsCbs.ConditionOfInterestProfile
 {
     /// <summary>
-    /// Case Based Surveillance Lab Condition Profile Extensions
+    /// US Case Based Surveillance Condition Profile
     /// http://cbsig.chai.gatech.edu/StructureDefinition/us-cbs-condition
     /// </summary>
     public class UsCbsConditionOfInterest
@@ -20,7 +20,7 @@ namespace GaTech.Chai.UsCbs.ConditionOfInterestProfile
         }
 
         /// <summary>
-        /// Factory for Case Based Surveillance Lab Condition Profile
+        /// Factory for US Case Based Surveillance Condition Profile
         /// http://cbsig.chai.gatech.edu/StructureDefinition/us-cbs-condition
         /// </summary>
         public static Condition Create()
@@ -31,12 +31,12 @@ namespace GaTech.Chai.UsCbs.ConditionOfInterestProfile
         }
 
         /// <summary>
-        /// The official URL for the Case Based Surveillance Lab Condition profile, used to assert conformance.
+        /// The official URL for the US Case Based Surveillance Condition profile, used to assert conformance.
         /// </summary>
         public const string ProfileUrl = "http://cbsig.chai.gatech.edu/StructureDefinition/us-cbs-condition";
 
         /// <summary>
-        /// Set the assertion that an condition object conforms to the Case Based Surveillance Lab Condition profile.
+        /// Set profile for US Case Based Surveillance Condition Profile
         /// </summary>
         public void AddProfile()
         {
@@ -44,7 +44,7 @@ namespace GaTech.Chai.UsCbs.ConditionOfInterestProfile
         }
 
         /// <summary>
-        /// Clear the assertion that an condition object conforms to the Case Based Surveillance Lab Condition profile.
+        /// Clear profile for US Case Based Surveillance Condition Profile
         /// </summary>
         public void RemoveProfile()
         {

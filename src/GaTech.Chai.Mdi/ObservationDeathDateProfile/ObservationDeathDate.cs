@@ -5,7 +5,7 @@ using GaTech.Chai.FhirIg.Extensions;
 namespace GaTech.Chai.Mdi.ObservationDeathDateProfile
 {
     /// <summary>
-    /// MDI Observation-Death Date Profile Extensions
+    /// ObservationDeathDateProfile
     /// http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-death-date
     /// </summary>
     public class ObservationDeathDate
@@ -20,7 +20,7 @@ namespace GaTech.Chai.Mdi.ObservationDeathDateProfile
         }
 
         /// <summary>
-        /// Factory for MDI ObservationCauseOfDeathCondition Profile
+        /// Factory for ObservationDeathDateProfile
         /// http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-death-date
         /// </summary>
         public static Observation Create()
@@ -31,12 +31,12 @@ namespace GaTech.Chai.Mdi.ObservationDeathDateProfile
         }
 
         /// <summary>
-        /// The official URL for the MDI Observation-Death Date profile, used to assert conformance.
+        /// The official URL for ObservationDeathDateProfile, used to assert conformance.
         /// </summary>
         public const string ProfileUrl = "http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-death-date";
 
         /// <summary>
-        /// Set the assertion that conforms to the Observation-Death Date profile.
+        /// Set profile for the ObservationDeathDateProfile
         /// </summary>
         public void AddProfile()
         {
@@ -44,7 +44,7 @@ namespace GaTech.Chai.Mdi.ObservationDeathDateProfile
         }
 
         /// <summary>
-        /// Clear the assertion that conforms to the MDI Observation-Death Date profile.
+        /// Clear profile for the ObservationDeathDateProfile
         /// </summary>
         public void RemoveProfile()
         {

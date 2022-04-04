@@ -3,7 +3,7 @@
 namespace GaTech.Chai.Mdi.ObservationDecedentPregnancyProfile
 {
     /// <summary>
-    /// Class with Observation extensions for ObservationDecedentPregnancy profile.
+    /// Class with Observation extensions for ObservationDecedentPregnancyProfile
     /// http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-decedent-pregnancy
     /// </summary>
     public static class ObservationDecedentPregnancyExtensions

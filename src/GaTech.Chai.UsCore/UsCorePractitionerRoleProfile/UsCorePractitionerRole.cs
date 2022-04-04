@@ -5,7 +5,7 @@ using GaTech.Chai.FhirIg.Extensions;
 namespace GaTech.Chai.UsCore.PractitionerRoleProfile
 {
     /// <summary>
-    /// UsCorePractitionerRole Profile Extensions
+    /// UsCorePractitionerRole Profile
     /// http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole
     /// </summary>
     public class UsCorePractitionerRole
@@ -34,7 +34,7 @@ namespace GaTech.Chai.UsCore.PractitionerRoleProfile
         public const string ProfileUrl = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole";
 
         /// <summary>
-        /// Set the assertion that an practitioner object conforms to the US Core Practitioner profile.
+        /// Set profile for UsCorePractitionerRole Profile
         /// </summary>
         public void AddProfile()
         {
@@ -42,7 +42,7 @@ namespace GaTech.Chai.UsCore.PractitionerRoleProfile
         }
 
         /// <summary>
-        /// Clear the assertion that an condition object conforms to the UsCorePractitionerRole profile.
+        /// Clear profile for UsCorePractitionerRole Profile
         /// </summary>
         public void RemoveProfile()
         {

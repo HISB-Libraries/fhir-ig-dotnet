@@ -3,7 +3,7 @@
 namespace GaTech.Chai.UsCore.ConditionProfile
 {
     /// <summary>
-    /// Class with Observation extensions for Case Based Surveillance Condition profile.
+    /// Class with Condition extensions for US Core Condition profile.
     /// http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition
     /// </summary>
     public static class UsCoreConditionExtensions

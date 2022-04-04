@@ -6,7 +6,7 @@ using GaTech.Chai.UsCore.LabResultObservationProfile;
 namespace GaTech.Chai.UsCbs.LabObservationProfile
 {
     /// <summary>
-    /// Case Based Surveillance Lab Observation Profile Extensions
+    /// US Case Based Surveillance Lab Observation Profile
     /// http://cbsig.chai.gatech.edu/StructureDefinition/cbs-lab-observation
     /// </summary>
     public class UsCbsLabObservation
@@ -20,7 +20,7 @@ namespace GaTech.Chai.UsCbs.LabObservationProfile
         }
 
         /// <summary>
-        /// Factory for Case Based Surveillance Lab Observation Profile
+        /// Factory for US Case Based Surveillance Lab Observation Profile
         /// http://cbsig.chai.gatech.edu/StructureDefinition/us-cbs-lab-observation
         /// </summary>
         public static Observation Create()
@@ -32,12 +32,12 @@ namespace GaTech.Chai.UsCbs.LabObservationProfile
         }
 
         /// <summary>
-        /// The official URL for the Case Based Surveillance Lab Observation profile, used to assert conformance.
+        /// The official URL for the US Case Based Surveillance Lab Observation Profile, used to assert conformance.
         /// </summary>
         public const string ProfileUrl = "http://cbsig.chai.gatech.edu/StructureDefinition/us-cbs-lab-observation";
 
         /// <summary>
-        /// Set the assertion that an observation object conforms to the Case Based Surveillance Lab Observation profile.
+        /// Set profile for US Case Based Surveillance Lab Observation Profile
         /// </summary>
         public void AddProfile()
         {
@@ -45,7 +45,7 @@ namespace GaTech.Chai.UsCbs.LabObservationProfile
         }
 
         /// <summary>
-        /// Clear the assertion that an observation object conforms to the Case Based Surveillance Lab Observation profile.
+        /// Clear profile for US Case Based Surveillance Lab Observation Profile
         /// </summary>
         public void RemoveProfile()
         {

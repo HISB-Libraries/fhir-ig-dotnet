@@ -2,10 +2,10 @@
 using Hl7.Fhir.Model;
 using GaTech.Chai.FhirIg.Extensions;
 
-namespace GaTech.Chai.UsCore.OrganizationProfile
+namespace GaTech.Chai.UsPublicHealth.OrganizationProfile
 {
     /// <summary>
-    /// US Core Organization Profile Extensions
+    /// US Public Health Organization Profile
     /// http://hl7.org/fhir/us/ecr/StructureDefinition/us-ph-organization
     /// </summary>
     public class UsPublicHealthOrganization
@@ -18,7 +18,7 @@ namespace GaTech.Chai.UsCore.OrganizationProfile
         }
 
         /// <summary>
-        /// Factory for US Core Organization Profile
+        /// Factory for US Public Health Organization Profile
         /// http://hl7.org/fhir/us/ecr/StructureDefinition/us-ph-organization
         /// </summary>
         public static Organization Create()
@@ -29,12 +29,12 @@ namespace GaTech.Chai.UsCore.OrganizationProfile
         }
 
         /// <summary>
-        /// The official URL for the US Core Organization profile, used to assert conformance.
+        /// The official URL for the US Public Health Organization Profile, used to assert conformance.
         /// </summary>
         public const string ProfileUrl = "http://hl7.org/fhir/us/ecr/StructureDefinition/us-ph-organization";
 
         /// <summary>
-        /// Set the assertion that an organization object conforms to the US Core Organization profile.
+        /// Set profile for US Public Health Organization Profile
         /// </summary>
         public void AddProfile()
         {
@@ -42,7 +42,7 @@ namespace GaTech.Chai.UsCore.OrganizationProfile
         }
 
         /// <summary>
-        /// Clear the assertion that an ogranization object conforms to the US Core Organization profile.
+        /// Clear profile for US Public Health Organization Profile
         /// </summary>
         public void RemoveProfile()
         {

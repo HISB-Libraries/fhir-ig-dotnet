@@ -5,7 +5,7 @@ using Hl7.Fhir.Model;
 namespace GaTech.Chai.Cbs.CaseNotificationPanelProfile
 {
     /// <summary>
-    /// Case Based Surveillance Exposure Observation
+    /// Case Based Surveillance Age At Case Investigateion Profile
     /// http://cbsig.chai.gatech.edu/StructureDefinition/cbs-age-at-investigation
     /// </summary>
     public class CbsAgeAtCaseInvestigation : CbsCaseNotificationPanel
@@ -16,7 +16,7 @@ namespace GaTech.Chai.Cbs.CaseNotificationPanelProfile
         }
 
         /// <summary>
-        /// Factory for Case Based Surveillance Exposure Observation Profile
+        /// Factory for Case Based Surveillance Age At Case Investigateion Profile
         /// http://cbsig.chai.gatech.edu/StructureDefinition/cbs-age-at-investigation
         /// </summary>
         public static new Observation Create()

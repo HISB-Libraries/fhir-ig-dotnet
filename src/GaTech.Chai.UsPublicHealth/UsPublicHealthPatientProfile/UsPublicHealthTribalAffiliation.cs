@@ -4,6 +4,9 @@ using Hl7.Fhir.Model;
 
 namespace GaTech.Chai.UsPublicHealth.PatientProfile
 {
+    /// <summary>
+    /// US Public Health Tribal Affiliation Helper
+    /// </summary>
     public class UsPublicHealthTribalAffiliation
     {
         readonly Patient patient;

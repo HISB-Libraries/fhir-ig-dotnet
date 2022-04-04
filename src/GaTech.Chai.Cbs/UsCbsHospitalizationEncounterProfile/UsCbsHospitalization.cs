@@ -5,7 +5,7 @@ using GaTech.Chai.FhirIg.Extensions;
 namespace GaTech.Chai.UsCbs.HospitalizationEncounterProfile
 {
     /// <summary>
-    /// Case Based Surveillance Hospitalization Encounter Profile Extensions
+    /// US Case Based Surveillance Hospitalization Profile
     /// http://cbsig.chai.gatech.edu/StructureDefinition/us-cbs-hospitalization
     /// </summary>
     public class UsCbsHospitalization
@@ -18,7 +18,7 @@ namespace GaTech.Chai.UsCbs.HospitalizationEncounterProfile
         }
 
         /// <summary>
-        /// Factory for Case Based Surveillance Hospitalization Encounter Profile
+        /// Factory for US Case Based Surveillance Hospitalization Profile
         /// http://cbsig.chai.gatech.edu/StructureDefinition/us-cbs-hospitalization
         /// </summary>
         public static Encounter Create()
@@ -31,8 +31,24 @@ namespace GaTech.Chai.UsCbs.HospitalizationEncounterProfile
         }
 
         /// <summary>
+        /// Set profile for US Case Based Surveillance Hospitalization Profile
+        /// </summary>
+        public void AddProfile()
+        {
+            this.encounter.AddProfile(ProfileUrl);
+        }
+
+        /// <summary>
+        /// Clear profile for US Case Based Surveillance Hospitalization Profile
+        /// </summary>
+        public void RemoveProfile()
+        {
+            this.encounter.RemoveProfile(ProfileUrl);
+        }
+
+        /// <summary>
         /// reasonReference for the encounter.
-        /// Reference to Case Based Surveillance Condition of Interest Profile
+        /// Reference to US Case Based Surveillance Hospitalization Profile
         /// </summary>
         public ResourceReference Reason
         {
@@ -49,7 +65,7 @@ namespace GaTech.Chai.UsCbs.HospitalizationEncounterProfile
         }
 
         /// <summary>
-        /// The official URL for the Case Based Surveillance Hospitalization Encounter profile, used to assert conformance.
+        /// The official URL for the US Case Based Surveillance Hospitalization Profile, used to assert conformance.
         /// </summary>
         public const string ProfileUrl = "http://cbsig.chai.gatech.edu/StructureDefinition/us-cbs-hospitalization";
 
@@ -84,22 +100,5 @@ namespace GaTech.Chai.UsCbs.HospitalizationEncounterProfile
                     "http://hl7.org/fhir/StructureDefinition/data-absent-reason", new FhirString("masked"));
             }
         }
-
-        /// <summary>
-        /// Set the assertion that an condition object conforms to the Case Based Surveillance Hospitalization Encounter profile.
-        /// </summary>
-        public void AddProfile()
-        {
-            this.encounter.AddProfile(ProfileUrl);
-        }
-
-        /// <summary>
-        /// Clear the assertion that an condition object conforms to the Case Based Surveillance Hospitalization Encounter profile.
-        /// </summary>
-        public void RemoveProfile()
-        {
-            this.encounter.RemoveProfile(ProfileUrl);
-        }
-
     }
 }

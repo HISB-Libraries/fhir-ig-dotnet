@@ -8,7 +8,7 @@ namespace GaTech.Chai.Cbs.CbsCauseOfDeathProfile
     /// </summary>
     public static class CbsCauseOfDeathExtensions
     {
-        public static CbsCauseOfDeath CbsCaseOfDeath(this Observation observation)
+        public static CbsCauseOfDeath CbsCauseOfDeath(this Observation observation)
         {
             return new CbsCauseOfDeath(observation);
         }

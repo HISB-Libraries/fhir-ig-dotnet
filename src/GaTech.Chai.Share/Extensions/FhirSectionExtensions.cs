@@ -4,6 +4,9 @@ using Hl7.Fhir.Model;
 
 namespace GaTech.Chai.FhirIg.Extensions
 {
+    /// <summary>
+    /// Composition section extension for FHIR Composition.section
+    /// </summary>
     public static class FhirSectionExtensions
     {
         public static void AddOrUpdateSection(this List<Composition.SectionComponent> sections,

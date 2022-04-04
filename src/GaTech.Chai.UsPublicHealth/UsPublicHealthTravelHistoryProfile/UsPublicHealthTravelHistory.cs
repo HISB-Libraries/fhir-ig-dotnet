@@ -6,7 +6,7 @@ using Hl7.Fhir.Model;
 namespace GaTech.Chai.UsPublicHealth.TravelHistoryProfile
 {
     /// <summary>
-    /// US Core Public Health Travel History Profile Extensions
+    /// US Public Health Travel History Profile
     /// http://hl7.org/fhir/us/ecr/StructureDefinition/us-ph-travel-history
     /// </summary>
     public class UsPublicHealthTravelHistory
@@ -23,7 +23,7 @@ namespace GaTech.Chai.UsPublicHealth.TravelHistoryProfile
         }
 
         /// <summary>
-        /// Factory for US Core Public Health Encounter Profile
+        /// Factory for US Public Health Travel History Profile
         /// http://hl7.org/fhir/us/ecr/StructureDefinition/us-ph-travel-history
         /// </summary>
         public static Observation Create()
@@ -41,12 +41,12 @@ namespace GaTech.Chai.UsPublicHealth.TravelHistoryProfile
         public TravelPurpose TravelPurpose => this.travelPurpose;
 
         /// <summary>
-        /// The official URL for Public Health Encounter profile, used to assert conformance.
+        /// The official URL for US Public Health Travel History Profile, used to assert conformance.
         /// </summary>
         public const string ProfileUrl = "http://hl7.org/fhir/us/ecr/StructureDefinition/us-ph-travel-history";
 
         /// <summary>
-        /// Set the assertion that an condition object conforms to the US Core Condition profile.
+        /// Set profile for US Public Health Travel History Profile
         /// </summary>
         public void AddProfile()
         {
@@ -54,7 +54,7 @@ namespace GaTech.Chai.UsPublicHealth.TravelHistoryProfile
         }
 
         /// <summary>
-        /// Clear the assertion that an condition object conforms to the US Core Condition profile.
+        /// Clear profile for US Public Health Travel History Profile
         /// </summary>
         public void RemoveProfile()
         {

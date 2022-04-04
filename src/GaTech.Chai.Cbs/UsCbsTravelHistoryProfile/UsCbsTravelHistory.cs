@@ -7,7 +7,7 @@ using GaTech.Chai.UsCbs.Common;
 namespace GaTech.Chai.UsCbs.TravelHistoryProfile
 {
     /// <summary>
-    /// Case Based Surveillance Travel History Profile Extensions
+    /// US Case Based Surveillance Travel History Profile
     /// http://cbsig.chai.gatech.edu/StructureDefinition/us-cbs-travel-history
     /// </summary>
     public class UsCbsTravelHistory
@@ -24,7 +24,7 @@ namespace GaTech.Chai.UsCbs.TravelHistoryProfile
         }
 
         /// <summary>
-        /// Factory for Case Based Surveillance Travel History Record Profile
+        /// Factory for US Case Based Surveillance Travel History Profile
         /// http://cbsig.chai.gatech.edu/StructureDefinition/us-cbs-travel-history
         /// </summary>
         public static Observation Create()
@@ -37,19 +37,7 @@ namespace GaTech.Chai.UsCbs.TravelHistoryProfile
         }
 
         /// <summary>
-        /// Case Based Surveillance Priod and Mode of Travel
-        /// http://cbsig.chai.gatech.edu/StructureDefinition/us-cbs-period-and-mode-of-travel
-        /// </summary>
-        public UsCbsPeriodAndModeOfTravel PeriodAndModeOfTravel => usCbsPeriodandModeofTravel;
-
-        /// <summary>
-        /// Case Based Surveillance Program Specific Time Window
-        /// http://cbsig.chai.gatech.edu/StructureDefinition/us-cbs-program-specific-time-window
-        /// </summary>
-        public UsCbsProgramSpecificTimeWindow ProgramSpecificTimeWindow => this.usCbsProgramSpecificTimeWindow;
-
-        /// <summary>
-        /// The official URL for the Case Based Surveillance Travel History profile, used to assert conformance.
+        /// The official URL for the US Case Based Surveillance Travel History profile, used to assert conformance.
         /// </summary>
         public const string ProfileUrl = "http://cbsig.chai.gatech.edu/StructureDefinition/us-cbs-travel-history";
 
@@ -68,5 +56,17 @@ namespace GaTech.Chai.UsCbs.TravelHistoryProfile
         {
             observation.RemoveProfile(ProfileUrl);
         }
+
+        /// <summary>
+        /// US Case Based Surveillance Priod and Mode of Travel
+        /// http://cbsig.chai.gatech.edu/StructureDefinition/us-cbs-period-and-mode-of-travel
+        /// </summary>
+        public UsCbsPeriodAndModeOfTravel PeriodAndModeOfTravel => usCbsPeriodandModeofTravel;
+
+        /// <summary>
+        /// US Case Based Surveillance Program Specific Time Window
+        /// http://cbsig.chai.gatech.edu/StructureDefinition/us-cbs-program-specific-time-window
+        /// </summary>
+        public UsCbsProgramSpecificTimeWindow ProgramSpecificTimeWindow => this.usCbsProgramSpecificTimeWindow;
     }
 }

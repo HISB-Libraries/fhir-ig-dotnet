@@ -5,7 +5,7 @@ using GaTech.Chai.FhirIg.Extensions;
 namespace GaTech.Chai.UsCore.LabResultObservationProfile
 {
     /// <summary>
-    /// UsCoreLabResultObservation Profile Extensions
+    /// Us Core LabResultObservation Profile
     /// http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab
     /// </summary>
     public class UsCoreLabResultObservation
@@ -19,7 +19,7 @@ namespace GaTech.Chai.UsCore.LabResultObservationProfile
         }
 
         /// <summary>
-        /// Factory for UsCoreLabResultObservation Profile
+        /// Factory for Us Core LabResultObservation Profile
         /// http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab
         /// </summary>
         public static Observation Create()
@@ -30,12 +30,12 @@ namespace GaTech.Chai.UsCore.LabResultObservationProfile
         }
 
         /// <summary>
-        /// The official URL for the UsCoreLabResultObservation profile, used to assert conformance.
+        /// The official URL for the Us Core LabResultObservation Profile, used to assert conformance.
         /// </summary>
         public const string ProfileUrl = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab";
 
         /// <summary>
-        /// Set the assertion that an Observation object conforms to the UsCoreLabResultObservation profile.
+        /// Set profile for Us Core LabResultObservation Profile
         /// </summary>
         public void AddProfile()
         {
@@ -43,7 +43,7 @@ namespace GaTech.Chai.UsCore.LabResultObservationProfile
         }
 
         /// <summary>
-        /// Clear the assertion that an DiagnosticReport object conforms to the Case Based Surveillance DiagnosticReport profile.
+        /// Clear profile for Us Core LabResultObservation Profile
         /// </summary>
         public void RemoveProfile()
         {

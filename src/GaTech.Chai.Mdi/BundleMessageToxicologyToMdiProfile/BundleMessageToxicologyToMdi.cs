@@ -5,7 +5,7 @@ using GaTech.Chai.FhirIg.Extensions;
 namespace GaTech.Chai.Mdi.BundleMessageToxicologyToMdiProfile
 {
     /// <summary>
-    /// BundleMessageToxicologyToMdi Profile Extensions
+    /// BundleMessageToxicologyToMdiProfile
     /// http://hl7.org/fhir/us/mdi/StructureDefinition/Bundle-message-tox-to-mdi
     /// </summary>
     public class BundleMessageToxicologyToMdi
@@ -35,7 +35,7 @@ namespace GaTech.Chai.Mdi.BundleMessageToxicologyToMdiProfile
         public const string ProfileUrl = "http://hl7.org/fhir/us/mdi/StructureDefinition/Bundle-message-tox-to-mdi";
 
         /// <summary>
-        /// Set the assertion that a questionnaire object conforms to the BundleMessageToxicologyToMdi Profile.
+        /// Set profile BundleMessageToxicologyToMdiProfile.
         /// </summary>
         public void AddProfile()
         {
@@ -43,7 +43,7 @@ namespace GaTech.Chai.Mdi.BundleMessageToxicologyToMdiProfile
         }
 
         /// <summary>
-        /// Clear the assertion that a questionnaire object conforms to the BundleMessageToxicologyToMdi Profile.
+        /// Clear profile for BundleMessageToxicologyToMdiProfile.
         /// </summary>
         public void RemoveProfile()
         {

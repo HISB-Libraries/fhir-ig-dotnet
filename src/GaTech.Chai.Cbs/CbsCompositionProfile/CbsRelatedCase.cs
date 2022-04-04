@@ -6,6 +6,9 @@ using Hl7.Fhir.Model;
 
 namespace GaTech.Chai.Cbs.CompositionProfile
 {
+    /// <summary>
+    /// Composition extenstion for CBS Related case 
+    /// </summary>
     public class CbsRelatedCase
     {
         readonly Composition composition;
@@ -52,7 +55,7 @@ namespace GaTech.Chai.Cbs.CompositionProfile
         }
 
         /// <summary>
-        /// Codes for related case type
+        /// Codes for CBS Related case 
         /// </summary>
         public static class CbsRelatedCaseTypeVS
         {

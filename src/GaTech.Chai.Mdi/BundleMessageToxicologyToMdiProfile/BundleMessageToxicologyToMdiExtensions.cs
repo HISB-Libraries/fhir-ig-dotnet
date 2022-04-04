@@ -3,7 +3,7 @@
 namespace GaTech.Chai.Mdi.BundleMessageToxicologyToMdiProfile
 {
     /// <summary>
-    /// Class with Bundle extensions for BundleMessageToxicologyToMdi Profile
+    /// Class with Bundle extensions for BundleMessageToxicologyToMdiProfile
     /// http://hl7.org/fhir/us/mdi/StructureDefinition/Bundle-message-tox-to-mdi
     /// </summary>
     public static class BundleMessageToxicologyToMdiExtensions

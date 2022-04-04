@@ -4,6 +4,9 @@ using Hl7.Fhir.Model;
 
 namespace GaTech.Chai.FhirIg.Extensions
 {
+    /// <summary>
+    /// CodeableConcept extension for Category with DataAbsentReason
+    /// </summary>
     public static class FhirCodeableConceptCategoryExtensions
     {
         public static void SetCategory(this List<CodeableConcept> codeableConcepts, Coding coding)

@@ -3,7 +3,7 @@
 namespace GaTech.Chai.Mdi.ObservationDeathInjuryEventOccurredAtWorkProfile
 {
     /// <summary>
-    /// Class with Observation extensions for Observation DeathInjury Event Occurred At Work profile.
+    /// Class with Observation extensions for ObservationDeathInjuryEventOccurredAtWorkProfile
     /// http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-death-injury-at-work
     /// </summary>
     public static class ObservationDeathInjuryEventOccurredAtWorkExtensions

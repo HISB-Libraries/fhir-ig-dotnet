@@ -4,7 +4,7 @@ using Hl7.Fhir.Model;
 namespace GaTech.Chai.Odh.UsualWorkProfile
 {
     /// <summary>
-    /// Class with Observation extensions for Case Based Surveillance Social Determinants of Health Profile
+    /// Class with Observation extensions for UsualWorkProfile
     /// http://hl7.org/fhir/us/odh/StructureDefinition/odh-UsualWork
     /// </summary>
     public static class OdhUsualWorkExtension

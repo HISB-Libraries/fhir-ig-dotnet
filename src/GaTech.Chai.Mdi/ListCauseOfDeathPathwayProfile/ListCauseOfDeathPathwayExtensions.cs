@@ -3,7 +3,7 @@
 namespace GaTech.Chai.Mdi.ListCauseOfDeathPathwayProfile
 {
     /// <summary>
-    /// Class with List extensions for List-Cause Of Death Pathway Profile
+    /// Class with List extensions for ListCauseOfDeathPathwayProfile
     /// http://hl7.org/fhir/us/mdi/StructureDefinition/List-cause-of-death-pathway
     /// </summary>
     public static class MdiToEdrsDocumentBundleExtensions

@@ -5,7 +5,7 @@ using GaTech.Chai.FhirIg.Extensions;
 namespace GaTech.Chai.Cbs.QuestionnaireProfile
 {
     /// <summary>
-    /// Case Based Surveillance Questionnaire Profile Extensions
+    /// Case Based Surveillance Questionnaire Profile
     /// http://cbsig.chai.gatech.edu/StructureDefinition/cbs-questionnaire
     /// </summary>
     public class CbsQuestionnaire
@@ -34,7 +34,7 @@ namespace GaTech.Chai.Cbs.QuestionnaireProfile
         public const string ProfileUrl = "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-questionnaire";
 
         /// <summary>
-        /// Set the assertion that a questionnaire object conforms to the Case Based Surveillance Questionnaire Profile.
+        /// Set profile for Case Based Surveillance Questionnaire Profile
         /// </summary>
         public void AddProfile()
         {
@@ -42,7 +42,7 @@ namespace GaTech.Chai.Cbs.QuestionnaireProfile
         }
 
         /// <summary>
-        /// Clear the assertion that a questionnaire object conforms to the Case Based Surveillance Questionnaire Profile.
+        /// Clear profile for Case Based Surveillance Questionnaire Profile
         /// </summary>
         public void RemoveProfile()
         {

@@ -1,13 +1,14 @@
 ﻿using System;
 using Hl7.Fhir.Model;
 using GaTech.Chai.FhirIg.Extensions;
-using GaTech.Chai.UsCore.OrganizationProfile;
+using GaTech.Chai.UsPublicHealth.OrganizationProfile;
 using static Hl7.Fhir.Model.ContactPoint;
+using GaTech.Chai.UsCore.OrganizationProfile;
 
 namespace GaTech.Chai.UsCbs.ReportingSourceOrganizationProfile
 {
     /// <summary>
-    /// Case Based Surveillance Reporting Source Organization Profile Extensions
+    /// US Case Based Surveillance Reporting Source Organization Profile
     /// http://cbsig.chai.gatech.edu/StructureDefinition/us-cbs-reporting-source-organization
     /// </summary>
     public class UsCbsReportingSourceOrganization
@@ -20,7 +21,7 @@ namespace GaTech.Chai.UsCbs.ReportingSourceOrganizationProfile
         }
 
         /// <summary>
-        /// Factory for Case Based Surveillance Reporting Source Organization Profile
+        /// Factory for US Case Based Surveillance Reporting Source Organization Profile
         /// http://cbsig.chai.gatech.edu/StructureDefinition/us-cbs-reporting-source-organization
         /// </summary>
         public static Organization Create()
@@ -37,12 +38,12 @@ namespace GaTech.Chai.UsCbs.ReportingSourceOrganizationProfile
         }
 
         /// <summary>
-        /// The official URL for the Case Based Surveillance Reporting Source Organization profile, used to assert conformance.
+        /// The official URL for the US Case Based Surveillance Reporting Source Organization Profile, used to assert conformance.
         /// </summary>
         public const string ProfileUrl = "http://cbsig.chai.gatech.edu/StructureDefinition/us-cbs-reporting-source-organization";
 
         /// <summary>
-        /// Set the assertion that a observation object conforms to the Case Based Surveillance Reporting Source Organization Profile.
+        /// Set profile for US Case Based Surveillance Reporting Source Organization Profile
         /// </summary>
         public void AddProfile()
         {
@@ -50,7 +51,7 @@ namespace GaTech.Chai.UsCbs.ReportingSourceOrganizationProfile
         }
 
         /// <summary>
-        /// Clear the assertion that a observation object conforms to the Case Based Surveillance Reporting Source Organization Profile.
+        /// Clear profile for US Case Based Surveillance Reporting Source Organization Profile
         /// </summary>
         public void RemoveProfile()
         {

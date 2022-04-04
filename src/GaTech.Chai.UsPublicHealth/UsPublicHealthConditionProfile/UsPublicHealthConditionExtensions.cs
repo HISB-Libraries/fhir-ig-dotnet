@@ -4,7 +4,7 @@ using Hl7.Fhir.Model;
 namespace GaTech.Chai.UsPublicHealth.ConditionProfile
 {
     /// <summary>
-    /// Class with Observation extensions for Case Based Surveillance Condition profile.
+    /// Class with Condition extensions for US Public Health Condition Profile
     /// http://hl7.org/fhir/us/ecr/StructureDefinition/us-ph-condition
     /// </summary>
     public static class UsPublicHealthConditionExtensions

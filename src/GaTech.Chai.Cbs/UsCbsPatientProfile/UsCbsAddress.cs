@@ -4,6 +4,9 @@ using Hl7.Fhir.Model;
 
 namespace GaTech.Chai.UsCbs.PatientProfile
 {
+    /// <summary>
+    /// Us CBS Address Helper for Us CBS Patient profile
+    /// </summary>
     public class UsCbsAddress
     {
         readonly Address address;

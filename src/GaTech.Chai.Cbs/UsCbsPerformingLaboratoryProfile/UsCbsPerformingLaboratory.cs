@@ -1,14 +1,15 @@
 ﻿using System;
 using Hl7.Fhir.Model;
 using GaTech.Chai.FhirIg.Extensions;
-using GaTech.Chai.UsCore.OrganizationProfile;
+using GaTech.Chai.UsPublicHealth.OrganizationProfile;
 using GaTech.Chai.Share.Extensions;
+using GaTech.Chai.UsCore.OrganizationProfile;
 
 namespace GaTech.Chai.UsCbs.PerformingLaboratoryProfile
 {
     /// <summary>
-    /// Case Based Surveillance Performing Laboratory Profile Extensions
-    /// http://cbsig.chai.gatech.edu/StructureDefinition/us-cbs-performing-lablab
+    /// US Case Based Surveillance Performing Laboratory Profile
+    /// http://cbsig.chai.gatech.edu/StructureDefinition/us-cbs-performing-lab
     /// </summary>
     public class UsCbsPerformingLaboratory
     {
@@ -20,7 +21,7 @@ namespace GaTech.Chai.UsCbs.PerformingLaboratoryProfile
         }
 
         /// <summary>
-        /// Factory for Case Based Surveillance Performing Laboratory Profile
+        /// Factory for US Case Based Surveillance Performing Laboratory Profile
         /// http://cbsig.chai.gatech.edu/StructureDefinition/us-cbs-performing-lab
         /// </summary>
         public static Organization Create()
@@ -35,12 +36,12 @@ namespace GaTech.Chai.UsCbs.PerformingLaboratoryProfile
         }
 
         /// <summary>
-        /// The official URL for the Case Based Surveillance Performing Laboratory profile, used to assert conformance.
+        /// The official URL for the US Case Based Surveillance Performing Laboratory Profile, used to assert conformance.
         /// </summary>
         public const string ProfileUrl = "http://cbsig.chai.gatech.edu/StructureDefinition/us-cbs-performing-lab";
 
         /// <summary>
-        /// Set the assertion that a observation object conforms to the Case Based Surveillance Performing Laboratory Profile.
+        /// Set profile for US Case Based Surveillance Performing Laboratory Profile
         /// </summary>
         public void AddProfile()
         {
@@ -48,7 +49,7 @@ namespace GaTech.Chai.UsCbs.PerformingLaboratoryProfile
         }
 
         /// <summary>
-        /// Clear the assertion that a observation object conforms to the Case Based Surveillance Performing Laboratory Profile.
+        /// Clear profile for US Case Based Surveillance Performing Laboratory Profile
         /// </summary>
         public void RemoveProfile()
         {

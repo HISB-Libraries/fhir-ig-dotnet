@@ -5,8 +5,8 @@ using GaTech.Chai.FhirIg.Extensions;
 namespace GaTech.Chai.Cbs.CbsPersonReportingToCDCProfile
 {
     /// <summary>
-    /// Case Based Surveillance Person Reporting To CDC Profile Extensions
-    /// http://cbsig.chai.gatech.edu/StructureDefinition/cbs-vaccination-indication
+    /// Case Based Surveillance Person Reporting To CDC Profile
+    /// http://cbsig.chai.gatech.edu/StructureDefinition/cbs-person-reporting-to-cdc
     /// </summary>
     public class CbsPersonReportingToCDC
     {
@@ -19,7 +19,7 @@ namespace GaTech.Chai.Cbs.CbsPersonReportingToCDCProfile
 
         /// <summary>
         /// Factory for Case Based Surveillance Person Reporting To CDC Profile
-        /// http://cbsig.chai.gatech.edu/StructureDefinition/cbs-vaccination-indication
+        /// http://cbsig.chai.gatech.edu/StructureDefinition/cbs-person-reporting-to-cdc
         /// </summary>
         public static Practitioner Create()
         {
@@ -35,7 +35,7 @@ namespace GaTech.Chai.Cbs.CbsPersonReportingToCDCProfile
         public const string ProfileUrl = "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-person-reporting-to-cdc";
 
         /// <summary>
-        /// Set the assertion that a observation object conforms to the Case Based Surveillance Person Reporting To CDC Profile.
+        /// Set profile for Case Based Surveillance Person Reporting To CDC Profile
         /// </summary>
         public void AddProfile()
         {
@@ -43,7 +43,7 @@ namespace GaTech.Chai.Cbs.CbsPersonReportingToCDCProfile
         }
 
         /// <summary>
-        /// Clear the assertion that a observation object conforms to the Case Based Surveillance Person Reporting To CDC Profile.
+        /// Clear profile for Case Based Surveillance Person Reporting To CDC Profile
         /// </summary>
         public void RemoveProfile()
         {

@@ -7,7 +7,7 @@ using GaTech.Chai.Share.Extensions;
 namespace GaTech.Chai.UsCore.ConditionProfile
 {
     /// <summary>
-    /// US Core Condition Profile Extensions
+    /// US Core Condition Profile
     /// http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition
     /// </summary>
     public class UsCoreCondition

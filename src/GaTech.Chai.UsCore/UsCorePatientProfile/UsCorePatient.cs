@@ -5,7 +5,7 @@ using GaTech.Chai.FhirIg.Extensions;
 namespace GaTech.Chai.UsCore.PatientProfile
 {
     /// <summary>
-    /// Us Core Patient Profile Extensions
+    /// Us Core Patient Profile
     /// http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient
     /// </summary>
     public class UsCorePatient
@@ -35,6 +35,27 @@ namespace GaTech.Chai.UsCore.PatientProfile
         }
 
         /// <summary>
+        /// The official URL for the Case Based Surveillance Patient profile, used to assert conformance.
+        /// </summary>
+        public const string ProfileUrl = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient";
+
+        /// <summary>
+        /// Set profile for Us Core Patient Profile
+        /// </summary>
+        public void AddProfile()
+        {
+            patient.AddProfile(ProfileUrl);
+        }
+
+        /// <summary>
+        /// Clear profile for Us Core Patient Profile
+        /// </summary>
+        public void RemoveProfile()
+        {
+            patient.RemoveProfile(ProfileUrl);
+        }
+
+        /// <summary>
         /// Patient Race
         /// http://hl7.org/fhir/us/core/StructureDefinition/us-core-race
         /// </summary>
@@ -52,27 +73,6 @@ namespace GaTech.Chai.UsCore.PatientProfile
         /// </summary>
         ///
         public UsCorePatientBirthSex BirthSex => patientBirthSex;
-
-        /// <summary>
-        /// The official URL for the Case Based Surveillance Patient profile, used to assert conformance.
-        /// </summary>
-        public const string ProfileUrl = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient";
-
-        /// <summary>
-        /// Set the assertion that a patient object conforms to the Case Based Surveillance Patient Profile.
-        /// </summary>
-        public void AddProfile()
-        {
-            patient.AddProfile(ProfileUrl);
-        }
-
-        /// <summary>
-        /// Clear the assertion that a patient object conforms to the Case Based Surveillance Patient Profile.
-        /// </summary>
-        public void RemoveProfile()
-        {
-            patient.RemoveProfile(ProfileUrl);
-        }
 
         /// <summary>
         /// Sex (MFU) (2.16.840.1.114222.4.11.1038)

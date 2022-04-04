@@ -3,7 +3,7 @@
 namespace GaTech.Chai.Mdi.SpecimenToxicologyLabProfile
 {
     /// <summary>
-    /// Class with Specimen extensions for SpecimenToxicologyLab Profile
+    /// Class with Specimen extensions for SpecimenToxicologyLabProfile
     /// http://hl7.org/fhir/us/mdi/StructureDefinition/Specimen-toxicology-lab
     /// </summary>
     public static class SpecimenToxicologyLabExtensions
