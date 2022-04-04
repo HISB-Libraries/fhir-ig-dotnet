@@ -4,7 +4,11 @@
     <TargetFramework>netstandard2.1</TargetFramework>
     <PackageId>fhir-ig-uspublichealth-donet</PackageId>
     <PackageVersion>0.2.0</PackageVersion>
-    <Description>US Public Health FHIR IG</Description>
+    <Description>US Public Health FHIR IG v2.0.0 - not all resource(s)  are implmented. Only reference(s) referred from CBS or MDI</Description>
+    <Authors>Myung Choi</Authors>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <NeutralLanguage>en-US</NeutralLanguage>
+    <PackageTags>FHIR, US Public Health, PH, IG</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
@@ -24,5 +28,8 @@
   <ItemGroup>
     <ProjectReference Include="..\GaTech.Chai.Share\GaTech.Chai.Share.csproj" />
     <ProjectReference Include="..\GaTech.Chai.UsCore\GaTech.Chai.UsCore.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\LICENSE" Pack="true" PackagePath="" />
   </ItemGroup>
 </Project>
