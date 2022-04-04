@@ -1,6 +1,6 @@
 ﻿using Hl7.Fhir.Model;
 
-namespace GaTech.Chai.Cbs.CbsCauseOfDeathProfile
+namespace GaTech.Chai.Cbs.CauseOfDeathProfile
 {
     /// <summary>
     /// Class with Observation extensions for Case Based Surveillance Cause of Death Profile

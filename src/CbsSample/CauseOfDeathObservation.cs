@@ -1,5 +1,5 @@
 ﻿using System;
-using GaTech.Chai.Cbs.CbsCauseOfDeathProfile;
+using GaTech.Chai.Cbs.CauseOfDeathProfile;
 using GaTech.Chai.FhirIg.Extensions;
 using Hl7.Fhir.Model;
 
