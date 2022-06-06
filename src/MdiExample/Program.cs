@@ -216,6 +216,7 @@ namespace MdiExample
             composition.CompositionMdiToEdrs().Jurisdiction = new Composition.SectionComponent() { Entry = new List<ResourceReference> { observationDeathDate.AsReference() } };
             composition.CompositionMdiToEdrs().CauseManner = new Composition.SectionComponent() { Entry = new List<ResourceReference> { pathWayList.AsReference(), conditionContributingToDeath.AsReference(), observationMannerOfDeath.AsReference(), observationHowDeathInjuryOccurred.AsReference() } };
             composition.CompositionMdiToEdrs().MedicalHistory = new Composition.SectionComponent() { EmptyReason = new CodeableConcept("http://terminology.hl7.org/CodeSystem/list-empty-reason", "unavailable", "Unavailable", "Decedent's medical history not available"), Text = new Narrative() { Status = Narrative.NarrativeStatus.Additional, Div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n                <p>No Medical History information</p>\n            </div>" } };
+//            composition.CompositionMdiToEdrs().MedicalHistory = new Composition.SectionComponent() { EmptyReason = new CodeableConcept("http://terminology.hl7.org/CodeSystem/list-empty-reason", "unavailable", "Unavailable", "Decedent's medical history not available") };
 
             ////
             // Document Bundle
