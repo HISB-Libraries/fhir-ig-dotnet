@@ -71,14 +71,15 @@ namespace MdiExample
             // Deceased
             patient.Deceased = new FhirDateTime(2014, 3, 2);
             // ODH Usual Work Observation
-            Observation usualWorkObservation = OdhUsualWork.Create();
-            usualWorkObservation.Status = ObservationStatus.Final;
-            usualWorkObservation.Subject = patient.AsReference();
-            usualWorkObservation.Effective = new Period(new FhirDateTime("2000-06-01"), new FhirDateTime("2021-05-20"));
-            usualWorkObservation.OdhUsualWork().OccupationCdcCensus2010 = new Coding(OdhUsualWork.OccupationCdcCensus2010Oid, "3600", "Nursing, psychiatric, and home health aides");
-            usualWorkObservation.OdhUsualWork().OccupationCdcOnetSdc2010 = new Coding(OdhUsualWork.OccupationOdhOid, "31-1014.00.007136", "Certified Nursing Assistant (CNA) [Nursing Assistants]");
-            usualWorkObservation.OdhUsualWork().IndustryCdcCensus2010 = new Coding(OdhUsualWork.IndustryCdcCensus2010Oid, "8270", "Nursing care facilities");
-            usualWorkObservation.OdhUsualWork().UsualOccupationDuration = 21;
+            // Removed --
+            //Observation usualWorkObservation = OdhUsualWork.Create();
+            //usualWorkObservation.Status = ObservationStatus.Final;
+            //usualWorkObservation.Subject = patient.AsReference();
+            //usualWorkObservation.Effective = new Period(new FhirDateTime("2000-06-01"), new FhirDateTime("2021-05-20"));
+            //usualWorkObservation.OdhUsualWork().OccupationCdcCensus2010 = new Coding(OdhUsualWork.OccupationCdcCensus2010Oid, "3600", "Nursing, psychiatric, and home health aides");
+            //usualWorkObservation.OdhUsualWork().OccupationCdcOnetSdc2010 = new Coding(OdhUsualWork.OccupationOdhOid, "31-1014.00.007136", "Certified Nursing Assistant (CNA) [Nursing Assistants]");
+            //usualWorkObservation.OdhUsualWork().IndustryCdcCensus2010 = new Coding(OdhUsualWork.IndustryCdcCensus2010Oid, "8270", "Nursing care facilities");
+            //usualWorkObservation.OdhUsualWork().UsualOccupationDuration = 21;
 
             // Us Core Practitioner (ME)
             Practitioner practitioner = UsCorePractitioner.Create();
@@ -199,7 +200,7 @@ namespace MdiExample
             // Composition of MDI to EDRS document
             Composition composition = CompositionMdiToEdrs.Create();
             // Demo: Tracking numbers - one with library. the other for custom type
-            composition.CompositionMdiToEdrs().MdiCaseNumber = "Case1234";
+            composition.CompositionMdiToEdrs().MdiCaseNumber = ("urn:connectathon:test", "Case1234");
             ////
             // demo: custom tracking number
             //Extension ext = new Extension() { Url = "http://hl7.org/fhir/us/mdi/StructureDefinition/Extension-tracking-number" };
@@ -211,7 +212,7 @@ namespace MdiExample
             composition.DateElement = new FhirDateTime("2022-02-20");
             composition.Author = new List<ResourceReference> { practitioner.AsReference() };
             composition.Title = "MDI to EDRS Composition";
-            composition.CompositionMdiToEdrs().Demographics = new Composition.SectionComponent() { Entry = new List<ResourceReference> { usualWorkObservation.AsReference() } };
+            composition.CompositionMdiToEdrs().AdditionalDemographics = "Certified Nursing Assistant (CNA) [Nursing Assistants]";
             composition.CompositionMdiToEdrs().Circumstances = new Composition.SectionComponent() { Entry = new List<ResourceReference> { deathLocation.AsReference(), observationInjuryEventWork.AsReference(), observationTobaccoUseContributedToDeath.AsReference(), observationDecedentPregnancy.AsReference() } };
             composition.CompositionMdiToEdrs().Jurisdiction = new Composition.SectionComponent() { Entry = new List<ResourceReference> { observationDeathDate.AsReference() } };
             composition.CompositionMdiToEdrs().CauseManner = new Composition.SectionComponent() { Entry = new List<ResourceReference> { pathWayList.AsReference(), conditionContributingToDeath.AsReference(), observationMannerOfDeath.AsReference(), observationHowDeathInjuryOccurred.AsReference() } };
@@ -226,7 +227,6 @@ namespace MdiExample
             MdiDocument.AddResourceEntry(composition, composition.AsReference().Url.ToString());
             MdiDocument.AddResourceEntry(patient, patient.AsReference().Url.ToString());
             MdiDocument.AddResourceEntry(practitioner, practitioner.AsReference().Url.ToString());
-            MdiDocument.AddResourceEntry(usualWorkObservation, usualWorkObservation.AsReference().Url.ToString());
             MdiDocument.AddResourceEntry(deathLocation, deathLocation.AsReference().Url.ToString());
             MdiDocument.AddResourceEntry(observationInjuryEventWork, observationInjuryEventWork.AsReference().Url.ToString());
             MdiDocument.AddResourceEntry(observationTobaccoUseContributedToDeath, observationTobaccoUseContributedToDeath.AsReference().Url.ToString());

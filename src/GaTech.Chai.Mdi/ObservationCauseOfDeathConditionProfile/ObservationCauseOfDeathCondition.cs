@@ -8,6 +8,7 @@ namespace GaTech.Chai.Mdi.ObservationCauseOfDeathConditionProfile
     /// ObservationCauseOfDeathConditionProfile
     /// http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-cause-of-death-condition
     /// </summary>
+    [Obsolete("Removed from v1.0.0 - CI", true)]
     public class ObservationCauseOfDeathCondition
     {
         readonly Observation observation;

@@ -6,7 +6,7 @@
     <PackageVersion>0.1.0</PackageVersion>
     <Authors>Myung Choi</Authors>
     <PackageProjectUrl>https://github.com/mmg-fhir-ig/cbs-ig-dotnet</PackageProjectUrl>
-    <Description>.Net library for MDI FHIR IG v1.0.0</Description>
+    <Description>.Net library for MDI FHIR IG v1.0.0-CI</Description>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <NeutralLanguage>en-US</NeutralLanguage>
     <PackageTags>FHIR, MDI, IG</PackageTags>

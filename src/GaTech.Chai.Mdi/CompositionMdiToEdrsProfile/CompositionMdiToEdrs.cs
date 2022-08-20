@@ -4,6 +4,8 @@ using GaTech.Chai.FhirIg.Extensions;
 using static Hl7.Fhir.Model.Composition;
 using GaTech.Chai.Mdi.Common;
 using System.Collections.Generic;
+using Hl7.Fhir.Language.Debugging;
+using Newtonsoft.Json.Linq;
 
 namespace GaTech.Chai.Mdi.CompositionMditoEdrsProfile
 {
@@ -14,12 +16,14 @@ namespace GaTech.Chai.Mdi.CompositionMditoEdrsProfile
     public class CompositionMdiToEdrs
     {
         readonly Composition composition;
+        readonly Dictionary<string, Resource> resources;
 
         internal CompositionMdiToEdrs(Composition composition)
         {
             this.composition = composition;
+            composition.Type = new CodeableConcept("http://loinc.org", "86807-5", "Death administrative information Document", null);
 
-            composition.Type = new CodeableConcept("http://loinc.org", "86807-5");
+            resources = new ();
         }
 
         /// <summary>
@@ -55,9 +59,9 @@ namespace GaTech.Chai.Mdi.CompositionMditoEdrsProfile
         }
 
         /// <summary>
-        /// MDI Case Number
+        /// MDI Case Number:
         /// </summary>
-        public string MdiCaseNumber
+        public (string, string) MdiCaseNumber
         {
             get
             {
@@ -66,25 +70,28 @@ namespace GaTech.Chai.Mdi.CompositionMditoEdrsProfile
                     Coding coding = (ext.Value as Identifier).Type?.Coding?.Find(e => e.System == "http://hl7.org/fhir/us/mdi/CodeSystem/CodeSystem-mdi-codes" && e.Code == "mdi-case-number");
                     if (coding != null)
                     {
-                        return ext.Value.ToString();
+                        return ((ext.Value as Identifier).System, (ext.Value as Identifier).Value);
                     }
                 }
 
-                return null;
+                return (null, null);
             }
 
             set
             {
-                Extension ext = new Extension() { Url = "http://hl7.org/fhir/us/mdi/StructureDefinition/Extension-tracking-number" };
-                ext.Value = new Identifier() { Type = MdiCodeSystem.MdiCaseNumber, Value = value };
+                Extension ext = new ()
+                {
+                    Url = "http://hl7.org/fhir/us/mdi/StructureDefinition/Extension-tracking-number",
+                    Value = new Identifier() { Type = MdiCodeSystem.MdiCaseNumber, System = value.Item1, Value = value.Item2 }
+                };
                 this.composition.Extension.AddOrUpdateExtension(ext);
             }
         }
 
         /// <summary>
-        /// MDI Case Number
+        /// EDRS File Number
         /// </summary>
-        public string EdrsFileNumber
+        public (string, string) EdrsFileNumber
         {
             get
             {
@@ -93,83 +100,341 @@ namespace GaTech.Chai.Mdi.CompositionMditoEdrsProfile
                     Coding coding = (ext.Value as Identifier).Type?.Coding?.Find(e => e.System == "http://hl7.org/fhir/us/mdi/CodeSystem/CodeSystem-mdi-codes" && e.Code == "edrs-file-number");
                     if (coding != null)
                     {
-                        return ext.Value.ToString();
+                        return ((ext.Value as Identifier).System, (ext.Value as Identifier).Value);
                     }
                 }
 
-                return null;
+                return (null, null);
             }
 
             set
             {
                 Extension ext = new Extension() { Url = "http://hl7.org/fhir/us/mdi/StructureDefinition/Extension-tracking-number" };
-                ext.Value = new Identifier() { Type = MdiCodeSystem.EdrsFileNumber, Value = value };
+                ext.Value = new Identifier() { Type = MdiCodeSystem.EdrsFileNumber, System = value.Item1, Value = value.Item2 };
                 this.composition.Extension.AddOrUpdateExtension(ext);
             }
         }
 
-
         /// <summary>
-        /// Condition of Interest
-        /// </summary>
-        public SectionComponent Demographics
+        /// Certifier: sets or gets certifier information
+        /// DC certifier is set in Attester. Only one certifiier can exist.
+        public ResourceReference Certifier
         {
-            get => GetOrAddSection("demographics", MdiCodeSystem.Demographics.Coding[0].Display);
-            set => AddOrUpdateSection("demographics", MdiCodeSystem.Demographics.Coding[0].Display, value);
+            get
+            {
+                if (this.composition.Attester != null && this.composition.Attester.Count > 0)
+                {
+                    return this.composition.Attester[0].Party;
+                }
+
+                return null;
+            }
+
+            set {
+                if (this.composition.Attester != null && this.composition.Attester.Count > 0)
+                {
+                    this.composition.Attester.Clear();
+                }
+
+                this.composition.Attester.Add(new AttesterComponent() { Party = value });
+                }
         }
 
         /// <summary>
-        /// Circumstances
+        /// getSectionAndEntry: Helper function returns gets/adds section and get entry or list empty reason if available
         /// </summary>
-        public SectionComponent Circumstances
+        /// <param name="code"></param>
+        /// <param name="mdiCodeSystem"></param>
+        /// <returns></returns>
+        private (List<Resource>, string, CodeableConcept) GetSectionAndEntry(string code, CodeableConcept mdiCodeSystem)
         {
-            get => GetOrAddSection("circumstances", MdiCodeSystem.Circumstances.Coding[0].Display);
-            set => AddOrUpdateSection("circumstances", MdiCodeSystem.Circumstances.Coding[0].Display, value);
+            SectionComponent sectionComponent = GetOrAddSection(code, mdiCodeSystem.Coding[0].Display);
+            List<Resource> valueResource = new();
+            foreach (ResourceReference reference in sectionComponent.Entry)
+            {
+                Resource resource;
+                if (resources.TryGetValue(reference.Reference, out resource))
+                {
+                    valueResource.Add(resource);
+                }
+                else
+                {
+                    Console.WriteLine(reference.Reference + " is not found from resource dictionary");
+                }
+            }
+
+            string text = sectionComponent.Text?.Div;
+
+            return (valueResource, text, sectionComponent.EmptyReason);
         }
 
         /// <summary>
-        /// Jurisdiction
+        /// setSectionAndEntry: Helper function that sets section and entry or list empty reason if appropriate
         /// </summary>
-        public SectionComponent Jurisdiction
+        /// <param name="code"></param>
+        /// <param name="mdiCodeSystem"></param>
+        /// <param name="value"></param>
+        private void SetSectionAndEntry(string code, CodeableConcept mdiCodeSystem, (List<Resource>, string, CodeableConcept) value)
         {
-            get => GetOrAddSection("jurisdiction", MdiCodeSystem.Jurisdiction.Coding[0].Display);
-            set => AddOrUpdateSection("jurisdiction", MdiCodeSystem.Jurisdiction.Coding[0].Display, value);
+            List<ResourceReference> references = new();
+            foreach (Resource valueResource in value.Item1)
+            {
+                references.Add(valueResource.AsReference());
+                resources.Add(valueResource.AsReference().Reference, valueResource);
+            }
+
+            SectionComponent sectionComponent = new() { Code = mdiCodeSystem, Entry = references };
+            if (value.Item2 != null)
+            {
+                sectionComponent.Text = new Narrative() { Div = value.Item2 };
+            }
+
+            if (value.Item1.Count == 0)
+            {
+                sectionComponent.EmptyReason = value.Item3;
+            }
+            AddOrUpdateSection(code, mdiCodeSystem.Coding[0].Display, sectionComponent);
+        }
+
+        /// </summary>
+        /// <summary>
+        /// Additional Demographics: gets or sets additional demographics that are not covered by demographics
+        ///     value = string of present or past work/occupation
+        /// </summary>
+        public string AdditionalDemographics
+        {
+            get
+            {
+                Narrative additionalDemNarrative = GetOrAddSection("demographics", MdiCodeSystem.AdditionalDemographics.Coding[0].Display).Text;
+                return additionalDemNarrative.Div;
+            }
+            set
+            {
+                SectionComponent sectionComponent = new() { Code = MdiCodeSystem.AdditionalDemographics, Text = new Narrative() { Div = value } };
+                AddOrUpdateSection("demographics", MdiCodeSystem.AdditionalDemographics.Coding[0].Display, sectionComponent);
+            }
         }
 
         /// <summary>
-        /// cause-manner
+        /// Circumstances: gets or sets list of circumstance references
+        ///     value = (List<ResourceReference>, EmptyReasonCode)
+        ///     Resource:
+        ///         Location - Death,
+        ///         Observation - Tobacco Use Contributed to Death,
+        ///         Observation - Decedent Pregnancy,
+        ///         Location - Injury
+        ///     EmptyReasonCode:
+        ///         GaTech.Chai.FhirIg.Common.ListEmptyReason
         /// </summary>
-        public SectionComponent CauseManner
+        public (List<Resource>, string, CodeableConcept) Circumstances
         {
-            get => GetOrAddSection("cause-manner", MdiCodeSystem.CauseManner.Coding[0].Display);
-            set => AddOrUpdateSection("cause-manner", MdiCodeSystem.CauseManner.Coding[0].Display, value);
+            get
+            {
+                return GetSectionAndEntry("circumstances", MdiCodeSystem.Circumstances);
+            }
+
+            set
+            {
+                SetSectionAndEntry("circumstances", MdiCodeSystem.Circumstances, value);
+            }
         }
 
         /// <summary>
-        /// Epi Observations
+        /// Jurisdiction: gets or sets lists of references for Jurisdiction
+        ///     value = (List<Resource>, EmptyReasonCode)
+        ///     Resource:
+        ///         Observation - Death Date,
+        ///         Procedure - Death Certification
+        ///     EmptyReasonCode:
+        ///         GaTech.Chai.FhirIg.Common.ListEmptyReason
         /// </summary>
-        public SectionComponent MedicalHistory
+        public (List<Resource>, string, CodeableConcept) Jurisdiction
         {
-            get => GetOrAddSection("medical-history", MdiCodeSystem.MedicalHistory.Coding[0].Display);
-            set => AddOrUpdateSection("medical-history", MdiCodeSystem.MedicalHistory.Coding[0].Display, value);
+            get
+            {
+                return GetSectionAndEntry("jurisdiction", MdiCodeSystem.Jurisdiction);
+            }
+
+            set
+            {
+                SetSectionAndEntry("jurisdiction", MdiCodeSystem.AdditionalDemographics, value);
+            }
         }
 
         /// <summary>
-        /// Exam Autopsy
+        /// CauseManner: gets or sets lists of cause and manner references
+        ///     value = (List<ResourceReference>, List<ResourceReference>, List<ResourceReference>, List<ResourceReference>, EmptyReasonCode)
+        ///         List1 of Resource: Observation - Cause of Death Part 1 (0..4)
+        ///         List2 of Resource: Observation - Contributing Cause of Death Part 2 (0..*)
+        ///         List3 of Resource: Observation - Manner of Death (0..*)
+        ///         List4 of Resource: Observation - How Death Injury Occurred (0..*)
+        ///         EmptyReasonCode:
+        ///             GaTech.Chai.FhirIg.Common.ListEmptyReaso
         /// </summary>
-        public SectionComponent ExamAutopsy
+        public (List<Resource>, List<Resource>, List<Resource>, List<Resource>, CodeableConcept) CauseManner
         {
-            get => GetOrAddSection("exam-autopsy", null);
-            set => AddOrUpdateSection("exam-autopsy", null, value);
+            get
+            {
+                List<Resource> causeOfDeathPart1 = new();
+                List<Resource> contributingCauseOfDeathPart2 = new();
+                List<Resource> mannerOfDeath = new();
+                List<Resource> deathInjuryOccurred = new();
+
+                SectionComponent sectionComponent = GetOrAddSection("cause-manner", MdiCodeSystem.CauseManner.Coding[0].Display);
+                foreach (ResourceReference reference in sectionComponent.Entry)
+                {
+                    Resource resource;
+                    if (resources.TryGetValue(reference.Reference, out resource))
+                    {
+                        if (resource.Meta == null)
+                        {
+                            resource.Meta = new Meta();
+                        }
+
+                        foreach (string profile in resource.Meta.Profile)
+                        {
+                            if ("http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-cause-of-death-part1".Equals(profile))
+                            {
+                                causeOfDeathPart1.Add(resource);
+                            }
+                            else if ("http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-contributing-cause-of-death-part2".Equals(profile))
+                            {
+                                contributingCauseOfDeathPart2.Add(resource);
+                            }
+                            else if ("http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-manner-of-death".Equals(profile))
+                            {
+                                mannerOfDeath.Add(resource);
+                            }
+                            else if ("http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-how-death-injury-occurred".Equals(profile))
+                            {
+                                deathInjuryOccurred.Add(resource);
+                            }
+                        }
+                    }
+                }
+
+                return (causeOfDeathPart1, contributingCauseOfDeathPart2, mannerOfDeath, deathInjuryOccurred, sectionComponent.EmptyReason);
+            }
+
+            set
+            {
+                SectionComponent sectionComponent = GetOrAddSection("cause-manner", MdiCodeSystem.CauseManner.Coding[0].Display);
+                AddOrUpdateSection("cause-manner", MdiCodeSystem.CauseManner.Coding[0].Display, sectionComponent);
+
+                // Cause of Death Part 1
+                foreach (Resource resource in value.Item1)
+                {
+                    if (!sectionComponent.Entry.Exists(x => x.Reference.Equals(resource.AsReference().Reference)))
+                    {
+                        sectionComponent.Entry.Add(resource.AsReference());
+                        resources.Add(resource.AsReference().Reference, resource);
+                    }
+                }
+
+                // Contributing Cause of Death Part 2
+                foreach (Resource resource in value.Item2)
+                {
+                    if (!sectionComponent.Entry.Exists(x => x.Reference.Equals(resource.AsReference().Reference)))
+                    {
+                        sectionComponent.Entry.Add(resource.AsReference());
+                        resources.Add(resource.AsReference().Reference, resource);
+                    }
+                }
+
+                // Manner of Death
+                foreach (Resource resource in value.Item3)
+                {
+                    if (!sectionComponent.Entry.Exists(x => x.Reference.Equals(resource.AsReference().Reference)))
+                    {
+                        sectionComponent.Entry.Add(resource.AsReference());
+                        resources.Add(resource.AsReference().Reference, resource);
+                    }
+                }
+
+                // How Death Injury Occurred
+                foreach (Resource resource in value.Item4)
+                {
+                    if (!sectionComponent.Entry.Exists(x => x.Reference.Equals(resource.AsReference().Reference)))
+                    {
+                        sectionComponent.Entry.Add(resource.AsReference());
+                        resources.Add(resource.AsReference().Reference, resource);
+                    }
+                }
+
+                if ((value.Item1 == null || value.Item1.Count == 0) && (value.Item2 == null || value.Item2.Count == 0) &&
+                    (value.Item3 == null || value.Item3.Count == 0) && (value.Item4 == null || value.Item4.Count == 0))
+                {
+                    if (value.Item5 == null)
+                    {
+                        throw (new ArgumentException("Cause-Manner sections are empty. ListEmptyReason must be provided."));
+                    } else
+                    {
+                        sectionComponent.EmptyReason = value.Item5;
+                    }
+                }
+            }
         }
 
         /// <summary>
-        /// Narratives
+        /// MedicalHistory: gets or sets list of relevant medical history.
+        ///     value = (List<ResourceReference>, EmptyReasonCode)
+        ///     Resource:
+        ///         US Core Condition Encounter Diagnosis Profile |
+        ///         US Core Condition Problems and Health Concerns Profile
+        ///     EmptyReasonCode:
+        ///         GaTech.Chai.FhirIg.Common.ListEmptyReason
         /// </summary>
-        public SectionComponent Narratives
+        public (List<Resource>, string, CodeableConcept) MedicalHistory
         {
-            get => GetOrAddSection("narratives", null);
-            set => AddOrUpdateSection("narratives", null, value);
+            get
+            {
+                return GetSectionAndEntry("medical-history", MdiCodeSystem.MedicalHistory);
+            }
+
+            set
+            {
+                SetSectionAndEntry("medical-history", MdiCodeSystem.MedicalHistory, value);
+            }
+        }
+
+        /// <summary>
+        /// ExamAutopsy: gets or sets list of Exam Autopsy.
+        ///     value = (List<ResourceReference>, EmptyReasonCode)
+        ///     Resource:
+        ///         Observation - Autopsy Performed Indicator
+        ///     EmptyReasonCode:
+        ///         GaTech.Chai.FhirIg.Common.ListEmptyReason
+        /// </summary>
+        public (List<Resource>, string, CodeableConcept) ExamAutopsy
+        {
+            get
+            {
+                return GetSectionAndEntry("exam-autopsy", MdiCodeSystem.ExamAutopsy);
+            }
+
+            set
+            {
+                SetSectionAndEntry("exam-autopsy", MdiCodeSystem.ExamAutopsy, value);
+            }
+        }
+
+        /// <summary>
+        /// Narratives: gets or sets 
+        /// </summary>
+        public string Narratives
+        {
+            get
+            {
+                SectionComponent sectionComponent = GetOrAddSection("narratives", null);
+                return sectionComponent.Text?.Div;
+            }
+
+            set
+            {
+                SectionComponent sectionComponent = GetOrAddSection("narratives", MdiCodeSystem.Narratives.Coding[0].Display);
+                sectionComponent.Text = new Narrative() { Div = value };
+                AddOrUpdateSection("narratives", MdiCodeSystem.Narratives.Coding[0].Display, sectionComponent);
+            }
         }
 
         protected SectionComponent GetOrAddSection(Coding coding)

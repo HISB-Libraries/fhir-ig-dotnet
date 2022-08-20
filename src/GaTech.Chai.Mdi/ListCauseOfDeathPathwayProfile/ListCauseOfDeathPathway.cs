@@ -8,6 +8,7 @@ namespace GaTech.Chai.Mdi.ListCauseOfDeathPathwayProfile
     /// List - ListCauseOfDeathPathwayProfile
     /// http://hl7.org/fhir/us/mdi/StructureDefinition/List-cause-of-death-pathway
     /// </summary>
+    [Obsolete("Removed from v1.0.0 - CI", true)]
     public class ListCauseOfDeathPathway
     {
         readonly List list;
