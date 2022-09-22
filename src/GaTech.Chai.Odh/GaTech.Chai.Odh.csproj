@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <PackageId>fhir-ig-odh-dotnet</PackageId>
     <PackageProjectUrl>https://github.com/mmg-fhir-ig/cbs-ig-dotnet</PackageProjectUrl>
     <PackageVersion>0.1.0</PackageVersion>
@@ -10,6 +10,7 @@
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <NeutralLanguage>en-US</NeutralLanguage>
     <PackageTags>FHIR, ODH, IG</PackageTags>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>

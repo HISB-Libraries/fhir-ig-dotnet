@@ -16,7 +16,7 @@ namespace GaTech.Chai.Mdi.MessageHeaderToxicologyToMdiProfile
         internal MessageHeaderToxicologyToMdi(MessageHeader messageHeader)
         {
             this.messageHeader = messageHeader;
-            messageHeader.Event = MdiCodeSystem.ToxResultReport.Coding[0];
+            messageHeader.Event = MdiCodeSystem.MdiCodes.ToxResultReport.Coding[0];
         }
 
         /// <summary>

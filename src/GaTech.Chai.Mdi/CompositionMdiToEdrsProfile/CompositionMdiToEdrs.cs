@@ -6,6 +6,7 @@ using GaTech.Chai.Mdi.Common;
 using System.Collections.Generic;
 using Hl7.Fhir.Language.Debugging;
 using Newtonsoft.Json.Linq;
+using GaTech.Chai.Share.Extensions;
 
 namespace GaTech.Chai.Mdi.CompositionMditoEdrsProfile
 {
@@ -16,24 +17,42 @@ namespace GaTech.Chai.Mdi.CompositionMditoEdrsProfile
     public class CompositionMdiToEdrs
     {
         readonly Composition composition;
-        readonly Dictionary<string, Resource> resources;
+        readonly static Dictionary<string, Resource> resources = new ();
 
         internal CompositionMdiToEdrs(Composition composition)
         {
             this.composition = composition;
             composition.Type = new CodeableConcept("http://loinc.org", "86807-5", "Death administrative information Document", null);
-
-            resources = new ();
         }
 
         /// <summary>
-        /// Factory for CompositionMditoEdrsProfile
+        /// Factory for CompositionMdiToEdrsProfile
         /// http://hl7.org/fhir/us/mdi/StructureDefinition/Composition-mdi-to-edrs
+        /// </summary>
+        public static Composition Create(Identifier identifier, CompositionStatus status, Patient subject, Practitioner author, Practitioner certifier)
+        {
+            var composition = new Composition();
+            composition.CompositionMdiToEdrs().AddProfile();
+
+            if (identifier != null) composition.Identifier = identifier;
+            composition.Status = status;
+            if (subject != null) composition.Subject = subject.AsReference();
+            if (author != null) composition.Author.Add(author.AsReference());
+            if (certifier != null) composition.Attester.Add(new AttesterComponent { Party = certifier.AsReference() });
+
+            return composition;
+        }
+
+        /// <summary>
+        /// Factory for CompositionMdiToEdresProfile with empty parameters
+        /// http://hl7.org/fhir/us/mdi/StructureDefinition/Composition-mdi-to-edrs
+        /// Note: required parameters must be set individually.
         /// </summary>
         public static Composition Create()
         {
             var composition = new Composition();
             composition.CompositionMdiToEdrs().AddProfile();
+
             return composition;
         }
 
@@ -82,7 +101,7 @@ namespace GaTech.Chai.Mdi.CompositionMditoEdrsProfile
                 Extension ext = new ()
                 {
                     Url = "http://hl7.org/fhir/us/mdi/StructureDefinition/Extension-tracking-number",
-                    Value = new Identifier() { Type = MdiCodeSystem.MdiCaseNumber, System = value.Item1, Value = value.Item2 }
+                    Value = new Identifier() { Type = MdiCodeSystem.MdiCodes.MdiCaseNumber, System = value.Item1, Value = value.Item2 }
                 };
                 this.composition.Extension.AddOrUpdateExtension(ext);
             }
@@ -110,7 +129,7 @@ namespace GaTech.Chai.Mdi.CompositionMditoEdrsProfile
             set
             {
                 Extension ext = new Extension() { Url = "http://hl7.org/fhir/us/mdi/StructureDefinition/Extension-tracking-number" };
-                ext.Value = new Identifier() { Type = MdiCodeSystem.EdrsFileNumber, System = value.Item1, Value = value.Item2 };
+                ext.Value = new Identifier() { Type = MdiCodeSystem.MdiCodes.EdrsFileNumber, System = value.Item1, Value = value.Item2 };
                 this.composition.Extension.AddOrUpdateExtension(ext);
             }
         }
@@ -118,26 +137,51 @@ namespace GaTech.Chai.Mdi.CompositionMditoEdrsProfile
         /// <summary>
         /// Certifier: sets or gets certifier information
         /// DC certifier is set in Attester. Only one certifiier can exist.
-        public ResourceReference Certifier
+        public (Resource, DataAbsentReason) Certifier
         {
             get
             {
                 if (this.composition.Attester != null && this.composition.Attester.Count > 0)
                 {
-                    return this.composition.Attester[0].Party;
+                    Resource resource = resources[this.composition.Attester[0].Party.Reference];
+                    if (resource == null)
+                    {
+                        Extension extension = this.composition.Attester[0].GetExtension("http://hl7.org/fhir/StructureDefinition/data-absent-reason");
+                        Code codeValue = extension.Value as Code;
+                        DataAbsentReason dataAbsentReason = codeValue.Value.GetEnumValueFromCode<DataAbsentReason>();
+                        return (null, dataAbsentReason);
+                    }
+                    else
+                    {
+                        return (resource, DataAbsentReason.NotApplicable);
+                    }
                 }
 
-                return null;
+                return (null, DataAbsentReason.NotApplicable);
             }
 
-            set {
+            set
+            {
+                // Clear the attester if we have someone.
                 if (this.composition.Attester != null && this.composition.Attester.Count > 0)
                 {
+                    ResourceReference certifier = this.composition.Attester[0].Party;
+                    resources.Remove(certifier.Reference);
                     this.composition.Attester.Clear();
                 }
 
-                this.composition.Attester.Add(new AttesterComponent() { Party = value });
+                if (value.Item1 == null)
+                {
+                    // Certifier is now empty. Put dataabsentreason.
+                    this.composition.Attester.Add(new AttesterComponent() {
+                        Extension = new List<Extension> { new Extension(value.Item2.GetEnumSystem(), new Code(value.Item2.GetEnumCode())) } });
                 }
+                else
+                {
+                    resources.Add(value.Item1.AsReference().Reference, value.Item1);
+                    this.composition.Attester.Add(new AttesterComponent() { Party = value.Item1.AsReference() });
+                }
+            }
         }
 
         /// <summary>
@@ -205,20 +249,20 @@ namespace GaTech.Chai.Mdi.CompositionMditoEdrsProfile
         {
             get
             {
-                Narrative additionalDemNarrative = GetOrAddSection("demographics", MdiCodeSystem.AdditionalDemographics.Coding[0].Display).Text;
+                Narrative additionalDemNarrative = GetOrAddSection("demographics", MdiCodeSystem.MdiCodes.AdditionalDemographics.Coding[0].Display).Text;
                 return additionalDemNarrative.Div;
             }
             set
             {
-                SectionComponent sectionComponent = new() { Code = MdiCodeSystem.AdditionalDemographics, Text = new Narrative() { Div = value } };
-                AddOrUpdateSection("demographics", MdiCodeSystem.AdditionalDemographics.Coding[0].Display, sectionComponent);
+                SectionComponent sectionComponent = new() { Code = MdiCodeSystem.MdiCodes.AdditionalDemographics, Text = new Narrative() { Div = value } };
+                AddOrUpdateSection("demographics", MdiCodeSystem.MdiCodes.AdditionalDemographics.Coding[0].Display, sectionComponent);
             }
         }
 
         /// <summary>
         /// Circumstances: gets or sets list of circumstance references
-        ///     value = (List<ResourceReference>, EmptyReasonCode)
-        ///     Resource:
+        ///     value = (List<Resource>, SectionText, EmptyReasonCode)
+        ///     Possible Resources:
         ///         Location - Death,
         ///         Observation - Tobacco Use Contributed to Death,
         ///         Observation - Decedent Pregnancy,
@@ -230,12 +274,12 @@ namespace GaTech.Chai.Mdi.CompositionMditoEdrsProfile
         {
             get
             {
-                return GetSectionAndEntry("circumstances", MdiCodeSystem.Circumstances);
+                return GetSectionAndEntry("circumstances", MdiCodeSystem.MdiCodes.Circumstances);
             }
 
             set
             {
-                SetSectionAndEntry("circumstances", MdiCodeSystem.Circumstances, value);
+                SetSectionAndEntry("circumstances", MdiCodeSystem.MdiCodes.Circumstances, value);
             }
         }
 
@@ -252,12 +296,12 @@ namespace GaTech.Chai.Mdi.CompositionMditoEdrsProfile
         {
             get
             {
-                return GetSectionAndEntry("jurisdiction", MdiCodeSystem.Jurisdiction);
+                return GetSectionAndEntry("jurisdiction", MdiCodeSystem.MdiCodes.Jurisdiction);
             }
 
             set
             {
-                SetSectionAndEntry("jurisdiction", MdiCodeSystem.AdditionalDemographics, value);
+                SetSectionAndEntry("jurisdiction", MdiCodeSystem.MdiCodes.AdditionalDemographics, value);
             }
         }
 
@@ -280,7 +324,7 @@ namespace GaTech.Chai.Mdi.CompositionMditoEdrsProfile
                 List<Resource> mannerOfDeath = new();
                 List<Resource> deathInjuryOccurred = new();
 
-                SectionComponent sectionComponent = GetOrAddSection("cause-manner", MdiCodeSystem.CauseManner.Coding[0].Display);
+                SectionComponent sectionComponent = GetOrAddSection("cause-manner", MdiCodeSystem.MdiCodes.CauseManner.Coding[0].Display);
                 foreach (ResourceReference reference in sectionComponent.Entry)
                 {
                     Resource resource;
@@ -318,8 +362,8 @@ namespace GaTech.Chai.Mdi.CompositionMditoEdrsProfile
 
             set
             {
-                SectionComponent sectionComponent = GetOrAddSection("cause-manner", MdiCodeSystem.CauseManner.Coding[0].Display);
-                AddOrUpdateSection("cause-manner", MdiCodeSystem.CauseManner.Coding[0].Display, sectionComponent);
+                SectionComponent sectionComponent = GetOrAddSection("cause-manner", MdiCodeSystem.MdiCodes.CauseManner.Coding[0].Display);
+                AddOrUpdateSection("cause-manner", MdiCodeSystem.MdiCodes.CauseManner.Coding[0].Display, sectionComponent);
 
                 // Cause of Death Part 1
                 foreach (Resource resource in value.Item1)
@@ -388,12 +432,12 @@ namespace GaTech.Chai.Mdi.CompositionMditoEdrsProfile
         {
             get
             {
-                return GetSectionAndEntry("medical-history", MdiCodeSystem.MedicalHistory);
+                return GetSectionAndEntry("medical-history", MdiCodeSystem.MdiCodes.MedicalHistory);
             }
 
             set
             {
-                SetSectionAndEntry("medical-history", MdiCodeSystem.MedicalHistory, value);
+                SetSectionAndEntry("medical-history", MdiCodeSystem.MdiCodes.MedicalHistory, value);
             }
         }
 
@@ -409,12 +453,12 @@ namespace GaTech.Chai.Mdi.CompositionMditoEdrsProfile
         {
             get
             {
-                return GetSectionAndEntry("exam-autopsy", MdiCodeSystem.ExamAutopsy);
+                return GetSectionAndEntry("exam-autopsy", MdiCodeSystem.MdiCodes.ExamAutopsy);
             }
 
             set
             {
-                SetSectionAndEntry("exam-autopsy", MdiCodeSystem.ExamAutopsy, value);
+                SetSectionAndEntry("exam-autopsy", MdiCodeSystem.MdiCodes.ExamAutopsy, value);
             }
         }
 
@@ -431,9 +475,9 @@ namespace GaTech.Chai.Mdi.CompositionMditoEdrsProfile
 
             set
             {
-                SectionComponent sectionComponent = GetOrAddSection("narratives", MdiCodeSystem.Narratives.Coding[0].Display);
+                SectionComponent sectionComponent = GetOrAddSection("narratives", MdiCodeSystem.MdiCodes.Narratives.Coding[0].Display);
                 sectionComponent.Text = new Narrative() { Div = value };
-                AddOrUpdateSection("narratives", MdiCodeSystem.Narratives.Coding[0].Display, sectionComponent);
+                AddOrUpdateSection("narratives", MdiCodeSystem.MdiCodes.Narratives.Coding[0].Display, sectionComponent);
             }
         }
 
@@ -469,6 +513,11 @@ namespace GaTech.Chai.Mdi.CompositionMditoEdrsProfile
             composition.Section.AddOrUpdateSection(
                     "http://hl7.org/fhir/us/mdi/CodeSystem/CodeSystem-mdi-codes",
                     code, title, display, section);
+        }
+
+        public Dictionary<String, Resource> GetResourcesInSections()
+        {
+            return resources;
         }
     }
 }

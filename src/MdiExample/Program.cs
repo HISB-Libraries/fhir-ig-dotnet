@@ -8,9 +8,11 @@ using GaTech.Chai.Mdi.Common;
 using GaTech.Chai.Mdi.CompositionMditoEdrsProfile;
 using GaTech.Chai.Mdi.DiagnosticReportToxicologyLabResultToMdiProfile;
 using GaTech.Chai.Mdi.ListCauseOfDeathPathwayProfile;
+using GaTech.Chai.Mdi.LocationDeathProfile;
 using GaTech.Chai.Mdi.MessageHeaderToxicologyToMdiProfile;
-using GaTech.Chai.Mdi.ObservationCauseOfDeathConditionProfile;
+using GaTech.Chai.Mdi.ObservationCauseOfDeathPart1Profile;
 using GaTech.Chai.Mdi.ObservationConditionContributingToDeathProfile;
+using GaTech.Chai.Mdi.ObservationContributingCauseOfDeathPart2Profile;
 using GaTech.Chai.Mdi.ObservationDeathDateProfile;
 using GaTech.Chai.Mdi.ObservationDeathInjuryEventOccurredAtWorkProfile;
 using GaTech.Chai.Mdi.ObservationDecedentPregnancyProfile;
@@ -43,7 +45,7 @@ namespace MdiExample
             patient.Identifier.Add(new Identifier() { Use = Identifier.IdentifierUse.Usual, Type = new CodeableConcept("http://terminology.hl7.org/CodeSystem/v2-0203", "SS", "Social Security number", "Social Security number"), System = "http://hospital.smarthealthit.org", Value = "987054321" });
 
             // Race
-                patient.UsCorePatient().Race.Category = UsCorePatientRace.RaceCoding.Encode("2106-3", "White");
+            patient.UsCorePatient().Race.Category = UsCorePatientRace.RaceCoding.Encode("2106-3", "White");
             patient.UsCorePatient().Race.ExtendedRaceCodes = new Coding[] { UsCorePatientRace.RaceCoding.Encode("1010-8", "Apache") };
             patient.UsCorePatient().Race.RaceText = "Apache";
 
@@ -87,70 +89,20 @@ namespace MdiExample
             practitioner.UsCorePractitioner().NPI = "3333445555";
 
             // Cause of Death Condition Observation
-            Observation causeOfDeath1 = ObservationCauseOfDeathCondition.Create();
+            Observation causeOfDeath1 = ObservationCauseOfDeathPart1.Create(patient, practitioner, "Fentanyl toxicity", 1, "minutes to hours");
             causeOfDeath1.Status = ObservationStatus.Final;
-            causeOfDeath1.Subject = patient.AsReference();
-            causeOfDeath1.Performer.Add(practitioner.AsReference());
-            causeOfDeath1.ObservationCauseOfDeathCondition().Value = new CodeableConcept(null, null, "Fentanyl toxicity");
-            causeOfDeath1.ObservationCauseOfDeathCondition().IntervalString = "minutes to hours";
-
-            Observation causeOfDeath2 = ObservationCauseOfDeathCondition.Create();
+            Observation causeOfDeath2 = ObservationCauseOfDeathPart1.Create(patient, practitioner, "Fentanyl toxicity", 2, "minutes to hours");
             causeOfDeath2.Status = ObservationStatus.Final;
-            causeOfDeath2.Subject = patient.AsReference();
-            causeOfDeath2.Performer.Add(practitioner.AsReference());
-            causeOfDeath2.ObservationCauseOfDeathCondition().Value = new CodeableConcept(null, null, "Fentanyl toxicity");
-            causeOfDeath2.ObservationCauseOfDeathCondition().IntervalString = "minutes to hours";
-
-            Observation causeOfDeath3 = ObservationCauseOfDeathCondition.Create();
-            causeOfDeath3.Status = ObservationStatus.Final;
-            causeOfDeath3.Subject = patient.AsReference();
-            causeOfDeath3.Performer.Add(practitioner.AsReference());
-            causeOfDeath3.ObservationCauseOfDeathCondition().Value = new CodeableConcept(null, null, "Fentanyl toxicity");
-            causeOfDeath3.ObservationCauseOfDeathCondition().IntervalString = "minutes to hours";
-
-            Observation causeOfDeath4 = ObservationCauseOfDeathCondition.Create();
-            causeOfDeath4.Status = ObservationStatus.Final;
-            causeOfDeath4.Subject = patient.AsReference();
-            causeOfDeath4.Performer.Add(practitioner.AsReference());
-            causeOfDeath4.ObservationCauseOfDeathCondition().Value = new CodeableConcept(null, null, "Fentanyl toxicity");
-            causeOfDeath4.ObservationCauseOfDeathCondition().IntervalString = "minutes to hours";
-
-            Observation causeOfDeath5 = ObservationCauseOfDeathCondition.Create();
-            causeOfDeath5.Status = ObservationStatus.Final;
-            causeOfDeath5.Subject = patient.AsReference();
-            causeOfDeath5.Performer.Add(practitioner.AsReference());
-            causeOfDeath5.ObservationCauseOfDeathCondition().Value = new CodeableConcept(null, null, "Fentanyl toxicity");
-            causeOfDeath5.ObservationCauseOfDeathCondition().IntervalString = "minutes to hours";
-
-            Observation causeOfDeath6 = ObservationCauseOfDeathCondition.Create();
-            causeOfDeath6.Status = ObservationStatus.Final;
-            causeOfDeath6.Subject = patient.AsReference();
-            causeOfDeath6.Performer.Add(practitioner.AsReference());
-            causeOfDeath6.ObservationCauseOfDeathCondition().Value = new CodeableConcept(null, null, "Fentanyl toxicity");
-            causeOfDeath6.ObservationCauseOfDeathCondition().IntervalString = "minutes to hours";
-
-            // Cause of Death Pathway
-            List pathWayList = ListCauseOfDeathPathway.Create();
-            pathWayList.ListCauseOfDeathPathway().AddCauseOfDeathCondition(causeOfDeath1.AsReference());
-            pathWayList.ListCauseOfDeathPathway().AddCauseOfDeathCondition(causeOfDeath2.AsReference());
-            pathWayList.ListCauseOfDeathPathway().AddCauseOfDeathCondition(causeOfDeath3.AsReference());
-            pathWayList.ListCauseOfDeathPathway().AddCauseOfDeathCondition(causeOfDeath4.AsReference());
-            pathWayList.ListCauseOfDeathPathway().AddCauseOfDeathCondition(causeOfDeath5.AsReference());
-            ////
-            // Demo: Total number of causes of death check
-            // pathWayList.ListCauseOfDeathPathway().AddCauseOfDeathCondition(causeOfDeath6.AsReference());
-            pathWayList.Subject = patient.AsReference();
-            pathWayList.Source = practitioner.AsReference();
 
             // Condition Contributing to Death
-            Observation conditionContributingToDeath = ObservationConditionContributingToDeath.Create();
+            Observation conditionContributingToDeath = ObservationContributingCauseOfDeathPart2.Create();
             conditionContributingToDeath.Status = ObservationStatus.Final;
             conditionContributingToDeath.Subject = patient.AsReference();
             conditionContributingToDeath.Performer.Add(practitioner.AsReference());
-            conditionContributingToDeath.ObservationConditionContributingToDeath().Value = new CodeableConcept(null, null, "Hypertensive heart disease");
+            conditionContributingToDeath.ObservationContributingCauseOfDeathPart2().Value = new CodeableConcept(null, null, "Hypertensive heart disease");
 
             // Location Death
-            Location deathLocation = UsCoreLocation.Create();
+            Location deathLocation = LocationDeath.Create();
             deathLocation.Identifier.Add(new Identifier("http://www.acme.org/location", "29"));
             deathLocation.Status = Location.LocationStatus.Active;
             deathLocation.Name = "Atlanta GA Death Location - Freeman";
@@ -164,7 +116,7 @@ namespace MdiExample
             observationDeathDate.Value = new FhirDateTime("2022-01-08T14:04:00-05:00");
             observationDeathDate.ObservationDeathDate().DateAndTimePronouncedDead = new FhirDateTime("2022-01-08T15:30:00-05:00");
             observationDeathDate.ObservationDeathDate().ObservationLocation = deathLocation.AsReference();
-            observationDeathDate.Method = MdiCodeSystem.Exact;
+            observationDeathDate.Method = MdiCodeSystem.MdiCodes.Exact;
 
             // Observation Death Injury/Event Occurred at Work
             Observation observationInjuryEventWork = ObservationDeathInjuryEventOccurredAtWork.Create();
@@ -198,49 +150,28 @@ namespace MdiExample
 
             ////
             // Composition of MDI to EDRS document
-            Composition composition = CompositionMdiToEdrs.Create();
+            Composition composition = CompositionMdiToEdrs.Create(
+                new Identifier() { Value = "a03eab8c-11e8-4d0c-ad2a-b385395e27de" },
+                CompositionStatus.Final,
+                patient,
+                practitioner,
+                practitioner
+                );
+            composition.DateElement = new FhirDateTime("2022-02-20");
+            composition.Title = "MDI to EDRS Composition";
+
             // Demo: Tracking numbers - one with library. the other for custom type
             composition.CompositionMdiToEdrs().MdiCaseNumber = ("urn:connectathon:test", "Case1234");
-            ////
-            // demo: custom tracking number
-            //Extension ext = new Extension() { Url = "http://hl7.org/fhir/us/mdi/StructureDefinition/Extension-tracking-number" };
-            //ext.Value = new Identifier() { Type = new CodeableConcept("http://terminology.hl7.org/CodeSystem/v2-0203", "BCT"), Value = "ME21-113" };
-            //composition.Extension.AddOrUpdateExtension(ext);
-            composition.Identifier = new Identifier() { Value = "a03eab8c-11e8-4d0c-ad2a-b385395e27de" };
-            composition.Status = CompositionStatus.Final;
-            composition.Subject = patient.AsReference();
-            composition.DateElement = new FhirDateTime("2022-02-20");
-            composition.Author = new List<ResourceReference> { practitioner.AsReference() };
-            composition.Title = "MDI to EDRS Composition";
             composition.CompositionMdiToEdrs().AdditionalDemographics = "Certified Nursing Assistant (CNA) [Nursing Assistants]";
-            composition.CompositionMdiToEdrs().Circumstances = new Composition.SectionComponent() { Entry = new List<ResourceReference> { deathLocation.AsReference(), observationInjuryEventWork.AsReference(), observationTobaccoUseContributedToDeath.AsReference(), observationDecedentPregnancy.AsReference() } };
-            composition.CompositionMdiToEdrs().Jurisdiction = new Composition.SectionComponent() { Entry = new List<ResourceReference> { observationDeathDate.AsReference() } };
-            composition.CompositionMdiToEdrs().CauseManner = new Composition.SectionComponent() { Entry = new List<ResourceReference> { pathWayList.AsReference(), conditionContributingToDeath.AsReference(), observationMannerOfDeath.AsReference(), observationHowDeathInjuryOccurred.AsReference() } };
-            composition.CompositionMdiToEdrs().MedicalHistory = new Composition.SectionComponent() { EmptyReason = new CodeableConcept("http://terminology.hl7.org/CodeSystem/list-empty-reason", "unavailable", "Unavailable", "Decedent's medical history not available"), Text = new Narrative() { Status = Narrative.NarrativeStatus.Additional, Div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n                <p>No Medical History information</p>\n            </div>" } };
-//            composition.CompositionMdiToEdrs().MedicalHistory = new Composition.SectionComponent() { EmptyReason = new CodeableConcept("http://terminology.hl7.org/CodeSystem/list-empty-reason", "unavailable", "Unavailable", "Decedent's medical history not available") };
+            composition.CompositionMdiToEdrs().Circumstances = (new List<Resource> { deathLocation }, null, null);
 
             ////
             // Document Bundle
-            Bundle MdiDocument = BundleDocumentMdiToEdrs.Create();
-            MdiDocument.Identifier = new Identifier("urn:ietf:rfc:3986", "urn:uuid:933dde44f7664b03a20b6324f23986c0");
+            Bundle MdiDocument = BundleDocumentMdiToEdrs.Create(
+                composition,
+                new Identifier("urn:ietf:rfc:3986", "urn:uuid:933dde44f7664b03a20b6324f23986c0")
+                );
             MdiDocument.TimestampElement = Instant.Now();
-            MdiDocument.AddResourceEntry(composition, composition.AsReference().Url.ToString());
-            MdiDocument.AddResourceEntry(patient, patient.AsReference().Url.ToString());
-            MdiDocument.AddResourceEntry(practitioner, practitioner.AsReference().Url.ToString());
-            MdiDocument.AddResourceEntry(deathLocation, deathLocation.AsReference().Url.ToString());
-            MdiDocument.AddResourceEntry(observationInjuryEventWork, observationInjuryEventWork.AsReference().Url.ToString());
-            MdiDocument.AddResourceEntry(observationTobaccoUseContributedToDeath, observationTobaccoUseContributedToDeath.AsReference().Url.ToString());
-            MdiDocument.AddResourceEntry(observationDecedentPregnancy, observationDecedentPregnancy.AsReference().Url.ToString());
-            MdiDocument.AddResourceEntry(observationDeathDate, observationDeathDate.AsReference().Url.ToString());
-            MdiDocument.AddResourceEntry(pathWayList, pathWayList.AsReference().Url.ToString());
-            MdiDocument.AddResourceEntry(causeOfDeath1, causeOfDeath1.AsReference().Url.ToString());
-            MdiDocument.AddResourceEntry(causeOfDeath2, causeOfDeath2.AsReference().Url.ToString());
-            MdiDocument.AddResourceEntry(causeOfDeath3, causeOfDeath3.AsReference().Url.ToString());
-            MdiDocument.AddResourceEntry(causeOfDeath4, causeOfDeath4.AsReference().Url.ToString());
-            MdiDocument.AddResourceEntry(causeOfDeath5, causeOfDeath5.AsReference().Url.ToString());
-            MdiDocument.AddResourceEntry(conditionContributingToDeath, conditionContributingToDeath.AsReference().Url.ToString());
-            MdiDocument.AddResourceEntry(observationMannerOfDeath, observationMannerOfDeath.AsReference().Url.ToString());
-            MdiDocument.AddResourceEntry(observationHowDeathInjuryOccurred, observationHowDeathInjuryOccurred.AsReference().Url.ToString());
 
             string output = serializer.SerializeToString(MdiDocument);
             File.WriteAllText(outputPath + "MDItoEDRS_Document.json", output);
@@ -406,7 +337,7 @@ namespace MdiExample
             // Us Core Diagnostic Report for Tox Lab Results
             DiagnosticReport diagnosticReport = DiagnosticReportToxicologyLabResultToMdi.Create();
             diagnosticReport.DiagnosticReportToxicologyLabResultToMdi().ToxCaseNumber = ("http://uf-path-labs.org/fhir/lab-cases", "R21-01578");
-            diagnosticReport.Identifier.GetIdentifier(MdiCodeSystem.ToxLabCaseNumber.Coding[0]).Assigner = organizationLab.AsReference();
+            diagnosticReport.Identifier.GetIdentifier(MdiCodeSystem.MdiCodes.ToxLabCaseNumber.Coding[0]).Assigner = organizationLab.AsReference();
             diagnosticReport.Status = DiagnosticReport.DiagnosticReportStatus.Final;
             diagnosticReport.Code = new CodeableConcept("http://loinc.org", "81273-5", "fentaNYL and Norfentanyl panel - Specimen", null);
             diagnosticReport.Subject = patient.AsReference();

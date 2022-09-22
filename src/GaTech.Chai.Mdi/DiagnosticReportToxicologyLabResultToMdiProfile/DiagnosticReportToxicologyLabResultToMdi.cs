@@ -60,12 +60,12 @@ namespace GaTech.Chai.Mdi.DiagnosticReportToxicologyLabResultToMdiProfile
         {
             get
             {
-                Identifier id = this.diagnosticReport.Identifier.GetIdentifier(MdiCodeSystem.ToxLabCaseNumber.Coding[0]);
+                Identifier id = this.diagnosticReport.Identifier.GetIdentifier(MdiCodeSystem.MdiCodes.ToxLabCaseNumber.Coding[0]);
                 return (id.System, id.Value);
             }
             set
             {
-                this.diagnosticReport.Identifier.AddOrUpdateIdentifier(MdiCodeSystem.ToxLabCaseNumber.Coding[0], value.Item1, value.Item2);
+                this.diagnosticReport.Identifier.AddOrUpdateIdentifier(MdiCodeSystem.MdiCodes.ToxLabCaseNumber.Coding[0], value.Item1, value.Item2);
             }
         }
     }

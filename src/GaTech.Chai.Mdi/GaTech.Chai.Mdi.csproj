@@ -1,17 +1,21 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <PackageId>fhir-ig-mdi-dotnet</PackageId>
-    <PackageVersion>0.1.0</PackageVersion>
+    <PackageVersion>0.2.0</PackageVersion>
     <Authors>Myung Choi</Authors>
     <PackageProjectUrl>https://github.com/mmg-fhir-ig/cbs-ig-dotnet</PackageProjectUrl>
     <Description>.Net library for MDI FHIR IG v1.0.0-CI</Description>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <NeutralLanguage>en-US</NeutralLanguage>
     <PackageTags>FHIR, MDI, IG</PackageTags>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
   <ItemGroup>
     <None Remove="CbsDocumentBundle\" />
     <None Remove="CbsCompositionProfile\" />
@@ -27,14 +31,14 @@
     <None Remove="BundleMessageToxicologyToMdiProfile %28copy%29\" />
     <None Remove="CompositionMdiToEdrsProfile %28copy%29\" />
     <None Remove="CbsSpecimenProfile\" />
+    <None Remove="LocationDeathProfile\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="BundleDocumentMdiToEdrsProfile\" />
     <Folder Include="CompositionMdiToEdrsProfile\" />
     <Folder Include="Common\" />
     <Folder Include="ListCauseOfDeathPathwayProfile\" />
-    <Folder Include="ObservationCauseOfDeathConditionProfile\" />
-    <Folder Include="ObservationConditionContributingToDeathProfile\" />
+    <Folder Include="ObservationContributingCauseOfDeathPart2Profile\" />
     <Folder Include="ObservationDeathDateProfile\" />
     <Folder Include="ObservationDeathInjuryEventOccurredAtWorkProfile\" />
     <Folder Include="ObservationHowDeathInjuryOccurredProfile\" />
@@ -46,6 +50,7 @@
     <Folder Include="DiagnosticReportToxicologyLabResultToMdiProfile\" />
     <Folder Include="SpecimenToxicologyLabProfile\" />
     <Folder Include="ObservationToxicologyLabResultProfile\" />
+    <Folder Include="LocationDeathProfile\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GaTech.Chai.Share\GaTech.Chai.Share.csproj" />

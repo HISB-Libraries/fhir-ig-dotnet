@@ -42,6 +42,34 @@ namespace GaTech.Chai.FhirIg.Extensions
             resource.Meta.Profile = resource.Meta.Profile.Append(profileUrl);
         }
 
+        /// <summary>
+        /// Check if the profile exists in this resource
+        /// </summary>
+        public static bool hasProfile(this Resource resource, string profileUrl)
+        {
+            if (resource == null)
+            {
+                throw new ArgumentNullException(nameof(resource));
+            }
+
+            if (resource.Meta == null)
+            {
+                return false;
+            }
+
+            if ((resource.Meta.Profile == null) || (!resource.Meta.Profile.Any()))
+            {
+                return false;
+            }
+
+            if (resource.Meta.Profile.Contains(profileUrl))
+            {
+                return true;
+            } else
+            {
+                return false;
+            }
+        }
 
         /// <summary>
         /// Clear the assertion that a patient object conforms to the US Core Patient Profile.
