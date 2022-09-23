@@ -14,14 +14,12 @@ namespace GaTech.Chai.Mdi.ObservationContributingCauseOfDeathPart2Profile
     public class ObservationContributingCauseOfDeathPart2
     {
         readonly Observation observation;
-        readonly Dictionary<string, Resource> resources;
+        readonly static Dictionary<string, Resource> resources = new();
 
         internal ObservationContributingCauseOfDeathPart2(Observation observation)
         {
             this.observation = observation;
             this.observation.Code = new CodeableConcept("http://loinc.org", "69441-4", "Other significant causes or conditions of death", null);
-
-            if (resources == null) resources = new();
         }
 
         /// <summary>
@@ -37,8 +35,8 @@ namespace GaTech.Chai.Mdi.ObservationContributingCauseOfDeathPart2Profile
             observation.ObservationContributingCauseOfDeathPart2().SubjectAsResource = subjectResource;
             observation.ObservationContributingCauseOfDeathPart2().PerformerAsResource = performerResource;
 
-            observation.ObservationContributingCauseOfDeathPart2().resources.Add(subjectResource.AsReference().Reference, subjectResource);
-            observation.ObservationContributingCauseOfDeathPart2().resources.Add(performerResource.AsReference().Reference, performerResource);
+            resources.Add(subjectResource.AsReference().Reference, subjectResource);
+            resources.Add(performerResource.AsReference().Reference, performerResource);
 
             return observation;
         }
@@ -100,14 +98,14 @@ namespace GaTech.Chai.Mdi.ObservationContributingCauseOfDeathPart2Profile
             get
             {
                 Resource value;
-                this.resources.TryGetValue(this.observation.Subject.Reference, out value);
+                resources.TryGetValue(this.observation.Subject.Reference, out value);
 
                 return (Patient)value;
             }
             set
             {
                 this.observation.Subject = value.AsReference();
-                this.resources.Add(value.AsReference().Reference, value);
+                resources.Add(value.AsReference().Reference, value);
             }
         }
 
@@ -119,7 +117,7 @@ namespace GaTech.Chai.Mdi.ObservationContributingCauseOfDeathPart2Profile
             get
             {
                 Resource value;
-                this.resources.TryGetValue(this.observation.Performer?[0].Reference, out value);
+                resources.TryGetValue(this.observation.Performer?[0].Reference, out value);
 
                 return (Practitioner) value;
             }
@@ -129,12 +127,12 @@ namespace GaTech.Chai.Mdi.ObservationContributingCauseOfDeathPart2Profile
                 {
                     foreach (ResourceReference reference in this.observation.Performer)
                     {
-                        this.resources.Remove(reference.Reference);
+                        resources.Remove(reference.Reference);
                     }
                     this.observation.Performer.Clear();
                 }
                 this.observation.Performer.Add(value.AsReference());
-                this.resources.Add(value.AsReference().Reference, value);
+                resources.Add(value.AsReference().Reference, value);
             }
         }
     }

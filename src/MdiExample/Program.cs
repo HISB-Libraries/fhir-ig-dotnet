@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Xml.Linq;
 using GaTech.Chai.FhirIg.Extensions;
 using GaTech.Chai.Mdi.BundleDocumentMdiToEdrsProfile;
 using GaTech.Chai.Mdi.BundleMessageToxicologyToMdiProfile;
@@ -400,7 +401,6 @@ namespace MdiExample
             output = serializer.SerializeToString(bundleMessageToxToMDI);
             File.WriteAllText(outputPath + "ToxToCMS_Message.json", output);
             Console.WriteLine(output);
-
         }
     }
 }

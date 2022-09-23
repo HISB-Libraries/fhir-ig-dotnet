@@ -157,6 +157,23 @@ namespace GaTech.Chai.Mdi.ObservationCauseOfDeathPart1Profile
         }
 
         /// <summary>
+        /// Cause of Death simple read and write.
+        /// value: (valueText, interval) 
+        /// </summary>
+        public (string, string) CauseOfDeathPart1A
+        {
+            get
+            {
+                return (ValueText, Interval);
+            }
+            set
+            {
+                ValueText = value.Item1;
+                Interval = value.Item2;
+            }
+        }
+
+        /// <summary>
         /// setting subject reference and store the resource for future use
         /// </summary>
         public Patient SubjectAsResource
