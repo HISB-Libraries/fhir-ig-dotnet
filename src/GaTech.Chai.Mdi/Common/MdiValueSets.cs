@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Buffers.Text;
 using Hl7.Fhir.Model;
 
 /// <summary>
@@ -139,4 +140,26 @@ namespace GaTech.Chai.Mdi.Common
         public static CodeableConcept NotAsked = new ("http://terminology.hl7.org/CodeSystem/v3-NullFlavor", "NASK", "not asked", null);
     }
 
+    public class MdiPlaceOfDeath
+    {
+        public const string profileUrl = "http://hl7.org/fhir/us/mdi/ValueSet/ValueSet-place-of-death";
+
+        public static CodeableConcept DoaAtHospital = new("http://snomed.info/sct", "63238001", "Dead on arrival at hospital", null);
+        public static CodeableConcept DeathInHome = new ("http://snomed.info/sct", "440081000124100", "Death in home", null);
+        public static CodeableConcept DeathInHospice = new ("http://snomed.info/sct", "440071000124103", "Death in hospice", null);
+        public static CodeableConcept DeathInHospital = new ("http://snomed.info/sct", "16983000", "Death in hospital", null);
+        public static CodeableConcept DeathInHospitalEmergencyDeptOrOutpatient = new("http://snomed.info/sct", "450391000124102", "Death in hospital-based emergency department or outpatient department", null);
+        public static CodeableConcept DeathInNursingHomeOrLongTermCareFacility = new("http://snomed.info/sct", "450381000124100", "Death in nursing home or long term care facility", null);
+        public static CodeableConcept Other = new("http://terminology.hl7.org/CodeSystem/v3-NullFlavor", "OTH", "Other", null);
+        public static CodeableConcept UNK = new("http://terminology.hl7.org/CodeSystem/v3-NullFlavor", "UNK", "UNK", null);        
+    }
+
+    public class DateEstablishmentApproach
+    {
+        public const string profileUrl = "http://hl7.org/fhir/us/mdi/ValueSet/ValueSet-place-of-death";
+
+        public static CodeableConcept Exact = new("http://hl7.org/fhir/us/mdi/CodeSystem/CodeSystem-mdi-codes", "exact", "Exact", null);
+        public static CodeableConcept Approximate = new("http://hl7.org/fhir/us/mdi/CodeSystem/CodeSystem-mdi-codes", "approximate", "Approximate", null);
+        public static CodeableConcept CourtAppointed = new ("http://hl7.org/fhir/us/mdi/CodeSystem/CodeSystem-mdi-codes", "court-appointed", "Court Appointed", null);
+    }
 }

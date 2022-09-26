@@ -14,14 +14,12 @@ namespace GaTech.Chai.Mdi.ObservationCauseOfDeathPart1Profile
     public class ObservationCauseOfDeathPart1
     {
         readonly Observation observation;
-        readonly Dictionary<string, Resource> resources;
+        readonly static Dictionary<string, Resource> resources = new();
 
         internal ObservationCauseOfDeathPart1(Observation observation)
         {
             this.observation = observation;
             this.observation.Code = new CodeableConcept("http://loinc.org", "69453-9", "Cause of death [US Standard Certificate of Death]", null);
-
-            if (resources == null) resources = new();
         }
 
         /// <summary>
@@ -157,23 +155,6 @@ namespace GaTech.Chai.Mdi.ObservationCauseOfDeathPart1Profile
         }
 
         /// <summary>
-        /// Cause of Death simple read and write.
-        /// value: (valueText, interval) 
-        /// </summary>
-        public (string, string) CauseOfDeathPart1A
-        {
-            get
-            {
-                return (ValueText, Interval);
-            }
-            set
-            {
-                ValueText = value.Item1;
-                Interval = value.Item2;
-            }
-        }
-
-        /// <summary>
         /// setting subject reference and store the resource for future use
         /// </summary>
         public Patient SubjectAsResource
@@ -181,14 +162,14 @@ namespace GaTech.Chai.Mdi.ObservationCauseOfDeathPart1Profile
             get
             {
                 Resource value;
-                this.resources.TryGetValue(this.observation.Subject.Reference, out value);
+                resources.TryGetValue(this.observation.Subject.Reference, out value);
 
                 return (Patient)value;
             }
             set
             {
                 this.observation.Subject = value.AsReference();
-                this.resources.Add(value.AsReference().Reference, value);
+                resources[value.AsReference().Reference] = value;
             }
         }
 
@@ -200,7 +181,7 @@ namespace GaTech.Chai.Mdi.ObservationCauseOfDeathPart1Profile
             get
             {
                 Resource value;
-                this.resources.TryGetValue(this.observation.Performer?[0].Reference, out value);
+                resources.TryGetValue(this.observation.Performer?[0].Reference, out value);
 
                 return (Practitioner)value;
             }
@@ -210,28 +191,12 @@ namespace GaTech.Chai.Mdi.ObservationCauseOfDeathPart1Profile
                 {
                     foreach (ResourceReference reference in this.observation.Performer)
                     {
-                        this.resources.Remove(reference.Reference);
+                        resources.Remove(reference.Reference);
                     }
                     this.observation.Performer.Clear();
                 }
                 this.observation.Performer.Add(value.AsReference());
-                this.resources.Add(value.AsReference().Reference, value);
-            }
-        }
-
-        /// <summary>
-        /// InvervalQuantity for Interval value as a quantity.
-        /// </summary>
-        [Obsolete("Removed from v1.0.0 - CI", true)]
-        public Quantity IntervalQuantity
-        {
-            get
-            {
-                return this.observation.Component?.GetComponent("http://loinc.org", "69440-6").Value as Quantity;
-            }
-            set
-            {
-                this.observation.Component.GetOrAddComponent("http://loinc.org", "69440-6", "Disease onset to death interval").Value = value;
+                resources[value.AsReference().Reference] = value;
             }
         }
     }

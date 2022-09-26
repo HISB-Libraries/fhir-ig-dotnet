@@ -35,9 +35,6 @@ namespace GaTech.Chai.Mdi.ObservationContributingCauseOfDeathPart2Profile
             observation.ObservationContributingCauseOfDeathPart2().SubjectAsResource = subjectResource;
             observation.ObservationContributingCauseOfDeathPart2().PerformerAsResource = performerResource;
 
-            resources.Add(subjectResource.AsReference().Reference, subjectResource);
-            resources.Add(performerResource.AsReference().Reference, performerResource);
-
             return observation;
         }
 
@@ -105,7 +102,7 @@ namespace GaTech.Chai.Mdi.ObservationContributingCauseOfDeathPart2Profile
             set
             {
                 this.observation.Subject = value.AsReference();
-                resources.Add(value.AsReference().Reference, value);
+                resources[value.AsReference().Reference] = value;
             }
         }
 
@@ -132,7 +129,7 @@ namespace GaTech.Chai.Mdi.ObservationContributingCauseOfDeathPart2Profile
                     this.observation.Performer.Clear();
                 }
                 this.observation.Performer.Add(value.AsReference());
-                resources.Add(value.AsReference().Reference, value);
+                resources[value.AsReference().Reference] = value;
             }
         }
     }

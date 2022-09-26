@@ -3,6 +3,8 @@ using Hl7.Fhir.Model;
 using GaTech.Chai.FhirIg.Extensions;
 using System.Collections.Generic;
 using GaTech.Chai.Mdi.CompositionMditoEdrsProfile;
+using GaTech.Chai.Mdi.Common;
+using GaTech.Chai.Mdi.ObservationCauseOfDeathPart1Profile;
 
 namespace GaTech.Chai.Mdi.BundleDocumentMdiToEdrsProfile
 {
@@ -64,6 +66,98 @@ namespace GaTech.Chai.Mdi.BundleDocumentMdiToEdrsProfile
             bundle.RemoveProfile(ProfileUrl);
         }
 
+        public (string, string) CauseOfDeathPart1A
+        {
+            get
+            {
+                foreach (Resource resource in bundle.GetResources())
+                {
+                    if (resource is Observation)
+                    {
+                        Observation ob = (Observation)resource;
+                        if (ob.IsObservationCode("CauseOfDeathPart1"))
+                        {
+                            if (ob.ObservationCauseOfDeathPart1().LineNumber.Value == 1)
+                            {
+                                return (ob.ObservationCauseOfDeathPart1().ValueText, ob.ObservationCauseOfDeathPart1().Interval);
+                            }
+                        }
+                    }
+                }
+
+                return (null, null);
+            }
+        }
+
+        public (string, string) CauseOfDeathPart1B
+        {
+            get
+            {
+                foreach (Resource resource in bundle.GetResources())
+                {
+                    if (resource is Observation)
+                    {
+                        Observation ob = (Observation)resource;
+                        if (ob.IsObservationCode("CauseOfDeathPart1"))
+                        {
+                            if (ob.ObservationCauseOfDeathPart1().LineNumber.Value == 2)
+                            {
+                                return (ob.ObservationCauseOfDeathPart1().ValueText, ob.ObservationCauseOfDeathPart1().Interval);
+                            }
+                        }
+                    }
+                }
+
+                return (null, null);
+            }
+        }
+
+        public (string, string) CauseOfDeathPart1C
+        {
+            get
+            {
+                foreach (Resource resource in bundle.GetResources())
+                {
+                    if (resource is Observation)
+                    {
+                        Observation ob = (Observation)resource;
+                        if (ob.IsObservationCode("CauseOfDeathPart1"))
+                        {
+                            if (ob.ObservationCauseOfDeathPart1().LineNumber.Value == 3)
+                            {
+                                return (ob.ObservationCauseOfDeathPart1().ValueText, ob.ObservationCauseOfDeathPart1().Interval);
+                            }
+                        }
+                    }
+                }
+
+                return (null, null);
+            }
+        }
+
+        public (string, string) CauseOfDeathPart1D
+        {
+            get
+            {
+                foreach (Resource resource in bundle.GetResources())
+                {
+                    if (resource is Observation)
+                    {
+                        Observation ob = (Observation)resource;
+                        if (ob.IsObservationCode("CauseOfDeathPart1"))
+                        {
+                            if (ob.ObservationCauseOfDeathPart1().LineNumber.Value == 4)
+                            {
+                                return (ob.ObservationCauseOfDeathPart1().ValueText, ob.ObservationCauseOfDeathPart1().Interval);
+                            }
+                        }
+                    }
+                }
+
+                return (null, null);
+            }
+        }
+
         public Composition MDItoEDRSComposition
         {
             get
@@ -81,13 +175,14 @@ namespace GaTech.Chai.Mdi.BundleDocumentMdiToEdrsProfile
                 }
 
                 // First entry MUST be composition
-                bundle.Entry.Add(new Bundle.EntryComponent() { FullUrl = value.AsReference().Reference, Resource = value });
+                bundle.AddResourceEntry(value, value.AsReference().Reference);
+                //bundle.Entry.Add(new Bundle.EntryComponent() { FullUrl = value.AsReference().Reference, Resource = value });
 
                 // We have sections in the composition. Add them to entries if we have them.
                 Dictionary<string, Resource> entryResources = value.CompositionMdiToEdrs().GetResourcesInSections();
                 foreach (var urlAndResource in entryResources)
                 {
-                    bundle.Entry.Add(new Bundle.EntryComponent() { FullUrl = urlAndResource.Key, Resource = urlAndResource.Value });
+                    bundle.AddResourceEntry(urlAndResource.Value, urlAndResource.Key);
                 }
             }
         }

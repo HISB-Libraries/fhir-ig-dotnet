@@ -36,9 +36,9 @@ namespace GaTech.Chai.Mdi.CompositionMditoEdrsProfile
 
             if (identifier != null) composition.Identifier = identifier;
             composition.Status = status;
-            if (subject != null) composition.Subject = subject.AsReference();
-            if (author != null) composition.Author.Add(author.AsReference());
-            if (certifier != null) composition.Attester.Add(new AttesterComponent { Party = certifier.AsReference() });
+            if (subject != null) composition.CompositionMdiToEdrs().SubjectAsResource = subject;
+            if (author != null) composition.CompositionMdiToEdrs().AddAuthor(author);
+            if (certifier != null) composition.CompositionMdiToEdrs().Certifier = (certifier, DataAbsentReason.NotApplicable);
 
             return composition;
         }
@@ -75,6 +75,34 @@ namespace GaTech.Chai.Mdi.CompositionMditoEdrsProfile
         public void RemoveProfile()
         {
             composition.RemoveProfile(ProfileUrl);
+        }
+
+        /// <summary>
+        /// Get and Set subject as Patient
+        /// </summary>
+        public Patient SubjectAsResource
+        {
+            get
+            {
+                Resource value;
+                resources.TryGetValue(this.composition.Subject.Reference, out value);
+
+                return (Patient)value;
+            }
+            set
+            {
+                this.composition.Subject = value.AsReference();
+                resources[value.AsReference().Reference] = value;
+            }
+        }
+
+        /// <summary>
+        /// Add Authors
+        /// </summary>
+        public void AddAuthor(Practitioner practitioner)
+        {
+            this.composition.Author.Add(practitioner.AsReference());
+            resources[practitioner.AsReference().Reference] = practitioner;
         }
 
         /// <summary>
@@ -178,8 +206,8 @@ namespace GaTech.Chai.Mdi.CompositionMditoEdrsProfile
                 }
                 else
                 {
-                    resources.Add(value.Item1.AsReference().Reference, value.Item1);
                     this.composition.Attester.Add(new AttesterComponent() { Party = value.Item1.AsReference() });
+                    resources[value.Item1.AsReference().Reference] = value.Item1;
                 }
             }
         }
@@ -224,7 +252,7 @@ namespace GaTech.Chai.Mdi.CompositionMditoEdrsProfile
             foreach (Resource valueResource in value.Item1)
             {
                 references.Add(valueResource.AsReference());
-                resources.Add(valueResource.AsReference().Reference, valueResource);
+                resources[valueResource.AsReference().Reference] = valueResource;
             }
 
             SectionComponent sectionComponent = new() { Code = mdiCodeSystem, Entry = references };
@@ -366,42 +394,54 @@ namespace GaTech.Chai.Mdi.CompositionMditoEdrsProfile
                 AddOrUpdateSection("cause-manner", MdiCodeSystem.MdiCodes.CauseManner.Coding[0].Display, sectionComponent);
 
                 // Cause of Death Part 1
-                foreach (Resource resource in value.Item1)
+                if (value.Item1 != null)
                 {
-                    if (!sectionComponent.Entry.Exists(x => x.Reference.Equals(resource.AsReference().Reference)))
+                    foreach (Resource resource in value.Item1)
                     {
-                        sectionComponent.Entry.Add(resource.AsReference());
-                        resources.Add(resource.AsReference().Reference, resource);
+                        if (!sectionComponent.Entry.Exists(x => x.Reference.Equals(resource.AsReference().Reference)))
+                        {
+                            sectionComponent.Entry.Add(resource.AsReference());
+                            resources.Add(resource.AsReference().Reference, resource);
+                        }
                     }
                 }
 
                 // Contributing Cause of Death Part 2
-                foreach (Resource resource in value.Item2)
+                if (value.Item2 != null)
                 {
-                    if (!sectionComponent.Entry.Exists(x => x.Reference.Equals(resource.AsReference().Reference)))
+                    foreach (Resource resource in value.Item2)
                     {
-                        sectionComponent.Entry.Add(resource.AsReference());
-                        resources.Add(resource.AsReference().Reference, resource);
+                        if (!sectionComponent.Entry.Exists(x => x.Reference.Equals(resource.AsReference().Reference)))
+                        {
+                            sectionComponent.Entry.Add(resource.AsReference());
+                            resources.Add(resource.AsReference().Reference, resource);
+                        }
                     }
                 }
 
                 // Manner of Death
-                foreach (Resource resource in value.Item3)
+                if (value.Item3 != null)
                 {
-                    if (!sectionComponent.Entry.Exists(x => x.Reference.Equals(resource.AsReference().Reference)))
+                    foreach (Resource resource in value.Item3)
                     {
-                        sectionComponent.Entry.Add(resource.AsReference());
-                        resources.Add(resource.AsReference().Reference, resource);
+                        if (!sectionComponent.Entry.Exists(x => x.Reference.Equals(resource.AsReference().Reference)))
+                        {
+                            sectionComponent.Entry.Add(resource.AsReference());
+                            resources.Add(resource.AsReference().Reference, resource);
+                        }
                     }
                 }
 
                 // How Death Injury Occurred
-                foreach (Resource resource in value.Item4)
+                if (value.Item4 != null)
                 {
-                    if (!sectionComponent.Entry.Exists(x => x.Reference.Equals(resource.AsReference().Reference)))
+                    foreach (Resource resource in value.Item4)
                     {
-                        sectionComponent.Entry.Add(resource.AsReference());
-                        resources.Add(resource.AsReference().Reference, resource);
+                        if (!sectionComponent.Entry.Exists(x => x.Reference.Equals(resource.AsReference().Reference)))
+                        {
+                            sectionComponent.Entry.Add(resource.AsReference());
+                            resources.Add(resource.AsReference().Reference, resource);
+                        }
                     }
                 }
 

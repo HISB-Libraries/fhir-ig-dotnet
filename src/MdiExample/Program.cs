@@ -165,6 +165,7 @@ namespace MdiExample
             composition.CompositionMdiToEdrs().MdiCaseNumber = ("urn:connectathon:test", "Case1234");
             composition.CompositionMdiToEdrs().AdditionalDemographics = "Certified Nursing Assistant (CNA) [Nursing Assistants]";
             composition.CompositionMdiToEdrs().Circumstances = (new List<Resource> { deathLocation }, null, null);
+            composition.CompositionMdiToEdrs().CauseManner = (new List<Resource> { causeOfDeath1, causeOfDeath2 }, null, null, null, null);
 
             ////
             // Document Bundle
@@ -174,9 +175,13 @@ namespace MdiExample
                 );
             MdiDocument.TimestampElement = Instant.Now();
 
+            var cod1A = MdiDocument.BundleDocumentMdiToEdrs().CauseOfDeathPart1A;
+            Console.WriteLine("Cause of Death 1A : " + cod1A.Item1);
+            Console.WriteLine("Cause of Death 1A Interval : " + cod1A.Item2);
+
             string output = serializer.SerializeToString(MdiDocument);
             File.WriteAllText(outputPath + "MDItoEDRS_Document.json", output);
-            Console.WriteLine(output);
+            //Console.WriteLine(output);
 
             /////////////////////////// Toxicology Lab Report ///////////////////////////////
             // Specimen for Toxicology
@@ -400,7 +405,7 @@ namespace MdiExample
 
             output = serializer.SerializeToString(bundleMessageToxToMDI);
             File.WriteAllText(outputPath + "ToxToCMS_Message.json", output);
-            Console.WriteLine(output);
+            //Console.WriteLine(output);
         }
     }
 }
