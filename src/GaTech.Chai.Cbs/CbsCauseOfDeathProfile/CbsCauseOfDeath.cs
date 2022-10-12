@@ -1,5 +1,5 @@
 ﻿using Hl7.Fhir.Model;
-using GaTech.Chai.FhirIg.Extensions;
+using GaTech.Chai.Share.Extensions;
 
 namespace GaTech.Chai.Cbs.CauseOfDeathProfile
 {

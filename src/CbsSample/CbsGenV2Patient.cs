@@ -2,7 +2,7 @@
 using GaTech.Chai.UsCbs.PatientProfile;
 using GaTech.Chai.UsCore.PatientProfile;
 using GaTech.Chai.UsPublicHealth.PatientProfile;
-using GaTech.Chai.FhirIg.Extensions;
+using GaTech.Chai.Share.Extensions;
 using Hl7.Fhir.Model;
 using System.Collections.Generic;
 

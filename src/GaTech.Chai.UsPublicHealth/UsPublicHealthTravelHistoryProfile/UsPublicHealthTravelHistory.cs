@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using GaTech.Chai.FhirIg.Extensions;
+using GaTech.Chai.Share.Extensions;
 using Hl7.Fhir.Model;
 
 namespace GaTech.Chai.UsPublicHealth.TravelHistoryProfile

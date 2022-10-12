@@ -1,12 +1,11 @@
 using System;
 using Hl7.Fhir.Model;
-using GaTech.Chai.FhirIg.Extensions;
+using GaTech.Chai.Share.Extensions;
 using static Hl7.Fhir.Model.Composition;
 using GaTech.Chai.Mdi.Common;
 using System.Collections.Generic;
 using Hl7.Fhir.Language.Debugging;
 using Newtonsoft.Json.Linq;
-using GaTech.Chai.Share.Extensions;
 
 namespace GaTech.Chai.Mdi.CompositionMditoEdrsProfile
 {
@@ -29,7 +28,7 @@ namespace GaTech.Chai.Mdi.CompositionMditoEdrsProfile
         /// Factory for CompositionMdiToEdrsProfile
         /// http://hl7.org/fhir/us/mdi/StructureDefinition/Composition-mdi-to-edrs
         /// </summary>
-        public static Composition Create(Identifier identifier, CompositionStatus status, Patient subject, Practitioner author, Practitioner certifier)
+        public static Composition Create(Identifier identifier, CompositionStatus status, Patient subject, Practitioner author, Practitioner certifier, CompositionAttestationMode? attestationMode)
         {
             var composition = new Composition();
             composition.CompositionMdiToEdrs().AddProfile();
@@ -38,7 +37,7 @@ namespace GaTech.Chai.Mdi.CompositionMditoEdrsProfile
             composition.Status = status;
             if (subject != null) composition.CompositionMdiToEdrs().SubjectAsResource = subject;
             if (author != null) composition.CompositionMdiToEdrs().AddAuthor(author);
-            if (certifier != null) composition.CompositionMdiToEdrs().Certifier = (certifier, DataAbsentReason.NotApplicable);
+            if (certifier != null) composition.CompositionMdiToEdrs().Certifier = (attestationMode, certifier, DataAbsentReason.NotApplicable);
 
             return composition;
         }
@@ -169,7 +168,7 @@ namespace GaTech.Chai.Mdi.CompositionMditoEdrsProfile
         /// <summary>
         /// Certifier: sets or gets certifier information
         /// DC certifier is set in Attester. Only one certifiier can exist.
-        public (Resource, DataAbsentReason) Certifier
+        public (CompositionAttestationMode?, Resource, DataAbsentReason) Certifier
         {
             get
             {
@@ -181,15 +180,15 @@ namespace GaTech.Chai.Mdi.CompositionMditoEdrsProfile
                         Extension extension = this.composition.Attester[0].GetExtension("http://hl7.org/fhir/StructureDefinition/data-absent-reason");
                         Code codeValue = extension.Value as Code;
                         DataAbsentReason dataAbsentReason = codeValue.Value.GetEnumValueFromCode<DataAbsentReason>();
-                        return (null, dataAbsentReason);
+                        return (null, null, dataAbsentReason);
                     }
                     else
                     {
-                        return (resource, DataAbsentReason.NotApplicable);
+                        return (composition.Attester[0].Mode, resource, DataAbsentReason.NotApplicable);
                     }
                 }
 
-                return (null, DataAbsentReason.NotApplicable);
+                return (null, null, DataAbsentReason.NotApplicable);
             }
 
             set
@@ -202,16 +201,16 @@ namespace GaTech.Chai.Mdi.CompositionMditoEdrsProfile
                     this.composition.Attester.Clear();
                 }
 
-                if (value.Item1 == null)
+                if (value.Item2 == null)
                 {
                     // Certifier is now empty. Put dataabsentreason.
                     this.composition.Attester.Add(new AttesterComponent() {
-                        Extension = new List<Extension> { new Extension(value.Item2.GetEnumSystem(), new Code(value.Item2.GetEnumCode())) } });
+                        Extension = new List<Extension> { new Extension(value.Item3.GetEnumSystem(), new Code(value.Item3.GetEnumCode())) } });
                 }
                 else
                 {
-                    this.composition.Attester.Add(new AttesterComponent() { Party = value.Item1.AsReference() });
-                    resources[value.Item1.AsReference().Reference] = value.Item1;
+                    this.composition.Attester.Add(new AttesterComponent() { Mode = value.Item1, Party = value.Item2.AsReference() });
+                    resources[value.Item2.AsReference().Reference] = value.Item2;
                 }
             }
         }
@@ -222,7 +221,7 @@ namespace GaTech.Chai.Mdi.CompositionMditoEdrsProfile
         /// <param name="code"></param>
         /// <param name="mdiCodeSystem"></param>
         /// <returns></returns>
-        private (List<Resource>, string, CodeableConcept) GetSectionAndEntry(string code, CodeableConcept mdiCodeSystem)
+        private (List<Resource>, Narrative, CodeableConcept) GetSectionAndEntry(string code, CodeableConcept mdiCodeSystem)
         {
             SectionComponent sectionComponent = GetOrAddSection(code, mdiCodeSystem.Coding[0].Display);
             List<Resource> valueResource = new();
@@ -239,9 +238,7 @@ namespace GaTech.Chai.Mdi.CompositionMditoEdrsProfile
                 }
             }
 
-            string text = sectionComponent.Text?.Div;
-
-            return (valueResource, text, sectionComponent.EmptyReason);
+            return (valueResource, sectionComponent.Text, sectionComponent.EmptyReason);
         }
 
         /// <summary>
@@ -250,25 +247,30 @@ namespace GaTech.Chai.Mdi.CompositionMditoEdrsProfile
         /// <param name="code"></param>
         /// <param name="mdiCodeSystem"></param>
         /// <param name="value"></param>
-        private void SetSectionAndEntry(string code, CodeableConcept mdiCodeSystem, (List<Resource>, string, CodeableConcept) value)
+        private void SetSectionAndEntry(string code, CodeableConcept mdiCodeSystem, (List<Resource>, Narrative, CodeableConcept) value)
         {
             List<ResourceReference> references = new();
-            foreach (Resource valueResource in value.Item1)
+
+            if (value.Item1 != null)
             {
-                references.Add(valueResource.AsReference());
-                resources[valueResource.AsReference().Reference] = valueResource;
+                foreach (Resource valueResource in value.Item1)
+                {
+                    references.Add(valueResource.AsReference());
+                    resources[valueResource.AsReference().Reference] = valueResource;
+                }
             }
 
             SectionComponent sectionComponent = new() { Code = mdiCodeSystem, Entry = references };
             if (value.Item2 != null)
             {
-                sectionComponent.Text = new Narrative() { Div = value.Item2 };
+                sectionComponent.Text = value.Item2;
             }
 
-            if (value.Item1.Count == 0)
+            if (value.Item1 == null || value.Item1.Count == 0)
             {
                 sectionComponent.EmptyReason = value.Item3;
             }
+
             AddOrUpdateSection(code, mdiCodeSystem.Coding[0].Display, sectionComponent);
         }
 
@@ -277,16 +279,15 @@ namespace GaTech.Chai.Mdi.CompositionMditoEdrsProfile
         /// Additional Demographics: gets or sets additional demographics that are not covered by demographics
         ///     value = string of present or past work/occupation
         /// </summary>
-        public string AdditionalDemographics
+        public Narrative AdditionalDemographics
         {
             get
             {
-                Narrative additionalDemNarrative = GetOrAddSection("demographics", MdiCodeSystem.MdiCodes.AdditionalDemographics.Coding[0].Display).Text;
-                return additionalDemNarrative.Div;
+                return GetOrAddSection("demographics", MdiCodeSystem.MdiCodes.AdditionalDemographics.Coding[0].Display).Text;
             }
             set
             {
-                SectionComponent sectionComponent = new() { Code = MdiCodeSystem.MdiCodes.AdditionalDemographics, Text = new Narrative() { Div = value } };
+                SectionComponent sectionComponent = new() { Code = MdiCodeSystem.MdiCodes.AdditionalDemographics, Text = value };
                 AddOrUpdateSection("demographics", MdiCodeSystem.MdiCodes.AdditionalDemographics.Coding[0].Display, sectionComponent);
             }
         }
@@ -300,9 +301,9 @@ namespace GaTech.Chai.Mdi.CompositionMditoEdrsProfile
         ///         Observation - Decedent Pregnancy,
         ///         Location - Injury
         ///     EmptyReasonCode:
-        ///         GaTech.Chai.FhirIg.Common.ListEmptyReason
+        ///         GaTech.Chai.Share.Common.ListEmptyReason
         /// </summary>
-        public (List<Resource>, string, CodeableConcept) Circumstances
+        public (List<Resource>, Narrative, CodeableConcept) Circumstances
         {
             get
             {
@@ -317,14 +318,14 @@ namespace GaTech.Chai.Mdi.CompositionMditoEdrsProfile
 
         /// <summary>
         /// Jurisdiction: gets or sets lists of references for Jurisdiction
-        ///     value = (List<Resource>, EmptyReasonCode)
+        ///     value = (List<Resource>, SectionText, EmptyReasonCode)
         ///     Resource:
         ///         Observation - Death Date,
         ///         Procedure - Death Certification
         ///     EmptyReasonCode:
-        ///         GaTech.Chai.FhirIg.Common.ListEmptyReason
+        ///         GaTech.Chai.Share.Common.ListEmptyReason
         /// </summary>
-        public (List<Resource>, string, CodeableConcept) Jurisdiction
+        public (List<Resource>, Narrative, CodeableConcept) Jurisdiction
         {
             get
             {
@@ -333,7 +334,7 @@ namespace GaTech.Chai.Mdi.CompositionMditoEdrsProfile
 
             set
             {
-                SetSectionAndEntry("jurisdiction", MdiCodeSystem.MdiCodes.AdditionalDemographics, value);
+                SetSectionAndEntry("jurisdiction", MdiCodeSystem.MdiCodes.Jurisdiction, value);
             }
         }
 
@@ -345,7 +346,7 @@ namespace GaTech.Chai.Mdi.CompositionMditoEdrsProfile
         ///         List3 of Resource: Observation - Manner of Death (0..*)
         ///         List4 of Resource: Observation - How Death Injury Occurred (0..*)
         ///         EmptyReasonCode:
-        ///             GaTech.Chai.FhirIg.Common.ListEmptyReaso
+        ///             GaTech.Chai.Share.Common.ListEmptyReaso
         /// </summary>
         public (List<Resource>, List<Resource>, List<Resource>, List<Resource>, CodeableConcept) CauseManner
         {
@@ -465,14 +466,14 @@ namespace GaTech.Chai.Mdi.CompositionMditoEdrsProfile
 
         /// <summary>
         /// MedicalHistory: gets or sets list of relevant medical history.
-        ///     value = (List<ResourceReference>, EmptyReasonCode)
+        ///     value = (List<ResourceReference>, Narrative, EmptyReasonCode)
         ///     Resource:
         ///         US Core Condition Encounter Diagnosis Profile |
         ///         US Core Condition Problems and Health Concerns Profile
         ///     EmptyReasonCode:
-        ///         GaTech.Chai.FhirIg.Common.ListEmptyReason
+        ///         GaTech.Chai.Share.Common.ListEmptyReason
         /// </summary>
-        public (List<Resource>, string, CodeableConcept) MedicalHistory
+        public (List<Resource>, Narrative, CodeableConcept) MedicalHistory
         {
             get
             {
@@ -487,13 +488,13 @@ namespace GaTech.Chai.Mdi.CompositionMditoEdrsProfile
 
         /// <summary>
         /// ExamAutopsy: gets or sets list of Exam Autopsy.
-        ///     value = (List<ResourceReference>, EmptyReasonCode)
+        ///     value = (List<ResourceReference>, Narrative, EmptyReasonCode)
         ///     Resource:
         ///         Observation - Autopsy Performed Indicator
         ///     EmptyReasonCode:
-        ///         GaTech.Chai.FhirIg.Common.ListEmptyReason
+        ///         GaTech.Chai.Share.Common.ListEmptyReason
         /// </summary>
-        public (List<Resource>, string, CodeableConcept) ExamAutopsy
+        public (List<Resource>, Narrative, CodeableConcept) ExamAutopsy
         {
             get
             {

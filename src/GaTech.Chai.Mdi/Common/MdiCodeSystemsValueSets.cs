@@ -102,6 +102,18 @@ namespace GaTech.Chai.Mdi.Common
             public static CodeableConcept FirstOtherRaceLiteral = new(officialUrl, "FirstOtherRaceLiteral", "First Other Race Literal", null);
             public static CodeableConcept SecondOtherRaceLiteral = new(officialUrl, "SecondOtherRaceLiteral", "Second Other Race Literal", null);
         }
+
+        public class DeathPregnancyStatus
+        {
+            public const string officialUrl = "http://hl7.org/fhir/us/mdi/CodeSystem/CodeSystem-death-pregnancy-status";
+
+            public static CodeableConcept NotPregnantPastYear = new(officialUrl, "1", "Not pregnant within past year", null);
+            public static CodeableConcept PregnantAtTimeOfDeath = new(officialUrl, "2", "Pregnant at time of death", null);
+            public static CodeableConcept NotpregnantButPregnant42DaysOfDeath = new(officialUrl, "3", "Not pregnant, but pregnant within 42 days of death", null);
+            public static CodeableConcept NotPregnantButPregnant43DaysTo1YearBeforeDeath = new(officialUrl, "4", "Not pregnant, but pregnant 43 days to 1 year before death", null);
+            public static CodeableConcept UnknownIfPregnantPastYear = new(officialUrl, "9", "Unknown if pregnant within the past year", null);
+            public static CodeableConcept NA = new("http://terminology.hl7.org/CodeSystem/v3-NullFlavor", " NA", "Not applicable", null);
+        }
     }
 
     public class MdiVsYesNoNotApplicable
@@ -152,18 +164,6 @@ namespace GaTech.Chai.Mdi.Common
         public static CodeableConcept DeathmannerUndetermined = new ("http://snomed.info/sct", " 65037004", "Death, manner undetermined (event)", null);
     }
 
-    public class MdiVsDeathPregnancyStatus
-    {
-        public const string officialUrl = "http://hl7.org/fhir/us/mdi/CodeSystem/CodeSystem-death-pregnancy-status";
-
-        public static CodeableConcept NotPregnantPastYear = new (officialUrl, "1", "Not pregnant within past year", null);
-        public static CodeableConcept PregnantAtTimeOfDeath = new (officialUrl, "2", "Pregnant at time of death", null);
-        public static CodeableConcept NotpregnantButPregnant42DaysOfDeath = new (officialUrl, "3", "Not pregnant, but pregnant within 42 days of death", null);
-        public static CodeableConcept NotPregnantButPregnant43DaysTo1YearBeforeDeath = new (officialUrl, "4", "Not pregnant, but pregnant 43 days to 1 year before death", null);
-        public static CodeableConcept UnknownIfPregnantPastYear = new (officialUrl, "9", "Unknown if pregnant within the past year", null);
-        public static CodeableConcept NA = new ("http://terminology.hl7.org/CodeSystem/v3-NullFlavor", " NA", "Not applicable", null);
-    }
-
     public class MdiVsContributoryTobaccoUse
     {
         public static CodeableConcept Yes = new ("http://snomed.info/sct", "373066001", "Yes", null);
@@ -183,11 +183,11 @@ namespace GaTech.Chai.Mdi.Common
         public static CodeableConcept Other = new("http://terminology.hl7.org/CodeSystem/v3-NullFlavor", "OTH", "Other ", null);
     }
 
-    public class MdiPlaceOfDeath
+    public class MdiVsPlaceOfDeath
     {
         public const string officialUrl = "http://hl7.org/fhir/us/mdi/ValueSet/ValueSet-place-of-death";
 
-        public static CodeableConcept DoaAtHospital = new("http://snomed.info/sct", "63238001", "Dead on arrival at hospital", null);
+        public static CodeableConcept DeadOnArrivalAtHospital = new("http://snomed.info/sct", "63238001", "Dead on arrival at hospital", null);
         public static CodeableConcept DeathInHome = new ("http://snomed.info/sct", "440081000124100", "Death in home", null);
         public static CodeableConcept DeathInHospice = new ("http://snomed.info/sct", "440071000124103", "Death in hospice", null);
         public static CodeableConcept DeathInHospital = new ("http://snomed.info/sct", "16983000", "Death in hospital", null);
@@ -197,7 +197,7 @@ namespace GaTech.Chai.Mdi.Common
         public static CodeableConcept UNK = new("http://terminology.hl7.org/CodeSystem/v3-NullFlavor", "UNK", "UNK", null);        
     }
 
-    public class DateEstablishmentApproach
+    public class MdiVsDateEstablishmentApproach
     {
         public const string officialUrl = "http://hl7.org/fhir/us/mdi/ValueSet/ValueSet-place-of-death";
 

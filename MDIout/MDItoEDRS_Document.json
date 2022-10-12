@@ -10,13 +10,13 @@
     "value": "urn:uuid:933dde44f7664b03a20b6324f23986c0"
   },
   "type": "document",
-  "timestamp": "2022-09-24T01:39:54.196291-04:00",
+  "timestamp": "2022-10-12T04:30:59.725866-04:00",
   "entry": [
     {
-      "fullUrl": "Composition/8fcbaeae-abc7-4683-a570-8e72f64183e3",
+      "fullUrl": "Composition/39beace2-4c3d-4f6c-a4b2-1c61806f5ac5",
       "resource": {
         "resourceType": "Composition",
-        "id": "8fcbaeae-abc7-4683-a570-8e72f64183e3",
+        "id": "39beace2-4c3d-4f6c-a4b2-1c61806f5ac5",
         "meta": {
           "profile": [
             "http://hl7.org/fhir/us/mdi/StructureDefinition/Composition-mdi-to-edrs"
@@ -54,19 +54,20 @@
           ]
         },
         "subject": {
-          "reference": "Patient/42327ee6-a097-4ded-a3bb-79771662a2f1"
+          "reference": "Patient/95de8c90-8159-40c2-b425-a323f23988e8"
         },
         "date": "2022-02-20",
         "author": [
           {
-            "reference": "Practitioner/d2f92d2f-ddb1-4383-96e5-0124f973c6d2"
+            "reference": "Practitioner/0b7f5c07-16a9-4f8d-8c9f-d5e5f2830b3b"
           }
         ],
         "title": "MDI to EDRS Composition",
         "attester": [
           {
+            "mode": "official",
             "party": {
-              "reference": "Practitioner/d2f92d2f-ddb1-4383-96e5-0124f973c6d2"
+              "reference": "Practitioner/0b7f5c07-16a9-4f8d-8c9f-d5e5f2830b3b"
             }
           }
         ],
@@ -83,7 +84,8 @@
               ]
             },
             "text": {
-              "div": "Certified Nursing Assistant (CNA) [Nursing Assistants]"
+              "status": "additional",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n  <p>No additional demographic information</p>\n  </div>"
             }
           },
           {
@@ -99,7 +101,27 @@
             },
             "entry": [
               {
-                "reference": "Location/447b6b48-9ea6-4706-89d7-8e2787fbbc5c"
+                "reference": "Location/6cccb623-47ac-4762-a771-68eb584fa783"
+              }
+            ]
+          },
+          {
+            "title": "Jurisdiction Section",
+            "code": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/us/mdi/CodeSystem/CodeSystem-mdi-codes",
+                  "code": "jurisdiction",
+                  "display": "Jurisdiction Section"
+                }
+              ]
+            },
+            "entry": [
+              {
+                "reference": "Observation/5d31e06e-e680-40a3-9e63-47dbc226715a"
+              },
+              {
+                "reference": "Procedure/2d0c8ddc-b491-4088-b8fd-3f203077415b"
               }
             ]
           },
@@ -116,21 +138,52 @@
             },
             "entry": [
               {
-                "reference": "Observation/1c292b9f-8182-42a7-aeb3-dbf5a6822e31"
+                "reference": "Observation/1c42c59c-314d-4892-ae90-2e392bbe0a1a"
               },
               {
-                "reference": "Observation/47b73f48-d13d-4d54-b535-5c3d037b6b41"
+                "reference": "Observation/b32532da-4fa4-4790-9414-a07f832541f3"
+              },
+              {
+                "reference": "Observation/4a359929-105b-4ccc-bf5a-b1a4cf3cddb9"
+              },
+              {
+                "reference": "Observation/3be9a0e1-2b9e-4dfb-809a-8cc77f6d3f98"
               }
             ]
+          },
+          {
+            "title": "Medical History Section",
+            "code": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/us/mdi/CodeSystem/CodeSystem-mdi-codes",
+                  "code": "medical-history",
+                  "display": "Medical History Section"
+                }
+              ]
+            },
+            "text": {
+              "status": "generated",
+              "div": "Medical History is not available"
+            },
+            "emptyReason": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/list-empty-reason",
+                  "code": "unavailable",
+                  "display": "Unavailable"
+                }
+              ]
+            }
           }
         ]
       }
     },
     {
-      "fullUrl": "Patient/42327ee6-a097-4ded-a3bb-79771662a2f1",
+      "fullUrl": "Patient/95de8c90-8159-40c2-b425-a323f23988e8",
       "resource": {
         "resourceType": "Patient",
-        "id": "42327ee6-a097-4ded-a3bb-79771662a2f1",
+        "id": "95de8c90-8159-40c2-b425-a323f23988e8",
         "meta": {
           "profile": [
             "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
@@ -249,10 +302,10 @@
       }
     },
     {
-      "fullUrl": "Practitioner/d2f92d2f-ddb1-4383-96e5-0124f973c6d2",
+      "fullUrl": "Practitioner/0b7f5c07-16a9-4f8d-8c9f-d5e5f2830b3b",
       "resource": {
         "resourceType": "Practitioner",
-        "id": "d2f92d2f-ddb1-4383-96e5-0124f973c6d2",
+        "id": "0b7f5c07-16a9-4f8d-8c9f-d5e5f2830b3b",
         "meta": {
           "profile": [
             "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner"
@@ -279,10 +332,10 @@
       }
     },
     {
-      "fullUrl": "Location/447b6b48-9ea6-4706-89d7-8e2787fbbc5c",
+      "fullUrl": "Location/6cccb623-47ac-4762-a771-68eb584fa783",
       "resource": {
         "resourceType": "Location",
-        "id": "447b6b48-9ea6-4706-89d7-8e2787fbbc5c",
+        "id": "6cccb623-47ac-4762-a771-68eb584fa783",
         "meta": {
           "profile": [
             "http://hl7.org/fhir/us/core/StructureDefinition/us-core-location",
@@ -322,10 +375,131 @@
       }
     },
     {
-      "fullUrl": "Observation/1c292b9f-8182-42a7-aeb3-dbf5a6822e31",
+      "fullUrl": "Observation/5d31e06e-e680-40a3-9e63-47dbc226715a",
       "resource": {
         "resourceType": "Observation",
-        "id": "1c292b9f-8182-42a7-aeb3-dbf5a6822e31",
+        "id": "5d31e06e-e680-40a3-9e63-47dbc226715a",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-death-date"
+          ]
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "81956-5",
+              "display": "Date and time of death [TimeStamp]"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/95de8c90-8159-40c2-b425-a323f23988e8"
+        },
+        "effectiveDateTime": "2022-01-08T15:30:00-05:00",
+        "valueDateTime": "2022-01-08T14:04:00-05:00",
+        "method": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/us/mdi/CodeSystem/CodeSystem-mdi-codes",
+              "code": "exact",
+              "display": "Exact"
+            }
+          ]
+        },
+        "component": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "80616-6",
+                  "display": "Date and time pronounced dead [US Standard Certificate of Death]"
+                }
+              ]
+            },
+            "valueDateTime": "2022-01-08T15:30:00-05:00"
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "58332-8",
+                  "display": "Location of death"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "63238001",
+                  "display": "Dead on arrival at hospital"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Procedure/2d0c8ddc-b491-4088-b8fd-3f203077415b",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "2d0c8ddc-b491-4088-b8fd-3f203077415b",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/mdi/StructureDefinition/Procedure-death-certification"
+          ]
+        },
+        "status": "completed",
+        "category": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "103693007",
+              "display": "Diagnostic procedure"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "308646001",
+              "display": "Death certification"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/95de8c90-8159-40c2-b425-a323f23988e8"
+        },
+        "performedDateTime": "2022-01-08T15:30:00-05:00",
+        "performer": [
+          {
+            "function": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "455381000124109",
+                  "display": "Medical Examiner/Coroner-On the basis of examination, and/or investigation, in my opinion, death occurred at the time, date, and place, and due to the cause(s) and manner stated"
+                }
+              ]
+            },
+            "actor": {
+              "reference": "Practitioner/0b7f5c07-16a9-4f8d-8c9f-d5e5f2830b3b"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Observation/1c42c59c-314d-4892-ae90-2e392bbe0a1a",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "1c42c59c-314d-4892-ae90-2e392bbe0a1a",
         "meta": {
           "profile": [
             "http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-cause-of-death-part1"
@@ -342,11 +516,11 @@
           ]
         },
         "subject": {
-          "reference": "Patient/42327ee6-a097-4ded-a3bb-79771662a2f1"
+          "reference": "Patient/95de8c90-8159-40c2-b425-a323f23988e8"
         },
         "performer": [
           {
-            "reference": "Practitioner/d2f92d2f-ddb1-4383-96e5-0124f973c6d2"
+            "reference": "Practitioner/0b7f5c07-16a9-4f8d-8c9f-d5e5f2830b3b"
           }
         ],
         "valueCodeableConcept": {
@@ -381,10 +555,10 @@
       }
     },
     {
-      "fullUrl": "Observation/47b73f48-d13d-4d54-b535-5c3d037b6b41",
+      "fullUrl": "Observation/b32532da-4fa4-4790-9414-a07f832541f3",
       "resource": {
         "resourceType": "Observation",
-        "id": "47b73f48-d13d-4d54-b535-5c3d037b6b41",
+        "id": "b32532da-4fa4-4790-9414-a07f832541f3",
         "meta": {
           "profile": [
             "http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-cause-of-death-part1"
@@ -401,11 +575,11 @@
           ]
         },
         "subject": {
-          "reference": "Patient/42327ee6-a097-4ded-a3bb-79771662a2f1"
+          "reference": "Patient/95de8c90-8159-40c2-b425-a323f23988e8"
         },
         "performer": [
           {
-            "reference": "Practitioner/d2f92d2f-ddb1-4383-96e5-0124f973c6d2"
+            "reference": "Practitioner/0b7f5c07-16a9-4f8d-8c9f-d5e5f2830b3b"
           }
         ],
         "valueCodeableConcept": {
@@ -435,6 +609,112 @@
               ]
             },
             "valueString": "minutes to hours"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Observation/4a359929-105b-4ccc-bf5a-b1a4cf3cddb9",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "4a359929-105b-4ccc-bf5a-b1a4cf3cddb9",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-contributing-cause-of-death-part2"
+          ]
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "69441-4",
+              "display": "Other significant causes or conditions of death"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/95de8c90-8159-40c2-b425-a323f23988e8"
+        },
+        "performer": [
+          {
+            "reference": "Practitioner/0b7f5c07-16a9-4f8d-8c9f-d5e5f2830b3b"
+          }
+        ],
+        "valueCodeableConcept": {
+          "text": "Hypertensive heart disease"
+        }
+      }
+    },
+    {
+      "fullUrl": "Observation/3be9a0e1-2b9e-4dfb-809a-8cc77f6d3f98",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "3be9a0e1-2b9e-4dfb-809a-8cc77f6d3f98",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-how-death-injury-occurred"
+          ]
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "11374-6",
+              "display": "Injury incident description Narrative"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/95de8c90-8159-40c2-b425-a323f23988e8"
+        },
+        "_effectiveDateTime": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/us/mdi/StructureDefinition/Extension-date-year",
+                  "valueUnsignedInt": 2022
+                },
+                {
+                  "url": "http://hl7.org/fhir/us/mdi/StructureDefinition/Extension-date-month",
+                  "valueUnsignedInt": 2
+                },
+                {
+                  "url": "http://hl7.org/fhir/us/mdi/StructureDefinition/Extension-date-day",
+                  "valueUnsignedInt": 1
+                },
+                {
+                  "url": "http://hl7.org/fhir/us/mdi/StructureDefinition/Extension-date-time",
+                  "valueTime": "12:30:45"
+                }
+              ],
+              "url": "http://hl7.org/fhir/us/mdi/StructureDefinition/Extension-partial-date-time"
+            }
+          ]
+        },
+        "performer": [
+          {
+            "reference": "Practitioner/0b7f5c07-16a9-4f8d-8c9f-d5e5f2830b3b"
+          }
+        ],
+        "valueCodeableConcept": {
+          "text": "Ingested counterfeit medication"
+        },
+        "component": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "69450-5"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "text": "Private House"
+            }
           }
         ]
       }

@@ -1,20 +1,21 @@
 ﻿using System;
 using Hl7.Fhir.Model;
-using GaTech.Chai.FhirIg.Extensions;
+using GaTech.Chai.Share.Extensions;
 using System.Collections.Generic;
+using GaTech.Chai.Mdi.ProcedureDeathCertificationProfile;
 
-namespace GaTech.Chai.Mdi.ProcecureDeathCertificationProfile
+namespace GaTech.Chai.Mdi.ProceDureDeathCertificationProfile
 {
     /// <summary>
     /// ProcecureDeathCertificationProfile
     /// http://hl7.org/fhir/us/mdi/StructureDefinition/Procedure-death-certification
     /// </summary>
-    public class ProcecureDeathCertification
+    public class ProcedureDeathCertification
     {
         readonly Procedure procedure;
         readonly static Dictionary<string, Resource> resources = new();
 
-        internal ProcecureDeathCertification(Procedure procedure)
+        internal ProcedureDeathCertification(Procedure procedure)
         {
             this.procedure = procedure;
             this.procedure.Category = new CodeableConcept("http://snomed.info/sct", "103693007", "Diagnostic procedure", null);
@@ -29,7 +30,7 @@ namespace GaTech.Chai.Mdi.ProcecureDeathCertificationProfile
         {
             var procedure = new Procedure();
 
-            procedure.ProcecureDeathCertification().AddProfile();
+            procedure.ProcedureDeathCertification().AddProfile();
             return procedure;
         }
 
@@ -41,8 +42,8 @@ namespace GaTech.Chai.Mdi.ProcecureDeathCertificationProfile
         {
             var procedure = new Procedure();
 
-            procedure.ProcecureDeathCertification().AddProfile();
-            procedure.ProcecureDeathCertification().SubjectAsResource = subject;
+            procedure.ProcedureDeathCertification().AddProfile();
+            procedure.ProcedureDeathCertification().SubjectAsResource = subject;
 
             return procedure;
         }

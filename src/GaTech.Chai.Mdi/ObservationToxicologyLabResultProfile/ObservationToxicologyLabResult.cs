@@ -1,8 +1,9 @@
 ﻿using System;
 using Hl7.Fhir.Model;
-using GaTech.Chai.FhirIg.Extensions;
+using GaTech.Chai.Share.Extensions;
 using GaTech.Chai.UsCore.LabResultObservationProfile;
 using System.Collections.Generic;
+using GaTech.Chai.Share.Common;
 
 namespace GaTech.Chai.Mdi.ObservationToxicologyLabResultProfile
 {
@@ -18,7 +19,7 @@ namespace GaTech.Chai.Mdi.ObservationToxicologyLabResultProfile
         internal ObservationToxicologyLabResult(Observation observation)
         {
             this.observation = observation;
-            this.observation.UsCoreLabResultObservation().AddProfile();
+            this.observation.Category.SetCategory(CodeSystems.ObservationCategory.Laboratory);
         }
 
         /// <summary>
@@ -36,13 +37,14 @@ namespace GaTech.Chai.Mdi.ObservationToxicologyLabResultProfile
         /// Factory for ObservationToxicologyLabResultProfile with Code Text and valueText
         /// http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-toxicology-lab-result
         /// </summary>
-        public static Observation Create(string codeText, string valueText)
+        public static Observation Create(ObservationStatus status, string codeText, Patient subject)
         {
             var observation = new Observation();
 
             observation.ObservationToxicologyLabResult().AddProfile();
+            observation.Status = status;
             observation.ObservationToxicologyLabResult().CodeText = codeText;
-            observation.ObservationToxicologyLabResult().ValueText = valueText;
+            observation.ObservationToxicologyLabResult().SubjectAsResource = subject;
 
             return observation;
         }
@@ -77,6 +79,25 @@ namespace GaTech.Chai.Mdi.ObservationToxicologyLabResultProfile
             set
             {
                 this.observation.Code = new CodeableConcept { Text = value };
+            }
+        }
+
+        /// <summary>
+        /// Get and Set subject as Patient
+        /// </summary>
+        public Patient SubjectAsResource
+        {
+            get
+            {
+                Resource value;
+                resources.TryGetValue(this.observation.Subject.Reference, out value);
+
+                return (Patient)value;
+            }
+            set
+            {
+                this.observation.Subject = value.AsReference();
+                resources[value.AsReference().Reference] = value;
             }
         }
 

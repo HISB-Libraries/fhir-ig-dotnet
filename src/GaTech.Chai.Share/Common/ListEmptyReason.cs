@@ -1,7 +1,7 @@
 ﻿using System;
 using Hl7.Fhir.Model;
 
-namespace GaTech.Chai.FhirIg.Common
+namespace GaTech.Chai.Share.Common
 {
     /// <summary>
     /// ListEmptyReason

@@ -1,6 +1,6 @@
 ﻿using System;
 using Hl7.Fhir.Model;
-using GaTech.Chai.FhirIg.Extensions;
+using GaTech.Chai.Share.Extensions;
 using GaTech.Chai.Mdi.Common;
 using System.Collections.Generic;
 
@@ -72,7 +72,7 @@ namespace GaTech.Chai.Mdi.ObservationHowDeathInjuryOccurredProfile
         /// Partial DateTime Extension
         /// value should be (year, month, day, time)
         /// </summary>
-        public (DataType /* year */, DataType /* month */, DataType /* day */, DataType) PartialDateTime
+        public (DataType /* year */, DataType /* month */, DataType /* day */, DataType /* time */) PartialDateTime
         {
             get
             {
@@ -139,7 +139,7 @@ namespace GaTech.Chai.Mdi.ObservationHowDeathInjuryOccurredProfile
 
             set
             {
-                Observation.ComponentComponent placeOfInjuryComponent = this.observation.Component.GetOrAddComponent("http://loinc.org", "69450-5", "");
+                Observation.ComponentComponent placeOfInjuryComponent = this.observation.Component.GetOrAddComponent("http://loinc.org", "69450-5", null);
                 placeOfInjuryComponent.Value = value;
             }
         }
@@ -157,7 +157,7 @@ namespace GaTech.Chai.Mdi.ObservationHowDeathInjuryOccurredProfile
 
             set
             {
-                Observation.ComponentComponent workInjuryIndicator = this.observation.Component.GetOrAddComponent("http://loinc.org", "69444-8", "");
+                Observation.ComponentComponent workInjuryIndicator = this.observation.Component.GetOrAddComponent("http://loinc.org", "69444-8", null);
                 workInjuryIndicator.Value = value;
             }
         }
@@ -176,7 +176,7 @@ namespace GaTech.Chai.Mdi.ObservationHowDeathInjuryOccurredProfile
 
             set
             {
-                Observation.ComponentComponent transportationRole = this.observation.Component.GetOrAddComponent("http://loinc.org", "69451-3", "");
+                Observation.ComponentComponent transportationRole = this.observation.Component.GetOrAddComponent("http://loinc.org", "69451-3", null);
                 transportationRole.Value = value.Item1;
                 if (MdiVsTransportationIncidentRole.OTH.Matches(value.Item1))
                 {

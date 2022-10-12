@@ -1,7 +1,7 @@
 ﻿using System;
 using Hl7.Fhir.Model;
 
-namespace GaTech.Chai.FhirIg.Common
+namespace GaTech.Chai.Share.Common
 {
     /// <summary>
     /// Yes No Unknown (YNU) https://phinvads.cdc.gov/vads/ViewValueSet.action?oid=2.16.840.1.114222.4.11.888

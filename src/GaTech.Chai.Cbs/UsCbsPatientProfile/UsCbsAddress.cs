@@ -1,5 +1,5 @@
 ﻿using System;
-using GaTech.Chai.FhirIg.Extensions;
+using GaTech.Chai.Share.Extensions;
 using Hl7.Fhir.Model;
 
 namespace GaTech.Chai.UsCbs.PatientProfile

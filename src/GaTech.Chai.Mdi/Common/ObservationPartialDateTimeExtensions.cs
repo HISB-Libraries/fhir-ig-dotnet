@@ -64,7 +64,12 @@ namespace GaTech.Chai.Mdi.Common
                     .AddExtension("http://hl7.org/fhir/StructureDefinition/data-absent-reason", time);
             }
 
-            FhirDateTime valueDateTime = (FhirDateTime)observation.Value;
+            if (observation.Effective == null)
+            {
+                observation.Effective = new FhirDateTime();
+            }
+
+            FhirDateTime valueDateTime = observation.Effective as FhirDateTime;
             valueDateTime.Extension.Add(partialDateTimeExt);
 
             return partialDateTimeExt;

@@ -1,7 +1,7 @@
 ﻿using System;
 using Hl7.Fhir.Model;
-using GaTech.Chai.FhirIg.Extensions;
-using GaTech.Chai.FhirIg.Common;
+using GaTech.Chai.Share.Extensions;
+using GaTech.Chai.Share.Common;
 using GaTech.Chai.UsCbs.Common;
 
 namespace GaTech.Chai.Cbs.SocialDeterminantsOfHealthProfile

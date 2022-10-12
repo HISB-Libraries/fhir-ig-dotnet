@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Hl7.Fhir.Model;
 
-namespace GaTech.Chai.FhirIg.Extensions
+namespace GaTech.Chai.Share.Extensions
 {
     /// <summary>
     /// ContactPoint extension for Telecom DataAbsentReason

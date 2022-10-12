@@ -1,16 +1,18 @@
-﻿using Hl7.Fhir.Model;
+﻿using GaTech.Chai.Mdi.ProcedureDeathCertificationProfile;
+using GaTech.Chai.Mdi.ProceDureDeathCertificationProfile;
+using Hl7.Fhir.Model;
 
-namespace GaTech.Chai.Mdi.ProcecureDeathCertificationProfile
+namespace GaTech.Chai.Mdi.ProcedureDeathCertificationProfile
 {
     /// <summary>
     /// Class with Procedure extensions for ProcecureDeathCertificationProfile
     /// http://hl7.org/fhir/us/mdi/StructureDefinition/Procedure-death-certification
     /// </summary>
-    public static class ProcecureDeathCertificationExtensions
+    public static class ProcedureDeathCertificationExtensions
     {
-        public static ProcecureDeathCertification ProcecureDeathCertification(this Procedure procedure)
+        public static ProcedureDeathCertification ProcedureDeathCertification(this Procedure procedure)
         {
-            return new ProcecureDeathCertification(procedure);
+            return new ProcedureDeathCertification(procedure);
         }
     }
 }

@@ -1,6 +1,6 @@
 using System;
 using Hl7.Fhir.Model;
-using GaTech.Chai.FhirIg.Extensions;
+using GaTech.Chai.Share.Extensions;
 using System.Collections.Generic;
 using GaTech.Chai.Mdi.MessageHeaderToxicologyToMdiProfile;
 using GaTech.Chai.Mdi.DiagnosticReportToxicologyLabResultToMdiProfile;
@@ -43,7 +43,10 @@ namespace GaTech.Chai.Mdi.BundleMessageToxicologyToMdiProfile
 
             bundle.BundleMessageToxicologyToMdi().AddProfile();
             if (identifier != null) bundle.Identifier = identifier;
-            if (messageHeader != null) 
+            if (messageHeader != null)
+            {
+                bundle.BundleMessageToxicologyToMdi().ToxicologyToMdiMessageHeader = messageHeader;
+            }
 
 
             return bundle;

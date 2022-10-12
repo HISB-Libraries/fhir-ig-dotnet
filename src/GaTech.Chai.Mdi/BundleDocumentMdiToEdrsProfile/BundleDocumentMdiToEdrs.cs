@@ -1,6 +1,6 @@
 using System;
 using Hl7.Fhir.Model;
-using GaTech.Chai.FhirIg.Extensions;
+using GaTech.Chai.Share.Extensions;
 using System.Collections.Generic;
 using GaTech.Chai.Mdi.CompositionMditoEdrsProfile;
 using GaTech.Chai.Mdi.Common;

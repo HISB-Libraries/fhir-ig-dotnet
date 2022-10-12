@@ -1,8 +1,7 @@
 ﻿using System;
 using Hl7.Fhir.Model;
-using GaTech.Chai.FhirIg.Extensions;
-using GaTech.Chai.UsPublicHealth.OrganizationProfile;
 using GaTech.Chai.Share.Extensions;
+using GaTech.Chai.UsPublicHealth.OrganizationProfile;
 using GaTech.Chai.UsCore.OrganizationProfile;
 
 namespace GaTech.Chai.UsCbs.PerformingLaboratoryProfile

@@ -1,6 +1,6 @@
 using System;
 using Hl7.Fhir.Model;
-using GaTech.Chai.FhirIg.Extensions;
+using GaTech.Chai.Share.Extensions;
 using GaTech.Chai.Mdi.Common;
 using GaTech.Chai.UsCore.DiagnosticReportLabProfile;
 using System.Collections.Generic;
@@ -107,7 +107,7 @@ namespace GaTech.Chai.Mdi.DiagnosticReportToxicologyLabResultToMdiProfile
         {
             if (!this.diagnosticReport.Specimen.Contains(specimen.AsReference()))
             {
-                this.diagnosticReport.Specimen.Add(specimen.AsReference());
+                this.diagnosticReport.Specimen.Add(specimen.AsReference(specimen.Type.Text));
             }
 
             resources[specimen.AsReference().Reference] = specimen;
@@ -120,7 +120,7 @@ namespace GaTech.Chai.Mdi.DiagnosticReportToxicologyLabResultToMdiProfile
         {
             if (!this.diagnosticReport.Result.Contains(result.AsReference()))
             {
-                this.diagnosticReport.Result.Add(result.AsReference());
+                this.diagnosticReport.Result.Add(result.AsReference(result.Code.Text));
             }
 
             resources[result.AsReference().Reference] = result;
@@ -186,6 +186,7 @@ namespace GaTech.Chai.Mdi.DiagnosticReportToxicologyLabResultToMdiProfile
 
         /// <summary>
         /// Tracking Number (Toxicology Laboratory Case Number) extension identifier
+        /// (System string, Value string)
         /// </summary>
         public (string, string) ToxLabCaseNumber
         {
