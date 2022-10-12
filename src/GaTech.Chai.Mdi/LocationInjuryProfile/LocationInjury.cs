@@ -5,28 +5,28 @@ using GaTech.Chai.Mdi.Common;
 using GaTech.Chai.UsCore.LocationProfile;
 using System.Collections.Generic;
 
-namespace GaTech.Chai.Mdi.LocationDeathProfile
+namespace GaTech.Chai.Mdi.LocationInjuryProfile
 {
-    public class LocationDeath
+    public class LocationInjury
     {
         readonly Location location;
         readonly static Dictionary<string, Resource> resources = new();
 
-        internal LocationDeath(Location location)
+        internal LocationInjury(Location location)
         {
             this.location = location;
             if (location.Type?.Count > 1)
             {
                 location.Type.Clear();
-                location.Type.Add(MdiCodeSystem.MdiCodes.Death);
+                location.Type.Add(MdiCodeSystem.MdiCodes.Injury);
             }
             else if (location.Type?.Count > 0)
             {
-                location.Type[0] = MdiCodeSystem.MdiCodes.Death;
+                location.Type[0] = MdiCodeSystem.MdiCodes.Injury;
             }
             else
             {
-                location.Type.Add(MdiCodeSystem.MdiCodes.Death);
+                location.Type.Add(MdiCodeSystem.MdiCodes.Injury);
             }
 
             location.UsCoreLocation().AddProfile();
@@ -38,18 +38,18 @@ namespace GaTech.Chai.Mdi.LocationDeathProfile
         public static Location Create()
         {
             var location = new Location();
-            location.LocationDeath().AddProfile();
+            location.LocationInjury().AddProfile();
 
             return location;
         }
 
         /// <summary>
-        /// The official URL for the LocationDeathProfile, used to assert conformance.
+        /// The official URL for the LocationInjuryProfile, used to assert conformance.
         /// </summary>
-        public const string ProfileUrl = "http://hl7.org/fhir/us/mdi/StructureDefinition/Location-death";
+        public const string ProfileUrl = "http://hl7.org/fhir/us/mdi/StructureDefinition/Location-injury";
 
         /// <summary>
-        /// Set profile for the LocationDeathProfile
+        /// Set profile for the LocationInjuryProfile
         /// </summary>
         public void AddProfile()
         {
@@ -57,7 +57,7 @@ namespace GaTech.Chai.Mdi.LocationDeathProfile
         }
 
         /// <summary>
-        /// Clear profile for the LocationDeathProfile
+        /// Clear profile for the LocationInjuryProfile
         /// </summary>
         public void RemoveProfile()
         {
@@ -73,6 +73,18 @@ namespace GaTech.Chai.Mdi.LocationDeathProfile
             set
             {
                 this.location.Address.Text = value;
+            }
+        }
+
+        public (float, float) Position
+        {
+            get
+            {
+                return (((float)this.location.Position?.Latitude), ((float)this.location.Position?.Latitude));
+            }
+            set
+            {
+                this.location.Position = new Location.PositionComponent { Latitude = new decimal(value.Item1), Longitude = new decimal(value.Item2)};
             }
         }
 

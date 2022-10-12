@@ -2,6 +2,7 @@ using System;
 using Hl7.Fhir.Model;
 using GaTech.Chai.FhirIg.Extensions;
 using GaTech.Chai.Mdi.Common;
+using System.Collections.Generic;
 
 namespace GaTech.Chai.Mdi.MessageHeaderToxicologyToMdiProfile
 {
@@ -12,11 +13,12 @@ namespace GaTech.Chai.Mdi.MessageHeaderToxicologyToMdiProfile
     public class MessageHeaderToxicologyToMdi
     {
         readonly MessageHeader messageHeader;
+        readonly static Dictionary<string, Resource> resources = new();
 
         internal MessageHeaderToxicologyToMdi(MessageHeader messageHeader)
         {
             this.messageHeader = messageHeader;
-            messageHeader.Event = MdiCodeSystem.MdiCodes.ToxResultReport.Coding[0];
+            messageHeader.Event = MdiCodeSystem.MdiCodes.ToxResultReport;
         }
 
         /// <summary>
@@ -27,6 +29,21 @@ namespace GaTech.Chai.Mdi.MessageHeaderToxicologyToMdiProfile
         {
             var messageHeader = new MessageHeader();
             messageHeader.MessageHeaderToxicologyToMdi().AddProfile();
+            return messageHeader;
+        }
+
+        /// <summary>
+        /// Factory for MessageHeaderToxicologyToMdiProfile with sourceEndPointUrl and DiagnosticReport
+        /// http://hl7.org/fhir/us/mdi/StructureDefinition/MessageHeader-toxicology-to-mdi
+        /// </summary>
+        public static MessageHeader Create(string sourceEndpointUrlString, DiagnosticReport diagnosticReport)
+        {
+            var messageHeader = new MessageHeader();
+
+            messageHeader.MessageHeaderToxicologyToMdi().AddProfile();
+            messageHeader.Source = new MessageHeader.MessageSourceComponent { Endpoint = sourceEndpointUrlString };
+            messageHeader.MessageHeaderToxicologyToMdi().ToxicologyReport = diagnosticReport;            
+
             return messageHeader;
         }
 
@@ -51,5 +68,33 @@ namespace GaTech.Chai.Mdi.MessageHeaderToxicologyToMdiProfile
             messageHeader.RemoveProfile(ProfileUrl);
         }
 
+        /// <summary>
+        /// adding or getting Focus
+        /// </summary>
+        public DiagnosticReport ToxicologyReport
+        {
+            get
+            {
+                ResourceReference reportReference = this.messageHeader.Focus?[0];
+                if (reportReference != null)
+                {
+                    return (DiagnosticReport) resources[reportReference.Reference];
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            set
+            {
+                this.messageHeader.Focus = new List<ResourceReference>() { value.AsReference() };
+                resources[value.AsReference().Reference] = value;
+            }
+        }
+        
+        public Dictionary<String, Resource> GetResourcesInFocus()
+        {
+            return resources;
+        }
     }
 }

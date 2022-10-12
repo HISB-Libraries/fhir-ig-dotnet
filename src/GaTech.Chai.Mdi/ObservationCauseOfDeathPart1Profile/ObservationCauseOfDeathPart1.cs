@@ -56,6 +56,21 @@ namespace GaTech.Chai.Mdi.ObservationCauseOfDeathPart1Profile
         }
 
         /// <summary>
+        /// Factory for ObservationCauseOfDeathConditionProfile with a subject.
+        /// Required parameters MUST be initiated maunally. 
+        /// http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-cause-of-death-condition
+        /// </summary>
+        public static Observation Create(Patient subject)
+        {
+            var observation = new Observation();
+
+            observation.ObservationCauseOfDeathPart1().AddProfile();
+            observation.ObservationCauseOfDeathPart1().SubjectAsResource = subject;
+
+            return observation;
+        }
+
+        /// <summary>
         /// The official URL for the ObservationCauseOfDeathConditionProfile, used to assert conformance.
         /// </summary>
         public const string ProfileUrl = "http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-cause-of-death-part1";
@@ -198,6 +213,11 @@ namespace GaTech.Chai.Mdi.ObservationCauseOfDeathPart1Profile
                 this.observation.Performer.Add(value.AsReference());
                 resources[value.AsReference().Reference] = value;
             }
+        }
+
+        public Dictionary<String, Resource> GetReferencedResources()
+        {
+            return resources;
         }
     }
 }

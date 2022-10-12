@@ -108,5 +108,86 @@ namespace GaTech.Chai.Mdi.ObservationHowDeathInjuryOccurredProfile
                 resources[value.AsReference().Reference] = value;
             }
         }
+
+        /// <summary>
+        /// setting or getting text value of how death injury occurred
+        /// </summary>
+        public string HowInjuredDescription
+        {
+            get
+            {
+                CodeableConcept valueCodeableConcept = (CodeableConcept) this.observation.Value;
+                return valueCodeableConcept.Text;
+            }
+
+            set
+            {
+                this.observation.Value = new CodeableConcept() { Text = value };
+            }
+        }
+
+        /// <summary>
+        /// setting or getting placeOfInjury component value
+        /// </summary>
+        public DataType PlaceOfInjury
+        {
+            get
+            {
+                Observation.ComponentComponent placeOfInjuryComponent = this.observation.Component.GetComponent("http://loinc.org", "69450-5");
+                return placeOfInjuryComponent?.Value;
+            }
+
+            set
+            {
+                Observation.ComponentComponent placeOfInjuryComponent = this.observation.Component.GetOrAddComponent("http://loinc.org", "69450-5", "");
+                placeOfInjuryComponent.Value = value;
+            }
+        }
+
+        /// <summary>
+        /// setting or getting workInjuryIndicator component value
+        /// </summary>
+        public CodeableConcept WorkInjuryIndicator
+        {
+            get
+            {
+                Observation.ComponentComponent workInjuryIndicator = this.observation.Component.GetComponent("http://loinc.org", "69444-8");
+                return workInjuryIndicator?.Value as CodeableConcept;
+            }
+
+            set
+            {
+                Observation.ComponentComponent workInjuryIndicator = this.observation.Component.GetOrAddComponent("http://loinc.org", "69444-8", "");
+                workInjuryIndicator.Value = value;
+            }
+        }
+
+        /// <summary>
+        /// setting or getting transportationRole component value
+        /// </summary>
+        public (CodeableConcept, string) TransportationRole
+        {
+            get
+            {
+                Observation.ComponentComponent transportationRole = this.observation.Component.GetComponent("http://loinc.org", "69451-3");
+                CodeableConcept retValue = transportationRole?.Value as CodeableConcept;
+                return (retValue, retValue?.Text);
+            }
+
+            set
+            {
+                Observation.ComponentComponent transportationRole = this.observation.Component.GetOrAddComponent("http://loinc.org", "69451-3", "");
+                transportationRole.Value = value.Item1;
+                if (MdiVsTransportationIncidentRole.OTH.Matches(value.Item1))
+                {
+                    (transportationRole.Value as CodeableConcept).Text = value.Item2;
+                }
+            }
+        }
+
+        public Dictionary<String, Resource> GetReferencedResources()
+        {
+            return resources;
+        }
     }
 }

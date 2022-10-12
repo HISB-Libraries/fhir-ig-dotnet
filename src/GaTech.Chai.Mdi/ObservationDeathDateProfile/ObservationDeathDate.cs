@@ -132,5 +132,10 @@ namespace GaTech.Chai.Mdi.ObservationDeathDateProfile
                 resources[value.AsReference().Reference] = value;
             }
         }
+
+        public Dictionary<String, Resource> GetReferencedResources()
+        {
+            return resources;
+        }
     }
 }

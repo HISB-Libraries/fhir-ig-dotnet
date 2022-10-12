@@ -2,6 +2,7 @@
 using Hl7.Fhir.Model;
 using GaTech.Chai.FhirIg.Extensions;
 using GaTech.Chai.UsCore.LabResultObservationProfile;
+using System.Collections.Generic;
 
 namespace GaTech.Chai.Mdi.ObservationToxicologyLabResultProfile
 {
@@ -12,6 +13,7 @@ namespace GaTech.Chai.Mdi.ObservationToxicologyLabResultProfile
     public class ObservationToxicologyLabResult
     {
         readonly Observation observation;
+        readonly static Dictionary<string, Resource> resources = new();
 
         internal ObservationToxicologyLabResult(Observation observation)
         {
@@ -27,6 +29,21 @@ namespace GaTech.Chai.Mdi.ObservationToxicologyLabResultProfile
         {
             var observation = new Observation();
             observation.ObservationToxicologyLabResult().AddProfile();
+            return observation;
+        }
+
+        /// <summary>
+        /// Factory for ObservationToxicologyLabResultProfile with Code Text and valueText
+        /// http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-toxicology-lab-result
+        /// </summary>
+        public static Observation Create(string codeText, string valueText)
+        {
+            var observation = new Observation();
+
+            observation.ObservationToxicologyLabResult().AddProfile();
+            observation.ObservationToxicologyLabResult().CodeText = codeText;
+            observation.ObservationToxicologyLabResult().ValueText = valueText;
+
             return observation;
         }
 
@@ -49,6 +66,43 @@ namespace GaTech.Chai.Mdi.ObservationToxicologyLabResultProfile
         public void RemoveProfile()
         {
             this.observation.RemoveProfile(ProfileUrl);
+        }
+
+        public string CodeText
+        {
+            get
+            {
+                return this.observation.Code?.Text;
+            }
+            set
+            {
+                this.observation.Code = new CodeableConcept { Text = value };
+            }
+        }
+
+        public string ValueText
+        {
+            get
+            {
+                FhirString valueString = this.observation.Value as FhirString;
+                if (valueString != null)
+                {
+                    return valueString.Value;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            set
+            {
+                this.observation.Value = new FhirString(value);
+            }
+        }
+
+        public Dictionary<String, Resource> GetReferencedResources()
+        {
+            return resources;
         }
     }
 }

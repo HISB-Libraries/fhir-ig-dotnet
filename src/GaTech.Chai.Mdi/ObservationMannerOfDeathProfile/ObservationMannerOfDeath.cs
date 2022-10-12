@@ -1,6 +1,7 @@
 ﻿using System;
 using Hl7.Fhir.Model;
 using GaTech.Chai.FhirIg.Extensions;
+using System.Collections.Generic;
 
 namespace GaTech.Chai.Mdi.ObservationMannerOfDeathProfile
 {
@@ -11,6 +12,7 @@ namespace GaTech.Chai.Mdi.ObservationMannerOfDeathProfile
     public class ObservationMannerOfDeath
     {
         readonly Observation observation;
+        readonly static Dictionary<string, Resource> resources = new();
 
         internal ObservationMannerOfDeath(Observation observation)
         {
@@ -27,6 +29,21 @@ namespace GaTech.Chai.Mdi.ObservationMannerOfDeathProfile
         {
             var observation = new Observation();
             observation.ObservationMannerOfDeath().AddProfile();
+            return observation;
+        }
+
+        /// <summary>
+        /// Factory for ObservationMannerOfDeathProfile with a patient
+        /// http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-manner-of-death
+        /// </summary>
+        public static Observation Create(Patient subject, Practitioner certifier)
+        {
+            var observation = new Observation();
+
+            observation.ObservationMannerOfDeath().AddProfile();
+            observation.ObservationMannerOfDeath().SubjectAsResource = subject;
+            observation.ObservationMannerOfDeath().Certifier = certifier;
+
             return observation;
         }
 
@@ -49,6 +66,63 @@ namespace GaTech.Chai.Mdi.ObservationMannerOfDeathProfile
         public void RemoveProfile()
         {
             this.observation.RemoveProfile(ProfileUrl);
+        }
+
+        /// <summary>
+        /// setting subject reference and store the resource for future use
+        /// </summary>
+        public Patient SubjectAsResource
+        {
+            get
+            {
+                Resource value;
+                resources.TryGetValue(this.observation.Subject.Reference, out value);
+
+                return (Patient)value;
+            }
+            set
+            {
+                this.observation.Subject = value.AsReference();
+                resources[value.AsReference().Reference] = value;
+            }
+        }
+
+        /// <summary>
+        /// setting subject reference and store the resource for future use
+        /// </summary>
+        public Practitioner Certifier
+        {
+            get
+            {
+                Resource value;
+                resources.TryGetValue(this.observation.Performer?[0].Reference, out value);
+
+                return (Practitioner) value;
+            }
+            set
+            {
+                this.observation.Performer = new List<ResourceReference> { value.AsReference() };
+            }
+        }
+
+        /// <summary>
+        /// setting or getting valueCodeableConcept
+        /// </summary>
+        public CodeableConcept Value
+        {
+            get
+            {
+                return this.observation.Value as CodeableConcept;
+            }
+            set
+            {
+                this.observation.Value = value;
+            }
+        }
+
+        public Dictionary<String, Resource> GetReferencedResources()
+        {
+            return resources;
         }
     }
 }

@@ -1,6 +1,9 @@
 ﻿using System;
 using Hl7.Fhir.Model;
 using GaTech.Chai.FhirIg.Extensions;
+using System.Collections.Generic;
+using System.Resources;
+using GaTech.Chai.Mdi.ObservationDecedentPregnancyProfile;
 
 namespace GaTech.Chai.Mdi.ObservationTobaccoUseContributedToDeathProfile
 {
@@ -11,6 +14,7 @@ namespace GaTech.Chai.Mdi.ObservationTobaccoUseContributedToDeathProfile
     public class ObservationTobaccoUseContributedToDeath
     {
         readonly Observation observation;
+        readonly static Dictionary<string, Resource> resources = new();
 
         internal ObservationTobaccoUseContributedToDeath(Observation observation)
         {
@@ -27,6 +31,20 @@ namespace GaTech.Chai.Mdi.ObservationTobaccoUseContributedToDeathProfile
         {
             var observation = new Observation();
             observation.ObservationTobaccoUseContributedToDeath().AddProfile();
+            return observation;
+        }
+
+        /// <summary>
+        /// Factory for ObservationTobaccoUseContributedToDeathProfile with Patient
+        /// http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-tobacco-use-contributed-to-death
+        /// </summary>
+        public static Observation Create(Patient subject)
+        {
+            var observation = new Observation();
+
+            observation.ObservationTobaccoUseContributedToDeath().AddProfile();
+            observation.ObservationTobaccoUseContributedToDeath().SubjectAsResource = subject;
+
             return observation;
         }
 
@@ -49,6 +67,45 @@ namespace GaTech.Chai.Mdi.ObservationTobaccoUseContributedToDeathProfile
         public void RemoveProfile()
         {
             this.observation.RemoveProfile(ProfileUrl);
+        }
+
+        /// <summary>
+        /// setting subject reference and store the resource for future use
+        /// </summary>
+        public Patient SubjectAsResource
+        {
+            get
+            {
+                Resource value;
+                resources.TryGetValue(this.observation.Subject.Reference, out value);
+
+                return (Patient)value;
+            }
+            set
+            {
+                this.observation.Subject = value.AsReference();
+                resources[value.AsReference().Reference] = value;
+            }
+        }
+
+        /// <summary>
+        /// setting or getting valueCodeableConcept
+        /// </summary>
+        public CodeableConcept Value
+        {
+            get
+            {
+                return this.observation.Value as CodeableConcept;
+            }
+            set
+            {
+                this.observation.Value = value;
+            }
+        }
+
+        public Dictionary<String, Resource> GetReferencedResources()
+        {
+            return resources;
         }
     }
 }

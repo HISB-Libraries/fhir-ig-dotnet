@@ -1,6 +1,8 @@
 using System;
 using Hl7.Fhir.Model;
 using GaTech.Chai.FhirIg.Extensions;
+using System.Resources;
+using System.Collections.Generic;
 
 namespace GaTech.Chai.Mdi.SpecimenToxicologyLabProfile
 {
@@ -11,6 +13,7 @@ namespace GaTech.Chai.Mdi.SpecimenToxicologyLabProfile
     public class SpecimenToxicologyLab
     {
         readonly Specimen specimen;
+        readonly static Dictionary<string, Resource> resources = new();
 
         internal SpecimenToxicologyLab(Specimen specimen)
         {
@@ -25,6 +28,21 @@ namespace GaTech.Chai.Mdi.SpecimenToxicologyLabProfile
         {
             var specimen = new Specimen();
             specimen.SpecimenToxicologyLab().AddProfile();
+            return specimen;
+        }
+
+        /// <summary>
+        /// Factory for SpecimenToxicologyLabProfile with type and subject
+        /// http://hl7.org/fhir/us/mdi/StructureDefinition/Specimen-toxicology-lab
+        /// </summary>
+        public static Specimen Create(string typeText, Patient subject)
+        {
+            var specimen = new Specimen();
+
+            specimen.SpecimenToxicologyLab().AddProfile();
+            specimen.SpecimenToxicologyLab().SubjectAsResource = subject;
+            specimen.SpecimenToxicologyLab().SpecimenTypeText = typeText;
+
             return specimen;
         }
 
@@ -47,6 +65,45 @@ namespace GaTech.Chai.Mdi.SpecimenToxicologyLabProfile
         public void RemoveProfile()
         {
             specimen.RemoveProfile(ProfileUrl);
+        }
+
+        /// <summary>
+        /// Get and Set subject as Patient
+        /// </summary>
+        public Patient SubjectAsResource
+        {
+            get
+            {
+                Resource value;
+                resources.TryGetValue(this.specimen.Subject.Reference, out value);
+
+                return (Patient)value;
+            }
+            set
+            {
+                this.specimen.Subject = value.AsReference();
+                resources[value.AsReference().Reference] = value;
+            }
+        }
+
+        /// <summary>
+        /// setting or getting of SpecimenTypeText
+        /// </summary>
+        public string SpecimenTypeText
+        {
+            get
+            {
+                return this.specimen.Type?.Text;
+            }
+            set
+            {
+                this.specimen.Type = new CodeableConcept { Text = value };
+            }
+        }
+
+        public Dictionary<String, Resource> GetReferencedResources()
+        {
+            return resources;
         }
     }
 }

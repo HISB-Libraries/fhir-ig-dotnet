@@ -101,7 +101,11 @@ namespace GaTech.Chai.Mdi.CompositionMditoEdrsProfile
         /// </summary>
         public void AddAuthor(Practitioner practitioner)
         {
-            this.composition.Author.Add(practitioner.AsReference());
+            if (!this.composition.Author.Contains(practitioner.AsReference()))
+            {
+                this.composition.Author.Add(practitioner.AsReference());
+            }
+
             resources[practitioner.AsReference().Reference] = practitioner;
         }
 

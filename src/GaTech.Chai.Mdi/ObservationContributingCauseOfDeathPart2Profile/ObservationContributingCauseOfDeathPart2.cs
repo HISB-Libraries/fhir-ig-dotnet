@@ -132,5 +132,10 @@ namespace GaTech.Chai.Mdi.ObservationContributingCauseOfDeathPart2Profile
                 resources[value.AsReference().Reference] = value;
             }
         }
+
+        public Dictionary<String, Resource> GetReferencedResources()
+        {
+            return resources;
+        }
     }
 }

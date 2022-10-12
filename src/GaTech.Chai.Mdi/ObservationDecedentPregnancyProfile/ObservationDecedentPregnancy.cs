@@ -1,6 +1,7 @@
 ﻿using System;
 using Hl7.Fhir.Model;
 using GaTech.Chai.FhirIg.Extensions;
+using System.Collections.Generic;
 
 namespace GaTech.Chai.Mdi.ObservationDecedentPregnancyProfile
 {
@@ -11,6 +12,7 @@ namespace GaTech.Chai.Mdi.ObservationDecedentPregnancyProfile
     public class ObservationDecedentPregnancy
     {
         readonly Observation observation;
+        readonly static Dictionary<string, Resource> resources = new();
 
         internal ObservationDecedentPregnancy(Observation observation)
         {
@@ -26,7 +28,22 @@ namespace GaTech.Chai.Mdi.ObservationDecedentPregnancyProfile
         public static Observation Create()
         {
             var observation = new Observation();
+
             observation.ObservationDecedentPregnancy().AddProfile();
+            return observation;
+        }
+
+        /// <summary>
+        /// Factory for ObservationDecedentPregnancyProfile with Subject
+        /// http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-decedent-pregnancy
+        /// </summary>
+        public static Observation Create(Patient subject)
+        {
+            var observation = new Observation();
+
+            observation.ObservationDecedentPregnancy().AddProfile();
+            observation.ObservationDecedentPregnancy().SubjectAsResource = subject;
+
             return observation;
         }
 
@@ -49,6 +66,45 @@ namespace GaTech.Chai.Mdi.ObservationDecedentPregnancyProfile
         public void RemoveProfile()
         {
             this.observation.RemoveProfile(ProfileUrl);
+        }
+
+        /// <summary>
+        /// setting subject reference and store the resource for future use
+        /// </summary>
+        public Patient SubjectAsResource
+        {
+            get
+            {
+                Resource value;
+                resources.TryGetValue(this.observation.Subject.Reference, out value);
+
+                return (Patient)value;
+            }
+            set
+            {
+                this.observation.Subject = value.AsReference();
+                resources[value.AsReference().Reference] = value;
+            }
+        }
+
+        /// <summary>
+        /// setting or getting valueCodeableConcept
+        /// </summary>
+        public CodeableConcept Value
+        {
+            get
+            {
+                return this.observation.Value as CodeableConcept;
+            }
+            set
+            {
+                this.observation.Value = value;
+            }
+        }
+
+        public Dictionary<String, Resource> GetReferencedResources()
+        {
+            return resources;
         }
     }
 }
