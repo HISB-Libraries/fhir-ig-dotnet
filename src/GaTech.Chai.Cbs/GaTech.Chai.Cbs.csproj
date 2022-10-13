@@ -6,7 +6,7 @@
 	<PackageVersion>0.2.1</PackageVersion>
 	<Authors>Brian Ritchie, Myung Choi</Authors>
 	<PackageProjectUrl>https://cbsig.chai.gatech.edu/</PackageProjectUrl>
-	<Description>.NET Library for Case Based Surveillance FHIR IG v0.2.1</Description>
+	<Description>.NET Library for Case Based Surveillance (CBS) FHIR IG v0.2.1</Description>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <NeutralLanguage>en-US</NeutralLanguage>
     <PackageTags>FHIR, CBS, IG</PackageTags>
