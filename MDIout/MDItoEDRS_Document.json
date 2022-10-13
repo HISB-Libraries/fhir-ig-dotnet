@@ -10,13 +10,13 @@
     "value": "urn:uuid:933dde44f7664b03a20b6324f23986c0"
   },
   "type": "document",
-  "timestamp": "2022-10-12T04:30:59.725866-04:00",
+  "timestamp": "2022-10-13T01:42:26.698068-04:00",
   "entry": [
     {
-      "fullUrl": "Composition/39beace2-4c3d-4f6c-a4b2-1c61806f5ac5",
+      "fullUrl": "Composition/ec354e55-428f-425b-965c-52604ecfd9fb",
       "resource": {
         "resourceType": "Composition",
-        "id": "39beace2-4c3d-4f6c-a4b2-1c61806f5ac5",
+        "id": "ec354e55-428f-425b-965c-52604ecfd9fb",
         "meta": {
           "profile": [
             "http://hl7.org/fhir/us/mdi/StructureDefinition/Composition-mdi-to-edrs"
@@ -54,12 +54,12 @@
           ]
         },
         "subject": {
-          "reference": "Patient/95de8c90-8159-40c2-b425-a323f23988e8"
+          "reference": "Patient/c54184dd-9d16-488b-b58c-6013f35a6042"
         },
         "date": "2022-02-20",
         "author": [
           {
-            "reference": "Practitioner/0b7f5c07-16a9-4f8d-8c9f-d5e5f2830b3b"
+            "reference": "Practitioner/674b5d4b-bfd0-4e96-9416-a8265e2453f1"
           }
         ],
         "title": "MDI to EDRS Composition",
@@ -67,7 +67,7 @@
           {
             "mode": "official",
             "party": {
-              "reference": "Practitioner/0b7f5c07-16a9-4f8d-8c9f-d5e5f2830b3b"
+              "reference": "Practitioner/674b5d4b-bfd0-4e96-9416-a8265e2453f1"
             }
           }
         ],
@@ -101,7 +101,7 @@
             },
             "entry": [
               {
-                "reference": "Location/6cccb623-47ac-4762-a771-68eb584fa783"
+                "reference": "Location/1c213948-bf02-44cb-81c8-5e2a8c0f2dcf"
               }
             ]
           },
@@ -118,10 +118,10 @@
             },
             "entry": [
               {
-                "reference": "Observation/5d31e06e-e680-40a3-9e63-47dbc226715a"
+                "reference": "Observation/faaa134d-8fd1-4467-8a03-60bf35dd5c45"
               },
               {
-                "reference": "Procedure/2d0c8ddc-b491-4088-b8fd-3f203077415b"
+                "reference": "Procedure/c7093461-f2f5-452a-b4f9-63f79690fdff"
               }
             ]
           },
@@ -138,16 +138,16 @@
             },
             "entry": [
               {
-                "reference": "Observation/1c42c59c-314d-4892-ae90-2e392bbe0a1a"
+                "reference": "Observation/bd1690a2-b2b2-44b6-83cb-f6f6db2a197e"
               },
               {
-                "reference": "Observation/b32532da-4fa4-4790-9414-a07f832541f3"
+                "reference": "Observation/7b08a636-e592-44dc-b185-00731dec0f20"
               },
               {
-                "reference": "Observation/4a359929-105b-4ccc-bf5a-b1a4cf3cddb9"
+                "reference": "Observation/554e058a-3acd-495d-8cc9-a6d030399372"
               },
               {
-                "reference": "Observation/3be9a0e1-2b9e-4dfb-809a-8cc77f6d3f98"
+                "reference": "Observation/d1ba9c83-a722-4970-9b8b-f1e16a6e5573"
               }
             ]
           },
@@ -180,10 +180,10 @@
       }
     },
     {
-      "fullUrl": "Patient/95de8c90-8159-40c2-b425-a323f23988e8",
+      "fullUrl": "Patient/c54184dd-9d16-488b-b58c-6013f35a6042",
       "resource": {
         "resourceType": "Patient",
-        "id": "95de8c90-8159-40c2-b425-a323f23988e8",
+        "id": "c54184dd-9d16-488b-b58c-6013f35a6042",
         "meta": {
           "profile": [
             "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
@@ -252,13 +252,12 @@
               "coding": [
                 {
                   "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
-                  "code": "SS",
-                  "display": "Social Security number"
+                  "code": "SB",
+                  "display": "Social Beneficiary Identifier"
                 }
-              ],
-              "text": "Social Security number"
+              ]
             },
-            "system": "http://hospital.smarthealthit.org",
+            "system": "http://hl7.org/fhir/sid/us-ssn",
             "value": "987054321"
           }
         ],
@@ -302,10 +301,10 @@
       }
     },
     {
-      "fullUrl": "Practitioner/0b7f5c07-16a9-4f8d-8c9f-d5e5f2830b3b",
+      "fullUrl": "Practitioner/674b5d4b-bfd0-4e96-9416-a8265e2453f1",
       "resource": {
         "resourceType": "Practitioner",
-        "id": "0b7f5c07-16a9-4f8d-8c9f-d5e5f2830b3b",
+        "id": "674b5d4b-bfd0-4e96-9416-a8265e2453f1",
         "meta": {
           "profile": [
             "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner"
@@ -332,13 +331,12 @@
       }
     },
     {
-      "fullUrl": "Location/6cccb623-47ac-4762-a771-68eb584fa783",
+      "fullUrl": "Location/1c213948-bf02-44cb-81c8-5e2a8c0f2dcf",
       "resource": {
         "resourceType": "Location",
-        "id": "6cccb623-47ac-4762-a771-68eb584fa783",
+        "id": "1c213948-bf02-44cb-81c8-5e2a8c0f2dcf",
         "meta": {
           "profile": [
-            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-location",
             "http://hl7.org/fhir/us/mdi/StructureDefinition/Location-death"
           ]
         },
@@ -375,10 +373,10 @@
       }
     },
     {
-      "fullUrl": "Observation/5d31e06e-e680-40a3-9e63-47dbc226715a",
+      "fullUrl": "Observation/faaa134d-8fd1-4467-8a03-60bf35dd5c45",
       "resource": {
         "resourceType": "Observation",
-        "id": "5d31e06e-e680-40a3-9e63-47dbc226715a",
+        "id": "faaa134d-8fd1-4467-8a03-60bf35dd5c45",
         "meta": {
           "profile": [
             "http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-death-date"
@@ -395,7 +393,7 @@
           ]
         },
         "subject": {
-          "reference": "Patient/95de8c90-8159-40c2-b425-a323f23988e8"
+          "reference": "Patient/c54184dd-9d16-488b-b58c-6013f35a6042"
         },
         "effectiveDateTime": "2022-01-08T15:30:00-05:00",
         "valueDateTime": "2022-01-08T14:04:00-05:00",
@@ -445,10 +443,10 @@
       }
     },
     {
-      "fullUrl": "Procedure/2d0c8ddc-b491-4088-b8fd-3f203077415b",
+      "fullUrl": "Procedure/c7093461-f2f5-452a-b4f9-63f79690fdff",
       "resource": {
         "resourceType": "Procedure",
-        "id": "2d0c8ddc-b491-4088-b8fd-3f203077415b",
+        "id": "c7093461-f2f5-452a-b4f9-63f79690fdff",
         "meta": {
           "profile": [
             "http://hl7.org/fhir/us/mdi/StructureDefinition/Procedure-death-certification"
@@ -474,7 +472,7 @@
           ]
         },
         "subject": {
-          "reference": "Patient/95de8c90-8159-40c2-b425-a323f23988e8"
+          "reference": "Patient/c54184dd-9d16-488b-b58c-6013f35a6042"
         },
         "performedDateTime": "2022-01-08T15:30:00-05:00",
         "performer": [
@@ -489,17 +487,17 @@
               ]
             },
             "actor": {
-              "reference": "Practitioner/0b7f5c07-16a9-4f8d-8c9f-d5e5f2830b3b"
+              "reference": "Practitioner/674b5d4b-bfd0-4e96-9416-a8265e2453f1"
             }
           }
         ]
       }
     },
     {
-      "fullUrl": "Observation/1c42c59c-314d-4892-ae90-2e392bbe0a1a",
+      "fullUrl": "Observation/bd1690a2-b2b2-44b6-83cb-f6f6db2a197e",
       "resource": {
         "resourceType": "Observation",
-        "id": "1c42c59c-314d-4892-ae90-2e392bbe0a1a",
+        "id": "bd1690a2-b2b2-44b6-83cb-f6f6db2a197e",
         "meta": {
           "profile": [
             "http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-cause-of-death-part1"
@@ -516,11 +514,11 @@
           ]
         },
         "subject": {
-          "reference": "Patient/95de8c90-8159-40c2-b425-a323f23988e8"
+          "reference": "Patient/c54184dd-9d16-488b-b58c-6013f35a6042"
         },
         "performer": [
           {
-            "reference": "Practitioner/0b7f5c07-16a9-4f8d-8c9f-d5e5f2830b3b"
+            "reference": "Practitioner/674b5d4b-bfd0-4e96-9416-a8265e2453f1"
           }
         ],
         "valueCodeableConcept": {
@@ -555,10 +553,10 @@
       }
     },
     {
-      "fullUrl": "Observation/b32532da-4fa4-4790-9414-a07f832541f3",
+      "fullUrl": "Observation/7b08a636-e592-44dc-b185-00731dec0f20",
       "resource": {
         "resourceType": "Observation",
-        "id": "b32532da-4fa4-4790-9414-a07f832541f3",
+        "id": "7b08a636-e592-44dc-b185-00731dec0f20",
         "meta": {
           "profile": [
             "http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-cause-of-death-part1"
@@ -575,11 +573,11 @@
           ]
         },
         "subject": {
-          "reference": "Patient/95de8c90-8159-40c2-b425-a323f23988e8"
+          "reference": "Patient/c54184dd-9d16-488b-b58c-6013f35a6042"
         },
         "performer": [
           {
-            "reference": "Practitioner/0b7f5c07-16a9-4f8d-8c9f-d5e5f2830b3b"
+            "reference": "Practitioner/674b5d4b-bfd0-4e96-9416-a8265e2453f1"
           }
         ],
         "valueCodeableConcept": {
@@ -614,10 +612,10 @@
       }
     },
     {
-      "fullUrl": "Observation/4a359929-105b-4ccc-bf5a-b1a4cf3cddb9",
+      "fullUrl": "Observation/554e058a-3acd-495d-8cc9-a6d030399372",
       "resource": {
         "resourceType": "Observation",
-        "id": "4a359929-105b-4ccc-bf5a-b1a4cf3cddb9",
+        "id": "554e058a-3acd-495d-8cc9-a6d030399372",
         "meta": {
           "profile": [
             "http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-contributing-cause-of-death-part2"
@@ -634,11 +632,11 @@
           ]
         },
         "subject": {
-          "reference": "Patient/95de8c90-8159-40c2-b425-a323f23988e8"
+          "reference": "Patient/c54184dd-9d16-488b-b58c-6013f35a6042"
         },
         "performer": [
           {
-            "reference": "Practitioner/0b7f5c07-16a9-4f8d-8c9f-d5e5f2830b3b"
+            "reference": "Practitioner/674b5d4b-bfd0-4e96-9416-a8265e2453f1"
           }
         ],
         "valueCodeableConcept": {
@@ -647,10 +645,10 @@
       }
     },
     {
-      "fullUrl": "Observation/3be9a0e1-2b9e-4dfb-809a-8cc77f6d3f98",
+      "fullUrl": "Observation/d1ba9c83-a722-4970-9b8b-f1e16a6e5573",
       "resource": {
         "resourceType": "Observation",
-        "id": "3be9a0e1-2b9e-4dfb-809a-8cc77f6d3f98",
+        "id": "d1ba9c83-a722-4970-9b8b-f1e16a6e5573",
         "meta": {
           "profile": [
             "http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-how-death-injury-occurred"
@@ -667,7 +665,7 @@
           ]
         },
         "subject": {
-          "reference": "Patient/95de8c90-8159-40c2-b425-a323f23988e8"
+          "reference": "Patient/c54184dd-9d16-488b-b58c-6013f35a6042"
         },
         "_effectiveDateTime": {
           "extension": [
@@ -696,7 +694,7 @@
         },
         "performer": [
           {
-            "reference": "Practitioner/0b7f5c07-16a9-4f8d-8c9f-d5e5f2830b3b"
+            "reference": "Practitioner/674b5d4b-bfd0-4e96-9416-a8265e2453f1"
           }
         ],
         "valueCodeableConcept": {

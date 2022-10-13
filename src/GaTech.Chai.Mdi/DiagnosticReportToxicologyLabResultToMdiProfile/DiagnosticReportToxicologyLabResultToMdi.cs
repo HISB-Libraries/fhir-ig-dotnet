@@ -4,6 +4,7 @@ using GaTech.Chai.Share.Extensions;
 using GaTech.Chai.Mdi.Common;
 using GaTech.Chai.UsCore.DiagnosticReportLabProfile;
 using System.Collections.Generic;
+using GaTech.Chai.Share.Common;
 
 namespace GaTech.Chai.Mdi.DiagnosticReportToxicologyLabResultToMdiProfile
 {
@@ -19,7 +20,7 @@ namespace GaTech.Chai.Mdi.DiagnosticReportToxicologyLabResultToMdiProfile
         internal DiagnosticReportToxicologyLabResultToMdi(DiagnosticReport diagnosticReport)
         {
             this.diagnosticReport = diagnosticReport;
-            diagnosticReport.UsCoreDiagnosticReportLab().AddProfile();
+            this.diagnosticReport.Category.SetCategory(ValueSets.DiagnosticServiceSections.Laboratory);
         }
 
         /// <summary>

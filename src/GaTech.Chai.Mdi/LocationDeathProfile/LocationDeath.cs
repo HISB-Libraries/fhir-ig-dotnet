@@ -28,8 +28,6 @@ namespace GaTech.Chai.Mdi.LocationDeathProfile
             {
                 location.Type.Add(MdiCodeSystem.MdiCodes.Death);
             }
-
-            location.UsCoreLocation().AddProfile();
         }
 
         /// <summary>

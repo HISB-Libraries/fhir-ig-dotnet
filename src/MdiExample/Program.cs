@@ -30,6 +30,7 @@ using Hl7.Fhir.Serialization;
 using GaTech.Chai.Mdi.ProceDureDeathCertificationProfile;
 using GaTech.Chai.Mdi.ProcedureDeathCertificationProfile;
 using GaTech.Chai.Share.Common;
+using Newtonsoft.Json.Linq;
 
 namespace MdiExample
 {
@@ -44,7 +45,11 @@ namespace MdiExample
             Patient patient = UsCorePatient.Create();
             // Name
             patient.Name = new List<HumanName> { new HumanName() { Family = "FREEMAN", GivenElement = new List<FhirString> { new FhirString("Alice"), new FhirString("J") } } };
-            patient.Identifier.Add(new Identifier() { Use = Identifier.IdentifierUse.Usual, Type = new CodeableConcept("http://terminology.hl7.org/CodeSystem/v2-0203", "SS", "Social Security number", "Social Security number"), System = "http://hospital.smarthealthit.org", Value = "987054321" });
+            patient.Identifier.Add(new Identifier() {
+                Use = Identifier.IdentifierUse.Usual,
+                Type = new CodeableConcept("http://terminology.hl7.org/CodeSystem/v2-0203", "SB", "Social Beneficiary Identifier", null),
+                System = "http://hl7.org/fhir/sid/us-ssn",
+                Value = "987054321" });
 
             // Race
             patient.UsCorePatient().Race.Category = UsCorePatientRace.RaceCoding.Encode("2106-3", "White");
@@ -74,16 +79,6 @@ namespace MdiExample
 
             // Deceased
             patient.Deceased = new FhirDateTime(2014, 3, 2);
-            // ODH Usual Work Observation
-            // Removed --
-            //Observation usualWorkObservation = OdhUsualWork.Create();
-            //usualWorkObservation.Status = ObservationStatus.Final;
-            //usualWorkObservation.Subject = patient.AsReference();
-            //usualWorkObservation.Effective = new Period(new FhirDateTime("2000-06-01"), new FhirDateTime("2021-05-20"));
-            //usualWorkObservation.OdhUsualWork().OccupationCdcCensus2010 = new Coding(OdhUsualWork.OccupationCdcCensus2010Oid, "3600", "Nursing, psychiatric, and home health aides");
-            //usualWorkObservation.OdhUsualWork().OccupationCdcOnetSdc2010 = new Coding(OdhUsualWork.OccupationOdhOid, "31-1014.00.007136", "Certified Nursing Assistant (CNA) [Nursing Assistants]");
-            //usualWorkObservation.OdhUsualWork().IndustryCdcCensus2010 = new Coding(OdhUsualWork.IndustryCdcCensus2010Oid, "8270", "Nursing care facilities");
-            //usualWorkObservation.OdhUsualWork().UsualOccupationDuration = 21;
 
             // Us Core Practitioner (ME)
             Practitioner practitioner = UsCorePractitioner.Create();
@@ -97,10 +92,8 @@ namespace MdiExample
             causeOfDeath2.Status = ObservationStatus.Final;
 
             // Condition Contributing to Death
-            Observation conditionContributingToDeath = ObservationContributingCauseOfDeathPart2.Create();
+            Observation conditionContributingToDeath = ObservationContributingCauseOfDeathPart2.Create(patient, practitioner);
             conditionContributingToDeath.Status = ObservationStatus.Final;
-            conditionContributingToDeath.Subject = patient.AsReference();
-            conditionContributingToDeath.Performer.Add(practitioner.AsReference());
             conditionContributingToDeath.ObservationContributingCauseOfDeathPart2().Value = new CodeableConcept(null, null, "Hypertensive heart disease");
 
             // Location Death
@@ -123,7 +116,7 @@ namespace MdiExample
             // Observation Death How Death Injury Occurred
             Observation observationHowDeathInjuryOccurred = ObservationHowDeathInjuryOccurred.Create(patient);
             observationHowDeathInjuryOccurred.Status = ObservationStatus.Final;
-            observationHowDeathInjuryOccurred.Performer.Add(practitioner.AsReference());
+            observationHowDeathInjuryOccurred.ObservationHowDeathInjuryOccurred().Certifier = practitioner;
             observationHowDeathInjuryOccurred.ObservationHowDeathInjuryOccurred().HowInjuredDescription = "Ingested counterfeit medication";
             observationHowDeathInjuryOccurred.ObservationHowDeathInjuryOccurred().PartialDateTime = (
                 new UnsignedInt(2022),
@@ -147,8 +140,7 @@ namespace MdiExample
             observationDecedentPregnancy.Value = MdiCodeSystem.DeathPregnancyStatus.NA;
 
             // Observation Tobacco Use Contributed To Death
-            Observation observationTobaccoUseContributedToDeath = ObservationTobaccoUseContributedToDeath.Create();
-            observationTobaccoUseContributedToDeath.Subject = patient.AsReference();
+            Observation observationTobaccoUseContributedToDeath = ObservationTobaccoUseContributedToDeath.Create(patient);
             observationTobaccoUseContributedToDeath.Value = MdiVsContributoryTobaccoUse.No;
 
             ////
@@ -198,6 +190,7 @@ namespace MdiExample
             File.WriteAllText(outputPath + "MDItoEDRS_Document.json", output);
             //Console.WriteLine(output);
 
+
             /////////////////////////// Toxicology Lab Report ///////////////////////////////
             // Specimen for Toxicology
             Specimen specimenBlood = SpecimenToxicologyLab.Create("Whole blood sample (specimen)", patient);
@@ -205,7 +198,7 @@ namespace MdiExample
             specimenBlood.Status = Specimen.SpecimenStatus.Available;
             specimenBlood.ReceivedTimeElement = new FhirDateTime("2021-12-03T16:00:00Z");
             specimenBlood.Collection = new Specimen.CollectionComponent() { Collected = new FhirDateTime("2021-12-03T11:00:00Z"), BodySite = new CodeableConcept("http://snomed.info/sct", "83419000", "Femoral vein structure (body structure)", null) };
-            specimenBlood.Container.Add(new Specimen.ContainerComponent() { Description = "10mL GT tube", Type = new CodeableConcept("http://snomed.info/sct", "702287009", "Non - evacuated blood collection tube, potassium oxalate / sodium fluoride(physical object)", "GT tube"), SpecimenQuantity = new Quantity() { Value = 20, Unit = "ml" } });
+            specimenBlood.Container.Add(new Specimen.ContainerComponent() { Description = "10mL GT tube", Type = new CodeableConcept("http://snomed.info/sct", "702287009", "Non-evacuated blood collection tube, potassium oxalate/sodium fluoride (physical object)", "GT tube"), SpecimenQuantity = new Quantity() { Value = 20, Unit = "ml" } });
 
             Specimen specimenUrine = SpecimenToxicologyLab.Create("Urine specimen (specimen)", patient);
             specimenUrine.AccessionIdentifier = new Identifier("http://lab.acme.org/specimens/2021", "ZZZ352356");
@@ -214,10 +207,10 @@ namespace MdiExample
             specimenUrine.Collection = new Specimen.CollectionComponent() { Collected = new FhirDateTime("2021-12-03T11:00:00Z"), BodySite = new CodeableConcept("http://snomed.info/sct", "83419000", "Femoral vein structure (body structure)", null) };
             specimenUrine.Container.Add(new Specimen.ContainerComponent() { Description = "10mL RT tube", SpecimenQuantity = new Quantity() { Value = 5, Unit = "ml" } });
 
-            Specimen specimenVitreousHumor = SpecimenToxicologyLab.Create("Vitreous humor sample (specimen)", patient);
+            Specimen specimenVitreousHumor = SpecimenToxicologyLab.Create("Vitreous humor sample", patient);
             specimenVitreousHumor.AccessionIdentifier = new Identifier("http://lab.acme.org/specimens/2021", "XXX352356");
             specimenVitreousHumor.Status = Specimen.SpecimenStatus.Available;
-            specimenVitreousHumor.Type.Coding.Add(new Coding("http://snomed.info/sct", "258438000", "Vitreous humor sample (specimen)"));
+            specimenVitreousHumor.Type.Coding.Add(new Coding("http://snomed.info/sct", "258438000", "Vitreous humor sample"));
             specimenVitreousHumor.ReceivedTimeElement = new FhirDateTime("2021-12-03T16:00:00Z");
             specimenVitreousHumor.Collection = new Specimen.CollectionComponent() { Collected = new FhirDateTime("2021-12-03T11:00:00Z"), BodySite = new CodeableConcept("http://snomed.info/sct", "83419000", "Femoral vein structure (body structure)", null) };
             specimenVitreousHumor.Container.Add(new Specimen.ContainerComponent() { Description = "10mL RT tube", SpecimenQuantity = new Quantity() { Value = 3, Unit = "ml" } });
@@ -238,96 +231,76 @@ namespace MdiExample
             specimenStomachContents.SpecimenToxicologyLab().SubjectAsResource = patient;
             specimenStomachContents.AccessionIdentifier = new Identifier("http://lab.acme.org/specimens/2021", "MM352356");
             specimenStomachContents.Status = Specimen.SpecimenStatus.Available;
-            specimenStomachContents.Type = new CodeableConcept("http://snomed.info/sct", "258580003", "Specimen from stomach (specimen)", "Specimen from stomach (specimen)");
+            specimenStomachContents.Type = new CodeableConcept("http://snomed.info/sct", "258580003", "Whole blood specimen", "Specimen from stomach (specimen)");
             specimenStomachContents.ReceivedTimeElement = new FhirDateTime("2021-12-03T16:00:00Z");
             specimenStomachContents.Collection = new Specimen.CollectionComponent() { Collected = new FhirDateTime("2021-12-03T11:00:00Z"), BodySite = new CodeableConcept("http://snomed.info/sct", "83419000", "Femoral vein structure (body structure)", null) };
             specimenStomachContents.Container.Add(new Specimen.ContainerComponent() { Description = "60mL sample of stomach contents specimen", SpecimenQuantity = new Quantity() { Value = 60, Unit = "ml" } });
 
             // Toxicology Lab Results to MDI
-            Observation toxLabResultEthanolBlood = ObservationToxicologyLabResult.Create();
-            toxLabResultEthanolBlood.Status = ObservationStatus.Final;
+            Observation toxLabResultEthanolBlood = ObservationToxicologyLabResult.Create(ObservationStatus.Final, null, patient);
             toxLabResultEthanolBlood.Code = new CodeableConcept("http://loinc.org", "56478-1", "Ethanol [Mass/volume] in Blood by Gas chromatography", "Ethanol [Mass/volume] in Blood by Gas chromatography");
-            toxLabResultEthanolBlood.Subject = patient.AsReference();
             toxLabResultEthanolBlood.Effective = new FhirDateTime("2021-12-03");
-            toxLabResultEthanolBlood.Value = new Quantity() { Value = new Decimal(0.145), Unit = "g/dL", System = "http://unitsofmeasure.org" };
-            toxLabResultEthanolBlood.Specimen = specimenBlood.AsReference();
+            toxLabResultEthanolBlood.ObservationToxicologyLabResult().ValueText = "0.145 g/dL";
+            toxLabResultEthanolBlood.ObservationToxicologyLabResult().Specimen = specimenBlood;
 
-            Observation toxLabResult4anppBlood = ObservationToxicologyLabResult.Create();
-            toxLabResult4anppBlood.Status = ObservationStatus.Final;
+            Observation toxLabResult4anppBlood = ObservationToxicologyLabResult.Create(ObservationStatus.Final, null, patient);
             toxLabResult4anppBlood.Code = new CodeableConcept("http://loinc.org", "11072-6", "Despropionylfentanyl [Mass/volume] in Serum or Plasma", "Despropionylfentanyl [Mass/volume] in Serum or Plasma");
-            toxLabResult4anppBlood.Subject = patient.AsReference();
             toxLabResult4anppBlood.Effective = new FhirDateTime("2021-12-03");
-            toxLabResult4anppBlood.Value = new FhirBoolean(true);
-            toxLabResult4anppBlood.Specimen = specimenBlood.AsReference();
+            toxLabResult4anppBlood.ObservationToxicologyLabResult().ValueText = "true";
+            toxLabResult4anppBlood.ObservationToxicologyLabResult().Specimen = specimenBlood;
 
-            Observation toxLabResultAcetylfentanylBlood = ObservationToxicologyLabResult.Create();
-            toxLabResultAcetylfentanylBlood.Status = ObservationStatus.Final;
+            Observation toxLabResultAcetylfentanylBlood = ObservationToxicologyLabResult.Create(ObservationStatus.Final, null, patient);
             toxLabResultAcetylfentanylBlood.Code = new CodeableConcept("http://loinc.org", "86223-5", "Acetyl norfentanyl [Mass/volume] in Serum, Plasma or Blood by Confirmatory method", "Acetyl norfentanyl [Mass/volume] in Serum, Plasma or Blood by Confirmatory method");
-            toxLabResultAcetylfentanylBlood.Subject = patient.AsReference();
             toxLabResultAcetylfentanylBlood.Effective = new FhirDateTime("2021-12-03");
-            toxLabResultAcetylfentanylBlood.Value = new Quantity() { Value = 2, Unit = "ng/mL", System = "http://unitsofmeasure.org" };
-            toxLabResultAcetylfentanylBlood.Specimen = specimenBlood.AsReference();
+            toxLabResultAcetylfentanylBlood.ObservationToxicologyLabResult().ValueText = "2 ng/mL";
+            toxLabResultAcetylfentanylBlood.ObservationToxicologyLabResult().Specimen = specimenBlood;
 
-            Observation toxLabResultFentanylBlood = ObservationToxicologyLabResult.Create();
-            toxLabResultFentanylBlood.Status = ObservationStatus.Final;
+            Observation toxLabResultFentanylBlood = ObservationToxicologyLabResult.Create(ObservationStatus.Final, null, patient);
             toxLabResultFentanylBlood.Code = new CodeableConcept("http://loinc.org", "73938-3", "fentaNYL [Mass/volume] in Blood by Confirmatory method", "fentaNYL [Mass/volume] in Blood by Confirmatory method");
-            toxLabResultFentanylBlood.Subject = patient.AsReference();
             toxLabResultFentanylBlood.Effective = new FhirDateTime("2021-12-03");
-            toxLabResultFentanylBlood.Value = new Quantity() { Value = 23, Unit = "ng/mL", System = "http://unitsofmeasure.org" };
-            toxLabResultFentanylBlood.Specimen = specimenBlood.AsReference();
+            toxLabResultFentanylBlood.ObservationToxicologyLabResult().ValueText = "23 ng/mL";
+            toxLabResultFentanylBlood.ObservationToxicologyLabResult().Specimen = specimenBlood;
 
-            Observation toxLabResultEthanolUrine = ObservationToxicologyLabResult.Create();
-            toxLabResultEthanolUrine.Status = ObservationStatus.Final;
+            Observation toxLabResultEthanolUrine = ObservationToxicologyLabResult.Create(ObservationStatus.Final, null, patient);
             toxLabResultEthanolUrine.Code = new CodeableConcept("http://loinc.org", "46983-3", "Ethanol [Mass/volume] in Urine by Confirmatory method", "Ethanol [Mass/volume] in Urine by Confirmatory method");
-            toxLabResultEthanolUrine.Subject = patient.AsReference();
             toxLabResultEthanolUrine.Effective = new FhirDateTime("2021-12-03");
-            toxLabResultEthanolUrine.Value = new Quantity() { Value = new Decimal(0.16), Unit = "g/dL", System = "http://unitsofmeasure.org" };
-            toxLabResultEthanolUrine.Specimen = specimenUrine.AsReference();
+            toxLabResultEthanolUrine.ObservationToxicologyLabResult().ValueText = "0.16 g/dL";
+            toxLabResultEthanolUrine.ObservationToxicologyLabResult().Specimen = specimenUrine;
 
-            Observation toxLabResult4anppUrine = ObservationToxicologyLabResult.Create();
-            toxLabResult4anppUrine.Status = ObservationStatus.Final;
+            Observation toxLabResult4anppUrine = ObservationToxicologyLabResult.Create(ObservationStatus.Final, null, patient);
             toxLabResult4anppUrine.Code = new CodeableConcept("http://loinc.org", "11072-6", "Despropionylfentanyl [Mass/volume] in Serum or Plasma", "Despropionylfentanyl [Mass/volume] in Serum or Plasma");
-            toxLabResult4anppUrine.Subject = patient.AsReference();
             toxLabResult4anppUrine.Effective = new FhirDateTime("2021-12-03");
-            toxLabResult4anppUrine.Value = new FhirBoolean(true);
-            toxLabResult4anppUrine.Specimen = specimenUrine.AsReference();
+            toxLabResult4anppUrine.ObservationToxicologyLabResult().ValueText = "true";
+            toxLabResult4anppUrine.ObservationToxicologyLabResult().Specimen = specimenUrine;
 
             Observation toxLabResultAcetylfentanylUrine = ObservationToxicologyLabResult.Create(ObservationStatus.Final, "Acetyl fentanyl [Presence] in Urine by Confirmatory method", patient);
             toxLabResultAcetylfentanylUrine.Effective = new FhirDateTime("2021-12-03");
-            toxLabResultAcetylfentanylUrine.Value = new FhirBoolean(true);
-            toxLabResultAcetylfentanylUrine.Specimen = specimenUrine.AsReference();
+            toxLabResultAcetylfentanylUrine.ObservationToxicologyLabResult().ValueText = "true";
+            toxLabResultAcetylfentanylUrine.ObservationToxicologyLabResult().Specimen = specimenUrine;
 
-            Observation toxLabResultFentanylUrine = ObservationToxicologyLabResult.Create();
-            toxLabResultFentanylUrine.Status = ObservationStatus.Final;
+            Observation toxLabResultFentanylUrine = ObservationToxicologyLabResult.Create(ObservationStatus.Final, null, patient);
             toxLabResultFentanylUrine.Code = new CodeableConcept("http://loinc.org", "11235-9", "fentaNYL [Presence] in Urine", "fentaNYL [Presence] in Urine");
-            toxLabResultFentanylUrine.ObservationToxicologyLabResult().SubjectAsResource = patient;
             toxLabResultFentanylUrine.Effective = new FhirDateTime("2021-12-03");
-            toxLabResultFentanylUrine.Value = new FhirBoolean(true);
-            toxLabResultFentanylUrine.Specimen = specimenUrine.AsReference();
+            toxLabResultFentanylUrine.ObservationToxicologyLabResult().ValueText = "true";
+            toxLabResultFentanylUrine.ObservationToxicologyLabResult().Specimen = specimenUrine;
 
-            Observation toxLabResultNorfentanylUrine = ObservationToxicologyLabResult.Create();
-            toxLabResultNorfentanylUrine.Status = ObservationStatus.Final;
+            Observation toxLabResultNorfentanylUrine = ObservationToxicologyLabResult.Create(ObservationStatus.Final, null, patient);
             toxLabResultNorfentanylUrine.Code = new CodeableConcept("http://loinc.org", "43199-9", "Norfentanyl [Presence] in Urine", "Norfentanyl [Presence] in Urine");
-            toxLabResultNorfentanylUrine.ObservationToxicologyLabResult().SubjectAsResource = patient;
             toxLabResultNorfentanylUrine.Effective = new FhirDateTime("2021-12-03");
-            toxLabResultNorfentanylUrine.Value = new FhirBoolean(true);
-            toxLabResultNorfentanylUrine.Specimen = specimenUrine.AsReference();
+            toxLabResultNorfentanylUrine.ObservationToxicologyLabResult().ValueText = "true";
+            toxLabResultNorfentanylUrine.ObservationToxicologyLabResult().Specimen = specimenUrine;
 
-            Observation toxLabResultXylazineUrine = ObservationToxicologyLabResult.Create();
-            toxLabResultXylazineUrine.Status = ObservationStatus.Final;
+            Observation toxLabResultXylazineUrine = ObservationToxicologyLabResult.Create(ObservationStatus.Final, null, patient);
             toxLabResultXylazineUrine.Code = new CodeableConcept("http://loinc.org", "12327-3", "Ketamine [Presence] in Urine", "Ketamine [Presence] in Urine");
-            toxLabResultXylazineUrine.ObservationToxicologyLabResult().SubjectAsResource = patient;
             toxLabResultXylazineUrine.Effective = new FhirDateTime("2021-12-03");
-            toxLabResultXylazineUrine.Value = new FhirBoolean(true);
-            toxLabResultXylazineUrine.Specimen = specimenUrine.AsReference();
+            toxLabResultXylazineUrine.ObservationToxicologyLabResult().ValueText = "true";
+            toxLabResultXylazineUrine.ObservationToxicologyLabResult().Specimen = specimenUrine;
 
-            Observation toxLabResultEthanolVitreousHumor = ObservationToxicologyLabResult.Create();
-            toxLabResultEthanolVitreousHumor.Status = ObservationStatus.Final;
+            Observation toxLabResultEthanolVitreousHumor = ObservationToxicologyLabResult.Create(ObservationStatus.Final, null, patient);
             toxLabResultEthanolVitreousHumor.Code = new CodeableConcept("http://loinc.org", "12465-1", "Ethanol [Mass/volume] in Vitreous fluid", "Ethanol [Mass/volume] in Vitreous fluid");
-            toxLabResultEthanolVitreousHumor.ObservationToxicologyLabResult().SubjectAsResource = patient;
             toxLabResultEthanolVitreousHumor.Effective = new FhirDateTime("2021-12-03");
-            toxLabResultEthanolVitreousHumor.Value = new Quantity() { Value = new Decimal(0.133), Unit = "g/dL", System = "http://unitsofmeasure.org" };
-            toxLabResultEthanolVitreousHumor.Specimen = specimenVitreousHumor.AsReference();
+            toxLabResultEthanolVitreousHumor.ObservationToxicologyLabResult().ValueText = "0.133 g/dL";
+            toxLabResultEthanolVitreousHumor.ObservationToxicologyLabResult().Specimen = specimenVitreousHumor;
 
             // Us Core Practitioner (Tox Lab)
             Practitioner practitionerToxLab = UsCorePractitioner.Create();

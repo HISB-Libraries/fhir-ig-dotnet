@@ -43,7 +43,7 @@ namespace GaTech.Chai.Mdi.ObservationToxicologyLabResultProfile
 
             observation.ObservationToxicologyLabResult().AddProfile();
             observation.Status = status;
-            observation.ObservationToxicologyLabResult().CodeText = codeText;
+            if (codeText != null) observation.ObservationToxicologyLabResult().CodeText = codeText;
             observation.ObservationToxicologyLabResult().SubjectAsResource = subject;
 
             return observation;
@@ -121,6 +121,22 @@ namespace GaTech.Chai.Mdi.ObservationToxicologyLabResultProfile
             }
         }
 
+        public Specimen Specimen
+        {
+            get
+            {
+                Resource value;
+                resources.TryGetValue(this.observation.Specimen?.Reference, out value);
+
+                return (Specimen)value;
+            }
+            set
+            {
+                this.observation.Specimen = value.AsReference();
+                resources[value.AsReference().Reference] = value;
+            }
+
+        }
         public Dictionary<String, Resource> GetReferencedResources()
         {
             return resources;

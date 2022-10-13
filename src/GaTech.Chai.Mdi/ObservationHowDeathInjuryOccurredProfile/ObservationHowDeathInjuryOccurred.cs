@@ -185,6 +185,22 @@ namespace GaTech.Chai.Mdi.ObservationHowDeathInjuryOccurredProfile
             }
         }
 
+        public Practitioner Certifier
+        {
+            get
+            {
+                Resource value;
+                resources.TryGetValue(this.observation.Performer?[0].Reference, out value);
+
+                return (Practitioner)value;
+            }
+            set
+            {
+                this.observation.Performer = new List<ResourceReference> { value.AsReference() };
+                resources[value.AsReference().Reference] = value;
+            }
+        }
+
         public Dictionary<String, Resource> GetReferencedResources()
         {
             return resources;
