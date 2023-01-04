@@ -1,0 +1,770 @@
+{
+  "resourceType": "Bundle",
+  "id": "c60ec875-d964-4ffe-8d97-1ad9e2eb1b3d",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/mdi/StructureDefinition/Bundle-message-tox-to-mdi"
+    ]
+  },
+  "identifier": {
+    "system": "urn:ietf:rfc:3986",
+    "value": "urn:uuid:683dde44f7664b03a20b6324f23986d9"
+  },
+  "type": "message",
+  "entry": [
+    {
+      "fullUrl": "MessageHeader/4b0d6714-489b-4692-aa45-90f76dcf5719",
+      "resource": {
+        "resourceType": "MessageHeader",
+        "id": "4b0d6714-489b-4692-aa45-90f76dcf5719",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/mdi/StructureDefinition/MessageHeader-toxicology-to-mdi"
+          ]
+        },
+        "eventCoding": {
+          "system": "http://hl7.org/fhir/us/mdi/CodeSystem/CodeSystem-mdi-codes",
+          "code": "tox-result-report",
+          "display": "Toxicology Lab Results"
+        },
+        "source": {
+          "name": "University of Florida Pathology Labs, Forensic Toxicology Laboratory",
+          "software": "MDI.net",
+          "version": "1.0.0",
+          "contact": {
+            "system": "phone",
+            "value": "+1 (555) 123 4567"
+          },
+          "endpoint": "http://uf.org/access/endpoint/1"
+        },
+        "focus": [
+          {
+            "reference": "DiagnosticReport/ec5046a8-2776-4d57-83ec-446f199c64c3"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "DiagnosticReport/ec5046a8-2776-4d57-83ec-446f199c64c3",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "id": "ec5046a8-2776-4d57-83ec-446f199c64c3",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/mdi/StructureDefinition/DiagnosticReport-toxicology-to-mdi"
+          ]
+        },
+        "text": {
+          "status": "additional",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n  <p>It may be appropriate to include interpretive information to help the reader understand the meaning of detected analytes. Interpretive information is not considered a mandatory part of the toxicological report, but is based on jurisdictional or laboratory preference to include such. This information may be included in the body of the report.</p>\n  </div>"
+        },
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/mdi/StructureDefinition/Extension-tracking-number",
+            "valueIdentifier": {
+              "type": {
+                "coding": [
+                  {
+                    "system": "http://hl7.org/fhir/us/mdi/CodeSystem/CodeSystem-mdi-codes",
+                    "code": "tox-lab-case-number",
+                    "display": "Toxicology Laboratory Case Number"
+                  }
+                ]
+              },
+              "system": "http://uf-path-labs.org/fhir/lab-cases",
+              "value": "R21-01578"
+            }
+          },
+          {
+            "url": "http://hl7.org/fhir/us/mdi/StructureDefinition/Extension-tracking-number",
+            "valueIdentifier": {
+              "type": {
+                "coding": [
+                  {
+                    "system": "http://hl7.org/fhir/us/mdi/CodeSystem/CodeSystem-mdi-codes",
+                    "code": "mdi-case-number",
+                    "display": "MDI Case Number"
+                  }
+                ]
+              },
+              "system": "urn:connectathon_jan22:test",
+              "value": "ME21-111"
+            }
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                "code": "LAB",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "text": "Forensic Toxicology Lab Report"
+        },
+        "subject": {
+          "reference": "Patient/c36a1ba0-60c9-4404-8b2b-164b9d9be3a5"
+        },
+        "effectiveDateTime": "2022-01-01T16:00:00Z",
+        "issued": "2022-01-05T00:00:00+00:00",
+        "performer": [
+          {
+            "reference": "Practitioner/5db104c8-b19e-4cc6-8c3e-550ab4b95323"
+          }
+        ],
+        "specimen": [
+          {
+            "reference": "Specimen/ff396e64-b21a-419d-a93b-5540dbfe5f95",
+            "display": "Blood"
+          },
+          {
+            "reference": "Specimen/8652f457-2845-42d8-af37-06d917ae004e",
+            "display": "Urine"
+          },
+          {
+            "reference": "Specimen/ad4fcc2b-a8ab-4fd0-926f-ed3b3b0ac170",
+            "display": "Vitreous Humor"
+          },
+          {
+            "reference": "Specimen/3d716632-73d0-45b4-b865-5222b8159431",
+            "display": "Bile"
+          },
+          {
+            "reference": "Specimen/0355b60d-661a-4480-b6d1-11226ef62fd7",
+            "display": "Liver"
+          },
+          {
+            "reference": "Specimen/8ddad49b-4091-4325-9b34-98073a3a4fdc",
+            "display": "Stomach Contents"
+          }
+        ],
+        "result": [
+          {
+            "reference": "Observation/a630f2a1-4d28-4a8a-a302-192fcfab0a94",
+            "display": "Ethanol"
+          },
+          {
+            "reference": "Observation/c6b300cb-25cd-4045-a475-f25920ec322d",
+            "display": "Ethanol"
+          },
+          {
+            "reference": "Observation/68dbbb3c-a04e-4ced-a439-8200b1e96845",
+            "display": "Not Tested"
+          },
+          {
+            "reference": "Observation/f5fb29bb-c843-4595-847e-7473a5571750",
+            "display": "Ethanol"
+          },
+          {
+            "reference": "Observation/2e3fe911-575c-442e-9ef1-345e7d56c048",
+            "display": "Not Tested"
+          },
+          {
+            "reference": "Observation/504c0eda-19fc-46d0-964d-8d7af2afceb9",
+            "display": "Not Tested"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Patient/c36a1ba0-60c9-4404-8b2b-164b9d9be3a5",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "c36a1ba0-60c9-4404-8b2b-164b9d9be3a5",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
+          ]
+        },
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "ombCategory",
+                "valueCoding": {
+                  "system": "urn:oid:2.16.840.1.113883.6.238",
+                  "code": "2054-5",
+                  "display": "Black or African American"
+                }
+              },
+              {
+                "url": "detailed",
+                "valueCoding": {
+                  "system": "urn:oid:2.16.840.1.113883.6.238",
+                  "code": "2058-6",
+                  "display": "African American"
+                }
+              },
+              {
+                "url": "text",
+                "valueString": "White, Black"
+              }
+            ],
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race"
+          },
+          {
+            "extension": [
+              {
+                "url": "ombCategory",
+                "valueCoding": {
+                  "system": "urn:oid:2.16.840.1.113883.6.238",
+                  "code": "2186-5",
+                  "display": "Not Hispanic or Latino"
+                }
+              },
+              {
+                "url": "detailed",
+                "valueCoding": {
+                  "system": "urn:oid:2.16.840.1.113883.6.238",
+                  "code": "2182-4",
+                  "display": "Cuban"
+                }
+              },
+              {
+                "url": "text",
+                "valueString": "Cuban"
+              }
+            ],
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity"
+          },
+          {
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex",
+            "valueCode": "M"
+          }
+        ],
+        "identifier": [
+          {
+            "use": "usual",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "SB",
+                  "display": "Social Beneficiary Identifier"
+                }
+              ]
+            },
+            "system": "http://hl7.org/fhir/sid/us-ssn",
+            "value": "456789012"
+          }
+        ],
+        "name": [
+          {
+            "family": "Ramirez",
+            "given": [
+              "Joseph",
+              "S"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "770-541-9012",
+            "use": "home"
+          },
+          {
+            "system": "email",
+            "value": "ravejay@mdi-case.org",
+            "use": "work"
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1964-02-24",
+        "address": [
+          {
+            "use": "home",
+            "type": "physical",
+            "line": [
+              "45 Coda Street"
+            ],
+            "city": "Peachcity",
+            "state": "GA",
+            "postalCode": "12098",
+            "country": "USA"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Practitioner/5db104c8-b19e-4cc6-8c3e-550ab4b95323",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "5db104c8-b19e-4cc6-8c3e-550ab4b95323",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "http://hl7.org/fhir/sid/us-npi",
+            "value": "555667777"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Goldberger",
+            "given": [
+              "Bruce"
+            ],
+            "prefix": [
+              "Dr"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Specimen/ff396e64-b21a-419d-a93b-5540dbfe5f95",
+      "resource": {
+        "resourceType": "Specimen",
+        "id": "ff396e64-b21a-419d-a93b-5540dbfe5f95",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/mdi/StructureDefinition/Specimen-toxicology-lab"
+          ]
+        },
+        "accessionIdentifier": {
+          "system": "http://lab.acme.org/specimens/2021",
+          "value": "X352356"
+        },
+        "status": "available",
+        "type": {
+          "text": "Blood"
+        },
+        "subject": {
+          "reference": "Patient/c36a1ba0-60c9-4404-8b2b-164b9d9be3a5"
+        },
+        "receivedTime": "2021-12-03T16:00:00Z",
+        "collection": {
+          "collectedDateTime": "2021-12-03T11:00:00Z",
+          "bodySite": {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "83419000",
+                "display": "Femoral vein structure (body structure)"
+              }
+            ]
+          }
+        },
+        "container": [
+          {
+            "description": "20mL GT tube",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "702287009",
+                  "display": "Non-evacuated blood collection tube, potassium oxalate/sodium fluoride (physical object)"
+                }
+              ],
+              "text": "GT tube"
+            },
+            "specimenQuantity": {
+              "value": 20,
+              "unit": "ml"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Specimen/8652f457-2845-42d8-af37-06d917ae004e",
+      "resource": {
+        "resourceType": "Specimen",
+        "id": "8652f457-2845-42d8-af37-06d917ae004e",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/mdi/StructureDefinition/Specimen-toxicology-lab"
+          ]
+        },
+        "accessionIdentifier": {
+          "system": "http://lab.acme.org/specimens/2021",
+          "value": "ZZZ352356"
+        },
+        "status": "available",
+        "type": {
+          "text": "Urine"
+        },
+        "subject": {
+          "reference": "Patient/c36a1ba0-60c9-4404-8b2b-164b9d9be3a5"
+        },
+        "receivedTime": "2021-12-03T16:00:00Z",
+        "collection": {
+          "collectedDateTime": "2021-12-03T11:00:00Z"
+        },
+        "container": [
+          {
+            "description": "5mL RT tube",
+            "specimenQuantity": {
+              "value": 5,
+              "unit": "ml"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Specimen/ad4fcc2b-a8ab-4fd0-926f-ed3b3b0ac170",
+      "resource": {
+        "resourceType": "Specimen",
+        "id": "ad4fcc2b-a8ab-4fd0-926f-ed3b3b0ac170",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/mdi/StructureDefinition/Specimen-toxicology-lab"
+          ]
+        },
+        "accessionIdentifier": {
+          "system": "http://lab.acme.org/specimens/2021",
+          "value": "XXX352356"
+        },
+        "status": "available",
+        "type": {
+          "text": "Vitreous Humor"
+        },
+        "subject": {
+          "reference": "Patient/c36a1ba0-60c9-4404-8b2b-164b9d9be3a5"
+        },
+        "receivedTime": "2021-12-03T16:00:00Z",
+        "collection": {
+          "collectedDateTime": "2021-12-03T11:00:00Z"
+        },
+        "container": [
+          {
+            "description": "3mL GT tube",
+            "specimenQuantity": {
+              "value": 3,
+              "unit": "ml"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Specimen/3d716632-73d0-45b4-b865-5222b8159431",
+      "resource": {
+        "resourceType": "Specimen",
+        "id": "3d716632-73d0-45b4-b865-5222b8159431",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/mdi/StructureDefinition/Specimen-toxicology-lab"
+          ]
+        },
+        "accessionIdentifier": {
+          "system": "http://lab.acme.org/specimens/2021",
+          "value": "OO352356"
+        },
+        "status": "available",
+        "type": {
+          "text": "Bile"
+        },
+        "subject": {
+          "reference": "Patient/c36a1ba0-60c9-4404-8b2b-164b9d9be3a5"
+        },
+        "receivedTime": "2021-12-03T16:00:00Z",
+        "collection": {
+          "collectedDateTime": "2021-12-03T11:00:00Z"
+        },
+        "container": [
+          {
+            "description": "3mL RT tube",
+            "specimenQuantity": {
+              "value": 3,
+              "unit": "ml"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Specimen/0355b60d-661a-4480-b6d1-11226ef62fd7",
+      "resource": {
+        "resourceType": "Specimen",
+        "id": "0355b60d-661a-4480-b6d1-11226ef62fd7",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/mdi/StructureDefinition/Specimen-toxicology-lab"
+          ]
+        },
+        "accessionIdentifier": {
+          "system": "http://lab.acme.org/specimens/2021",
+          "value": "DD352356"
+        },
+        "status": "available",
+        "type": {
+          "text": "Liver"
+        },
+        "subject": {
+          "reference": "Patient/c36a1ba0-60c9-4404-8b2b-164b9d9be3a5"
+        },
+        "receivedTime": "2021-12-03T16:00:00Z",
+        "collection": {
+          "collectedDateTime": "2021-12-03T11:00:00Z"
+        },
+        "container": [
+          {
+            "description": "5g Cup",
+            "specimenQuantity": {
+              "value": 5,
+              "unit": "ml"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Specimen/8ddad49b-4091-4325-9b34-98073a3a4fdc",
+      "resource": {
+        "resourceType": "Specimen",
+        "id": "8ddad49b-4091-4325-9b34-98073a3a4fdc",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/mdi/StructureDefinition/Specimen-toxicology-lab"
+          ]
+        },
+        "accessionIdentifier": {
+          "system": "http://lab.acme.org/specimens/2021",
+          "value": "MM352356"
+        },
+        "status": "available",
+        "type": {
+          "text": "Stomach Contents"
+        },
+        "subject": {
+          "reference": "Patient/c36a1ba0-60c9-4404-8b2b-164b9d9be3a5"
+        },
+        "receivedTime": "2021-12-03T16:00:00Z",
+        "collection": {
+          "collectedDateTime": "2021-12-03T11:00:00Z"
+        },
+        "container": [
+          {
+            "description": "60mL Cup",
+            "specimenQuantity": {
+              "value": 60,
+              "unit": "ml"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "Observation/a630f2a1-4d28-4a8a-a302-192fcfab0a94",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "a630f2a1-4d28-4a8a-a302-192fcfab0a94",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-toxicology-lab-result"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "text": "Ethanol"
+        },
+        "subject": {
+          "reference": "Patient/c36a1ba0-60c9-4404-8b2b-164b9d9be3a5"
+        },
+        "effectiveDateTime": "2021-12-03",
+        "valueString": "0.145 g/dL",
+        "specimen": {
+          "reference": "Specimen/ff396e64-b21a-419d-a93b-5540dbfe5f95"
+        }
+      }
+    },
+    {
+      "fullUrl": "Observation/c6b300cb-25cd-4045-a475-f25920ec322d",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "c6b300cb-25cd-4045-a475-f25920ec322d",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-toxicology-lab-result"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "text": "Ethanol"
+        },
+        "subject": {
+          "reference": "Patient/c36a1ba0-60c9-4404-8b2b-164b9d9be3a5"
+        },
+        "effectiveDateTime": "2021-12-03",
+        "valueString": "0.160 g/dL",
+        "specimen": {
+          "reference": "Specimen/8652f457-2845-42d8-af37-06d917ae004e"
+        }
+      }
+    },
+    {
+      "fullUrl": "Observation/68dbbb3c-a04e-4ced-a439-8200b1e96845",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "68dbbb3c-a04e-4ced-a439-8200b1e96845",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-toxicology-lab-result"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "text": "Not Tested"
+        },
+        "subject": {
+          "reference": "Patient/c36a1ba0-60c9-4404-8b2b-164b9d9be3a5"
+        },
+        "effectiveDateTime": "2021-12-03",
+        "valueString": "",
+        "specimen": {
+          "reference": "Specimen/3d716632-73d0-45b4-b865-5222b8159431"
+        }
+      }
+    },
+    {
+      "fullUrl": "Observation/f5fb29bb-c843-4595-847e-7473a5571750",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "f5fb29bb-c843-4595-847e-7473a5571750",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-toxicology-lab-result"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "text": "Ethanol"
+        },
+        "subject": {
+          "reference": "Patient/c36a1ba0-60c9-4404-8b2b-164b9d9be3a5"
+        },
+        "effectiveDateTime": "2021-12-03",
+        "valueString": "0.133 g/dL",
+        "specimen": {
+          "reference": "Specimen/ad4fcc2b-a8ab-4fd0-926f-ed3b3b0ac170"
+        }
+      }
+    },
+    {
+      "fullUrl": "Observation/2e3fe911-575c-442e-9ef1-345e7d56c048",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "2e3fe911-575c-442e-9ef1-345e7d56c048",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-toxicology-lab-result"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "text": "Not Tested"
+        },
+        "subject": {
+          "reference": "Patient/c36a1ba0-60c9-4404-8b2b-164b9d9be3a5"
+        },
+        "effectiveDateTime": "2021-12-03",
+        "valueString": "",
+        "specimen": {
+          "reference": "Specimen/8ddad49b-4091-4325-9b34-98073a3a4fdc"
+        }
+      }
+    },
+    {
+      "fullUrl": "Observation/504c0eda-19fc-46d0-964d-8d7af2afceb9",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "504c0eda-19fc-46d0-964d-8d7af2afceb9",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-toxicology-lab-result"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "text": "Not Tested"
+        },
+        "subject": {
+          "reference": "Patient/c36a1ba0-60c9-4404-8b2b-164b9d9be3a5"
+        },
+        "effectiveDateTime": "2021-12-03",
+        "valueString": "",
+        "specimen": {
+          "reference": "Specimen/0355b60d-661a-4480-b6d1-11226ef62fd7"
+        }
+      }
+    }
+  ]
+}

@@ -28,8 +28,6 @@ namespace GaTech.Chai.Mdi.LocationInjuryProfile
             {
                 location.Type.Add(MdiCodeSystem.MdiCodes.Injury);
             }
-
-            location.UsCoreLocation().AddProfile();
         }
 
         /// <summary>
@@ -72,10 +70,17 @@ namespace GaTech.Chai.Mdi.LocationInjuryProfile
             }
             set
             {
+                if (this.location.Address == null)
+                {
+                    this.location.Address = new();
+                }
                 this.location.Address.Text = value;
             }
         }
 
+        /// <summary>
+        /// (float Latitude, float Longitutde)
+        /// </summary>
         public (float, float) Position
         {
             get

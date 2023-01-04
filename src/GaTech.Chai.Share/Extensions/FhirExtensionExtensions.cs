@@ -9,10 +9,10 @@ namespace GaTech.Chai.Share.Extensions
     /// </summary>
     public static class FhirExtensionExtensions
     {
-        public static Extension AddOrUpdateExtension(this List<Extension> extensions, Extension extension)
+        public static Extension AddOrUpdateExtension(this List<Extension> extensions, Extension extension, bool allowDuplicateUrl = false)
         {
             var ext = extensions.Find(e => e.Url == extension.Url);
-            if (ext == null)
+            if (ext == null || allowDuplicateUrl == true)
             {
                 extensions.Add(extension);
                 ext = extension;

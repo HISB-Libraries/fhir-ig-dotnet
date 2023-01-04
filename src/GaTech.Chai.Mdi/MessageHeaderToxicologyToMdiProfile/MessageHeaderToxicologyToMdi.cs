@@ -27,6 +27,9 @@ namespace GaTech.Chai.Mdi.MessageHeaderToxicologyToMdiProfile
         /// </summary>
         public static MessageHeader Create()
         {
+            // clear static resource container.
+            resources.Clear();
+
             var messageHeader = new MessageHeader();
             messageHeader.MessageHeaderToxicologyToMdi().AddProfile();
             return messageHeader;
@@ -38,6 +41,9 @@ namespace GaTech.Chai.Mdi.MessageHeaderToxicologyToMdiProfile
         /// </summary>
         public static MessageHeader Create(string sourceEndpointUrlString, DiagnosticReport diagnosticReport)
         {
+            // clear static resource container.
+            resources.Clear();
+
             var messageHeader = new MessageHeader();
 
             messageHeader.MessageHeaderToxicologyToMdi().AddProfile();

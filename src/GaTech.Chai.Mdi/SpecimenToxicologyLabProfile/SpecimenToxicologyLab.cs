@@ -26,6 +26,9 @@ namespace GaTech.Chai.Mdi.SpecimenToxicologyLabProfile
         /// </summary>
         public static Specimen Create()
         {
+            // clear static resource container.
+            resources.Clear();
+
             var specimen = new Specimen();
             specimen.SpecimenToxicologyLab().AddProfile();
             return specimen;
@@ -37,6 +40,9 @@ namespace GaTech.Chai.Mdi.SpecimenToxicologyLabProfile
         /// </summary>
         public static Specimen Create(string typeText, Patient subject)
         {
+            // clear static resource container.
+            resources.Clear();
+
             var specimen = new Specimen();
 
             specimen.SpecimenToxicologyLab().AddProfile();

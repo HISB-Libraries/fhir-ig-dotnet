@@ -35,6 +35,9 @@ namespace GaTech.Chai.Mdi.LocationDeathProfile
         /// </summary>
         public static Location Create()
         {
+            // clear static resource container.
+            resources.Clear();
+
             var location = new Location();
             location.LocationDeath().AddProfile();
 

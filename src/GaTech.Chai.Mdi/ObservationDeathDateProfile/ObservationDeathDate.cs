@@ -27,6 +27,9 @@ namespace GaTech.Chai.Mdi.ObservationDeathDateProfile
         /// </summary>
         public static Observation Create()
         {
+            // clear static resource container.
+            resources.Clear();
+
             var observation = new Observation();
             observation.ObservationDeathDate().AddProfile();
 
@@ -39,6 +42,9 @@ namespace GaTech.Chai.Mdi.ObservationDeathDateProfile
         /// </summary>
         public static Observation Create(Patient subject)
         {
+            // clear static resource container.
+            resources.Clear();
+
             var observation = new Observation();
 
             observation.ObservationDeathDate().AddProfile();

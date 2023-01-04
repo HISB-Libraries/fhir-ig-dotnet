@@ -26,6 +26,9 @@ namespace GaTech.Chai.Mdi.ObservationAutopsyPerformedIndicatorProfile
         /// </summary>
         public static Observation Create()
         {
+            // clear static resource container.
+            resources.Clear();
+
             var observation = new Observation();
 
             observation.ObservationAutopsyPerformedIndicator().AddProfile();
@@ -38,6 +41,9 @@ namespace GaTech.Chai.Mdi.ObservationAutopsyPerformedIndicatorProfile
         /// </summary>
         public static Observation Create(Patient subject)
         {
+            // clear static resource container.
+            resources.Clear();
+
             var observation = new Observation();
 
             observation.ObservationAutopsyPerformedIndicator().AddProfile();

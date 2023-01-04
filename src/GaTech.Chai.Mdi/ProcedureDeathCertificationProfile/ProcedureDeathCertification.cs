@@ -28,6 +28,9 @@ namespace GaTech.Chai.Mdi.ProceDureDeathCertificationProfile
         /// </summary>
         public static Procedure Create()
         {
+            // clear static resource container.
+            resources.Clear();
+
             var procedure = new Procedure();
 
             procedure.ProcedureDeathCertification().AddProfile();
@@ -40,6 +43,9 @@ namespace GaTech.Chai.Mdi.ProceDureDeathCertificationProfile
         /// </summary>
         public static Procedure Create(Patient subject)
         {
+            // clear static resource container.
+            resources.Clear();
+
             var procedure = new Procedure();
 
             procedure.ProcedureDeathCertification().AddProfile();

@@ -28,6 +28,9 @@ namespace GaTech.Chai.Mdi.ObservationToxicologyLabResultProfile
         /// </summary>
         public static Observation Create()
         {
+            // clear static resource container.
+            resources.Clear();
+
             var observation = new Observation();
             observation.ObservationToxicologyLabResult().AddProfile();
             return observation;
@@ -39,6 +42,9 @@ namespace GaTech.Chai.Mdi.ObservationToxicologyLabResultProfile
         /// </summary>
         public static Observation Create(ObservationStatus status, string codeText, Patient subject)
         {
+            // clear static resource container.
+            resources.Clear();
+
             var observation = new Observation();
 
             observation.ObservationToxicologyLabResult().AddProfile();

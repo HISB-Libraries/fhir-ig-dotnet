@@ -28,6 +28,9 @@ namespace GaTech.Chai.Mdi.ObservationContributingCauseOfDeathPart2Profile
         /// </summary>
         public static Observation Create(Patient subjectResource, Practitioner performerResource)
         {
+            // clear static resource container.
+            resources.Clear();
+
             var observation = new Observation();
 
             observation.ObservationContributingCauseOfDeathPart2().AddProfile();
@@ -44,6 +47,9 @@ namespace GaTech.Chai.Mdi.ObservationContributingCauseOfDeathPart2Profile
         /// </summary>
         public static Observation Create()
         {
+            // clear static resource container.
+            resources.Clear();
+
             var observation = new Observation();
             observation.ObservationContributingCauseOfDeathPart2().AddProfile();
             return observation;

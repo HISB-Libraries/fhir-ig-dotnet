@@ -29,8 +29,12 @@ namespace GaTech.Chai.Mdi.DiagnosticReportToxicologyLabResultToMdiProfile
         /// </summary>
         public static DiagnosticReport Create()
         {
+            // clear static resource container.
+            resources.Clear();
+
             var diagnosticReport = new DiagnosticReport();
             diagnosticReport.DiagnosticReportToxicologyLabResultToMdi().AddProfile();
+
             return diagnosticReport;
         }
 
@@ -40,6 +44,9 @@ namespace GaTech.Chai.Mdi.DiagnosticReportToxicologyLabResultToMdiProfile
         /// </summary>
         public static DiagnosticReport Create(Patient subject)
         {
+            // clear static resource container.
+            resources.Clear();
+
             var diagnosticReport = new DiagnosticReport();
 
             diagnosticReport.DiagnosticReportToxicologyLabResultToMdi().AddProfile();
@@ -151,7 +158,7 @@ namespace GaTech.Chai.Mdi.DiagnosticReportToxicologyLabResultToMdiProfile
             {
                 Extension ext = new Extension() { Url = "http://hl7.org/fhir/us/mdi/StructureDefinition/Extension-tracking-number" };
                 ext.Value = new Identifier() { Type = MdiCodeSystem.MdiCodes.EdrsFileNumber, System = value.Item1, Value = value.Item2 };
-                this.diagnosticReport.Extension.AddOrUpdateExtension(ext);
+                this.diagnosticReport.Extension.AddOrUpdateExtension(ext, true);
             }
         }
 
@@ -181,7 +188,7 @@ namespace GaTech.Chai.Mdi.DiagnosticReportToxicologyLabResultToMdiProfile
                     Url = "http://hl7.org/fhir/us/mdi/StructureDefinition/Extension-tracking-number",
                     Value = new Identifier() { Type = MdiCodeSystem.MdiCodes.MdiCaseNumber, System = value.Item1, Value = value.Item2 }
                 };
-                this.diagnosticReport.Extension.AddOrUpdateExtension(ext);
+                this.diagnosticReport.Extension.AddOrUpdateExtension(ext, true);
             }
         }
 

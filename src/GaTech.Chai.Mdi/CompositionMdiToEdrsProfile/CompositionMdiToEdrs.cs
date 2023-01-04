@@ -30,6 +30,9 @@ namespace GaTech.Chai.Mdi.CompositionMditoEdrsProfile
         /// </summary>
         public static Composition Create(Identifier identifier, CompositionStatus status, Patient subject, Practitioner author, Practitioner certifier, CompositionAttestationMode? attestationMode)
         {
+            // clear static resource container.
+            resources.Clear();
+
             var composition = new Composition();
             composition.CompositionMdiToEdrs().AddProfile();
 
@@ -49,6 +52,9 @@ namespace GaTech.Chai.Mdi.CompositionMditoEdrsProfile
         /// </summary>
         public static Composition Create()
         {
+            // clear static resource container.
+            resources.Clear();
+
             var composition = new Composition();
             composition.CompositionMdiToEdrs().AddProfile();
 
@@ -134,7 +140,7 @@ namespace GaTech.Chai.Mdi.CompositionMditoEdrsProfile
                     Url = "http://hl7.org/fhir/us/mdi/StructureDefinition/Extension-tracking-number",
                     Value = new Identifier() { Type = MdiCodeSystem.MdiCodes.MdiCaseNumber, System = value.Item1, Value = value.Item2 }
                 };
-                this.composition.Extension.AddOrUpdateExtension(ext);
+                this.composition.Extension.AddOrUpdateExtension(ext, true);
             }
         }
 
@@ -161,7 +167,7 @@ namespace GaTech.Chai.Mdi.CompositionMditoEdrsProfile
             {
                 Extension ext = new Extension() { Url = "http://hl7.org/fhir/us/mdi/StructureDefinition/Extension-tracking-number" };
                 ext.Value = new Identifier() { Type = MdiCodeSystem.MdiCodes.EdrsFileNumber, System = value.Item1, Value = value.Item2 };
-                this.composition.Extension.AddOrUpdateExtension(ext);
+                this.composition.Extension.AddOrUpdateExtension(ext, true);
             }
         }
 
