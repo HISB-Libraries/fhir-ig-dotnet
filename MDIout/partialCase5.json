@@ -1,0 +1,179 @@
+{
+  "resourceType": "Bundle",
+  "id": "05436f77-478f-4fb3-bea8-ab009936dacd",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/mdi/StructureDefinition/Bundle-document-mdi-to-edrs"
+    ]
+  },
+  "identifier": {
+    "system": "urn:ietf:rfc:3986",
+    "value": "urn:uuid:2549d844-8d1b-11ed-a1eb-0242ac120002"
+  },
+  "type": "document",
+  "timestamp": "2023-01-18T16:40:38.811577-05:00",
+  "entry": [
+    {
+      "fullUrl": "Composition/89d4961c-9e89-4672-811b-c710fab661db",
+      "resource": {
+        "resourceType": "Composition",
+        "id": "89d4961c-9e89-4672-811b-c710fab661db",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/mdi/StructureDefinition/Composition-mdi-to-edrs"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/mdi/StructureDefinition/Extension-tracking-number",
+            "valueIdentifier": {
+              "type": {
+                "coding": [
+                  {
+                    "system": "http://hl7.org/fhir/us/mdi/CodeSystem/CodeSystem-mdi-codes",
+                    "code": "edrs-file-number",
+                    "display": "EDRS File Number"
+                  }
+                ]
+              },
+              "system": "urn:raven:test",
+              "value": "EDRS-05"
+            }
+          }
+        ],
+        "identifier": {
+          "value": "1acab910-8d1b-11ed-a1eb-0242ac120002"
+        },
+        "status": "final",
+        "type": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "86807-5",
+              "display": "Death administrative information Document"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/87b0830c-71d4-47f5-9bb4-ee30dbade9c1"
+        },
+        "date": "2022-02-20",
+        "title": "MDI to EDRS Composition"
+      }
+    },
+    {
+      "fullUrl": "Patient/87b0830c-71d4-47f5-9bb4-ee30dbade9c1",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "87b0830c-71d4-47f5-9bb4-ee30dbade9c1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
+          ]
+        },
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "ombCategory",
+                "valueCoding": {
+                  "system": "urn:oid:2.16.840.1.113883.6.238",
+                  "code": "2131-1",
+                  "display": "Other Race"
+                }
+              },
+              {
+                "url": "detailed",
+                "valueCoding": {
+                  "system": "http://terminology.hl7.org/CodeSystem/v3-NullFlavor",
+                  "code": "UNK",
+                  "display": "unknown"
+                }
+              },
+              {
+                "url": "text",
+                "valueString": "Other Race"
+              }
+            ],
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race"
+          },
+          {
+            "extension": [
+              {
+                "url": "ombCategory",
+                "valueCoding": {
+                  "system": "urn:oid:2.16.840.1.113883.6.238",
+                  "code": "2186-5",
+                  "display": "Not Hispanic or Latino"
+                }
+              },
+              {
+                "url": "detailed",
+                "valueCoding": {
+                  "system": "http://terminology.hl7.org/CodeSystem/v3-NullFlavor",
+                  "code": "UNK",
+                  "display": "unknown"
+                }
+              },
+              {
+                "url": "text",
+                "valueString": "Not Hispanic or Latino"
+              }
+            ],
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity"
+          },
+          {
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex",
+            "valueCode": "M"
+          }
+        ],
+        "identifier": [
+          {
+            "use": "usual",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "SB",
+                  "display": "Social Beneficiary Identifier"
+                }
+              ]
+            },
+            "system": "http://hl7.org/fhir/sid/us-ssn",
+            "value": "890564732"
+          }
+        ],
+        "name": [
+          {
+            "family": "Master",
+            "given": [
+              "Yoda"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "201-109-8905",
+            "use": "home"
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1940-12-20",
+        "address": [
+          {
+            "use": "home",
+            "type": "physical",
+            "line": [
+              "4544 Training Street"
+            ],
+            "city": "Duluth",
+            "state": "GA",
+            "postalCode": "90987",
+            "country": "USA"
+          }
+        ]
+      }
+    }
+  ]
+}

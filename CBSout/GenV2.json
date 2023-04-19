@@ -25,12 +25,12 @@
           ]
         },
         "subject": {
-          "reference": "Patient/5b337c89-7232-48ff-8f92-699748851e8e"
+          "reference": "Patient/81756011-7f41-413f-aaf8-5c72415b9db9"
         },
         "date": "2014-03-02",
         "author": [
           {
-            "reference": "Organization/deaccc38-fc3c-419c-ba7b-1e9c16fb602e"
+            "reference": "Organization/cb205ed1-c8f0-477a-a640-493076332ccb"
           }
         ],
         "title": "Case Based Surveillance Composition",
@@ -48,7 +48,7 @@
             },
             "entry": [
               {
-                "reference": "Condition/5d1f4e95-62e9-4739-96a6-2f6772f01bcf"
+                "reference": "Condition/ba37f972-f0ce-4ed5-af19-1597f3295ff1"
               }
             ]
           },
@@ -65,7 +65,7 @@
             },
             "entry": [
               {
-                "reference": "Encounter/b0dd736b-3e12-4490-ae6d-1ea7b47a8b1f"
+                "reference": "Encounter/4f283c01-7815-4ec0-ae2f-d342ff82afc2"
               }
             ]
           },
@@ -82,7 +82,7 @@
             },
             "entry": [
               {
-                "reference": "Observation/1de753ed-8fab-48a3-905c-a2987853505c"
+                "reference": "Observation/5a847105-7685-4060-85d4-db763ed8ca73"
               }
             ]
           },
@@ -99,7 +99,7 @@
             },
             "entry": [
               {
-                "reference": "Organization/deaccc38-fc3c-419c-ba7b-1e9c16fb602e"
+                "reference": "Organization/cb205ed1-c8f0-477a-a640-493076332ccb"
               }
             ]
           }
@@ -109,7 +109,7 @@
     {
       "resource": {
         "resourceType": "Patient",
-        "id": "5b337c89-7232-48ff-8f92-699748851e8e",
+        "id": "81756011-7f41-413f-aaf8-5c72415b9db9",
         "meta": {
           "profile": [
             "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient",
@@ -270,7 +270,7 @@
     {
       "resource": {
         "resourceType": "Condition",
-        "id": "5d1f4e95-62e9-4739-96a6-2f6772f01bcf",
+        "id": "ba37f972-f0ce-4ed5-af19-1597f3295ff1",
         "meta": {
           "profile": [
             "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition",
@@ -331,7 +331,7 @@
           ]
         },
         "subject": {
-          "reference": "Patient/5b337c89-7232-48ff-8f92-699748851e8e"
+          "reference": "Patient/81756011-7f41-413f-aaf8-5c72415b9db9"
         },
         "onsetDateTime": "2021-02-28",
         "abatementDateTime": "2014-03-02"
@@ -340,7 +340,7 @@
     {
       "resource": {
         "resourceType": "Encounter",
-        "id": "b0dd736b-3e12-4490-ae6d-1ea7b47a8b1f",
+        "id": "4f283c01-7815-4ec0-ae2f-d342ff82afc2",
         "meta": {
           "profile": [
             "http://cbsig.chai.gatech.edu/StructureDefinition/us-cbs-hospitalization"
@@ -363,7 +363,7 @@
           }
         ],
         "subject": {
-          "reference": "Patient/5b337c89-7232-48ff-8f92-699748851e8e"
+          "reference": "Patient/81756011-7f41-413f-aaf8-5c72415b9db9"
         },
         "period": {
           "start": "2014-02-26",
@@ -371,7 +371,7 @@
         },
         "reasonReference": [
           {
-            "reference": "Condition/5d1f4e95-62e9-4739-96a6-2f6772f01bcf"
+            "reference": "Condition/ba37f972-f0ce-4ed5-af19-1597f3295ff1"
           }
         ]
       }
@@ -394,11 +394,11 @@
           ]
         },
         "subject": {
-          "reference": "Patient/5b337c89-7232-48ff-8f92-699748851e8e"
+          "reference": "Patient/81756011-7f41-413f-aaf8-5c72415b9db9"
         },
         "focus": [
           {
-            "reference": "Condition/5d1f4e95-62e9-4739-96a6-2f6772f01bcf"
+            "reference": "Condition/ba37f972-f0ce-4ed5-af19-1597f3295ff1"
           }
         ]
       }
@@ -434,7 +434,7 @@
     {
       "resource": {
         "resourceType": "Organization",
-        "id": "deaccc38-fc3c-419c-ba7b-1e9c16fb602e",
+        "id": "cb205ed1-c8f0-477a-a640-493076332ccb",
         "meta": {
           "profile": [
             "http://cbsig.chai.gatech.edu/StructureDefinition/us-cbs-reporting-source-organization",
@@ -472,7 +472,7 @@
     {
       "resource": {
         "resourceType": "Observation",
-        "id": "1de753ed-8fab-48a3-905c-a2987853505c",
+        "id": "5a847105-7685-4060-85d4-db763ed8ca73",
         "meta": {
           "profile": [
             "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-case-notification-panel"
@@ -500,59 +500,59 @@
           ]
         },
         "subject": {
-          "reference": "Patient/5b337c89-7232-48ff-8f92-699748851e8e"
+          "reference": "Patient/81756011-7f41-413f-aaf8-5c72415b9db9"
         },
         "hasMember": [
           {
-            "reference": "Observation/935368b6-7458-4713-adb5-fc494ac36fd0"
+            "reference": "Observation/6353298b-09e8-4d02-8fbd-c6393c7eeaac"
           },
           {
-            "reference": "Observation/9814a8a2-2626-47a0-97d7-6396cc28eeae"
+            "reference": "Observation/5f2b31e8-7461-48b4-a46f-07e16bab3251"
           },
           {
-            "reference": "Observation/a032e07e-a3c9-4478-afc5-780b9bd0bdb0"
+            "reference": "Observation/685d862d-5aa8-4a70-a159-8eec833d1bb1"
           },
           {
-            "reference": "Observation/dccb9791-3761-4cd3-9238-352e35ef0320"
+            "reference": "Observation/c37453ee-414d-4e1c-a7e8-d289bf34cc1d"
           },
           {
-            "reference": "Observation/7ebc142c-0d25-41db-a093-a2301ea6ffc9"
+            "reference": "Observation/d813d4ee-b97b-42a5-b233-fd34cbbdd2da"
           },
           {
-            "reference": "Observation/e5e90d6c-cc29-443c-8700-2d84806cd978"
+            "reference": "Observation/b24819b8-51b8-4397-a5be-46b60abbe93f"
           },
           {
-            "reference": "Observation/7f9686e0-12c3-4b4b-9b24-92af91d4f75e"
+            "reference": "Observation/3b2c7f2a-7193-4a32-8e46-399348ab93d8"
           },
           {
-            "reference": "Observation/6a91a4db-3c9b-41a3-aa09-a812e267c8c1"
+            "reference": "Observation/c3126820-c928-4c2e-a84e-7270fb27607a"
           },
           {
-            "reference": "Observation/780202bf-214f-4947-9caf-411eb7a94050"
+            "reference": "Observation/1ca6f11a-7c80-4dae-b7a7-5ac367b41056"
           },
           {
-            "reference": "Observation/2dce90b9-986f-4e61-ae99-76d4400384f8"
+            "reference": "Observation/0920bc6f-ac5e-4cf7-8009-e9dd0586343b"
           },
           {
-            "reference": "Observation/d53aa4a0-858e-495f-82d7-9f4415c06750"
+            "reference": "Observation/75628b95-aa27-47e0-8900-54c57b2c5e9e"
           },
           {
-            "reference": "Observation/4af521dd-8653-4ec2-bcbc-e8a1605d859f"
+            "reference": "Observation/ad509331-3331-4307-a2d9-e1792cb55540"
           },
           {
-            "reference": "Observation/23f519fb-123b-419f-b24b-1705cafc75e9"
+            "reference": "Observation/7c387296-d824-4e3f-a82e-b973d816621f"
           },
           {
-            "reference": "Observation/1e3fa56b-4146-4abd-889b-596d1dadf3cb"
+            "reference": "Observation/8d90cae2-ab7f-4f57-8837-ac6569ad2ee2"
           },
           {
-            "reference": "Observation/dc80ae54-31aa-4bf8-9f7e-a5f964719ff3"
+            "reference": "Observation/c415522e-ef08-4d59-b9d2-849e4c86b1e3"
           },
           {
-            "reference": "Observation/3dbfc1ae-d552-40fb-aef6-f56a71c7871e"
+            "reference": "Observation/5751ad34-fc4f-437e-bfac-3278b5bda7d0"
           },
           {
-            "reference": "Observation/a4f37ecf-3f83-4c08-a201-da6e725aa6fb"
+            "reference": "Observation/7d7d6bfc-19bb-4c0a-8464-4ed73d582b79"
           }
         ]
       }
@@ -560,7 +560,7 @@
     {
       "resource": {
         "resourceType": "Observation",
-        "id": "4af521dd-8653-4ec2-bcbc-e8a1605d859f",
+        "id": "ad509331-3331-4307-a2d9-e1792cb55540",
         "meta": {
           "profile": [
             "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-mmwr"
@@ -587,7 +587,7 @@
           ]
         },
         "subject": {
-          "reference": "Patient/5b337c89-7232-48ff-8f92-699748851e8e"
+          "reference": "Patient/81756011-7f41-413f-aaf8-5c72415b9db9"
         },
         "component": [
           {
@@ -618,7 +618,7 @@
     {
       "resource": {
         "resourceType": "Observation",
-        "id": "780202bf-214f-4947-9caf-411eb7a94050",
+        "id": "1ca6f11a-7c80-4dae-b7a7-5ac367b41056",
         "meta": {
           "profile": [
             "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-case-notification-panel",
@@ -646,11 +646,11 @@
           ]
         },
         "subject": {
-          "reference": "Patient/5b337c89-7232-48ff-8f92-699748851e8e"
+          "reference": "Patient/81756011-7f41-413f-aaf8-5c72415b9db9"
         },
         "focus": [
           {
-            "reference": "Condition/5d1f4e95-62e9-4739-96a6-2f6772f01bcf"
+            "reference": "Condition/ba37f972-f0ce-4ed5-af19-1597f3295ff1"
           }
         ],
         "component": [
@@ -720,7 +720,7 @@
     {
       "resource": {
         "resourceType": "Observation",
-        "id": "2dce90b9-986f-4e61-ae99-76d4400384f8",
+        "id": "0920bc6f-ac5e-4cf7-8009-e9dd0586343b",
         "meta": {
           "profile": [
             "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-case-notification-panel",
@@ -749,7 +749,7 @@
           ]
         },
         "subject": {
-          "reference": "Patient/5b337c89-7232-48ff-8f92-699748851e8e"
+          "reference": "Patient/81756011-7f41-413f-aaf8-5c72415b9db9"
         },
         "valueCodeableConcept": {
           "coding": [
@@ -765,7 +765,7 @@
     {
       "resource": {
         "resourceType": "Observation",
-        "id": "3dbfc1ae-d552-40fb-aef6-f56a71c7871e",
+        "id": "5751ad34-fc4f-437e-bfac-3278b5bda7d0",
         "meta": {
           "profile": [
             "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-case-notification-panel",
@@ -794,7 +794,7 @@
           ]
         },
         "subject": {
-          "reference": "Patient/5b337c89-7232-48ff-8f92-699748851e8e"
+          "reference": "Patient/81756011-7f41-413f-aaf8-5c72415b9db9"
         },
         "valueCodeableConcept": {
           "coding": [
@@ -810,7 +810,7 @@
     {
       "resource": {
         "resourceType": "Observation",
-        "id": "dc80ae54-31aa-4bf8-9f7e-a5f964719ff3",
+        "id": "c415522e-ef08-4d59-b9d2-849e4c86b1e3",
         "meta": {
           "profile": [
             "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-case-notification-panel",
@@ -839,7 +839,7 @@
           ]
         },
         "subject": {
-          "reference": "Patient/5b337c89-7232-48ff-8f92-699748851e8e"
+          "reference": "Patient/81756011-7f41-413f-aaf8-5c72415b9db9"
         },
         "valueCodeableConcept": {
           "coding": [
@@ -855,7 +855,7 @@
     {
       "resource": {
         "resourceType": "Observation",
-        "id": "23f519fb-123b-419f-b24b-1705cafc75e9",
+        "id": "7c387296-d824-4e3f-a82e-b973d816621f",
         "meta": {
           "profile": [
             "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-case-notification-panel",
@@ -884,7 +884,7 @@
           ]
         },
         "subject": {
-          "reference": "Patient/5b337c89-7232-48ff-8f92-699748851e8e"
+          "reference": "Patient/81756011-7f41-413f-aaf8-5c72415b9db9"
         },
         "valueCodeableConcept": {
           "coding": [
@@ -900,7 +900,7 @@
     {
       "resource": {
         "resourceType": "Observation",
-        "id": "d53aa4a0-858e-495f-82d7-9f4415c06750",
+        "id": "75628b95-aa27-47e0-8900-54c57b2c5e9e",
         "meta": {
           "profile": [
             "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-case-notification-panel",
@@ -929,7 +929,7 @@
           ]
         },
         "subject": {
-          "reference": "Patient/5b337c89-7232-48ff-8f92-699748851e8e"
+          "reference": "Patient/81756011-7f41-413f-aaf8-5c72415b9db9"
         },
         "valueString": "S01"
       }
@@ -937,7 +937,7 @@
     {
       "resource": {
         "resourceType": "Observation",
-        "id": "e5e90d6c-cc29-443c-8700-2d84806cd978",
+        "id": "b24819b8-51b8-4397-a5be-46b60abbe93f",
         "meta": {
           "profile": [
             "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-case-notification-panel",
@@ -966,7 +966,7 @@
           ]
         },
         "subject": {
-          "reference": "Patient/5b337c89-7232-48ff-8f92-699748851e8e"
+          "reference": "Patient/81756011-7f41-413f-aaf8-5c72415b9db9"
         },
         "valueDateTime": "2022-01-30"
       }
@@ -974,7 +974,7 @@
     {
       "resource": {
         "resourceType": "Observation",
-        "id": "7f9686e0-12c3-4b4b-9b24-92af91d4f75e",
+        "id": "3b2c7f2a-7193-4a32-8e46-399348ab93d8",
         "meta": {
           "profile": [
             "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-case-notification-panel",
@@ -1003,7 +1003,7 @@
           ]
         },
         "subject": {
-          "reference": "Patient/5b337c89-7232-48ff-8f92-699748851e8e"
+          "reference": "Patient/81756011-7f41-413f-aaf8-5c72415b9db9"
         },
         "valueDateTime": "2022-01-30"
       }
@@ -1011,7 +1011,7 @@
     {
       "resource": {
         "resourceType": "Observation",
-        "id": "6a91a4db-3c9b-41a3-aa09-a812e267c8c1",
+        "id": "c3126820-c928-4c2e-a84e-7270fb27607a",
         "meta": {
           "profile": [
             "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-case-notification-panel",
@@ -1040,7 +1040,7 @@
           ]
         },
         "subject": {
-          "reference": "Patient/5b337c89-7232-48ff-8f92-699748851e8e"
+          "reference": "Patient/81756011-7f41-413f-aaf8-5c72415b9db9"
         },
         "valueDateTime": "2021-01-30"
       }
@@ -1048,7 +1048,7 @@
     {
       "resource": {
         "resourceType": "Observation",
-        "id": "a032e07e-a3c9-4478-afc5-780b9bd0bdb0",
+        "id": "685d862d-5aa8-4a70-a159-8eec833d1bb1",
         "meta": {
           "profile": [
             "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-case-notification-panel",
@@ -1077,7 +1077,7 @@
           ]
         },
         "subject": {
-          "reference": "Patient/5b337c89-7232-48ff-8f92-699748851e8e"
+          "reference": "Patient/81756011-7f41-413f-aaf8-5c72415b9db9"
         },
         "valueDateTime": "2014-02-25"
       }
@@ -1085,7 +1085,7 @@
     {
       "resource": {
         "resourceType": "Observation",
-        "id": "dccb9791-3761-4cd3-9238-352e35ef0320",
+        "id": "c37453ee-414d-4e1c-a7e8-d289bf34cc1d",
         "meta": {
           "profile": [
             "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-case-notification-panel",
@@ -1114,7 +1114,7 @@
           ]
         },
         "subject": {
-          "reference": "Patient/5b337c89-7232-48ff-8f92-699748851e8e"
+          "reference": "Patient/81756011-7f41-413f-aaf8-5c72415b9db9"
         },
         "component": [
           {
@@ -1155,7 +1155,7 @@
     {
       "resource": {
         "resourceType": "Observation",
-        "id": "9814a8a2-2626-47a0-97d7-6396cc28eeae",
+        "id": "5f2b31e8-7461-48b4-a46f-07e16bab3251",
         "meta": {
           "profile": [
             "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-case-notification-panel",
@@ -1184,7 +1184,7 @@
           ]
         },
         "subject": {
-          "reference": "Patient/5b337c89-7232-48ff-8f92-699748851e8e"
+          "reference": "Patient/81756011-7f41-413f-aaf8-5c72415b9db9"
         },
         "valueCodeableConcept": {
           "coding": [
@@ -1200,7 +1200,7 @@
     {
       "resource": {
         "resourceType": "Observation",
-        "id": "a4f37ecf-3f83-4c08-a201-da6e725aa6fb",
+        "id": "7d7d6bfc-19bb-4c0a-8464-4ed73d582b79",
         "meta": {
           "profile": [
             "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-case-notification-panel",
@@ -1229,7 +1229,7 @@
           ]
         },
         "subject": {
-          "reference": "Patient/5b337c89-7232-48ff-8f92-699748851e8e"
+          "reference": "Patient/81756011-7f41-413f-aaf8-5c72415b9db9"
         },
         "valueCodeableConcept": {
           "coding": [
@@ -1245,7 +1245,7 @@
     {
       "resource": {
         "resourceType": "Observation",
-        "id": "7ebc142c-0d25-41db-a093-a2301ea6ffc9",
+        "id": "d813d4ee-b97b-42a5-b233-fd34cbbdd2da",
         "meta": {
           "profile": [
             "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-case-notification-panel",
@@ -1274,7 +1274,7 @@
           ]
         },
         "subject": {
-          "reference": "Patient/5b337c89-7232-48ff-8f92-699748851e8e"
+          "reference": "Patient/81756011-7f41-413f-aaf8-5c72415b9db9"
         },
         "valueDateTime": "2014-02-25"
       }
@@ -1282,7 +1282,7 @@
     {
       "resource": {
         "resourceType": "Observation",
-        "id": "1e3fa56b-4146-4abd-889b-596d1dadf3cb",
+        "id": "8d90cae2-ab7f-4f57-8837-ac6569ad2ee2",
         "meta": {
           "profile": [
             "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-case-notification-panel",
@@ -1311,7 +1311,7 @@
           ]
         },
         "subject": {
-          "reference": "Patient/5b337c89-7232-48ff-8f92-699748851e8e"
+          "reference": "Patient/81756011-7f41-413f-aaf8-5c72415b9db9"
         },
         "valueCodeableConcept": {
           "coding": [
@@ -1327,7 +1327,7 @@
     {
       "resource": {
         "resourceType": "Observation",
-        "id": "935368b6-7458-4713-adb5-fc494ac36fd0",
+        "id": "6353298b-09e8-4d02-8fbd-c6393c7eeaac",
         "meta": {
           "profile": [
             "http://cbsig.chai.gatech.edu/StructureDefinition/cbs-case-notification-panel",
@@ -1356,7 +1356,7 @@
           ]
         },
         "subject": {
-          "reference": "Patient/5b337c89-7232-48ff-8f92-699748851e8e"
+          "reference": "Patient/81756011-7f41-413f-aaf8-5c72415b9db9"
         },
         "valueQuantity": {
           "value": 49,
@@ -1386,7 +1386,7 @@
           ]
         },
         "patient": {
-          "reference": "Patient/5b337c89-7232-48ff-8f92-699748851e8e"
+          "reference": "Patient/81756011-7f41-413f-aaf8-5c72415b9db9"
         },
         "occurrenceDateTime": "2014-02-25",
         "reportOrigin": {
@@ -1421,7 +1421,7 @@
           }
         ],
         "subject": {
-          "reference": "Patient/5b337c89-7232-48ff-8f92-699748851e8e"
+          "reference": "Patient/81756011-7f41-413f-aaf8-5c72415b9db9"
         },
         "_effectiveDateTime": {
           "extension": [
@@ -1433,7 +1433,7 @@
         },
         "result": [
           {
-            "reference": "Observation/1d69888f-9cfc-4f59-9fdd-fbe3109e121e"
+            "reference": "Observation/8d4649d5-19f1-4b59-8fed-7e389fbd2522"
           }
         ]
       }
@@ -1441,7 +1441,7 @@
     {
       "resource": {
         "resourceType": "Observation",
-        "id": "1d69888f-9cfc-4f59-9fdd-fbe3109e121e",
+        "id": "8d4649d5-19f1-4b59-8fed-7e389fbd2522",
         "meta": {
           "profile": [
             "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab",
@@ -1470,7 +1470,7 @@
           ]
         },
         "subject": {
-          "reference": "Patient/5b337c89-7232-48ff-8f92-699748851e8e"
+          "reference": "Patient/81756011-7f41-413f-aaf8-5c72415b9db9"
         },
         "valueCodeableConcept": {
           "coding": [

@@ -1,0 +1,179 @@
+{
+  "resourceType": "Bundle",
+  "id": "70a34aa2-889e-4b40-a515-4c81be330726",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/mdi/StructureDefinition/Bundle-document-mdi-to-edrs"
+    ]
+  },
+  "identifier": {
+    "system": "urn:ietf:rfc:3986",
+    "value": "urn:uuid:464878f4-8d19-11ed-a1eb-0242ac120002"
+  },
+  "type": "document",
+  "timestamp": "2023-01-18T16:40:38.810271-05:00",
+  "entry": [
+    {
+      "fullUrl": "Composition/173ced60-3818-41fd-b463-ab74198b981d",
+      "resource": {
+        "resourceType": "Composition",
+        "id": "173ced60-3818-41fd-b463-ab74198b981d",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/mdi/StructureDefinition/Composition-mdi-to-edrs"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/mdi/StructureDefinition/Extension-tracking-number",
+            "valueIdentifier": {
+              "type": {
+                "coding": [
+                  {
+                    "system": "http://hl7.org/fhir/us/mdi/CodeSystem/CodeSystem-mdi-codes",
+                    "code": "edrs-file-number",
+                    "display": "EDRS File Number"
+                  }
+                ]
+              },
+              "system": "urn:raven:test",
+              "value": "EDRS-03"
+            }
+          }
+        ],
+        "identifier": {
+          "value": "4146e91c-8d19-11ed-a1eb-0242ac120002"
+        },
+        "status": "final",
+        "type": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "86807-5",
+              "display": "Death administrative information Document"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/f05389ed-564a-4d5f-9e39-c4d67691e931"
+        },
+        "date": "2022-02-20",
+        "title": "MDI to EDRS Composition"
+      }
+    },
+    {
+      "fullUrl": "Patient/f05389ed-564a-4d5f-9e39-c4d67691e931",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "f05389ed-564a-4d5f-9e39-c4d67691e931",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
+          ]
+        },
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "ombCategory",
+                "valueCoding": {
+                  "system": "urn:oid:2.16.840.1.113883.6.238",
+                  "code": "1002-5",
+                  "display": "American Indian or Alaska Native"
+                }
+              },
+              {
+                "url": "detailed",
+                "valueCoding": {
+                  "system": "urn:oid:2.16.840.1.113883.6.238",
+                  "code": "1004-1",
+                  "display": "American Indian"
+                }
+              },
+              {
+                "url": "text",
+                "valueString": "American Indian"
+              }
+            ],
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race"
+          },
+          {
+            "extension": [
+              {
+                "url": "ombCategory",
+                "valueCoding": {
+                  "system": "urn:oid:2.16.840.1.113883.6.238",
+                  "code": "2186-5",
+                  "display": "Not Hispanic or Latino"
+                }
+              },
+              {
+                "url": "detailed",
+                "valueCoding": {
+                  "system": "http://terminology.hl7.org/CodeSystem/v3-NullFlavor",
+                  "code": "OTH",
+                  "display": "other"
+                }
+              },
+              {
+                "url": "text",
+                "valueString": "Not Hispanic or Latino"
+              }
+            ],
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity"
+          },
+          {
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex",
+            "valueCode": "M"
+          }
+        ],
+        "identifier": [
+          {
+            "use": "usual",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "SB",
+                  "display": "Social Beneficiary Identifier"
+                }
+              ]
+            },
+            "system": "http://hl7.org/fhir/sid/us-ssn",
+            "value": "304958907"
+          }
+        ],
+        "name": [
+          {
+            "family": "Kenobi",
+            "given": [
+              "Obiwan"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "908-234-1212",
+            "use": "home"
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1957-10-15",
+        "address": [
+          {
+            "use": "home",
+            "type": "physical",
+            "line": [
+              "1234 StarWars Street"
+            ],
+            "city": "Los Angeles",
+            "state": "CA",
+            "postalCode": "09090",
+            "country": "USA"
+          }
+        ]
+      }
+    }
+  ]
+}

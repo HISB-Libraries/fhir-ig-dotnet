@@ -13,7 +13,7 @@ namespace GaTech.Chai.Mdi.Common
         {
             public const string officialUrl = "http://hl7.org/fhir/us/mdi/CodeSystem/CodeSystem-mdi-codes";
 
-            public static CodeableConcept AdditionalDemographics = new(officialUrl, "demographics", "Demographics Section", null);
+            public static CodeableConcept AdditionalDemographics = new(officialUrl, "demographics", "Additional Demographics Section", null);
             public static CodeableConcept Circumstances = new(officialUrl, "circumstances", "Circumstances of the Death Section", null);
             public static CodeableConcept Jurisdiction = new(officialUrl, "jurisdiction", "Jurisdiction Section", null);
             public static CodeableConcept CauseManner = new(officialUrl, "cause-manner", "Cause and Manner of Death Section", null);

@@ -1,0 +1,180 @@
+{
+  "resourceType": "Bundle",
+  "id": "209a8648-0e2a-467b-9956-b25bd5901bb5",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/mdi/StructureDefinition/Bundle-document-mdi-to-edrs"
+    ]
+  },
+  "identifier": {
+    "system": "urn:ietf:rfc:3986",
+    "value": "urn:uuid:9ba0a959-bce5-42ee-9710-2f1c54b37d09"
+  },
+  "type": "document",
+  "timestamp": "2023-01-18T16:40:38.583228-05:00",
+  "entry": [
+    {
+      "fullUrl": "Composition/887cbd62-e65c-40b0-a6cd-ec7ffd19cb17",
+      "resource": {
+        "resourceType": "Composition",
+        "id": "887cbd62-e65c-40b0-a6cd-ec7ffd19cb17",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/mdi/StructureDefinition/Composition-mdi-to-edrs"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/mdi/StructureDefinition/Extension-tracking-number",
+            "valueIdentifier": {
+              "type": {
+                "coding": [
+                  {
+                    "system": "http://hl7.org/fhir/us/mdi/CodeSystem/CodeSystem-mdi-codes",
+                    "code": "edrs-file-number",
+                    "display": "EDRS File Number"
+                  }
+                ]
+              },
+              "system": "urn:raven:test",
+              "value": "EDRS-01"
+            }
+          }
+        ],
+        "identifier": {
+          "value": "115759f4-8d18-11ed-a1eb-0242ac120002"
+        },
+        "status": "final",
+        "type": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "86807-5",
+              "display": "Death administrative information Document"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/e8a009fa-3172-461c-9a93-1c229c952f22"
+        },
+        "date": "2022-02-20",
+        "title": "MDI to EDRS Composition"
+      }
+    },
+    {
+      "fullUrl": "Patient/e8a009fa-3172-461c-9a93-1c229c952f22",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "e8a009fa-3172-461c-9a93-1c229c952f22",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
+          ]
+        },
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "ombCategory",
+                "valueCoding": {
+                  "system": "urn:oid:2.16.840.1.113883.6.238",
+                  "code": "2106-3",
+                  "display": "White"
+                }
+              },
+              {
+                "url": "detailed",
+                "valueCoding": {
+                  "system": "urn:oid:2.16.840.1.113883.6.238",
+                  "code": "2108-9",
+                  "display": "European"
+                }
+              },
+              {
+                "url": "text",
+                "valueString": "European"
+              }
+            ],
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race"
+          },
+          {
+            "extension": [
+              {
+                "url": "ombCategory",
+                "valueCoding": {
+                  "system": "urn:oid:2.16.840.1.113883.6.238",
+                  "code": "2186-5",
+                  "display": "Not Hispanic or Latino"
+                }
+              },
+              {
+                "url": "detailed",
+                "valueCoding": {
+                  "system": "http://terminology.hl7.org/CodeSystem/v3-NullFlavor",
+                  "code": "UNK",
+                  "display": "unknown"
+                }
+              },
+              {
+                "url": "text",
+                "valueString": "Not Hispanic or Latino"
+              }
+            ],
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity"
+          },
+          {
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex",
+            "valueCode": "M"
+          }
+        ],
+        "identifier": [
+          {
+            "use": "usual",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "SB",
+                  "display": "Social Beneficiary Identifier"
+                }
+              ]
+            },
+            "system": "http://hl7.org/fhir/sid/us-ssn",
+            "value": "890123456"
+          }
+        ],
+        "name": [
+          {
+            "family": "Adams",
+            "given": [
+              "Patch",
+              "J"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "212-867-5310",
+            "use": "home"
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1960-05-10",
+        "address": [
+          {
+            "use": "home",
+            "type": "physical",
+            "line": [
+              "123 Coda Street"
+            ],
+            "city": "Decatur",
+            "state": "GA",
+            "postalCode": "08190",
+            "country": "USA"
+          }
+        ]
+      }
+    }
+  ]
+}

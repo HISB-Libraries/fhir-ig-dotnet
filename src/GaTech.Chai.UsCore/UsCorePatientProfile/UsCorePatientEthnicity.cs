@@ -88,7 +88,13 @@ namespace GaTech.Chai.UsCore.PatientProfile
             /// <returns></returns>
             public static Coding Encode(string code, string text)
             {
-                return new Coding("urn:oid:2.16.840.1.113883.6.238", code)
+                string default_system = "urn:oid:2.16.840.1.113883.6.238";
+
+                if ("ASKU".Equals(code) || "OTH".Equals(code) || "UNK".Equals(code))
+                {
+                    default_system = "http://terminology.hl7.org/CodeSystem/v3-NullFlavor";
+                }
+                return new Coding(default_system, code)
                 { Display = text };
             }
         }

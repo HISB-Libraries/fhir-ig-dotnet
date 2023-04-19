@@ -1,0 +1,180 @@
+{
+  "resourceType": "Bundle",
+  "id": "9eeb0bdc-6069-41d5-9185-a329229e9df7",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/mdi/StructureDefinition/Bundle-document-mdi-to-edrs"
+    ]
+  },
+  "identifier": {
+    "system": "urn:ietf:rfc:3986",
+    "value": "urn:uuid:1d804ed4-8d18-11ed-a1eb-0242ac120002"
+  },
+  "type": "document",
+  "timestamp": "2023-01-18T16:40:38.809309-05:00",
+  "entry": [
+    {
+      "fullUrl": "Composition/a4ca0234-7e89-41f8-8485-b69509954c4d",
+      "resource": {
+        "resourceType": "Composition",
+        "id": "a4ca0234-7e89-41f8-8485-b69509954c4d",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/mdi/StructureDefinition/Composition-mdi-to-edrs"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/mdi/StructureDefinition/Extension-tracking-number",
+            "valueIdentifier": {
+              "type": {
+                "coding": [
+                  {
+                    "system": "http://hl7.org/fhir/us/mdi/CodeSystem/CodeSystem-mdi-codes",
+                    "code": "edrs-file-number",
+                    "display": "EDRS File Number"
+                  }
+                ]
+              },
+              "system": "urn:raven:test",
+              "value": "EDRS-02"
+            }
+          }
+        ],
+        "identifier": {
+          "value": "f84b848a-8d17-11ed-a1eb-0242ac120002"
+        },
+        "status": "final",
+        "type": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "86807-5",
+              "display": "Death administrative information Document"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/2af678c9-5a6b-4ea5-8b77-2b9aaed9c469"
+        },
+        "date": "2022-02-20",
+        "title": "MDI to EDRS Composition"
+      }
+    },
+    {
+      "fullUrl": "Patient/2af678c9-5a6b-4ea5-8b77-2b9aaed9c469",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "2af678c9-5a6b-4ea5-8b77-2b9aaed9c469",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
+          ]
+        },
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "ombCategory",
+                "valueCoding": {
+                  "system": "urn:oid:2.16.840.1.113883.6.238",
+                  "code": "2054-5",
+                  "display": "Black or African American"
+                }
+              },
+              {
+                "url": "detailed",
+                "valueCoding": {
+                  "system": "urn:oid:2.16.840.1.113883.6.238",
+                  "code": "2058-6",
+                  "display": "African American"
+                }
+              },
+              {
+                "url": "text",
+                "valueString": "African American"
+              }
+            ],
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race"
+          },
+          {
+            "extension": [
+              {
+                "url": "ombCategory",
+                "valueCoding": {
+                  "system": "urn:oid:2.16.840.1.113883.6.238",
+                  "code": "2186-5",
+                  "display": "Not Hispanic or Latino"
+                }
+              },
+              {
+                "url": "detailed",
+                "valueCoding": {
+                  "system": "urn:oid:2.16.840.1.113883.6.238",
+                  "code": "2155-0",
+                  "display": "Central American"
+                }
+              },
+              {
+                "url": "text",
+                "valueString": "Not Hispanic or Latino"
+              }
+            ],
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity"
+          },
+          {
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex",
+            "valueCode": "M"
+          }
+        ],
+        "identifier": [
+          {
+            "use": "usual",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "SB",
+                  "display": "Social Beneficiary Identifier"
+                }
+              ]
+            },
+            "system": "http://hl7.org/fhir/sid/us-ssn",
+            "value": "567890123"
+          }
+        ],
+        "name": [
+          {
+            "family": "Vader",
+            "given": [
+              "Darth",
+              "J"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "215-123-3456",
+            "use": "home"
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1977-01-20",
+        "address": [
+          {
+            "use": "home",
+            "type": "physical",
+            "line": [
+              "567 Wall Street"
+            ],
+            "city": "Dallas",
+            "state": "TX",
+            "postalCode": "12340",
+            "country": "USA"
+          }
+        ]
+      }
+    }
+  ]
+}

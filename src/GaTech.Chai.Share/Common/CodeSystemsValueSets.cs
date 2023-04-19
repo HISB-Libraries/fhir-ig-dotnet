@@ -69,6 +69,22 @@ namespace GaTech.Chai.Share.Common
             public static Coding VascularUltrasound = new (officialUrl, "VUS", "Vascular Ultrasound");
             public static Coding Cineradiograph = new(officialUrl, "XRC", "Cineradiograph");
         }
+
+        public class Hl7VsSpecimenCondition
+        {
+            public static string officialUrl = "http://terminology.hl7.org/CodeSystem/v2-0493";
+
+            public static Coding Autolyzed = new(officialUrl, "AUT", "Autolyzed");
+            public static Coding Clotted = new(officialUrl, "CLOT", "Clotted");
+            public static Coding Contaminated = new(officialUrl, "CON", "Contaminated");
+            public static Coding Cool = new(officialUrl, "COOL", "Cool");
+            public static Coding Frozen = new(officialUrl, "FROZ", "Frozen");
+            public static Coding Hemolyzed = new(officialUrl, "HEM", "Hemolyzed");
+            public static Coding Live = new(officialUrl, "LIVE", "Live");
+            public static Coding RoomTemperature = new(officialUrl, "ROOM", "Room temperature");
+            public static Coding SampleNotReceived = new(officialUrl, "SNR", "Sample not received");
+            public static Coding Centrifuged = new(officialUrl, "CFU", "Centrifuged");
+        }
     }
 }
 
