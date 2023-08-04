@@ -108,6 +108,7 @@ namespace GaTech.Chai.Mdi.ObservationMannerOfDeathProfile
             set
             {
                 this.observation.Performer = new List<ResourceReference> { value.AsReference() };
+                resources[value.AsReference().Reference] = value;
             }
         }
 
