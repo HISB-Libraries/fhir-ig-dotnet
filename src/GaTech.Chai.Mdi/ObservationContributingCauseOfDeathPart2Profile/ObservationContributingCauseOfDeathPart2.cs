@@ -1,9 +1,7 @@
 ﻿using System;
 using Hl7.Fhir.Model;
 using GaTech.Chai.Share.Extensions;
-using GaTech.Chai.Mdi.ObservationConditionContributingToDeathProfile;
 using System.Collections.Generic;
-using GaTech.Chai.Mdi.ObservationCauseOfDeathPart1Profile;
 
 namespace GaTech.Chai.Mdi.ObservationContributingCauseOfDeathPart2Profile
 {
