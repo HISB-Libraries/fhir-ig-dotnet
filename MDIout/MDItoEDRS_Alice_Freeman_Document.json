@@ -11,13 +11,13 @@
     "value": "urn:uuid:933dde44f7664b03a20b6324f23986c0"
   },
   "type": "document",
-  "timestamp": "2023-04-19T00:14:19.724679-04:00",
+  "timestamp": "2023-04-25T09:59:55.596331-04:00",
   "entry": [
     {
-      "fullUrl": "Composition/4cf2d37e-a994-11ed-afa1-0242ac120002",
+      "fullUrl": "Composition/d5eb30e7-f656-424c-8902-ba5c95797872",
       "resource": {
         "resourceType": "Composition",
-        "id": "4cf2d37e-a994-11ed-afa1-0242ac120002",
+        "id": "d5eb30e7-f656-424c-8902-ba5c95797872",
         "meta": {
           "profile": [
             "http://hl7.org/fhir/us/mdi/StructureDefinition/Composition-mdi-to-edrs"
@@ -74,13 +74,13 @@
         ],
         "section": [
           {
-            "title": "Demographics Section",
+            "title": "Additional Demographics Section",
             "code": {
               "coding": [
                 {
                   "system": "http://hl7.org/fhir/us/mdi/CodeSystem/CodeSystem-mdi-codes",
                   "code": "demographics",
-                  "display": "Demographics Section"
+                  "display": "Additional Demographics Section"
                 }
               ]
             },

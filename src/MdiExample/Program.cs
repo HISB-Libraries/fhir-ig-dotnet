@@ -209,7 +209,7 @@ namespace MdiExample
                 practitioner,
                 Composition.CompositionAttestationMode.Official
                 );
-            composition.Id = "4cf2d37e-a994-11ed-afa1-0242ac120002";
+            composition.Id = "d5eb30e7-f656-424c-8902-ba5c95797872";
             composition.DateElement = new FhirDateTime("2022-02-20");
             composition.Title = "MDI to EDRS Composition";
 
@@ -933,7 +933,7 @@ namespace MdiExample
             specimenBlood1.ReceivedTimeElement = new FhirDateTime("2018-09-28T16:00:00Z");
             specimenBlood1.Collection = new Specimen.CollectionComponent() { Collected = new FhirDateTime("2018-09-27T11:00:00Z"), BodySite = new CodeableConcept() { Text = "Central" } };
             specimenBlood1.Container.Add(new Specimen.ContainerComponent() { Description = "20mL GT tube", Type = new CodeableConcept("http://snomed.info/sct", "702287009", "Non-evacuated blood collection tube, potassium oxalate/sodium fluoride (physical object)", "GT tube"), SpecimenQuantity = new Quantity() { Value = 20, Unit = "ml" } });
-            specimenBlood1.Condition.Add(new CodeableConcept() { Coding = new List<Coding>() { ValueSets.Hl7VsSpecimenCondition.Cool } });
+            specimenBlood1.Condition.Add(new CodeableConcept() { Coding = new List<Coding>() { ValueSets.Hl7VsSpecimenCondition.Cool }, Text = ValueSets.Hl7VsSpecimenCondition.Cool.Display });
 
             specimenUrine = SpecimenToxicologyLab.Create("Urine", patient);
             specimenUrine.Id = "28220188-dd46-11ed-b5ea-0242ac120002";
@@ -942,7 +942,7 @@ namespace MdiExample
             specimenUrine.ReceivedTimeElement = new FhirDateTime("2018-09-28T16:00:00Z");
             specimenUrine.Collection = new Specimen.CollectionComponent() { Collected = new FhirDateTime("2018-09-27T11:00:00Z") };
             specimenUrine.Container.Add(new Specimen.ContainerComponent() { Description = "5mL RT tube", SpecimenQuantity = new Quantity() { Value = 5, Unit = "ml" } });
-            specimenUrine.Condition.Add(new CodeableConcept() { Coding = new List<Coding>() { ValueSets.Hl7VsSpecimenCondition.RoomTemperature } });
+            specimenUrine.Condition.Add(new CodeableConcept() { Coding = new List<Coding>() { ValueSets.Hl7VsSpecimenCondition.RoomTemperature }, Text = ValueSets.Hl7VsSpecimenCondition.RoomTemperature.Display });
 
             Specimen specimenBlood2 = SpecimenToxicologyLab.Create("Blood", patient);
             specimenBlood2.Id = "54a2e2ee-dd47-11ed-b5ea-0242ac120002";

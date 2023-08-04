@@ -361,7 +361,8 @@
                 "code": "COOL",
                 "display": "Cool"
               }
-            ]
+            ],
+            "text": "Cool"
           }
         ]
       }
@@ -408,7 +409,8 @@
                 "code": "ROOM",
                 "display": "Room temperature"
               }
-            ]
+            ],
+            "text": "Room temperature"
           }
         ]
       }
