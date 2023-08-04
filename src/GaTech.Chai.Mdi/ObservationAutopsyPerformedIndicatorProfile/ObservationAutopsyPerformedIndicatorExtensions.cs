@@ -6,7 +6,7 @@ namespace GaTech.Chai.Mdi.ObservationAutopsyPerformedIndicatorProfile
     /// Class with Observation extensions for ObservationAutopsyPerformedIndicatorProfile
     /// http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-autopsy-performed-indicator
     /// </summary>
-    public static class ObservationDecedentPregnancyExtensions
+    public static class ObservationAutopsyPerformedIndicatorExtensions
     {
         public static ObservationAutopsyPerformedIndicator ObservationAutopsyPerformedIndicator(this Observation observation)
         {

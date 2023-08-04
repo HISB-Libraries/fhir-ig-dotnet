@@ -1,6 +1,4 @@
-﻿using GaTech.Chai.Mdi.ProcedureDeathCertificationProfile;
-using GaTech.Chai.Mdi.ProceDureDeathCertificationProfile;
-using Hl7.Fhir.Model;
+﻿using Hl7.Fhir.Model;
 
 namespace GaTech.Chai.Mdi.ProcedureDeathCertificationProfile
 {

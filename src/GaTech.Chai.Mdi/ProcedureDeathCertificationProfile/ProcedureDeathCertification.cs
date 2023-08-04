@@ -2,9 +2,8 @@
 using Hl7.Fhir.Model;
 using GaTech.Chai.Share.Extensions;
 using System.Collections.Generic;
-using GaTech.Chai.Mdi.ProcedureDeathCertificationProfile;
 
-namespace GaTech.Chai.Mdi.ProceDureDeathCertificationProfile
+namespace GaTech.Chai.Mdi.ProcedureDeathCertificationProfile
 {
     /// <summary>
     /// ProcecureDeathCertificationProfile
