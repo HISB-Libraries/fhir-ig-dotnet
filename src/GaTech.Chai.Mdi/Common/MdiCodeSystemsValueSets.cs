@@ -116,13 +116,6 @@ namespace GaTech.Chai.Mdi.Common
         }
     }
 
-    public class MdiVsYesNoNotApplicable
-    {
-        public static CodeableConcept Yes = new ("http://terminology.hl7.org/CodeSystem/v2-0136", "Y", "Yes", null);
-        public static CodeableConcept No = new ("http://terminology.hl7.org/CodeSystem/v2-0136", "N", "No", null);
-        public static CodeableConcept NA = new ("http://terminology.hl7.org/CodeSystem/v3-NullFlavor", "NA", "not applicable", null);
-    }
-
     public class MdiVsYesNoUnknown
     {
         public const string officialUrl = "http://hl7.org/fhir/us/mdi/ValueSet/ValueSet-yes-no-unknown";
@@ -144,6 +137,8 @@ namespace GaTech.Chai.Mdi.Common
 
     public class MdiVsTransportationIncidentRole
     {
+        public const string officialUrl = "http://hl7.org/fhir/us/mdi/ValueSet/ValueSet-transportation-incident-role";
+
         public static CodeableConcept VehicleDriver = new("http://snomed.info/sct", "236320001", "Vehicle driver", null);
         public static CodeableConcept Passenger = new("http://snomed.info/sct", "257500003", "Passenger", null);
         public static CodeableConcept Pedestrian = new("http://snomed.info/sct", "257518000", "Pedestrian", null);
@@ -166,6 +161,8 @@ namespace GaTech.Chai.Mdi.Common
 
     public class MdiVsContributoryTobaccoUse
     {
+        public const string officialUrl = "http://hl7.org/fhir/us/mdi/ValueSet/ValueSet-contributory-tobacco-use";
+
         public static CodeableConcept Yes = new ("http://snomed.info/sct", "373066001", "Yes", null);
         public static CodeableConcept No = new ("http://snomed.info/sct", "373067005	", "No", null);
         public static CodeableConcept Probably = new ("http://snomed.info/sct", "2931005", "Probably", null);
@@ -199,7 +196,7 @@ namespace GaTech.Chai.Mdi.Common
 
     public class MdiVsDateEstablishmentApproach
     {
-        public const string officialUrl = "http://hl7.org/fhir/us/mdi/ValueSet/ValueSet-place-of-death";
+        public const string officialUrl = "http://hl7.org/fhir/us/mdi/ValueSet/ValueSet-date-establishment-approach";
 
         public static CodeableConcept Exact = new("http://hl7.org/fhir/us/mdi/CodeSystem/CodeSystem-mdi-codes", "exact", "Exact", null);
         public static CodeableConcept Approximate = new("http://hl7.org/fhir/us/mdi/CodeSystem/CodeSystem-mdi-codes", "approximate", "Approximate", null);
