@@ -60,27 +60,27 @@ namespace GaTech.Chai.Mdi.Common
             public static CodeableConcept FifthEditedCode = new(officialUrl, "FifthEditedCode", "Fifth Edited Race Code", null);
             public static CodeableConcept SixthEditedCode = new(officialUrl, "SixthEditedCode", "Sixth Edited Race Code", null);
             public static CodeableConcept SeventhEditedCode = new(officialUrl, "SeventhEditedCode", "Seventh Edited Race Code", null);
-            public static CodeableConcept EighthEditedCode = new(officialUrl, " EighthEditedCode", "Eighth Edited Race Code", null);
+            public static CodeableConcept EighthEditedCode = new(officialUrl, "EighthEditedCode", "Eighth Edited Race Code", null);
             public static CodeableConcept FirstAmericanIndianCode = new(officialUrl, "FirstAmericanIndianCode", "First Edited American Indian Race Code", null);
             public static CodeableConcept SecondAmericanIndianCode = new(officialUrl, "SecondAmericanIndianCode", "Second Edited American Indian Race Code", null);
             public static CodeableConcept FirstOtherAsianCode = new(officialUrl, "FirstOtherAsianCode", "First Edited Other Asian Race Code", null);
             public static CodeableConcept SecondOtherAsianCode = new(officialUrl, "SecondOtherAsianCode", "Second Edited Other Asian Race Race Code", null);
             public static CodeableConcept FirstOtherPacificIslanderCode = new(officialUrl, "FirstOtherPacificIslanderCode", "First Edited Other Pacific Islander Race Code", null);
-            public static CodeableConcept SecondOtherPacificIslanderCode = new(officialUrl, " SecondOtherPacificIslanderCode", "First Edited Other Pacific Islander Race Code", null);
+            public static CodeableConcept SecondOtherPacificIslanderCode = new(officialUrl, "SecondOtherPacificIslanderCode", "First Edited Other Pacific Islander Race Code", null);
             public static CodeableConcept FirstOtherRaceCode = new(officialUrl, "FirstOtherRaceCode", "First Edited Other Race Code", null);
-            public static CodeableConcept SecondOtherRaceCode = new(officialUrl, " SecondOtherRaceCode", "First Edited Other Race Code", null);
+            public static CodeableConcept SecondOtherRaceCode = new(officialUrl, "SecondOtherRaceCode", "First Edited Other Race Code", null);
             public static CodeableConcept RaceRecode40 = new(officialUrl, "RaceRecode40", "Race Recode 40", null);
-            public static CodeableConcept HispanicCode = new(officialUrl, " HispanicCode", "Hispanic Code", null);
+            public static CodeableConcept HispanicCode = new(officialUrl, "HispanicCode", "Hispanic Code", null);
             public static CodeableConcept HispanicCodeForLiteral = new(officialUrl, "HispanicCodeForLiteral", "Hispanic Code for Literal", null);
-            public static CodeableConcept RACEMVR = new(officialUrl, " RACEMVR", "Race Missing Value Reason", null);
+            public static CodeableConcept RACEMVR = new(officialUrl, "RACEMVR", "Race Missing Value Reason", null);
             public static CodeableConcept HispanicMexican = new(officialUrl, "HispanicMexican", "Hispanic Mexican", null);
-            public static CodeableConcept HispanicPuertoRican = new(officialUrl, " HispanicPuertoRican", "Hispanic Puerto Rican", null);
+            public static CodeableConcept HispanicPuertoRican = new(officialUrl, "HispanicPuertoRican", "Hispanic Puerto Rican", null);
             public static CodeableConcept HispanicCuban = new(officialUrl, "HispanicCuban", "Hispanic Cuban", null);
-            public static CodeableConcept HispanicOther = new(officialUrl, " HispanicOther", "Hispanic Other", null);
+            public static CodeableConcept HispanicOther = new(officialUrl, "HispanicOther", "Hispanic Other", null);
             public static CodeableConcept HispanicLiteral = new(officialUrl, "HispanicLiteral", "Hispanic Literal", null);
-            public static CodeableConcept White = new(officialUrl, " White", "White", null);
+            public static CodeableConcept White = new(officialUrl, "White", "White", null);
             public static CodeableConcept BlackOrAfricanAmerican = new(officialUrl, "BlackOrAfricanAmerican", "Black Or African American", null);
-            public static CodeableConcept AmericanIndianOrAlaskanNative = new(officialUrl, " AmericanIndianOrAlaskanNative", "American Indian Or Alaska Native", null);
+            public static CodeableConcept AmericanIndianOrAlaskanNative = new(officialUrl, "AmericanIndianOrAlaskanNative", "American Indian Or Alaska Native", null);
             public static CodeableConcept AsianIndian = new(officialUrl, "AsianIndian", "Asian Indian", null);
             public static CodeableConcept Chinese = new(officialUrl, "Chinese", "Chinese", null);
             public static CodeableConcept Filipino = new(officialUrl, "Filipino", "Filipino", null);
@@ -112,7 +112,7 @@ namespace GaTech.Chai.Mdi.Common
             public static CodeableConcept NotpregnantButPregnant42DaysOfDeath = new(officialUrl, "3", "Not pregnant, but pregnant within 42 days of death", null);
             public static CodeableConcept NotPregnantButPregnant43DaysTo1YearBeforeDeath = new(officialUrl, "4", "Not pregnant, but pregnant 43 days to 1 year before death", null);
             public static CodeableConcept UnknownIfPregnantPastYear = new(officialUrl, "9", "Unknown if pregnant within the past year", null);
-            public static CodeableConcept NA = new("http://terminology.hl7.org/CodeSystem/v3-NullFlavor", " NA", "Not applicable", null);
+            public static CodeableConcept NA = new("http://terminology.hl7.org/CodeSystem/v3-NullFlavor", "NA", "Not applicable", null);
         }
     }
 
@@ -156,7 +156,7 @@ namespace GaTech.Chai.Mdi.Common
         public static CodeableConcept Suicide = new ("http://snomed.info/sct", "44301001", "Suicide", null);
         public static CodeableConcept Homicide = new ("http://snomed.info/sct", "27935005", "Homicide", null);
         public static CodeableConcept PatientAwaitingInvestigation = new ("http://snomed.info/sct", "185973002", "Patient awaiting investigation", null);
-        public static CodeableConcept DeathmannerUndetermined = new ("http://snomed.info/sct", " 65037004", "Death, manner undetermined", null);
+        public static CodeableConcept DeathmannerUndetermined = new ("http://snomed.info/sct", "65037004", "Death, manner undetermined", null);
     }
 
     public class MdiVsContributoryTobaccoUse
@@ -175,9 +175,9 @@ namespace GaTech.Chai.Mdi.Common
         public const string officialUrl = "http://hl7.org/fhir/us/mdi/ValueSet/ValueSet-certifier-types";
 
         public static CodeableConcept MedicalExaminerCornerExamination = new("http://snomed.info/sct", "455381000124109", "Medical Examiner/Coroner-On the basis of examination, and/or investigation, in my opinion, death occurred at the time, date, and place, and due to the cause(s) and manner stated", null);
-        public static CodeableConcept PronouncingAndCertifyingPhysican = new("http://snomed.info/sct", "434641000124105	", "Pronouncing & Certifying physician-To the best of my knowledge, death occurred at the time, date, and place, and due to the cause(s) and manner stated", null);
+        public static CodeableConcept PronouncingAndCertifyingPhysican = new("http://snomed.info/sct", "434641000124105", "Pronouncing & Certifying physician-To the best of my knowledge, death occurred at the time, date, and place, and due to the cause(s) and manner stated", null);
         public static CodeableConcept CertifyingPhysician = new("http://snomed.info/sct", "434651000124107", "Certifying physician-To the best of my knowledge, death occurred due to the cause(s) and manner stated", null);
-        public static CodeableConcept Other = new("http://terminology.hl7.org/CodeSystem/v3-NullFlavor", "OTH", "Other ", null);
+        public static CodeableConcept Other = new("http://terminology.hl7.org/CodeSystem/v3-NullFlavor", "OTH", "Other", null);
     }
 
     public class MdiVsPlaceOfDeath
