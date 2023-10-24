@@ -32,10 +32,11 @@
     <None Remove="CompositionMdiToEdrsProfile %28copy%29\" />
     <None Remove="CbsSpecimenProfile\" />
     <None Remove="LocationDeathProfile\" />
+    <None Remove="BundleDocumentMdiAndEdrsProfile\" />
+    <None Remove="CompositionMdiAndEdrsProfile\" />
+    <None Remove="DocumentReferenceMDIReportProfile\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="BundleDocumentMdiToEdrsProfile\" />
-    <Folder Include="CompositionMdiToEdrsProfile\" />
     <Folder Include="Common\" />
     <Folder Include="ObservationContributingCauseOfDeathPart2Profile\" />
     <Folder Include="ObservationDeathDateProfile\" />
@@ -49,6 +50,9 @@
     <Folder Include="SpecimenToxicologyLabProfile\" />
     <Folder Include="ObservationToxicologyLabResultProfile\" />
     <Folder Include="LocationDeathProfile\" />
+    <Folder Include="BundleDocumentMdiAndEdrsProfile\" />
+    <Folder Include="CompositionMdiAndEdrsProfile\" />
+    <Folder Include="DocumentReferenceMDIReportProfile\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GaTech.Chai.Share\GaTech.Chai.Share.csproj" />

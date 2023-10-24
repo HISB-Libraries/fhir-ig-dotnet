@@ -7,26 +7,26 @@ using System.Collections.Generic;
 using Hl7.Fhir.Language.Debugging;
 using Newtonsoft.Json.Linq;
 
-namespace GaTech.Chai.Mdi.CompositionMditoEdrsProfile
+namespace GaTech.Chai.Mdi.CompositionMdiAndEdrsProfile
 {
     /// <summary>
     /// CompositionMditoEdrsProfile
-    /// http://hl7.org/fhir/us/mdi/StructureDefinition/Composition-mdi-to-edrs
+    /// http://hl7.org/fhir/us/mdi/StructureDefinition/Composition-mdi-and-edrs
     /// </summary>
-    public class CompositionMdiToEdrs
+    public class CompositionMdiAndEdrs
     {
         readonly Composition composition;
         readonly static Dictionary<string, Resource> resources = new ();
 
-        internal CompositionMdiToEdrs(Composition composition)
+        internal CompositionMdiAndEdrs(Composition composition)
         {
             this.composition = composition;
             composition.Type = new CodeableConcept("http://loinc.org", "86807-5", "Death administrative information Document", null);
         }
 
         /// <summary>
-        /// Factory for CompositionMdiToEdrsProfile
-        /// http://hl7.org/fhir/us/mdi/StructureDefinition/Composition-mdi-to-edrs
+        /// Factory for CompositionMdiAndEdrsProfile
+        /// http://hl7.org/fhir/us/mdi/StructureDefinition/Composition-mdi-and-edrs
         /// </summary>
         public static Composition Create(Identifier identifier, CompositionStatus status, Patient subject, Practitioner author, Practitioner certifier, CompositionAttestationMode? attestationMode)
         {
@@ -34,20 +34,20 @@ namespace GaTech.Chai.Mdi.CompositionMditoEdrsProfile
             resources.Clear();
 
             var composition = new Composition();
-            composition.CompositionMdiToEdrs().AddProfile();
+            composition.CompositionMdiAndEdrs().AddProfile();
 
             if (identifier != null) composition.Identifier = identifier;
             composition.Status = status;
-            if (subject != null) composition.CompositionMdiToEdrs().SubjectAsResource = subject;
-            if (author != null) composition.CompositionMdiToEdrs().AddAuthor(author);
-            if (certifier != null) composition.CompositionMdiToEdrs().Certifier = (attestationMode, certifier, DataAbsentReason.NotApplicable);
+            if (subject != null) composition.CompositionMdiAndEdrs().SubjectAsResource = subject;
+            if (author != null) composition.CompositionMdiAndEdrs().SetAuthor(author);
+            if (certifier != null) composition.CompositionMdiAndEdrs().Certifier = (attestationMode, certifier, DataAbsentReason.NotApplicable);
 
             return composition;
         }
 
         /// <summary>
         /// Factory for CompositionMdiToEdresProfile with empty parameters
-        /// http://hl7.org/fhir/us/mdi/StructureDefinition/Composition-mdi-to-edrs
+        /// http://hl7.org/fhir/us/mdi/StructureDefinition/Composition-mdi-and-edrs
         /// Note: required parameters must be set individually.
         /// </summary>
         public static Composition Create()
@@ -56,7 +56,7 @@ namespace GaTech.Chai.Mdi.CompositionMditoEdrsProfile
             resources.Clear();
 
             var composition = new Composition();
-            composition.CompositionMdiToEdrs().AddProfile();
+            composition.CompositionMdiAndEdrs().AddProfile();
 
             return composition;
         }
@@ -64,7 +64,7 @@ namespace GaTech.Chai.Mdi.CompositionMditoEdrsProfile
         /// <summary>
         /// The official URL for the CompositionMditoEdrsProfile, used to assert conformance.
         /// </summary>
-        public const string ProfileUrl = "http://hl7.org/fhir/us/mdi/StructureDefinition/Composition-mdi-to-edrs";
+        public const string ProfileUrl = "http://hl7.org/fhir/us/mdi/StructureDefinition/Composition-mdi-and-edrs";
 
         /// <summary>
         /// Set profile for the CompositionMditoEdrsProfile
@@ -102,14 +102,15 @@ namespace GaTech.Chai.Mdi.CompositionMditoEdrsProfile
         }
 
         /// <summary>
-        /// Add Authors
+        /// Set Authors. 1..1
         /// </summary>
-        public void AddAuthor(Practitioner practitioner)
+        public void SetAuthor(Practitioner practitioner)
         {
-            if (!this.composition.Author.Contains(practitioner.AsReference()))
+            if (this.composition.Author.Count > 0)
             {
-                this.composition.Author.Add(practitioner.AsReference());
+                this.composition.Author.Clear();
             }
+            this.composition.Author = new List<ResourceReference> { new ResourceReference(practitioner.AsReference().Reference) };
 
             resources[practitioner.AsReference().Reference] = practitioner;
         }
@@ -346,22 +347,22 @@ namespace GaTech.Chai.Mdi.CompositionMditoEdrsProfile
 
         /// <summary>
         /// CauseManner: gets or sets lists of cause and manner references
-        ///     value = (List<ResourceReference>, List<ResourceReference>, List<ResourceReference>, List<ResourceReference>, EmptyReasonCode)
+        ///     value = (List<ResourceReference>, ResourceReference, ResourceReference, ResourceReference, EmptyReasonCode)
         ///         List1 of Resource: Observation - Cause of Death Part 1 (0..4)
-        ///         List2 of Resource: Observation - Contributing Cause of Death Part 2 (0..*)
-        ///         List3 of Resource: Observation - Manner of Death (0..*)
-        ///         List4 of Resource: Observation - How Death Injury Occurred (0..*)
+        ///         List2 of Resource: Observation - Contributing Cause of Death Part 2 (0..1)
+        ///         List3 of Resource: Observation - Manner of Death (0..1)
+        ///         List4 of Resource: Observation - How Death Injury Occurred (0..1)
         ///         EmptyReasonCode:
         ///             GaTech.Chai.Share.Common.ListEmptyReaso
         /// </summary>
-        public (List<Resource>, List<Resource>, List<Resource>, List<Resource>, CodeableConcept) CauseManner
+        public (List<Resource>, Resource, Resource, Resource, CodeableConcept) CauseManner
         {
             get
             {
                 List<Resource> causeOfDeathPart1 = new();
-                List<Resource> contributingCauseOfDeathPart2 = new();
-                List<Resource> mannerOfDeath = new();
-                List<Resource> deathInjuryOccurred = new();
+                Resource contributingCauseOfDeathPart2 = null;
+                Resource mannerOfDeath = null;
+                Resource deathInjuryOccurred = null;
 
                 SectionComponent sectionComponent = GetOrAddSection("cause-manner", MdiCodeSystem.MdiCodes.CauseManner.Coding[0].Display);
                 foreach (ResourceReference reference in sectionComponent.Entry)
@@ -382,15 +383,15 @@ namespace GaTech.Chai.Mdi.CompositionMditoEdrsProfile
                             }
                             else if ("http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-contributing-cause-of-death-part2".Equals(profile))
                             {
-                                contributingCauseOfDeathPart2.Add(resource);
+                                contributingCauseOfDeathPart2 = resource;
                             }
                             else if ("http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-manner-of-death".Equals(profile))
                             {
-                                mannerOfDeath.Add(resource);
+                                mannerOfDeath = resource;
                             }
                             else if ("http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-how-death-injury-occurred".Equals(profile))
                             {
-                                deathInjuryOccurred.Add(resource);
+                                deathInjuryOccurred = resource;
                             }
                         }
                     }
@@ -407,6 +408,11 @@ namespace GaTech.Chai.Mdi.CompositionMditoEdrsProfile
                 // Cause of Death Part 1
                 if (value.Item1 != null)
                 {
+                    if (value.Item1.Count > 4)
+                    {
+                        throw (new ArgumentException("Cause-Manner : Causes of Death cannot be more than 4."));
+                    }
+
                     foreach (Resource resource in value.Item1)
                     {
                         if (!sectionComponent.Entry.Exists(x => x.Reference.Equals(resource.AsReference().Reference)))
@@ -420,44 +426,34 @@ namespace GaTech.Chai.Mdi.CompositionMditoEdrsProfile
                 // Contributing Cause of Death Part 2
                 if (value.Item2 != null)
                 {
-                    foreach (Resource resource in value.Item2)
+                    if (!sectionComponent.Entry.Exists(x => x.Reference.Equals(value.Item2.AsReference().Reference)))
                     {
-                        if (!sectionComponent.Entry.Exists(x => x.Reference.Equals(resource.AsReference().Reference)))
-                        {
-                            sectionComponent.Entry.Add(resource.AsReference());
-                            resources.Add(resource.AsReference().Reference, resource);
-                        }
+                        sectionComponent.Entry.Add(value.Item2.AsReference());
+                        resources.Add(value.Item2.AsReference().Reference, value.Item2);
                     }
                 }
 
                 // Manner of Death
                 if (value.Item3 != null)
                 {
-                    foreach (Resource resource in value.Item3)
+                    if (!sectionComponent.Entry.Exists(x => x.Reference.Equals(value.Item3.AsReference().Reference)))
                     {
-                        if (!sectionComponent.Entry.Exists(x => x.Reference.Equals(resource.AsReference().Reference)))
-                        {
-                            sectionComponent.Entry.Add(resource.AsReference());
-                            resources.Add(resource.AsReference().Reference, resource);
-                        }
+                        sectionComponent.Entry.Add(value.Item3.AsReference());
+                        resources.Add(value.Item3.AsReference().Reference, value.Item3);
                     }
                 }
 
                 // How Death Injury Occurred
                 if (value.Item4 != null)
                 {
-                    foreach (Resource resource in value.Item4)
+                    if (!sectionComponent.Entry.Exists(x => x.Reference.Equals(value.Item4.AsReference().Reference)))
                     {
-                        if (!sectionComponent.Entry.Exists(x => x.Reference.Equals(resource.AsReference().Reference)))
-                        {
-                            sectionComponent.Entry.Add(resource.AsReference());
-                            resources.Add(resource.AsReference().Reference, resource);
-                        }
+                        sectionComponent.Entry.Add(value.Item4.AsReference());
+                        resources.Add(value.Item4.AsReference().Reference, value.Item4);
                     }
                 }
 
-                if ((value.Item1 == null || value.Item1.Count == 0) && (value.Item2 == null || value.Item2.Count == 0) &&
-                    (value.Item3 == null || value.Item3.Count == 0) && (value.Item4 == null || value.Item4.Count == 0))
+                if ((value.Item1 == null || value.Item1.Count == 0) && value.Item2 == null && value.Item3 == null && value.Item4 == null)
                 {
                     if (value.Item5 == null)
                     {
@@ -496,7 +492,8 @@ namespace GaTech.Chai.Mdi.CompositionMditoEdrsProfile
         /// ExamAutopsy: gets or sets list of Exam Autopsy.
         ///     value = (List<ResourceReference>, Narrative, EmptyReasonCode)
         ///     Resource:
-        ///         Observation - Autopsy Performed Indicator
+        ///         Observation - Autopsy Performed Indicator,
+        ///         Organization or Location - Autopsy Location
         ///     EmptyReasonCode:
         ///         GaTech.Chai.Share.Common.ListEmptyReason
         /// </summary>

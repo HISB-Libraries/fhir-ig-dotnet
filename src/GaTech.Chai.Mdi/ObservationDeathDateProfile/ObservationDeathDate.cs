@@ -77,12 +77,18 @@ namespace GaTech.Chai.Mdi.ObservationDeathDateProfile
         /// <summary>
         /// Date and time pronounced dead.
         /// </summary>
-        public FhirDateTime DateTimePronouncedDead
+        public DataType DateTimePronouncedDead
         {
-            get => this.observation.Component?.GetComponent("http://loinc.org", "80616-6").Value as FhirDateTime;
+            get => this.observation.Component?.GetComponent("http://loinc.org", "80616-6").Value;
             set
             {
-                this.observation.Component.GetOrAddComponent("http://loinc.org", "80616-6", "Date and time pronounced dead [US Standard Certificate of Death]").Value = value;
+                if (value is Time || value is FhirDateTime)
+                {
+                    this.observation.Component.GetOrAddComponent("http://loinc.org", "80616-6", "Date and time pronounced dead [US Standard Certificate of Death]").Value = value;
+                } else
+                {
+                    throw new ArgumentException("DateTimePronouncedDead must be either Time or FhirDateTime");
+                }
             }
         }
 
@@ -102,7 +108,7 @@ namespace GaTech.Chai.Mdi.ObservationDeathDateProfile
         /// Partial DateTime Extension
         /// value should be (year, month, day, time)
         /// </summary>
-        public (DataType /* year */, DataType /* month */, DataType /* day */, DataType) PartialDateTime
+        public (DataType /* year */, DataType /* month */, DataType /* day */, DataType /* time */) PartialDateTime
         {
             get
             {

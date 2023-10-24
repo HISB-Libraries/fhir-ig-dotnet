@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MdiExample", "src\MdiExampl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EDRSPartialCase1", "EDRSPartialCase1\EDRSPartialCase1.csproj", "{60560FE8-31BA-45B2-BA46-79001BEDFAFE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MDIEDRSBundleRead", "MDI-EDRS-Bundle-Read\MDIEDRSBundleRead.csproj", "{357083FB-C6FE-4787-BBD8-05EF56CB0EE8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{60560FE8-31BA-45B2-BA46-79001BEDFAFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{60560FE8-31BA-45B2-BA46-79001BEDFAFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{60560FE8-31BA-45B2-BA46-79001BEDFAFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{357083FB-C6FE-4787-BBD8-05EF56CB0EE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{357083FB-C6FE-4787-BBD8-05EF56CB0EE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{357083FB-C6FE-4787-BBD8-05EF56CB0EE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{357083FB-C6FE-4787-BBD8-05EF56CB0EE8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

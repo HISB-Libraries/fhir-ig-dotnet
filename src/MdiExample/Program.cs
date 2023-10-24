@@ -1,17 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Xml.Linq;
 using GaTech.Chai.Share.Extensions;
-using GaTech.Chai.Mdi.BundleDocumentMdiToEdrsProfile;
+using GaTech.Chai.Mdi.BundleDocumentMdiAndEdrsProfile;
 using GaTech.Chai.Mdi.BundleMessageToxicologyToMdiProfile;
 using GaTech.Chai.Mdi.Common;
-using GaTech.Chai.Mdi.CompositionMditoEdrsProfile;
+using GaTech.Chai.Mdi.CompositionMdiAndEdrsProfile;
 using GaTech.Chai.Mdi.DiagnosticReportToxicologyLabResultToMdiProfile;
 using GaTech.Chai.Mdi.LocationDeathProfile;
 using GaTech.Chai.Mdi.MessageHeaderToxicologyToMdiProfile;
 using GaTech.Chai.Mdi.ObservationCauseOfDeathPart1Profile;
-using GaTech.Chai.Mdi.ObservationConditionContributingToDeathProfile;
 using GaTech.Chai.Mdi.ObservationContributingCauseOfDeathPart2Profile;
 using GaTech.Chai.Mdi.ObservationDeathDateProfile;
 using GaTech.Chai.Mdi.ObservationDecedentPregnancyProfile;
@@ -20,17 +18,13 @@ using GaTech.Chai.Mdi.ObservationMannerOfDeathProfile;
 using GaTech.Chai.Mdi.ObservationTobaccoUseContributedToDeathProfile;
 using GaTech.Chai.Mdi.ObservationToxicologyLabResultProfile;
 using GaTech.Chai.Mdi.SpecimenToxicologyLabProfile;
-using GaTech.Chai.Odh.UsualWorkProfile;
-using GaTech.Chai.UsCore.LocationProfile;
 using GaTech.Chai.UsCore.OrganizationProfile;
 using GaTech.Chai.UsCore.PatientProfile;
 using GaTech.Chai.UsCore.PractitionerProfile;
 using Hl7.Fhir.Model;
 using Hl7.Fhir.Serialization;
-using GaTech.Chai.Mdi.ProceDureDeathCertificationProfile;
 using GaTech.Chai.Mdi.ProcedureDeathCertificationProfile;
 using GaTech.Chai.Share.Common;
-using Newtonsoft.Json.Linq;
 using GaTech.Chai.Mdi.ObservationAutopsyPerformedIndicatorProfile;
 using GaTech.Chai.Mdi.LocationInjuryProfile;
 
@@ -172,6 +166,11 @@ namespace MdiExample
             observationDeathDate.Value = new FhirDateTime("2022-01-08T14:04:00-05:00");
             observationDeathDate.ObservationDeathDate().DateTimePronouncedDead = new FhirDateTime("2022-01-08T15:30:00-05:00");
             observationDeathDate.ObservationDeathDate().PlaceOfDeath = MdiVsPlaceOfDeath.DeadOnArrivalAtHospital;
+            observationDeathDate.ObservationDeathDate().PartialDateTime = (
+                new UnsignedInt(2022),
+                new UnsignedInt(1),
+                new UnsignedInt(30),
+                new Time("17:30:25"));
             observationDeathDate.Method = MdiCodeSystem.MdiCodes.Exact;
 
             // Death Certification
@@ -201,7 +200,7 @@ namespace MdiExample
             
             ////
             // Composition of MDI to EDRS document
-            Composition composition = CompositionMdiToEdrs.Create(
+            Composition composition = CompositionMdiAndEdrs.Create(
                 new Identifier() { Value = "a03eab8c-11e8-4d0c-ad2a-b385395e27de" },
                 CompositionStatus.Final,
                 patient,
@@ -214,32 +213,32 @@ namespace MdiExample
             composition.Title = "MDI to EDRS Composition";
 
             // Demo: Tracking numbers - one with library. the other for custom type
-            composition.CompositionMdiToEdrs().MdiCaseNumber = ("urn:connectathon_jan22:test", "ME21-113");
-            composition.CompositionMdiToEdrs().AdditionalDemographics = new Narrative {
+            composition.CompositionMdiAndEdrs().MdiCaseNumber = ("urn:connectathon_jan22:test", "ME21-113");
+            composition.CompositionMdiAndEdrs().AdditionalDemographics = new Narrative {
                 Div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n  <p>No additional demographic information</p>\n  </div>",
                 Status = Narrative.NarrativeStatus.Additional };
-            composition.CompositionMdiToEdrs().Circumstances = (new List<Resource> { deathLocation, observationTobaccoUseContributedToDeath, observationDecedentPregnancy, injuryLocation }, null, null);
-            composition.CompositionMdiToEdrs().Jurisdiction = (new List<Resource> { observationDeathDate, procedureDeathCertification }, null, null);
-            composition.CompositionMdiToEdrs().CauseManner = (
+            composition.CompositionMdiAndEdrs().Circumstances = (new List<Resource> { deathLocation, observationTobaccoUseContributedToDeath, observationDecedentPregnancy, injuryLocation }, null, null);
+            composition.CompositionMdiAndEdrs().Jurisdiction = (new List<Resource> { observationDeathDate, procedureDeathCertification }, null, null);
+            composition.CompositionMdiAndEdrs().CauseManner = (
                 new List<Resource> { causeOfDeath1, causeOfDeath2 },
-                new List<Resource> { conditionContributingToDeath },
-                new List<Resource> { observationMannerOfDeath },
-                new List<Resource> { observationHowDeathInjuryOccurred },
+                conditionContributingToDeath,
+                observationMannerOfDeath,
+                observationHowDeathInjuryOccurred,
                 null /* empty reason code */);
 
             // Medical History is not available. We have to have one of entry, text, or subsection.
             // Since we have no entry and no subsection, must include text.
-            composition.CompositionMdiToEdrs().MedicalHistory = (
+            composition.CompositionMdiAndEdrs().MedicalHistory = (
                 null,
                 new Narrative { Div="Medical History is not available", Status=Narrative.NarrativeStatus.Generated },
                 ListEmptyReason.Unavailable);
 
             // exam and autopsy information
-            composition.CompositionMdiToEdrs().ExamAutopsy = (new List<Resource> { observationAutopsyPerformedIndicator }, null, null);
+            composition.CompositionMdiAndEdrs().ExamAutopsy = (new List<Resource> { observationAutopsyPerformedIndicator }, null, null);
 
             ////
             // Document Bundle
-            Bundle mdiDocument = BundleDocumentMdiToEdrs.Create(
+            Bundle mdiDocument = BundleDocumentMdiAndEdrs.Create(
                 new Identifier("urn:ietf:rfc:3986", "urn:uuid:933dde44f7664b03a20b6324f23986c0"),
                 composition
                 );

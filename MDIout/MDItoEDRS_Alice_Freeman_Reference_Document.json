@@ -3,7 +3,7 @@
   "id": "6951910e-a994-11ed-afa1-0242ac120002",
   "meta": {
     "profile": [
-      "http://hl7.org/fhir/us/mdi/StructureDefinition/Bundle-document-mdi-to-edrs"
+      "http://hl7.org/fhir/us/mdi/StructureDefinition/Bundle-document-mdi-and-edrs"
     ]
   },
   "identifier": {
@@ -19,7 +19,7 @@
       }
     ]
   },
-  "timestamp": "2023-04-25T09:59:55.596331-04:00",
+  "timestamp": "2023-10-23T23:38:10.943124-04:00",
   "entry": [
     {
       "fullUrl": "Composition/d5eb30e7-f656-424c-8902-ba5c95797872",
@@ -28,7 +28,7 @@
         "id": "d5eb30e7-f656-424c-8902-ba5c95797872",
         "meta": {
           "profile": [
-            "http://hl7.org/fhir/us/mdi/StructureDefinition/Composition-mdi-to-edrs"
+            "http://hl7.org/fhir/us/mdi/StructureDefinition/Composition-mdi-and-edrs"
           ]
         },
         "extension": [
@@ -875,23 +875,23 @@
             {
               "extension": [
                 {
-                  "url": "http://hl7.org/fhir/us/mdi/StructureDefinition/Extension-date-year",
+                  "url": "http://hl7.org/fhir/us/vrdr/StructureDefinition/Date-Year",
                   "valueUnsignedInt": 2022
                 },
                 {
-                  "url": "http://hl7.org/fhir/us/mdi/StructureDefinition/Extension-date-month",
+                  "url": "http://hl7.org/fhir/us/vrdr/StructureDefinition/Date-Month",
                   "valueUnsignedInt": 2
                 },
                 {
-                  "url": "http://hl7.org/fhir/us/mdi/StructureDefinition/Extension-date-day",
+                  "url": "http://hl7.org/fhir/us/vrdr/StructureDefinition/Date-Day",
                   "valueUnsignedInt": 1
                 },
                 {
-                  "url": "http://hl7.org/fhir/us/mdi/StructureDefinition/Extension-date-time",
+                  "url": "http://hl7.org/fhir/us/vrdr/StructureDefinition/Date-Time",
                   "valueTime": "15:34:20"
                 }
               ],
-              "url": "http://hl7.org/fhir/us/mdi/StructureDefinition/Extension-partial-date-time"
+              "url": "http://hl7.org/fhir/us/vrdr/StructureDefinition/PartialDateTime"
             }
           ]
         },

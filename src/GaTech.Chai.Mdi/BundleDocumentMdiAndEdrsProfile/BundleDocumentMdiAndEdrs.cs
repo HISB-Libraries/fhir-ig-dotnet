@@ -2,60 +2,60 @@ using System;
 using Hl7.Fhir.Model;
 using GaTech.Chai.Share.Extensions;
 using System.Collections.Generic;
-using GaTech.Chai.Mdi.CompositionMditoEdrsProfile;
 using GaTech.Chai.Mdi.Common;
 using GaTech.Chai.Mdi.ObservationCauseOfDeathPart1Profile;
+using GaTech.Chai.Mdi.CompositionMdiAndEdrsProfile;
 
-namespace GaTech.Chai.Mdi.BundleDocumentMdiToEdrsProfile
+namespace GaTech.Chai.Mdi.BundleDocumentMdiAndEdrsProfile
 {
     /// <summary>
-    /// BundleDocumentMdiToEdrsProfile
-    /// http://hl7.org/fhir/us/mdi/StructureDefinition/Bundle-document-mdi-to-edrs
+    /// BundleDocumentMdiAndEdrsProfile
+    /// http://hl7.org/fhir/us/mdi/StructureDefinition/Bundle-document-mdi-and-edrs
     /// </summary>
-    public class BundleDocumentMdiToEdrs
+    public class BundleDocumentMdiAndEdrs
     {
         readonly Bundle bundle;
 
-        internal BundleDocumentMdiToEdrs(Bundle bundle)
+        internal BundleDocumentMdiAndEdrs(Bundle bundle)
         {
             this.bundle = bundle;
             bundle.Type = Bundle.BundleType.Document;
         }
 
         /// <summary>
-        /// Factory for BundleDocumentMdiToEdrsProfile
-        /// http://hl7.org/fhir/us/mdi/StructureDefinition/Bundle-document-mdi-to-edrs
+        /// Factory for BundleDocumentMdiAndEdrsProfile
+        /// http://hl7.org/fhir/us/mdi/StructureDefinition/Bundle-document-mdi-and-edrs
         /// </summary>
         public static Bundle Create()
         {
             var bundle = new Bundle();
-            bundle.BundleDocumentMdiToEdrs().AddProfile();
+            bundle.BundleDocumentMdiAndEdrs().AddProfile();
 
             return bundle;
         }
 
         /// <summary>
-        /// Factory for BundleDocumentMdiToEdrsProfile with composition and identifier
-        /// http://hl7.org/fhir/us/mdi/StructureDefinition/Bundle-document-mdi-to-edrs
+        /// Factory for BundleDocumentMdiAndEdrsProfile with composition and identifier
+        /// http://hl7.org/fhir/us/mdi/StructureDefinition/Bundle-document-mdi-and-edrs
         /// </summary>
         public static Bundle Create(Identifier identifier, Composition composition)
         {
             var bundle = new Bundle();
-            bundle.BundleDocumentMdiToEdrs().AddProfile();
+            bundle.BundleDocumentMdiAndEdrs().AddProfile();
 
             if (identifier != null) bundle.Identifier = identifier;
-            if (composition != null) bundle.BundleDocumentMdiToEdrs().MDItoEDRSComposition = composition;
+            if (composition != null) bundle.BundleDocumentMdiAndEdrs().MDItoEDRSComposition = composition;
 
             return bundle;
         }
 
         /// <summary>
-        /// The official URL for the BundleDocumentMdiToEdrsProfile, used to assert conformance.
+        /// The official URL for the BundleDocumentMdiAndEdrsProfile, used to assert conformance.
         /// </summary>
-        public const string ProfileUrl = "http://hl7.org/fhir/us/mdi/StructureDefinition/Bundle-document-mdi-to-edrs";
+        public const string ProfileUrl = "http://hl7.org/fhir/us/mdi/StructureDefinition/Bundle-document-mdi-and-edrs";
 
         /// <summary>
-        /// Set the profile URL for the BundleDocumentMdiToEdrsProfile.
+        /// Set the profile URL for the BundleDocumentMdiAndEdrsProfile.
         /// </summary>
         public void AddProfile()
         {
@@ -63,7 +63,7 @@ namespace GaTech.Chai.Mdi.BundleDocumentMdiToEdrsProfile
         }
 
         /// <summary>
-        /// Clear the profile URL for the BundleDocumentMdiToEdrsProfile.
+        /// Clear the profile URL for the BundleDocumentMdiAndEdrsProfile.
         /// </summary>
         public void RemoveProfile()
         {
@@ -172,7 +172,7 @@ namespace GaTech.Chai.Mdi.BundleDocumentMdiToEdrsProfile
             {
                 // First check if the composition is
                 // a http://hl7.org/fhir/us/mdi/StructureDefinition/Composition-mdi-to-edrs profile.
-                if (!value.hasProfile(CompositionMdiToEdrs.ProfileUrl))
+                if (!value.hasProfile(CompositionMdiAndEdrs.ProfileUrl))
                 {
                     Console.WriteLine("Bundle-document-mdi-to-edrs requires the composition to be http://hl7.org/fhir/us/mdi/StructureDefinition/Composition-mdi-to-edrs profile");
                     throw (new ArgumentException("DocumentMdiToEdrs bundle must have Composition-mdi-to-edrs."));
@@ -184,7 +184,7 @@ namespace GaTech.Chai.Mdi.BundleDocumentMdiToEdrsProfile
                 //bundle.Entry.Add(new Bundle.EntryComponent() { FullUrl = value.AsReference().Reference, Resource = value });
 
                 // We have sections in the composition. Add them to entries if we have them.
-                Dictionary<string, Resource> entryResources = value.CompositionMdiToEdrs().GetResourcesInSections();
+                Dictionary<string, Resource> entryResources = value.CompositionMdiAndEdrs().GetResourcesInSections();
                 foreach (var urlAndResource in entryResources)
                 {
                     bundle.AddResourceEntry(urlAndResource.Value, urlAndResource.Key);

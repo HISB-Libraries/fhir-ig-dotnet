@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.IO;
 using GaTech.Chai.Share.Extensions;
-using GaTech.Chai.Mdi.BundleDocumentMdiToEdrsProfile;
-using GaTech.Chai.Mdi.CompositionMditoEdrsProfile;
+using GaTech.Chai.Mdi.BundleDocumentMdiAndEdrsProfile;
+using GaTech.Chai.Mdi.CompositionMdiAndEdrsProfile;
 using GaTech.Chai.UsCore.PatientProfile;
 using Hl7.Fhir.Model;
 using Hl7.Fhir.Serialization;
@@ -65,7 +65,7 @@ namespace MdiExample
 
             ////
             // Composition of MDI to EDRS document
-            Composition composition = CompositionMdiToEdrs.Create(
+            Composition composition = CompositionMdiAndEdrs.Create(
                 new Identifier() { Value = "115759f4-8d18-11ed-a1eb-0242ac120002" },
                 CompositionStatus.Final,
                 patient,
@@ -76,11 +76,11 @@ namespace MdiExample
             composition.DateElement = new FhirDateTime("2022-02-20");
             composition.Title = "MDI to EDRS Composition";
 
-            composition.CompositionMdiToEdrs().EdrsFileNumber = ("urn:raven:test", "EDRS-01");
+            composition.CompositionMdiAndEdrs().EdrsFileNumber = ("urn:raven:test", "EDRS-01");
 
             ////
             // Document Bundle
-            Bundle mdiDocument = BundleDocumentMdiToEdrs.Create(
+            Bundle mdiDocument = BundleDocumentMdiAndEdrs.Create(
                 new Identifier("urn:ietf:rfc:3986", "urn:uuid:9ba0a959-bce5-42ee-9710-2f1c54b37d09"),
                 composition
                 );
@@ -137,7 +137,7 @@ namespace MdiExample
 
             ////
             // Composition of MDI to EDRS document
-            composition = CompositionMdiToEdrs.Create(
+            composition = CompositionMdiAndEdrs.Create(
                 new Identifier() { Value = "f84b848a-8d17-11ed-a1eb-0242ac120002" },
                 CompositionStatus.Final,
                 patient,
@@ -148,11 +148,11 @@ namespace MdiExample
             composition.DateElement = new FhirDateTime("2022-02-20");
             composition.Title = "MDI to EDRS Composition";
 
-            composition.CompositionMdiToEdrs().EdrsFileNumber = ("urn:raven:test", "EDRS-02");
+            composition.CompositionMdiAndEdrs().EdrsFileNumber = ("urn:raven:test", "EDRS-02");
 
             ////
             // Document Bundle
-            mdiDocument = BundleDocumentMdiToEdrs.Create(
+            mdiDocument = BundleDocumentMdiAndEdrs.Create(
                 new Identifier("urn:ietf:rfc:3986", "urn:uuid:1d804ed4-8d18-11ed-a1eb-0242ac120002"),
                 composition
                 );
@@ -208,7 +208,7 @@ namespace MdiExample
 
             ////
             // Composition of MDI to EDRS document
-            composition = CompositionMdiToEdrs.Create(
+            composition = CompositionMdiAndEdrs.Create(
                 new Identifier() { Value = "4146e91c-8d19-11ed-a1eb-0242ac120002" },
                 CompositionStatus.Final,
                 patient,
@@ -219,11 +219,11 @@ namespace MdiExample
             composition.DateElement = new FhirDateTime("2022-02-20");
             composition.Title = "MDI to EDRS Composition";
 
-            composition.CompositionMdiToEdrs().EdrsFileNumber = ("urn:raven:test", "EDRS-03");
+            composition.CompositionMdiAndEdrs().EdrsFileNumber = ("urn:raven:test", "EDRS-03");
 
             ////
             // Document Bundle
-            mdiDocument = BundleDocumentMdiToEdrs.Create(
+            mdiDocument = BundleDocumentMdiAndEdrs.Create(
                 new Identifier("urn:ietf:rfc:3986", "urn:uuid:464878f4-8d19-11ed-a1eb-0242ac120002"),
                 composition
                 );
@@ -277,7 +277,7 @@ namespace MdiExample
 
             ////
             // Composition of MDI to EDRS document
-            composition = CompositionMdiToEdrs.Create(
+            composition = CompositionMdiAndEdrs.Create(
                 new Identifier() { Value = "fa54f5de-8d19-11ed-a1eb-0242ac120002" },
                 CompositionStatus.Final,
                 patient,
@@ -288,11 +288,11 @@ namespace MdiExample
             composition.DateElement = new FhirDateTime("2022-02-20");
             composition.Title = "MDI to EDRS Composition";
 
-            composition.CompositionMdiToEdrs().EdrsFileNumber = ("urn:raven:test", "EDRS-04");
+            composition.CompositionMdiAndEdrs().EdrsFileNumber = ("urn:raven:test", "EDRS-04");
 
             ////
             // Document Bundle
-            mdiDocument = BundleDocumentMdiToEdrs.Create(
+            mdiDocument = BundleDocumentMdiAndEdrs.Create(
                 new Identifier("urn:ietf:rfc:3986", "urn:uuid:fe8ddfa8-8d19-11ed-a1eb-0242ac120002"),
                 composition
                 );
@@ -347,7 +347,7 @@ namespace MdiExample
 
             ////
             // Composition of MDI to EDRS document
-            composition = CompositionMdiToEdrs.Create(
+            composition = CompositionMdiAndEdrs.Create(
                 new Identifier() { Value = "1acab910-8d1b-11ed-a1eb-0242ac120002" },
                 CompositionStatus.Final,
                 patient,
@@ -358,11 +358,11 @@ namespace MdiExample
             composition.DateElement = new FhirDateTime("2022-02-20");
             composition.Title = "MDI to EDRS Composition";
 
-            composition.CompositionMdiToEdrs().EdrsFileNumber = ("urn:raven:test", "EDRS-05");
+            composition.CompositionMdiAndEdrs().EdrsFileNumber = ("urn:raven:test", "EDRS-05");
 
             ////
             // Document Bundle
-            mdiDocument = BundleDocumentMdiToEdrs.Create(
+            mdiDocument = BundleDocumentMdiAndEdrs.Create(
                 new Identifier("urn:ietf:rfc:3986", "urn:uuid:2549d844-8d1b-11ed-a1eb-0242ac120002"),
                 composition
                 );
@@ -418,7 +418,7 @@ namespace MdiExample
 
             ////
             // Composition of MDI to EDRS document
-            composition = CompositionMdiToEdrs.Create(
+            composition = CompositionMdiAndEdrs.Create(
                 new Identifier() { Value = "5d814bdc-9777-11ed-a8fc-0242ac120002" },
                 CompositionStatus.Final,
                 patient,
@@ -429,11 +429,11 @@ namespace MdiExample
             composition.DateElement = new FhirDateTime("2021-01-15");
             composition.Title = "MDI to EDRS Composition";
 
-            composition.CompositionMdiToEdrs().EdrsFileNumber = ("urn:raven:test", "EDRS-06");
+            composition.CompositionMdiAndEdrs().EdrsFileNumber = ("urn:raven:test", "EDRS-06");
 
             ////
             // Document Bundle
-            mdiDocument = BundleDocumentMdiToEdrs.Create(
+            mdiDocument = BundleDocumentMdiAndEdrs.Create(
                 new Identifier("urn:ietf:rfc:3986", "urn:uuid:912549ac-9777-11ed-a8fc-0242ac120002"),
                 composition
                 );
@@ -489,7 +489,7 @@ namespace MdiExample
 
             ////
             // Composition of MDI to EDRS document
-            composition = CompositionMdiToEdrs.Create(
+            composition = CompositionMdiAndEdrs.Create(
                 new Identifier() { Value = "855cff7e-9778-11ed-a8fc-0242ac120002" },
                 CompositionStatus.Final,
                 patient,
@@ -500,11 +500,11 @@ namespace MdiExample
             composition.DateElement = new FhirDateTime("2021-06-15");
             composition.Title = "MDI to EDRS Composition";
 
-            composition.CompositionMdiToEdrs().EdrsFileNumber = ("urn:raven:test", "EDRS-07");
+            composition.CompositionMdiAndEdrs().EdrsFileNumber = ("urn:raven:test", "EDRS-07");
 
             ////
             // Document Bundle
-            mdiDocument = BundleDocumentMdiToEdrs.Create(
+            mdiDocument = BundleDocumentMdiAndEdrs.Create(
                 new Identifier("urn:ietf:rfc:3986", "urn:uuid:ad07a0e2-9778-11ed-a8fc-0242ac120002"),
                 composition
                 );

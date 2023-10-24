@@ -34,7 +34,10 @@ namespace GaTech.Chai.Mdi.ObservationContributingCauseOfDeathPart2Profile
             observation.ObservationContributingCauseOfDeathPart2().AddProfile();
 
             observation.ObservationContributingCauseOfDeathPart2().SubjectAsResource = subjectResource;
-            observation.ObservationContributingCauseOfDeathPart2().PerformerAsResource = performerResource;
+            if (performerResource != null)
+            {
+                observation.ObservationContributingCauseOfDeathPart2().PerformerAsResource = performerResource;
+            }
 
             return observation;
         }
