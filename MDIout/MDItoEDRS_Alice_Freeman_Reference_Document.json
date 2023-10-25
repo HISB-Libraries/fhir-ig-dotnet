@@ -19,7 +19,7 @@
       }
     ]
   },
-  "timestamp": "2023-10-23T23:38:10.943124-04:00",
+  "timestamp": "2023-10-24T00:21:27.298183-04:00",
   "entry": [
     {
       "fullUrl": "Composition/d5eb30e7-f656-424c-8902-ba5c95797872",
@@ -560,6 +560,31 @@
           "reference": "Patient/806c53c0-a993-11ed-afa1-0242ac120002"
         },
         "effectiveDateTime": "2022-01-08T15:30:00-05:00",
+        "_effectiveDateTime": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "http://hl7.org/fhir/us/vrdr/StructureDefinition/Date-Year",
+                  "valueUnsignedInt": 2022
+                },
+                {
+                  "url": "http://hl7.org/fhir/us/vrdr/StructureDefinition/Date-Month",
+                  "valueUnsignedInt": 1
+                },
+                {
+                  "url": "http://hl7.org/fhir/us/vrdr/StructureDefinition/Date-Day",
+                  "valueUnsignedInt": 30
+                },
+                {
+                  "url": "http://hl7.org/fhir/us/vrdr/StructureDefinition/Date-Time",
+                  "valueTime": "17:30:25"
+                }
+              ],
+              "url": "http://hl7.org/fhir/us/vrdr/StructureDefinition/PartialDateTime"
+            }
+          ]
+        },
         "valueDateTime": "2022-01-08T14:04:00-05:00",
         "method": {
           "coding": [
