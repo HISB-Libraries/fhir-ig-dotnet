@@ -86,6 +86,27 @@ namespace GaTech.Chai.Share.Common
             public static Coding Centrifuged = new(officialUrl, "CFU", "Centrifuged");
         }
 
+        public class Hl7VsDataAbsentReason
+        {
+            public static string officialUrl = "http://terminology.hl7.org/CodeSystem/data-absent-reason";
+
+            public static Code Unknown = new("unknown");
+            public static Code AskedUnknown = new("asked-unknown");
+            public static Code TempUnknown = new("temp-unknown");
+            public static Code NotAsked = new("not-asked");
+            public static Code AskedDeclined = new("asked-declined");
+            public static Code Masked = new("masked");
+            public static Code NotApplicable = new("not-applicable");
+            public static Code Unsupported = new("unsupported");
+            public static Code AsText = new("as-text");
+            public static Code Error = new("error");
+            public static Code NaN = new("not-a-number");
+            public static Code NINF = new("negative-infinity");
+            public static Code PINF = new("positive-infinity");
+            public static Code NotPerformed = new("not-performed");
+            public static Code NotPermitted = new("not-permitted");
+        }
+
         public class UsCoreDocumentReferenceType
         {
             public static string officialUrl = "http://terminology.hl7.org/CodeSystem/v3-NullFlavor";

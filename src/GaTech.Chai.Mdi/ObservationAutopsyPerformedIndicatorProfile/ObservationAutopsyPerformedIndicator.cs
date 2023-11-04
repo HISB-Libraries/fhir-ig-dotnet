@@ -17,7 +17,6 @@ namespace GaTech.Chai.Mdi.ObservationAutopsyPerformedIndicatorProfile
         internal ObservationAutopsyPerformedIndicator(Observation observation)
         {
             this.observation = observation;
-            this.observation.Code = new CodeableConcept("http://loinc.org", "85699-7", "Autopsy was performed", null);
         }
 
         /// <summary>
@@ -32,6 +31,8 @@ namespace GaTech.Chai.Mdi.ObservationAutopsyPerformedIndicatorProfile
             var observation = new Observation();
 
             observation.ObservationAutopsyPerformedIndicator().AddProfile();
+            observation.Code = new CodeableConcept("http://loinc.org", "85699-7", "Autopsy was performed", null);
+
             return observation;
         }
 
@@ -47,6 +48,7 @@ namespace GaTech.Chai.Mdi.ObservationAutopsyPerformedIndicatorProfile
             var observation = new Observation();
 
             observation.ObservationAutopsyPerformedIndicator().AddProfile();
+            observation.Code = new CodeableConcept("http://loinc.org", "85699-7", "Autopsy was performed", null);
             observation.ObservationAutopsyPerformedIndicator().SubjectAsResource = subject;
 
             return observation;

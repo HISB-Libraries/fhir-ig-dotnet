@@ -17,8 +17,6 @@ namespace GaTech.Chai.Mdi.ProcedureDeathCertificationProfile
         internal ProcedureDeathCertification(Procedure procedure)
         {
             this.procedure = procedure;
-            this.procedure.Category = new CodeableConcept("http://snomed.info/sct", "103693007", "Diagnostic procedure", null);
-            this.procedure.Code = new CodeableConcept("http://snomed.info/sct", "308646001", "Death certification", null);
         }
 
         /// <summary>
@@ -33,6 +31,9 @@ namespace GaTech.Chai.Mdi.ProcedureDeathCertificationProfile
             var procedure = new Procedure();
 
             procedure.ProcedureDeathCertification().AddProfile();
+            procedure.Category = new CodeableConcept("http://snomed.info/sct", "103693007", "Diagnostic procedure", null);
+            procedure.Code = new CodeableConcept("http://snomed.info/sct", "308646001", "Death certification", null);
+
             return procedure;
         }
 
@@ -48,6 +49,8 @@ namespace GaTech.Chai.Mdi.ProcedureDeathCertificationProfile
             var procedure = new Procedure();
 
             procedure.ProcedureDeathCertification().AddProfile();
+            procedure.Category = new CodeableConcept("http://snomed.info/sct", "103693007", "Diagnostic procedure", null);
+            procedure.Code = new CodeableConcept("http://snomed.info/sct", "308646001", "Death certification", null);
             procedure.ProcedureDeathCertification().SubjectAsResource = subject;
 
             return procedure;

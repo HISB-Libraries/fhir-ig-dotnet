@@ -18,7 +18,6 @@ namespace GaTech.Chai.Mdi.ObservationHowDeathInjuryOccurredProfile
         internal ObservationHowDeathInjuryOccurred(Observation observation)
         {
             this.observation = observation;
-            this.observation.Code = new CodeableConcept("http://loinc.org", "11374-6", "Injury incident description Narrative", null);
         }
 
         /// <summary>
@@ -32,6 +31,7 @@ namespace GaTech.Chai.Mdi.ObservationHowDeathInjuryOccurredProfile
 
             var observation = new Observation();
             observation.ObservationHowDeathInjuryOccurred().AddProfile();
+            observation.Code = new CodeableConcept("http://loinc.org", "11374-6", "Injury incident description Narrative", null);
 
             return observation;
         }
@@ -48,6 +48,7 @@ namespace GaTech.Chai.Mdi.ObservationHowDeathInjuryOccurredProfile
             var observation = new Observation();
 
             observation.ObservationHowDeathInjuryOccurred().AddProfile();
+            observation.Code = new CodeableConcept("http://loinc.org", "11374-6", "Injury incident description Narrative", null);
             observation.ObservationHowDeathInjuryOccurred().SubjectAsResource = subject;
 
             return observation;

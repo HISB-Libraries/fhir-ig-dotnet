@@ -55,10 +55,10 @@ namespace GaTech.Chai.UsCbs.PerformingLaboratoryProfile
             organization.RemoveProfile(ProfileUrl);
         }
 
-        public void SetNameDataAbsentReason(DataAbsentReason reason)
+        public void SetNameDataAbsentReason(Code reason)
         {
             organization.NameElement = new FhirString();
-            organization.NameElement.AddDataAbsentReason(new Code(reason.GetEnumCode()));
+            organization.NameElement.AddDataAbsentReason(reason);
         }
     }
 }

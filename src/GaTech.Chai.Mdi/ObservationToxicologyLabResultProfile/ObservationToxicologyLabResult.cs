@@ -19,7 +19,6 @@ namespace GaTech.Chai.Mdi.ObservationToxicologyLabResultProfile
         internal ObservationToxicologyLabResult(Observation observation)
         {
             this.observation = observation;
-            this.observation.Category.SetCategory(CodeSystems.ObservationCategory.Laboratory);
         }
 
         /// <summary>
@@ -33,6 +32,8 @@ namespace GaTech.Chai.Mdi.ObservationToxicologyLabResultProfile
 
             var observation = new Observation();
             observation.ObservationToxicologyLabResult().AddProfile();
+            observation.Category.SetCategory(CodeSystems.ObservationCategory.Laboratory);
+
             return observation;
         }
 
@@ -48,6 +49,7 @@ namespace GaTech.Chai.Mdi.ObservationToxicologyLabResultProfile
             var observation = new Observation();
 
             observation.ObservationToxicologyLabResult().AddProfile();
+            observation.Category.SetCategory(CodeSystems.ObservationCategory.Laboratory);
             observation.Status = status;
             if (codeText != null) observation.ObservationToxicologyLabResult().CodeText = codeText;
             observation.ObservationToxicologyLabResult().SubjectAsResource = subject;

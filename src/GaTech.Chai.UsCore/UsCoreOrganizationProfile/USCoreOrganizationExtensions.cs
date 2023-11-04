@@ -6,7 +6,7 @@ namespace GaTech.Chai.UsCore.OrganizationProfile
     /// Class with Organization extensions for US Core Organization profile.
     /// http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization
     /// </summary>
-    public static class USCoreOrganizationExtensions
+    public static class UsCoreOrganizationExtensions
     {
         public static UsCoreOrganization UsCoreOrganization(this Organization organization)
         {

@@ -19,8 +19,6 @@ namespace GaTech.Chai.Mdi.ObservationTobaccoUseContributedToDeathProfile
         internal ObservationTobaccoUseContributedToDeath(Observation observation)
         {
             this.observation = observation;
-            this.observation.Status = ObservationStatus.Final;
-            this.observation.Code = new CodeableConcept("http://loinc.org", "69443-0", "Did tobacco use contribute to death", null);
         }
 
         /// <summary>
@@ -34,6 +32,9 @@ namespace GaTech.Chai.Mdi.ObservationTobaccoUseContributedToDeathProfile
 
             var observation = new Observation();
             observation.ObservationTobaccoUseContributedToDeath().AddProfile();
+            observation.Status = ObservationStatus.Final;
+            observation.Code = new CodeableConcept("http://loinc.org", "69443-0", "Did tobacco use contribute to death", null);
+
             return observation;
         }
 
@@ -49,6 +50,8 @@ namespace GaTech.Chai.Mdi.ObservationTobaccoUseContributedToDeathProfile
             var observation = new Observation();
 
             observation.ObservationTobaccoUseContributedToDeath().AddProfile();
+            observation.Status = ObservationStatus.Final;
+            observation.Code = new CodeableConcept("http://loinc.org", "69443-0", "Did tobacco use contribute to death", null);
             observation.ObservationTobaccoUseContributedToDeath().SubjectAsResource = subject;
 
             return observation;

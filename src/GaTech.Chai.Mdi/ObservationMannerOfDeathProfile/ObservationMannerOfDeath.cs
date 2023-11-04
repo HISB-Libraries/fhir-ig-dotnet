@@ -17,8 +17,6 @@ namespace GaTech.Chai.Mdi.ObservationMannerOfDeathProfile
         internal ObservationMannerOfDeath(Observation observation)
         {
             this.observation = observation;
-            this.observation.Status = ObservationStatus.Final;
-            this.observation.Code = new CodeableConcept("http://loinc.org", "69449-7", "Manner of death", null);
         }
 
         /// <summary>
@@ -32,6 +30,9 @@ namespace GaTech.Chai.Mdi.ObservationMannerOfDeathProfile
 
             var observation = new Observation();
             observation.ObservationMannerOfDeath().AddProfile();
+            observation.Status = ObservationStatus.Final;
+            observation.Code = new CodeableConcept("http://loinc.org", "69449-7", "Manner of death", null);
+
             return observation;
         }
 
@@ -47,6 +48,8 @@ namespace GaTech.Chai.Mdi.ObservationMannerOfDeathProfile
             var observation = new Observation();
 
             observation.ObservationMannerOfDeath().AddProfile();
+            observation.Status = ObservationStatus.Final;
+            observation.Code = new CodeableConcept("http://loinc.org", "69449-7", "Manner of death", null);
             observation.ObservationMannerOfDeath().SubjectAsResource = subject;
             observation.ObservationMannerOfDeath().Certifier = certifier;
 

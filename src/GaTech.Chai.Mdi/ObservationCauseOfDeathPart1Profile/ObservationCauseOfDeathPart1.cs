@@ -19,7 +19,6 @@ namespace GaTech.Chai.Mdi.ObservationCauseOfDeathPart1Profile
         internal ObservationCauseOfDeathPart1(Observation observation)
         {
             this.observation = observation;
-            this.observation.Code = new CodeableConcept("http://loinc.org", "69453-9", "Cause of death [US Standard Certificate of Death]", null);
         }
 
         /// <summary>
@@ -34,6 +33,7 @@ namespace GaTech.Chai.Mdi.ObservationCauseOfDeathPart1Profile
             var observation = new Observation();
 
             observation.ObservationCauseOfDeathPart1().AddProfile();
+            observation.Code = new CodeableConcept("http://loinc.org", "69453-9", "Cause of death [US Standard Certificate of Death]", null);
 
             observation.ObservationCauseOfDeathPart1().SubjectAsResource = subjectResource;
             observation.ObservationCauseOfDeathPart1().PerformerAsResource = performerResource;
@@ -57,6 +57,7 @@ namespace GaTech.Chai.Mdi.ObservationCauseOfDeathPart1Profile
 
             var observation = new Observation();
             observation.ObservationCauseOfDeathPart1().AddProfile();
+            observation.Code = new CodeableConcept("http://loinc.org", "69453-9", "Cause of death [US Standard Certificate of Death]", null);
 
             return observation;
         }
@@ -163,7 +164,16 @@ namespace GaTech.Chai.Mdi.ObservationCauseOfDeathPart1Profile
         {
             get
             {
-                return (this.observation.Component?.GetComponent("http://loinc.org", "69440-6").Value as FhirString).ToString();
+                DataType intervalValue = this.observation.Component?.GetComponent("http://loinc.org", "69440-6").Value;
+                if (intervalValue is FhirString intervalValueString)
+                {
+                    return intervalValueString.ToString();
+                }
+                else
+                {
+                    Quantity intervalQty = (Quantity)intervalValue;
+                    return intervalQty.Value.ToString() + intervalQty.Unit;
+                }
             }
             set
             {
@@ -172,6 +182,18 @@ namespace GaTech.Chai.Mdi.ObservationCauseOfDeathPart1Profile
                     throw (new ArgumentException("Total string length of interval (" + value.Length + ") exceeded 20"));
                 }
                 this.observation.Component.GetOrAddComponent("http://loinc.org", "69440-6", "Disease onset to death interval").Value = new FhirString(value);
+            }
+        }
+
+        public Quantity IntervalQuantity
+        {
+            get
+            {
+                return this.observation.Component?.GetComponent("http://loinc.org", "69440-6").Value as Quantity;
+            }
+            set
+            {
+                this.observation.Component.GetOrAddComponent("http://loinc.org", "69440-6", "Disease onset to death interval").Value = value;
             }
         }
 

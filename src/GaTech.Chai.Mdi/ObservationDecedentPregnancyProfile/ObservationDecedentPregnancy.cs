@@ -17,8 +17,6 @@ namespace GaTech.Chai.Mdi.ObservationDecedentPregnancyProfile
         internal ObservationDecedentPregnancy(Observation observation)
         {
             this.observation = observation;
-            this.observation.Status = ObservationStatus.Final;
-            this.observation.Code = new CodeableConcept("http://loinc.org", "69442-2", "Timing of recent pregnancy in relation to death", null);
         }
 
         /// <summary>
@@ -33,6 +31,9 @@ namespace GaTech.Chai.Mdi.ObservationDecedentPregnancyProfile
             var observation = new Observation();
 
             observation.ObservationDecedentPregnancy().AddProfile();
+            observation.Status = ObservationStatus.Final;
+            observation.Code = new CodeableConcept("http://loinc.org", "69442-2", "Timing of recent pregnancy in relation to death", null);
+
             return observation;
         }
 
@@ -48,6 +49,8 @@ namespace GaTech.Chai.Mdi.ObservationDecedentPregnancyProfile
             var observation = new Observation();
 
             observation.ObservationDecedentPregnancy().AddProfile();
+            observation.Status = ObservationStatus.Final;
+            observation.Code = new CodeableConcept("http://loinc.org", "69442-2", "Timing of recent pregnancy in relation to death", null);
             observation.ObservationDecedentPregnancy().SubjectAsResource = subject;
 
             return observation;

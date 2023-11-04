@@ -18,7 +18,6 @@ namespace GaTech.Chai.Mdi.MessageHeaderToxicologyToMdiProfile
         internal MessageHeaderToxicologyToMdi(MessageHeader messageHeader)
         {
             this.messageHeader = messageHeader;
-            messageHeader.Event = MdiCodeSystem.MdiCodes.ToxResultReport;
         }
 
         /// <summary>
@@ -32,6 +31,8 @@ namespace GaTech.Chai.Mdi.MessageHeaderToxicologyToMdiProfile
 
             var messageHeader = new MessageHeader();
             messageHeader.MessageHeaderToxicologyToMdi().AddProfile();
+            messageHeader.Event = MdiCodeSystem.MdiCodes.ToxResultReport;
+
             return messageHeader;
         }
 
@@ -47,6 +48,7 @@ namespace GaTech.Chai.Mdi.MessageHeaderToxicologyToMdiProfile
             var messageHeader = new MessageHeader();
 
             messageHeader.MessageHeaderToxicologyToMdi().AddProfile();
+            messageHeader.Event = MdiCodeSystem.MdiCodes.ToxResultReport;
             messageHeader.Source = new MessageHeader.MessageSourceComponent { Endpoint = sourceEndpointUrlString };
             messageHeader.MessageHeaderToxicologyToMdi().ToxicologyReport = diagnosticReport;            
 

@@ -18,7 +18,6 @@ namespace GaTech.Chai.Mdi.BundleMessageToxicologyToMdiProfile
         internal BundleMessageToxicologyToMdi(Bundle bundle)
         {
             this.bundle = bundle;
-            bundle.Type = Bundle.BundleType.Message;
         }
 
         /// <summary>
@@ -29,6 +28,7 @@ namespace GaTech.Chai.Mdi.BundleMessageToxicologyToMdiProfile
         {
             var bundle = new Bundle();
             bundle.BundleMessageToxicologyToMdi().AddProfile();
+            bundle.Type = Bundle.BundleType.Message;
 
             return bundle;
         }
@@ -42,6 +42,8 @@ namespace GaTech.Chai.Mdi.BundleMessageToxicologyToMdiProfile
             var bundle = new Bundle();
 
             bundle.BundleMessageToxicologyToMdi().AddProfile();
+            bundle.Type = Bundle.BundleType.Message;
+
             if (identifier != null) bundle.Identifier = identifier;
             if (messageHeader != null)
             {

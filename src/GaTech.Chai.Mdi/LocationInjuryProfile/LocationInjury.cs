@@ -15,6 +15,25 @@ namespace GaTech.Chai.Mdi.LocationInjuryProfile
         internal LocationInjury(Location location)
         {
             this.location = location;
+            if (location.Type?.Count != 1)
+            {
+                throw new IndexOutOfRangeException("LocationInjury Profile must have One Death Type.");
+            }
+            else
+            {
+                if (!MdiCodeSystem.MdiCodes.Injury.Matches(location.Type[0]))
+                {
+                    throw new Exception("LocationInjury Profile must have Injury Type.");
+                }
+            }
+        }
+
+        /// <summary>
+        /// Factory for LocationDeathProfile
+        /// </summary>
+        public static Location Create()
+        {
+            var location = new Location();
             if (location.Type?.Count > 1)
             {
                 location.Type.Clear();
@@ -28,14 +47,7 @@ namespace GaTech.Chai.Mdi.LocationInjuryProfile
             {
                 location.Type.Add(MdiCodeSystem.MdiCodes.Injury);
             }
-        }
 
-        /// <summary>
-        /// Factory for LocationDeathProfile
-        /// </summary>
-        public static Location Create()
-        {
-            var location = new Location();
             location.LocationInjury().AddProfile();
 
             return location;

@@ -18,7 +18,6 @@ namespace GaTech.Chai.Mdi.ObservationDeathDateProfile
         internal ObservationDeathDate(Observation observation)
         {
             this.observation = observation;
-            this.observation.Code = new CodeableConcept("http://loinc.org", "81956-5", "Date and time of death [TimeStamp]", null);
         }
 
         /// <summary>
@@ -32,6 +31,7 @@ namespace GaTech.Chai.Mdi.ObservationDeathDateProfile
 
             var observation = new Observation();
             observation.ObservationDeathDate().AddProfile();
+            observation.Code = new CodeableConcept("http://loinc.org", "81956-5", "Date and time of death [TimeStamp]", null);
 
             return observation;
         }
@@ -48,6 +48,7 @@ namespace GaTech.Chai.Mdi.ObservationDeathDateProfile
             var observation = new Observation();
 
             observation.ObservationDeathDate().AddProfile();
+            observation.Code = new CodeableConcept("http://loinc.org", "81956-5", "Date and time of death [TimeStamp]", null);
             observation.ObservationDeathDate().SubjectAsResource = subject;
 
             return observation;

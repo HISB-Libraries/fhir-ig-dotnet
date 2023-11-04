@@ -31,6 +31,7 @@ namespace GaTech.Chai.Mdi.SpecimenToxicologyLabProfile
 
             var specimen = new Specimen();
             specimen.SpecimenToxicologyLab().AddProfile();
+
             return specimen;
         }
 

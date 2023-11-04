@@ -15,6 +15,28 @@ namespace GaTech.Chai.Mdi.LocationDeathProfile
         internal LocationDeath(Location location)
         {
             this.location = location;
+            if (location.Type?.Count != 1)
+            {
+                throw new IndexOutOfRangeException("LocationDeath Profile must have One Death Type.");
+            }
+            else
+            {
+                if (!MdiCodeSystem.MdiCodes.Death.Matches(location.Type[0]))
+                {
+                    throw new Exception("LocationDeath Profile must have Death Type.");
+                }
+            }
+        }
+
+        /// <summary>
+        /// Factory for LocationDeathProfile
+        /// </summary>
+        public static Location Create()
+        {
+            // clear static resource container.
+            resources.Clear();
+
+            var location = new Location();
             if (location.Type?.Count > 1)
             {
                 location.Type.Clear();
@@ -28,17 +50,7 @@ namespace GaTech.Chai.Mdi.LocationDeathProfile
             {
                 location.Type.Add(MdiCodeSystem.MdiCodes.Death);
             }
-        }
 
-        /// <summary>
-        /// Factory for LocationDeathProfile
-        /// </summary>
-        public static Location Create()
-        {
-            // clear static resource container.
-            resources.Clear();
-
-            var location = new Location();
             location.LocationDeath().AddProfile();
 
             return location;

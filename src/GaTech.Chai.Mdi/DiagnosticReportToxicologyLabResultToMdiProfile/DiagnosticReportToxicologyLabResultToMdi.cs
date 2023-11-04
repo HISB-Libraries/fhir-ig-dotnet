@@ -20,7 +20,6 @@ namespace GaTech.Chai.Mdi.DiagnosticReportToxicologyLabResultToMdiProfile
         internal DiagnosticReportToxicologyLabResultToMdi(DiagnosticReport diagnosticReport)
         {
             this.diagnosticReport = diagnosticReport;
-            this.diagnosticReport.Category.SetCategory(ValueSets.DiagnosticServiceSections.Laboratory);
         }
 
         /// <summary>
@@ -34,6 +33,7 @@ namespace GaTech.Chai.Mdi.DiagnosticReportToxicologyLabResultToMdiProfile
 
             var diagnosticReport = new DiagnosticReport();
             diagnosticReport.DiagnosticReportToxicologyLabResultToMdi().AddProfile();
+            diagnosticReport.Category.SetCategory(ValueSets.DiagnosticServiceSections.Laboratory);
 
             return diagnosticReport;
         }
@@ -50,6 +50,7 @@ namespace GaTech.Chai.Mdi.DiagnosticReportToxicologyLabResultToMdiProfile
             var diagnosticReport = new DiagnosticReport();
 
             diagnosticReport.DiagnosticReportToxicologyLabResultToMdi().AddProfile();
+            diagnosticReport.Category.SetCategory(ValueSets.DiagnosticServiceSections.Laboratory);
             diagnosticReport.DiagnosticReportToxicologyLabResultToMdi().SubjectAsResource = subject;
 
             return diagnosticReport;

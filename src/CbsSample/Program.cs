@@ -17,6 +17,7 @@ using GaTech.Chai.UsCbs.Common;
 using GaTech.Chai.Cbs.CaseNotificationPanelProfile;
 using GaTech.Chai.Cbs.VaccinationACIPRecommendationProfile;
 using Newtonsoft.Json;
+using static GaTech.Chai.Share.Common.ValueSets;
 
 namespace CbsSample
 {
@@ -50,7 +51,7 @@ namespace CbsSample
 
             // CbsPerformingLaboratoryProfile
             var performingLab = UsCbsPerformingLaboratory.Create();
-            performingLab.UsCbsPerformingLaboratory().SetNameDataAbsentReason(DataAbsentReason.AskedUnknown);
+            performingLab.UsCbsPerformingLaboratory().SetNameDataAbsentReason(Hl7VsDataAbsentReason.AskedUnknown);
 
             // Reporting Source
             var reportingSource = ReportingSource.Create(new CodeableConcept("http://terminology.hl7.org/CodeSystem/v2-0406", "H", "Hospital", null), new Address() { PostalCode = "77018" });

@@ -11,7 +11,7 @@
     "value": "urn:uuid:933dde44f7664b03a20b6324f23986c0"
   },
   "type": "document",
-  "timestamp": "2023-10-24T00:21:27.298183-04:00",
+  "timestamp": "2023-10-27T17:50:02.498207-04:00",
   "entry": [
     {
       "fullUrl": "Composition/d5eb30e7-f656-424c-8902-ba5c95797872",
@@ -203,6 +203,9 @@
             "entry": [
               {
                 "reference": "Observation/410ff8b6-a994-11ed-afa1-0242ac120002"
+              },
+              {
+                "reference": "Location/d6d17715-7889-44d7-b8e6-f7e40eb05873"
               }
             ]
           }
@@ -990,6 +993,19 @@
             }
           }
         ]
+      }
+    },
+    {
+      "fullUrl": "Location/d6d17715-7889-44d7-b8e6-f7e40eb05873",
+      "resource": {
+        "resourceType": "Location",
+        "id": "d6d17715-7889-44d7-b8e6-f7e40eb05873",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-location"
+          ]
+        },
+        "name": "Autopsy Center of Georgia"
       }
     }
   ]

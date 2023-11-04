@@ -17,7 +17,6 @@ namespace GaTech.Chai.Mdi.ObservationContributingCauseOfDeathPart2Profile
         internal ObservationContributingCauseOfDeathPart2(Observation observation)
         {
             this.observation = observation;
-            this.observation.Code = new CodeableConcept("http://loinc.org", "69441-4", "Other significant causes or conditions of death", null);
         }
 
         /// <summary>
@@ -32,6 +31,7 @@ namespace GaTech.Chai.Mdi.ObservationContributingCauseOfDeathPart2Profile
             var observation = new Observation();
 
             observation.ObservationContributingCauseOfDeathPart2().AddProfile();
+            observation.Code = new CodeableConcept("http://loinc.org", "69441-4", "Other significant causes or conditions of death", null);
 
             observation.ObservationContributingCauseOfDeathPart2().SubjectAsResource = subjectResource;
             if (performerResource != null)
@@ -53,6 +53,8 @@ namespace GaTech.Chai.Mdi.ObservationContributingCauseOfDeathPart2Profile
 
             var observation = new Observation();
             observation.ObservationContributingCauseOfDeathPart2().AddProfile();
+            observation.Code = new CodeableConcept("http://loinc.org", "69441-4", "Other significant causes or conditions of death", null);
+
             return observation;
         }
 

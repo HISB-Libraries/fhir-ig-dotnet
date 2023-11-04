@@ -4,8 +4,12 @@ using GaTech.Chai.Share.Extensions;
 using static Hl7.Fhir.Model.Composition;
 using GaTech.Chai.Mdi.Common;
 using System.Collections.Generic;
+using GaTech.Chai.Mdi.ObservationCauseOfDeathPart1Profile;
+using Hl7.Fhir.ElementModel.Types;
+using Quantity = Hl7.Fhir.Model.Quantity;
+using Integer = Hl7.Fhir.Model.Integer;
+using Code = Hl7.Fhir.Model.Code;
 using Hl7.Fhir.Language.Debugging;
-using Newtonsoft.Json.Linq;
 
 namespace GaTech.Chai.Mdi.CompositionMdiAndEdrsProfile
 {
@@ -21,26 +25,39 @@ namespace GaTech.Chai.Mdi.CompositionMdiAndEdrsProfile
         internal CompositionMdiAndEdrs(Composition composition)
         {
             this.composition = composition;
-            composition.Type = new CodeableConcept("http://loinc.org", "86807-5", "Death administrative information Document", null);
         }
 
         /// <summary>
         /// Factory for CompositionMdiAndEdrsProfile
         /// http://hl7.org/fhir/us/mdi/StructureDefinition/Composition-mdi-and-edrs
         /// </summary>
-        public static Composition Create(Identifier identifier, CompositionStatus status, Patient subject, Practitioner author, Practitioner certifier, CompositionAttestationMode? attestationMode)
+        public static Composition Create(Identifier identifier, CompositionStatus status, Patient subject, Practitioner author, Code authorAbsentReason, Practitioner certifier, Code certifierAbsentReason, CompositionAttestationMode? attestationMode)
         {
             // clear static resource container.
             resources.Clear();
 
             var composition = new Composition();
-            composition.CompositionMdiAndEdrs().AddProfile();
+            composition.Type = new CodeableConcept("http://loinc.org", "86807-5", "Death administrative information Document", null);
 
             if (identifier != null) composition.Identifier = identifier;
             composition.Status = status;
             if (subject != null) composition.CompositionMdiAndEdrs().SubjectAsResource = subject;
-            if (author != null) composition.CompositionMdiAndEdrs().SetAuthor(author);
-            if (certifier != null) composition.CompositionMdiAndEdrs().Certifier = (attestationMode, certifier, DataAbsentReason.NotApplicable);
+            if (author != null)
+            {
+                composition.CompositionMdiAndEdrs().SetAuthor(author, null);
+            } else
+            {
+                composition.CompositionMdiAndEdrs().SetAuthor(author, authorAbsentReason);
+            }
+            if (certifier != null)
+            {
+                composition.CompositionMdiAndEdrs().Certifier = (attestationMode, certifier, null);
+            } else
+            {
+                composition.CompositionMdiAndEdrs().Certifier = (attestationMode, certifier, certifierAbsentReason);
+            }
+
+            composition.CompositionMdiAndEdrs().AddProfile();
 
             return composition;
         }
@@ -56,6 +73,7 @@ namespace GaTech.Chai.Mdi.CompositionMdiAndEdrsProfile
             resources.Clear();
 
             var composition = new Composition();
+            composition.Type = new CodeableConcept("http://loinc.org", "86807-5", "Death administrative information Document", null);
             composition.CompositionMdiAndEdrs().AddProfile();
 
             return composition;
@@ -89,8 +107,7 @@ namespace GaTech.Chai.Mdi.CompositionMdiAndEdrsProfile
         {
             get
             {
-                Resource value;
-                resources.TryGetValue(this.composition.Subject.Reference, out value);
+                resources.TryGetValue(this.composition.Subject.Reference, out Resource value);
 
                 return (Patient)value;
             }
@@ -104,15 +121,23 @@ namespace GaTech.Chai.Mdi.CompositionMdiAndEdrsProfile
         /// <summary>
         /// Set Authors. 1..1
         /// </summary>
-        public void SetAuthor(Practitioner practitioner)
+        public void SetAuthor(Practitioner practitioner, Code code)
         {
-            if (this.composition.Author.Count > 0)
+            if (practitioner == null)
             {
-                this.composition.Author.Clear();
+                ResourceReference practitionerReference = new ResourceReference();
+                practitionerReference.AddDataAbsentReason(code);
             }
-            this.composition.Author = new List<ResourceReference> { new ResourceReference(practitioner.AsReference().Reference) };
+            else
+            {
+                if (this.composition.Author.Count > 0)
+                {
+                    this.composition.Author.Clear();
+                }
+                this.composition.Author = new List<ResourceReference> { new ResourceReference(practitioner.AsReference().Reference) };
 
-            resources[practitioner.AsReference().Reference] = practitioner;
+                resources[practitioner.AsReference().Reference] = practitioner;
+            }
         }
 
         /// <summary>
@@ -175,7 +200,7 @@ namespace GaTech.Chai.Mdi.CompositionMdiAndEdrsProfile
         /// <summary>
         /// Certifier: sets or gets certifier information
         /// DC certifier is set in Attester. Only one certifiier can exist.
-        public (CompositionAttestationMode?, Resource, DataAbsentReason) Certifier
+        public (CompositionAttestationMode?, Resource, Code) Certifier
         {
             get
             {
@@ -186,16 +211,15 @@ namespace GaTech.Chai.Mdi.CompositionMdiAndEdrsProfile
                     {
                         Extension extension = this.composition.Attester[0].GetExtension("http://hl7.org/fhir/StructureDefinition/data-absent-reason");
                         Code codeValue = extension.Value as Code;
-                        DataAbsentReason dataAbsentReason = codeValue.Value.GetEnumValueFromCode<DataAbsentReason>();
-                        return (null, null, dataAbsentReason);
+                        return (null, null, codeValue);
                     }
                     else
                     {
-                        return (composition.Attester[0].Mode, resource, DataAbsentReason.NotApplicable);
+                        return (composition.Attester[0].Mode, resource, null);
                     }
                 }
 
-                return (null, null, DataAbsentReason.NotApplicable);
+                return (null, null, null);
             }
 
             set
@@ -211,8 +235,10 @@ namespace GaTech.Chai.Mdi.CompositionMdiAndEdrsProfile
                 if (value.Item2 == null)
                 {
                     // Certifier is now empty. Put dataabsentreason.
-                    this.composition.Attester.Add(new AttesterComponent() {
-                        Extension = new List<Extension> { new Extension(value.Item3.GetEnumSystem(), new Code(value.Item3.GetEnumCode())) } });
+                    ResourceReference party = new ResourceReference();
+                    party.AddDataAbsentReason(value.Item3);
+
+                    this.composition.Attester.Add(new AttesterComponent() { Party = party });
                 }
                 else
                 {
@@ -345,15 +371,257 @@ namespace GaTech.Chai.Mdi.CompositionMdiAndEdrsProfile
             }
         }
 
+        private Observation GetCOD1(int lineNumber)
+        {
+            List<Resource> COD1s;
+            Resource COD2;
+            Resource Manner;
+            Resource InjOccurred;
+            CodeableConcept dataAbsentReason;
+
+            (COD1s, COD2, Manner, InjOccurred, dataAbsentReason) = CauseManner;
+
+            foreach (Resource resource in COD1s)
+            {
+                if (resource is Observation)
+                {
+                    Observation ob = (Observation)resource;
+                    if (ob.IsObservationCode("CauseOfDeathPart1"))
+                    {
+                        if (ob.ObservationCauseOfDeathPart1().LineNumber.Value == lineNumber)
+                        {
+                            return ob;
+                        }
+                    }
+
+                }
+            }
+
+            return null;
+        }
+
+        private Observation SetCOD1(int lineNumber, string valueText, DataType interval)
+        {
+            if (lineNumber < 1 || lineNumber >4)
+            {
+                throw new ArgumentException("Cause of Death Part 1 can have line number 1..4.");
+            }
+
+            if (valueText == null || interval == null)
+            {
+                throw new ArgumentException("Cause of Death Part 1 must have both value and interval.");
+            }
+
+            Patient patient = (Patient) composition.CompositionMdiAndEdrs().SubjectAsResource;
+            if (patient == null)
+            {
+                throw new ArgumentException("Cause of Death Part 1 must have a patient in Composition.");
+            }
+
+            CompositionAttestationMode? mode;
+            Resource certifier;
+            Code dataAbsentReason;
+            (mode, certifier, dataAbsentReason) = composition.CompositionMdiAndEdrs().Certifier;
+            if (certifier == null && dataAbsentReason == null)
+            {
+                throw new ArgumentException("Cause of Death Part 1 has no certifier. Data absent reason must be provided in Composition.");
+            }
+
+            SectionComponent sectionComponent = GetOrAddSection("cause-manner", MdiCodeSystem.MdiCodes.CauseManner.Coding[0].Display);
+            foreach (ResourceReference reference in sectionComponent.Entry)
+            {
+                Resource entryResource;
+                if (resources.TryGetValue(reference.Reference, out entryResource))
+                {
+                    Observation ob = (Observation)entryResource;
+                    if (ob.hasProfile("http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-cause-of-death-part1"))
+                    {
+                        if (ob.ObservationCauseOfDeathPart1().LineNumber == new Integer(lineNumber))
+                        {
+                            // We found the existing one. We just update it. 
+                            ob.ObservationCauseOfDeathPart1().ValueText = valueText;
+                            if (interval is Quantity)
+                            {
+                                ob.ObservationCauseOfDeathPart1().IntervalQuantity = (Quantity)interval;
+                            }
+                            else
+                            {
+                                ob.ObservationCauseOfDeathPart1().Interval = ((FhirString)interval).Value;
+                            }
+
+                            // update subject and certifier as well in case that's changed.
+                            ob.ObservationCauseOfDeathPart1().SubjectAsResource = patient;
+                            if (certifier == null)
+                            {
+                                ResourceReference certifierReference = new ResourceReference();
+                                certifierReference.AddDataAbsentReason(dataAbsentReason);
+                                ob.Performer = new List<ResourceReference>() { certifierReference };
+                            }
+                            else
+                            {
+                                ob.ObservationCauseOfDeathPart1().PerformerAsResource = (Practitioner)certifier;
+                            }
+
+                            return ob;
+                        }
+                    }
+                }
+            }
+
+            Observation cod1 = ObservationCauseOfDeathPart1.Create((Patient)patient);
+
+            if (certifier ==  null)
+            {
+                ResourceReference certifierReference = new ResourceReference();
+                certifierReference.AddDataAbsentReason(dataAbsentReason);
+                cod1.Performer = new List<ResourceReference>() { certifierReference };
+            }
+            else
+            {
+                cod1.ObservationCauseOfDeathPart1().PerformerAsResource = (Practitioner) certifier;
+            }
+
+            cod1.ObservationCauseOfDeathPart1().ValueText = valueText;
+            if (interval is Quantity quantity)
+            {
+                cod1.ObservationCauseOfDeathPart1().IntervalQuantity = quantity;
+            }
+            else
+            {
+                cod1.ObservationCauseOfDeathPart1().Interval = ((FhirString)interval).Value;
+            }
+
+            sectionComponent.Entry.Add(cod1.AsReference());
+            resources.Add(cod1.AsReference().Reference, cod1);
+
+            return cod1;
+        }
+
+        public string COD1A
+        {
+            get
+            {
+                Observation ob = GetCOD1(1);
+                if (ob != null)
+                {
+                    return ob.ObservationCauseOfDeathPart1().ValueText;
+                }
+
+                return null;
+            }
+        }
+
+        public string INTERVAL1A
+        {
+            get
+            {
+
+                Observation ob = GetCOD1(1);
+                if (ob != null)
+                {
+                    return ob.ObservationCauseOfDeathPart1().Interval;
+                }
+
+                return null;
+            }
+        }
+
+        public string COD1B
+        {
+            get
+            {
+                Observation ob = GetCOD1(2);
+                if (ob != null)
+                {
+                    return ob.ObservationCauseOfDeathPart1().ValueText;
+                }
+
+                return null;
+            }
+        }
+
+        public string INTERVAL1B
+        {
+            get
+            {
+
+                Observation ob = GetCOD1(2);
+                if (ob != null)
+                {
+                    return ob.ObservationCauseOfDeathPart1().Interval;
+                }
+
+                return null;
+            }
+        }
+
+        public string COD1C
+        {
+            get
+            {
+                Observation ob = GetCOD1(3);
+                if (ob != null)
+                {
+                    return ob.ObservationCauseOfDeathPart1().ValueText;
+                }
+
+                return null;
+            }
+        }
+
+        public string INTERVAL1C
+        {
+            get
+            {
+
+                Observation ob = GetCOD1(3);
+                if (ob != null)
+                {
+                    return ob.ObservationCauseOfDeathPart1().Interval;
+                }
+
+                return null;
+            }
+        }
+
+        public string COD1D
+        {
+            get
+            {
+                Observation ob = GetCOD1(4);
+                if (ob != null)
+                {
+                    return ob.ObservationCauseOfDeathPart1().ValueText;
+                }
+
+                return null;
+            }
+        }
+
+        public string INTERVAL1D
+        {
+            get
+            {
+
+                Observation ob = GetCOD1(4);
+                if (ob != null)
+                {
+                    return ob.ObservationCauseOfDeathPart1().Interval;
+                }
+
+                return null;
+            }
+        }
+
+
         /// <summary>
         /// CauseManner: gets or sets lists of cause and manner references
         ///     value = (List<ResourceReference>, ResourceReference, ResourceReference, ResourceReference, EmptyReasonCode)
-        ///         List1 of Resource: Observation - Cause of Death Part 1 (0..4)
-        ///         List2 of Resource: Observation - Contributing Cause of Death Part 2 (0..1)
-        ///         List3 of Resource: Observation - Manner of Death (0..1)
-        ///         List4 of Resource: Observation - How Death Injury Occurred (0..1)
-        ///         EmptyReasonCode:
-        ///             GaTech.Chai.Share.Common.ListEmptyReaso
+        ///         List of Resources: 4 Observations - Cause of Death Part 1 (a, b, c, d)
+        ///         Resource: Observation - Contributing Cause of Death Part 2 (0..1)
+        ///         Resource: Observation - Manner of Death (0..1)
+        ///         Resource: Observation - How Death Injury Occurred (0..1)
+        ///         EmptyReasonCode: GaTech.Chai.Share.Common.ListEmptyReason
         /// </summary>
         public (List<Resource>, Resource, Resource, Resource, CodeableConcept) CauseManner
         {
@@ -563,9 +831,14 @@ namespace GaTech.Chai.Mdi.CompositionMdiAndEdrsProfile
                     code, title, display, section);
         }
 
-        public Dictionary<String, Resource> GetResourcesInSections()
+        public Dictionary<string, Resource> GetResources()
         {
             return resources;
+        }
+
+        public void AddResources(string key, Resource resource)
+        {
+            resources[key] = resource;
         }
     }
 }

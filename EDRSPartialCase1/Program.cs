@@ -28,7 +28,7 @@ namespace MdiExample
             patient.Identifier.Add(new Identifier()
             {
                 Use = Identifier.IdentifierUse.Usual,
-                Type = new CodeableConcept("http://terminology.hl7.org/CodeSystem/v2-0203", "SB", "Social Beneficiary Identifier", null),
+                Type = new CodeableConcept("http://terminology.hl7.org/CodeSystem/v2-0203", "SB", "Social Beneficiary Identifier", ""),
                 System = "http://hl7.org/fhir/sid/us-ssn",
                 Value = "890123456"
             });
@@ -71,6 +71,8 @@ namespace MdiExample
                 patient,
                 null,
                 null,
+                null,
+                null,
                 Composition.CompositionAttestationMode.Official
                 );
             composition.DateElement = new FhirDateTime("2022-02-20");
@@ -100,7 +102,7 @@ namespace MdiExample
             patient.Identifier.Add(new Identifier()
             {
                 Use = Identifier.IdentifierUse.Usual,
-                Type = new CodeableConcept("http://terminology.hl7.org/CodeSystem/v2-0203", "SB", "Social Beneficiary Identifier", null),
+                Type = new CodeableConcept("http://terminology.hl7.org/CodeSystem/v2-0203", "SB", "Social Beneficiary Identifier", ""),
                 System = "http://hl7.org/fhir/sid/us-ssn",
                 Value = "567890123"
             });
@@ -143,6 +145,8 @@ namespace MdiExample
                 patient,
                 null,
                 null,
+                null,
+                null,
                 Composition.CompositionAttestationMode.Official
                 );
             composition.DateElement = new FhirDateTime("2022-02-20");
@@ -171,7 +175,7 @@ namespace MdiExample
             patient.Identifier.Add(new Identifier()
             {
                 Use = Identifier.IdentifierUse.Usual,
-                Type = new CodeableConcept("http://terminology.hl7.org/CodeSystem/v2-0203", "SB", "Social Beneficiary Identifier", null),
+                Type = new CodeableConcept("http://terminology.hl7.org/CodeSystem/v2-0203", "SB", "Social Beneficiary Identifier", ""),
                 System = "http://hl7.org/fhir/sid/us-ssn",
                 Value = "304958907"
             });
@@ -214,6 +218,8 @@ namespace MdiExample
                 patient,
                 null,
                 null,
+                null,
+                null,
                 Composition.CompositionAttestationMode.Official
                 );
             composition.DateElement = new FhirDateTime("2022-02-20");
@@ -240,7 +246,7 @@ namespace MdiExample
             patient.Identifier.Add(new Identifier()
             {
                 Use = Identifier.IdentifierUse.Usual,
-                Type = new CodeableConcept("http://terminology.hl7.org/CodeSystem/v2-0203", "SB", "Social Beneficiary Identifier", null),
+                Type = new CodeableConcept("http://terminology.hl7.org/CodeSystem/v2-0203", "SB", "Social Beneficiary Identifier", ""),
                 System = "http://hl7.org/fhir/sid/us-ssn",
                 Value = "102987654"
             });
@@ -283,6 +289,8 @@ namespace MdiExample
                 patient,
                 null,
                 null,
+                null,
+                null,
                 Composition.CompositionAttestationMode.Official
                 );
             composition.DateElement = new FhirDateTime("2022-02-20");
@@ -310,7 +318,7 @@ namespace MdiExample
             patient.Identifier.Add(new Identifier()
             {
                 Use = Identifier.IdentifierUse.Usual,
-                Type = new CodeableConcept("http://terminology.hl7.org/CodeSystem/v2-0203", "SB", "Social Beneficiary Identifier", null),
+                Type = new CodeableConcept("http://terminology.hl7.org/CodeSystem/v2-0203", "SB", "Social Beneficiary Identifier", ""),
                 System = "http://hl7.org/fhir/sid/us-ssn",
                 Value = "890564732"
             });
@@ -353,6 +361,8 @@ namespace MdiExample
                 patient,
                 null,
                 null,
+                null,
+                null,
                 Composition.CompositionAttestationMode.Official
                 );
             composition.DateElement = new FhirDateTime("2022-02-20");
@@ -381,7 +391,7 @@ namespace MdiExample
             patient.Identifier.Add(new Identifier()
             {
                 Use = Identifier.IdentifierUse.Usual,
-                Type = new CodeableConcept("http://terminology.hl7.org/CodeSystem/v2-0203", "SB", "Social Beneficiary Identifier", null),
+                Type = new CodeableConcept("http://terminology.hl7.org/CodeSystem/v2-0203", "SB", "Social Beneficiary Identifier", ""),
                 System = "http://hl7.org/fhir/sid/us-ssn",
                 Value = "102459876"
             });
@@ -424,6 +434,8 @@ namespace MdiExample
                 patient,
                 null,
                 null,
+                null,
+                null,
                 Composition.CompositionAttestationMode.Official
                 );
             composition.DateElement = new FhirDateTime("2021-01-15");
@@ -452,7 +464,7 @@ namespace MdiExample
             patient.Identifier.Add(new Identifier()
             {
                 Use = Identifier.IdentifierUse.Usual,
-                Type = new CodeableConcept("http://terminology.hl7.org/CodeSystem/v2-0203", "SB", "Social Beneficiary Identifier", null),
+                Type = new CodeableConcept("http://terminology.hl7.org/CodeSystem/v2-0203", "SB", "Social Beneficiary Identifier", ""),
                 System = "http://hl7.org/fhir/sid/us-ssn",
                 Value = "543980765"
             });
@@ -493,6 +505,8 @@ namespace MdiExample
                 new Identifier() { Value = "855cff7e-9778-11ed-a8fc-0242ac120002" },
                 CompositionStatus.Final,
                 patient,
+                null,
+                null,
                 null,
                 null,
                 Composition.CompositionAttestationMode.Official

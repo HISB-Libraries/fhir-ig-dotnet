@@ -8,4 +8,11 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\src\GaTech.Chai.Mdi\GaTech.Chai.Mdi.csproj" />
+    <ProjectReference Include="..\src\GaTech.Chai.Odh\GaTech.Chai.Odh.csproj" />
+    <ProjectReference Include="..\src\GaTech.Chai.Share\GaTech.Chai.Share.csproj" />
+    <ProjectReference Include="..\src\GaTech.Chai.UsCore\GaTech.Chai.UsCore.csproj" />
+    <ProjectReference Include="..\src\GaTech.Chai.UsPublicHealth\GaTech.Chai.UsPublicHealth.csproj" />
+  </ItemGroup>
 </Project>

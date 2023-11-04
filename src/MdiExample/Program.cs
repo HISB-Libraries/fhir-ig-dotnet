@@ -27,6 +27,7 @@ using GaTech.Chai.Mdi.ProcedureDeathCertificationProfile;
 using GaTech.Chai.Share.Common;
 using GaTech.Chai.Mdi.ObservationAutopsyPerformedIndicatorProfile;
 using GaTech.Chai.Mdi.LocationInjuryProfile;
+using GaTech.Chai.UsCore.LocationProfile;
 
 namespace MdiExample
 {
@@ -197,7 +198,10 @@ namespace MdiExample
             observationAutopsyPerformedIndicator.ObservationAutopsyPerformedIndicator().Value = MdiVsYesNoUnknown.Yes;
             observationAutopsyPerformedIndicator.ObservationAutopsyPerformedIndicator().AutopsyResultAvailable
                 = MdiVsYesNoUnknownNotApplicable.NA;
-            
+
+            // US Core Location - Autopsy Location
+            Location autopsyLocation = UsCoreLocation.Create("Autopsy Center of Georgia");
+
             ////
             // Composition of MDI to EDRS document
             Composition composition = CompositionMdiAndEdrs.Create(
@@ -205,7 +209,9 @@ namespace MdiExample
                 CompositionStatus.Final,
                 patient,
                 practitioner,
+                null,
                 practitioner,
+                null,
                 Composition.CompositionAttestationMode.Official
                 );
             composition.Id = "d5eb30e7-f656-424c-8902-ba5c95797872";
@@ -234,7 +240,7 @@ namespace MdiExample
                 ListEmptyReason.Unavailable);
 
             // exam and autopsy information
-            composition.CompositionMdiAndEdrs().ExamAutopsy = (new List<Resource> { observationAutopsyPerformedIndicator }, null, null);
+            composition.CompositionMdiAndEdrs().ExamAutopsy = (new List<Resource> { observationAutopsyPerformedIndicator, autopsyLocation }, null, null);
 
             ////
             // Document Bundle

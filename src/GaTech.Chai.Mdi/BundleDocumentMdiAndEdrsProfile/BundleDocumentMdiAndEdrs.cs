@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using GaTech.Chai.Mdi.Common;
 using GaTech.Chai.Mdi.ObservationCauseOfDeathPart1Profile;
 using GaTech.Chai.Mdi.CompositionMdiAndEdrsProfile;
+using static Hl7.Fhir.Model.Composition;
+using System.Linq;
 
 namespace GaTech.Chai.Mdi.BundleDocumentMdiAndEdrsProfile
 {
@@ -19,19 +21,15 @@ namespace GaTech.Chai.Mdi.BundleDocumentMdiAndEdrsProfile
         internal BundleDocumentMdiAndEdrs(Bundle bundle)
         {
             this.bundle = bundle;
-            bundle.Type = Bundle.BundleType.Document;
-        }
 
-        /// <summary>
-        /// Factory for BundleDocumentMdiAndEdrsProfile
-        /// http://hl7.org/fhir/us/mdi/StructureDefinition/Bundle-document-mdi-and-edrs
-        /// </summary>
-        public static Bundle Create()
-        {
-            var bundle = new Bundle();
-            bundle.BundleDocumentMdiAndEdrs().AddProfile();
-
-            return bundle;
+            Resource resource = bundle.Entry?[0].Resource;
+            if (resource != null && resource is Composition)
+            {
+                AddResourcesToComposition((Composition) resource);
+            } else
+            {
+                throw new ArgumentNullException("MDI-and-EDRS profile Bundle Document requires Bundle.entry[0] to be Composition.");
+            }
         }
 
         /// <summary>
@@ -41,10 +39,22 @@ namespace GaTech.Chai.Mdi.BundleDocumentMdiAndEdrsProfile
         public static Bundle Create(Identifier identifier, Composition composition)
         {
             var bundle = new Bundle();
-            bundle.BundleDocumentMdiAndEdrs().AddProfile();
+            bundle.Type = Bundle.BundleType.Document;
 
-            if (identifier != null) bundle.Identifier = identifier;
-            if (composition != null) bundle.BundleDocumentMdiAndEdrs().MDItoEDRSComposition = composition;
+            if (identifier == null)
+            {
+                throw new ArgumentNullException("Identifier cannot be null for MDIandEdrs Bundle.");
+            }
+                
+            if (composition == null)
+            {
+                throw new ArgumentNullException("Composition cannot be null for MDIandEdrs Bundle entry[0].");
+            }
+
+            bundle.Identifier = identifier;
+
+            bundle.BundleDocumentMdiAndEdrs().MDItoEDRSComposition = composition;
+            bundle.BundleDocumentMdiAndEdrs().AddProfile();
 
             return bundle;
         }
@@ -68,6 +78,76 @@ namespace GaTech.Chai.Mdi.BundleDocumentMdiAndEdrsProfile
         public void RemoveProfile()
         {
             bundle.RemoveProfile(ProfileUrl);
+        }
+
+        public string COD1A
+        {
+            get
+            {
+                Composition composition = (Composition)bundle.Entry?[0].Resource;
+                return composition.CompositionMdiAndEdrs().COD1A;
+            }
+        }
+
+        public string INTERVAL1A
+        {
+            get
+            {
+                Composition composition = (Composition)bundle.Entry?[0].Resource;
+                return composition.CompositionMdiAndEdrs().INTERVAL1A;
+            }
+        }
+
+        public string COD1B
+        {
+            get
+            {
+                Composition composition = (Composition)bundle.Entry?[0].Resource;
+                return composition.CompositionMdiAndEdrs().COD1B;
+            }
+        }
+
+        public string INTERVAL1B
+        {
+            get
+            {
+                Composition composition = (Composition)bundle.Entry?[0].Resource;
+                return composition.CompositionMdiAndEdrs().INTERVAL1B;
+            }
+        }
+        public string COD1C
+        {
+            get
+            {
+                Composition composition = (Composition)bundle.Entry?[0].Resource;
+                return composition.CompositionMdiAndEdrs().COD1C;
+            }
+        }
+
+        public string INTERVAL1C
+        {
+            get
+            {
+                Composition composition = (Composition)bundle.Entry?[0].Resource;
+                return composition.CompositionMdiAndEdrs().INTERVAL1C;
+            }
+        }
+        public string COD1D
+        {
+            get
+            {
+                Composition composition = (Composition)bundle.Entry?[0].Resource;
+                return composition.CompositionMdiAndEdrs().COD1D;
+            }
+        }
+
+        public string INTERVAL1D
+        {
+            get
+            {
+                Composition composition = (Composition)bundle.Entry?[0].Resource;
+                return composition.CompositionMdiAndEdrs().INTERVAL1D;
+            }
         }
 
         public (string, string) CauseOfDeathPart1A
@@ -97,6 +177,8 @@ namespace GaTech.Chai.Mdi.BundleDocumentMdiAndEdrsProfile
         {
             get
             {
+                Composition composition = (Composition)this.bundle.Entry[0]?.Resource;
+                
                 foreach (Resource resource in bundle.GetResources())
                 {
                     if (resource is Observation)
@@ -162,11 +244,78 @@ namespace GaTech.Chai.Mdi.BundleDocumentMdiAndEdrsProfile
             }
         }
 
+        public Resource FindResourceInEntry(ResourceReference reference)
+        {
+            if (reference == null) return null;
+            IEnumerable<Resource> entryResources = this.bundle.GetResources();
+            if (entryResources.Count <Resource>() > 0)
+            {
+                IEnumerable<Resource> retResource = from e in entryResources
+                                                    where e.AsReference().Reference.Equals(reference.Reference)
+                                                    select e;
+                if (retResource.Count<Resource>() > 0)
+                {
+                    return retResource.First<Resource>();
+                }
+            }
+
+            return null;
+        }
+
+        private void AddResourcesToComposition (Composition composition)
+        {
+            Resource resource = FindResourceInEntry(composition.Subject);
+            if (resource != null)
+            {
+                composition.CompositionMdiAndEdrs().AddResources(composition.Subject.Reference, resource);
+            }
+
+            resource = FindResourceInEntry(composition.Author[0]);
+            if (resource != null)
+            {
+                composition.CompositionMdiAndEdrs().AddResources(composition.Author[0].Reference, resource);
+            }
+
+            resource = FindResourceInEntry(composition.Attester[0].Party);
+            if (resource != null)
+            {
+                composition.CompositionMdiAndEdrs().AddResources(composition.Attester[0].Party.Reference, resource);
+            }
+
+            foreach (SectionComponent section in composition.Section)
+            {
+                foreach (ResourceReference sectionEntryReference in section.Entry)
+                {
+                    resource = FindResourceInEntry(sectionEntryReference);
+                    if (resource != null)
+                    {
+                        composition.CompositionMdiAndEdrs().AddResources(sectionEntryReference.Reference, resource);
+                    }
+                }
+            }
+
+        }
+
         public Composition MDItoEDRSComposition
         {
             get
             {
-                return (Composition) bundle.Entry?[0].Resource;
+                Composition composition = (Composition)bundle.Entry?[0].Resource;
+                if (composition != null)
+                {
+                    Dictionary<string, Resource> entryResources = composition.CompositionMdiAndEdrs().GetResources();
+                    if (entryResources.Count > 0)
+                    {
+                        return composition;
+                    }
+                    else
+                    {
+                        // add resources in composition.
+                        AddResourcesToComposition(composition);
+                    }
+                }
+
+                return composition;
             }
             set
             {
@@ -184,7 +333,7 @@ namespace GaTech.Chai.Mdi.BundleDocumentMdiAndEdrsProfile
                 //bundle.Entry.Add(new Bundle.EntryComponent() { FullUrl = value.AsReference().Reference, Resource = value });
 
                 // We have sections in the composition. Add them to entries if we have them.
-                Dictionary<string, Resource> entryResources = value.CompositionMdiAndEdrs().GetResourcesInSections();
+                Dictionary<string, Resource> entryResources = value.CompositionMdiAndEdrs().GetResources();
                 foreach (var urlAndResource in entryResources)
                 {
                     bundle.AddResourceEntry(urlAndResource.Value, urlAndResource.Key);
