@@ -352,3 +352,6 @@ MigrationBackup/
 
 # Visual Studio Code
 .vscode
+
+# MDI library specific
+MDIout
