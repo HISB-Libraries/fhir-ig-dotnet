@@ -151,12 +151,12 @@ namespace GaTech.Chai.Mdi.Common
     {
         public const string officialUrl = "http://hl7.org/fhir/us/mdi/ValueSet/ValueSet-manner-of-death";
 
-        public static CodeableConcept NaturalDeath = new ("http://snomed.info/sct", "38605008", "Natural death", null);
-        public static CodeableConcept AccidentalDeath = new ("http://snomed.info/sct", "7878000", "Accidental Death", null);
-        public static CodeableConcept Suicide = new ("http://snomed.info/sct", "44301001", "Suicide", null);
-        public static CodeableConcept Homicide = new ("http://snomed.info/sct", "27935005", "Homicide", null);
-        public static CodeableConcept PatientAwaitingInvestigation = new ("http://snomed.info/sct", "185973002", "Patient awaiting investigation", null);
-        public static CodeableConcept DeathmannerUndetermined = new ("http://snomed.info/sct", "65037004", "Death, manner undetermined", null);
+        public static CodeableConcept NaturalDeath = new ("http://snomed.info/sct", "38605008", "Natural death (event)", null);
+        public static CodeableConcept AccidentalDeath = new ("http://snomed.info/sct", "7878000", "Accidental death (event)", null);
+        public static CodeableConcept Suicide = new ("http://snomed.info/sct", "44301001", "Suicide (event)", null);
+        public static CodeableConcept Homicide = new ("http://snomed.info/sct", "27935005", "Homicide (event)", null);
+        public static CodeableConcept PatientAwaitingInvestigation = new ("http://snomed.info/sct", "185973002", "Patient awaiting investigation (finding)", null);
+        public static CodeableConcept DeathmannerUndetermined = new ("http://snomed.info/sct", "65037004", "Death, manner undetermined (event)", null);
     }
 
     public class MdiVsContributoryTobaccoUse

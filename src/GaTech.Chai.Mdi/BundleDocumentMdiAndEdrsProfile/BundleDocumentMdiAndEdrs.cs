@@ -22,13 +22,17 @@ namespace GaTech.Chai.Mdi.BundleDocumentMdiAndEdrsProfile
         {
             this.bundle = bundle;
 
-            Resource resource = bundle.Entry?[0].Resource;
-            if (resource != null && resource is Composition)
+            if (bundle.Entry != null && bundle.Entry.Count > 0)
             {
-                AddResourcesToComposition((Composition) resource);
-            } else
-            {
-                throw new ArgumentNullException("MDI-and-EDRS profile Bundle Document requires Bundle.entry[0] to be Composition.");
+                Resource resource = bundle.Entry[0].Resource;
+                if (resource != null && resource is Composition)
+                {
+                    AddResourcesToComposition((Composition)resource);
+                }
+                else
+                {
+                    throw new ArgumentNullException("MDI-and-EDRS profile Bundle Document requires Bundle.entry[0] to be Composition.");
+                }
             }
         }
 
