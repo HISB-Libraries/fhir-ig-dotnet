@@ -354,4 +354,5 @@ MigrationBackup/
 .vscode
 
 # MDI library specific
-MDIout
+MDIout/
+CBSout/
