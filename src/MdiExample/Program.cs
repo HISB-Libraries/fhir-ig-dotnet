@@ -9,12 +9,8 @@ using GaTech.Chai.Mdi.CompositionMdiAndEdrsProfile;
 using GaTech.Chai.Mdi.DiagnosticReportToxicologyLabResultToMdiProfile;
 using GaTech.Chai.Mdi.LocationDeathProfile;
 using GaTech.Chai.Mdi.MessageHeaderToxicologyToMdiProfile;
-using GaTech.Chai.Mdi.ObservationCauseOfDeathPart1Profile;
-using GaTech.Chai.Mdi.ObservationContributingCauseOfDeathPart2Profile;
 using GaTech.Chai.Mdi.ObservationDeathDateProfile;
 using GaTech.Chai.Mdi.ObservationDecedentPregnancyProfile;
-using GaTech.Chai.Mdi.ObservationHowDeathInjuryOccurredProfile;
-using GaTech.Chai.Mdi.ObservationMannerOfDeathProfile;
 using GaTech.Chai.Mdi.ObservationTobaccoUseContributedToDeathProfile;
 using GaTech.Chai.Mdi.ObservationToxicologyLabResultProfile;
 using GaTech.Chai.Mdi.SpecimenToxicologyLabProfile;
@@ -25,9 +21,16 @@ using Hl7.Fhir.Model;
 using Hl7.Fhir.Serialization;
 using GaTech.Chai.Mdi.ProcedureDeathCertificationProfile;
 using GaTech.Chai.Share.Common;
-using GaTech.Chai.Mdi.ObservationAutopsyPerformedIndicatorProfile;
 using GaTech.Chai.Mdi.LocationInjuryProfile;
 using GaTech.Chai.UsCore.LocationProfile;
+using GaTech.Chai.Mdi.ObservationMdiCauseOfDeathPart1Profile;
+using GaTech.Chai.Vrdr.VrdrCauseOfDeathPart2Profile;
+using GaTech.Chai.Vrdr.VrdrMannerOfDeathProfile;
+using GaTech.Chai.Vrdr.VrdrInjuryIncidentProfile;
+using GaTech.Chai.Vrcl.ObservationAutopsyPerformedIndicatorVrProfile;
+using GaTech.Chai.Vrcl.PatientVrProfile;
+using GaTech.Chai.Vrcl.Extensions;
+using GaTech.Chai.Vrcl.PractitionerVrProfile;
 
 namespace MdiExample
 {
@@ -36,14 +39,14 @@ namespace MdiExample
         static void Main(string[] args)
         {
             FhirJsonSerializer serializer = new(new SerializerSettings() { Pretty = true });
-            string outputPath = "/Users/mc142/Documents/workspace/MMG/cbs-ig-dotnet/MDIout/";
+            string outputPath = "/Users/mc142/Documents/workspace/MMG/fhir-ig-dotnet/MDIout/";
 
             // US Core PatientProfile
             Patient patient = UsCorePatient.Create();
             patient.Id = "806c53c0-a993-11ed-afa1-0242ac120002";
 
             // Name
-            patient.Name = new List<HumanName> { new HumanName() { Family = "Freeman", GivenElement = new List<FhirString> { new FhirString("Alice"), new FhirString("J") } } };
+            patient.Name = new List<HumanName> { new HumanName() { Family = "Solo", GivenElement = new List<FhirString> { new FhirString("Han"), new FhirString("J") } } };
             patient.Identifier.Add(new Identifier()
             {
                 Use = Identifier.IdentifierUse.Usual,
@@ -53,7 +56,7 @@ namespace MdiExample
             });
 
             // Race
-            patient.UsCorePatient().Race.Category = UsCorePatientRace.RaceCoding.Encode("2028-9", "Asian");
+            patient.UsCorePatient().Race.Category = UsCorePatientRace.RaceCoding.Encode("2106-3", "White");
             patient.UsCorePatient().Race.ExtendedRaceCodes = new Coding[] { UsCorePatientRace.RaceCoding.Encode("2029-7", "Asian Indian") };
             patient.UsCorePatient().Race.RaceText = "Asian Indian";
 
@@ -64,7 +67,7 @@ namespace MdiExample
 
             // Birth Related
             patient.BirthDateElement = new Date(1978, 3, 12);
-            patient.UsCorePatient().BirthSex.Extension = new Code("F");
+            patient.UsCorePatient().BirthSex.Extension = new Code("M");
             patient.Gender = AdministrativeGender.Female;
 
             // Address
@@ -87,6 +90,9 @@ namespace MdiExample
             // Deceased
             patient.Deceased = new FhirDateTime(2014, 3, 2);
 
+            // BirthPlace
+            patient.PatientVr().BirthPlace.CityCode = 42425;
+
             // Us Core Practitioner (ME)
             Practitioner practitioner = UsCorePractitioner.Create();
             practitioner.Id = "ac069540-a993-11ed-afa1-0242ac120002";
@@ -105,38 +111,41 @@ namespace MdiExample
                 Country = "USA" }
             };
 
+            practitioner.Address[0].SetDistrictCode(04000);
+            practitioner.Address[0].SetStreetNameExt("Olympic Blvd");
+
             // Cause of Death Condition Observation
-            Observation causeOfDeath1 = ObservationCauseOfDeathPart1.Create(patient, practitioner, "Fentanyl toxicity", 1, "minutes to hours");
+            Observation causeOfDeath1 = ObservationMdiCauseOfDeathPart1.Create(patient, practitioner, "Fentanyl toxicity", 1, "minutes to hours");
             causeOfDeath1.Id = "b90b4a24-a993-11ed-afa1-0242ac120002";
             causeOfDeath1.Status = ObservationStatus.Final;
 
-            Observation causeOfDeath2 = ObservationCauseOfDeathPart1.Create(patient, practitioner, "Liver failure", 2, "1 hour");
+            Observation causeOfDeath2 = ObservationMdiCauseOfDeathPart1.Create(patient, practitioner, "Liver failure", 2, "1 hour");
             causeOfDeath2.Id = "c77a5528-a993-11ed-afa1-0242ac120002";
             causeOfDeath2.Status = ObservationStatus.Final;
 
             // Condition Contributing to Death
-            Observation conditionContributingToDeath = ObservationContributingCauseOfDeathPart2.Create(patient, practitioner);
+            Observation conditionContributingToDeath = VrdrCauseOfDeathPart2.Create(patient, practitioner);
             conditionContributingToDeath.Id = "d4429ad6-a993-11ed-afa1-0242ac120002";
             conditionContributingToDeath.Status = ObservationStatus.Final;
-            conditionContributingToDeath.ObservationContributingCauseOfDeathPart2().Value = new CodeableConcept(null, null, "Hypertensive heart disease");
+            conditionContributingToDeath.VrdrCauseOfDeathPart2().Value = new CodeableConcept(null, null, "Hypertensive heart disease");
 
             // Observation Manner of Death
-            Observation observationMannerOfDeath = ObservationMannerOfDeath.Create(patient, practitioner);
+            Observation observationMannerOfDeath = VrdrMannerOfDeath.Create(patient, practitioner);
             observationMannerOfDeath.Id = "e7f0fd84-a993-11ed-afa1-0242ac120002";
             observationMannerOfDeath.Value = MdiVsMannerOfDeath.AccidentalDeath;
 
             // Observation Death How Death Injury Occurred
-            Observation observationHowDeathInjuryOccurred = ObservationHowDeathInjuryOccurred.Create(patient);
+            Observation observationHowDeathInjuryOccurred = VrdrInjuryIncident.Create(patient);
             observationHowDeathInjuryOccurred.Id = "f4185864-a993-11ed-afa1-0242ac120002";
             observationHowDeathInjuryOccurred.Status = ObservationStatus.Final;
-            observationHowDeathInjuryOccurred.ObservationHowDeathInjuryOccurred().Certifier = practitioner;
-            observationHowDeathInjuryOccurred.ObservationHowDeathInjuryOccurred().HowInjuredDescription = "Ingested counterfeit medication";
-            observationHowDeathInjuryOccurred.ObservationHowDeathInjuryOccurred().PartialDateTime = (
+            observationHowDeathInjuryOccurred.VrdrInjuryIncident().Certifier = practitioner;
+            observationHowDeathInjuryOccurred.VrdrInjuryIncident().HowInjuredDescription = "Ingested counterfeit medication";
+            observationHowDeathInjuryOccurred.VrdrInjuryIncident().PartialDateTime = (
                 new UnsignedInt(2022),
                 new UnsignedInt(2),
                 new UnsignedInt(1),
                 new Time("15:34:20"));
-            observationHowDeathInjuryOccurred.ObservationHowDeathInjuryOccurred().PlaceOfInjury = new CodeableConcept { Text = "Private House" };
+            observationHowDeathInjuryOccurred.VrdrInjuryIncident().PlaceOfInjury = new CodeableConcept { Text = "Private House" };
 
             // Location Death
             Location deathLocation = LocationDeath.Create();
@@ -192,11 +201,11 @@ namespace MdiExample
             observationTobaccoUseContributedToDeath.Value = MdiVsContributoryTobaccoUse.No;
 
             // Observation - Autopsy Performed Indicator
-            Observation observationAutopsyPerformedIndicator = ObservationAutopsyPerformedIndicator.Create(patient);
+            Observation observationAutopsyPerformedIndicator = ObservationAutopsyPerformedIndicatorVr.Create(patient);
             observationAutopsyPerformedIndicator.Id = "410ff8b6-a994-11ed-afa1-0242ac120002";
             observationAutopsyPerformedIndicator.Status = ObservationStatus.Final;
-            observationAutopsyPerformedIndicator.ObservationAutopsyPerformedIndicator().Value = MdiVsYesNoUnknown.Yes;
-            observationAutopsyPerformedIndicator.ObservationAutopsyPerformedIndicator().AutopsyResultAvailable
+            observationAutopsyPerformedIndicator.ObservationAutopsyPerformedIndicatorVr().Value = MdiVsYesNoUnknown.Yes;
+            observationAutopsyPerformedIndicator.ObservationAutopsyPerformedIndicatorVr().AutopsyResultAvailable
                 = MdiVsYesNoUnknownNotApplicable.NA;
 
             // US Core Location - Autopsy Location
@@ -226,7 +235,7 @@ namespace MdiExample
             composition.CompositionMdiAndEdrs().Circumstances = (new List<Resource> { deathLocation, observationTobaccoUseContributedToDeath, observationDecedentPregnancy, injuryLocation }, null, null);
             composition.CompositionMdiAndEdrs().Jurisdiction = (new List<Resource> { observationDeathDate, procedureDeathCertification }, null, null);
             composition.CompositionMdiAndEdrs().CauseManner = (
-                new List<Resource> { causeOfDeath1, causeOfDeath2 },
+                new List<Observation> { causeOfDeath1, causeOfDeath2 },
                 conditionContributingToDeath,
                 observationMannerOfDeath,
                 observationHowDeathInjuryOccurred,
@@ -938,7 +947,7 @@ namespace MdiExample
             specimenBlood1.ReceivedTimeElement = new FhirDateTime("2018-09-28T16:00:00Z");
             specimenBlood1.Collection = new Specimen.CollectionComponent() { Collected = new FhirDateTime("2018-09-27T11:00:00Z"), BodySite = new CodeableConcept() { Text = "Central" } };
             specimenBlood1.Container.Add(new Specimen.ContainerComponent() { Description = "20mL GT tube", Type = new CodeableConcept("http://snomed.info/sct", "702287009", "Non-evacuated blood collection tube, potassium oxalate/sodium fluoride (physical object)", "GT tube"), SpecimenQuantity = new Quantity() { Value = 20, Unit = "ml" } });
-            specimenBlood1.Condition.Add(new CodeableConcept() { Coding = new List<Coding>() { ValueSets.Hl7VsSpecimenCondition.Cool }, Text = ValueSets.Hl7VsSpecimenCondition.Cool.Display });
+            specimenBlood1.Condition.Add(new CodeableConcept() { Coding = new List<Coding>() { Hl7V2Tables.V20493.Cool }, Text = Hl7V2Tables.V20493.Cool.Display });
 
             specimenUrine = SpecimenToxicologyLab.Create("Urine", patient);
             specimenUrine.Id = "28220188-dd46-11ed-b5ea-0242ac120002";
@@ -947,7 +956,7 @@ namespace MdiExample
             specimenUrine.ReceivedTimeElement = new FhirDateTime("2018-09-28T16:00:00Z");
             specimenUrine.Collection = new Specimen.CollectionComponent() { Collected = new FhirDateTime("2018-09-27T11:00:00Z") };
             specimenUrine.Container.Add(new Specimen.ContainerComponent() { Description = "5mL RT tube", SpecimenQuantity = new Quantity() { Value = 5, Unit = "ml" } });
-            specimenUrine.Condition.Add(new CodeableConcept() { Coding = new List<Coding>() { ValueSets.Hl7VsSpecimenCondition.RoomTemperature }, Text = ValueSets.Hl7VsSpecimenCondition.RoomTemperature.Display });
+            specimenUrine.Condition.Add(new CodeableConcept() { Coding = new List<Coding>() { Hl7V2Tables.V20493.RoomTemperature }, Text = Hl7V2Tables.V20493.RoomTemperature.Display });
 
             Specimen specimenBlood2 = SpecimenToxicologyLab.Create("Blood", patient);
             specimenBlood2.Id = "54a2e2ee-dd47-11ed-b5ea-0242ac120002";

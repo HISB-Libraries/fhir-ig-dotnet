@@ -2,66 +2,60 @@
 using Hl7.Fhir.Model;
 using GaTech.Chai.Share.Extensions;
 using System.Collections.Generic;
+using GaTech.Chai.Share.Common;
 
-namespace GaTech.Chai.Mdi.ObservationContributingCauseOfDeathPart2Profile
+namespace GaTech.Chai.Vrdr.VrdrCauseOfDeathPart2Profile
 {
     /// <summary>
-    /// ObservationContributingCauseOfDeathPart2Profile
-    /// http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-contributing-cause-of-death-part2
+    /// VrdrCauseOfDeathPart2Profile
+    /// http://hl7.org/fhir/us/vrdr/StructureDefinition/vrdr-cause-of-death-part2
     /// </summary>
-    public class ObservationContributingCauseOfDeathPart2
+    public class VrdrCauseOfDeathPart2
     {
         readonly Observation observation;
-        readonly static Dictionary<string, Resource> resources = new();
 
-        internal ObservationContributingCauseOfDeathPart2(Observation observation)
+        internal VrdrCauseOfDeathPart2(Observation observation)
         {
             this.observation = observation;
         }
 
         /// <summary>
-        /// Factory for ObservationContributingCauseOfDeathPart2Profile with inital parameters
-        /// http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-contributing-cause-of-death-part2
+        /// Factory for VrdrCauseOfDeathPart2Profile with inital parameters
+        /// http://hl7.org/fhir/us/vrdr/StructureDefinition/vrdr-cause-of-death-part2
         /// </summary>
         public static Observation Create(Patient subjectResource, Practitioner performerResource)
         {
-            // clear static resource container.
-            resources.Clear();
-
             var observation = new Observation();
 
-            observation.ObservationContributingCauseOfDeathPart2().AddProfile();
+            observation.VrdrCauseOfDeathPart2().AddProfile();
             observation.Code = new CodeableConcept("http://loinc.org", "69441-4", "Other significant causes or conditions of death", null);
 
-            observation.ObservationContributingCauseOfDeathPart2().SubjectAsResource = subjectResource;
+            observation.VrdrCauseOfDeathPart2().SubjectAsResource = subjectResource;
             if (performerResource != null)
             {
-                observation.ObservationContributingCauseOfDeathPart2().PerformerAsResource = performerResource;
+                observation.VrdrCauseOfDeathPart2().PerformerAsResource = performerResource;
             }
 
             return observation;
         }
 
         /// <summary>
-        /// Factory for ObservationContributingCauseOfDeathPart2Profile
-        /// http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-contributing-cause-of-death-part2
+        /// Factory for VrdrCauseOfDeathPart2Profile
+        /// http://hl7.org/fhir/us/vrdr/StructureDefinition/vrdr-cause-of-death-part2
         /// </summary>
         public static Observation Create()
         {
-            // clear static resource container.
-            resources.Clear();
-
             var observation = new Observation();
-            observation.ObservationContributingCauseOfDeathPart2().AddProfile();
+            observation.VrdrCauseOfDeathPart2().AddProfile();
             observation.Code = new CodeableConcept("http://loinc.org", "69441-4", "Other significant causes or conditions of death", null);
 
             return observation;
         }
 
         /// <summary>
-        /// The official URL for the ObservationContributingCauseOfDeathPart2Profile, used to assert conformance.
+        /// The official URL for the VrdrCauseOfDeathPart2Profile, used to assert conformance.
         /// </summary>
-        public const string ProfileUrl = "http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-contributing-cause-of-death-part2";
+        public const string ProfileUrl = "http://hl7.org/fhir/us/vrdr/StructureDefinition/vrdr-cause-of-death-part2";
 
         /// <summary>
         /// Set profile for the ObservationConditionContributingToDeathProfile
@@ -72,7 +66,7 @@ namespace GaTech.Chai.Mdi.ObservationContributingCauseOfDeathPart2Profile
         }
 
         /// <summary>
-        /// Clear profile for the ObservationContributingCauseOfDeathPart2Profile
+        /// Clear profile for the VrdrCauseOfDeathPart2Profile
         /// </summary>
         public void RemoveProfile()
         {
@@ -96,6 +90,19 @@ namespace GaTech.Chai.Mdi.ObservationContributingCauseOfDeathPart2Profile
             }
         }
 
+        public string ValueText
+        {
+            get => (this.observation.Value as CodeableConcept).Text;
+            set
+            {
+                if (value.Length > 240)
+                {
+                    throw (new ArgumentException("Total size of valueString (" + value.Length + ") exceeded 240"));
+                }
+                this.observation.Value = new CodeableConcept() {Text = value};
+            }
+        }
+
         /// <summary>
         /// setting subject reference and store the resource for future use
         /// </summary>
@@ -104,14 +111,14 @@ namespace GaTech.Chai.Mdi.ObservationContributingCauseOfDeathPart2Profile
             get
             {
                 Resource value;
-                resources.TryGetValue(this.observation.Subject.Reference, out value);
+                Record.GetResources().TryGetValue(this.observation.Subject.Reference, out value);
 
                 return (Patient)value;
             }
             set
             {
                 this.observation.Subject = value.AsReference();
-                resources[value.AsReference().Reference] = value;
+                Record.GetResources()[value.AsReference().Reference] = value;
             }
         }
 
@@ -123,7 +130,7 @@ namespace GaTech.Chai.Mdi.ObservationContributingCauseOfDeathPart2Profile
             get
             {
                 Resource value;
-                resources.TryGetValue(this.observation.Performer?[0].Reference, out value);
+                Record.GetResources().TryGetValue(this.observation.Performer?[0].Reference, out value);
 
                 return (Practitioner) value;
             }
@@ -133,18 +140,13 @@ namespace GaTech.Chai.Mdi.ObservationContributingCauseOfDeathPart2Profile
                 {
                     foreach (ResourceReference reference in this.observation.Performer)
                     {
-                        resources.Remove(reference.Reference);
+                        Record.GetResources().Remove(reference.Reference);
                     }
                     this.observation.Performer.Clear();
                 }
                 this.observation.Performer.Add(value.AsReference());
-                resources[value.AsReference().Reference] = value;
+                Record.GetResources()[value.AsReference().Reference] = value;
             }
-        }
-
-        public Dictionary<String, Resource> GetReferencedResources()
-        {
-            return resources;
         }
     }
 }

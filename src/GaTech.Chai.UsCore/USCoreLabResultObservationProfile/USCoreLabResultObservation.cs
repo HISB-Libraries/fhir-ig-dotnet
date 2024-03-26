@@ -25,7 +25,6 @@ namespace GaTech.Chai.UsCore.LabResultObservationProfile
         public static Observation Create()
         {
             var observation = new Observation();
-            observation.UsCoreLabResultObservation().AddProfile();
             return observation;
         }
 

@@ -70,22 +70,6 @@ namespace GaTech.Chai.Share.Common
             public static Coding Cineradiograph = new(officialUrl, "XRC", "Cineradiograph");
         }
 
-        public class Hl7VsSpecimenCondition
-        {
-            public static string officialUrl = "http://terminology.hl7.org/CodeSystem/v2-0493";
-
-            public static Coding Autolyzed = new(officialUrl, "AUT", "Autolyzed");
-            public static Coding Clotted = new(officialUrl, "CLOT", "Clotted");
-            public static Coding Contaminated = new(officialUrl, "CON", "Contaminated");
-            public static Coding Cool = new(officialUrl, "COOL", "Cool");
-            public static Coding Frozen = new(officialUrl, "FROZ", "Frozen");
-            public static Coding Hemolyzed = new(officialUrl, "HEM", "Hemolyzed");
-            public static Coding Live = new(officialUrl, "LIVE", "Live");
-            public static Coding RoomTemperature = new(officialUrl, "ROOM", "Room temperature");
-            public static Coding SampleNotReceived = new(officialUrl, "SNR", "Sample not received");
-            public static Coding Centrifuged = new(officialUrl, "CFU", "Centrifuged");
-        }
-
         public class Hl7VsDataAbsentReason
         {
             public static string officialUrl = "http://terminology.hl7.org/CodeSystem/data-absent-reason";
@@ -106,20 +90,44 @@ namespace GaTech.Chai.Share.Common
             public static Code NotPerformed = new("not-performed");
             public static Code NotPermitted = new("not-permitted");
         }
+    }
 
-        public class UsCoreDocumentReferenceType
+    public class Hl7V2Tables
+    {
+        public class V20493
         {
-            public static string officialUrl = "http://terminology.hl7.org/CodeSystem/v3-NullFlavor";
+            public static string officialUrl = "http://terminology.hl7.org/CodeSystem/v2-0493";
 
-            public static Coding UNK = new(officialUrl, "UNK", "unknown");
+            public static Coding Autolyzed = new(officialUrl, "AUT", "Autolyzed");
+            public static Coding Clotted = new(officialUrl, "CLOT", "Clotted");
+            public static Coding Contaminated = new(officialUrl, "CON", "Contaminated");
+            public static Coding Cool = new(officialUrl, "COOL", "Cool");
+            public static Coding Frozen = new(officialUrl, "FROZ", "Frozen");
+            public static Coding Hemolyzed = new(officialUrl, "HEM", "Hemolyzed");
+            public static Coding Live = new(officialUrl, "LIVE", "Live");
+            public static Coding RoomTemperature = new(officialUrl, "ROOM", "Room temperature");
+            public static Coding SampleNotReceived = new(officialUrl, "SNR", "Sample not received");
+            public static Coding Centrifuged = new(officialUrl, "CFU", "Centrifuged");
         }
 
-        public class UsCoreDocumentReferenceCategory
-        {
-            public static string officialUrl = "http://hl7.org/fhir/us/core/CodeSystem/us-core-documentreference-category";
 
-            public static Coding ClinicalNote = new (officialUrl, "clinical-note", "Clinical Note");
+        public class V20203
+        {
+            public const string officialUrl = "http://terminology.hl7.org/CodeSystem/v2-0203";
+
+            public static Coding DC = new(officialUrl, "DC", "Death Certificate ID");
+            public static Coding DCFN = new(officialUrl, "DCFN", "Death Certificate File Number");
+            public static Coding DL = new(officialUrl, "DL", "Driver's license number");
+            public static Coding LN = new(officialUrl, "LN", "License number");
+            public static Coding MD = new(officialUrl, "MD", "Medical License number");
+            public static Coding MRN = new(officialUrl, "MR", "Medical record number");
+            public static Coding SS = new(officialUrl, "SS", "Social Security number");
         }
+    }
+
+    public class UriString
+    {
+        public static string UsSsnUri = "http://hl7.org/fhir/sid/us-ssn";
     }
 }
 

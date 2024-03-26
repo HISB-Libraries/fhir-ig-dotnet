@@ -2,7 +2,8 @@
 using Hl7.Fhir.Model;
 using GaTech.Chai.Share.Extensions;
 using System.Collections.Generic;
-using GaTech.Chai.Mdi.Common;
+using GaTech.Chai.Vrdr.Common;
+using GaTech.Chai.Share.Common;
 
 namespace GaTech.Chai.Mdi.ObservationDeathDateProfile
 {
@@ -13,7 +14,6 @@ namespace GaTech.Chai.Mdi.ObservationDeathDateProfile
     public class ObservationDeathDate
     {
         readonly Observation observation;
-        readonly static Dictionary<string, Resource> resources = new();
 
         internal ObservationDeathDate(Observation observation)
         {
@@ -26,9 +26,6 @@ namespace GaTech.Chai.Mdi.ObservationDeathDateProfile
         /// </summary>
         public static Observation Create()
         {
-            // clear static resource container.
-            resources.Clear();
-
             var observation = new Observation();
             observation.ObservationDeathDate().AddProfile();
             observation.Code = new CodeableConcept("http://loinc.org", "81956-5", "Date and time of death [TimeStamp]", null);
@@ -42,9 +39,6 @@ namespace GaTech.Chai.Mdi.ObservationDeathDateProfile
         /// </summary>
         public static Observation Create(Patient subject)
         {
-            // clear static resource container.
-            resources.Clear();
-
             var observation = new Observation();
 
             observation.ObservationDeathDate().AddProfile();
@@ -114,10 +108,10 @@ namespace GaTech.Chai.Mdi.ObservationDeathDateProfile
             get
             {
                 Extension partialDateTimeExt = this.observation.GetPartialDateTime();
-                UnsignedInt year = (UnsignedInt)partialDateTimeExt.GetExtension(MdiUrls.partialDateTimeYearUrl).Value;
-                UnsignedInt month = (UnsignedInt)partialDateTimeExt.GetExtension(MdiUrls.partialDateTimeMonthUrl).Value;
-                UnsignedInt day = (UnsignedInt)partialDateTimeExt.GetExtension(MdiUrls.partialDateTimeDayUrl).Value;
-                Time time = (Time)partialDateTimeExt.GetExtension(MdiUrls.partialDateTimeTimeUrl).Value;
+                UnsignedInt year = (UnsignedInt)partialDateTimeExt.GetExtension(VrdrUrls.partialDateTimeYearUrl).Value;
+                UnsignedInt month = (UnsignedInt)partialDateTimeExt.GetExtension(VrdrUrls.partialDateTimeMonthUrl).Value;
+                UnsignedInt day = (UnsignedInt)partialDateTimeExt.GetExtension(VrdrUrls.partialDateTimeDayUrl).Value;
+                Time time = (Time)partialDateTimeExt.GetExtension(VrdrUrls.partialDateTimeTimeUrl).Value;
 
                 return (year, month, day, time);
             }
@@ -135,20 +129,15 @@ namespace GaTech.Chai.Mdi.ObservationDeathDateProfile
             get
             {
                 Resource value;
-                resources.TryGetValue(this.observation.Subject.Reference, out value);
+                Record.GetResources().TryGetValue(this.observation.Subject.Reference, out value);
 
                 return (Patient)value;
             }
             set
             {
                 this.observation.Subject = value.AsReference();
-                resources[value.AsReference().Reference] = value;
+                Record.GetResources()[value.AsReference().Reference] = value;
             }
-        }
-
-        public Dictionary<String, Resource> GetReferencedResources()
-        {
-            return resources;
         }
     }
 }

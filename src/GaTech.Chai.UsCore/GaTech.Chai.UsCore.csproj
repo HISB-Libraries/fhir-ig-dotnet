@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
 	<PackageId>fhir-ig-uscore-dotnet</PackageId>
-	<PackageVersion>0.3.1</PackageVersion>
+	<PackageVersion>1.0.0</PackageVersion>
 	<Authors>Brian Ritchie, Myung Choi</Authors>
 	<PackageProjectUrl>https://cbsig.chai.gatech.edu/</PackageProjectUrl>
 	<Description>.NET Library for US Core FHIR IG v5.0.1 - not all resource(s) are implemented. Only refereced ones from CBS and MDI are implemented</Description>
@@ -24,6 +24,7 @@
     <None Remove="USCoreDiagnosticReportLabProfile %28copy%29\" />
     <None Remove="UsCorePractitionerProfile %28copy%29\" />
     <None Remove="UsCoreDocumentReferenceProfile\" />
+    <None Remove="Common\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="UsCorePatientProfile\" />
@@ -36,6 +37,7 @@
     <Folder Include="UsCoreLocationProfile\" />
     <Folder Include="UsCorePractitionerRoleProfile\" />
     <Folder Include="UsCoreDocumentReferenceProfile\" />
+    <Folder Include="Common\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GaTech.Chai.Share\GaTech.Chai.Share.csproj" />

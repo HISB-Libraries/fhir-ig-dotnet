@@ -24,7 +24,6 @@ namespace GaTech.Chai.UsCore.PractitionerProfile
         public static Practitioner Create()
         {
             var practitioner = new Practitioner();
-            practitioner.UsCorePractitioner().AddProfile();
             return practitioner;
         }
 

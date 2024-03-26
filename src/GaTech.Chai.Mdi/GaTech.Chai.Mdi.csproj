@@ -3,13 +3,13 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <PackageId>fhir-ig-mdi-dotnet</PackageId>
-    <PackageVersion>1.2.0</PackageVersion>
+    <PackageVersion>2.0.0</PackageVersion>
     <Authors>Myung Choi</Authors>
-    <PackageProjectUrl>https://github.com/mmg-fhir-ig/cbs-ig-dotnet</PackageProjectUrl>
-    <Description>.NET Library for HL7 FHIR® Implementation Guide: Medicolegal Death Investigation (MDI), Release 1 - US Realmn (1.1.0 - STU 1.1 US)</Description>
+    <PackageProjectUrl>https://github.com/HISB-Libraries/fhir-ig-dotnet</PackageProjectUrl>
+    <Description>.NET Library for HL7 FHIR® Implementation Guide: Vital Records Medicolegal Death Investigation (MDI), 2.0.0-ci-build STU 2</Description>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <NeutralLanguage>en-US</NeutralLanguage>
-    <PackageTags>FHIR, MDI, IG</PackageTags>
+    <PackageTags>FHIR, MDI, VRDR, VRCL, IG</PackageTags>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
@@ -38,10 +38,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Common\" />
-    <Folder Include="ObservationContributingCauseOfDeathPart2Profile\" />
     <Folder Include="ObservationDeathDateProfile\" />
-    <Folder Include="ObservationHowDeathInjuryOccurredProfile\" />
-    <Folder Include="ObservationMannerOfDeathProfile\" />
     <Folder Include="ObservationDecedentPregnancyProfile\" />
     <Folder Include="ObservationTobaccoUseContributedToDeathProfile\" />
     <Folder Include="BundleMessageToxicologyToMdiProfile\" />
@@ -57,6 +54,7 @@
   <ItemGroup>
     <ProjectReference Include="..\GaTech.Chai.Share\GaTech.Chai.Share.csproj" />
     <ProjectReference Include="..\GaTech.Chai.UsCore\GaTech.Chai.UsCore.csproj" />
+    <ProjectReference Include="..\GaTech.Chai.Vrdr\GaTech.Chai.Vrdr.csproj" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\LICENSE" Pack="true" PackagePath="" />

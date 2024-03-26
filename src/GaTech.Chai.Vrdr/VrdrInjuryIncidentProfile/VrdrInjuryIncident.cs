@@ -1,66 +1,64 @@
 ﻿using System;
 using Hl7.Fhir.Model;
 using GaTech.Chai.Share.Extensions;
-using GaTech.Chai.Mdi.Common;
 using System.Collections.Generic;
+using GaTech.Chai.Vrdr.Common;
+using GaTech.Chai.Share.Common;
 
-namespace GaTech.Chai.Mdi.ObservationHowDeathInjuryOccurredProfile
+namespace GaTech.Chai.Vrdr.VrdrInjuryIncidentProfile
 {
     /// <summary>
-    /// ObservationHowDeathInjuryOccurredProfile
-    /// http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-how-death-injury-occurred
+    /// VrdrInjuryIncidentProfile
+    /// http://hl7.org/fhir/us/vrdr/StructureDefinition/vrdr-injury-incident
     /// </summary>
-    public class ObservationHowDeathInjuryOccurred
+    public class VrdrInjuryIncident
     {
         readonly Observation observation;
-        readonly static Dictionary<string, Resource> resources = new();
 
-        internal ObservationHowDeathInjuryOccurred(Observation observation)
+        internal VrdrInjuryIncident(Observation observation)
         {
             this.observation = observation;
         }
 
         /// <summary>
-        /// Factory for ObservationHowDeathInjuryOccurredProfile
-        /// http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-how-death-injury-occurred
+        /// Factory for VrdrInjuryIncidentProfile
+        /// http://hl7.org/fhir/us/vrdr/StructureDefinition/vrdr-injury-incident
         /// </summary>
         public static Observation Create()
         {
-            // clear static resource container.
-            resources.Clear();
-
             var observation = new Observation();
-            observation.ObservationHowDeathInjuryOccurred().AddProfile();
-            observation.Code = new CodeableConcept("http://loinc.org", "11374-6", "Injury incident description Narrative", null);
+            observation.VrdrInjuryIncident().AddProfile();
+            observation.VrdrInjuryIncident().AddFixedValues();
 
             return observation;
         }
 
         /// <summary>
-        /// Factory for ObservationHowDeathInjuryOccurredProfile
-        /// http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-how-death-injury-occurred
+        /// Factory for VrdrInjuryIncidentProfile
+        /// http://hl7.org/fhir/us/vrdr/StructureDefinition/vrdr-injury-incident
         /// </summary>
         public static Observation Create(Patient subject)
         {
-            // clear static resource container.
-            resources.Clear();
-
             var observation = new Observation();
 
-            observation.ObservationHowDeathInjuryOccurred().AddProfile();
-            observation.Code = new CodeableConcept("http://loinc.org", "11374-6", "Injury incident description Narrative", null);
-            observation.ObservationHowDeathInjuryOccurred().SubjectAsResource = subject;
+            observation.VrdrInjuryIncident().AddProfile();
+            observation.VrdrInjuryIncident().AddFixedValues();
+            observation.VrdrInjuryIncident().SubjectAsResource = subject;
 
             return observation;
         }
 
-        /// <summary>
-        /// The official URL for the ObservationHowDeathInjuryOccurredProfile, used to assert conformance.
-        /// </summary>
-        public const string ProfileUrl = "http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-how-death-injury-occurred";
+        public void AddFixedValues() {
+            observation.Code = new CodeableConcept("http://loinc.org", "11374-6", "Injury incident description Narrative", null);
+        }
 
         /// <summary>
-        /// Set profile for ObservationHowDeathInjuryOccurredProfile
+        /// The official URL for the VrdrInjuryIncidentProfile, used to assert conformance.
+        /// </summary>
+        public const string ProfileUrl = "http://hl7.org/fhir/us/vrdr/StructureDefinition/vrdr-injury-incident";
+
+        /// <summary>
+        /// Set profile for VrdrInjuryIncidentProfile
         /// </summary>
         public void AddProfile()
         {
@@ -68,7 +66,7 @@ namespace GaTech.Chai.Mdi.ObservationHowDeathInjuryOccurredProfile
         }
 
         /// <summary>
-        /// Clear profile for ObservationHowDeathInjuryOccurredProfile
+        /// Clear profile for VrdrInjuryIncidentProfile
         /// </summary>
         public void RemoveProfile()
         {
@@ -84,10 +82,10 @@ namespace GaTech.Chai.Mdi.ObservationHowDeathInjuryOccurredProfile
             get
             {
                 Extension partialDateTimeExt = this.observation.GetPartialDateTime();
-                UnsignedInt year = (UnsignedInt)partialDateTimeExt.GetExtension(MdiUrls.partialDateTimeYearUrl).Value;
-                UnsignedInt month = (UnsignedInt)partialDateTimeExt.GetExtension(MdiUrls.partialDateTimeMonthUrl).Value;
-                UnsignedInt day = (UnsignedInt)partialDateTimeExt.GetExtension(MdiUrls.partialDateTimeDayUrl).Value;
-                Time time = (Time)partialDateTimeExt.GetExtension(MdiUrls.partialDateTimeTimeUrl).Value;
+                UnsignedInt year = (UnsignedInt)partialDateTimeExt.GetExtension(VrdrUrls.partialDateTimeYearUrl).Value;
+                UnsignedInt month = (UnsignedInt)partialDateTimeExt.GetExtension(VrdrUrls.partialDateTimeMonthUrl).Value;
+                UnsignedInt day = (UnsignedInt)partialDateTimeExt.GetExtension(VrdrUrls.partialDateTimeDayUrl).Value;
+                Time time = (Time)partialDateTimeExt.GetExtension(VrdrUrls.partialDateTimeTimeUrl).Value;
 
                 return (year, month, day, time);
             }
@@ -105,14 +103,14 @@ namespace GaTech.Chai.Mdi.ObservationHowDeathInjuryOccurredProfile
             get
             {
                 Resource value;
-                resources.TryGetValue(this.observation.Subject.Reference, out value);
+                Record.GetResources().TryGetValue(this.observation.Subject.Reference, out value);
 
                 return (Patient)value;
             }
             set
             {
                 this.observation.Subject = value.AsReference();
-                resources[value.AsReference().Reference] = value;
+                Record.GetResources()[value.AsReference().Reference] = value;
             }
         }
 
@@ -185,7 +183,7 @@ namespace GaTech.Chai.Mdi.ObservationHowDeathInjuryOccurredProfile
             {
                 Observation.ComponentComponent transportationRole = this.observation.Component.GetOrAddComponent("http://loinc.org", "69451-3", null);
                 transportationRole.Value = value.Item1;
-                if (MdiVsTransportationIncidentRole.OTH.Matches(value.Item1))
+                if (VrdrTransportationIncidentRoleVs.OTH.Matches(value.Item1))
                 {
                     (transportationRole.Value as CodeableConcept).Text = value.Item2;
                 }
@@ -196,21 +194,14 @@ namespace GaTech.Chai.Mdi.ObservationHowDeathInjuryOccurredProfile
         {
             get
             {
-                Resource value;
-                resources.TryGetValue(this.observation.Performer?[0].Reference, out value);
-
+                Record.GetResources().TryGetValue(this.observation.Performer?[0].Reference, out Resource value);
                 return (Practitioner)value;
             }
             set
             {
                 this.observation.Performer = new List<ResourceReference> { value.AsReference() };
-                resources[value.AsReference().Reference] = value;
+                Record.GetResources()[value.AsReference().Reference] = value;
             }
-        }
-
-        public Dictionary<String, Resource> GetReferencedResources()
-        {
-            return resources;
         }
     }
 }

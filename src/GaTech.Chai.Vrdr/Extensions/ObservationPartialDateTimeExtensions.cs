@@ -2,7 +2,7 @@
 using Hl7.Fhir.Model;
 using Newtonsoft.Json.Linq;
 
-namespace GaTech.Chai.Mdi.Common
+namespace GaTech.Chai.Vrdr.Common
 {
     public static class ObservationPartialDateTimeExtensions
     {
@@ -13,54 +13,54 @@ namespace GaTech.Chai.Mdi.Common
         {
             FhirDateTime deathDateTiem = (FhirDateTime)observation.Value;
 
-            return deathDateTiem.GetExtension(MdiUrls.partialDateTimeUrl);
+            return deathDateTiem.GetExtension(VrdrUrls.partialDateTimeUrl);
         }
 
         public static Extension SetPartialDateTime(this Observation observation, DataType year, DataType month, DataType day, DataType time)
         {
-            Extension partialDateTimeExt = new Extension { Url = MdiUrls.partialDateTimeUrl };
+            Extension partialDateTimeExt = new Extension { Url = VrdrUrls.partialDateTimeUrl };
 
             if (year is UnsignedInt)
             {
-                partialDateTimeExt.AddExtension(MdiUrls.partialDateTimeYearUrl, (UnsignedInt)year);
+                partialDateTimeExt.AddExtension(VrdrUrls.partialDateTimeYearUrl, (UnsignedInt)year);
             }
             else if (year is Code)
             {
                 // This is data-absent-reason
-                partialDateTimeExt.AddExtension(MdiUrls.partialDateTimeYearUrl, null)
+                partialDateTimeExt.AddExtension(VrdrUrls.partialDateTimeYearUrl, null)
                     .AddExtension("http://hl7.org/fhir/StructureDefinition/data-absent-reason", year);
             }
 
             if (month is UnsignedInt)
             {
-                partialDateTimeExt.AddExtension(MdiUrls.partialDateTimeMonthUrl, (UnsignedInt)month);
+                partialDateTimeExt.AddExtension(VrdrUrls.partialDateTimeMonthUrl, (UnsignedInt)month);
             }
             else if (month is Code)
             {
                 // This is data-absent-reason
-                partialDateTimeExt.AddExtension(MdiUrls.partialDateTimeMonthUrl, null)
+                partialDateTimeExt.AddExtension(VrdrUrls.partialDateTimeMonthUrl, null)
                     .AddExtension("http://hl7.org/fhir/StructureDefinition/data-absent-reason", month);
             }
 
             if (day is UnsignedInt)
             {
-                partialDateTimeExt.AddExtension(MdiUrls.partialDateTimeDayUrl, (UnsignedInt)day);
+                partialDateTimeExt.AddExtension(VrdrUrls.partialDateTimeDayUrl, (UnsignedInt)day);
             }
             else if (day is Code)
             {
                 // This is data-absent-reason
-                partialDateTimeExt.AddExtension(MdiUrls.partialDateTimeDayUrl, null)
+                partialDateTimeExt.AddExtension(VrdrUrls.partialDateTimeDayUrl, null)
                     .AddExtension("http://hl7.org/fhir/StructureDefinition/data-absent-reason", day);
             }
 
             if (time is Time)
             {
-                partialDateTimeExt.AddExtension(MdiUrls.partialDateTimeTimeUrl, time);
+                partialDateTimeExt.AddExtension(VrdrUrls.partialDateTimeTimeUrl, time);
             }
             else if (time is Code)
             {
                 // This is data-absent-reason
-                partialDateTimeExt.AddExtension(MdiUrls.partialDateTimeTimeUrl, null)
+                partialDateTimeExt.AddExtension(VrdrUrls.partialDateTimeTimeUrl, null)
                     .AddExtension("http://hl7.org/fhir/StructureDefinition/data-absent-reason", time);
             }
 

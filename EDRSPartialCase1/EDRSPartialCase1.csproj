@@ -8,6 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\src\GaTech.Chai.Mdi\GaTech.Chai.Mdi.csproj" />
     <ProjectReference Include="..\src\GaTech.Chai.Share\GaTech.Chai.Share.csproj" />
     <ProjectReference Include="..\src\GaTech.Chai.UsCore\GaTech.Chai.UsCore.csproj" />

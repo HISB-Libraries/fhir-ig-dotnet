@@ -60,5 +60,17 @@ namespace GaTech.Chai.Share.Extensions
 
             identifiers.Add(new Identifier(){ Type = new CodeableConcept() { Coding = new List<Coding> { coding } }, System = system, Value = value } );
         }
+
+        public static void AddOrUpdateIdentifier(this List<Identifier> identifiers, Coding coding, string value)
+        {
+            Identifier _identifier = identifiers.GetIdentifier(coding);
+            if (_identifier != null)
+            {
+                identifiers.Remove(_identifier);
+            }
+
+            identifiers.Add(new Identifier() { Type = new CodeableConcept() { Coding = new List<Coding> { coding } }, Value = value });
+        }
+
     }
 }

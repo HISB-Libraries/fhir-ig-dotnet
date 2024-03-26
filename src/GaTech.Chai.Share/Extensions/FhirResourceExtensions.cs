@@ -119,7 +119,8 @@ namespace GaTech.Chai.Share.Extensions
         {
             if (string.IsNullOrEmpty(resource.Id))
                 resource.Id = Guid.NewGuid().ToString();
-            return new ResourceReference($"{resource.TypeName}/{resource.Id}", display);
+            //return new ResourceReference($"{resource.TypeName}/{resource.Id}", display);
+            return new ResourceReference($"urn:uuid:{resource.Id}", display);
         }
     }
 }

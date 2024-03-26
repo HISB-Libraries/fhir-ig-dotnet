@@ -3,15 +3,18 @@ using Hl7.Fhir.Model;
 using GaTech.Chai.Share.Extensions;
 using System.Collections.Generic;
 using GaTech.Chai.Mdi.Common;
-using GaTech.Chai.Mdi.ObservationCauseOfDeathPart1Profile;
+using GaTech.Chai.Mdi.ObservationMdiCauseOfDeathPart1Profile;
 using GaTech.Chai.Mdi.CompositionMdiAndEdrsProfile;
 using static Hl7.Fhir.Model.Composition;
 using System.Linq;
+using Microsoft.VisualBasic;
+using GaTech.Chai.Share.Common;
 
 namespace GaTech.Chai.Mdi.BundleDocumentMdiAndEdrsProfile
 {
     /// <summary>
-    /// BundleDocumentMdiAndEdrsProfile
+    /// This Bundle profile represents a Document Bundle exchanged between an MDI CMS and EDRS. 
+    /// It can be used for bi-directional exchange. It contains a Composition - MDI and EDRS.
     /// http://hl7.org/fhir/us/mdi/StructureDefinition/Bundle-document-mdi-and-edrs
     /// </summary>
     public class BundleDocumentMdiAndEdrs
@@ -21,19 +24,6 @@ namespace GaTech.Chai.Mdi.BundleDocumentMdiAndEdrsProfile
         internal BundleDocumentMdiAndEdrs(Bundle bundle)
         {
             this.bundle = bundle;
-
-            if (bundle.Entry != null && bundle.Entry.Count > 0)
-            {
-                Resource resource = bundle.Entry[0].Resource;
-                if (resource != null && resource is Composition)
-                {
-                    AddResourcesToComposition((Composition)resource);
-                }
-                else
-                {
-                    throw new ArgumentNullException("MDI-and-EDRS profile Bundle Document requires Bundle.entry[0] to be Composition.");
-                }
-            }
         }
 
         /// <summary>
@@ -42,8 +32,7 @@ namespace GaTech.Chai.Mdi.BundleDocumentMdiAndEdrsProfile
         /// </summary>
         public static Bundle Create(Identifier identifier, Composition composition)
         {
-            var bundle = new Bundle();
-            bundle.Type = Bundle.BundleType.Document;
+            Bundle bundle = new();
 
             if (identifier == null)
             {
@@ -59,8 +48,34 @@ namespace GaTech.Chai.Mdi.BundleDocumentMdiAndEdrsProfile
 
             bundle.BundleDocumentMdiAndEdrs().MDItoEDRSComposition = composition;
             bundle.BundleDocumentMdiAndEdrs().AddProfile();
+            bundle.BundleDocumentMdiAndEdrs().AddFixedValues();
 
             return bundle;
+        }
+
+        public static Bundle Create()
+        {
+            Bundle bundle = new();
+            bundle.BundleDocumentMdiAndEdrs().AddFixedValues();
+            bundle.BundleDocumentMdiAndEdrs().AddProfile();
+
+            return bundle;
+        }
+
+        public void AddFixedValues()
+        {
+            bundle.Type = Bundle.BundleType.Document;
+        }
+
+        public void ImportResourcesInEntry()
+        {
+            foreach (Bundle.EntryComponent entry in this.bundle.Entry)
+            {
+                if (entry.Resource != null)
+                {
+                    Record.GetResources()[entry.Resource.AsReference().Reference] = entry.Resource;
+                }
+            }
         }
 
         /// <summary>
@@ -88,8 +103,8 @@ namespace GaTech.Chai.Mdi.BundleDocumentMdiAndEdrsProfile
         {
             get
             {
-                Composition composition = (Composition)bundle.Entry?[0].Resource;
-                return composition.CompositionMdiAndEdrs().COD1A;
+                (string value, string interval) = CauseOfDeathPart1A;
+                return value;
             }
         }
 
@@ -97,8 +112,8 @@ namespace GaTech.Chai.Mdi.BundleDocumentMdiAndEdrsProfile
         {
             get
             {
-                Composition composition = (Composition)bundle.Entry?[0].Resource;
-                return composition.CompositionMdiAndEdrs().INTERVAL1A;
+                (string value, string interval) = CauseOfDeathPart1A;
+                return interval;
             }
         }
 
@@ -106,8 +121,8 @@ namespace GaTech.Chai.Mdi.BundleDocumentMdiAndEdrsProfile
         {
             get
             {
-                Composition composition = (Composition)bundle.Entry?[0].Resource;
-                return composition.CompositionMdiAndEdrs().COD1B;
+                (string value, string interval) = CauseOfDeathPart1B;
+                return value;
             }
         }
 
@@ -115,16 +130,16 @@ namespace GaTech.Chai.Mdi.BundleDocumentMdiAndEdrsProfile
         {
             get
             {
-                Composition composition = (Composition)bundle.Entry?[0].Resource;
-                return composition.CompositionMdiAndEdrs().INTERVAL1B;
+                (string value, string interval) = CauseOfDeathPart1B;
+                return interval;
             }
         }
         public string COD1C
         {
             get
             {
-                Composition composition = (Composition)bundle.Entry?[0].Resource;
-                return composition.CompositionMdiAndEdrs().COD1C;
+                (string value, string interval) = CauseOfDeathPart1C;
+                return value;
             }
         }
 
@@ -132,16 +147,16 @@ namespace GaTech.Chai.Mdi.BundleDocumentMdiAndEdrsProfile
         {
             get
             {
-                Composition composition = (Composition)bundle.Entry?[0].Resource;
-                return composition.CompositionMdiAndEdrs().INTERVAL1C;
+                (string value, string interval) = CauseOfDeathPart1C;
+                return interval;
             }
         }
         public string COD1D
         {
             get
             {
-                Composition composition = (Composition)bundle.Entry?[0].Resource;
-                return composition.CompositionMdiAndEdrs().COD1D;
+                (string value, string interval) = CauseOfDeathPart1D;
+                return value;
             }
         }
 
@@ -149,8 +164,8 @@ namespace GaTech.Chai.Mdi.BundleDocumentMdiAndEdrsProfile
         {
             get
             {
-                Composition composition = (Composition)bundle.Entry?[0].Resource;
-                return composition.CompositionMdiAndEdrs().INTERVAL1D;
+                (string value, string interval) = CauseOfDeathPart1D;
+                return interval;
             }
         }
 
@@ -163,11 +178,11 @@ namespace GaTech.Chai.Mdi.BundleDocumentMdiAndEdrsProfile
                     if (resource is Observation)
                     {
                         Observation ob = (Observation)resource;
-                        if (ob.IsObservationCode("CauseOfDeathPart1"))
+                        if (ob.IsObservationCauseOfDeathPart1())
                         {
-                            if (ob.ObservationCauseOfDeathPart1().LineNumber.Value == 1)
+                            if (ob.ObservationMdiCauseOfDeathPart1().LineNumber.Value is 1)
                             {
-                                return (ob.ObservationCauseOfDeathPart1().ValueText, ob.ObservationCauseOfDeathPart1().Interval);
+                                return (ob.ObservationMdiCauseOfDeathPart1().ValueText, ob.ObservationMdiCauseOfDeathPart1().IntervalAsString);
                             }
                         }
                     }
@@ -188,11 +203,11 @@ namespace GaTech.Chai.Mdi.BundleDocumentMdiAndEdrsProfile
                     if (resource is Observation)
                     {
                         Observation ob = (Observation)resource;
-                        if (ob.IsObservationCode("CauseOfDeathPart1"))
+                        if (ob.IsObservationCauseOfDeathPart1())
                         {
-                            if (ob.ObservationCauseOfDeathPart1().LineNumber.Value == 2)
+                            if (ob.ObservationMdiCauseOfDeathPart1().LineNumber.Value is 2)
                             {
-                                return (ob.ObservationCauseOfDeathPart1().ValueText, ob.ObservationCauseOfDeathPart1().Interval);
+                                return (ob.ObservationMdiCauseOfDeathPart1().ValueText, ob.ObservationMdiCauseOfDeathPart1().IntervalAsString);
                             }
                         }
                     }
@@ -211,11 +226,11 @@ namespace GaTech.Chai.Mdi.BundleDocumentMdiAndEdrsProfile
                     if (resource is Observation)
                     {
                         Observation ob = (Observation)resource;
-                        if (ob.IsObservationCode("CauseOfDeathPart1"))
+                        if (ob.IsObservationCauseOfDeathPart1())
                         {
-                            if (ob.ObservationCauseOfDeathPart1().LineNumber.Value == 3)
+                            if (ob.ObservationMdiCauseOfDeathPart1().LineNumber.Value is 3)
                             {
-                                return (ob.ObservationCauseOfDeathPart1().ValueText, ob.ObservationCauseOfDeathPart1().Interval);
+                                return (ob.ObservationMdiCauseOfDeathPart1().ValueText, ob.ObservationMdiCauseOfDeathPart1().IntervalAsString);
                             }
                         }
                     }
@@ -234,11 +249,11 @@ namespace GaTech.Chai.Mdi.BundleDocumentMdiAndEdrsProfile
                     if (resource is Observation)
                     {
                         Observation ob = (Observation)resource;
-                        if (ob.IsObservationCode("CauseOfDeathPart1"))
+                        if (ob.IsObservationCauseOfDeathPart1())
                         {
-                            if (ob.ObservationCauseOfDeathPart1().LineNumber.Value == 4)
+                            if (ob.ObservationMdiCauseOfDeathPart1().LineNumber.Value is 4)
                             {
-                                return (ob.ObservationCauseOfDeathPart1().ValueText, ob.ObservationCauseOfDeathPart1().Interval);
+                                return (ob.ObservationMdiCauseOfDeathPart1().ValueText, ob.ObservationMdiCauseOfDeathPart1().IntervalAsString);
                             }
                         }
                     }
@@ -257,7 +272,7 @@ namespace GaTech.Chai.Mdi.BundleDocumentMdiAndEdrsProfile
                 IEnumerable<Resource> retResource = from e in entryResources
                                                     where e.AsReference().Reference.Equals(reference.Reference)
                                                     select e;
-                if (retResource.Count<Resource>() > 0)
+                if (retResource.Any())
                 {
                     return retResource.First<Resource>();
                 }
@@ -266,60 +281,44 @@ namespace GaTech.Chai.Mdi.BundleDocumentMdiAndEdrsProfile
             return null;
         }
 
-        private void AddResourcesToComposition (Composition composition)
+        private void AddReferencesInCompositionToEntry (Composition composition)
         {
-            Resource resource = FindResourceInEntry(composition.Subject);
+            Resource resource = Record.GetResources()[composition.Subject.Reference];
             if (resource != null)
             {
-                composition.CompositionMdiAndEdrs().AddResources(composition.Subject.Reference, resource);
+                bundle.AddResourceEntry(resource, resource.AsReference().Reference);
             }
 
-            resource = FindResourceInEntry(composition.Author[0]);
+            resource = Record.GetResources()[composition.Author[0].Reference];
             if (resource != null)
             {
-                composition.CompositionMdiAndEdrs().AddResources(composition.Author[0].Reference, resource);
+                bundle.AddResourceEntry(resource, resource.AsReference().Reference);
             }
 
-            resource = FindResourceInEntry(composition.Attester[0].Party);
+            resource = Record.GetResources()[composition.Attester[0].Party.Reference];
             if (resource != null)
             {
-                composition.CompositionMdiAndEdrs().AddResources(composition.Attester[0].Party.Reference, resource);
+                bundle.AddResourceEntry(resource, resource.AsReference().Reference);
             }
 
             foreach (SectionComponent section in composition.Section)
             {
                 foreach (ResourceReference sectionEntryReference in section.Entry)
                 {
-                    resource = FindResourceInEntry(sectionEntryReference);
+                    resource = Record.GetResources()[sectionEntryReference.Reference];
                     if (resource != null)
                     {
-                        composition.CompositionMdiAndEdrs().AddResources(sectionEntryReference.Reference, resource);
+                        bundle.AddResourceEntry(resource, resource.AsReference().Reference);
                     }
                 }
             }
-
         }
 
         public Composition MDItoEDRSComposition
         {
             get
             {
-                Composition composition = (Composition)bundle.Entry?[0].Resource;
-                if (composition != null)
-                {
-                    Dictionary<string, Resource> entryResources = composition.CompositionMdiAndEdrs().GetResources();
-                    if (entryResources.Count > 0)
-                    {
-                        return composition;
-                    }
-                    else
-                    {
-                        // add resources in composition.
-                        AddResourcesToComposition(composition);
-                    }
-                }
-
-                return composition;
+                return this.bundle.Entry?[0].Resource as Composition;
             }
             set
             {
@@ -327,21 +326,31 @@ namespace GaTech.Chai.Mdi.BundleDocumentMdiAndEdrsProfile
                 // a http://hl7.org/fhir/us/mdi/StructureDefinition/Composition-mdi-to-edrs profile.
                 if (!value.hasProfile(CompositionMdiAndEdrs.ProfileUrl))
                 {
-                    Console.WriteLine("Bundle-document-mdi-to-edrs requires the composition to be http://hl7.org/fhir/us/mdi/StructureDefinition/Composition-mdi-to-edrs profile");
-                    throw (new ArgumentException("DocumentMdiToEdrs bundle must have Composition-mdi-to-edrs."));
+                    throw (new ArgumentException("The composition must have Composition-mdi-to-edrs as a profile."));
                 }
 
                 // First entry MUST be composition
-                bundle.Entry.Clear();
-                bundle.AddResourceEntry(value, value.AsReference().Reference);
-                //bundle.Entry.Add(new Bundle.EntryComponent() { FullUrl = value.AsReference().Reference, Resource = value });
-
-                // We have sections in the composition. Add them to entries if we have them.
-                Dictionary<string, Resource> entryResources = value.CompositionMdiAndEdrs().GetResources();
-                foreach (var urlAndResource in entryResources)
+                // Check if composition already exists.
+                if (bundle.Entry.Any<Bundle.EntryComponent>())
                 {
-                    bundle.AddResourceEntry(urlAndResource.Value, urlAndResource.Key);
+                    Resource resource = this.bundle.Entry[0].Resource;
+                    if (resource is Composition)
+                    {
+                        // There exists one.... we will be replacing this.
+                        this.bundle.Entry.RemoveAt(0);
+                    }
                 }
+
+                Bundle.EntryComponent entryComponent = new()
+                {
+                    Resource = value,
+                    FullUrl = value.AsReference().Reference
+                };
+
+                bundle.Entry.Insert(0, entryComponent);
+
+                // Add references in composition to bundle entry.
+                AddReferencesInCompositionToEntry(value);
             }
         }
     }

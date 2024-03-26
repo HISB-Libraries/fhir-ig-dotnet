@@ -1,16 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using GaTech.Chai.Share.Extensions;
+﻿using GaTech.Chai.Share.Extensions;
 using GaTech.Chai.Mdi.BundleDocumentMdiAndEdrsProfile;
 using GaTech.Chai.Mdi.CompositionMdiAndEdrsProfile;
 using GaTech.Chai.UsCore.PatientProfile;
 using Hl7.Fhir.Model;
 using Hl7.Fhir.Serialization;
-using static System.Runtime.InteropServices.JavaScript.JSType;
-using System.Net;
-using System.Reflection.Metadata;
-using System.Text;
 
 namespace MdiExample
 {

@@ -5,14 +5,19 @@ namespace GaTech.Chai.Mdi.Common
 {
     public static class ObservationCodeExtensions
     {
-        public static Boolean IsObservationCode(this Observation observation, string code)
+        public static Boolean IsObservationCauseOfDeathPart1(this Observation observation)
         {
-            if ("CauseOfDeathPart1".Equals(code)
-                && "69453-9".Equals(observation.Code?.Coding?[0].Code)
+            if ("69453-9".Equals(observation.Code?.Coding?[0].Code)
                 && "http://loinc.org".Equals(observation.Code?.Coding?[0].System)) {
                 return true;
-            } else if ("ContributingCauseOfDeathPart2".Equals(code)
-                && "69441-4".Equals(observation.Code?.Coding?[0].Code)
+            }
+
+            return false;
+        }
+
+        public static Boolean IsObservationContributingCauseOfDeathPart2(this Observation observation)
+        {
+            if ("69441-4".Equals(observation.Code?.Coding?[0].Code)
                 && "http://loinc.org".Equals(observation.Code?.Coding?[0].System)) {
                 return true;
             }

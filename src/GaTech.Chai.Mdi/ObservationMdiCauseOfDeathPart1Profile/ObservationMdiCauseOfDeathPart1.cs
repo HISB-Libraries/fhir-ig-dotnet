@@ -4,26 +4,27 @@ using GaTech.Chai.Share.Extensions;
 using System.Collections.Generic;
 using GaTech.Chai.Mdi.Common;
 using static GaTech.Chai.Mdi.Common.MdiCodeSystem;
+using GaTech.Chai.Vrdr.Common;
 
-namespace GaTech.Chai.Mdi.ObservationCauseOfDeathPart1Profile
+namespace GaTech.Chai.Mdi.ObservationMdiCauseOfDeathPart1Profile
 {
     /// <summary>
-    /// ObservationCauseOfDeathConditionProfile
-    /// http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-cause-of-death-part1
+    /// ObservationMdiCauseOfDeathPart1Profile
+    /// http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-mdi-cause-of-death-part1
     /// </summary>
-    public class ObservationCauseOfDeathPart1
+    public class ObservationMdiCauseOfDeathPart1
     {
         readonly Observation observation;
         readonly static Dictionary<string, Resource> resources = new();
 
-        internal ObservationCauseOfDeathPart1(Observation observation)
+        internal ObservationMdiCauseOfDeathPart1(Observation observation)
         {
             this.observation = observation;
         }
 
         /// <summary>
-        /// Factory for ObservationCauseOfDeathConditionProfile with initial parameters
-        /// http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-cause-of-death-condition
+        /// Factory for ObservationMdiCauseOfDeathPart1 with initial parameters
+        /// http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-mdi-cause-of-death-part1
         /// </summary>
         public static Observation Create(Patient subjectResource, Practitioner performerResource, string conceptText, int lineNumber, string interval)
         {
@@ -32,32 +33,15 @@ namespace GaTech.Chai.Mdi.ObservationCauseOfDeathPart1Profile
 
             var observation = new Observation();
 
-            observation.ObservationCauseOfDeathPart1().AddProfile();
+            observation.ObservationMdiCauseOfDeathPart1().AddProfile();
             observation.Code = new CodeableConcept("http://loinc.org", "69453-9", "Cause of death [US Standard Certificate of Death]", null);
 
-            observation.ObservationCauseOfDeathPart1().SubjectAsResource = subjectResource;
-            observation.ObservationCauseOfDeathPart1().PerformerAsResource = performerResource;
+            observation.ObservationMdiCauseOfDeathPart1().SubjectAsResource = subjectResource;
+            observation.ObservationMdiCauseOfDeathPart1().PerformerAsResource = performerResource;
 
-            observation.ObservationCauseOfDeathPart1().ValueText = conceptText;
-            observation.ObservationCauseOfDeathPart1().LineNumber = new Integer(lineNumber);
-            observation.ObservationCauseOfDeathPart1().Interval = interval;
-
-            return observation;
-        }
-
-        /// <summary>
-        /// Factory for ObservationCauseOfDeathConditionProfile with no parameters.
-        /// Required parameters MUST be initiated maunally. 
-        /// http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-cause-of-death-condition
-        /// </summary>
-        public static Observation Create()
-        {
-            // clear static resource container.
-            resources.Clear();
-
-            var observation = new Observation();
-            observation.ObservationCauseOfDeathPart1().AddProfile();
-            observation.Code = new CodeableConcept("http://loinc.org", "69453-9", "Cause of death [US Standard Certificate of Death]", null);
+            observation.ObservationMdiCauseOfDeathPart1().ValueText = conceptText;
+            observation.ObservationMdiCauseOfDeathPart1().LineNumber = new Integer(lineNumber);
+            observation.ObservationMdiCauseOfDeathPart1().Interval = interval;
 
             return observation;
         }
@@ -71,19 +55,37 @@ namespace GaTech.Chai.Mdi.ObservationCauseOfDeathPart1Profile
         {
             var observation = new Observation();
 
-            observation.ObservationCauseOfDeathPart1().AddProfile();
-            observation.ObservationCauseOfDeathPart1().SubjectAsResource = subject;
+            observation.ObservationMdiCauseOfDeathPart1().AddProfile();
+            observation.Code = new CodeableConcept("http://loinc.org", "69453-9", "Cause of death [US Standard Certificate of Death]", null);
+            observation.ObservationMdiCauseOfDeathPart1().SubjectAsResource = subject;
 
             return observation;
         }
 
         /// <summary>
-        /// The official URL for the ObservationCauseOfDeathConditionProfile, used to assert conformance.
+        /// Factory for ObservationCauseOfDeathConditionProfile with no parameters.
+        /// Required parameters MUST be initiated maunally. 
+        /// http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-mdi-cause-of-death-part1
         /// </summary>
-        public const string ProfileUrl = "http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-cause-of-death-part1";
+        public static Observation Create()
+        {
+            // clear static resource container.
+            resources.Clear();
+
+            var observation = new Observation();
+            observation.ObservationMdiCauseOfDeathPart1().AddProfile();
+            observation.Code = new CodeableConcept("http://loinc.org", "69453-9", "Cause of death [US Standard Certificate of Death]", null);
+
+            return observation;
+        }
 
         /// <summary>
-        /// Set profile for the ObservationCauseOfDeathConditionProfile
+        /// The official URL for the ObservationMdiCauseOfDeathPart1Profile, used to assert conformance.
+        /// </summary>
+        public const string ProfileUrl = "http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-mdi-cause-of-death-part1";
+
+        /// <summary>
+        /// Set profile for the ObservationMdiCauseOfDeathPart1Profile
         /// </summary>
         public void AddProfile()
         {
@@ -91,7 +93,7 @@ namespace GaTech.Chai.Mdi.ObservationCauseOfDeathPart1Profile
         }
 
         /// <summary>
-        /// Clear profile for the ObservationCauseOfDeathConditionProfile
+        /// Clear profile for the ObservationMdiCauseOfDeathPart1Profile
         /// </summary>
         public void RemoveProfile()
         {
@@ -133,6 +135,11 @@ namespace GaTech.Chai.Mdi.ObservationCauseOfDeathPart1Profile
 
             set
             {
+                int? totalTextCount = value?.Length;
+                if (totalTextCount != null && totalTextCount > 120)
+                {
+                    throw (new ArgumentException("Total size of valueCodeableConcept.Text (" + totalTextCount + ") exceeded 120"));
+                }
                 Value = new CodeableConcept() { Text = value };
             }
         }
@@ -144,23 +151,23 @@ namespace GaTech.Chai.Mdi.ObservationCauseOfDeathPart1Profile
         {
             get
             {
-                string system = MdiCodeSystem.LocalComponentCodes.LineNumber.Coding[0].System;
-                string code = MdiCodeSystem.LocalComponentCodes.LineNumber.Coding[0].Code;
+                string system = VrdrComponentCs.LineNumber.Coding[0].System;
+                string code = VrdrComponentCs.LineNumber.Coding[0].Code;
                 return this.observation.Component?.GetComponent(system, code).Value as Integer;
             }
             set
             {
-                string system = MdiCodeSystem.LocalComponentCodes.LineNumber.Coding[0].System;
-                string code = MdiCodeSystem.LocalComponentCodes.LineNumber.Coding[0].Code;
-                string display = LocalComponentCodes.LineNumber.Coding[0].Display;
+                string system = VrdrComponentCs.LineNumber.Coding[0].System;
+                string code = VrdrComponentCs.LineNumber.Coding[0].Code;
+                string display = VrdrComponentCs.LineNumber.Coding[0].Display;
                 this.observation.Component.GetOrAddComponent(system, code, display).Value = value;
             }
         }
 
         /// <summary>
-        /// Interval Component for Interval value as a string
+        /// Interval Component for Interval value as its orignal type, string, quanity, or codeableconcept.
         /// </summary>
-        public string Interval
+        public Object Interval
         {
             get
             {
@@ -169,31 +176,59 @@ namespace GaTech.Chai.Mdi.ObservationCauseOfDeathPart1Profile
                 {
                     return intervalValueString.ToString();
                 }
-                else
+                else if (intervalValue is Quantity intervalQty)
                 {
-                    Quantity intervalQty = (Quantity)intervalValue;
-                    return intervalQty.Value.ToString() + intervalQty.Unit;
+                    return intervalQty;
                 }
+                return (CodeableConcept) intervalValue;
             }
             set
             {
-                if (value.Length > 20)
+                if (value is FhirString valueFhirString)
                 {
-                    throw (new ArgumentException("Total string length of interval (" + value.Length + ") exceeded 20"));
+                    if (valueFhirString.ToString().Length > 20)
+                    {
+                        throw (new ArgumentException("Total string length of interval (" + valueFhirString.ToString().Length + ") exceeded 20"));
+                    }
+
+                    this.observation.Component.GetOrAddComponent("http://loinc.org", "69440-6", "Disease onset to death interval").Value = valueFhirString;
                 }
-                this.observation.Component.GetOrAddComponent("http://loinc.org", "69440-6", "Disease onset to death interval").Value = new FhirString(value);
+                else if (value is string valueString)
+                {
+                    if (valueString.Length > 20)
+                    {
+                        throw (new ArgumentException("Total string length of interval (" + valueString.Length + ") exceeded 20"));
+                    }
+                    this.observation.Component.GetOrAddComponent("http://loinc.org", "69440-6", "Disease onset to death interval").Value = new FhirString(valueString);
+                }
+                else if (value is Quantity valueQty)
+                {
+                    this.observation.Component.GetOrAddComponent("http://loinc.org", "69440-6", "Disease onset to death interval").Value = valueQty;
+                }
+                else
+                {
+                    this.observation.Component.GetOrAddComponent("http://loinc.org", "69440-6", "Disease onset to death interval").Value = (CodeableConcept) value;
+                }
             }
         }
 
-        public Quantity IntervalQuantity
+        /// <summary>
+        /// Interval Component for Interval value as string. Qty or CodeableConcept will be converted to string.
+        /// </summary>
+        public string IntervalAsString
         {
             get
             {
-                return this.observation.Component?.GetComponent("http://loinc.org", "69440-6").Value as Quantity;
-            }
-            set
-            {
-                this.observation.Component.GetOrAddComponent("http://loinc.org", "69440-6", "Disease onset to death interval").Value = value;
+                DataType intervalValue = this.observation.Component?.GetComponent("http://loinc.org", "69440-6").Value;
+                if (intervalValue is FhirString intervalValueString)
+                {
+                    return intervalValueString.ToString();
+                }
+                else if (intervalValue is Quantity intervalQty)
+                {
+                    return intervalQty.Value + intervalQty.Code;
+                }
+                return ((CodeableConcept) intervalValue).Coding[0].Code;
             }
         }
 

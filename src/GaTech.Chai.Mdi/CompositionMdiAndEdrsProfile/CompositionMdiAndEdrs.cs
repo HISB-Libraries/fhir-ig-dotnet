@@ -4,23 +4,22 @@ using GaTech.Chai.Share.Extensions;
 using static Hl7.Fhir.Model.Composition;
 using GaTech.Chai.Mdi.Common;
 using System.Collections.Generic;
-using GaTech.Chai.Mdi.ObservationCauseOfDeathPart1Profile;
-using Hl7.Fhir.ElementModel.Types;
-using Quantity = Hl7.Fhir.Model.Quantity;
-using Integer = Hl7.Fhir.Model.Integer;
+using GaTech.Chai.Mdi.ObservationMdiCauseOfDeathPart1Profile;
 using Code = Hl7.Fhir.Model.Code;
-using Hl7.Fhir.Language.Debugging;
+using GaTech.Chai.Vrdr.VrdrCauseOfDeathPart2Profile;
+using GaTech.Chai.Share.Common;
+using GaTech.Chai.Vrdr.VrdrMannerOfDeathProfile;
+using GaTech.Chai.Vrdr.VrdrInjuryIncidentProfile;
 
 namespace GaTech.Chai.Mdi.CompositionMdiAndEdrsProfile
 {
     /// <summary>
-    /// CompositionMditoEdrsProfile
+    /// This Composition profile represents data exchanged between an MDI CMS and an EDRS.
     /// http://hl7.org/fhir/us/mdi/StructureDefinition/Composition-mdi-and-edrs
     /// </summary>
     public class CompositionMdiAndEdrs
     {
         readonly Composition composition;
-        readonly static Dictionary<string, Resource> resources = new ();
 
         internal CompositionMdiAndEdrs(Composition composition)
         {
@@ -33,9 +32,6 @@ namespace GaTech.Chai.Mdi.CompositionMdiAndEdrsProfile
         /// </summary>
         public static Composition Create(Identifier identifier, CompositionStatus status, Patient subject, Practitioner author, Code authorAbsentReason, Practitioner certifier, Code certifierAbsentReason, CompositionAttestationMode? attestationMode)
         {
-            // clear static resource container.
-            resources.Clear();
-
             var composition = new Composition();
             composition.Type = new CodeableConcept("http://loinc.org", "86807-5", "Death administrative information Document", null);
 
@@ -69,9 +65,6 @@ namespace GaTech.Chai.Mdi.CompositionMdiAndEdrsProfile
         /// </summary>
         public static Composition Create()
         {
-            // clear static resource container.
-            resources.Clear();
-
             var composition = new Composition();
             composition.Type = new CodeableConcept("http://loinc.org", "86807-5", "Death administrative information Document", null);
             composition.CompositionMdiAndEdrs().AddProfile();
@@ -107,14 +100,14 @@ namespace GaTech.Chai.Mdi.CompositionMdiAndEdrsProfile
         {
             get
             {
-                resources.TryGetValue(this.composition.Subject.Reference, out Resource value);
+                Record.GetResources().TryGetValue(this.composition.Subject.Reference, out Resource value);
 
                 return (Patient)value;
             }
             set
             {
                 this.composition.Subject = value.AsReference();
-                resources[value.AsReference().Reference] = value;
+                Record.GetResources()[value.AsReference().Reference] = value;
             }
         }
 
@@ -125,18 +118,24 @@ namespace GaTech.Chai.Mdi.CompositionMdiAndEdrsProfile
         {
             if (practitioner == null)
             {
-                ResourceReference practitionerReference = new ResourceReference();
+                ResourceReference practitionerReference = new();
                 practitionerReference.AddDataAbsentReason(code);
+                this.composition.Author = new List<ResourceReference>{practitionerReference};
             }
             else
             {
                 if (this.composition.Author.Count > 0)
                 {
+                    if (this.composition.Attester.Count > 0) {
+                        if (this.composition.Attester[0].Party?.Reference != practitioner.AsReference().Reference) {
+                            Record.GetResources().Remove(this.composition.Attester[0].Party.Reference);
+                        }
+                    }
                     this.composition.Author.Clear();
                 }
-                this.composition.Author = new List<ResourceReference> { new ResourceReference(practitioner.AsReference().Reference) };
+                this.composition.Author = new List<ResourceReference> { practitioner.AsReference() };
 
-                resources[practitioner.AsReference().Reference] = practitioner;
+                Record.GetResources()[practitioner.AsReference().Reference] = practitioner;
             }
         }
 
@@ -191,8 +190,11 @@ namespace GaTech.Chai.Mdi.CompositionMdiAndEdrsProfile
 
             set
             {
-                Extension ext = new Extension() { Url = "http://hl7.org/fhir/us/mdi/StructureDefinition/Extension-tracking-number" };
-                ext.Value = new Identifier() { Type = MdiCodeSystem.MdiCodes.EdrsFileNumber, System = value.Item1, Value = value.Item2 };
+                Extension ext = new()
+                {
+                    Url = "http://hl7.org/fhir/us/mdi/StructureDefinition/Extension-tracking-number",
+                    Value = new Identifier() { Type = MdiCodeSystem.MdiCodes.EdrsFileNumber, System = value.Item1, Value = value.Item2 }
+                };
                 this.composition.Extension.AddOrUpdateExtension(ext, true);
             }
         }
@@ -200,14 +202,14 @@ namespace GaTech.Chai.Mdi.CompositionMdiAndEdrsProfile
         /// <summary>
         /// Certifier: sets or gets certifier information
         /// DC certifier is set in Attester. Only one certifiier can exist.
-        public (CompositionAttestationMode?, Resource, Code) Certifier
+        /// </summary>
+        public (CompositionAttestationMode?, Practitioner, Code) Certifier
         {
             get
             {
-                if (this.composition.Attester != null && this.composition.Attester.Count > 0)
+                if (this.composition.Attester.Count > 0)
                 {
-                    Resource resource = resources[this.composition.Attester[0].Party.Reference];
-                    if (resource == null)
+                    if (Record.GetResources()[this.composition.Attester[0].Party.Reference] is not Practitioner practitioner)
                     {
                         Extension extension = this.composition.Attester[0].GetExtension("http://hl7.org/fhir/StructureDefinition/data-absent-reason");
                         Code codeValue = extension.Value as Code;
@@ -215,7 +217,7 @@ namespace GaTech.Chai.Mdi.CompositionMdiAndEdrsProfile
                     }
                     else
                     {
-                        return (composition.Attester[0].Mode, resource, null);
+                        return (composition.Attester[0].Mode, practitioner, null);
                     }
                 }
 
@@ -224,27 +226,36 @@ namespace GaTech.Chai.Mdi.CompositionMdiAndEdrsProfile
 
             set
             {
+                // input values: (mode, practitioner, data absent reason)
                 // Clear the attester if we have someone.
-                if (this.composition.Attester != null && this.composition.Attester.Count > 0)
+                if (this.composition.Attester.Count > 0)
                 {
                     ResourceReference certifier = this.composition.Attester[0].Party;
-                    resources.Remove(certifier.Reference);
+
+                    // see if certifier is also used in author
+                    if (this.composition.Author != null && this.composition.Author.Count > 0) {
+                        if (this.composition.Author[0] != certifier) {
+                            Record.GetResources().Remove(certifier.Reference);
+                        }
+                    }
                     this.composition.Attester.Clear();
                 }
 
-                if (value.Item2 == null)
+                // we must have one attester.
+                AttesterComponent attester = new();
+                if (value.Item2 == null && value.Item3 != null)
                 {
-                    // Certifier is now empty. Put dataabsentreason.
-                    ResourceReference party = new ResourceReference();
-                    party.AddDataAbsentReason(value.Item3);
-
-                    this.composition.Attester.Add(new AttesterComponent() { Party = party });
+                    // Certifier is now empty, and dataabsentreason is available.
+                    attester.AddDataAbsentReason(value.Item3);
                 }
                 else
                 {
-                    this.composition.Attester.Add(new AttesterComponent() { Mode = value.Item1, Party = value.Item2.AsReference() });
-                    resources[value.Item2.AsReference().Reference] = value.Item2;
+                    attester.Mode = value.Item1;
+                    attester.Party = value.Item2.AsReference();
+                    Record.GetResources()[value.Item2.AsReference().Reference] = value.Item2;
                 }
+
+                this.composition.Attester.Add(attester);
             }
         }
 
@@ -261,7 +272,7 @@ namespace GaTech.Chai.Mdi.CompositionMdiAndEdrsProfile
             foreach (ResourceReference reference in sectionComponent.Entry)
             {
                 Resource resource;
-                if (resources.TryGetValue(reference.Reference, out resource))
+                if (Record.GetResources().TryGetValue(reference.Reference, out resource))
                 {
                     valueResource.Add(resource);
                 }
@@ -289,7 +300,7 @@ namespace GaTech.Chai.Mdi.CompositionMdiAndEdrsProfile
                 foreach (Resource valueResource in value.Item1)
                 {
                     references.Add(valueResource.AsReference());
-                    resources[valueResource.AsReference().Reference] = valueResource;
+                    Record.GetResources()[valueResource.AsReference().Reference] = valueResource;
                 }
             }
 
@@ -373,34 +384,26 @@ namespace GaTech.Chai.Mdi.CompositionMdiAndEdrsProfile
 
         private Observation GetCOD1(int lineNumber)
         {
-            List<Resource> COD1s;
-            Resource COD2;
-            Resource Manner;
-            Resource InjOccurred;
-            CodeableConcept dataAbsentReason;
-
-            (COD1s, COD2, Manner, InjOccurred, dataAbsentReason) = CauseManner;
-
-            foreach (Resource resource in COD1s)
+            SectionComponent sectionComponent = GetOrAddSection("cause-manner", MdiCodeSystem.MdiCodes.CauseManner.Coding[0].Display);
+            foreach (ResourceReference reference in sectionComponent.Entry)
             {
-                if (resource is Observation)
+                if (Record.GetResources().TryGetValue(reference.Reference, out Resource entryResource))
                 {
-                    Observation ob = (Observation)resource;
-                    if (ob.IsObservationCode("CauseOfDeathPart1"))
+                    Observation ob = (Observation)entryResource;
+                    if (ob.hasProfile(ObservationMdiCauseOfDeathPart1.ProfileUrl))
                     {
-                        if (ob.ObservationCauseOfDeathPart1().LineNumber.Value == lineNumber)
+                        if (ob.ObservationMdiCauseOfDeathPart1().LineNumber.Value == lineNumber)
                         {
                             return ob;
                         }
                     }
-
                 }
             }
 
             return null;
         }
 
-        private Observation SetCOD1(int lineNumber, string valueText, DataType interval)
+        public Observation SetCOD1(int lineNumber, string valueText, DataType interval)
         {
             if (lineNumber < 1 || lineNumber >4)
             {
@@ -413,86 +416,178 @@ namespace GaTech.Chai.Mdi.CompositionMdiAndEdrsProfile
             }
 
             Patient patient = (Patient) composition.CompositionMdiAndEdrs().SubjectAsResource;
-            if (patient == null)
-            {
-                throw new ArgumentException("Cause of Death Part 1 must have a patient in Composition.");
-            }
+            (CompositionAttestationMode? mode, Practitioner certifier, Code dataAbsentReason) = composition.CompositionMdiAndEdrs().Certifier;
 
-            CompositionAttestationMode? mode;
-            Resource certifier;
-            Code dataAbsentReason;
-            (mode, certifier, dataAbsentReason) = composition.CompositionMdiAndEdrs().Certifier;
-            if (certifier == null && dataAbsentReason == null)
-            {
-                throw new ArgumentException("Cause of Death Part 1 has no certifier. Data absent reason must be provided in Composition.");
-            }
-
+            Observation cod1 = null;
+            
             SectionComponent sectionComponent = GetOrAddSection("cause-manner", MdiCodeSystem.MdiCodes.CauseManner.Coding[0].Display);
             foreach (ResourceReference reference in sectionComponent.Entry)
             {
-                Resource entryResource;
-                if (resources.TryGetValue(reference.Reference, out entryResource))
+                if (Record.GetResources().TryGetValue(reference.Reference, out Resource entryResource))
                 {
                     Observation ob = (Observation)entryResource;
-                    if (ob.hasProfile("http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-cause-of-death-part1"))
+                    if (ob.hasProfile(ObservationMdiCauseOfDeathPart1.ProfileUrl))
                     {
-                        if (ob.ObservationCauseOfDeathPart1().LineNumber == new Integer(lineNumber))
+                        if (ob.ObservationMdiCauseOfDeathPart1().LineNumber.Value == lineNumber)
                         {
-                            // We found the existing one. We just update it. 
-                            ob.ObservationCauseOfDeathPart1().ValueText = valueText;
-                            if (interval is Quantity)
-                            {
-                                ob.ObservationCauseOfDeathPart1().IntervalQuantity = (Quantity)interval;
-                            }
-                            else
-                            {
-                                ob.ObservationCauseOfDeathPart1().Interval = ((FhirString)interval).Value;
-                            }
-
-                            // update subject and certifier as well in case that's changed.
-                            ob.ObservationCauseOfDeathPart1().SubjectAsResource = patient;
-                            if (certifier == null)
-                            {
-                                ResourceReference certifierReference = new ResourceReference();
-                                certifierReference.AddDataAbsentReason(dataAbsentReason);
-                                ob.Performer = new List<ResourceReference>() { certifierReference };
-                            }
-                            else
-                            {
-                                ob.ObservationCauseOfDeathPart1().PerformerAsResource = (Practitioner)certifier;
-                            }
-
-                            return ob;
+                            cod1 = ob;
+                            break;
+                            // return ob;
                         }
                     }
                 }
             }
 
-            Observation cod1 = ObservationCauseOfDeathPart1.Create((Patient)patient);
-
-            if (certifier ==  null)
+            if (cod1 == null)
             {
-                ResourceReference certifierReference = new ResourceReference();
+                // create a new and add to entry
+                cod1 = ObservationMdiCauseOfDeathPart1.Create();
+                
+                sectionComponent.Entry.Add(cod1.AsReference());
+                Record.GetResources().Add(cod1.AsReference().Reference, cod1);
+            }
+
+            // update subject and certifier as well in case that's changed.
+            if (patient != null)
+            {
+                cod1.ObservationMdiCauseOfDeathPart1().SubjectAsResource = patient;
+            }
+
+            if (certifier != null)
+            {
+                cod1.ObservationMdiCauseOfDeathPart1().PerformerAsResource = (Practitioner)certifier;
+            }
+            else 
+            {
+                ResourceReference certifierReference = new();
                 certifierReference.AddDataAbsentReason(dataAbsentReason);
                 cod1.Performer = new List<ResourceReference>() { certifierReference };
             }
-            else
+
+            cod1.ObservationMdiCauseOfDeathPart1().ValueText = valueText;
+            cod1.ObservationMdiCauseOfDeathPart1().Interval = interval;
+
+            return cod1;
+        }
+
+        public Observation SetCOD1Value(int lineNumber, string valueText)
+        {
+            if (lineNumber < 1 || lineNumber >4)
             {
-                cod1.ObservationCauseOfDeathPart1().PerformerAsResource = (Practitioner) certifier;
+                throw new ArgumentException("Cause of Death Part 1 can have line number 1..4.");
             }
 
-            cod1.ObservationCauseOfDeathPart1().ValueText = valueText;
-            if (interval is Quantity quantity)
+            Patient patient = (Patient) composition.CompositionMdiAndEdrs().SubjectAsResource;
+            (CompositionAttestationMode? mode, Practitioner certifier, Code dataAbsentReason) = composition.CompositionMdiAndEdrs().Certifier;
+
+            Observation cod1 = null;
+            
+            SectionComponent sectionComponent = GetOrAddSection("cause-manner", MdiCodeSystem.MdiCodes.CauseManner.Coding[0].Display);
+            foreach (ResourceReference reference in sectionComponent.Entry)
             {
-                cod1.ObservationCauseOfDeathPart1().IntervalQuantity = quantity;
-            }
-            else
-            {
-                cod1.ObservationCauseOfDeathPart1().Interval = ((FhirString)interval).Value;
+                if (Record.GetResources().TryGetValue(reference.Reference, out Resource entryResource))
+                {
+                    Observation ob = (Observation)entryResource;
+                    if (ob.hasProfile("http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-cause-of-death-part1"))
+                    {
+                        if (ob.ObservationMdiCauseOfDeathPart1().LineNumber.Value == lineNumber)
+                        {
+                            cod1 = ob;
+                            break;
+                            // return ob;
+                        }
+                    }
+                }
             }
 
-            sectionComponent.Entry.Add(cod1.AsReference());
-            resources.Add(cod1.AsReference().Reference, cod1);
+            if (cod1 == null)
+            {
+                // create a new and add to entry
+                cod1 = ObservationMdiCauseOfDeathPart1.Create();
+                
+                sectionComponent.Entry.Add(cod1.AsReference());
+                Record.GetResources().Add(cod1.AsReference().Reference, cod1);
+            }
+
+            // update subject and certifier as well in case that's changed.
+            if (patient != null)
+            {
+                cod1.ObservationMdiCauseOfDeathPart1().SubjectAsResource = patient;
+            }
+
+            if (certifier != null)
+            {
+                cod1.ObservationMdiCauseOfDeathPart1().PerformerAsResource = (Practitioner)certifier;
+            }
+            else 
+            {
+                ResourceReference certifierReference = new();
+                certifierReference.AddDataAbsentReason(dataAbsentReason);
+                cod1.Performer = new List<ResourceReference>() { certifierReference };
+            }
+
+            cod1.ObservationMdiCauseOfDeathPart1().ValueText = valueText;
+
+            return cod1;
+        }
+
+        public Observation SetCOD1Interval(int lineNumber, DataType interval)
+        {
+            if (lineNumber < 1 || lineNumber >4)
+            {
+                throw new ArgumentException("Cause of Death Part 1 can have line number 1..4.");
+            }
+
+            Patient patient = (Patient) composition.CompositionMdiAndEdrs().SubjectAsResource;
+            (CompositionAttestationMode? mode, Practitioner certifier, Code dataAbsentReason) = composition.CompositionMdiAndEdrs().Certifier;
+
+            Observation cod1 = null;
+            
+            SectionComponent sectionComponent = GetOrAddSection("cause-manner", MdiCodeSystem.MdiCodes.CauseManner.Coding[0].Display);
+            foreach (ResourceReference reference in sectionComponent.Entry)
+            {
+                if (Record.GetResources().TryGetValue(reference.Reference, out Resource entryResource))
+                {
+                    Observation ob = (Observation)entryResource;
+                    if (ob.hasProfile(ObservationMdiCauseOfDeathPart1.ProfileUrl))
+                    {
+                        if (ob.ObservationMdiCauseOfDeathPart1().LineNumber.Value == lineNumber)
+                        {
+                            cod1 = ob;
+                            break;
+                            // return ob;
+                        }
+                    }
+                }
+            }
+
+            if (cod1 == null)
+            {
+                // create a new and add to entry
+                cod1 = ObservationMdiCauseOfDeathPart1.Create();
+                
+                sectionComponent.Entry.Add(cod1.AsReference());
+                Record.GetResources().Add(cod1.AsReference().Reference, cod1);
+            }
+
+            // update subject and certifier as well in case that's changed.
+            if (patient != null)
+            {
+                cod1.ObservationMdiCauseOfDeathPart1().SubjectAsResource = patient;
+            }
+
+            if (certifier != null)
+            {
+                cod1.ObservationMdiCauseOfDeathPart1().PerformerAsResource = (Practitioner)certifier;
+            }
+            else 
+            {
+                ResourceReference certifierReference = new();
+                certifierReference.AddDataAbsentReason(dataAbsentReason);
+                cod1.Performer = new List<ResourceReference>() { certifierReference };
+            }
+
+            cod1.ObservationMdiCauseOfDeathPart1().Interval = interval;
 
             return cod1;
         }
@@ -504,10 +599,14 @@ namespace GaTech.Chai.Mdi.CompositionMdiAndEdrsProfile
                 Observation ob = GetCOD1(1);
                 if (ob != null)
                 {
-                    return ob.ObservationCauseOfDeathPart1().ValueText;
+                    return ob.ObservationMdiCauseOfDeathPart1().ValueText;
                 }
 
                 return null;
+            }
+            set
+            {
+                SetCOD1Value(1, value);
             }
         }
 
@@ -519,10 +618,14 @@ namespace GaTech.Chai.Mdi.CompositionMdiAndEdrsProfile
                 Observation ob = GetCOD1(1);
                 if (ob != null)
                 {
-                    return ob.ObservationCauseOfDeathPart1().Interval;
+                    return ob.ObservationMdiCauseOfDeathPart1().IntervalAsString;
                 }
 
                 return null;
+            }
+            set
+            {
+                SetCOD1Interval(1, new FhirString(value));
             }
         }
 
@@ -533,10 +636,15 @@ namespace GaTech.Chai.Mdi.CompositionMdiAndEdrsProfile
                 Observation ob = GetCOD1(2);
                 if (ob != null)
                 {
-                    return ob.ObservationCauseOfDeathPart1().ValueText;
+                    return ob.ObservationMdiCauseOfDeathPart1().ValueText;
                 }
 
                 return null;
+            }
+            set
+            {
+                SetCOD1Value(2, value);
+
             }
         }
 
@@ -548,10 +656,14 @@ namespace GaTech.Chai.Mdi.CompositionMdiAndEdrsProfile
                 Observation ob = GetCOD1(2);
                 if (ob != null)
                 {
-                    return ob.ObservationCauseOfDeathPart1().Interval;
+                    return ob.ObservationMdiCauseOfDeathPart1().IntervalAsString;
                 }
 
                 return null;
+            }
+            set
+            {
+                SetCOD1Interval(2, new FhirString(value));
             }
         }
 
@@ -562,10 +674,14 @@ namespace GaTech.Chai.Mdi.CompositionMdiAndEdrsProfile
                 Observation ob = GetCOD1(3);
                 if (ob != null)
                 {
-                    return ob.ObservationCauseOfDeathPart1().ValueText;
+                    return ob.ObservationMdiCauseOfDeathPart1().ValueText;
                 }
 
                 return null;
+            }
+            set
+            {
+                SetCOD1Value(3, value);
             }
         }
 
@@ -577,10 +693,14 @@ namespace GaTech.Chai.Mdi.CompositionMdiAndEdrsProfile
                 Observation ob = GetCOD1(3);
                 if (ob != null)
                 {
-                    return ob.ObservationCauseOfDeathPart1().Interval;
+                    return ob.ObservationMdiCauseOfDeathPart1().IntervalAsString;
                 }
 
                 return null;
+            }
+            set
+            {
+                SetCOD1Interval(3, new FhirString(value));
             }
         }
 
@@ -591,10 +711,14 @@ namespace GaTech.Chai.Mdi.CompositionMdiAndEdrsProfile
                 Observation ob = GetCOD1(4);
                 if (ob != null)
                 {
-                    return ob.ObservationCauseOfDeathPart1().ValueText;
+                    return ob.ObservationMdiCauseOfDeathPart1().ValueText;
                 }
 
                 return null;
+            }
+            set
+            {
+                SetCOD1Value(4, value);
             }
         }
 
@@ -606,14 +730,181 @@ namespace GaTech.Chai.Mdi.CompositionMdiAndEdrsProfile
                 Observation ob = GetCOD1(4);
                 if (ob != null)
                 {
-                    return ob.ObservationCauseOfDeathPart1().Interval;
+                    return ob.ObservationMdiCauseOfDeathPart1().IntervalAsString;
                 }
 
                 return null;
             }
+            set
+            {
+                SetCOD1Interval(4, new FhirString(value));
+            }
         }
 
+        public Observation GetCOD2()
+        {
+            SectionComponent sectionComponent = GetOrAddSection("cause-manner", MdiCodeSystem.MdiCodes.CauseManner.Coding[0].Display);
+            foreach (ResourceReference reference in sectionComponent.Entry)
+            {
+                if (Record.GetResources().TryGetValue(reference.Reference, out Resource entryResource))
+                {
+                    Observation ob = (Observation)entryResource;
+                    if (ob.hasProfile(VrdrCauseOfDeathPart2.ProfileUrl))
+                    {
+                        return ob;
+                    }
+                }
+            }
 
+            return null;
+        }
+
+        public Observation SetCOD2(string valueText)
+        {
+            Patient patient = (Patient) composition.CompositionMdiAndEdrs().SubjectAsResource;
+            (CompositionAttestationMode? mode, Practitioner certifier, Code dataAbsentReason) = composition.CompositionMdiAndEdrs().Certifier;
+
+            Observation cod2 = null;
+            
+            SectionComponent sectionComponent = GetOrAddSection("cause-manner", MdiCodeSystem.MdiCodes.CauseManner.Coding[0].Display);
+            foreach (ResourceReference reference in sectionComponent.Entry)
+            {
+                if (Record.GetResources().TryGetValue(reference.Reference, out Resource entryResource))
+                {
+                    Observation ob = (Observation)entryResource;
+                    if (ob.hasProfile(VrdrCauseOfDeathPart2.ProfileUrl))
+                    {
+                            cod2 = ob;
+                            break;
+                    }
+                }
+            }
+
+            if (cod2 == null)
+            {
+                // create a new and add to entry
+                cod2 = VrdrCauseOfDeathPart2.Create();
+                
+                sectionComponent.Entry.Add(cod2.AsReference());
+                Record.GetResources().Add(cod2.AsReference().Reference, cod2);
+            }
+
+            // update subject and certifier as well in case that's changed.
+            if (patient != null)
+            {
+                cod2.VrdrCauseOfDeathPart2().SubjectAsResource = patient;
+            }
+
+            if (certifier != null)
+            {
+                cod2.VrdrCauseOfDeathPart2().PerformerAsResource = (Practitioner)certifier;
+            }
+
+            cod2.VrdrCauseOfDeathPart2().ValueText = valueText ?? throw new ArgumentException("Cause of Death Part 1 must have both value and interval.");
+
+            return cod2;
+        }
+
+        public string COD2
+        {
+            get
+            {
+                Observation ob = GetCOD2();
+                return (ob.Value as CodeableConcept)?.Text;
+            }
+            set
+            {
+                SetCOD2(value);
+            }
+        }
+
+        public Observation SetMannerOfDeath(CodeableConcept value)
+        {
+            Patient patient = (Patient) composition.CompositionMdiAndEdrs().SubjectAsResource;
+            (CompositionAttestationMode? mode, Practitioner certifier, Code dataAbsentReason) = composition.CompositionMdiAndEdrs().Certifier;
+
+            Observation mannerOfDeath = null;
+            
+            SectionComponent sectionComponent = GetOrAddSection("cause-manner", MdiCodeSystem.MdiCodes.CauseManner.Coding[0].Display);
+            foreach (ResourceReference reference in sectionComponent.Entry)
+            {
+                if (Record.GetResources().TryGetValue(reference.Reference, out Resource entryResource))
+                {
+                    Observation ob = (Observation)entryResource;
+                    if (ob.hasProfile(VrdrMannerOfDeath.ProfileUrl))
+                    {
+                            mannerOfDeath = ob;
+                            break;
+                    }
+                }
+            }
+
+            if (mannerOfDeath == null)
+            {
+                // create a new and add to entry
+                mannerOfDeath = VrdrMannerOfDeath.Create();
+                
+                sectionComponent.Entry.Add(mannerOfDeath.AsReference());
+                Record.GetResources().Add(mannerOfDeath.AsReference().Reference, mannerOfDeath);
+            }
+
+            // update subject and certifier as well in case that's changed.
+            if (patient != null)
+            {
+                mannerOfDeath.VrdrMannerOfDeath().SubjectAsResource = patient;
+            }
+
+            mannerOfDeath.Value = value ?? throw new ArgumentException("Manner of death must have both value.");
+
+            return mannerOfDeath;
+        }
+
+        public Observation MannerOfDeath
+        {
+            get
+            {
+                SectionComponent sectionComponent = GetOrAddSection("cause-manner", MdiCodeSystem.MdiCodes.CauseManner.Coding[0].Display);
+                foreach (ResourceReference reference in sectionComponent.Entry)
+                {
+                    if (Record.GetResources().TryGetValue(reference.Reference, out Resource entryResource))
+                    {
+                        Observation ob = (Observation)entryResource;
+                        if (ob.hasProfile(VrdrMannerOfDeath.ProfileUrl))
+                        {
+                                return ob;
+                        }
+                    }
+                }
+                return null;
+            }
+            set
+            {
+                Observation mannerOfDeath = null;
+                SectionComponent sectionComponent = GetOrAddSection("cause-manner", MdiCodeSystem.MdiCodes.CauseManner.Coding[0].Display);
+                foreach (ResourceReference reference in sectionComponent.Entry)
+                {
+                    if (Record.GetResources().TryGetValue(reference.Reference, out Resource entryResource))
+                    {
+                        Observation ob = (Observation)entryResource;
+                        if (ob.hasProfile(VrdrMannerOfDeath.ProfileUrl))
+                        {
+                                mannerOfDeath = ob;
+                                break;
+                        }
+                    }
+                }
+
+                if (mannerOfDeath == null)
+                {
+                    sectionComponent.Entry.Add(value.AsReference());
+                }
+
+                // this may have a newer contents. So updating glbal record.
+                Record.GetResources().Add(value.AsReference().Reference, value);
+
+            }
+        }
+        
         /// <summary>
         /// CauseManner: gets or sets lists of cause and manner references
         ///     value = (List<ResourceReference>, ResourceReference, ResourceReference, ResourceReference, EmptyReasonCode)
@@ -623,43 +914,42 @@ namespace GaTech.Chai.Mdi.CompositionMdiAndEdrsProfile
         ///         Resource: Observation - How Death Injury Occurred (0..1)
         ///         EmptyReasonCode: GaTech.Chai.Share.Common.ListEmptyReason
         /// </summary>
-        public (List<Resource>, Resource, Resource, Resource, CodeableConcept) CauseManner
+        public (List<Observation>, Observation, Observation, Observation, CodeableConcept) CauseManner
         {
             get
             {
-                List<Resource> causeOfDeathPart1 = new();
-                Resource contributingCauseOfDeathPart2 = null;
-                Resource mannerOfDeath = null;
-                Resource deathInjuryOccurred = null;
+                List<Observation> causeOfDeathPart1 = new();
+                Observation contributingCauseOfDeathPart2 = null;
+                Observation mannerOfDeath = null;
+                Observation deathInjuryOccurred = null;
 
                 SectionComponent sectionComponent = GetOrAddSection("cause-manner", MdiCodeSystem.MdiCodes.CauseManner.Coding[0].Display);
                 foreach (ResourceReference reference in sectionComponent.Entry)
                 {
-                    Resource resource;
-                    if (resources.TryGetValue(reference.Reference, out resource))
+                    if (Record.GetResources().TryGetValue(reference.Reference, out Resource resource))
                     {
                         if (resource.Meta == null)
                         {
-                            resource.Meta = new Meta();
+                            continue;
                         }
 
                         foreach (string profile in resource.Meta.Profile)
                         {
-                            if ("http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-cause-of-death-part1".Equals(profile))
+                            if (ObservationMdiCauseOfDeathPart1.ProfileUrl.Equals(profile))
                             {
-                                causeOfDeathPart1.Add(resource);
+                                causeOfDeathPart1.Add(resource as Observation);
                             }
-                            else if ("http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-contributing-cause-of-death-part2".Equals(profile))
+                            else if (VrdrCauseOfDeathPart2.ProfileUrl.Equals(profile))
                             {
-                                contributingCauseOfDeathPart2 = resource;
+                                contributingCauseOfDeathPart2 = resource as Observation;
                             }
-                            else if ("http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-manner-of-death".Equals(profile))
+                            else if (VrdrMannerOfDeath.ProfileUrl.Equals(profile))
                             {
-                                mannerOfDeath = resource;
+                                mannerOfDeath = resource as Observation;
                             }
-                            else if ("http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-how-death-injury-occurred".Equals(profile))
+                            else if (VrdrInjuryIncident.ProfileUrl.Equals(profile))
                             {
-                                deathInjuryOccurred = resource;
+                                deathInjuryOccurred = resource as Observation;
                             }
                         }
                     }
@@ -686,7 +976,13 @@ namespace GaTech.Chai.Mdi.CompositionMdiAndEdrsProfile
                         if (!sectionComponent.Entry.Exists(x => x.Reference.Equals(resource.AsReference().Reference)))
                         {
                             sectionComponent.Entry.Add(resource.AsReference());
-                            resources.Add(resource.AsReference().Reference, resource);
+                            Record.GetResources().Add(resource.AsReference().Reference, resource);
+                        }
+                        else
+                        {
+                            // This exists. However, many the content got changed. Since the entry only stores
+                            // reference, we just update global static Record.
+                            Record.GetResources()[resource.AsReference().Reference] = resource;
                         }
                     }
                 }
@@ -697,7 +993,13 @@ namespace GaTech.Chai.Mdi.CompositionMdiAndEdrsProfile
                     if (!sectionComponent.Entry.Exists(x => x.Reference.Equals(value.Item2.AsReference().Reference)))
                     {
                         sectionComponent.Entry.Add(value.Item2.AsReference());
-                        resources.Add(value.Item2.AsReference().Reference, value.Item2);
+                        Record.GetResources().Add(value.Item2.AsReference().Reference, value.Item2);
+                    }
+                    else
+                    {
+                        // This exists. However, many the content got changed. Since the entry only stores
+                        // reference, we just update global static Record.
+                        Record.GetResources()[value.Item2.AsReference().Reference] = value.Item2;
                     }
                 }
 
@@ -707,7 +1009,13 @@ namespace GaTech.Chai.Mdi.CompositionMdiAndEdrsProfile
                     if (!sectionComponent.Entry.Exists(x => x.Reference.Equals(value.Item3.AsReference().Reference)))
                     {
                         sectionComponent.Entry.Add(value.Item3.AsReference());
-                        resources.Add(value.Item3.AsReference().Reference, value.Item3);
+                        Record.GetResources().Add(value.Item3.AsReference().Reference, value.Item3);
+                    }
+                    else
+                    {
+                        // This exists. However, many the content got changed. Since the entry only stores
+                        // reference, we just update global static Record.
+                        Record.GetResources()[value.Item3.AsReference().Reference] = value.Item3;
                     }
                 }
 
@@ -717,7 +1025,13 @@ namespace GaTech.Chai.Mdi.CompositionMdiAndEdrsProfile
                     if (!sectionComponent.Entry.Exists(x => x.Reference.Equals(value.Item4.AsReference().Reference)))
                     {
                         sectionComponent.Entry.Add(value.Item4.AsReference());
-                        resources.Add(value.Item4.AsReference().Reference, value.Item4);
+                        Record.GetResources().Add(value.Item4.AsReference().Reference, value.Item4);
+                    }
+                    else
+                    {
+                        // This exists. However, many the content got changed. Since the entry only stores
+                        // reference, we just update global static Record.
+                        Record.GetResources()[value.Item4.AsReference().Reference] = value.Item4;
                     }
                 }
 
@@ -781,18 +1095,17 @@ namespace GaTech.Chai.Mdi.CompositionMdiAndEdrsProfile
         /// <summary>
         /// Narratives: gets or sets 
         /// </summary>
-        public string Narratives
+        public Narrative Narratives
         {
             get
             {
-                SectionComponent sectionComponent = GetOrAddSection("narratives", null);
-                return sectionComponent.Text?.Div;
+                return GetOrAddSection("narratives", MdiCodeSystem.MdiCodes.Narratives.Coding[0].Display).Text;
             }
 
             set
             {
                 SectionComponent sectionComponent = GetOrAddSection("narratives", MdiCodeSystem.MdiCodes.Narratives.Coding[0].Display);
-                sectionComponent.Text = new Narrative() { Div = value };
+                sectionComponent.Text = value;
                 AddOrUpdateSection("narratives", MdiCodeSystem.MdiCodes.Narratives.Coding[0].Display, sectionComponent);
             }
         }
@@ -805,40 +1118,22 @@ namespace GaTech.Chai.Mdi.CompositionMdiAndEdrsProfile
 
         protected SectionComponent GetOrAddSection(string code, string display)
         {
-            return composition.Section.GetOrAddSection(
-                    "http://hl7.org/fhir/us/mdi/CodeSystem/CodeSystem-mdi-codes", code,
-                    display, display);
+            return composition.Section.GetOrAddSection(MdiCodeSystem.MdiCodes.officialUrl, code, display, display);
         }
 
         protected SectionComponent GetOrAddSection(string code, string display, string title)
         {
-            return composition.Section.GetOrAddSection(
-                    "http://hl7.org/fhir/us/mdi/CodeSystem/CodeSystem-mdi-codes",
-                    code, title, display);
+            return composition.Section.GetOrAddSection(MdiCodeSystem.MdiCodes.officialUrl, code, title, display);
         }
 
         protected void AddOrUpdateSection(string code, string display, Composition.SectionComponent section)
         {
-            composition.Section.AddOrUpdateSection(
-                    "http://hl7.org/fhir/us/mdi/CodeSystem/CodeSystem-mdi-codes", code,
-                    display, display, section);
+            composition.Section.AddOrUpdateSection(MdiCodeSystem.MdiCodes.officialUrl, code, display, display, section);
         }
 
         protected void AddOrUpdateSection(string code, string display, string title, Composition.SectionComponent section)
         {
-            composition.Section.AddOrUpdateSection(
-                    "http://hl7.org/fhir/us/mdi/CodeSystem/CodeSystem-mdi-codes",
-                    code, title, display, section);
-        }
-
-        public Dictionary<string, Resource> GetResources()
-        {
-            return resources;
-        }
-
-        public void AddResources(string key, Resource resource)
-        {
-            resources[key] = resource;
+            composition.Section.AddOrUpdateSection(MdiCodeSystem.MdiCodes.officialUrl, code, title, display, section);
         }
     }
 }

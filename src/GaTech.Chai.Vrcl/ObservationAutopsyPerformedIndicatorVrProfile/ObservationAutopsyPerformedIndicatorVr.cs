@@ -1,66 +1,64 @@
 ﻿using System;
 using Hl7.Fhir.Model;
 using GaTech.Chai.Share.Extensions;
-using System.Collections.Generic;
+using GaTech.Chai.Share.Common;
 
-namespace GaTech.Chai.Mdi.ObservationAutopsyPerformedIndicatorProfile
+namespace GaTech.Chai.Vrcl.ObservationAutopsyPerformedIndicatorVrProfile
 {
     /// <summary>
-    /// ObservationAutopsyPerformedIndicatorProfile
-    /// http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-autopsy-performed-indicator
+    /// ObservationAutopsyPerformedIndicatorVrProfile
+    /// http://hl7.org/fhir/us/vr-common-library/StructureDefinition/Observation-autopsy-performed-indicator-vr
     /// </summary>
-    public class ObservationAutopsyPerformedIndicator
+    public class ObservationAutopsyPerformedIndicatorVr
     {
         readonly Observation observation;
-        readonly static Dictionary<string, Resource> resources = new();
 
-        internal ObservationAutopsyPerformedIndicator(Observation observation)
+        internal ObservationAutopsyPerformedIndicatorVr(Observation observation)
         {
             this.observation = observation;
         }
 
         /// <summary>
-        /// Factory for ObservationAutopsyPerformedIndicatorProfile
-        /// http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-autopsy-performed-indicator
+        /// Factory for ObservationAutopsyPerformedIndicatorVrProfile
+        /// http://hl7.org/fhir/us/vr-common-library/StructureDefinition/Observation-autopsy-performed-indicator-vr
         /// </summary>
         public static Observation Create()
         {
-            // clear static resource container.
-            resources.Clear();
-
             var observation = new Observation();
 
-            observation.ObservationAutopsyPerformedIndicator().AddProfile();
-            observation.Code = new CodeableConcept("http://loinc.org", "85699-7", "Autopsy was performed", null);
+            observation.ObservationAutopsyPerformedIndicatorVr().AddProfile();
+            observation.ObservationAutopsyPerformedIndicatorVr().AddFixedValues();
 
             return observation;
         }
 
         /// <summary>
-        /// Factory for ObservationAutopsyPerformedIndicatorProfile with Subject
-        /// http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-autopsy-performed-indicator
+        /// Factory for ObservationAutopsyPerformedIndicatorVrProfile with Subject
+        /// http://hl7.org/fhir/us/vr-common-library/StructureDefinition/Observation-autopsy-performed-indicator-vr
         /// </summary>
         public static Observation Create(Patient subject)
         {
-            // clear static resource container.
-            resources.Clear();
-
             var observation = new Observation();
 
-            observation.ObservationAutopsyPerformedIndicator().AddProfile();
-            observation.Code = new CodeableConcept("http://loinc.org", "85699-7", "Autopsy was performed", null);
-            observation.ObservationAutopsyPerformedIndicator().SubjectAsResource = subject;
+            observation.ObservationAutopsyPerformedIndicatorVr().AddProfile();
+            observation.ObservationAutopsyPerformedIndicatorVr().AddFixedValues();
+            observation.ObservationAutopsyPerformedIndicatorVr().SubjectAsResource = subject;
 
             return observation;
         }
 
-        /// <summary>
-        /// The official URL for the ObservationAutopsyPerformedIndicatorProfile, used to assert conformance.
-        /// </summary>
-        public const string ProfileUrl = "http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-autopsy-performed-indicator";
+        public void AddFixedValues()
+        {
+            observation.Code = new CodeableConcept("http://loinc.org", "85699-7", "Autopsy was performed", null);
+        }
 
         /// <summary>
-        /// Set profile for ObservationAutopsyPerformedIndicatorProfile
+        /// The official URL for the ObservationAutopsyPerformedIndicatorVrProfile, used to assert conformance.
+        /// </summary>
+        public const string ProfileUrl = "http://hl7.org/fhir/us/vr-common-library/StructureDefinition/Observation-autopsy-performed-indicator-vr";
+
+        /// <summary>
+        /// Set profile for ObservationAutopsyPerformedIndicatorVrProfile
         /// </summary>
         public void AddProfile()
         {
@@ -68,7 +66,7 @@ namespace GaTech.Chai.Mdi.ObservationAutopsyPerformedIndicatorProfile
         }
 
         /// <summary>
-        /// Clear profile for ObservationAutopsyPerformedIndicatorProfile
+        /// Clear profile for ObservationAutopsyPerformedIndicatorVrProfile
         /// </summary>
         public void RemoveProfile()
         {
@@ -83,14 +81,14 @@ namespace GaTech.Chai.Mdi.ObservationAutopsyPerformedIndicatorProfile
             get
             {
                 Resource value;
-                resources.TryGetValue(this.observation.Subject.Reference, out value);
+                Record.GetResources().TryGetValue(this.observation.Subject.Reference, out value);
 
                 return (Patient)value;
             }
             set
             {
                 this.observation.Subject = value.AsReference();
-                resources[value.AsReference().Reference] = value;
+                Record.GetResources()[value.AsReference().Reference] = value;
             }
         }
 
@@ -125,11 +123,6 @@ namespace GaTech.Chai.Mdi.ObservationAutopsyPerformedIndicatorProfile
                 Observation.ComponentComponent component = this.observation.Component.GetOrAddComponent("http://loinc.org", "69436-4", null);
                 component.Value = value;
             }
-        }
-
-        public Dictionary<String, Resource> GetReferencedResources()
-        {
-            return resources;
         }
     }
 }

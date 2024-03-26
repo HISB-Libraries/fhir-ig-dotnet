@@ -6,7 +6,7 @@ namespace GaTech.Chai.UsCore.PatientProfile
     /// Class with Patient extensions for US Core Patient Profile
     /// http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient
     /// </summary>
-    public static class CbsPatientExtensions
+    public static class UsCorePatientExtensions
     {
         public static UsCorePatient UsCorePatient(this Patient patient)
         {

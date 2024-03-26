@@ -1,7 +1,7 @@
 ﻿using System;
-namespace GaTech.Chai.Mdi.Common
+namespace GaTech.Chai.Vrdr.Common
 {
-    public class MdiUrls
+    public class VrdrUrls
     {
         public const string partialDateTimeUrl = "http://hl7.org/fhir/us/vrdr/StructureDefinition/PartialDateTime";
         public const string partialDateTimeYearUrl = "http://hl7.org/fhir/us/vrdr/StructureDefinition/Date-Year";

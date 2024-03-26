@@ -24,7 +24,6 @@ namespace GaTech.Chai.UsCore.OrganizationProfile
         public static Organization Create()
         {
             var organization = new Organization();
-            organization.UsCoreOrganization().AddProfile();
             return organization;
         }
 

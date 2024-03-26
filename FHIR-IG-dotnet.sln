@@ -23,6 +23,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EDRSPartialCase1", "EDRSPar
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MDIEDRSBundleRead", "MDI-EDRS-Bundle-Read\MDIEDRSBundleRead.csproj", "{357083FB-C6FE-4787-BBD8-05EF56CB0EE8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GaTech.Chai.Vrdr", "src\GaTech.Chai.Vrdr\GaTech.Chai.Vrdr.csproj", "{C63C671D-7A73-4320-9AE4-5CFF038F2C6D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{2EAEE4A5-3F54-46BF-BCF6-B703B6D06D7B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GaTech.Chai.Vrcl", "src\GaTech.Chai.Vrcl\GaTech.Chai.Vrcl.csproj", "{28D22E49-239C-4C4B-84D2-C66B9377DA83}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,11 +75,21 @@ Global
 		{357083FB-C6FE-4787-BBD8-05EF56CB0EE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{357083FB-C6FE-4787-BBD8-05EF56CB0EE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{357083FB-C6FE-4787-BBD8-05EF56CB0EE8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C63C671D-7A73-4320-9AE4-5CFF038F2C6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C63C671D-7A73-4320-9AE4-5CFF038F2C6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C63C671D-7A73-4320-9AE4-5CFF038F2C6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C63C671D-7A73-4320-9AE4-5CFF038F2C6D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28D22E49-239C-4C4B-84D2-C66B9377DA83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28D22E49-239C-4C4B-84D2-C66B9377DA83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28D22E49-239C-4C4B-84D2-C66B9377DA83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28D22E49-239C-4C4B-84D2-C66B9377DA83}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E1740256-4137-4182-AD1D-62D56DF581DF}
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
 	EndGlobalSection
 EndGlobal
