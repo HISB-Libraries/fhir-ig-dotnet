@@ -5,7 +5,7 @@
 	<PackageId>fhir-ig-share-dotnet</PackageId>
 	<PackageVersion>1.0.0</PackageVersion>
 	<Authors>Brian Ritchie, Myung Choi</Authors>
-	<PackageProjectUrl>https://cbsig.chai.gatech.edu/</PackageProjectUrl>
+	<PackageProjectUrl>https://github.com/HISB-Libraries/fhir-ig-dotnet</PackageProjectUrl>
 	<Description>.NET Library for Commonly Shared Definitions in FHIR MDI and CBS IG</Description>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <NeutralLanguage>en-US</NeutralLanguage>

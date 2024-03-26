@@ -5,7 +5,7 @@
 	<PackageId>fhir-ig-uscore-dotnet</PackageId>
 	<PackageVersion>1.0.0</PackageVersion>
 	<Authors>Brian Ritchie, Myung Choi</Authors>
-	<PackageProjectUrl>https://cbsig.chai.gatech.edu/</PackageProjectUrl>
+	<PackageProjectUrl>https://github.com/HISB-Libraries/fhir-ig-dotnet</PackageProjectUrl>
 	<Description>.NET Library for US Core FHIR IG v5.0.1 - not all resource(s) are implemented. Only refereced ones from CBS and MDI are implemented</Description>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <NeutralLanguage>en-US</NeutralLanguage>

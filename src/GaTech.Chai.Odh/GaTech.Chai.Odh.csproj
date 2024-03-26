@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <PackageId>fhir-ig-odh-dotnet</PackageId>
-    <PackageProjectUrl>https://github.com/mmg-fhir-ig/cbs-ig-dotnet</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/HISB-Libraries/fhir-ig-dotnet</PackageProjectUrl>
     <PackageVersion>0.1.2</PackageVersion>
     <Authors>Myung Choi</Authors>
     <Description>.NET Library for FHIR ODH IG v1.1.0 - only Odh Usual Work implemeted</Description>
