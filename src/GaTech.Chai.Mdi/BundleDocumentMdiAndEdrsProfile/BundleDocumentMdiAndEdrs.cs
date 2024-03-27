@@ -284,21 +284,48 @@ namespace GaTech.Chai.Mdi.BundleDocumentMdiAndEdrsProfile
         private void AddReferencesInCompositionToEntry (Composition composition)
         {
             Resource resource = Record.GetResources()[composition.Subject.Reference];
+            if (resource == null)
+            {
+                throw (new MissingMemberException("Subject resource is not available in Record."));
+            }
+
             if (resource != null)
             {
-                bundle.AddResourceEntry(resource, resource.AsReference().Reference);
+                bool exists = bundle.FindEntry(resource.AsReference()).Any<Bundle.EntryComponent>();
+                if (!exists)
+                {
+                    bundle.AddResourceEntry(resource, resource.AsReference().Reference);
+                }
             }
 
             resource = Record.GetResources()[composition.Author[0].Reference];
+            if (resource == null)
+            {
+                throw (new MissingMemberException("Author[0] resource is not available in Record."));
+            }
+
             if (resource != null)
             {
-                bundle.AddResourceEntry(resource, resource.AsReference().Reference);
+                bool exists = bundle.FindEntry(resource.AsReference()).Any<Bundle.EntryComponent>();
+                if (!exists)
+                {
+                    bundle.AddResourceEntry(resource, resource.AsReference().Reference);
+                }
             }
 
             resource = Record.GetResources()[composition.Attester[0].Party.Reference];
+            if (resource == null)
+            {
+                throw (new MissingMemberException("Attester[0] resource is not available in Record."));
+            }
+
             if (resource != null)
             {
-                bundle.AddResourceEntry(resource, resource.AsReference().Reference);
+                bool exists = bundle.FindEntry(resource.AsReference()).Any<Bundle.EntryComponent>();
+                if (!exists)
+                {
+                    bundle.AddResourceEntry(resource, resource.AsReference().Reference);
+                }
             }
 
             foreach (SectionComponent section in composition.Section)
@@ -306,9 +333,17 @@ namespace GaTech.Chai.Mdi.BundleDocumentMdiAndEdrsProfile
                 foreach (ResourceReference sectionEntryReference in section.Entry)
                 {
                     resource = Record.GetResources()[sectionEntryReference.Reference];
+                    if (resource == null)
+                    {
+                        throw (new MissingMemberException(sectionEntryReference.Reference+" resource is not available in Record."));
+                    }
                     if (resource != null)
                     {
-                        bundle.AddResourceEntry(resource, resource.AsReference().Reference);
+                        bool exists = bundle.FindEntry(resource.AsReference()).Any<Bundle.EntryComponent>();
+                        if (!exists)
+                        {
+                            bundle.AddResourceEntry(resource, resource.AsReference().Reference);
+                        }
                     }
                 }
             }
