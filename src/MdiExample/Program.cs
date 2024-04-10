@@ -42,7 +42,7 @@ namespace MdiExample
             string outputPath = "/Users/mc142/Documents/workspace/MMG/fhir-ig-dotnet/MDIout/";
 
             // US Core PatientProfile
-            Patient patient = UsCorePatient.Create();
+            Patient patient = PatientVr.Create();
             patient.Id = "806c53c0-a993-11ed-afa1-0242ac120002";
 
             // Name

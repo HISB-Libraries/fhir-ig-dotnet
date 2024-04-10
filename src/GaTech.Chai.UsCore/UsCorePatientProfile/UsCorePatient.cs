@@ -30,6 +30,7 @@ namespace GaTech.Chai.UsCore.PatientProfile
         public static Patient Create()
         {
             var patient = new Patient();
+            patient.UsCorePatient().AddProfile();
             return patient;
         }
 
