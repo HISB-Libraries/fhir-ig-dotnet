@@ -1,0 +1,63 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <PackageId>fhir-ig-mdi-dotnet</PackageId>
+    <PackageVersion>2.0.2</PackageVersion>
+    <Authors>Myung Choi</Authors>
+    <PackageProjectUrl>https://github.com/HISB-Libraries/fhir-ig-dotnet</PackageProjectUrl>
+    <Description>.NET Library for HL7 FHIR® Implementation Guide: Vital Records Medicolegal Death Investigation (MDI), 2.0.0-ci-build STU 2</Description>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <NeutralLanguage>en-US</NeutralLanguage>
+    <PackageTags>FHIR, MDI, VRDR, VRCL, IG</PackageTags>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="CbsDocumentBundle\" />
+    <None Remove="CbsCompositionProfile\" />
+    <None Remove="Common\" />
+    <None Remove="MdiToEdrsDocumentBundleProfile %28copy%29\" />
+    <None Remove="UsCoreLabResultObservationProfile\" />
+    <None Remove="ObservationCauseOfDeathConditionProfile %28copy%29\" />
+    <None Remove="ObservationDeathDateProfile %28copy%29\" />
+    <None Remove="ObservationDeathInjuryEventOccurredAtWorkProfile %28copy%29\" />
+    <None Remove="ObservationHowDeathInjuryOccurredProfile %28copy%29\" />
+    <None Remove="ObservationMannerOfDeathProfile %28copy%29\" />
+    <None Remove="BundleMdiToEdrsDocumentProfile %28copy%29\" />
+    <None Remove="BundleMessageToxicologyToMdiProfile %28copy%29\" />
+    <None Remove="CompositionMdiToEdrsProfile %28copy%29\" />
+    <None Remove="CbsSpecimenProfile\" />
+    <None Remove="LocationDeathProfile\" />
+    <None Remove="BundleDocumentMdiAndEdrsProfile\" />
+    <None Remove="CompositionMdiAndEdrsProfile\" />
+    <None Remove="DocumentReferenceMDIReportProfile\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Common\" />
+    <Folder Include="ObservationDeathDateProfile\" />
+    <Folder Include="ObservationDecedentPregnancyProfile\" />
+    <Folder Include="ObservationTobaccoUseContributedToDeathProfile\" />
+    <Folder Include="BundleMessageToxicologyToMdiProfile\" />
+    <Folder Include="MessageHeaderToxicologyToMdiProfile\" />
+    <Folder Include="DiagnosticReportToxicologyLabResultToMdiProfile\" />
+    <Folder Include="SpecimenToxicologyLabProfile\" />
+    <Folder Include="ObservationToxicologyLabResultProfile\" />
+    <Folder Include="LocationDeathProfile\" />
+    <Folder Include="BundleDocumentMdiAndEdrsProfile\" />
+    <Folder Include="CompositionMdiAndEdrsProfile\" />
+    <Folder Include="DocumentReferenceMDIReportProfile\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GaTech.Chai.Share\GaTech.Chai.Share.csproj" />
+    <ProjectReference Include="..\GaTech.Chai.UsCore\GaTech.Chai.UsCore.csproj" />
+    <ProjectReference Include="..\GaTech.Chai.Vrdr\GaTech.Chai.Vrdr.csproj" />
+    <ProjectReference Include="..\GaTech.Chai.Vrcl\GaTech.Chai.Vrcl.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\LICENSE" Pack="true" PackagePath="" />
+  </ItemGroup>
+</Project>

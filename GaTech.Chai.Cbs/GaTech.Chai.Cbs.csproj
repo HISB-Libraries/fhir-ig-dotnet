@@ -1,0 +1,61 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+	<PackageId>fhir-ig-cbs-dotnet</PackageId>
+	<PackageVersion>0.2.1</PackageVersion>
+	<Authors>Brian Ritchie, Myung Choi</Authors>
+	<PackageProjectUrl>https://cbsig.chai.gatech.edu/</PackageProjectUrl>
+	<Description>.NET Library for Case Based Surveillance (CBS) FHIR IG v0.2.1</Description>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <NeutralLanguage>en-US</NeutralLanguage>
+    <PackageTags>FHIR, CBS, IG</PackageTags>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove=".DS_Store" />
+    <None Remove="CbsVaccinationIndicationProfile\" />
+    <None Remove="CbsTravelHistoryProfile\" />
+    <None Remove="CbsLabTestReport\" />
+    <None Remove="CbsPerformingLaboratoryProfile\" />
+    <None Remove="CbsPersonReportingToCDCProfile\" />
+    <None Remove="CbsReportingSourceOrganizationProfile\" />
+    <None Remove="CbsSocialDeterminantsOfHealthProfile\" />
+    <None Remove="CbsCaseNotificationPanelProfile\" />
+    <None Remove="CbsHospitalizationEncounterProfile\" />
+    <None Remove="CbsSpecimenProfile\" />
+    <None Remove="CbsQuestionnaireProfile\" />
+    <None Remove="CbsDocumentBundle\" />
+    <None Remove="CbsComposition\" />
+    <None Remove="CbsPatientProfile %28copy%29\" />
+    <None Remove="Hl7.Fhir.R4" />
+    <None Remove="Hl7.Fhir.Specification.R4" />
+    <None Remove="UsCbsConditionProfile %28copy%29\" />
+    <None Remove="UsCbsTemporaryValueSet\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="CbsVaccinationACIPRecommendationProfile\" />
+    <Folder Include="UsCbsTravelHistoryProfile\" />
+    <Folder Include="UsCbsPerformingLaboratoryProfile\" />
+    <Folder Include="CbsPersonReportingToCDCProfile\" />
+    <Folder Include="UsCbsReportingSourceOrganizationProfile\" />
+    <Folder Include="CbsSocialDeterminantsOfHealthProfile\" />
+    <Folder Include="CbsCaseNotificationPanelProfile\" />
+    <Folder Include="UsCbsHospitalizationEncounterProfile\" />
+    <Folder Include="CbsSpecimenProfile\" />
+    <Folder Include="CbsQuestionnaireProfile\" />
+    <Folder Include="CbsDocumentBundleProfile\" />
+    <Folder Include="CbsCompositionProfile\" />
+    <Folder Include="UsCbsImmunizationProfile\" />
+    <Folder Include="UsCbsLabDiagnosticReportProfile\" />
+    <Folder Include="Common\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GaTech.Chai.UsCore\GaTech.Chai.UsCore.csproj" />
+    <ProjectReference Include="..\GaTech.Chai.UsPublicHealth\GaTech.Chai.UsPublicHealth.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\LICENSE" Pack="true" PackagePath="" />
+  </ItemGroup>
+</Project>

@@ -3,31 +3,29 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.810.13
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GaTech.Chai.Cbs", "src\GaTech.Chai.Cbs\GaTech.Chai.Cbs.csproj", "{AFDDEA78-A8C0-44D8-9434-599BF9AA2A1E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GaTech.Chai.Cbs", "GaTech.Chai.Cbs\GaTech.Chai.Cbs.csproj", "{AFDDEA78-A8C0-44D8-9434-599BF9AA2A1E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CbsExamples", "src\CbsSample\CbsExamples.csproj", "{46DCBA04-A42D-4C1A-9308-A62E5DA75F2F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CbsExamples", "CbsSample\CbsExamples.csproj", "{46DCBA04-A42D-4C1A-9308-A62E5DA75F2F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GaTech.Chai.Share", "src\GaTech.Chai.Share\GaTech.Chai.Share.csproj", "{E1ACD124-7816-400A-8A4A-BF463C3F06A1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GaTech.Chai.Share", "GaTech.Chai.Share\GaTech.Chai.Share.csproj", "{E1ACD124-7816-400A-8A4A-BF463C3F06A1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GaTech.Chai.UsCore", "src\GaTech.Chai.UsCore\GaTech.Chai.UsCore.csproj", "{058C7CB8-8182-415B-B94E-88EC7F441956}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GaTech.Chai.UsCore", "GaTech.Chai.UsCore\GaTech.Chai.UsCore.csproj", "{058C7CB8-8182-415B-B94E-88EC7F441956}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GaTech.Chai.UsPublicHealth", "src\GaTech.Chai.UsPublicHealth\GaTech.Chai.UsPublicHealth.csproj", "{DD562F5B-9775-4E74-BA88-5AF8955F0B23}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GaTech.Chai.UsPublicHealth", "GaTech.Chai.UsPublicHealth\GaTech.Chai.UsPublicHealth.csproj", "{DD562F5B-9775-4E74-BA88-5AF8955F0B23}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GaTech.Chai.Mdi", "src\GaTech.Chai.Mdi\GaTech.Chai.Mdi.csproj", "{B663FAD7-3078-4D90-ADE5-5B975721419C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GaTech.Chai.Mdi", "GaTech.Chai.Mdi\GaTech.Chai.Mdi.csproj", "{B663FAD7-3078-4D90-ADE5-5B975721419C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GaTech.Chai.Odh", "src\GaTech.Chai.Odh\GaTech.Chai.Odh.csproj", "{69C1EBB5-D68F-4B57-9A22-693BCF970804}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GaTech.Chai.Odh", "GaTech.Chai.Odh\GaTech.Chai.Odh.csproj", "{69C1EBB5-D68F-4B57-9A22-693BCF970804}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MdiExample", "src\MdiExample\MdiExample.csproj", "{8F5D002D-A864-45DB-8FFE-BB3398A04F41}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MdiExample", "MdiExample\MdiExample.csproj", "{8F5D002D-A864-45DB-8FFE-BB3398A04F41}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EDRSPartialCase1", "EDRSPartialCase1\EDRSPartialCase1.csproj", "{60560FE8-31BA-45B2-BA46-79001BEDFAFE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GaTech.Chai.Vrdr", "GaTech.Chai.Vrdr\GaTech.Chai.Vrdr.csproj", "{C63C671D-7A73-4320-9AE4-5CFF038F2C6D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MDIEDRSBundleRead", "MDI-EDRS-Bundle-Read\MDIEDRSBundleRead.csproj", "{357083FB-C6FE-4787-BBD8-05EF56CB0EE8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GaTech.Chai.Vrcl", "GaTech.Chai.Vrcl\GaTech.Chai.Vrcl.csproj", "{28D22E49-239C-4C4B-84D2-C66B9377DA83}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GaTech.Chai.Vrdr", "src\GaTech.Chai.Vrdr\GaTech.Chai.Vrdr.csproj", "{C63C671D-7A73-4320-9AE4-5CFF038F2C6D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GaTech.Chai.Nvdrs", "GaTech.Chai.Nvdrs\GaTech.Chai.Nvdrs.csproj", "{DFB7B2B7-AC1E-4DD1-A90F-41401D7003C1}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{2EAEE4A5-3F54-46BF-BCF6-B703B6D06D7B}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GaTech.Chai.Vrcl", "src\GaTech.Chai.Vrcl\GaTech.Chai.Vrcl.csproj", "{28D22E49-239C-4C4B-84D2-C66B9377DA83}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NVDRSTest", "NVDRSTest\NVDRSTest.csproj", "{227C4EEE-BBD4-4C4A-A501-BD04C046D512}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -67,14 +65,6 @@ Global
 		{8F5D002D-A864-45DB-8FFE-BB3398A04F41}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8F5D002D-A864-45DB-8FFE-BB3398A04F41}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8F5D002D-A864-45DB-8FFE-BB3398A04F41}.Release|Any CPU.Build.0 = Release|Any CPU
-		{60560FE8-31BA-45B2-BA46-79001BEDFAFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{60560FE8-31BA-45B2-BA46-79001BEDFAFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{60560FE8-31BA-45B2-BA46-79001BEDFAFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{60560FE8-31BA-45B2-BA46-79001BEDFAFE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{357083FB-C6FE-4787-BBD8-05EF56CB0EE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{357083FB-C6FE-4787-BBD8-05EF56CB0EE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{357083FB-C6FE-4787-BBD8-05EF56CB0EE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{357083FB-C6FE-4787-BBD8-05EF56CB0EE8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C63C671D-7A73-4320-9AE4-5CFF038F2C6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C63C671D-7A73-4320-9AE4-5CFF038F2C6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C63C671D-7A73-4320-9AE4-5CFF038F2C6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -83,13 +73,19 @@ Global
 		{28D22E49-239C-4C4B-84D2-C66B9377DA83}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{28D22E49-239C-4C4B-84D2-C66B9377DA83}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{28D22E49-239C-4C4B-84D2-C66B9377DA83}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DFB7B2B7-AC1E-4DD1-A90F-41401D7003C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFB7B2B7-AC1E-4DD1-A90F-41401D7003C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFB7B2B7-AC1E-4DD1-A90F-41401D7003C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFB7B2B7-AC1E-4DD1-A90F-41401D7003C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{227C4EEE-BBD4-4C4A-A501-BD04C046D512}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{227C4EEE-BBD4-4C4A-A501-BD04C046D512}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{227C4EEE-BBD4-4C4A-A501-BD04C046D512}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{227C4EEE-BBD4-4C4A-A501-BD04C046D512}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E1740256-4137-4182-AD1D-62D56DF581DF}
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
 	EndGlobalSection
 EndGlobal

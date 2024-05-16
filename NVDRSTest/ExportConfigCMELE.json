@@ -1,0 +1,3339 @@
+{
+    "version": "2024",
+    "type": "LECMEFormat",
+    "length": 3921,
+    "data": [
+        {
+            "name": "ForceNewRecord",
+            "firstColumn": 1,
+            "lastColumn": 1,
+            "value": "Y"
+        },
+        {
+            "name": "OverwriteConflicts",
+            "firstColumn": 2,
+            "lastColumn": 2,
+            "value": ""
+        },
+        {
+            "name": "IncidentYear",
+            "firstColumn": 3,
+            "lastColumn": 6,
+            "value": ""
+        },
+        {
+            "name": "IncidentNumber",
+            "firstColumn": 7,
+            "lastColumn": 16,
+            "value": ""
+        },
+        {
+            "name": "VictimNumber",
+            "firstColumn": 17,
+            "lastColumn": 20,
+            "value": ""
+        },
+        {
+            "name": "LastFourDCNumber",
+            "firstColumn": 21,
+            "lastColumn": 24,
+            "value": ""
+        },
+        {
+            "name": "LastFourCMENumber",
+            "firstColumn": 25,
+            "lastColumn": 28,
+            "value": ""
+        },
+        {
+            "name": "InitialOfLastName",
+            "firstColumn": 29,
+            "lastColumn": 29,
+            "value": ""
+        },
+        {
+            "name": "BirthDayofMonth",
+            "firstColumn": 30,
+            "lastColumn": 31,
+            "value": ""
+        },
+        {
+            "name": "DeathMannerAbstractor",
+            "firstColumn": 32,
+            "lastColumn": 33,
+            "value": ""
+        },
+        {
+            "name": "DeathMannerDC",
+            "firstColumn": 34,
+            "lastColumn": 34,
+            "value": ""
+        },
+        {
+            "name": "DeathMannerCME",
+            "firstColumn": 35,
+            "lastColumn": 35,
+            "value": ""
+        },
+        {
+            "name": "DeathMannerLE",
+            "firstColumn": 36,
+            "lastColumn": 36,
+            "value": ""
+        },
+        {
+            "name": "DeathDateYear",
+            "firstColumn": 37,
+            "lastColumn": 40,
+            "value": ""
+        },
+        {
+            "name": "DeathDateMonth",
+            "firstColumn": 41,
+            "lastColumn": 42,
+            "value": ""
+        },
+        {
+            "name": "DeathDateDay",
+            "firstColumn": 43,
+            "lastColumn": 44,
+            "value": ""
+        },
+        {
+            "name": "DeathState",
+            "firstColumn": 45,
+            "lastColumn": 46,
+            "value": ""
+        },
+        {
+            "name": "DeathCounty",
+            "firstColumn": 47,
+            "lastColumn": 49,
+            "value": ""
+        },
+        {
+            "name": "DeathPronouncedDateYear",
+            "firstColumn": 50,
+            "lastColumn": 53,
+            "value": ""
+        },
+        {
+            "name": "DeathPronouncedDateMonth",
+            "firstColumn": 54,
+            "lastColumn": 55,
+            "value": ""
+        },
+        {
+            "name": "DeathPronouncedDateDay",
+            "firstColumn": 56,
+            "lastColumn": 57,
+            "value": ""
+        },
+        {
+            "name": "DeathPlace",
+            "firstColumn": 58,
+            "lastColumn": 58,
+            "value": ""
+        },
+        {
+            "name": "DeathPlaceText",
+            "firstColumn": 59,
+            "lastColumn": 88,
+            "value": ""
+        },
+        {
+            "name": "AutopsyPerformed",
+            "firstColumn": 89,
+            "lastColumn": 89,
+            "value": ""
+        },
+        {
+            "name": "InjuryDateYear",
+            "firstColumn": 90,
+            "lastColumn": 93,
+            "value": ""
+        },
+        {
+            "name": "InjuryDateMonth",
+            "firstColumn": 94,
+            "lastColumn": 95,
+            "value": ""
+        },
+        {
+            "name": "InjuryDateDay",
+            "firstColumn": 96,
+            "lastColumn": 97,
+            "value": ""
+        },
+        {
+            "name": "InjuryTime",
+            "firstColumn": 98,
+            "lastColumn": 101,
+            "value": ""
+        },
+        {
+            "name": "SurvivalTime",
+            "firstColumn": 102,
+            "lastColumn": 104,
+            "value": ""
+        },
+        {
+            "name": "SurvivalTimeUnit",
+            "firstColumn": 105,
+            "lastColumn": 105,
+            "value": ""
+        },
+        {
+            "name": "InjuryLocation",
+            "firstColumn": 106,
+            "lastColumn": 107,
+            "value": ""
+        },
+        {
+            "name": "InjuredAtWork",
+            "firstColumn": 108,
+            "lastColumn": 108,
+            "value": ""
+        },
+        {
+            "name": "InjuredAtVictimHome",
+            "firstColumn": 109,
+            "lastColumn": 109,
+            "value": ""
+        },
+        {
+            "name": "EMSPresent",
+            "firstColumn": 110,
+            "lastColumn": 110,
+            "value": ""
+        },
+        {
+            "name": "VictimInCustody",
+            "firstColumn": 111,
+            "lastColumn": 111,
+            "value": ""
+        },
+        {
+            "name": "AlcoholUseSuspected",
+            "firstColumn": 112,
+            "lastColumn": 112,
+            "value": ""
+        },
+        {
+            "name": "InjuryState",
+            "firstColumn": 113,
+            "lastColumn": 114,
+            "value": ""
+        },
+        {
+            "name": "InjuryCounty",
+            "firstColumn": 115,
+            "lastColumn": 117,
+            "value": ""
+        },
+        {
+            "name": "InjuryCity",
+            "firstColumn": 118,
+            "lastColumn": 122,
+            "value": ""
+        },
+        {
+            "name": "InjuryZip",
+            "firstColumn": 123,
+            "lastColumn": 127,
+            "value": ""
+        },
+        {
+            "name": "CensusTract",
+            "firstColumn": 128,
+            "lastColumn": 134,
+            "value": ""
+        },
+        {
+            "name": "CensusBlock",
+            "firstColumn": 135,
+            "lastColumn": 135,
+            "value": ""
+        },
+        {
+            "name": "SexVictim",
+            "firstColumn": 136,
+            "lastColumn": 136,
+            "value": ""
+        },
+        {
+            "name": "SexualOrientation",
+            "firstColumn": 137,
+            "lastColumn": 137,
+            "value": ""
+        },
+        {
+            "name": "Transgender",
+            "firstColumn": 138,
+            "lastColumn": 138,
+            "value": ""
+        },
+        {
+            "name": "Age",
+            "firstColumn": 139,
+            "lastColumn": 141,
+            "value": " 23"
+        },
+        {
+            "name": "AgeUnit",
+            "firstColumn": 142,
+            "lastColumn": 142,
+            "value": ""
+        },
+        {
+            "name": "EthnicityVictim",
+            "firstColumn": 143,
+            "lastColumn": 143,
+            "value": ""
+        },
+        {
+            "name": "RaceWhiteVictim",
+            "firstColumn": 144,
+            "lastColumn": 144,
+            "value": ""
+        },
+        {
+            "name": "RaceBlackVictim",
+            "firstColumn": 145,
+            "lastColumn": 145,
+            "value": ""
+        },
+        {
+            "name": "RaceAmericanIndianVictim",
+            "firstColumn": 146,
+            "lastColumn": 146,
+            "value": ""
+        },
+        {
+            "name": "RaceAsianVictim",
+            "firstColumn": 147,
+            "lastColumn": 147,
+            "value": ""
+        },
+        {
+            "name": "RacePacificIslanderVictim",
+            "firstColumn": 148,
+            "lastColumn": 148,
+            "value": ""
+        },
+        {
+            "name": "RaceOtherVictim",
+            "firstColumn": 149,
+            "lastColumn": 149,
+            "value": ""
+        },
+        {
+            "name": "RaceUnspecifiedVictim",
+            "firstColumn": 150,
+            "lastColumn": 150,
+            "value": ""
+        },
+        {
+            "name": "HeightFeet",
+            "firstColumn": 151,
+            "lastColumn": 151,
+            "value": ""
+        },
+        {
+            "name": "HeightInches",
+            "firstColumn": 152,
+            "lastColumn": 153,
+            "value": ""
+        },
+        {
+            "name": "Weight",
+            "firstColumn": 154,
+            "lastColumn": 156,
+            "value": ""
+        },
+        {
+            "name": "Pregnant",
+            "firstColumn": 157,
+            "lastColumn": 157,
+            "value": ""
+        },
+        {
+            "name": "MaritalStatus",
+            "firstColumn": 158,
+            "lastColumn": 158,
+            "value": "M"
+        },
+        {
+            "name": "Military",
+            "firstColumn": 159,
+            "lastColumn": 159,
+            "value": ""
+        },
+        {
+            "name": "Homeless",
+            "firstColumn": 160,
+            "lastColumn": 160,
+            "value": ""
+        },
+        {
+            "name": "RecentRelease",
+            "firstColumn": 161,
+            "lastColumn": 161,
+            "value": ""
+        },
+        {
+            "name": "EducationLevel",
+            "firstColumn": 162,
+            "lastColumn": 162,
+            "value": ""
+        },
+        {
+            "name": "EducationYears",
+            "firstColumn": 163,
+            "lastColumn": 164,
+            "value": ""
+        },
+        {
+            "name": "Industry",
+            "firstColumn": 165,
+            "lastColumn": 168,
+            "value": ""
+        },
+        {
+            "name": "IndustryText",
+            "firstColumn": 169,
+            "lastColumn": 218,
+            "value": ""
+        },
+        {
+            "name": "OccupationText",
+            "firstColumn": 219,
+            "lastColumn": 268,
+            "value": ""
+        },
+        {
+            "name": "UsualOccupation",
+            "firstColumn": 269,
+            "lastColumn": 272,
+            "value": ""
+        },
+        {
+            "name": "OccupationCurrentText",
+            "firstColumn": 273,
+            "lastColumn": 322,
+            "value": ""
+        },
+        {
+            "name": "BirthPlace",
+            "firstColumn": 323,
+            "lastColumn": 324,
+            "value": ""
+        },
+        {
+            "name": "BirthCountryOther",
+            "firstColumn": 325,
+            "lastColumn": 354,
+            "value": ""
+        },
+        {
+            "name": "Country",
+            "firstColumn": 355,
+            "lastColumn": 356,
+            "value": ""
+        },
+        {
+            "name": "ResidenceState",
+            "firstColumn": 357,
+            "lastColumn": 358,
+            "value": ""
+        },
+        {
+            "name": "ResidenceCounty",
+            "firstColumn": 359,
+            "lastColumn": 361,
+            "value": ""
+        },
+        {
+            "name": "ResidenceCity",
+            "firstColumn": 362,
+            "lastColumn": 366,
+            "value": ""
+        },
+        {
+            "name": "ResidenceZip",
+            "firstColumn": 367,
+            "lastColumn": 371,
+            "value": ""
+        },
+        {
+            "name": "ResidenceCensusTract",
+            "firstColumn": 372,
+            "lastColumn": 378,
+            "value": ""
+        },
+        {
+            "name": "ResidenceCensusBlock",
+            "firstColumn": 379,
+            "lastColumn": 379,
+            "value": ""
+        },
+        {
+            "name": "ToxicologyNotAvailable",
+            "firstColumn": 380,
+            "lastColumn": 380,
+            "value": ""
+        },
+        {
+            "name": "SpecimensDateYear",
+            "firstColumn": 381,
+            "lastColumn": 384,
+            "value": ""
+        },
+        {
+            "name": "SpecimensDateMonth",
+            "firstColumn": 385,
+            "lastColumn": 386,
+            "value": ""
+        },
+        {
+            "name": "SpecimensDateDay",
+            "firstColumn": 387,
+            "lastColumn": 388,
+            "value": ""
+        },
+        {
+            "name": "SpecimensTime",
+            "firstColumn": 389,
+            "lastColumn": 392,
+            "value": ""
+        },
+        {
+            "name": "AlcoholTested",
+            "firstColumn": 393,
+            "lastColumn": 393,
+            "value": ""
+        },
+        {
+            "name": "AlcoholResult",
+            "firstColumn": 394,
+            "lastColumn": 394,
+            "value": ""
+        },
+        {
+            "name": "AlcoholLevel",
+            "firstColumn": 395,
+            "lastColumn": 397,
+            "value": ""
+        },
+        {
+            "name": "AmphetamineTested",
+            "firstColumn": 398,
+            "lastColumn": 398,
+            "value": ""
+        },
+        {
+            "name": "AmphetamineResult",
+            "firstColumn": 399,
+            "lastColumn": 399,
+            "value": ""
+        },
+        {
+            "name": "AnticonvulsantsTested",
+            "firstColumn": 400,
+            "lastColumn": 400,
+            "value": ""
+        },
+        {
+            "name": "AnticonvulsantsResult",
+            "firstColumn": 401,
+            "lastColumn": 401,
+            "value": ""
+        },
+        {
+            "name": "AntiDepressantTested",
+            "firstColumn": 402,
+            "lastColumn": 402,
+            "value": ""
+        },
+        {
+            "name": "AntiDepressantResult",
+            "firstColumn": 403,
+            "lastColumn": 403,
+            "value": ""
+        },
+        {
+            "name": "AntiPsychoticTested",
+            "firstColumn": 404,
+            "lastColumn": 404,
+            "value": ""
+        },
+        {
+            "name": "AntiPsychoticResult",
+            "firstColumn": 405,
+            "lastColumn": 405,
+            "value": ""
+        },
+        {
+            "name": "BarbituratesTested",
+            "firstColumn": 406,
+            "lastColumn": 406,
+            "value": ""
+        },
+        {
+            "name": "BarbituratesResult",
+            "firstColumn": 407,
+            "lastColumn": 407,
+            "value": ""
+        },
+        {
+            "name": "BenzodiazepinesTested",
+            "firstColumn": 408,
+            "lastColumn": 408,
+            "value": ""
+        },
+        {
+            "name": "BenzodiazepinesResult",
+            "firstColumn": 409,
+            "lastColumn": 409,
+            "value": ""
+        },
+        {
+            "name": "CarbonMonoxideTested",
+            "firstColumn": 410,
+            "lastColumn": 410,
+            "value": ""
+        },
+        {
+            "name": "CarbonMonoxideResult",
+            "firstColumn": 411,
+            "lastColumn": 411,
+            "value": ""
+        },
+        {
+            "name": "CarbonMonoxideSource",
+            "firstColumn": 412,
+            "lastColumn": 412,
+            "value": ""
+        },
+        {
+            "name": "CocaineTested",
+            "firstColumn": 413,
+            "lastColumn": 413,
+            "value": ""
+        },
+        {
+            "name": "CocaineResult",
+            "firstColumn": 414,
+            "lastColumn": 414,
+            "value": ""
+        },
+        {
+            "name": "MarijuanaTested",
+            "firstColumn": 415,
+            "lastColumn": 415,
+            "value": ""
+        },
+        {
+            "name": "MarijuanaResult",
+            "firstColumn": 416,
+            "lastColumn": 416,
+            "value": ""
+        },
+        {
+            "name": "MuscleRelaxorTested",
+            "firstColumn": 417,
+            "lastColumn": 417,
+            "value": ""
+        },
+        {
+            "name": "MuscleRelaxorResult",
+            "firstColumn": 418,
+            "lastColumn": 418,
+            "value": ""
+        },
+        {
+            "name": "OpiateTested",
+            "firstColumn": 419,
+            "lastColumn": 419,
+            "value": ""
+        },
+        {
+            "name": "OpiateResult",
+            "firstColumn": 420,
+            "lastColumn": 420,
+            "value": ""
+        },
+        {
+            "name": "NumberWounds",
+            "firstColumn": 421,
+            "lastColumn": 422,
+            "value": ""
+        },
+        {
+            "name": "NumberBullets",
+            "firstColumn": 423,
+            "lastColumn": 424,
+            "value": ""
+        },
+        {
+            "name": "WoundToHead",
+            "firstColumn": 425,
+            "lastColumn": 425,
+            "value": ""
+        },
+        {
+            "name": "WoundToFace",
+            "firstColumn": 426,
+            "lastColumn": 426,
+            "value": ""
+        },
+        {
+            "name": "WoundToNeck",
+            "firstColumn": 427,
+            "lastColumn": 427,
+            "value": ""
+        },
+        {
+            "name": "WoundToUpperExtremity",
+            "firstColumn": 428,
+            "lastColumn": 428,
+            "value": ""
+        },
+        {
+            "name": "WoundToSpine",
+            "firstColumn": 429,
+            "lastColumn": 429,
+            "value": ""
+        },
+        {
+            "name": "WoundToThorax",
+            "firstColumn": 430,
+            "lastColumn": 430,
+            "value": ""
+        },
+        {
+            "name": "WoundToAbdomen",
+            "firstColumn": 431,
+            "lastColumn": 431,
+            "value": ""
+        },
+        {
+            "name": "WoundToLowerExtremity",
+            "firstColumn": 432,
+            "lastColumn": 432,
+            "value": ""
+        },
+        {
+            "name": "CircumstancesKnownCME",
+            "firstColumn": 433,
+            "lastColumn": 433,
+            "value": ""
+        },
+        {
+            "name": "AbusedAsChildCME",
+            "firstColumn": 434,
+            "lastColumn": 434,
+            "value": ""
+        },
+        {
+            "name": "AlcoholProblemCME",
+            "firstColumn": 435,
+            "lastColumn": 435,
+            "value": ""
+        },
+        {
+            "name": "ArgumentCME",
+            "firstColumn": 436,
+            "lastColumn": 436,
+            "value": ""
+        },
+        {
+            "name": "ArgumentOtherCME",
+            "firstColumn": 437,
+            "lastColumn": 437,
+            "value": ""
+        },
+        {
+            "name": "ArgumentTimingCME",
+            "firstColumn": 438,
+            "lastColumn": 438,
+            "value": ""
+        },
+        {
+            "name": "BrawlCME",
+            "firstColumn": 439,
+            "lastColumn": 439,
+            "value": ""
+        },
+        {
+            "name": "BulletRicochetCME",
+            "firstColumn": 440,
+            "lastColumn": 440,
+            "value": ""
+        },
+        {
+            "name": "BystanderCME",
+            "firstColumn": 441,
+            "lastColumn": 441,
+            "value": ""
+        },
+        {
+            "name": "CelebratoryFiringCME",
+            "firstColumn": 442,
+            "lastColumn": 442,
+            "value": ""
+        },
+        {
+            "name": "CircumstancesOtherCME",
+            "firstColumn": 443,
+            "lastColumn": 443,
+            "value": ""
+        },
+        {
+            "name": "CircumstancesOtherTextCME",
+            "firstColumn": 444,
+            "lastColumn": 698,
+            "value": ""
+        },
+        {
+            "name": "CrisisProstitutionCME",
+            "firstColumn": 699,
+            "lastColumn": 699,
+            "value": ""
+        },
+        {
+            "name": "CrisisAlcoholProblemCME",
+            "firstColumn": 700,
+            "lastColumn": 700,
+            "value": ""
+        },
+        {
+            "name": "CrisisCivilLegalCME",
+            "firstColumn": 701,
+            "lastColumn": 701,
+            "value": ""
+        },
+        {
+            "name": "CrisisCriminalCME",
+            "firstColumn": 702,
+            "lastColumn": 702,
+            "value": ""
+        },
+        {
+            "name": "CrisisDisasterExposureCME",
+            "firstColumn": 703,
+            "lastColumn": 703,
+            "value": ""
+        },
+        {
+            "name": "CrisisEvictionCME",
+            "firstColumn": 704,
+            "lastColumn": 704,
+            "value": ""
+        },
+        {
+            "name": "CrisisFamilyStressorCME",
+            "firstColumn": 705,
+            "lastColumn": 705,
+            "value": ""
+        },
+        {
+            "name": "CrisisFinancialCME",
+            "firstColumn": 706,
+            "lastColumn": 706,
+            "value": ""
+        },
+        {
+            "name": "CrisisIntimatePartnerProblemCME",
+            "firstColumn": 707,
+            "lastColumn": 707,
+            "value": ""
+        },
+        {
+            "name": "CrisisJealousyCME",
+            "firstColumn": 708,
+            "lastColumn": 708,
+            "value": ""
+        },
+        {
+            "name": "CrisisJobCME",
+            "firstColumn": 709,
+            "lastColumn": 709,
+            "value": ""
+        },
+        {
+            "name": "CrisisMentalHealthCME",
+            "firstColumn": 710,
+            "lastColumn": 710,
+            "value": ""
+        },
+        {
+            "name": "CrisisOtherAddictionCME",
+            "firstColumn": 711,
+            "lastColumn": 711,
+            "value": ""
+        },
+        {
+            "name": "CrisisPhysicalHealthCME",
+            "firstColumn": 712,
+            "lastColumn": 712,
+            "value": ""
+        },
+        {
+            "name": "CrisisRelatedDeathFriendOrFamilyOtherCME",
+            "firstColumn": 713,
+            "lastColumn": 713,
+            "value": ""
+        },
+        {
+            "name": "CrisisRelatedSuicideFriendOrFamilyCME",
+            "firstColumn": 714,
+            "lastColumn": 714,
+            "value": ""
+        },
+        {
+            "name": "CrisisRelationshipProblemOtherCME",
+            "firstColumn": 715,
+            "lastColumn": 715,
+            "value": ""
+        },
+        {
+            "name": "CrisisSchoolCME",
+            "firstColumn": 716,
+            "lastColumn": 716,
+            "value": ""
+        },
+        {
+            "name": "CrisisStalkingCME",
+            "firstColumn": 717,
+            "lastColumn": 717,
+            "value": ""
+        },
+        {
+            "name": "CrisisSubstanceAbuseCME",
+            "firstColumn": 718,
+            "lastColumn": 718,
+            "value": ""
+        },
+        {
+            "name": "DeathAbuseCME",
+            "firstColumn": 719,
+            "lastColumn": 719,
+            "value": ""
+        },
+        {
+            "name": "DeathFriendOrFamilyOtherCME",
+            "firstColumn": 720,
+            "lastColumn": 720,
+            "value": ""
+        },
+        {
+            "name": "DepressedMoodCME",
+            "firstColumn": 721,
+            "lastColumn": 721,
+            "value": ""
+        },
+        {
+            "name": "DisasterExposureCME",
+            "firstColumn": 722,
+            "lastColumn": 722,
+            "value": ""
+        },
+        {
+            "name": "DisclosedIntentToWhomCME",
+            "firstColumn": 723,
+            "lastColumn": 723,
+            "value": ""
+        },
+        {
+            "name": "DriveByShootingCME",
+            "firstColumn": 724,
+            "lastColumn": 724,
+            "value": ""
+        },
+        {
+            "name": "DrugInvolvementCME",
+            "firstColumn": 725,
+            "lastColumn": 725,
+            "value": ""
+        },
+        {
+            "name": "EvictionOrLossOfHomeCME",
+            "firstColumn": 726,
+            "lastColumn": 726,
+            "value": ""
+        },
+        {
+            "name": "FightBetweenTwoPeopleCME",
+            "firstColumn": 727,
+            "lastColumn": 727,
+            "value": ""
+        },
+        {
+            "name": "FinancialProblemCME",
+            "firstColumn": 728,
+            "lastColumn": 728,
+            "value": ""
+        },
+        {
+            "name": "UNUSED1",
+            "firstColumn": 729,
+            "lastColumn": 729,
+            "value": ""
+        },
+        {
+            "name": "GangRelatedCME",
+            "firstColumn": 730,
+            "lastColumn": 730,
+            "value": ""
+        },
+        {
+            "name": "GunCleaningCME",
+            "firstColumn": 731,
+            "lastColumn": 731,
+            "value": ""
+        },
+        {
+            "name": "GunDefectMalfunctionCME",
+            "firstColumn": 732,
+            "lastColumn": 732,
+            "value": ""
+        },
+        {
+            "name": "GunDroppedCME",
+            "firstColumn": 733,
+            "lastColumn": 733,
+            "value": ""
+        },
+        {
+            "name": "GunFiredHolsteringCME",
+            "firstColumn": 734,
+            "lastColumn": 734,
+            "value": ""
+        },
+        {
+            "name": "GunFiredLoadingUnloadingCME",
+            "firstColumn": 735,
+            "lastColumn": 735,
+            "value": ""
+        },
+        {
+            "name": "GunFiredOperatingSafetyLockCME",
+            "firstColumn": 736,
+            "lastColumn": 736,
+            "value": ""
+        },
+        {
+            "name": "GunPlayingCME",
+            "firstColumn": 737,
+            "lastColumn": 737,
+            "value": ""
+        },
+        {
+            "name": "GunShowingCME",
+            "firstColumn": 738,
+            "lastColumn": 738,
+            "value": ""
+        },
+        {
+            "name": "GunThoughtSafetyEngagedCME",
+            "firstColumn": 739,
+            "lastColumn": 739,
+            "value": ""
+        },
+        {
+            "name": "GunThoughtToyCME",
+            "firstColumn": 740,
+            "lastColumn": 740,
+            "value": ""
+        },
+        {
+            "name": "GunThoughtUnloadedMagazineDisengagedCME",
+            "firstColumn": 741,
+            "lastColumn": 741,
+            "value": ""
+        },
+        {
+            "name": "GunThoughtUnloadedOtherCME",
+            "firstColumn": 742,
+            "lastColumn": 742,
+            "value": ""
+        },
+        {
+            "name": "GunUnintentionallyPulledTriggerCME",
+            "firstColumn": 743,
+            "lastColumn": 743,
+            "value": ""
+        },
+        {
+            "name": "HateCrimeCME",
+            "firstColumn": 744,
+            "lastColumn": 744,
+            "value": ""
+        },
+        {
+            "name": "HistoryMentalIllnessTreatmentCME",
+            "firstColumn": 745,
+            "lastColumn": 745,
+            "value": ""
+        },
+        {
+            "name": "HuntingCME",
+            "firstColumn": 746,
+            "lastColumn": 746,
+            "value": ""
+        },
+        {
+            "name": "InterpersonalViolencePerpetratorCME",
+            "firstColumn": 747,
+            "lastColumn": 747,
+            "value": ""
+        },
+        {
+            "name": "InterpersonalViolenceVictimCME",
+            "firstColumn": 748,
+            "lastColumn": 748,
+            "value": ""
+        },
+        {
+            "name": "IntervenerAssistingVictimCME",
+            "firstColumn": 749,
+            "lastColumn": 749,
+            "value": ""
+        },
+        {
+            "name": "IntimatePartnerProblemCME",
+            "firstColumn": 750,
+            "lastColumn": 750,
+            "value": ""
+        },
+        {
+            "name": "IntimatePartnerViolenceCME",
+            "firstColumn": 751,
+            "lastColumn": 751,
+            "value": ""
+        },
+        {
+            "name": "JealouslyCME",
+            "firstColumn": 752,
+            "lastColumn": 752,
+            "value": ""
+        },
+        {
+            "name": "JobProblemCME",
+            "firstColumn": 753,
+            "lastColumn": 753,
+            "value": ""
+        },
+        {
+            "name": "JustifiableSelfDefenseCME",
+            "firstColumn": 754,
+            "lastColumn": 754,
+            "value": ""
+        },
+        {
+            "name": "LegalProblemOtherCME",
+            "firstColumn": 755,
+            "lastColumn": 755,
+            "value": ""
+        },
+        {
+            "name": "MentalHealthDiagnosis1CME",
+            "firstColumn": 756,
+            "lastColumn": 757,
+            "value": ""
+        },
+        {
+            "name": "MentalHealthDiagnosis2CME",
+            "firstColumn": 758,
+            "lastColumn": 759,
+            "value": ""
+        },
+        {
+            "name": "MentalHealthDiagnosisOtherCME",
+            "firstColumn": 760,
+            "lastColumn": 809,
+            "value": ""
+        },
+        {
+            "name": "MentalHealthProblemCME",
+            "firstColumn": 810,
+            "lastColumn": 810,
+            "value": ""
+        },
+        {
+            "name": "MentalIllnessTreatmentCurrentCME",
+            "firstColumn": 811,
+            "lastColumn": 811,
+            "value": ""
+        },
+        {
+            "name": "MercyKillingCME",
+            "firstColumn": 812,
+            "lastColumn": 812,
+            "value": ""
+        },
+        {
+            "name": "NatureOtherCrime1CME",
+            "firstColumn": 813,
+            "lastColumn": 814,
+            "value": ""
+        },
+        {
+            "name": "NatureOtherCrime2CME",
+            "firstColumn": 815,
+            "lastColumn": 816,
+            "value": ""
+        },
+        {
+            "name": "OtherAddictionCME",
+            "firstColumn": 817,
+            "lastColumn": 817,
+            "value": ""
+        },
+        {
+            "name": "OtherContextInjuryCME",
+            "firstColumn": 818,
+            "lastColumn": 818,
+            "value": ""
+        },
+        {
+            "name": "OtherCrimeInProgressCME",
+            "firstColumn": 819,
+            "lastColumn": 819,
+            "value": ""
+        },
+        {
+            "name": "Other Mechanism Injury CME",
+            "firstColumn": 820,
+            "lastColumn": 820,
+            "value": ""
+        },
+        {
+            "name": "Precipitated by Other Crime CME",
+            "firstColumn": 821,
+            "lastColumn": 821,
+            "value": ""
+        },
+        {
+            "name": "Physical Health Problem CME",
+            "firstColumn": 822,
+            "lastColumn": 822,
+            "value": ""
+        },
+        {
+            "name": "Prostitution CME",
+            "firstColumn": 823,
+            "lastColumn": 823,
+            "value": ""
+        },
+        {
+            "name": "Random Violence CME",
+            "firstColumn": 824,
+            "lastColumn": 824,
+            "value": ""
+        },
+        {
+            "name": "Recent Criminal Legal Problem CME",
+            "firstColumn": 825,
+            "lastColumn": 825,
+            "value": ""
+        },
+        {
+            "name": "Recent Suicide Friend Family CME",
+            "firstColumn": 826,
+            "lastColumn": 826,
+            "value": ""
+        },
+        {
+            "name": "Relationship Problem Other CME",
+            "firstColumn": 827,
+            "lastColumn": 827,
+            "value": ""
+        },
+        {
+            "name": "School Problem CME",
+            "firstColumn": 828,
+            "lastColumn": 828,
+            "value": ""
+        },
+        {
+            "name": "Self Defense CME",
+            "firstColumn": 829,
+            "lastColumn": 829,
+            "value": ""
+        },
+        {
+            "name": "Stalking CME",
+            "firstColumn": 830,
+            "lastColumn": 830,
+            "value": ""
+        },
+        {
+            "name": "Substance Abuse Other CME",
+            "firstColumn": 831,
+            "lastColumn": 831,
+            "value": ""
+        },
+        {
+            "name": "Suicide Attempt History CME",
+            "firstColumn": 832,
+            "lastColumn": 832,
+            "value": ""
+        },
+        {
+            "name": "Suicide Intent Disclosed CME",
+            "firstColumn": 833,
+            "lastColumn": 833,
+            "value": ""
+        },
+        {
+            "name": "Suicide Note CME",
+            "firstColumn": 834,
+            "lastColumn": 834,
+            "value": ""
+        },
+        {
+            "name": "Suicide Thought History CME",
+            "firstColumn": 835,
+            "lastColumn": 835,
+            "value": ""
+        },
+        {
+            "name": "Target Shooting CME",
+            "firstColumn": 836,
+            "lastColumn": 836,
+            "value": ""
+        },
+        {
+            "name": "Terrorist Attack CME",
+            "firstColumn": 837,
+            "lastColumn": 837,
+            "value": ""
+        },
+        {
+            "name": "Traumatic Anniversary CME",
+            "firstColumn": 838,
+            "lastColumn": 838,
+            "value": ""
+        },
+        {
+            "name": "Victim Police Officer On Duty CME",
+            "firstColumn": 839,
+            "lastColumn": 839,
+            "value": ""
+        },
+        {
+            "name": "Victim Used Weapon CME",
+            "firstColumn": 840,
+            "lastColumn": 840,
+            "value": ""
+        },
+        {
+            "name": "Walk By Assault CME",
+            "firstColumn": 841,
+            "lastColumn": 841,
+            "value": ""
+        },
+        {
+            "name": "Circumstances Other LE",
+            "firstColumn": 842,
+            "lastColumn": 842,
+            "value": ""
+        },
+        {
+            "name": "Abused As Child LE",
+            "firstColumn": 843,
+            "lastColumn": 843,
+            "value": ""
+        },
+        {
+            "name": "Alcohol Problem LE",
+            "firstColumn": 844,
+            "lastColumn": 844,
+            "value": ""
+        },
+        {
+            "name": "Argument LE",
+            "firstColumn": 845,
+            "lastColumn": 845,
+            "value": ""
+        },
+        {
+            "name": "Argument Other LE",
+            "firstColumn": 846,
+            "lastColumn": 846,
+            "value": ""
+        },
+        {
+            "name": "Argument Timing LE",
+            "firstColumn": 847,
+            "lastColumn": 847,
+            "value": ""
+        },
+        {
+            "name": "Brawl LE",
+            "firstColumn": 848,
+            "lastColumn": 848,
+            "value": ""
+        },
+        {
+            "name": "Bullet Ricochet LE",
+            "firstColumn": 849,
+            "lastColumn": 849,
+            "value": ""
+        },
+        {
+            "name": "Bystander LE",
+            "firstColumn": 850,
+            "lastColumn": 850,
+            "value": ""
+        },
+        {
+            "name": "Celebratory Firing LE",
+            "firstColumn": 851,
+            "lastColumn": 851,
+            "value": ""
+        },
+        {
+            "name": "Is Circumstances Known",
+            "firstColumn": 852,
+            "lastColumn": 852,
+            "value": ""
+        },
+        {
+            "name": "Circumstances Other Text LE",
+            "firstColumn": 853,
+            "lastColumn": 1107,
+            "value": ""
+        },
+        {
+            "name": "Crisis Prostitution LE",
+            "firstColumn": 1108,
+            "lastColumn": 1108,
+            "value": ""
+        },
+        {
+            "name": "Crisis Alcohol Problem LE",
+            "firstColumn": 1109,
+            "lastColumn": 1109,
+            "value": ""
+        },
+        {
+            "name": "Crisis Civil Legal LE",
+            "firstColumn": 1110,
+            "lastColumn": 1110,
+            "value": ""
+        },
+        {
+            "name": "Crisis Criminal LE",
+            "firstColumn": 1111,
+            "lastColumn": 1111,
+            "value": ""
+        },
+        {
+            "name": "Crisis Disaster Exposure LE",
+            "firstColumn": 1112,
+            "lastColumn": 1112,
+            "value": ""
+        },
+        {
+            "name": "Crisis Eviction LE",
+            "firstColumn": 1113,
+            "lastColumn": 1113,
+            "value": ""
+        },
+        {
+            "name": "Crisis Family Stressor LE",
+            "firstColumn": 1114,
+            "lastColumn": 1114,
+            "value": ""
+        },
+        {
+            "name": "Crisis Financial LE",
+            "firstColumn": 1115,
+            "lastColumn": 1115,
+            "value": ""
+        },
+        {
+            "name": "Crisis Intimate Partner Problem LE",
+            "firstColumn": 1116,
+            "lastColumn": 1116,
+            "value": ""
+        },
+        {
+            "name": "Crisis Jealousy LE",
+            "firstColumn": 1117,
+            "lastColumn": 1117,
+            "value": ""
+        },
+        {
+            "name": "Crisis Job LE",
+            "firstColumn": 1118,
+            "lastColumn": 1118,
+            "value": ""
+        },
+        {
+            "name": "Crisis Mental Health LE",
+            "firstColumn": 1119,
+            "lastColumn": 1119,
+            "value": ""
+        },
+        {
+            "name": "Crisis Other Addiction LE",
+            "firstColumn": 1120,
+            "lastColumn": 1120,
+            "value": ""
+        },
+        {
+            "name": "Crisis Physical Health LE",
+            "firstColumn": 1121,
+            "lastColumn": 1121,
+            "value": ""
+        },
+        {
+            "name": "Crisis Related Death Friend Or Family Other LE",
+            "firstColumn": 1122,
+            "lastColumn": 1122,
+            "value": ""
+        },
+        {
+            "name": "Crisis Related Suicide Friend Or Family LE",
+            "firstColumn": 1123,
+            "lastColumn": 1123,
+            "value": ""
+        },
+        {
+            "name": "Crisis Relationship Problem Other LE",
+            "firstColumn": 1124,
+            "lastColumn": 1124,
+            "value": ""
+        },
+        {
+            "name": "Crisis School LE",
+            "firstColumn": 1125,
+            "lastColumn": 1125,
+            "value": ""
+        },
+        {
+            "name": "Crisis Stalking LE",
+            "firstColumn": 1126,
+            "lastColumn": 1126,
+            "value": ""
+        },
+        {
+            "name": "Crisis Substance Abuse LE",
+            "firstColumn": 1127,
+            "lastColumn": 1127,
+            "value": ""
+        },
+        {
+            "name": "Death Abuse LE",
+            "firstColumn": 1128,
+            "lastColumn": 1128,
+            "value": ""
+        },
+        {
+            "name": "Death Friend Or Family Other LE",
+            "firstColumn": 1129,
+            "lastColumn": 1129,
+            "value": ""
+        },
+        {
+            "name": "Depressed Mood LE",
+            "firstColumn": 1130,
+            "lastColumn": 1130,
+            "value": ""
+        },
+        {
+            "name": "Disaster Exposure LE",
+            "firstColumn": 1131,
+            "lastColumn": 1131,
+            "value": ""
+        },
+        {
+            "name": "Disclosed Intent To Whom LE",
+            "firstColumn": 1132,
+            "lastColumn": 1132,
+            "value": ""
+        },
+        {
+            "name": "Drive By Shooting LE",
+            "firstColumn": 1133,
+            "lastColumn": 1133,
+            "value": ""
+        },
+        {
+            "name": "Drug Involvement LE",
+            "firstColumn": 1134,
+            "lastColumn": 1134,
+            "value": ""
+        },
+        {
+            "name": "Eviction Or Loss Of Home LE",
+            "firstColumn": 1135,
+            "lastColumn": 1135,
+            "value": ""
+        },
+        {
+            "name": "Fight Between Two People LE",
+            "firstColumn": 1136,
+            "lastColumn": 1136,
+            "value": ""
+        },
+        {
+            "name": "Financial Problem LE",
+            "firstColumn": 1137,
+            "lastColumn": 1137,
+            "value": ""
+        },
+        {
+            "name": "Unused2",
+            "firstColumn": 1138,
+            "lastColumn": 1138,
+            "value": ""
+        },
+        {
+            "name": "Gang Related LE",
+            "firstColumn": 1139,
+            "lastColumn": 1139,
+            "value": ""
+        },
+        {
+            "name": "Gun Cleaning LE",
+            "firstColumn": 1140,
+            "lastColumn": 1140,
+            "value": ""
+        },
+        {
+            "name": "Gun Defect Malfunction LE",
+            "firstColumn": 1141,
+            "lastColumn": 1141,
+            "value": ""
+        },
+        {
+            "name": "Gun Dropped LE",
+            "firstColumn": 1142,
+            "lastColumn": 1142,
+            "value": ""
+        },
+        {
+            "name": "Gun Fired Holstering LE",
+            "firstColumn": 1143,
+            "lastColumn": 1143,
+            "value": ""
+        },
+        {
+            "name": "Gun Fired Loading Unloading LE",
+            "firstColumn": 1144,
+            "lastColumn": 1144,
+            "value": ""
+        },
+        {
+            "name": "Gun Fired Operating Safety Lock LE",
+            "firstColumn": 1145,
+            "lastColumn": 1145,
+            "value": ""
+        },
+        {
+            "name": "Gun Playing LE",
+            "firstColumn": 1146,
+            "lastColumn": 1146,
+            "value": ""
+        },
+        {
+            "name": "Gun Showing LE",
+            "firstColumn": 1147,
+            "lastColumn": 1147,
+            "value": ""
+        },
+        {
+            "name": "Gun Thought Safety Engaged LE",
+            "firstColumn": 1148,
+            "lastColumn": 1148,
+            "value": ""
+        },
+        {
+            "name": "Gun Thought Toy LE",
+            "firstColumn": 1149,
+            "lastColumn": 1149,
+            "value": ""
+        },
+        {
+            "name": "Gun Thought Unloaded Magazine Disengaged LE",
+            "firstColumn": 1150,
+            "lastColumn": 1150,
+            "value": ""
+        },
+        {
+            "name": "Gun Thought Unloaded Other LE",
+            "firstColumn": 1151,
+            "lastColumn": 1151,
+            "value": ""
+        },
+        {
+            "name": "Gun Unintentionally Pulled Trigger LE",
+            "firstColumn": 1152,
+            "lastColumn": 1152,
+            "value": ""
+        },
+        {
+            "name": "Hate Crime LE",
+            "firstColumn": 1153,
+            "lastColumn": 1153,
+            "value": ""
+        },
+        {
+            "name": "History Mental Illness Treatment LE",
+            "firstColumn": 1154,
+            "lastColumn": 1154,
+            "value": ""
+        },
+        {
+            "name": "Hunting LE",
+            "firstColumn": 1155,
+            "lastColumn": 1155,
+            "value": ""
+        },
+        {
+            "name": "Interpersonal Violence Perpetrator LE",
+            "firstColumn": 1156,
+            "lastColumn": 1156,
+            "value": ""
+        },
+        {
+            "name": "Interpersonal Violence Victim LE",
+            "firstColumn": 1157,
+            "lastColumn": 1157,
+            "value": ""
+        },
+        {
+            "name": "Intervener Assisting Victim LE",
+            "firstColumn": 1158,
+            "lastColumn": 1158,
+            "value": ""
+        },
+        {
+            "name": "Intimate Partner Problem LE",
+            "firstColumn": 1159,
+            "lastColumn": 1159,
+            "value": ""
+        },
+        {
+            "name": "Intimate Partner Violence LE",
+            "firstColumn": 1160,
+            "lastColumn": 1160,
+            "value": ""
+        },
+        {
+            "name": "Jealously LE",
+            "firstColumn": 1161,
+            "lastColumn": 1161,
+            "value": ""
+        },
+        {
+            "name": "Job Problem LE",
+            "firstColumn": 1162,
+            "lastColumn": 1162,
+            "value": ""
+        },
+        {
+            "name": "Justifiable Self Defense LE",
+            "firstColumn": 1163,
+            "lastColumn": 1163,
+            "value": ""
+        },
+        {
+            "name": "Legal Problem Other LE",
+            "firstColumn": 1164,
+            "lastColumn": 1164,
+            "value": ""
+        },
+        {
+            "name": "Mental Health Diagnosis 1 LE",
+            "firstColumn": 1165,
+            "lastColumn": 1166,
+            "value": ""
+        },
+        {
+            "name": "Mental Health Diagnosis 2 LE",
+            "firstColumn": 1167,
+            "lastColumn": 1168,
+            "value": ""
+        },
+        {
+            "name": "Mental Health Diagnosis Other LE",
+            "firstColumn": 1169,
+            "lastColumn": 1218,
+            "value": ""
+        },
+        {
+            "name": "Mental Health Problem LE",
+            "firstColumn": 1219,
+            "lastColumn": 1219,
+            "value": ""
+        },
+        {
+            "name": "Mental Illness Treatment Current LE",
+            "firstColumn": 1220,
+            "lastColumn": 1220,
+            "value": ""
+        },
+        {
+            "name": "Mercy Killing LE",
+            "firstColumn": 1221,
+            "lastColumn": 1221,
+            "value": ""
+        },
+        {
+            "name": "Nature Other Crime 1 LE",
+            "firstColumn": 1222,
+            "lastColumn": 1223,
+            "value": ""
+        },
+        {
+            "name": "Nature Other Crime 2 LE",
+            "firstColumn": 1224,
+            "lastColumn": 1225,
+            "value": ""
+        },
+        {
+            "name": "Other Addiction LE",
+            "firstColumn": 1226,
+            "lastColumn": 1226,
+            "value": ""
+        },
+        {
+            "name": "Other Context Injury LE",
+            "firstColumn": 1227,
+            "lastColumn": 1227,
+            "value": ""
+        },
+        {
+            "name": "Other Crime In Progress LE",
+            "firstColumn": 1228,
+            "lastColumn": 1228,
+            "value": ""
+        },
+        {
+            "name": "Other Mechanism Injury LE",
+            "firstColumn": 1229,
+            "lastColumn": 1229,
+            "value": ""
+        },
+        {
+            "name": "Precipitated by Other Crime LE",
+            "firstColumn": 1230,
+            "lastColumn": 1230,
+            "value": ""
+        },
+        {
+            "name": "Physical Health Problem LE",
+            "firstColumn": 1231,
+            "lastColumn": 1231,
+            "value": ""
+        },
+        {
+            "name": "Prostitution LE",
+            "firstColumn": 1232,
+            "lastColumn": 1232,
+            "value": ""
+        },
+        {
+            "name": "Random Violence LE",
+            "firstColumn": 1233,
+            "lastColumn": 1233,
+            "value": ""
+        },
+        {
+            "name": "Recent Criminal Legal Problem LE",
+            "firstColumn": 1234,
+            "lastColumn": 1234,
+            "value": ""
+        },
+        {
+            "name": "Recent Suicide Friend Family LE",
+            "firstColumn": 1235,
+            "lastColumn": 1235,
+            "value": ""
+        },
+        {
+            "name": "Relationship Problem Other LE",
+            "firstColumn": 1236,
+            "lastColumn": 1236,
+            "value": ""
+        },
+        {
+            "name": "School Problem LE",
+            "firstColumn": 1237,
+            "lastColumn": 1237,
+            "value": ""
+        },
+        {
+            "name": "Self Defense LE",
+            "firstColumn": 1238,
+            "lastColumn": 1238,
+            "value": ""
+        },
+        {
+            "name": "Stalking LE",
+            "firstColumn": 1239,
+            "lastColumn": 1239,
+            "value": ""
+        },
+        {
+            "name": "Substance Abuse Other LE",
+            "firstColumn": 1240,
+            "lastColumn": 1240,
+            "value": ""
+        },
+        {
+            "name": "Suicide Attempt History LE",
+            "firstColumn": 1241,
+            "lastColumn": 1241,
+            "value": ""
+        },
+        {
+            "name": "Suicide Intent Disclosed LE",
+            "firstColumn": 1242,
+            "lastColumn": 1242,
+            "value": ""
+        },
+        {
+            "name": "Suicide Note LE",
+            "firstColumn": 1243,
+            "lastColumn": 1243,
+            "value": ""
+        },
+        {
+            "name": "Suicide Thought History LE",
+            "firstColumn": 1244,
+            "lastColumn": 1244,
+            "value": ""
+        },
+        {
+            "name": "Target Shooting LE",
+            "firstColumn": 1245,
+            "lastColumn": 1245,
+            "value": ""
+        },
+        {
+            "name": "Terrorist Attack LE",
+            "firstColumn": 1246,
+            "lastColumn": 1246,
+            "value": ""
+        },
+        {
+            "name": "Traumatic Anniversary LE",
+            "firstColumn": 1247,
+            "lastColumn": 1247,
+            "value": ""
+        },
+        {
+            "name": "Victim Police Officer On Duty LE",
+            "firstColumn": 1248,
+            "lastColumn": 1248,
+            "value": ""
+        },
+        {
+            "name": "Victim Used Weapon LE",
+            "firstColumn": 1249,
+            "lastColumn": 1249,
+            "value": ""
+        },
+        {
+            "name": "Walk-up Assault LE",
+            "firstColumn": 1250,
+            "lastColumn": 1250,
+            "value": ""
+        },
+        {
+            "name": "Weapon Type",
+            "firstColumn": 1251,
+            "lastColumn": 1252,
+            "value": ""
+        },
+        {
+            "name": "Firearm Type",
+            "firstColumn": 1253,
+            "lastColumn": 1254,
+            "value": ""
+        },
+        {
+            "name": "Firearm Caliber",
+            "firstColumn": 1255,
+            "lastColumn": 1258,
+            "value": ""
+        },
+        {
+            "name": "Firearm Gauge",
+            "firstColumn": 1259,
+            "lastColumn": 1261,
+            "value": ""
+        },
+        {
+            "name": "Firearm Make",
+            "firstColumn": 1262,
+            "lastColumn": 1265,
+            "value": ""
+        },
+        {
+            "name": "Firearm Model",
+            "firstColumn": 1266,
+            "lastColumn": 1269,
+            "value": ""
+        },
+        {
+            "name": "Gun Stored Loaded",
+            "firstColumn": 1270,
+            "lastColumn": 1270,
+            "value": ""
+        },
+        {
+            "name": "Gun Owner",
+            "firstColumn": 1271,
+            "lastColumn": 1272,
+            "value": ""
+        },
+        {
+            "name": "Gun Stored Locked",
+            "firstColumn": 1273,
+            "lastColumn": 1273,
+            "value": ""
+        },
+        {
+            "name": "Firearm Stolen",
+            "firstColumn": 1274,
+            "lastColumn": 1274,
+            "value": ""
+        },
+        {
+            "name": "Sex",
+            "firstColumn": 1275,
+            "lastColumn": 1275,
+            "value": ""
+        },
+        {
+            "name": "Victim to Suspect Relationship 1",
+            "firstColumn": 1276,
+            "lastColumn": 1277,
+            "value": ""
+        },
+        {
+            "name": "Victim to Suspect Relationship 2",
+            "firstColumn": 1278,
+            "lastColumn": 1279,
+            "value": ""
+        },
+        {
+            "name": "History of Abuse of Victim by This Suspect",
+            "firstColumn": 1280,
+            "lastColumn": 1280,
+            "value": ""
+        },
+        {
+            "name": "This Suspect Was a Caregiver for the Victim",
+            "firstColumn": 1281,
+            "lastColumn": 1281,
+            "value": ""
+        },
+        {
+            "name": "Suspect Attempted Suicide After Incident",
+            "firstColumn": 1282,
+            "lastColumn": 1282,
+            "value": ""
+        },
+        {
+            "name": "This Suspect is Also a Victim in the Incident",
+            "firstColumn": 1283,
+            "lastColumn": 1283,
+            "value": ""
+        },
+        {
+            "name": "Suspect Mentally Ill",
+            "firstColumn": 1284,
+            "lastColumn": 1284,
+            "value": ""
+        },
+        {
+            "name": "Suspect Had Developmental Disability",
+            "firstColumn": 1285,
+            "lastColumn": 1285,
+            "value": ""
+        },
+        {
+            "name": "Suspected Alcohol Use by Suspect",
+            "firstColumn": 1286,
+            "lastColumn": 1286,
+            "value": ""
+        },
+        {
+            "name": "Suspected Substance Use by Suspect",
+            "firstColumn": 1287,
+            "lastColumn": 1287,
+            "value": ""
+        },
+        {
+            "name": "Suspect Had Been in Contact with Law Enforcement",
+            "firstColumn": 1288,
+            "lastColumn": 1288,
+            "value": ""
+        },
+        {
+            "name": "Suspect Was Recently Released from an Institution",
+            "firstColumn": 1289,
+            "lastColumn": 1290,
+            "value": ""
+        },
+        {
+            "name": "White",
+            "firstColumn": 1291,
+            "lastColumn": 1291,
+            "value": ""
+        },
+        {
+            "name": "Black or African American",
+            "firstColumn": 1292,
+            "lastColumn": 1292,
+            "value": ""
+        },
+        {
+            "name": "Asian",
+            "firstColumn": 1293,
+            "lastColumn": 1293,
+            "value": ""
+        },
+        {
+            "name": "Native Hawaiian or Other Pacific Islander",
+            "firstColumn": 1294,
+            "lastColumn": 1294,
+            "value": ""
+        },
+        {
+            "name": "American Indian or Alaska Native",
+            "firstColumn": 1295,
+            "lastColumn": 1295,
+            "value": ""
+        },
+        {
+            "name": "American Indian or Alaska Native",
+            "firstColumn": 1296,
+            "lastColumn": 1296,
+            "value": ""
+        },
+        {
+            "name": "Race",
+            "firstColumn": 1297,
+            "lastColumn": 1297,
+            "value": ""
+        },
+        {
+            "name": "Non-adherence to Mental Health/Substance Abuse Treatment",
+            "firstColumn": 1298,
+            "lastColumn": 1298,
+            "value": ""
+        },
+        {
+            "name": "History of Traumatic Brain Injury (TBI)",
+            "firstColumn": 1299,
+            "lastColumn": 1299,
+            "value": ""
+        },
+        {
+            "name": "Family Relationship Problem",
+            "firstColumn": 1300,
+            "lastColumn": 1300,
+            "value": ""
+        },
+        {
+            "name": "Family Relationship Problem Was Crisis",
+            "firstColumn": 1301,
+            "lastColumn": 1301,
+            "value": ""
+        },
+        {
+            "name": "Caregiver Burden",
+            "firstColumn": 1302,
+            "lastColumn": 1302,
+            "value": ""
+        },
+        {
+            "name": "Family Stressors",
+            "firstColumn": 1303,
+            "lastColumn": 1303,
+            "value": ""
+        },
+        {
+            "name": "Household Known to Local Authorities",
+            "firstColumn": 1304,
+            "lastColumn": 1304,
+            "value": ""
+        },
+        {
+            "name": "Prior Child Protective Services (CPS) Report on a Child Victim's Household",
+            "firstColumn": 1305,
+            "lastColumn": 1305,
+            "value": ""
+        },
+        {
+            "name": "Substance Abuse in Child Victim's Household",
+            "firstColumn": 1306,
+            "lastColumn": 1306,
+            "value": ""
+        },
+        {
+            "name": "Loss of Independent Living",
+            "firstColumn": 1307,
+            "lastColumn": 1307,
+            "value": ""
+        },
+        {
+            "name": "Caregiver Use of Corporal Punishment Contributed to Child Death",
+            "firstColumn": 1308,
+            "lastColumn": 1308,
+            "value": ""
+        },
+        {
+            "name": "History of Non-suicidal Self-Injury/Self-Harm",
+            "firstColumn": 1309,
+            "lastColumn": 1309,
+            "value": ""
+        },
+        {
+            "name": "Non-adherence to Mental Health/Substance Abuse Treatment",
+            "firstColumn": 1310,
+            "lastColumn": 1310,
+            "value": ""
+        },
+        {
+            "name": "History of Traumatic Brain Injury (TBI)",
+            "firstColumn": 1311,
+            "lastColumn": 1311,
+            "value": ""
+        },
+        {
+            "name": "Family Relationship Problem",
+            "firstColumn": 1312,
+            "lastColumn": 1312,
+            "value": ""
+        },
+        {
+            "name": "Family Relationship Problem Was Crisis",
+            "firstColumn": 1313,
+            "lastColumn": 1313,
+            "value": ""
+        },
+        {
+            "name": "Caregiver Burden",
+            "firstColumn": 1314,
+            "lastColumn": 1314,
+            "value": ""
+        },
+        {
+            "name": "Family Stressors",
+            "firstColumn": 1315,
+            "lastColumn": 1315,
+            "value": ""
+        },
+        {
+            "name": "Household Known to Local Authorities",
+            "firstColumn": 1316,
+            "lastColumn": 1316,
+            "value": ""
+        },
+        {
+            "name": "Prior Child Protective Services (CPS) Report on a Child Victim's Household",
+            "firstColumn": 1317,
+            "lastColumn": 1317,
+            "value": ""
+        },
+        {
+            "name": "Substance Abuse in Child Victim's Household",
+            "firstColumn": 1318,
+            "lastColumn": 1318,
+            "value": ""
+        },
+        {
+            "name": "Loss of Independent Living",
+            "firstColumn": 1319,
+            "lastColumn": 1319,
+            "value": ""
+        },
+        {
+            "name": "Caregiver Use of Corporal Punishment Contributed to Child Death",
+            "firstColumn": 1320,
+            "lastColumn": 1320,
+            "value": ""
+        },
+        {
+            "name": "History of Non-suicidal Self-Injury/Self-Harm",
+            "firstColumn": 1321,
+            "lastColumn": 1321,
+            "value": ""
+        },
+        {
+            "name": "Type of Drug Overdose/Poisoning",
+            "firstColumn": 1322,
+            "lastColumn": 1322,
+            "value": ""
+        },
+        {
+            "name": "Time Last Known Alive and Well Before Overdose (Military Time format e.g., 0000-2359, 9999)",
+            "firstColumn": 1323,
+            "lastColumn": 1326,
+            "value": ""
+        },
+        {
+            "name": "Time First Found Unresponsive (Military Time format e.g., 0000-2359, 9999)",
+            "firstColumn": 1327,
+            "lastColumn": 1330,
+            "value": ""
+        },
+        {
+            "name": "Date Last Known Alive and Well Before Overdose (Month)",
+            "firstColumn": 1331,
+            "lastColumn": 1332,
+            "value": ""
+        },
+        {
+            "name": "Date Last Known Alive and Well Before Overdose (Day)",
+            "firstColumn": 1333,
+            "lastColumn": 1334,
+            "value": ""
+        },
+        {
+            "name": "Date Last Known Alive and Well Before Overdose (Year)",
+            "firstColumn": 1335,
+            "lastColumn": 1338,
+            "value": ""
+        },
+        {
+            "name": "Date Found Unresponsive (Month)",
+            "firstColumn": 1339,
+            "lastColumn": 1340,
+            "value": ""
+        },
+        {
+            "name": "Date Found Unresponsive (Day)",
+            "firstColumn": 1341,
+            "lastColumn": 1342,
+            "value": ""
+        },
+        {
+            "name": "Date Found Unresponsive (Year)",
+            "firstColumn": 1343,
+            "lastColumn": 1346,
+            "value": ""
+        },
+        {
+            "name": "Previous Drug Overdose",
+            "firstColumn": 1347,
+            "lastColumn": 1347,
+            "value": ""
+        },
+        {
+            "name": "Overdose Occurred 0-2 Days Prior",
+            "firstColumn": 1348,
+            "lastColumn": 1348,
+            "value": ""
+        },
+        {
+            "name": "Overdose Occurred 3-7 Days Prior",
+            "firstColumn": 1349,
+            "lastColumn": 1349,
+            "value": ""
+        },
+        {
+            "name": "Recent Return to Use of Opioids",
+            "firstColumn": 1350,
+            "lastColumn": 1350,
+            "value": ""
+        },
+        {
+            "name": "Recent Emergency Department or Urgent Care Visit",
+            "firstColumn": 1351,
+            "lastColumn": 1351,
+            "value": ""
+        },
+        {
+            "name": "No Evidence of Current or Past Drug Use/Misuse",
+            "firstColumn": 1352,
+            "lastColumn": 1352,
+            "value": ""
+        },
+        {
+            "name": "Heroin",
+            "firstColumn": 1353,
+            "lastColumn": 1353,
+            "value": ""
+        },
+        {
+            "name": "Prescription Opioids",
+            "firstColumn": 1354,
+            "lastColumn": 1354,
+            "value": ""
+        },
+        {
+            "name": "Unspecified Opioids",
+            "firstColumn": 1355,
+            "lastColumn": 1355,
+            "value": ""
+        },
+        {
+            "name": "Fentanyl",
+            "firstColumn": 1356,
+            "lastColumn": 1356,
+            "value": ""
+        },
+        {
+            "name": "Cocaine",
+            "firstColumn": 1357,
+            "lastColumn": 1357,
+            "value": ""
+        },
+        {
+            "name": "Methamphetamine",
+            "firstColumn": 1358,
+            "lastColumn": 1358,
+            "value": ""
+        },
+        {
+            "name": "Benzodiazepines",
+            "firstColumn": 1359,
+            "lastColumn": 1359,
+            "value": ""
+        },
+        {
+            "name": "Cannabis (Marijuana)",
+            "firstColumn": 1360,
+            "lastColumn": 1360,
+            "value": ""
+        },
+        {
+            "name": "Drug Use/Misuse, Substance Unspecified",
+            "firstColumn": 1361,
+            "lastColumn": 1361,
+            "value": ""
+        },
+        {
+            "name": "Other Substance - Specify",
+            "firstColumn": 1362,
+            "lastColumn": 1362,
+            "value": ""
+        },
+        {
+            "name": "Other Substance - Specify Textbox",
+            "firstColumn": 1363,
+            "lastColumn": 1490,
+            "value": ""
+        },
+        {
+            "name": "Treatment for Substance Use Disorder",
+            "firstColumn": 1491,
+            "lastColumn": 1491,
+            "value": ""
+        },
+        {
+            "name": "Inpatient/Outpatient Rehabilitation",
+            "firstColumn": 1492,
+            "lastColumn": 1492,
+            "value": ""
+        },
+        {
+            "name": "Medications for Opioid Use Disorder (with Cognitive/Behavioral Therapy)",
+            "firstColumn": 1493,
+            "lastColumn": 1493,
+            "value": ""
+        },
+        {
+            "name": "Medications for Opioid Use Disorder (without Cognitive/Behavioral Therapy)",
+            "firstColumn": 1494,
+            "lastColumn": 1494,
+            "value": ""
+        },
+        {
+            "name": "Medications for Opioid Use Disorder (Cognitive/Behavioral Therapy Unknown)",
+            "firstColumn": 1495,
+            "lastColumn": 1495,
+            "value": ""
+        },
+        {
+            "name": "Cognitive/Behavioral Therapy",
+            "firstColumn": 1496,
+            "lastColumn": 1496,
+            "value": ""
+        },
+        {
+            "name": "Narcotics Anonymous",
+            "firstColumn": 1497,
+            "lastColumn": 1497,
+            "value": ""
+        },
+        {
+            "name": "Other - Specify",
+            "firstColumn": 1498,
+            "lastColumn": 1498,
+            "value": ""
+        },
+        {
+            "name": "Other - Specify Textbox",
+            "firstColumn": 1499,
+            "lastColumn": 1626,
+            "value": ""
+        },
+        {
+            "name": "Involved with Criminal Justice System (Perpetrator)",
+            "firstColumn": 1627,
+            "lastColumn": 1627,
+            "value": ""
+        },
+        {
+            "name": "Any Evidence of Drug Use",
+            "firstColumn": 1628,
+            "lastColumn": 1628,
+            "value": ""
+        },
+        {
+            "name": "No Evidence of Drug Use",
+            "firstColumn": 1629,
+            "lastColumn": 1629,
+            "value": ""
+        },
+        {
+            "name": "Non-specific Drug Use Evidence",
+            "firstColumn": 1630,
+            "lastColumn": 1630,
+            "value": ""
+        },
+        {
+            "name": "Evidence of Rapid Overdose",
+            "firstColumn": 1631,
+            "lastColumn": 1631,
+            "value": ""
+        },
+        {
+            "name": "Tourniquet Still in Place",
+            "firstColumn": 1632,
+            "lastColumn": 1632,
+            "value": ""
+        },
+        {
+            "name": "Body Position Consistent with Rapid Overdose",
+            "firstColumn": 1633,
+            "lastColumn": 1633,
+            "value": ""
+        },
+        {
+            "name": "Needle Location",
+            "firstColumn": 1634,
+            "lastColumn": 1634,
+            "value": ""
+        },
+        {
+            "name": "Witness Report Rapid Overdose",
+            "firstColumn": 1635,
+            "lastColumn": 1635,
+            "value": ""
+        },
+        {
+            "name": "Other - Explain",
+            "firstColumn": 1636,
+            "lastColumn": 1636,
+            "value": ""
+        },
+        {
+            "name": "Other - Explain Textbox",
+            "firstColumn": 1637,
+            "lastColumn": 1764,
+            "value": ""
+        },
+        {
+            "name": "No Information on Route of Administration",
+            "firstColumn": 1765,
+            "lastColumn": 1765,
+            "value": ""
+        },
+        {
+            "name": "Evidence of Injection (Check All That Apply)",
+            "firstColumn": 1766,
+            "lastColumn": 1766,
+            "value": ""
+        },
+        {
+            "name": "Track Marks on Decedent",
+            "firstColumn": 1767,
+            "lastColumn": 1767,
+            "value": ""
+        },
+        {
+            "name": "Tourniquet",
+            "firstColumn": 1768,
+            "lastColumn": 1768,
+            "value": ""
+        },
+        {
+            "name": "Cookers",
+            "firstColumn": 1769,
+            "lastColumn": 1769,
+            "value": ""
+        },
+        {
+            "name": "Needles/Syringe",
+            "firstColumn": 1770,
+            "lastColumn": 1770,
+            "value": ""
+        },
+        {
+            "name": "Filters",
+            "firstColumn": 1771,
+            "lastColumn": 1771,
+            "value": ""
+        },
+        {
+            "name": "Witness Report",
+            "firstColumn": 1772,
+            "lastColumn": 1772,
+            "value": ""
+        },
+        {
+            "name": "Other Injection Evidence - Specify",
+            "firstColumn": 1773,
+            "lastColumn": 1773,
+            "value": ""
+        },
+        {
+            "name": "Other Injection Evidence - Specify Textbox",
+            "firstColumn": 1774,
+            "lastColumn": 1901,
+            "value": ""
+        },
+        {
+            "name": "Evidence of Snorting/Sniffing",
+            "firstColumn": 1902,
+            "lastColumn": 1902,
+            "value": ""
+        },
+        {
+            "name": "Straws",
+            "firstColumn": 1903,
+            "lastColumn": 1903,
+            "value": ""
+        },
+        {
+            "name": "Rolled Paper or Dollar Bills",
+            "firstColumn": 1904,
+            "lastColumn": 1904,
+            "value": ""
+        },
+        {
+            "name": "Razor Blades",
+            "firstColumn": 1905,
+            "lastColumn": 1905,
+            "value": ""
+        },
+        {
+            "name": "Powder on Table/Mirror",
+            "firstColumn": 1906,
+            "lastColumn": 1906,
+            "value": ""
+        },
+        {
+            "name": "Powder on Decedent's Nose",
+            "firstColumn": 1907,
+            "lastColumn": 1907,
+            "value": ""
+        },
+        {
+            "name": "Witness Report",
+            "firstColumn": 1908,
+            "lastColumn": 1908,
+            "value": ""
+        },
+        {
+            "name": "Other Snorting Evidence - Specify",
+            "firstColumn": 1909,
+            "lastColumn": 1909,
+            "value": ""
+        },
+        {
+            "name": "Other Snorting Evidence - Specify Textbox",
+            "firstColumn": 1910,
+            "lastColumn": 2037,
+            "value": ""
+        },
+        {
+            "name": "Evidence of Smoking/Inhalation",
+            "firstColumn": 2038,
+            "lastColumn": 2038,
+            "value": ""
+        },
+        {
+            "name": "Pipes",
+            "firstColumn": 2039,
+            "lastColumn": 2039,
+            "value": ""
+        },
+        {
+            "name": "Smoking Tinfoil",
+            "firstColumn": 2040,
+            "lastColumn": 2040,
+            "value": ""
+        },
+        {
+            "name": "Smoking Vape",
+            "firstColumn": 2041,
+            "lastColumn": 2041,
+            "value": ""
+        },
+        {
+            "name": "Smoking Bong Bowl",
+            "firstColumn": 2042,
+            "lastColumn": 2042,
+            "value": ""
+        },
+        {
+            "name": "Smoking Witness Report",
+            "firstColumn": 2043,
+            "lastColumn": 2043,
+            "value": ""
+        },
+        {
+            "name": "Smoking Other Evidence",
+            "firstColumn": 2044,
+            "lastColumn": 2044,
+            "value": ""
+        },
+        {
+            "name": "Smoking Other Evidence Description",
+            "firstColumn": 2045,
+            "lastColumn": 2172,
+            "value": ""
+        },
+        {
+            "name": "Has Route Transdermal",
+            "firstColumn": 2173,
+            "lastColumn": 2173,
+            "value": ""
+        },
+        {
+            "name": "Has Route Ingestion",
+            "firstColumn": 2174,
+            "lastColumn": 2174,
+            "value": ""
+        },
+        {
+            "name": "Has Route Suppository",
+            "firstColumn": 2175,
+            "lastColumn": 2175,
+            "value": ""
+        },
+        {
+            "name": "Has Route Sublingual",
+            "firstColumn": 2176,
+            "lastColumn": 2176,
+            "value": ""
+        },
+        {
+            "name": "Has Route Buccal",
+            "firstColumn": 2177,
+            "lastColumn": 2177,
+            "value": ""
+        },
+        {
+            "name": "Evidence of Unspecified Drug Type",
+            "firstColumn": 2178,
+            "lastColumn": 2178,
+            "value": ""
+        },
+        {
+            "name": "Has Evidence of Prescription Drugs",
+            "firstColumn": 2179,
+            "lastColumn": 2179,
+            "value": ""
+        },
+        {
+            "name": "Prescribed to Decedent",
+            "firstColumn": 2180,
+            "lastColumn": 2180,
+            "value": ""
+        },
+        {
+            "name": "Unknown Who Prescribed For",
+            "firstColumn": 2181,
+            "lastColumn": 2181,
+            "value": ""
+        },
+        {
+            "name": "Not Prescribed to Decedent",
+            "firstColumn": 2182,
+            "lastColumn": 2182,
+            "value": ""
+        },
+        {
+            "name": "Other Form - Specify",
+            "firstColumn": 2192,
+            "lastColumn": 2192,
+            "value": ""
+        },
+        {
+            "name": "Has Indications of Illicit Drugs",
+            "firstColumn": 2320,
+            "lastColumn": 2320,
+            "value": ""
+        },
+        {
+            "name": "Powder",
+            "firstColumn": 2321,
+            "lastColumn": 2321,
+            "value": ""
+        },
+        {
+            "name": "Tar",
+            "firstColumn": 2322,
+            "lastColumn": 2322,
+            "value": ""
+        },
+        {
+            "name": "Witness Report",
+            "firstColumn": 2323,
+            "lastColumn": 2323,
+            "value": ""
+        },
+        {
+            "name": "Crystal",
+            "firstColumn": 2324,
+            "lastColumn": 2324,
+            "value": ""
+        },
+        {
+            "name": "Other Illicit Drug Description",
+            "firstColumn": 2328,
+            "lastColumn": 2455,
+            "value": ""
+        },
+        {
+            "name": "Bystander Present",
+            "firstColumn": 2456,
+            "lastColumn": 2456,
+            "value": ""
+        },
+        {
+            "name": "Other - Specify",
+            "firstColumn": 2465,
+            "lastColumn": 2465,
+            "value": ""
+        },
+        {
+            "name": "Drug Use Witnessed",
+            "firstColumn": 2593,
+            "lastColumn": 2593,
+            "value": ""
+        },
+        {
+            "name": "CPR",
+            "firstColumn": 2594,
+            "lastColumn": 2594,
+            "value": ""
+        },
+        {
+            "name": "Rescue breathing",
+            "firstColumn": 2595,
+            "lastColumn": 2595,
+            "value": ""
+        },
+        {
+            "name": "Sternal rub",
+            "firstColumn": 2596,
+            "lastColumn": 2596,
+            "value": ""
+        },
+        {
+            "name": "Stimulation",
+            "firstColumn": 2597,
+            "lastColumn": 2597,
+            "value": ""
+        },
+        {
+            "name": "Other - specify",
+            "firstColumn": 2598,
+            "lastColumn": 2598,
+            "value": ""
+        },
+        {
+            "name": "Other - specify textbox",
+            "firstColumn": 2599,
+            "lastColumn": 2726,
+            "value": ""
+        },
+        {
+            "name": "Naloxone administered",
+            "firstColumn": 2727,
+            "lastColumn": 2727,
+            "value": ""
+        },
+        {
+            "name": "Naloxone not administered",
+            "firstColumn": 2728,
+            "lastColumn": 2728,
+            "value": ""
+        },
+        {
+            "name": "Unknown whether naloxone administered",
+            "firstColumn": 2729,
+            "lastColumn": 2729,
+            "value": ""
+        },
+        {
+            "name": "Total # of naloxone dosages administered by first responders/health care",
+            "firstColumn": 2730,
+            "lastColumn": 2731,
+            "value": ""
+        },
+        {
+            "name": "Total # of naloxone dosages administered by layperson(s)",
+            "firstColumn": 2732,
+            "lastColumn": 2733,
+            "value": ""
+        },
+        {
+            "name": "Unknown",
+            "firstColumn": 2734,
+            "lastColumn": 2734,
+            "value": ""
+        },
+        {
+            "name": "Law enforcement",
+            "firstColumn": 2735,
+            "lastColumn": 2735,
+            "value": ""
+        },
+        {
+            "name": "EMS/fire",
+            "firstColumn": 2736,
+            "lastColumn": 2736,
+            "value": ""
+        },
+        {
+            "name": "Hospital staff/health care staff",
+            "firstColumn": 2737,
+            "lastColumn": 2737,
+            "value": ""
+        },
+        {
+            "name": "Other-specify",
+            "firstColumn": 2738,
+            "lastColumn": 2738,
+            "value": ""
+        },
+        {
+            "name": "Layperson",
+            "firstColumn": 2739,
+            "lastColumn": 2739,
+            "value": ""
+        },
+        {
+            "name": "Person using drugs",
+            "firstColumn": 2740,
+            "lastColumn": 2740,
+            "value": ""
+        },
+        {
+            "name": "Intimate partner",
+            "firstColumn": 2741,
+            "lastColumn": 2741,
+            "value": ""
+        },
+        {
+            "name": "Friend",
+            "firstColumn": 2742,
+            "lastColumn": 2742,
+            "value": ""
+        },
+        {
+            "name": "Family member other than intimate partner",
+            "firstColumn": 2743,
+            "lastColumn": 2743,
+            "value": ""
+        },
+        {
+            "name": "Roommate",
+            "firstColumn": 2744,
+            "lastColumn": 2744,
+            "value": ""
+        },
+        {
+            "name": "Stranger",
+            "firstColumn": 2745,
+            "lastColumn": 2745,
+            "value": ""
+        },
+        {
+            "name": "Other-specify",
+            "firstColumn": 2746,
+            "lastColumn": 2746,
+            "value": ""
+        },
+        {
+            "name": "Other-specify textbox",
+            "firstColumn": 2747,
+            "lastColumn": 2874,
+            "value": ""
+        },
+        {
+            "name": "Presence of pulse on first-responder arrival",
+            "firstColumn": 2875,
+            "lastColumn": 2875,
+            "value": ""
+        },
+        {
+            "name": "CPR",
+            "firstColumn": 2876,
+            "lastColumn": 2876,
+            "value": ""
+        },
+        {
+            "name": "Rescue breathing",
+            "firstColumn": 2877,
+            "lastColumn": 2877,
+            "value": ""
+        },
+        {
+            "name": "Epinephrine administration",
+            "firstColumn": 2878,
+            "lastColumn": 2878,
+            "value": ""
+        },
+        {
+            "name": "Transport to ED",
+            "firstColumn": 2879,
+            "lastColumn": 2879,
+            "value": ""
+        },
+        {
+            "name": "Provided oxygen",
+            "firstColumn": 2880,
+            "lastColumn": 2880,
+            "value": ""
+        },
+        {
+            "name": "Other - specify",
+            "firstColumn": 2881,
+            "lastColumn": 2881,
+            "value": ""
+        },
+        {
+            "name": "Other - specify textbox",
+            "firstColumn": 2882,
+            "lastColumn": 3009,
+            "value": ""
+        },
+        {
+            "name": "Did not recognize any abnormalities",
+            "firstColumn": 3010,
+            "lastColumn": 3010,
+            "value": ""
+        },
+        {
+            "name": "Bystander using substances or drinking alcohol and impaired",
+            "firstColumn": 3011,
+            "lastColumn": 3011,
+            "value": ""
+        },
+        {
+            "name": "Public space and strangers didn�t intervene",
+            "firstColumn": 3012,
+            "lastColumn": 3012,
+            "value": ""
+        },
+        {
+            "name": "Reported abnormalities but did not recognize as overdose",
+            "firstColumn": 3013,
+            "lastColumn": 3013,
+            "value": ""
+        },
+        {
+            "name": "Spatially separated (e.g., different room)",
+            "firstColumn": 3014,
+            "lastColumn": 3014,
+            "value": ""
+        },
+        {
+            "name": "Unaware that decedent was using substances",
+            "firstColumn": 3015,
+            "lastColumn": 3015,
+            "value": ""
+        },
+        {
+            "name": "Other - specify",
+            "firstColumn": 3016,
+            "lastColumn": 3016,
+            "value": ""
+        },
+        {
+            "name": "Other - specify textbox",
+            "firstColumn": 3017,
+            "lastColumn": 3144,
+            "value": ""
+        },
+        {
+            "name": "Treated for pain at time of injury",
+            "firstColumn": 3145,
+            "lastColumn": 3145,
+            "value": ""
+        },
+        {
+            "name": "COPD",
+            "firstColumn": 3146,
+            "lastColumn": 3146,
+            "value": ""
+        },
+        {
+            "name": "Asthma",
+            "firstColumn": 3147,
+            "lastColumn": 3147,
+            "value": ""
+        },
+        {
+            "name": "Sleep apnea",
+            "firstColumn": 3148,
+            "lastColumn": 3148,
+            "value": ""
+        },
+        {
+            "name": "Heart disease",
+            "firstColumn": 3149,
+            "lastColumn": 3149,
+            "value": ""
+        },
+        {
+            "name": "Obesity",
+            "firstColumn": 3150,
+            "lastColumn": 3150,
+            "value": ""
+        },
+        {
+            "name": "History of major injury",
+            "firstColumn": 3151,
+            "lastColumn": 3151,
+            "value": ""
+        },
+        {
+            "name": "Migraine",
+            "firstColumn": 3152,
+            "lastColumn": 3152,
+            "value": ""
+        },
+        {
+            "name": "Back pain",
+            "firstColumn": 3153,
+            "lastColumn": 3153,
+            "value": ""
+        },
+        {
+            "name": "Hepatitis C",
+            "firstColumn": 3154,
+            "lastColumn": 3154,
+            "value": ""
+        },
+        {
+            "name": "HIV/AIDS",
+            "firstColumn": 3155,
+            "lastColumn": 3155,
+            "value": ""
+        },
+        {
+            "name": "Other pain",
+            "firstColumn": 3156,
+            "lastColumn": 3156,
+            "value": ""
+        },
+        {
+            "name": "Other breathing problem",
+            "firstColumn": 3157,
+            "lastColumn": 3157,
+            "value": ""
+        },
+        {
+            "name": "Use of Pharmaceutical Morphine",
+            "firstColumn": 3158,
+            "lastColumn": 3158,
+            "value": ""
+        },
+        {
+            "name": "Prescription Morphine Narrative",
+            "firstColumn": 3159,
+            "lastColumn": 3414,
+            "value": ""
+        },
+        {
+            "name": "Buprenorphine prescribed",
+            "firstColumn": 3415,
+            "lastColumn": 3415,
+            "value": ""
+        },
+        {
+            "name": "Buprenorphine for pain",
+            "firstColumn": 3416,
+            "lastColumn": 3416,
+            "value": ""
+        },
+        {
+            "name": "Buprenorphine for MAT",
+            "firstColumn": 3417,
+            "lastColumn": 3417,
+            "value": ""
+        },
+        {
+            "name": "Buprenorphine for unknown reason",
+            "firstColumn": 3418,
+            "lastColumn": 3418,
+            "value": ""
+        },
+        {
+            "name": "Methadone prescribed",
+            "firstColumn": 3419,
+            "lastColumn": 3419,
+            "value": ""
+        },
+        {
+            "name": "Methadone for pain",
+            "firstColumn": 3420,
+            "lastColumn": 3420,
+            "value": ""
+        },
+        {
+            "name": "Methadone for MAT",
+            "firstColumn": 3421,
+            "lastColumn": 3421,
+            "value": ""
+        },
+        {
+            "name": "Methadone for unknown reason",
+            "firstColumn": 3422,
+            "lastColumn": 3422,
+            "value": ""
+        },
+        {
+            "name": "Naltrexone prescribed",
+            "firstColumn": 3423,
+            "lastColumn": 3423,
+            "value": ""
+        },
+        {
+            "name": "Fentanyl prescribed",
+            "firstColumn": 3424,
+            "lastColumn": 3424,
+            "value": ""
+        },
+        {
+            "name": "Number of opioid prescriptions (past 30 days)",
+            "firstColumn": 3425,
+            "lastColumn": 3426,
+            "value": ""
+        },
+        {
+            "name": "Number of dispensing pharmacies (past 180 days)",
+            "firstColumn": 3427,
+            "lastColumn": 3428,
+            "value": ""
+        },
+        {
+            "name": "Number of prescribing doctors (past 180 days)",
+            "firstColumn": 3429,
+            "lastColumn": 3430,
+            "value": ""
+        },
+        {
+            "name": "Asian Indian",
+            "firstColumn": 3431,
+            "lastColumn": 3431,
+            "value": ""
+        },
+        {
+            "name": "Asian Chinese",
+            "firstColumn": 3432,
+            "lastColumn": 3432,
+            "value": ""
+        },
+        {
+            "name": "Asian Filipino",
+            "firstColumn": 3433,
+            "lastColumn": 3433,
+            "value": ""
+        },
+        {
+            "name": "Asian Japanese",
+            "firstColumn": 3434,
+            "lastColumn": 3434,
+            "value": ""
+        },
+        {
+            "name": "Asian Korean",
+            "firstColumn": 3435,
+            "lastColumn": 3435,
+            "value": ""
+        },
+        {
+            "name": "Asian Vietnamese",
+            "firstColumn": 3436,
+            "lastColumn": 3436,
+            "value": ""
+        },
+        {
+            "name": "Asian Other",
+            "firstColumn": 3437,
+            "lastColumn": 3437,
+            "value": ""
+        },
+        {
+            "name": "Asian Other Specify",
+            "firstColumn": 3438,
+            "lastColumn": 3557,
+            "value": ""
+        },
+        {
+            "name": "Pacific Islander - Native Hawaiian",
+            "firstColumn": 3558,
+            "lastColumn": 3558,
+            "value": ""
+        },
+        {
+            "name": "Pacific Islander - Guamanian or Chamorro",
+            "firstColumn": 3559,
+            "lastColumn": 3559,
+            "value": ""
+        },
+        {
+            "name": "Pacific Islander - Samoan",
+            "firstColumn": 3560,
+            "lastColumn": 3560,
+            "value": ""
+        },
+        {
+            "name": "Pacific Islander - Other",
+            "firstColumn": 3561,
+            "lastColumn": 3561,
+            "value": ""
+        },
+        {
+            "name": "Pacific Islander Other Specify",
+            "firstColumn": 3562,
+            "lastColumn": 3681,
+            "value": ""
+        },
+        {
+            "name": "American Indian Tribe",
+            "firstColumn": 3682,
+            "lastColumn": 3801,
+            "value": ""
+        },
+        {
+            "name": "American Indian Other Race Specify",
+            "firstColumn": 3802,
+            "lastColumn": 3921,
+            "value": ""
+        }
+    ],
+    "serializedFormat": "  2024              12345678                13                                                                                         1   2311              M   6                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             ",
+    "errors": []
+}

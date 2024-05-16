@@ -1,0 +1,48 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+	<PackageId>fhir-ig-uscore-dotnet</PackageId>
+	<PackageVersion>1.0.1</PackageVersion>
+	<Authors>Brian Ritchie, Myung Choi</Authors>
+	<PackageProjectUrl>https://github.com/HISB-Libraries/fhir-ig-dotnet</PackageProjectUrl>
+	<Description>.NET Library for US Core FHIR IG v5.0.1 - not all resource(s) are implemented. Only refereced ones from CBS and MDI are implemented</Description>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <NeutralLanguage>en-US</NeutralLanguage>
+    <PackageTags>FHIR, US Core, USCore, IG</PackageTags>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="UsCorePatientProfile\" />
+    <None Remove="Hl7.Fhir.R4" />
+    <None Remove="Hl7.Fhir.Specification.R4" />
+    <None Remove="UsCbsConditionProfile\" />
+    <None Remove="UsCoreConditionProfile %28copy%29\" />
+    <None Remove="UsCoreEncounterProfile %28copy%29\" />
+    <None Remove="UsCoreImmunizationProfile %28copy%29\" />
+    <None Remove="USCoreDiagnosticReportLabProfile %28copy%29\" />
+    <None Remove="UsCorePractitionerProfile %28copy%29\" />
+    <None Remove="UsCoreDocumentReferenceProfile\" />
+    <None Remove="Common\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="UsCorePatientProfile\" />
+    <Folder Include="UsCoreConditionProfile\" />
+    <Folder Include="UsCoreEncounterProfile\" />
+    <Folder Include="UsCoreImmunizationProfile\" />
+    <Folder Include="UsCoreDiagnosticReportLabProfile\" />
+    <Folder Include="UsCoreOrganizationProfile\" />
+    <Folder Include="UsCorePractitionerProfile\" />
+    <Folder Include="UsCoreLocationProfile\" />
+    <Folder Include="UsCorePractitionerRoleProfile\" />
+    <Folder Include="UsCoreDocumentReferenceProfile\" />
+    <Folder Include="Common\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GaTech.Chai.Share\GaTech.Chai.Share.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\LICENSE" Pack="true" PackagePath="" />
+  </ItemGroup>
+</Project>
