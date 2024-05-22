@@ -2,6 +2,9 @@
 
   <ItemGroup>
     <ProjectReference Include="..\GaTech.Chai.Nvdrs\GaTech.Chai.Nvdrs.csproj" />
+    <ProjectReference Include="..\GaTech.Chai.UsCore\GaTech.Chai.UsCore.csproj" />
+    <ProjectReference Include="..\GaTech.Chai.Share\GaTech.Chai.Share.csproj" />
+    <ProjectReference Include="..\GaTech.Chai.Vrdr\GaTech.Chai.Vrdr.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

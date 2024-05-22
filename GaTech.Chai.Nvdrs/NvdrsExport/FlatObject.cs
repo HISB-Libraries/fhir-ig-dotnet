@@ -19,7 +19,7 @@ public abstract class FlatObject
         {
             throw new JsonException(filename + " has no JSON nodes");
         }
-        else 
+        else
         {
             rootNode = jsonNode;
         }
@@ -31,19 +31,19 @@ public abstract class FlatObject
         }
 
         flatSequence = new byte[FlatSize];
-        for (int i = 0; i < FlatSize; i++) 
+        for (int i = 0; i < FlatSize; i++)
         {
-            flatSequence[i] = (byte) ' ';
+            flatSequence[i] = (byte)' ';
         }
     }
 
     public string? Version => rootNode["version"]!.GetValue<string>();
     public string? FlatType => rootNode["type"]!.GetValue<string>();
-    public int FlatSize 
+    public int FlatSize
     {
         get
         {
-            if (rootNode == null) 
+            if (rootNode == null)
             {
                 return 0;
             }
@@ -54,28 +54,52 @@ public abstract class FlatObject
 
     public JsonArray DataArray => rootNode["data"]!.AsArray();
 
-    public void MapToNVDRS(Bundle bundle)
+    public virtual void MapToNVDRS(Bundle bundle)
     {
         // Implement this in the child class
+    }
+
+    protected void StringWriteToData(JsonNode data, string value)
+    {
+        int start = data["firstColumn"]!.GetValue<int>();
+        int end = data["lastColumn"]!.GetValue<int>();
+        int length = end - start;
+        int valueLength = value.Length;
+
+        string alignedValue = "";
+        for (int i = length; i >= 0; i--)
+        {
+            if (valueLength < 0)
+            {
+                alignedValue = " " + alignedValue;
+            }
+            else
+            {
+                alignedValue = value[--valueLength] + alignedValue;
+            }
+        }
+
+        data["value"] = alignedValue;
     }
 
     public void PopulateSequence()
     {
         // loop through data and populate the byte sequence.
-        foreach (JsonNode? data in DataArray){
-            int startIndex = data!["firstColumn"]!.GetValue<int>()-1;
+        foreach (JsonNode? data in DataArray)
+        {
+            int startIndex = data!["firstColumn"]!.GetValue<int>() - 1;
             int endIndex = data!["lastColumn"]!.GetValue<int>();
 
             string? nodeName = data["name"]!.GetValue<string>();
             string? value = data["value"]!.GetValue<string>();
-            if (value != null && value != "") 
+            if (value != null && value != "")
             {
                 try
                 {
                     char[] valueCharacters = value.ToCharArray();
-                    for (int i = startIndex; i < endIndex; i++) 
+                    for (int i = startIndex; i < endIndex; i++)
                     {
-                        flatSequence[i] = Convert.ToByte(valueCharacters[i-startIndex]);
+                        flatSequence[i] = Convert.ToByte(valueCharacters[i - startIndex]);
                     }
                 }
                 catch (Exception ex)
@@ -86,9 +110,10 @@ public abstract class FlatObject
         }
     }
 
-    public void ExportToFile(string filename)
+    public void ExportToFile(string? filename = null)
     {
-        if (filename == null || filename == "") {
+        if (filename == null || filename == "")
+        {
             string dateTimeTag = DateTime.Now.ToString("MMddyyyyhmmtt");
             filename = FlatType + "_" + dateTimeTag + ".txt";
         }

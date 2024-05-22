@@ -1,18 +1,32 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <PackageId>fhir-ig-nvdrs-dotnet</PackageId>
+    <PackageVersion>1.0.0</PackageVersion>
+    <Authors>Myung Choi</Authors>
+    <PackageProjectUrl>https://github.com/HISB-Libraries/fhir-ig-dotnet</PackageProjectUrl>
+    <Description>.NET Library for HL7 FHIR® Implementation Guide: Vital Records Medicolegal Death Investigation (MDI), 2.0.0-ci-build STU 2</Description>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <NeutralLanguage>en-US</NeutralLanguage>
+    <PackageTags>FHIR, MDI, VRDR, VRCL, IG, NVDRS</PackageTags>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\GaTech.Chai.Share\GaTech.Chai.Share.csproj" />
     <ProjectReference Include="..\GaTech.Chai.Mdi\GaTech.Chai.Mdi.csproj" />
   </ItemGroup>
-
   <ItemGroup>
-    <Folder Include="BundleDocumentNvdrs/" />
+    <None Include="..\LICENSE" Pack="true" PackagePath="" />
   </ItemGroup>
-
-  <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="BundleDocumentNvdrsProfile/" />
+  </ItemGroup>
 
 </Project>

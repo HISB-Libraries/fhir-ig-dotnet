@@ -8,6 +8,7 @@ using GaTech.Chai.Mdi.CompositionMdiAndEdrsProfile;
 using static Hl7.Fhir.Model.Composition;
 using System.Linq;
 using GaTech.Chai.Share.Common;
+using Hl7.Fhir.Utility;
 
 namespace GaTech.Chai.Mdi.BundleDocumentMdiAndEdrsProfile
 {
@@ -31,21 +32,12 @@ namespace GaTech.Chai.Mdi.BundleDocumentMdiAndEdrsProfile
         /// </summary>
         public static Bundle Create(Identifier identifier, Composition composition)
         {
-            Bundle bundle = new();
-
-            if (identifier == null)
+            Bundle bundle = new()
             {
-                throw new ArgumentNullException("Identifier cannot be null for MDIandEdrs Bundle.");
-            }
-                
-            if (composition == null)
-            {
-                throw new ArgumentNullException("Composition cannot be null for MDIandEdrs Bundle entry[0].");
-            }
+                Identifier = identifier ?? throw new Exception("Identifier cannot be null for MDIandEdrs Bundle.")
+            };
 
-            bundle.Identifier = identifier;
-
-            bundle.BundleDocumentMdiAndEdrs().MDItoEDRSComposition = composition;
+            bundle.BundleDocumentMdiAndEdrs().MDItoEDRSComposition = composition ?? throw new Exception("Composition cannot be null for MDIandEdrs Bundle entry[0].");
             bundle.BundleDocumentMdiAndEdrs().AddProfile();
             bundle.BundleDocumentMdiAndEdrs().AddFixedValues();
 
@@ -196,7 +188,7 @@ namespace GaTech.Chai.Mdi.BundleDocumentMdiAndEdrsProfile
             get
             {
                 Composition composition = (Composition)this.bundle.Entry[0]?.Resource;
-                
+
                 foreach (Resource resource in bundle.GetResources())
                 {
                     if (resource is Observation)
@@ -266,7 +258,7 @@ namespace GaTech.Chai.Mdi.BundleDocumentMdiAndEdrsProfile
         {
             if (reference == null) return null;
             IEnumerable<Resource> entryResources = this.bundle.GetResources();
-            if (entryResources.Count <Resource>() > 0)
+            if (entryResources.Count<Resource>() > 0)
             {
                 IEnumerable<Resource> retResource = from e in entryResources
                                                     where e.AsReference().Reference.Equals(reference.Reference)
@@ -280,7 +272,7 @@ namespace GaTech.Chai.Mdi.BundleDocumentMdiAndEdrsProfile
             return null;
         }
 
-        private void AddReferencesInCompositionToEntry (Composition composition)
+        private void AddReferencesInCompositionToEntry(Composition composition)
         {
             Resource resource = Record.GetResources()[composition.Subject.Reference];
             if (resource == null)
@@ -297,36 +289,42 @@ namespace GaTech.Chai.Mdi.BundleDocumentMdiAndEdrsProfile
                 }
             }
 
-            resource = Record.GetResources()[composition.Author[0].Reference];
-            if (resource == null)
+            if (!composition.Author.IsNullOrEmpty() && composition.Author[0].Reference != null)
             {
-                throw (new MissingMemberException("Author[0] resource is not available in Record."));
-            }
-
-            if (resource != null)
-            {
-                bool exists = bundle.FindEntry(resource.AsReference()).Any<Bundle.EntryComponent>();
-                if (!exists)
+                resource = Record.GetResources()[composition.Author[0].Reference];
+                if (resource == null)
                 {
-                    bundle.AddResourceEntry(resource, resource.AsReference().Reference);
+                    throw (new MissingMemberException("Author[0] resource is not available in Record."));
+                }
+
+                if (resource != null)
+                {
+                    bool exists = bundle.FindEntry(resource.AsReference()).Any<Bundle.EntryComponent>();
+                    if (!exists)
+                    {
+                        bundle.AddResourceEntry(resource, resource.AsReference().Reference);
+                    }
                 }
             }
 
-            resource = Record.GetResources()[composition.Attester[0].Party.Reference];
-            if (resource == null)
+            if (!composition.Attester.IsNullOrEmpty() && composition.Attester[0].Party != null && composition.Attester[0].Party.Reference != null)
             {
-                throw (new MissingMemberException("Attester[0] resource is not available in Record."));
-            }
-
-            if (resource != null)
-            {
-                bool exists = bundle.FindEntry(resource.AsReference()).Any<Bundle.EntryComponent>();
-                if (!exists)
+                resource = Record.GetResources()[composition.Attester[0].Party.Reference];
+                if (resource == null)
                 {
-                    bundle.AddResourceEntry(resource, resource.AsReference().Reference);
+                    throw (new MissingMemberException("Attester[0] resource is not available in Record."));
+                }
+
+                if (resource != null)
+                {
+                    bool exists = bundle.FindEntry(resource.AsReference()).Any<Bundle.EntryComponent>();
+                    if (!exists)
+                    {
+                        bundle.AddResourceEntry(resource, resource.AsReference().Reference);
+                    }
                 }
             }
-
+            
             foreach (SectionComponent section in composition.Section)
             {
                 foreach (ResourceReference sectionEntryReference in section.Entry)
@@ -334,7 +332,7 @@ namespace GaTech.Chai.Mdi.BundleDocumentMdiAndEdrsProfile
                     resource = Record.GetResources()[sectionEntryReference.Reference];
                     if (resource == null)
                     {
-                        throw (new MissingMemberException(sectionEntryReference.Reference+" resource is not available in Record."));
+                        throw (new MissingMemberException(sectionEntryReference.Reference + " resource is not available in Record."));
                     }
                     if (resource != null)
                     {

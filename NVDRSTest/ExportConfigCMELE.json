@@ -277,7 +277,7 @@
             "name": "Age",
             "firstColumn": 139,
             "lastColumn": 141,
-            "value": " 23"
+            "value": ""
         },
         {
             "name": "AgeUnit",
@@ -361,7 +361,7 @@
             "name": "MaritalStatus",
             "firstColumn": 158,
             "lastColumn": 158,
-            "value": "M"
+            "value": ""
         },
         {
             "name": "Military",

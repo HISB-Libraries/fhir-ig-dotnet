@@ -1,7 +1,6 @@
 ﻿using System;
 using Hl7.Fhir.Model;
 using GaTech.Chai.Share.Extensions;
-using System.Collections.Generic;
 using GaTech.Chai.Vrdr.Common;
 using GaTech.Chai.Share.Common;
 
@@ -128,8 +127,7 @@ namespace GaTech.Chai.Mdi.ObservationDeathDateProfile
         {
             get
             {
-                Resource value;
-                Record.GetResources().TryGetValue(this.observation.Subject.Reference, out value);
+                Record.GetResources().TryGetValue(this.observation.Subject.Reference, out Resource value);
 
                 return (Patient)value;
             }
