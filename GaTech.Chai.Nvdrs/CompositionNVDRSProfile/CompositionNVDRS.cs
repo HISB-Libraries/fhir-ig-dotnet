@@ -48,6 +48,7 @@ public class CompositionNVDRS
         {
             Type = type,
             Status = status,
+            Date = date.ToString(),
             Title = title,
         };
 
@@ -58,7 +59,7 @@ public class CompositionNVDRS
         return composition;
     }
 
-    public const string ProfileUrl = "https://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-composition";
+    public const string ProfileUrl = "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-composition";
 
     /// <summary>
     /// Set profile for the CompositionNVDRSProfile
@@ -125,7 +126,7 @@ public class CompositionNVDRS
     {
         get
         {
-            Extension ext = this.composition.GetExtension("https://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-force-new-record-extension");
+            Extension ext = this.composition.GetExtension("http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-force-new-record-extension");
             if (ext == null || ext.Value is not FhirBoolean force || force.Value == true)
             {
                 return true;
@@ -139,7 +140,7 @@ public class CompositionNVDRS
         {
             Extension ext = new()
             {
-                Url = "https://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-force-new-record-extension",
+                Url = "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-force-new-record-extension",
                 Value = new FhirBoolean(value)
             };
             this.composition.Extension.AddOrUpdateExtension(ext);
@@ -150,7 +151,7 @@ public class CompositionNVDRS
     {
         get
         {
-            Extension ext = this.composition.GetExtension("https://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-overwrite-conflicts-extension");
+            Extension ext = this.composition.GetExtension("http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-overwrite-conflicts-extension");
             if (ext == null || ext.Value is not FhirBoolean force || force.Value == true)
             {
                 return true;
@@ -164,7 +165,7 @@ public class CompositionNVDRS
         {
             Extension ext = new()
             {
-                Url = "https://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-overwrite-conflicts-extension",
+                Url = "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-overwrite-conflicts-extension",
                 Value = new FhirBoolean(value)
             };
             this.composition.Extension.AddOrUpdateExtension(ext);
@@ -175,7 +176,7 @@ public class CompositionNVDRS
     {
         get
         {
-            Extension ext = this.composition.GetExtension("https://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/identifier-extension");
+            Extension ext = this.composition.GetExtension("http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/identifier-extension");
             if (ext != null)
             {
                 return ext.Value as Identifier;
@@ -187,7 +188,7 @@ public class CompositionNVDRS
         {
             Extension ext = new()
             {
-                Url = "https://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/identifier-extension",
+                Url = "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/identifier-extension",
                 Value = value
             };
             this.composition.Extension.AddOrUpdateExtension(ext);
@@ -198,7 +199,7 @@ public class CompositionNVDRS
     {
         get
         {
-            Extension ext = this.composition.GetExtension("https://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-incident-year-extension");
+            Extension ext = this.composition.GetExtension("http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-incident-year-extension");
             if (ext != null)
             {
                 return ext.Value as Date;
@@ -210,7 +211,7 @@ public class CompositionNVDRS
         {
             Extension ext = new()
             {
-                Url = "https://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-incident-year-extension",
+                Url = "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-incident-year-extension",
                 Value = value
             };
             this.composition.Extension.AddOrUpdateExtension(ext);

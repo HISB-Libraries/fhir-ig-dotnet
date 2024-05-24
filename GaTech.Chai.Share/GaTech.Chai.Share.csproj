@@ -27,8 +27,8 @@
     <Folder Include="Extensions\" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Hl7.Fhir.R4" Version="5.4.0" />
-    <PackageReference Include="Hl7.Fhir.Specification.R4" Version="5.4.0" />
+    <PackageReference Include="Hl7.Fhir.R4" Version="5.8.1" />
+    <PackageReference Include="Hl7.Fhir.Specification.R4" Version="5.8.1" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\LICENSE" Pack="true" PackagePath="" />

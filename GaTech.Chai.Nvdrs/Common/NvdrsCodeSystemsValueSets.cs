@@ -14,18 +14,6 @@ public class NvdrsCodeSystem
         public static CodeableConcept ICD10 = new(NvdrsDocTypeValueSet.systemUrl, "icd-10", "ICD-10", null);
     }
 
-    public class NvdrsSectionCodes
-    {
-        public const string officialUrl = "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-custom-code-system";
-
-        public static CodeableConcept Demographics = new(NvdrsCodeSystem.NvdrsSectionCodes.officialUrl, "demographics", "Demographics", null);
-        public static CodeableConcept InjuryAndDeath = new(NvdrsCodeSystem.NvdrsSectionCodes.officialUrl, "injury-and-death", "Injury and Death", null);
-        public static CodeableConcept Toxicology = new(NvdrsCodeSystem.NvdrsSectionCodes.officialUrl, "toxicology", "Toxicology", null);
-        public static CodeableConcept Circumstances = new(NvdrsCodeSystem.NvdrsSectionCodes.officialUrl, "circumstances", "Circumstances", null);
-        public static CodeableConcept Weapons = new(NvdrsCodeSystem.NvdrsSectionCodes.officialUrl, "weapons", "weapons", null);
-        public static CodeableConcept Overdose = new(NvdrsCodeSystem.NvdrsSectionCodes.officialUrl, "overdose", "Overdose(s)", null);
-    }
-
     public class NvdrsWeaponTypeValueSet
     {
         public const string officialUrl = "http://mortalityreporting.github.io/nvdrs-ig/ValueSet/nvdrs-weapon-type-vs";
@@ -105,6 +93,27 @@ public class NvdrsCodeSystem
 
         public static CodeableConcept GlockInc_Smyrna_Georgia = new(NvdrsCodeSystem.NvdrsNcicFirearmMakeValueSet.systemUrl, "GLD", "Glock Inc. (Smyrna, Georgia)", "Subsidiary of original Glock guns manufactured in the USA, NOT Austria");
         public static CodeableConcept GlockInc = new(NvdrsCodeSystem.NvdrsNcicFirearmMakeValueSet.systemUrl, "GLC", "Glock Inc.", "Original Glock guns manufactured in Austria. See GLD for Glocks manufactured in the USA");
+    }
+
+    public class NvdrsCircumstancesCmeValueSet
+    {
+        public const string officialUrl = "http://mortalityreporting.github.io/nvdrs-ig/ValueSet/nvdrs-circumstances-cme-vs";
+        public const string systemUrl = "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-custom-code-system";
+
+        public static CodeableConcept Firearm = new(NvdrsCodeSystem.NvdrsCircumstancesCmeValueSet.systemUrl, "firearm", "Details on Firearm", "Details on firearm");
+        public static CodeableConcept PlayWithGun = new(NvdrsCodeSystem.NvdrsCircumstancesCmeValueSet.systemUrl, "playing-with-gun", "Playing with Gun", "Playing with gun");
+    }
+
+    public class NvdrsSectionCodes
+    {
+        public const string officialUrl = "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-custom-code-system";
+
+        public static CodeableConcept Demographics = new(NvdrsCodeSystem.NvdrsSectionCodes.officialUrl, "demographics", "Demographics", null);
+        public static CodeableConcept InjuryAndDeath = new(NvdrsCodeSystem.NvdrsSectionCodes.officialUrl, "injury-and-death", "Injury and Death", null);
+        public static CodeableConcept Toxicology = new(NvdrsCodeSystem.NvdrsSectionCodes.officialUrl, "toxicology", "Toxicology", null);
+        public static CodeableConcept Circumstances = new(NvdrsCodeSystem.NvdrsSectionCodes.officialUrl, "circumstances", "Circumstances", null);
+        public static CodeableConcept Weapons = new(NvdrsCodeSystem.NvdrsSectionCodes.officialUrl, "weapons", "weapons", null);
+        public static CodeableConcept Overdose = new(NvdrsCodeSystem.NvdrsSectionCodes.officialUrl, "overdose", "Overdose(s)", null);
     }
 
     public class NvdrsFirearmComponentCodes
