@@ -78,94 +78,95 @@ public class BundleDocumentNvdrs
         bundle.RemoveProfile(ProfileUrl);
     }
 
-    private void AddReferencesInCompositionToEntry(Composition composition)
-    {
-        Resource resource = Record.GetResources()[composition.Subject.Reference];
-        if (resource == null)
-        {
-            throw (new MissingMemberException("Subject resource is not available in Record."));
-        }
+    // private void AddReferencesInCompositionToEntry(Composition composition)
+    // {
+    //     Resource resource = Record.GetResources()[composition.Subject.Reference];
+    //     if (resource == null)
+    //     {
+    //         throw (new MissingMemberException("Subject resource is not available in Record."));
+    //     }
 
-        if (resource != null)
-        {
-            bool exists = bundle.FindEntry(resource.AsReference()).Any<Bundle.EntryComponent>();
-            if (!exists)
-            {
-                bundle.AddResourceEntry(resource, resource.AsReference().Reference);
-            }
-        }
+    //     if (resource != null)
+    //     {
+    //         bool exists = bundle.FindEntry(resource.AsReference()).Any<Bundle.EntryComponent>();
+    //         if (!exists)
+    //         {
+    //             bundle.AddResourceEntry(resource, resource.AsReference().Reference);
+    //         }
+    //     }
 
-        if (!composition.Author.IsNullOrEmpty() && composition.Author[0].Reference != null)
-        {
-            resource = Record.GetResources()[composition.Author[0].Reference];
-            if (resource == null)
-            {
-                throw (new MissingMemberException("Author[0] resource is not available in Record."));
-            }
+    //     if (!composition.Author.IsNullOrEmpty() && composition.Author[0].Reference != null)
+    //     {
+    //         resource = Record.GetResources()[composition.Author[0].Reference];
+    //         if (resource == null)
+    //         {
+    //             throw (new MissingMemberException("Author[0] resource is not available in Record."));
+    //         }
 
-            if (resource != null)
-            {
-                bool exists = bundle.FindEntry(resource.AsReference()).Any<Bundle.EntryComponent>();
-                if (!exists)
-                {
-                    bundle.AddResourceEntry(resource, resource.AsReference().Reference);
-                }
-            }
-        }
+    //         if (resource != null)
+    //         {
+    //             bool exists = bundle.FindEntry(resource.AsReference()).Any<Bundle.EntryComponent>();
+    //             if (!exists)
+    //             {
+    //                 bundle.AddResourceEntry(resource, resource.AsReference().Reference);
+    //             }
+    //         }
+    //     }
 
-        if (!composition.Attester.IsNullOrEmpty() && composition.Attester[0].Party != null && composition.Attester[0].Party.Reference != null)
-        {
-            resource = Record.GetResources()[composition.Attester[0].Party.Reference];
-            if (resource == null)
-            {
-                throw (new MissingMemberException("Attester[0] resource is not available in Record."));
-            }
+    //     if (!composition.Attester.IsNullOrEmpty() && composition.Attester[0].Party != null && composition.Attester[0].Party.Reference != null)
+    //     {
+    //         resource = Record.GetResources()[composition.Attester[0].Party.Reference];
+    //         if (resource == null)
+    //         {
+    //             throw (new MissingMemberException("Attester[0] resource is not available in Record."));
+    //         }
 
-            if (resource != null)
-            {
-                bool exists = bundle.FindEntry(resource.AsReference()).Any<Bundle.EntryComponent>();
-                if (!exists)
-                {
-                    bundle.AddResourceEntry(resource, resource.AsReference().Reference);
-                }
-            }
-        }
+    //         if (resource != null)
+    //         {
+    //             bool exists = bundle.FindEntry(resource.AsReference()).Any<Bundle.EntryComponent>();
+    //             if (!exists)
+    //             {
+    //                 bundle.AddResourceEntry(resource, resource.AsReference().Reference);
+    //             }
+    //         }
+    //     }
 
-        foreach (SectionComponent section in composition.Section)
-        {
-            foreach (ResourceReference sectionEntryReference in section.Entry)
-            {
-                resource = Record.GetResources()[sectionEntryReference.Reference];
-                if (resource == null)
-                {
-                    throw (new MissingMemberException(sectionEntryReference.Reference + " resource is not available in Record."));
-                }
-                if (resource != null)
-                {
-                    bool exists = bundle.FindEntry(resource.AsReference()).Any<Bundle.EntryComponent>();
-                    if (!exists)
-                    {
-                        bundle.AddResourceEntry(resource, resource.AsReference().Reference);
-                    }
+    //     foreach (SectionComponent section in composition.Section)
+    //     {
+    //         foreach (ResourceReference sectionEntryReference in section.Entry)
+    //         {
+    //             resource = Record.GetResources()[sectionEntryReference.Reference];
+    //             if (resource == null)
+    //             {
+    //                 throw (new MissingMemberException(sectionEntryReference.Reference + " resource is not available in Record."));
+    //             }
+    //             if (resource != null)
+    //             {
+    //                 bool exists = bundle.FindEntry(resource.AsReference()).Any<Bundle.EntryComponent>();
+    //                 if (!exists)
+    //                 {
+    //                     bundle.AddResourceEntry(resource, resource.AsReference().Reference);
+    //                 }
 
-                    // if the resource is observation, we may have focus being used.
-                    if (resource is Observation obs)
-                    {
-                        if (!obs.Focus.IsNullOrEmpty())
-                        {
-                            exists = bundle.FindEntry(obs.Focus[0]).Any<Bundle.EntryComponent>();
-                            if (!exists)
-                            {
-                                Resource focusResource = Record.GetResources()[obs.Focus[0].Reference];
-                                bundle.AddResourceEntry(focusResource, focusResource.AsReference().Reference);
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-    public Composition NVDRSComposition
+    //                 // if the resource is observation, we may have focus being used.
+    //                 if (resource is Observation obs)
+    //                 {
+    //                     if (!obs.Focus.IsNullOrEmpty())
+    //                     {
+    //                         exists = bundle.FindEntry(obs.Focus[0]).Any<Bundle.EntryComponent>();
+    //                         if (!exists)
+    //                         {
+    //                             Resource focusResource = Record.GetResources()[obs.Focus[0].Reference];
+    //                             bundle.AddResourceEntry(focusResource, focusResource.AsReference().Reference);
+    //                         }
+    //                     }
+    //                 }
+    //             }
+    //         }
+    //     }
+    // }
+
+    public Composition? NVDRSComposition
     {
         get
         {
@@ -201,7 +202,7 @@ public class BundleDocumentNvdrs
             bundle.Entry.Insert(0, entryComponent);
 
             // Add references in composition to bundle entry.
-            AddReferencesInCompositionToEntry(value);
+            bundle.AddRefsInCompositionToEntry(value);
         }
     }
 

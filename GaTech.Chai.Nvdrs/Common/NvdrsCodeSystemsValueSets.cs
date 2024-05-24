@@ -83,13 +83,6 @@ public class NvdrsCodeSystem
         public static CodeableConcept Unknown = new(NvdrsCodeSystem.NvdrsFirearmTypeValueSet.systemUrl, "99", "Unknown", null);
     }
 
-    public class NvdrsResourceCodes
-    {
-        public const string officialUrl = "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-custom-code-system";
-        public static CodeableConcept Firearm = new(NvdrsCodeSystem.NvdrsResourceCodes.officialUrl, "firearm", "Details on Firearm", null);
-        public static CodeableConcept WeaponType = new(NvdrsCodeSystem.NvdrsResourceCodes.officialUrl, "weapon-type", "Type of Weapon", null);
-    }
-
     public class NvdrsGunOwnerCodesValueSet
     {
         public const string officialUrl = "http://mortalityreporting.github.io/nvdrs-ig/ValueSet/nvdrs-gun-owner-codes-vs";
@@ -103,6 +96,15 @@ public class NvdrsCodeSystem
         public static CodeableConcept Stranger = new(NvdrsGunOwnerCodesValueSet.systemUrl, "friend-acquaintance", "Friend/Acquaintance of shooter", null);
         public static CodeableConcept OtherSpecify = new(NvdrsGunOwnerCodesValueSet.systemUrl, "other-specify", "Other (specify in gun access narrative)", null);
         public static CodeableConcept Unknown = new("http://snomed.info/sct", "261665006", "Unknown", null);
+    }
+
+    public class NvdrsNcicFirearmMakeValueSet
+    {
+        public const string officialUrl = "http://mortalityreporting.github.io/nvdrs-ig/ValueSet/ncic-firearm-make";
+        public const string systemUrl = "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-ncic-gun-data";
+
+        public static CodeableConcept GlockInc_Smyrna_Georgia = new(NvdrsCodeSystem.NvdrsNcicFirearmMakeValueSet.systemUrl, "GLD", "Glock Inc. (Smyrna, Georgia)", "Subsidiary of original Glock guns manufactured in the USA, NOT Austria");
+        public static CodeableConcept GlockInc = new(NvdrsCodeSystem.NvdrsNcicFirearmMakeValueSet.systemUrl, "GLC", "Glock Inc.", "Original Glock guns manufactured in Austria. See GLD for Glocks manufactured in the USA");
     }
 
     public class NvdrsFirearmComponentCodes
@@ -122,4 +124,12 @@ public class NvdrsCodeSystem
 
         public static CodeableConcept Weapons = new(NvdrsCodeSystem.NvdrsCategoryCodes.officialUrl, "weapons", "Weapon(s)", null);
     }
+
+    public class NvdrsResourceCodes
+    {
+        public const string officialUrl = "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-custom-code-system";
+        public static CodeableConcept Firearm = new(NvdrsCodeSystem.NvdrsResourceCodes.officialUrl, "firearm", "Details on Firearm", null);
+        public static CodeableConcept WeaponType = new(NvdrsCodeSystem.NvdrsResourceCodes.officialUrl, "weapon-type", "Type of Weapon", null);
+    }
+
 }

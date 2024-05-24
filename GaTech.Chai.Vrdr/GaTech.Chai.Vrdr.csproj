@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net7.0</TargetFramework>
     <PackageId>fhir-ig-vrdr-dotnet</PackageId>
     <PackageVersion>1.0.1</PackageVersion>
     <Authors>Myung Choi</Authors>

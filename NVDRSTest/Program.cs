@@ -76,6 +76,10 @@ public class Program
         firearmObs.Category.Add(NvdrsCodeSystem.NvdrsCategoryCodes.Weapons);
         firearmObs.ObservationFirearm().FirearmStolen = VrclCodeSystemsValueSets.VrclValueSetYesNoUnknownVr.YES;
         firearmObs.ObservationFirearm().FirearmType = NvdrsCodeSystem.NvdrsFirearmTypeValueSet.HandgunPistolBoltAction;
+        firearmObs.ObservationFirearm().SerialNumber = new Identifier { System = "urn:vdrs:ncic:serialnumber", Value = "12345-0987" };
+        firearmObs.ObservationFirearm().FirearmMake = NvdrsCodeSystem.NvdrsNcicFirearmMakeValueSet.GlockInc_Smyrna_Georgia;
+        firearmObs.ObservationFirearm().FirearmModel = "XYZ";
+        firearmObs.ObservationFirearm().FirearmCaliber = "556";
 
         // Weapon Type
         Observation weaponTypeObs = ObservationWeaponType.Create();

@@ -177,13 +177,76 @@ public class ObservationFirearm
         get
         {
             Observation.ComponentComponent component = this.observation.Component.GetComponent(NvdrsCodeSystem.NvdrsFirearmComponentCodes.FirearmType.Coding[0].System, NvdrsCodeSystem.NvdrsFirearmComponentCodes.FirearmType.Coding[0].Code);
-            return component.Value as CodeableConcept;
+            return component?.Value as CodeableConcept;
         }
 
         set
         {
             Observation.ComponentComponent component = this.observation.Component.GetOrAddComponent(NvdrsCodeSystem.NvdrsFirearmComponentCodes.FirearmType.Coding[0].System, NvdrsCodeSystem.NvdrsFirearmComponentCodes.FirearmType.Coding[0].Code, NvdrsCodeSystem.NvdrsFirearmComponentCodes.FirearmType.Coding[0].Display);
             component.Value = value;
+        }
+    }
+
+    public DataType? FirearmMake
+    {
+        get
+        {
+            Observation.ComponentComponent component = this.observation.Component.GetComponent(NvdrsCodeSystem.NvdrsFirearmComponentCodes.FirearmMake.Coding[0].System, NvdrsCodeSystem.NvdrsFirearmComponentCodes.FirearmMake.Coding[0].Code);
+            if (component?.Value is CodeableConcept)
+                return component?.Value as CodeableConcept;
+            else
+                return component?.Value as FhirString;
+        }
+
+        set
+        {
+            Observation.ComponentComponent component = this.observation.Component.GetOrAddComponent(NvdrsCodeSystem.NvdrsFirearmComponentCodes.FirearmMake.Coding[0].System, NvdrsCodeSystem.NvdrsFirearmComponentCodes.FirearmMake.Coding[0].Code, NvdrsCodeSystem.NvdrsFirearmComponentCodes.FirearmMake.Coding[0].Display);
+            component.Value = value;
+        }
+    }
+
+    public string? FirearmModel
+    {
+        get
+        {
+            Observation.ComponentComponent component = this.observation.Component.GetComponent(NvdrsCodeSystem.NvdrsFirearmComponentCodes.FirearmModel.Coding[0].System, NvdrsCodeSystem.NvdrsFirearmComponentCodes.FirearmModel.Coding[0].Code);
+            return component?.Value.ToString();
+        }
+
+        set
+        {
+            Observation.ComponentComponent component = this.observation.Component.GetOrAddComponent(NvdrsCodeSystem.NvdrsFirearmComponentCodes.FirearmModel.Coding[0].System, NvdrsCodeSystem.NvdrsFirearmComponentCodes.FirearmModel.Coding[0].Code, NvdrsCodeSystem.NvdrsFirearmComponentCodes.FirearmModel.Coding[0].Display);
+            component.Value = new FhirString(value);
+        }
+    }
+
+    public string? FirearmCaliber
+    {
+        get
+        {
+            Observation.ComponentComponent component = this.observation.Component.GetComponent(NvdrsCodeSystem.NvdrsFirearmComponentCodes.FirearmCaliber.Coding[0].System, NvdrsCodeSystem.NvdrsFirearmComponentCodes.FirearmCaliber.Coding[0].Code);
+            return component?.Value.ToString();
+        }
+
+        set
+        {
+            Observation.ComponentComponent component = this.observation.Component.GetOrAddComponent(NvdrsCodeSystem.NvdrsFirearmComponentCodes.FirearmCaliber.Coding[0].System, NvdrsCodeSystem.NvdrsFirearmComponentCodes.FirearmCaliber.Coding[0].Code, NvdrsCodeSystem.NvdrsFirearmComponentCodes.FirearmCaliber.Coding[0].Display);
+            component.Value = new FhirString(value);
+        }
+    }
+
+    public string? FirearmGauge
+    {
+        get
+        {
+            Observation.ComponentComponent component = this.observation.Component.GetComponent(NvdrsCodeSystem.NvdrsFirearmComponentCodes.FirearmGauge.Coding[0].System, NvdrsCodeSystem.NvdrsFirearmComponentCodes.FirearmGauge.Coding[0].Code);
+            return component?.Value.ToString();
+        }
+
+        set
+        {
+            Observation.ComponentComponent component = this.observation.Component.GetOrAddComponent(NvdrsCodeSystem.NvdrsFirearmComponentCodes.FirearmGauge.Coding[0].System, NvdrsCodeSystem.NvdrsFirearmComponentCodes.FirearmGauge.Coding[0].Code, NvdrsCodeSystem.NvdrsFirearmComponentCodes.FirearmGauge.Coding[0].Display);
+            component.Value = new FhirString(value);
         }
     }
 }

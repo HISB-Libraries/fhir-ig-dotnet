@@ -69,7 +69,7 @@ public abstract class FlatObject
         string alignedValue = "";
         for (int i = length; i >= 0; i--)
         {
-            if (valueLength < 0)
+            if (valueLength <= 0)
             {
                 alignedValue = " " + alignedValue;
             }
