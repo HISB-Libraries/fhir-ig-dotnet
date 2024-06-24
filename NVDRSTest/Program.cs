@@ -13,6 +13,7 @@ using GaTech.Chai.Vrdr.VrdrInjuryIncidentProfile;
 using GaTech.Chai.Share.Common;
 using GaTech.Chai.Nvdrs.ObservationFirearm;
 using GaTech.Chai.Vrcl.Common;
+using GaTech.Chai.Nvdrs.NvdrsDecedent;
 
 public class Program
 {
@@ -20,17 +21,17 @@ public class Program
     {
         Console.WriteLine("+--------- Create NVDRS Bundle ---------+");
         // Decedent. the Vitim
-        Patient patient = PatientVr.Create();
-        patient.Id = "806c53c0-a993-11ed-afa1-0242ac120002";
+        Patient patient = NvdrsDecedent.Create();
+        patient.Id = "956c53c0-a993-11ed-afa1-0242ac120002";
 
         // Name
-        patient.Name = new List<HumanName> { new HumanName() { Family = "Solo", GivenElement = new List<FhirString> { new FhirString("Han"), new FhirString("J") } } };
+        patient.Name = new List<HumanName> { new HumanName() { Family = "Organa", GivenElement = new List<FhirString> { new FhirString("Leia"), new FhirString("S") } } };
         patient.Identifier.Add(new Identifier()
         {
             Use = Identifier.IdentifierUse.Usual,
             Type = new CodeableConcept("http://terminology.hl7.org/CodeSystem/v2-0203", "SB", "Social Beneficiary Identifier", null),
             System = "http://hl7.org/fhir/sid/us-ssn",
-            Value = "123456790"
+            Value = "213456790"
         });
 
         // Race
@@ -45,14 +46,14 @@ public class Program
 
         // Birth Related
         patient.BirthDateElement = new Date(1978, 3, 12);
-        patient.UsCorePatient().BirthSex.Extension = new Code("M");
+        patient.UsCorePatient().BirthSex.Extension = new Code("F");
         patient.Gender = AdministrativeGender.Female;
 
         // Address
         patient.Address = new List<Address> { new Address {
                 Use = Address.AddressUse.Home,
                 Type = Address.AddressType.Physical,
-                Line = new List<string> { "5100 Peachtree Street", "Bldg4-12" },
+                Line = new List<string> { "5100 Olympus Street", "Bldg5-12" },
                 City = "Atlanta",
                 State = "GA",
                 PostalCode = "09090",
@@ -66,34 +67,35 @@ public class Program
         patient.Telecom.AddTelecom(ContactPoint.ContactPointSystem.Email, ContactPoint.ContactPointUse.Work, "raven@mdi.org");
 
         // Deceased
-        patient.Deceased = new FhirDateTime(2014, 3, 2);
+        patient.Deceased = new FhirDateTime(2024, 3, 2);
 
         // BirthPlace
         patient.PatientVr().BirthPlace.CityCode = 42425;
 
         // Firearm 
         Observation firearmObs = ObservationFirearm.Create();
-        firearmObs.Category.Add(NvdrsCodeSystem.NvdrsCategoryCodes.Weapons);
+        firearmObs.Category.Add(NvdrsCustomCs.Weapons);
         firearmObs.ObservationFirearm().FirearmStolen = VrclCodeSystemsValueSets.VrclValueSetYesNoUnknownVr.YES;
-        firearmObs.ObservationFirearm().FirearmType = NvdrsCodeSystem.NvdrsFirearmTypeValueSet.HandgunPistolBoltAction;
-        firearmObs.ObservationFirearm().SerialNumber = new Identifier { System = "urn:vdrs:ncic:serialnumber", Value = "12345-0987" };
-        firearmObs.ObservationFirearm().FirearmMake = NvdrsCodeSystem.NvdrsNcicFirearmMakeValueSet.GlockInc_Smyrna_Georgia;
-        firearmObs.ObservationFirearm().FirearmModel = "XYZ";
+        firearmObs.ObservationFirearm().FirearmType = NvdrsFirearmTypeVs.HandgunPistolBoltAction;
+        firearmObs.ObservationFirearm().SerialNumber = "12345-0987";
+        // firearmObs.ObservationFirearm().FirearmMake = NcicFirearmMakeVs.GlockInc;
+        firearmObs.ObservationFirearm().FirearmMake = new FhirString("64");
+        firearmObs.ObservationFirearm().FirearmModel = "512";
         firearmObs.ObservationFirearm().FirearmCaliber = "556";
 
         // Weapon Type
         Observation weaponTypeObs = ObservationWeaponType.Create();
         weaponTypeObs.ObservationWeaponType().FocusOnFirearm = firearmObs;
-        weaponTypeObs.Value = NvdrsCodeSystem.NvdrsWeaponTypeValueSet.Firearm;
+        weaponTypeObs.Value = NvdrsWeaponTypeVs.Firearm;
 
         // Meta information.
-        Composition nvdrsTestComp = CompositionNVDRS.Create(patient, null, ValueSets.Hl7VsDataAbsentReason.NotAsked, NvdrsCodeSystem.NvdrsDocTypeValueSet.CNEReport);
+        Composition nvdrsTestComp = CompositionNVDRS.Create(patient, null, ValueSets.Hl7VsDataAbsentReason.NotAsked, NvdrsDocTypesVs.CMEReport);
         nvdrsTestComp.CompositionNVDRS().ForceNewRecord = true;
         nvdrsTestComp.CompositionNVDRS().OverwriteConflicts = false;
-        nvdrsTestComp.CompositionNVDRS().IncidentYear = new Date(2014);
+        // nvdrsTestComp.CompositionNVDRS().IncidentYear = new Date(2024);
 
         // Add firearm object to composition's weapon section.
-        nvdrsTestComp.CompositionNVDRS().AddSectionEntryByCode(NvdrsCodeSystem.NvdrsSectionCodes.Weapons, [weaponTypeObs]);
+        nvdrsTestComp.CompositionNVDRS().AddSectionEntryByCode(NvdrsCustomCs.Weapons, [weaponTypeObs]);
 
         // Create NVDRS Bundle using the composition created above
         Bundle nvdrsTestBundle = BundleDocumentNvdrs.Create(nvdrsTestComp);

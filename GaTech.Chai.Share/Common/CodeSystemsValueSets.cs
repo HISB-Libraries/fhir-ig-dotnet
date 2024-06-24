@@ -128,6 +128,8 @@ namespace GaTech.Chai.Share.Common
     public class UriString
     {
         public static string UsSsnUri = "http://hl7.org/fhir/sid/us-ssn";
+        public static string LOINC = "http://loinc.org";
+        public static string SCT = "http://snomed.info/sct";
     }
 }
 

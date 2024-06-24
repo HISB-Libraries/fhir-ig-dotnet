@@ -20,7 +20,7 @@ public class FlatObjectDC : FlatObject
             Boolean isOk = false;
             foreach (string profile in bundle.Meta.Profile)
             {
-                if (BundleDocumentNvdrs.ProfileUrl.Equals(profile))
+                if (NvdrsDocumentBundle.ProfileUrl.Equals(profile))
                 {
                     isOk = true;
                     break;
@@ -34,7 +34,7 @@ public class FlatObjectDC : FlatObject
             }
 
             // Now Map the NVDRS FHIR CME Document to NVDRS. This is manual mapping.
-            Composition composition = bundle.BundleDocumentNvdrs().NVDRSComposition;
+            Composition? composition = bundle.NvdrsDocumentBundle().NVDRSComposition;
 
             // Mapping Process with a simple iteration over the data array.
             foreach (JsonNode? data in DataArray)

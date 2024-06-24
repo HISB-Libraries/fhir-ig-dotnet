@@ -71,7 +71,8 @@ public abstract class FlatObject
         {
             if (valueLength <= 0)
             {
-                alignedValue = " " + alignedValue;
+                // alignedValue = " " + alignedValue;
+                alignedValue = alignedValue + " ";
             }
             else
             {

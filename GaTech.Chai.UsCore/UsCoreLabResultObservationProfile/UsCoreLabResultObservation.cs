@@ -15,7 +15,6 @@ namespace GaTech.Chai.UsCore.LabResultObservationProfile
         internal UsCoreLabResultObservation(Observation observation)
         {
             this.observation = observation;
-            this.observation.Category.SetCategory(new Coding("http://terminology.hl7.org/CodeSystem/observation-category", "laboratory", "Laboratory"));
         }
 
         /// <summary>
@@ -25,6 +24,8 @@ namespace GaTech.Chai.UsCore.LabResultObservationProfile
         public static Observation Create()
         {
             var observation = new Observation();
+            observation.Category.SetCategory(new Coding("http://terminology.hl7.org/CodeSystem/observation-category", "laboratory", "Laboratory"));
+
             return observation;
         }
 

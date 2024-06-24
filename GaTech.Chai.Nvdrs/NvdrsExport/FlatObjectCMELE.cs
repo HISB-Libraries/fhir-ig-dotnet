@@ -1,8 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Text.Json.Nodes;
 using GaTech.Chai.Nvdrs.Common;
-using GaTech.Chai.Nvdrs.CompositionNVDRSProfile;
-using GaTech.Chai.Nvdrs.ObservationFirearm;
 using GaTech.Chai.Share.Common;
 using GaTech.Chai.Share.Extensions;
 using Hl7.Fhir.Model;
@@ -23,7 +21,7 @@ public class FlatObjectCMELE : FlatObject
 
     public Observation? FindWeaponTypeObservation(Composition composition)
     {
-        List<Resource> resources = composition.CompositionNVDRS().GetSectionByCode(NvdrsCodeSystem.NvdrsSectionCodes.Weapons);
+        List<Resource> resources = composition.NvdrsComposition().GetSectionByCode(NvdrsCustomCs.Weapons);
         foreach (Resource resource in resources)
         {
             if (resource is Observation weaponObs)
@@ -33,7 +31,7 @@ public class FlatObjectCMELE : FlatObject
                     List<Coding> codings = weaponObs.Code.Coding;
                     if (!codings.IsNullOrEmpty())
                     {
-                        if (NvdrsCodeSystem.NvdrsResourceCodes.WeaponType.Coding[0].Code.Equals(codings[0].Code))
+                        if (NvdrsWeaponsCategoryVs.WeaponType.Coding[0].Code.Equals(codings[0].Code))
                         {
                             return weaponObs;
                         }
@@ -44,6 +42,7 @@ public class FlatObjectCMELE : FlatObject
 
         return null;
     }
+
     public Observation? FindFirearmObservation(Composition composition, Observation weaponTypeObservation)
     {
         foreach (ResourceReference focusReference in weaponTypeObservation.Focus)
@@ -58,7 +57,7 @@ public class FlatObjectCMELE : FlatObject
 
                 foreach (string profile in meta.Profile)
                 {
-                    if (ObservationFirearm.ObservationFirearm.ProfileUrl.Equals(profile))
+                    if (NvdrsFirearm.ProfileUrl.Equals(profile))
                     {
 
                         return focusObservation;
@@ -77,7 +76,7 @@ public class FlatObjectCMELE : FlatObject
             Boolean isOk = false;
             foreach (string profile in bundle.Meta.Profile)
             {
-                if (BundleDocumentNvdrs.ProfileUrl.Equals(profile))
+                if (NvdrsDocumentBundle.ProfileUrl.Equals(profile))
                 {
                     isOk = true;
                     break;
@@ -91,7 +90,7 @@ public class FlatObjectCMELE : FlatObject
             }
 
             // Now Map the NVDRS FHIR CME Document to NVDRS. This is manual mapping.
-            Composition composition = bundle.BundleDocumentNvdrs().NVDRSComposition ?? throw new Exception("Composition missing in Bundle document.");
+            Composition composition = bundle.NvdrsDocumentBundle().NVDRSComposition ?? throw new Exception("Composition missing in Bundle document.");
             Observation? weaponTypeObservation = FindWeaponTypeObservation(composition);
             Observation? firearmObservation;
             if (weaponTypeObservation != null)
@@ -108,7 +107,7 @@ public class FlatObjectCMELE : FlatObject
             {
                 if ("ForceNewRecord".Equals(data!["name"]!.GetValue<string>()))
                 {
-                    if (composition.CompositionNVDRS().ForceNewRecord)
+                    if (composition.NvdrsComposition().ForceNewRecord)
                     {
                         data["value"] = "Y";
                     }
@@ -119,20 +118,20 @@ public class FlatObjectCMELE : FlatObject
                 }
                 else if ("OverwriteConflicts".Equals(data!["name"]!.GetValue<string>()))
                 {
-                    if (composition.CompositionNVDRS().OverwriteConflicts)
+                    if (composition.NvdrsComposition().OverwriteConflicts)
                     {
                         data["value"] = "Y";
                     }
-                    else
-                    {
-                        data["value"] = "N";
-                    }
+                    // else
+                    // {
+                    //     data["value"] = "N";
+                    // }
                 }
                 else if ("IncidentYear".Equals(data!["name"]!.GetValue<string>()))
                 {
-                    if (composition.CompositionNVDRS().IncidentYear != null)
+                    if (composition.NvdrsComposition().IncidentYear != null)
                     {
-                        string incidentYearDate = composition.CompositionNVDRS().IncidentYear!.Value;
+                        string incidentYearDate = composition.NvdrsComposition().IncidentYear!.Value;
                         string[] incidentdatepart = incidentYearDate.Split('-');
                         StringWriteToData(data, incidentdatepart[0]);
                         // data["value"] = incidentdatepart[0];
@@ -208,7 +207,7 @@ public class FlatObjectCMELE : FlatObject
                         if (weaponTypeObservation.Value is CodeableConcept concept)
                         {
                             string weaponTypeCode = concept.Coding[0].Code;
-                            StringWriteToData(data, weaponTypeCode);
+                            StringWriteToData(data, weaponTypeCode.Substring(10));
                         }
                     }
                 }
@@ -216,10 +215,10 @@ public class FlatObjectCMELE : FlatObject
                 {
                     if (firearmObservation != null)
                     {
-                        CodeableConcept? firearmType = firearmObservation.ObservationFirearm().FirearmType;
+                        CodeableConcept? firearmType = firearmObservation.NvdrsFirearm().FirearmType;
                         if (!firearmType.IsNullOrEmpty())
                         {
-                            StringWriteToData(data, firearmType!.Coding[0].Code);
+                            StringWriteToData(data, firearmType!.Coding[0].Code.Substring(11));
                         }
                     }
                 }
@@ -227,7 +226,7 @@ public class FlatObjectCMELE : FlatObject
                 {
                     if (firearmObservation != null)
                     {
-                        string? firearmCaliber = firearmObservation.ObservationFirearm().FirearmCaliber;
+                        string? firearmCaliber = firearmObservation.NvdrsFirearm().FirearmCaliber;
                         if (firearmCaliber != null)
                         {
                             StringWriteToData(data, firearmCaliber);
@@ -238,7 +237,7 @@ public class FlatObjectCMELE : FlatObject
                 {
                     if (firearmObservation != null)
                     {
-                        string? firearmGauge = firearmObservation.ObservationFirearm().FirearmGauge;
+                        string? firearmGauge = firearmObservation.NvdrsFirearm().FirearmGauge;
                         if (firearmGauge != null)
                         {
                             StringWriteToData(data, firearmGauge);
@@ -249,7 +248,7 @@ public class FlatObjectCMELE : FlatObject
                 {
                     if (firearmObservation != null)
                     {
-                        DataType? firearmMake = firearmObservation.ObservationFirearm().FirearmMake;
+                        DataType? firearmMake = firearmObservation.NvdrsFirearm().FirearmMake;
                         if (!firearmMake.IsNullOrEmpty())
                         {
                             if (firearmMake is CodeableConcept concept)
@@ -267,7 +266,7 @@ public class FlatObjectCMELE : FlatObject
                 {
                     if (firearmObservation != null)
                     {
-                        string? fireModel = firearmObservation.ObservationFirearm().FirearmModel;
+                        string? fireModel = firearmObservation.NvdrsFirearm().FirearmModel;
                         if (fireModel != null)
                         {
                             StringWriteToData(data, fireModel);
@@ -278,13 +277,21 @@ public class FlatObjectCMELE : FlatObject
                 {
                     if (firearmObservation != null)
                     {
-                        if ("Y".Equals(firearmObservation.ObservationFirearm().FirearmStolen?.Coding[0].Code))
+                        if ("Y".Equals(firearmObservation.NvdrsFirearm().FirearmStolen?.Coding[0].Code))
                         {
-                            data["value"] = "Y";
+                            data["value"] = "1";
+                        }
+                        else if ("N".Equals(firearmObservation.NvdrsFirearm().FirearmStolen?.Coding[0].Code))
+                        {
+                            data["value"] = "0";
+                        }
+                        else if ("UNK".Equals(firearmObservation.NvdrsFirearm().FirearmStolen?.Coding[0].Code))
+                        {
+                            data["value"] = "9";
                         }
                         else
                         {
-                            data["value"] = "N";
+                            data["value"] = "8";
                         }
                     }
                 }
