@@ -1,11 +1,8 @@
-﻿using System;
-using GaTech.Chai.Share.Extensions;
-using GaTech.Chai.UsCore.PractitionerProfile;
-using GaTech.Chai.Vrcl.Extensions;
-using GaTech.Chai.Vrcl.PatientVrProfile;
+﻿using GaTech.Chai.Share;
+using GaTech.Chai.UsCore;
 using Hl7.Fhir.Model;
 
-namespace GaTech.Chai.Vrcl.PractitionerVrProfile
+namespace GaTech.Chai.Vrcl
 {
 	public class PractitionerVr
 	{

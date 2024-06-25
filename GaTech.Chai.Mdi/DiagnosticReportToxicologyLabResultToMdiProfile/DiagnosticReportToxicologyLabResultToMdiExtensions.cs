@@ -1,6 +1,6 @@
 ﻿using Hl7.Fhir.Model;
 
-namespace GaTech.Chai.Mdi.DiagnosticReportToxicologyLabResultToMdiProfile
+namespace GaTech.Chai.Mdi
 {
     /// <summary>
     /// Class with DiagnosticReport extensions for DiagnosticReportToxicologyLabResultToMdiProfile

@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using GaTech.Chai.Share.Extensions;
+using GaTech.Chai.Share;
 using Hl7.Fhir.Model;
 using Newtonsoft.Json.Linq;
 
-namespace GaTech.Chai.Vrcl.Extensions
+namespace GaTech.Chai.Vrcl
 {
 	public static class VrclAddressExtensions
 	{

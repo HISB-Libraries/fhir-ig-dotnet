@@ -1,10 +1,9 @@
 using System;
 using Hl7.Fhir.Model;
-using GaTech.Chai.Share.Extensions;
-using GaTech.Chai.Mdi.Common;
+using GaTech.Chai.Share;
 using System.Collections.Generic;
 
-namespace GaTech.Chai.Mdi.MessageHeaderToxicologyToMdiProfile
+namespace GaTech.Chai.Mdi
 {
     /// <summary>
     /// MessageHeaderToxicologyToMdiProfile

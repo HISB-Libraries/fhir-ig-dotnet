@@ -1,11 +1,8 @@
-﻿using System;
+﻿using GaTech.Chai.Share;
 using Hl7.Fhir.Model;
-using GaTech.Chai.Share.Extensions;
 using System.Collections.Generic;
-using GaTech.Chai.Vrdr.Common;
-using GaTech.Chai.Share.Common;
 
-namespace GaTech.Chai.Vrdr.VrdrInjuryIncidentProfile
+namespace GaTech.Chai.Vrdr
 {
     /// <summary>
     /// VrdrInjuryIncidentProfile

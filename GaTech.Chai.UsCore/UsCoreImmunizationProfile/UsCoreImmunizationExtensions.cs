@@ -1,6 +1,6 @@
 ﻿using Hl7.Fhir.Model;
 
-namespace GaTech.Chai.UsCore.ImmunizationProfile
+namespace GaTech.Chai.UsCore
 {
     /// <summary>
     /// Class with Immunization extensions for US Core Immunization Profile

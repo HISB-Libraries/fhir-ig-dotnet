@@ -1,0 +1,364 @@
+{
+  "resourceType": "Bundle",
+  "meta": {
+    "profile": [
+      "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-document-bundle"
+    ]
+  },
+  "identifier": {
+    "system": "urn:gtri:heat-hisp:nvdrs-testing",
+    "value": "urn:uuid:03b13233-8277-49b9-a87d-56c703e98fc6"
+  },
+  "type": "document",
+  "timestamp": "2024-06-07T11:26:41.704627-04:00",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:e7163381-6cbc-4156-aa4d-59a4490255c6",
+      "resource": {
+        "resourceType": "Composition",
+        "id": "e7163381-6cbc-4156-aa4d-59a4490255c6",
+        "meta": {
+          "profile": [
+            "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-composition"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-force-new-record-extension",
+            "valueBoolean": true
+          },
+          {
+            "url": "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-overwrite-conflicts-extension",
+            "valueBoolean": false
+          }
+        ],
+        "status": "final",
+        "type": {
+          "coding": [
+            {
+              "system": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-custom-code-system",
+              "code": "cme-report",
+              "display": "C/ME Report"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:956c53c0-a993-11ed-afa1-0242ac120002"
+        },
+        "date": "2024-06-07T11:26:41.641963-04:00",
+        "author": [
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                "valueCode": "not-asked"
+              }
+            ]
+          }
+        ],
+        "title": "NVDRS Document",
+        "section": [
+          {
+            "title": "Weapon(s)",
+            "code": {
+              "coding": [
+                {
+                  "system": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-custom-code-system",
+                  "code": "weapons",
+                  "display": "Weapon(s)"
+                }
+              ]
+            },
+            "entry": [
+              {
+                "reference": "urn:uuid:e1cf7349-8f74-4882-99f8-b1ac19228264"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:956c53c0-a993-11ed-afa1-0242ac120002",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "956c53c0-a993-11ed-afa1-0242ac120002",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/vr-common-library/StructureDefinition/Patient-vr"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+            "extension": [
+              {
+                "url": "ombCategory",
+                "valueCoding": {
+                  "system": "urn:oid:2.16.840.1.113883.6.238",
+                  "code": "2106-3",
+                  "display": "White"
+                }
+              },
+              {
+                "url": "detailed",
+                "valueCoding": {
+                  "system": "urn:oid:2.16.840.1.113883.6.238",
+                  "code": "2029-7",
+                  "display": "Asian Indian"
+                }
+              },
+              {
+                "url": "text",
+                "valueString": "Asian Indian"
+              }
+            ]
+          },
+          {
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+            "extension": [
+              {
+                "url": "ombCategory",
+                "valueCoding": {
+                  "system": "urn:oid:2.16.840.1.113883.6.238",
+                  "code": "2186-5",
+                  "display": "Not Hispanic or Latino"
+                }
+              },
+              {
+                "url": "detailed",
+                "valueCoding": {
+                  "system": "urn:oid:2.16.840.1.113883.6.238",
+                  "code": "2162-6",
+                  "display": "Central American Indian"
+                }
+              },
+              {
+                "url": "text",
+                "valueString": "Not Hispanic or Latino"
+              }
+            ]
+          },
+          {
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex",
+            "valueCode": "F"
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/patient-birthPlace",
+            "valueAddress": {
+              "_city": {
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/us/vr-common-library/StructureDefinition/CityCode",
+                    "valuePositiveInt": 42425
+                  }
+                ]
+              }
+            }
+          }
+        ],
+        "identifier": [
+          {
+            "use": "usual",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "SB",
+                  "display": "Social Beneficiary Identifier"
+                }
+              ]
+            },
+            "system": "http://hl7.org/fhir/sid/us-ssn",
+            "value": "213456790"
+          }
+        ],
+        "name": [
+          {
+            "family": "Organa",
+            "given": [
+              "Leia",
+              "S"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "404-123-0022",
+            "use": "home"
+          },
+          {
+            "system": "email",
+            "value": "raven@mdi.org",
+            "use": "work"
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1978-03-12",
+        "deceasedDateTime": "2024-03-02",
+        "address": [
+          {
+            "use": "home",
+            "type": "physical",
+            "line": [
+              "5100 Olympus Street",
+              "Bldg5-12"
+            ],
+            "city": "Atlanta",
+            "state": "GA",
+            "postalCode": "09090",
+            "country": "USA"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:e1cf7349-8f74-4882-99f8-b1ac19228264",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "e1cf7349-8f74-4882-99f8-b1ac19228264",
+        "meta": {
+          "profile": [
+            "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-weapon-type"
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-custom-code-system",
+              "code": "weapon-type",
+              "display": "Type of Weapon"
+            }
+          ]
+        },
+        "focus": [
+          {
+            "reference": "urn:uuid:9a844d6f-3f04-40a3-ac12-e1f1739a3a96"
+          }
+        ],
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-coding-manual-cs",
+              "code": "WeaponType1",
+              "display": "Firearm"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:9a844d6f-3f04-40a3-ac12-e1f1739a3a96",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "9a844d6f-3f04-40a3-ac12-e1f1739a3a96",
+        "meta": {
+          "profile": [
+            "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-firearm"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-firearm-stolen-extension",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0136",
+                  "code": "Y",
+                  "display": "Yes"
+                }
+              ]
+            }
+          },
+          {
+            "url": "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/firearm-serial-number",
+            "valueIdentifier": {
+              "system": "urn:vdrs:ncic:serialnumber",
+              "value": "12345-0987"
+            }
+          }
+        ],
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-custom-code-system",
+                "code": "weapons",
+                "display": "Weapon(s)"
+              }
+            ],
+            "text": "Data elements that fall under the weapon(s) category"
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-custom-code-system",
+              "code": "firearm",
+              "display": "Details on Firearm"
+            }
+          ]
+        },
+        "component": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-custom-code-system",
+                  "code": "firearm-type",
+                  "display": "Firearm - Type"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-coding-manual-cs",
+                  "code": "FirearmType3",
+                  "display": "Handgun, Pistol- Bolt Action"
+                }
+              ]
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-custom-code-system",
+                  "code": "firearm-make",
+                  "display": "Firearm - Gun Make or NCIC Code"
+                }
+              ]
+            },
+            "valueString": "64"
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-custom-code-system",
+                  "code": "firearm-model",
+                  "display": "Firearm - Gun Model"
+                }
+              ]
+            },
+            "valueString": "512"
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-custom-code-system",
+                  "code": "firearm-caliber",
+                  "display": "Firearm - Caliber"
+                }
+              ]
+            },
+            "valueString": "556"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,7 +1,5 @@
-﻿using System;
-using System.Linq;
-using Hl7.Fhir.Model;
-using GaTech.Chai.Share.Extensions;
+﻿using Hl7.Fhir.Model;
+using GaTech.Chai.Share;
 
 namespace GaTech.Chai.Cbs.CaseNotificationPanelProfile
 {

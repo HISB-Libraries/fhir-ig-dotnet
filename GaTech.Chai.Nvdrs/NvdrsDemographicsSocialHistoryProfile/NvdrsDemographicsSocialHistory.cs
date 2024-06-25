@@ -1,7 +1,6 @@
-﻿using GaTech.Chai.Share.Extensions;
+﻿using GaTech.Chai.Share;
 using Hl7.Fhir.Model;
-using GaTech.Chai.Nvdrs.Common;
-using GaTech.Chai.UsCore.UsCoreObservationSocialHistory;
+using GaTech.Chai.UsCore;
 
 namespace GaTech.Chai.Nvdrs;
 

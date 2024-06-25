@@ -9,6 +9,8 @@ public abstract class FlatObject
     JsonNode rootNode;
     byte[] flatSequence;
 
+    public enum Alignment { LEFT, RIGHT };
+
     public FlatObject(string filename)
     {
         // Create an instance of StreamReader to read from a file.
@@ -59,28 +61,26 @@ public abstract class FlatObject
         // Implement this in the child class
     }
 
-    protected void StringWriteToData(JsonNode data, string value)
+    protected void StringWriteToData(JsonNode data, string value, Alignment alignment = Alignment.LEFT)
     {
         int start = data["firstColumn"]!.GetValue<int>();
         int end = data["lastColumn"]!.GetValue<int>();
-        int length = end - start;
+        int length = end - start + 1;
         int valueLength = value.Length;
 
-        string alignedValue = "";
-        for (int i = length; i >= 0; i--)
+        if (valueLength > length)
         {
-            if (valueLength <= 0)
-            {
-                // alignedValue = " " + alignedValue;
-                alignedValue = alignedValue + " ";
-            }
-            else
-            {
-                alignedValue = value[--valueLength] + alignedValue;
-            }
+            throw new OverflowException(value + " is larger than field size (" + valueLength + ")");
         }
 
-        data["value"] = alignedValue;
+        if (alignment == Alignment.LEFT)
+        {
+            data["value"] = value.PadRight(length);
+        }
+        else
+        {
+            data["value"] = value.PadLeft(length);
+        }
     }
 
     public void PopulateSequence()

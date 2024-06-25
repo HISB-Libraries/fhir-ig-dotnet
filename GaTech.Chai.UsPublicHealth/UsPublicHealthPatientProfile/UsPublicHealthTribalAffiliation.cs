@@ -1,8 +1,8 @@
 ﻿using System;
-using GaTech.Chai.Share.Extensions;
+using GaTech.Chai.Share;
 using Hl7.Fhir.Model;
 
-namespace GaTech.Chai.UsPublicHealth.PatientProfile
+namespace GaTech.Chai.UsPublicHealth
 {
     /// <summary>
     /// US Public Health Tribal Affiliation Helper

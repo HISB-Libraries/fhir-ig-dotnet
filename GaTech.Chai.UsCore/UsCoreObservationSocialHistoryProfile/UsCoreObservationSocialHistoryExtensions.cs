@@ -1,6 +1,6 @@
 ﻿using Hl7.Fhir.Model;
 
-namespace GaTech.Chai.UsCore.UsCoreObservationSocialHistory
+namespace GaTech.Chai.UsCore
 {
     /// <summary>
     /// Class with Observation extensions for Us Core LabResultObservation Profile

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Hl7.Fhir.Model;
 
-namespace GaTech.Chai.Share.Extensions
+namespace GaTech.Chai.Share
 {
     /// <summary>
     /// CodeableConcept extension for Category with DataAbsentReason

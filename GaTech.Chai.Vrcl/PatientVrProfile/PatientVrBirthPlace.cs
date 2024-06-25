@@ -1,9 +1,7 @@
-﻿using System;
-using GaTech.Chai.Share.Extensions;
-using GaTech.Chai.Vrcl.Extensions;
+﻿using GaTech.Chai.Share;
 using Hl7.Fhir.Model;
 
-namespace GaTech.Chai.Vrcl.PatientVrProfile
+namespace GaTech.Chai.Vrcl
 {
 	public class PatientVrBirthPlace
 	{

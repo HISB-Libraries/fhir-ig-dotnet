@@ -1,6 +1,6 @@
 ﻿using Hl7.Fhir.Model;
 
-namespace GaTech.Chai.UsCore.PractitionerProfile
+namespace GaTech.Chai.UsCore
 {
     /// <summary>
     /// Class with Practitioner extensions for US Core Practitioner Profile

@@ -1,7 +1,5 @@
 ﻿using Hl7.Fhir.Model;
-using GaTech.Chai.Share.Extensions;
-using GaTech.Chai.Nvdrs.Common;
-using System.ComponentModel;
+using GaTech.Chai.Share;
 
 namespace GaTech.Chai.Nvdrs;
 
@@ -16,10 +14,9 @@ public class NvdrsEmsAtScene
 
     public static Observation Create()
     {
-        Observation observation = new()
-        {
-            Code = NvdrsCustomCs.EmsAtScene
-        };
+        Observation observation = NvdrsInjuryAndDeath.Create();
+        observation.NvdrsInjuryAndDeath().RemoveProfile();
+        observation.Code = NvdrsCustomCs.EmsAtScene;
 
         observation.NvdrsEmsAtScene().AddProfile();
 

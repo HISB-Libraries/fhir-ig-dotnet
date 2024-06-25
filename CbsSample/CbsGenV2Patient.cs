@@ -1,8 +1,8 @@
 ﻿using System;
 using GaTech.Chai.UsCbs.PatientProfile;
-using GaTech.Chai.UsCore.PatientProfile;
-using GaTech.Chai.UsPublicHealth.PatientProfile;
-using GaTech.Chai.Share.Extensions;
+using GaTech.Chai.UsCore;
+using GaTech.Chai.UsPublicHealth;
+using GaTech.Chai.Share;
 using Hl7.Fhir.Model;
 using System.Collections.Generic;
 

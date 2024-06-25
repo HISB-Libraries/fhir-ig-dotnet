@@ -1,10 +1,8 @@
-﻿using System;
+﻿using GaTech.Chai.Share;
 using Hl7.Fhir.Model;
-using GaTech.Chai.Share.Extensions;
-using GaTech.Chai.UsCore.Common;
 using System.Collections.Generic;
 
-namespace GaTech.Chai.UsCore.UsCoreObservationSocialHistory
+namespace GaTech.Chai.UsCore
 {
     /// <summary>
     /// Us Core UsCoreObservationSocialHistory Profile

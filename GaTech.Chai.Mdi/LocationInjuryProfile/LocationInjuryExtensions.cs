@@ -1,8 +1,6 @@
-﻿using System;
-using GaTech.Chai.Mdi.LocationInjuryProfile;
-using Hl7.Fhir.Model;
+﻿using Hl7.Fhir.Model;
 
-namespace GaTech.Chai.Mdi.LocationInjuryProfile
+namespace GaTech.Chai.Mdi
 {
     public static class LocationInjuryExtensions
     {

@@ -1,9 +1,8 @@
-﻿using System;
-using GaTech.Chai.Share.Extensions;
-using GaTech.Chai.UsCore.ConditionProfile;
+﻿using GaTech.Chai.Share;
+using GaTech.Chai.UsCore;
 using Hl7.Fhir.Model;
 
-namespace GaTech.Chai.UsPublicHealth.ConditionProfile
+namespace GaTech.Chai.UsPublicHealth
 {
     /// <summary>
     /// US Public Health Condition Profile

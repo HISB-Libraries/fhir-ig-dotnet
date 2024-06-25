@@ -1,6 +1,6 @@
 ﻿using System;
 using Hl7.Fhir.Model;
-using GaTech.Chai.Share.Extensions;
+using GaTech.Chai.Share;
 using GaTech.Chai.UsCbs.ReportingSourceOrganizationProfile;
 
 namespace CbsProfileInitialization

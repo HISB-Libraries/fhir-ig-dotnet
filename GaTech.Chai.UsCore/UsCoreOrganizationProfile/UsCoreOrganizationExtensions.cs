@@ -1,6 +1,6 @@
 ﻿using Hl7.Fhir.Model;
 
-namespace GaTech.Chai.UsCore.OrganizationProfile
+namespace GaTech.Chai.UsCore
 {
     /// <summary>
     /// Class with Organization extensions for US Core Organization profile.

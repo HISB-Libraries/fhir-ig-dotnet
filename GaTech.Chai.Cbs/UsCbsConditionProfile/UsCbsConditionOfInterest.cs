@@ -1,7 +1,6 @@
-﻿using System;
-using Hl7.Fhir.Model;
-using GaTech.Chai.Share.Extensions;
-using GaTech.Chai.UsPublicHealth.ConditionProfile;
+﻿using Hl7.Fhir.Model;
+using GaTech.Chai.Share;
+using GaTech.Chai.UsPublicHealth;
 
 namespace GaTech.Chai.UsCbs.ConditionOfInterestProfile
 {

@@ -1,7 +1,7 @@
 ﻿using System;
 using Hl7.Fhir.Model;
 
-namespace GaTech.Chai.Mdi.LocationDeathProfile
+namespace GaTech.Chai.Mdi
 {
     public static class LocationDeathExtensions
     {

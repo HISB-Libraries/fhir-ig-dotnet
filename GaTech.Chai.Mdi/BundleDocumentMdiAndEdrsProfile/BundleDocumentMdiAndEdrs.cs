@@ -1,16 +1,11 @@
 using System;
 using Hl7.Fhir.Model;
-using GaTech.Chai.Share.Extensions;
+using GaTech.Chai.Share;
 using System.Collections.Generic;
-using GaTech.Chai.Mdi.Common;
-using GaTech.Chai.Mdi.ObservationMdiCauseOfDeathPart1Profile;
-using GaTech.Chai.Mdi.CompositionMdiAndEdrsProfile;
-using static Hl7.Fhir.Model.Composition;
 using System.Linq;
-using GaTech.Chai.Share.Common;
 using Hl7.Fhir.Utility;
 
-namespace GaTech.Chai.Mdi.BundleDocumentMdiAndEdrsProfile
+namespace GaTech.Chai.Mdi
 {
     /// <summary>
     /// This Bundle profile represents a Document Bundle exchanged between an MDI CMS and EDRS. 

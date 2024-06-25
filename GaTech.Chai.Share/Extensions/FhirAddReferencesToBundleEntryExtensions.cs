@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Linq;
-using GaTech.Chai.Share.Common;
 using Hl7.Fhir.Model;
 using Hl7.Fhir.Utility;
 using static Hl7.Fhir.Model.Composition;
 
-namespace GaTech.Chai.Share.Extensions;
+namespace GaTech.Chai.Share;
 
 public static class FhirAddReferencesToBundleEntryExtensions
 {

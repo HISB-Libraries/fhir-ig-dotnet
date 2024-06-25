@@ -1,7 +1,7 @@
 ﻿using System;
 using Hl7.Fhir.Model;
 
-namespace GaTech.Chai.UsPublicHealth.EncounterProfile
+namespace GaTech.Chai.UsPublicHealth
 {
     /// <summary>
     /// Class with Encounter extensions for US Public Health Encounter Profile.

@@ -1,6 +1,6 @@
 ﻿using Hl7.Fhir.Model;
 
-namespace GaTech.Chai.Mdi.ProcedureDeathCertificationProfile
+namespace GaTech.Chai.Mdi
 {
     /// <summary>
     /// Class with Procedure extensions for ProcecureDeathCertificationProfile

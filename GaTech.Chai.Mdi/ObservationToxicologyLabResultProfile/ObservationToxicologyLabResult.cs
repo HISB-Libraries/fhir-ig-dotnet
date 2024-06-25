@@ -1,11 +1,9 @@
 ﻿using System;
 using Hl7.Fhir.Model;
-using GaTech.Chai.Share.Extensions;
-using GaTech.Chai.UsCore.LabResultObservationProfile;
+using GaTech.Chai.Share;
 using System.Collections.Generic;
-using GaTech.Chai.Share.Common;
 
-namespace GaTech.Chai.Mdi.ObservationToxicologyLabResultProfile
+namespace GaTech.Chai.Mdi
 {
     /// <summary>
     /// ObservationToxicologyLabResultProfile

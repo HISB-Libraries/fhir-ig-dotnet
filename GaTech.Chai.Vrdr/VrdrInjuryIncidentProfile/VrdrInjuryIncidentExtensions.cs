@@ -1,6 +1,6 @@
 ﻿using Hl7.Fhir.Model;
 
-namespace GaTech.Chai.Vrdr.VrdrInjuryIncidentProfile
+namespace GaTech.Chai.Vrdr
 {
     /// <summary>
     /// Class with Observation extensions for VrdrInjuryIncidentProfile

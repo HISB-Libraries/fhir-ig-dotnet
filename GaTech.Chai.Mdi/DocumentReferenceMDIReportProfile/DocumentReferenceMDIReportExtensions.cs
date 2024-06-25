@@ -1,7 +1,6 @@
-﻿using GaTech.Chai.Mdi.DocumentReferenceMDIReportProfile;
-using Hl7.Fhir.Model;
+﻿using Hl7.Fhir.Model;
 
-namespace GaTech.Chai.Mdi.ObservationDeathDateProfile
+namespace GaTech.Chai.Mdi
 {
     /// <summary>
     /// Class with Observation extensions for ObservationDeathDateProfile

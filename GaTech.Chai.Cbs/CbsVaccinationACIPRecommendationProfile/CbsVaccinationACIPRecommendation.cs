@@ -1,6 +1,5 @@
-﻿using System;
-using Hl7.Fhir.Model;
-using GaTech.Chai.Share.Extensions;
+﻿using Hl7.Fhir.Model;
+using GaTech.Chai.Share;
 using System.Linq;
 using System.Collections.Generic;
 

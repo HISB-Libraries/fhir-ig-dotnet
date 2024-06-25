@@ -2,7 +2,7 @@
 using Hl7.Fhir.Model;
 using Newtonsoft.Json.Linq;
 
-namespace GaTech.Chai.Vrdr.Common
+namespace GaTech.Chai.Vrdr
 {
     public static class ObservationPartialDateTimeExtensions
     {

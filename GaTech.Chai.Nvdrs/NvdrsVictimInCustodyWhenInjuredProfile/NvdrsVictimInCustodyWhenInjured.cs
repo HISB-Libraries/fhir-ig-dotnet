@@ -1,7 +1,5 @@
-﻿using Hl7.Fhir.Model;
-using GaTech.Chai.Share.Extensions;
-using GaTech.Chai.Share.Common;
-using GaTech.Chai.Nvdrs.Common;
+﻿using GaTech.Chai.Share;
+using Hl7.Fhir.Model;
 
 namespace GaTech.Chai.Nvdrs;
 
@@ -16,10 +14,9 @@ public class NvdrsVictimInCustodyWhenInjured
 
     public static Observation Create()
     {
-        Observation observation = new()
-        {
-            Code = NvdrsCustomCs.VictimInCustodyWhenInjured
-        };
+        Observation observation = NvdrsInjuryAndDeath.Create();
+        observation.NvdrsInjuryAndDeath().RemoveProfile();
+        observation.Code = NvdrsCustomCs.VictimInCustodyWhenInjured;
 
         observation.NvdrsVictimInCustodyWhenInjured().AddProfile();
 

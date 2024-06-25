@@ -1,9 +1,7 @@
-﻿using System;
+﻿using GaTech.Chai.Share;
 using Hl7.Fhir.Model;
-using GaTech.Chai.Share.Extensions;
-using System.Collections.Generic;
 
-namespace GaTech.Chai.UsCore.ConditionProfile
+namespace GaTech.Chai.UsCore
 {
     /// <summary>
     /// US Core Condition Profile

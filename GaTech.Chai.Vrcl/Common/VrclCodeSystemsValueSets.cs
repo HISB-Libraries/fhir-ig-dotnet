@@ -1,7 +1,7 @@
 ﻿using System;
 using Hl7.Fhir.Model;
 
-namespace GaTech.Chai.Vrcl.Common
+namespace GaTech.Chai.Vrcl
 {
 	public class VrclCodeSystemsValueSets
 	{

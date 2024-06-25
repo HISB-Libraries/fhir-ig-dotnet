@@ -1,6 +1,6 @@
 ﻿using Hl7.Fhir.Model;
 
-namespace GaTech.Chai.Mdi.SpecimenToxicologyLabProfile
+namespace GaTech.Chai.Mdi
 {
     /// <summary>
     /// Class with Specimen extensions for SpecimenToxicologyLabProfile

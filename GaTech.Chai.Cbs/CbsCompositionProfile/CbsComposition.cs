@@ -1,6 +1,5 @@
-using System;
 using Hl7.Fhir.Model;
-using GaTech.Chai.Share.Extensions;
+using GaTech.Chai.Share;
 using static Hl7.Fhir.Model.Composition;
 
 namespace GaTech.Chai.Cbs.CompositionProfile

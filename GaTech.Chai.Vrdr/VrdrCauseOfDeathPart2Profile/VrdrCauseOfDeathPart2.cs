@@ -1,10 +1,8 @@
 ﻿using System;
 using Hl7.Fhir.Model;
-using GaTech.Chai.Share.Extensions;
-using System.Collections.Generic;
-using GaTech.Chai.Share.Common;
+using GaTech.Chai.Share;
 
-namespace GaTech.Chai.Vrdr.VrdrCauseOfDeathPart2Profile
+namespace GaTech.Chai.Vrdr
 {
     /// <summary>
     /// VrdrCauseOfDeathPart2Profile

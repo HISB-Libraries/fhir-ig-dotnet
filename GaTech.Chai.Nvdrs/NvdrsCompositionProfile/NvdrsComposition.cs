@@ -1,8 +1,5 @@
 ﻿using Hl7.Fhir.Model;
-using GaTech.Chai.Share.Extensions;
-using GaTech.Chai.Nvdrs.Common;
-using GaTech.Chai.Share.Common;
-
+using GaTech.Chai.Share;
 
 namespace GaTech.Chai.Nvdrs;
 
@@ -254,13 +251,16 @@ public class NvdrsComposition
         List<Resource> resources = new();
 
         Composition.SectionComponent section = this.composition.Section.GetSection(codeable.Coding[0].System, codeable.Coding[0].Code);
-        List<ResourceReference> entry = section.Entry;
-        foreach (ResourceReference reference in entry)
+        if (section != null)
         {
-            Record.GetResources().TryGetValue(reference.Reference, out Resource? value);
-            if (value != null)
+            List<ResourceReference> entry = section.Entry;
+            foreach (ResourceReference reference in entry)
             {
-                resources.Add(value);
+                Record.GetResources().TryGetValue(reference.Reference, out Resource? value);
+                if (value != null)
+                {
+                    resources.Add(value);
+                }
             }
         }
 

@@ -1,5 +1,5 @@
 ﻿using System;
-namespace GaTech.Chai.Vrdr.Common
+namespace GaTech.Chai.Vrdr
 {
     public class VrdrUrls
     {

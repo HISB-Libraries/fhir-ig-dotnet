@@ -1330,7 +1330,7 @@
             "value": ""
         },
         {
-            "name": "Walk By Assault CME",
+            "name": "WalkByAssaultCME",
             "firstColumn": 841,
             "lastColumn": 841,
             "value": ""
@@ -1522,13 +1522,13 @@
             "value": ""
         },
         {
-            "name": "Crisis Substance Abuse LE",
+            "name": "CrisisSubstanceAbuseLE",
             "firstColumn": 1127,
             "lastColumn": 1127,
             "value": ""
         },
         {
-            "name": "Death Abuse LE",
+            "name": "DeathAbuseLE",
             "firstColumn": 1128,
             "lastColumn": 1128,
             "value": ""
@@ -1942,19 +1942,19 @@
             "value": ""
         },
         {
-            "name": "Walk-up Assault LE",
+            "name": "WalkByAssaultLE",
             "firstColumn": 1250,
             "lastColumn": 1250,
             "value": ""
         },
         {
-            "name": "Weapon Type",
+            "name": "WeaponType",
             "firstColumn": 1251,
             "lastColumn": 1252,
             "value": ""
         },
         {
-            "name": "Firearm Type",
+            "name": "FirearmType",
             "firstColumn": 1253,
             "lastColumn": 1254,
             "value": ""

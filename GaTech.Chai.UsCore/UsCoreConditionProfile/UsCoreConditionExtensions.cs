@@ -1,6 +1,6 @@
 ﻿using Hl7.Fhir.Model;
 
-namespace GaTech.Chai.UsCore.ConditionProfile
+namespace GaTech.Chai.UsCore
 {
     /// <summary>
     /// Class with Condition extensions for US Core Condition profile.

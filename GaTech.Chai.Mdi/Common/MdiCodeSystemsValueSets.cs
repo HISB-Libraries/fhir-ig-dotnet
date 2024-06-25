@@ -5,7 +5,7 @@ using Hl7.Fhir.Model;
 /// <summary>
 /// MDI ValueSets
 /// </summary>
-namespace GaTech.Chai.Mdi.Common
+namespace GaTech.Chai.Mdi
 {
     public class MdiCodeSystem
     {

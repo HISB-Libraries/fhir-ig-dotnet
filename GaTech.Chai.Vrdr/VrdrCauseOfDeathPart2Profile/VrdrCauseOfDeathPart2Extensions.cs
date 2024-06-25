@@ -1,6 +1,6 @@
 ﻿using Hl7.Fhir.Model;
 
-namespace GaTech.Chai.Vrdr.VrdrCauseOfDeathPart2Profile
+namespace GaTech.Chai.Vrdr
 {
     /// <summary>
     /// Class with Observation extensions for VrdrCauseOfDeathPart2Profile

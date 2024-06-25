@@ -1,8 +1,5 @@
-﻿using Hl7.Fhir.Model;
-using GaTech.Chai.Share.Extensions;
-using GaTech.Chai.Nvdrs.Common;
-using GaTech.Chai.Share.Common;
-using Hl7.Fhir.Utility;
+﻿using GaTech.Chai.Share;
+using Hl7.Fhir.Model;
 
 namespace GaTech.Chai.Nvdrs;
 
@@ -17,7 +14,8 @@ public class NvdrsWoundLocation
 
     public static Observation Create()
     {
-        Observation observation = new();
+        Observation observation = NvdrsInjuryAndDeath.Create();
+        observation.NvdrsInjuryAndDeath().RemoveProfile();
         observation.NvdrsWoundLocation().AddProfile();
 
         return observation;

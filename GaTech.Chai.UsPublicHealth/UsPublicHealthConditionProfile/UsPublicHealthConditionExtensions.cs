@@ -1,7 +1,7 @@
 ﻿using System;
 using Hl7.Fhir.Model;
 
-namespace GaTech.Chai.UsPublicHealth.ConditionProfile
+namespace GaTech.Chai.UsPublicHealth
 {
     /// <summary>
     /// Class with Condition extensions for US Public Health Condition Profile

@@ -1,12 +1,10 @@
 using System;
 using Hl7.Fhir.Model;
-using GaTech.Chai.Share.Extensions;
-using GaTech.Chai.Mdi.Common;
-using GaTech.Chai.UsCore.DiagnosticReportLabProfile;
+using GaTech.Chai.Share;
+using GaTech.Chai.UsCore;
 using System.Collections.Generic;
-using GaTech.Chai.Share.Common;
 
-namespace GaTech.Chai.Mdi.DiagnosticReportToxicologyLabResultToMdiProfile
+namespace GaTech.Chai.Mdi
 {
     /// <summary>
     /// DiagnosticReportToxicologyLabResultToMdiProfile

@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using GaTech.Chai.Share.Extensions;
+﻿using GaTech.Chai.Share;
 using Hl7.Fhir.Model;
 using GaTech.Chai.UsCbs.ImmunizationProfile;
 

@@ -1,8 +1,8 @@
 ﻿using System;
 using Hl7.Fhir.Model;
-using GaTech.Chai.Share.Extensions;
+using GaTech.Chai.Share;
 
-namespace GaTech.Chai.UsPublicHealth.OrganizationProfile
+namespace GaTech.Chai.UsPublicHealth
 {
     /// <summary>
     /// US Public Health Organization Profile

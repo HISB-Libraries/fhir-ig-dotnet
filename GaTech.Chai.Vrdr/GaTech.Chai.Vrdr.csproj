@@ -18,6 +18,7 @@
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\GaTech.Chai.Share\GaTech.Chai.Share.csproj" />
+    <ProjectReference Include="..\GaTech.Chai.Vrcl\GaTech.Chai.Vrcl.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,7 +1,7 @@
 ﻿using System;
 using Hl7.Fhir.Model;
 
-namespace GaTech.Chai.UsPublicHealth.TravelHistoryProfile
+namespace GaTech.Chai.UsPublicHealth
 {
     /// <summary>
     /// Class with Observation extensions for US Public Health Travel History Profile

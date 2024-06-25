@@ -1,7 +1,5 @@
 ﻿using Hl7.Fhir.Model;
-using GaTech.Chai.Share.Extensions;
-using GaTech.Chai.Share.Common;
-using GaTech.Chai.Nvdrs.Common;
+using GaTech.Chai.Share;
 
 namespace GaTech.Chai.Nvdrs;
 
@@ -17,8 +15,6 @@ public class NvdrsToxicologyFinding
     public static Observation Create()
     {
         Observation observation = NvdrsToxicology.Create();
-        observation.NvdrsToxicology().RemoveProfile();
-
         observation.NvdrsToxicologyFinding().AddProfile();
 
         return observation;

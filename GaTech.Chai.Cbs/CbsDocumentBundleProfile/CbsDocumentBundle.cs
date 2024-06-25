@@ -1,6 +1,5 @@
-using System;
 using Hl7.Fhir.Model;
-using GaTech.Chai.Share.Extensions;
+using GaTech.Chai.Share;
 
 namespace GaTech.Chai.Cbs.DocumentBundleProfile
 {

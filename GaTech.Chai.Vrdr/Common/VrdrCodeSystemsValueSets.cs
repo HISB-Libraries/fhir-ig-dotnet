@@ -1,7 +1,7 @@
 ﻿using System;
 using Hl7.Fhir.Model;
 
-namespace GaTech.Chai.Vrdr.Common 
+namespace GaTech.Chai.Vrdr 
 {
 
     public class VrdrComponentCs

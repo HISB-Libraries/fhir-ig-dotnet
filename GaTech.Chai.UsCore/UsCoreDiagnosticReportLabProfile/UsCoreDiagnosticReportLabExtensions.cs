@@ -1,6 +1,6 @@
 ﻿using Hl7.Fhir.Model;
 
-namespace GaTech.Chai.UsCore.DiagnosticReportLabProfile
+namespace GaTech.Chai.UsCore
 {
     /// <summary>
     /// Class with DiagnosticReport extensions for US Core DiagnosticReport profile

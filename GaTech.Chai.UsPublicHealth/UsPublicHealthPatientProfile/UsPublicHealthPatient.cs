@@ -1,10 +1,9 @@
 using System;
 using Hl7.Fhir.Model;
-using GaTech.Chai.Share.Extensions;
-using static Hl7.Fhir.Model.ContactPoint;
-using GaTech.Chai.UsCore.PatientProfile;
+using GaTech.Chai.Share;
+using GaTech.Chai.UsCore;
 
-namespace GaTech.Chai.UsPublicHealth.PatientProfile
+namespace GaTech.Chai.UsPublicHealth
 {
     /// <summary>
     /// US Public Health Patient Profile

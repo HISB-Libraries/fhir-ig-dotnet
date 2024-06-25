@@ -1,6 +1,6 @@
 ﻿using Hl7.Fhir.Model;
 
-namespace GaTech.Chai.UsPublicHealth.OrganizationProfile
+namespace GaTech.Chai.UsPublicHealth
 {
     /// <summary>
     /// Class with Organization extensions for US Public Health Organization Profile

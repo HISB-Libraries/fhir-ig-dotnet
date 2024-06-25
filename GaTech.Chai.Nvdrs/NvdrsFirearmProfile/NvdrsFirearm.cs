@@ -1,6 +1,5 @@
-﻿using Hl7.Fhir.Model;
-using GaTech.Chai.Share.Extensions;
-using GaTech.Chai.Nvdrs.Common;
+﻿using GaTech.Chai.Share;
+using Hl7.Fhir.Model;
 
 namespace GaTech.Chai.Nvdrs;
 
@@ -15,10 +14,9 @@ public class NvdrsFirearm
 
     public static Observation Create()
     {
-        Observation observation = new()
-        {
-            Code = NvdrsCustomCs.Firearm
-        };
+        Observation observation = NvdrsWeapons.Create();
+        observation.NvdrsWeapons().RemoveProfile();
+        observation.Code = NvdrsCustomCs.Firearm;
 
         observation.NvdrsFirearm().AddProfile();
 

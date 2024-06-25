@@ -1,7 +1,6 @@
-﻿using GaTech.Chai.Vrcl.ObservationAutopsyPerformedIndicatorVrProfile;
-using Hl7.Fhir.Model;
+﻿using Hl7.Fhir.Model;
 
-namespace GaTech.Chai.Vrcl.ObservationAutopsyPerformedIndicatorVrProfile
+namespace GaTech.Chai.Vrcl
 {
     /// <summary>
     /// Class with Observation extensions for ObservationAutopsyPerformedIndicatorVrProfile

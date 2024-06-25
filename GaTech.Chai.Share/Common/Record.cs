@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Hl7.Fhir.Model;
 
-namespace GaTech.Chai.Share.Common;
+namespace GaTech.Chai.Share;
 
 public class Record
 {

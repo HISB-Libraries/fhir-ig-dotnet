@@ -8,16 +8,15 @@ using Hl7.Fhir.Serialization;
 using CbsProfileInitialization;
 using System.Collections.Generic;
 using System.IO;
-using GaTech.Chai.Share.Extensions;
-using GaTech.Chai.Share.Common;
+using GaTech.Chai.Share;
 using GaTech.Chai.UsCbs.PerformingLaboratoryProfile;
 using GaTech.Chai.UsCbs.TravelHistoryProfile;
-using GaTech.Chai.UsPublicHealth.TravelHistoryProfile;
+using GaTech.Chai.UsPublicHealth;
 using GaTech.Chai.UsCbs.Common;
 using GaTech.Chai.Cbs.CaseNotificationPanelProfile;
 using GaTech.Chai.Cbs.VaccinationACIPRecommendationProfile;
 using Newtonsoft.Json;
-using static GaTech.Chai.Share.Common.ValueSets;
+using static GaTech.Chai.Share.ValueSets;
 
 namespace CbsSample
 {

@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using GaTech.Chai.Share.Common;
-using GaTech.Chai.Share.Extensions;
-using GaTech.Chai.UsCore.PatientProfile;
+using GaTech.Chai.UsCore;
+using GaTech.Chai.Share;
 using Hl7.Fhir.Model;
 
-namespace GaTech.Chai.Vrcl.PatientVrProfile
+namespace GaTech.Chai.Vrcl
 {
 	public class PatientVr
 	{
@@ -22,7 +21,8 @@ namespace GaTech.Chai.Vrcl.PatientVrProfile
 
 		public static Patient Create()
 		{
-			var patient = new Patient();
+			Patient patient = UsCorePatient.Create();
+            patient.UsCorePatient().RemoveProfile();
             patient.PatientVr().AddProfile();
 
 			return patient;

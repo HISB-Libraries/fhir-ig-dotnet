@@ -1,11 +1,9 @@
 ﻿using System;
 using Hl7.Fhir.Model;
-using GaTech.Chai.Share.Extensions;
+using GaTech.Chai.Share;
 using System.Collections.Generic;
-using GaTech.Chai.Mdi.Common;
-using GaTech.Chai.Mdi.ObservationDeathDateProfile;
 
-namespace GaTech.Chai.Mdi.DocumentReferenceMDIReportProfile
+namespace GaTech.Chai.Mdi
 {
     /// <summary>
     /// DocumentReferenceMDIReportProfile

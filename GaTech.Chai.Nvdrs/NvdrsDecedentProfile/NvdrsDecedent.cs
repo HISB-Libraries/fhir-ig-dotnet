@@ -1,4 +1,5 @@
-﻿using GaTech.Chai.Share.Extensions;
+﻿using GaTech.Chai.Share;
+using GaTech.Chai.Vrdr;
 using Hl7.Fhir.Model;
 
 namespace GaTech.Chai.Nvdrs;
@@ -14,7 +15,8 @@ public class NvdrsDecedent
 
     public static Patient Create()
     {
-        var patient = new Patient();
+        Patient patient = VrdrDecedent.Create();
+        patient.VrdrDecedent().RemoveProfile();
         patient.NvdrsDecedent().AddProfile();
 
         return patient;

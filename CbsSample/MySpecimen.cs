@@ -1,6 +1,5 @@
-﻿using System;
-using GaTech.Chai.Cbs.SpecimenProfile;
-using GaTech.Chai.Share.Extensions;
+﻿using GaTech.Chai.Cbs.SpecimenProfile;
+using GaTech.Chai.Share;
 using Hl7.Fhir.Model;
 
 namespace CbsProfileInitialization

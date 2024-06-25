@@ -1,6 +1,6 @@
 ﻿using Hl7.Fhir.Model;
 
-namespace GaTech.Chai.Mdi.BundleMessageToxicologyToMdiProfile
+namespace GaTech.Chai.Mdi
 {
     /// <summary>
     /// Class with Bundle extensions for BundleMessageToxicologyToMdiProfile

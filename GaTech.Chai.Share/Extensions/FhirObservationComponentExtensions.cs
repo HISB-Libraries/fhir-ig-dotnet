@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Hl7.Fhir.Model;
 
-namespace GaTech.Chai.Share.Extensions
+namespace GaTech.Chai.Share
 {
     /// <summary>
     /// Observation Component extension for FHIR observation.component with DataAbsentReason

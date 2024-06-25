@@ -1,11 +1,9 @@
 using System;
 using Hl7.Fhir.Model;
-using GaTech.Chai.Share.Extensions;
+using GaTech.Chai.Share;
 using System.Collections.Generic;
-using GaTech.Chai.Mdi.MessageHeaderToxicologyToMdiProfile;
-using GaTech.Chai.Mdi.DiagnosticReportToxicologyLabResultToMdiProfile;
 
-namespace GaTech.Chai.Mdi.BundleMessageToxicologyToMdiProfile
+namespace GaTech.Chai.Mdi
 {
     /// <summary>
     /// BundleMessageToxicologyToMdiProfile

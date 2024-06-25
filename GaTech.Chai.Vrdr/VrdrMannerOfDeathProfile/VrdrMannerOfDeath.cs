@@ -1,10 +1,9 @@
 ﻿using System;
 using Hl7.Fhir.Model;
-using GaTech.Chai.Share.Extensions;
+using GaTech.Chai.Share;
 using System.Collections.Generic;
-using GaTech.Chai.Share.Common;
 
-namespace GaTech.Chai.Vrdr.VrdrMannerOfDeathProfile
+namespace GaTech.Chai.Vrdr
 {
     /// <summary>
     /// MannerOfDeathProfile

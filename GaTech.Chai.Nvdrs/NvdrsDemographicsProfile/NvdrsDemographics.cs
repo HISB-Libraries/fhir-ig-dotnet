@@ -1,6 +1,5 @@
-﻿using GaTech.Chai.Share.Extensions;
+﻿using GaTech.Chai.Share;
 using Hl7.Fhir.Model;
-using GaTech.Chai.Nvdrs.Common;
 
 namespace GaTech.Chai.Nvdrs;
 

@@ -1,5 +1,5 @@
 ﻿using System;
-namespace GaTech.Chai.Vrcl.Extensions
+namespace GaTech.Chai.Vrcl
 {
 	public class ExtenstionUrls
 	{

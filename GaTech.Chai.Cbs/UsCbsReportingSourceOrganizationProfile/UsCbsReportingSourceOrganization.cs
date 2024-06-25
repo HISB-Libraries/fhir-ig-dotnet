@@ -1,9 +1,8 @@
-﻿using System;
-using Hl7.Fhir.Model;
-using GaTech.Chai.Share.Extensions;
-using GaTech.Chai.UsPublicHealth.OrganizationProfile;
+﻿using Hl7.Fhir.Model;
+using GaTech.Chai.Share;
+using GaTech.Chai.UsPublicHealth;
 using static Hl7.Fhir.Model.ContactPoint;
-using GaTech.Chai.UsCore.OrganizationProfile;
+using GaTech.Chai.UsCore;
 
 namespace GaTech.Chai.UsCbs.ReportingSourceOrganizationProfile
 {

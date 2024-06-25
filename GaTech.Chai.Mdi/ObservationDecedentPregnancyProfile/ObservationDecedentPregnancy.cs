@@ -1,9 +1,9 @@
 ﻿using System;
 using Hl7.Fhir.Model;
-using GaTech.Chai.Share.Extensions;
+using GaTech.Chai.Share;
 using System.Collections.Generic;
 
-namespace GaTech.Chai.Mdi.ObservationDecedentPregnancyProfile
+namespace GaTech.Chai.Mdi
 {
     /// <summary>
     /// ObservationDecedentPregnancyProfile

@@ -1,7 +1,6 @@
-﻿using System;
-using Hl7.Fhir.Model;
-using GaTech.Chai.Share.Extensions;
-using GaTech.Chai.UsCore.LabResultObservationProfile;
+﻿using Hl7.Fhir.Model;
+using GaTech.Chai.Share;
+using GaTech.Chai.UsCore;
 
 namespace GaTech.Chai.UsCbs.LabObservationProfile
 {

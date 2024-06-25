@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Hl7.Fhir.Model;
 
-namespace GaTech.Chai.Share.Extensions
+namespace GaTech.Chai.Share
 {
     /// <summary>
     /// Resource extension to add Profile URL to FHIR Resource

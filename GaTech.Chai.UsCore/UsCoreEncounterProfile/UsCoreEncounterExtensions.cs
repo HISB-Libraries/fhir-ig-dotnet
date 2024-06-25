@@ -1,6 +1,6 @@
 ﻿using Hl7.Fhir.Model;
 
-namespace GaTech.Chai.UsCore.EncounterProfile
+namespace GaTech.Chai.UsCore
 {
     /// <summary>
     /// Class with Encounter extensions for US Core Encounter Profile

@@ -2,7 +2,7 @@
 using Hl7.Fhir.Model;
 using static Hl7.Fhir.Model.Composition;
 
-namespace GaTech.Chai.Share.Extensions
+namespace GaTech.Chai.Share
 {
     public static class FhirAttesterComponentExtensions
     {

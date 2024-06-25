@@ -1,7 +1,6 @@
-﻿using System;
-using Hl7.Fhir.Model;
-using GaTech.Chai.Share.Extensions;
-using GaTech.Chai.UsPublicHealth.TravelHistoryProfile;
+﻿using Hl7.Fhir.Model;
+using GaTech.Chai.Share;
+using GaTech.Chai.UsPublicHealth;
 using GaTech.Chai.UsCbs.Common;
 
 namespace GaTech.Chai.UsCbs.TravelHistoryProfile

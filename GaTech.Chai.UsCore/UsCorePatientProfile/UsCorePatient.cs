@@ -1,8 +1,7 @@
-using System;
+using GaTech.Chai.Share;
 using Hl7.Fhir.Model;
-using GaTech.Chai.Share.Extensions;
 
-namespace GaTech.Chai.UsCore.PatientProfile
+namespace GaTech.Chai.UsCore
 {
     /// <summary>
     /// Us Core Patient Profile

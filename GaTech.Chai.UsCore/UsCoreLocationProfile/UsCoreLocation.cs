@@ -1,10 +1,8 @@
 ﻿using System;
+using GaTech.Chai.Share;
 using Hl7.Fhir.Model;
-using GaTech.Chai.Share.Extensions;
-using static System.Net.Mime.MediaTypeNames;
-using System.Runtime.CompilerServices;
 
-namespace GaTech.Chai.UsCore.LocationProfile
+namespace GaTech.Chai.UsCore
 {
     /// <summary>
     /// Us Core Location Profile

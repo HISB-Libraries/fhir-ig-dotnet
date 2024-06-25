@@ -1,7 +1,5 @@
-﻿using Hl7.Fhir.Model;
-using GaTech.Chai.Share.Extensions;
-using GaTech.Chai.Share.Common;
-using GaTech.Chai.Nvdrs.Common;
+﻿using GaTech.Chai.Share;
+using Hl7.Fhir.Model;
 
 namespace GaTech.Chai.Nvdrs;
 
@@ -16,10 +14,9 @@ public class NvdrsRandomViolence
 
     public static Observation Create()
     {
-        Observation observation = new()
-        {
-            Code = NvdrsCustomCs.RandomViolence
-        };
+        Observation observation = NvdrsCircumstances.Create();
+        observation.NvdrsCircumstances().RemoveProfile();
+        observation.Code = NvdrsCustomCs.RandomViolence;
 
         observation.NvdrsRandomViolence().AddProfile();
 

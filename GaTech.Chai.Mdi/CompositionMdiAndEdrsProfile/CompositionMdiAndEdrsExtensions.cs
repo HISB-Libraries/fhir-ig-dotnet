@@ -1,6 +1,6 @@
 ﻿using Hl7.Fhir.Model;
 
-namespace GaTech.Chai.Mdi.CompositionMdiAndEdrsProfile
+namespace GaTech.Chai.Mdi
 {
     /// <summary>
     /// Class with Composition extensions for CompositionMdiAndEdrsProfile

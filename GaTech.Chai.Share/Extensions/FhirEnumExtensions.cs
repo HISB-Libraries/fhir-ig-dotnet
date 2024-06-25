@@ -4,7 +4,7 @@ using System.Reflection;
 using Hl7.Fhir.Model;
 using Hl7.Fhir.Utility;
 
-namespace GaTech.Chai.Share.Extensions
+namespace GaTech.Chai.Share
 {
     /// <summary>
     /// Enum extension for FHIR enum data

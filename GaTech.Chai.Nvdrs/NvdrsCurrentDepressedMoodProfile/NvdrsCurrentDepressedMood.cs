@@ -1,7 +1,5 @@
 ﻿using Hl7.Fhir.Model;
-using GaTech.Chai.Share.Extensions;
-using GaTech.Chai.Nvdrs.Common;
-using System.ComponentModel;
+using GaTech.Chai.Share;
 
 namespace GaTech.Chai.Nvdrs;
 
@@ -16,10 +14,8 @@ public class NvdrsCurrentDepressedMood
 
     public static Observation Create()
     {
-        Observation observation = new()
-        {
-            Code = NvdrsCustomCs.CurrentDepressedMood
-        };
+        Observation observation = NvdrsCircumstances.Create();
+        observation.Code = NvdrsCustomCs.CurrentDepressedMood;
 
         observation.NvdrsCurrentDepressedMood().AddProfile();
 

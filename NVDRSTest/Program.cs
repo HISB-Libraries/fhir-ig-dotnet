@@ -1,19 +1,9 @@
-﻿using System.Text.Json;
-using System.Text.Json.Nodes;
-using GaTech.Chai.Mdi.BundleDocumentMdiAndEdrsProfile;
-using GaTech.Chai.Nvdrs;
-using GaTech.Chai.Nvdrs.CompositionNVDRSProfile;
-using GaTech.Chai.UsCore.PatientProfile;
-using GaTech.Chai.Vrcl.PatientVrProfile;
-using GaTech.Chai.Share.Extensions;
+﻿using GaTech.Chai.Nvdrs;
+using GaTech.Chai.Share;
+using GaTech.Chai.UsCore;
+using GaTech.Chai.Vrcl;
 using Hl7.Fhir.Model;
 using Hl7.Fhir.Serialization;
-using GaTech.Chai.Nvdrs.Common;
-using GaTech.Chai.Vrdr.VrdrInjuryIncidentProfile;
-using GaTech.Chai.Share.Common;
-using GaTech.Chai.Nvdrs.ObservationFirearm;
-using GaTech.Chai.Vrcl.Common;
-using GaTech.Chai.Nvdrs.NvdrsDecedent;
 
 public class Program
 {
@@ -73,32 +63,32 @@ public class Program
         patient.PatientVr().BirthPlace.CityCode = 42425;
 
         // Firearm 
-        Observation firearmObs = ObservationFirearm.Create();
-        firearmObs.Category.Add(NvdrsCustomCs.Weapons);
-        firearmObs.ObservationFirearm().FirearmStolen = VrclCodeSystemsValueSets.VrclValueSetYesNoUnknownVr.YES;
-        firearmObs.ObservationFirearm().FirearmType = NvdrsFirearmTypeVs.HandgunPistolBoltAction;
-        firearmObs.ObservationFirearm().SerialNumber = "12345-0987";
+        Observation firearmObs = NvdrsFirearm.Create();
+        // firearmObs.Category.Add(NvdrsCustomCs.Weapons);
+        firearmObs.NvdrsFirearm().FirearmStolen = VrclCodeSystemsValueSets.VrclValueSetYesNoUnknownVr.YES;
+        firearmObs.NvdrsFirearm().FirearmType = NvdrsFirearmTypeVs.HandgunPistolBoltAction;
+        firearmObs.NvdrsFirearm().SerialNumber = "12345-0987";
         // firearmObs.ObservationFirearm().FirearmMake = NcicFirearmMakeVs.GlockInc;
-        firearmObs.ObservationFirearm().FirearmMake = new FhirString("64");
-        firearmObs.ObservationFirearm().FirearmModel = "512";
-        firearmObs.ObservationFirearm().FirearmCaliber = "556";
+        firearmObs.NvdrsFirearm().FirearmMake = new FhirString("64");
+        firearmObs.NvdrsFirearm().FirearmModel = "512";
+        firearmObs.NvdrsFirearm().FirearmCaliber = "556";
 
         // Weapon Type
-        Observation weaponTypeObs = ObservationWeaponType.Create();
-        weaponTypeObs.ObservationWeaponType().FocusOnFirearm = firearmObs;
+        Observation weaponTypeObs = NvdrsWeaponType.Create();
+        weaponTypeObs.NvdrsWeaponType().FocusOnFirearm = firearmObs;
         weaponTypeObs.Value = NvdrsWeaponTypeVs.Firearm;
 
         // Meta information.
-        Composition nvdrsTestComp = CompositionNVDRS.Create(patient, null, ValueSets.Hl7VsDataAbsentReason.NotAsked, NvdrsDocTypesVs.CMEReport);
-        nvdrsTestComp.CompositionNVDRS().ForceNewRecord = true;
-        nvdrsTestComp.CompositionNVDRS().OverwriteConflicts = false;
-        // nvdrsTestComp.CompositionNVDRS().IncidentYear = new Date(2024);
+        Composition nvdrsTestComp = NvdrsComposition.Create(patient, null, ValueSets.Hl7VsDataAbsentReason.NotAsked, NvdrsDocTypesVs.CMEReport);
+        nvdrsTestComp.NvdrsComposition().ForceNewRecord = true;
+        nvdrsTestComp.NvdrsComposition().OverwriteConflicts = false;
+        // nvdrsTestComp.NvdrsComposition().IncidentYear = new Date(2024);
 
         // Add firearm object to composition's weapon section.
-        nvdrsTestComp.CompositionNVDRS().AddSectionEntryByCode(NvdrsCustomCs.Weapons, [weaponTypeObs]);
+        nvdrsTestComp.NvdrsComposition().AddSectionEntryByCode(NvdrsCustomCs.Weapons, [weaponTypeObs]);
 
         // Create NVDRS Bundle using the composition created above
-        Bundle nvdrsTestBundle = BundleDocumentNvdrs.Create(nvdrsTestComp);
+        Bundle nvdrsTestBundle = NvdrsDocumentBundle.Create(nvdrsTestComp);
 
         FhirJsonSerializer serializer = new(new SerializerSettings() { Pretty = true });
         string outputPath = "./";
@@ -108,7 +98,7 @@ public class Program
         Console.WriteLine("+--------- Export NVDRS Bundle to Web Input file ---------+");
         // Set up if you want to export the NVDRS bundle to NVDRS web input file
         FlatObjectCMELE flatObject = new("./ExportConfigCMELE.json");
-        nvdrsTestBundle.BundleDocumentNvdrs().ExportToNVDRS(flatObject);
+        nvdrsTestBundle.NvdrsDocumentBundle().ExportToNVDRS(flatObject);
     }
 
 }

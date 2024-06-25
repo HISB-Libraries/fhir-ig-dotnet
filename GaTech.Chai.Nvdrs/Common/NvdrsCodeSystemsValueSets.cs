@@ -1,7 +1,7 @@
-﻿using GaTech.Chai.Share.Common;
+﻿using GaTech.Chai.Share;
 using Hl7.Fhir.Model;
 
-namespace GaTech.Chai.Nvdrs.Common;
+namespace GaTech.Chai.Nvdrs;
 
 /*
  * NVDRS Code Systems
@@ -122,6 +122,7 @@ public class NvdrsCustomCs
     public static CodeableConcept NumberOfDeaths = new(NvdrsCustomCs.officialUrl, "number-of-deaths", "Number of Deaths", null);
     public static CodeableConcept NumberOfVictims = new(NvdrsCustomCs.officialUrl, "number-of-victims", "Number of Victims (Non Fatal)", null);
     public static CodeableConcept SuicideNote = new(NvdrsCustomCs.officialUrl, "suicide-note", "Suicide Note", null);
+    public static CodeableConcept DeathAbuse = new(NvdrsCustomCs.officialUrl, "death-abuse", "Abuse or neglect led to death", null);
 }
 
 /*
@@ -142,6 +143,11 @@ public class NvdrsCircumstancesCategoryVs
     public static CodeableConcept PlayWithFirearm = NvdrsCustomCs.PlayWithFirearm;
     public static CodeableConcept GangRelated = NvdrsCustomCs.GangRelated;
     public static CodeableConcept SelfHarm = NvdrsCustomCs.SelfHarm;
+    public static CodeableConcept DeathAbuse = NvdrsCustomCs.DeathAbuse;
+    public static CodeableConcept CurrentDepressedMood = NvdrsCustomCs.CurrentDepressedMood;
+    public static CodeableConcept RandomViolence = NvdrsCustomCs.RandomViolence;
+    public static CodeableConcept SchoolProblem = NvdrsCustomCs.SchoolProblem;
+    public static CodeableConcept HistoryOfSuicideAttempts = NvdrsCustomCs.HistoryOfSuicideAttempts;
 }
 
 public class NvdrsGangRelatedVs

@@ -1,8 +1,8 @@
 ﻿using System;
 using GaTech.Chai.UsCbs.ConditionOfInterestProfile;
-using GaTech.Chai.UsCore.ConditionProfile;
-using GaTech.Chai.Share.Extensions;
-using GaTech.Chai.UsPublicHealth.ConditionProfile;
+using GaTech.Chai.UsCore;
+using GaTech.Chai.Share;
+using GaTech.Chai.UsPublicHealth;
 using Hl7.Fhir.Model;
 
 namespace CbsProfileInitialization

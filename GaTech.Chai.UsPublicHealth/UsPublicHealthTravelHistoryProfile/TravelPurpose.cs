@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using GaTech.Chai.Share.Extensions;
+using GaTech.Chai.Share;
 using Hl7.Fhir.Model;
 
-namespace GaTech.Chai.UsPublicHealth.TravelHistoryProfile
+namespace GaTech.Chai.UsPublicHealth
 {
     /// <summary>
     /// Travel History Purpose Helper

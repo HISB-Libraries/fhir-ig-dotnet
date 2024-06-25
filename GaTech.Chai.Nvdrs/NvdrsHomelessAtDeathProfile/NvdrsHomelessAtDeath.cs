@@ -1,7 +1,5 @@
-﻿using Hl7.Fhir.Model;
-using GaTech.Chai.Share.Extensions;
-using GaTech.Chai.Share.Common;
-using GaTech.Chai.Nvdrs.Common;
+﻿using GaTech.Chai.Share;
+using Hl7.Fhir.Model;
 
 namespace GaTech.Chai.Nvdrs;
 
@@ -16,10 +14,9 @@ public class NvdrsHomelessAtDeath
 
     public static Observation Create()
     {
-        Observation observation = new()
-        {
-            Code = NvdrsCustomCs.HomelessAtDeath
-        };
+        Observation observation = NvdrsDemographicsSocialHistory.Create();
+        observation.NvdrsDemographicsSocialHistory().RemoveProfile();
+        observation.Code = NvdrsCustomCs.HomelessAtDeath;
 
         observation.NvdrsHomelessAtDeath().AddProfile();
 

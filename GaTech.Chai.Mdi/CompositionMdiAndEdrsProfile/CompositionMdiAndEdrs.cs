@@ -1,17 +1,12 @@
 using System;
 using Hl7.Fhir.Model;
-using GaTech.Chai.Share.Extensions;
+using GaTech.Chai.Share;
 using static Hl7.Fhir.Model.Composition;
-using GaTech.Chai.Mdi.Common;
 using System.Collections.Generic;
-using GaTech.Chai.Mdi.ObservationMdiCauseOfDeathPart1Profile;
 using Code = Hl7.Fhir.Model.Code;
-using GaTech.Chai.Vrdr.VrdrCauseOfDeathPart2Profile;
-using GaTech.Chai.Share.Common;
-using GaTech.Chai.Vrdr.VrdrMannerOfDeathProfile;
-using GaTech.Chai.Vrdr.VrdrInjuryIncidentProfile;
+using GaTech.Chai.Vrdr;
 
-namespace GaTech.Chai.Mdi.CompositionMdiAndEdrsProfile
+namespace GaTech.Chai.Mdi
 {
     /// <summary>
     /// This Composition profile represents data exchanged between an MDI CMS and an EDRS.

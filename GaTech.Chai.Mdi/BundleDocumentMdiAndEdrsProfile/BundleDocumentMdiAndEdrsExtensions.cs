@@ -1,6 +1,6 @@
 ﻿using Hl7.Fhir.Model;
 
-namespace GaTech.Chai.Mdi.BundleDocumentMdiAndEdrsProfile
+namespace GaTech.Chai.Mdi
 {
     /// <summary>
     /// Class with Bundle extensions for the BundleDocumentMdiAndEdrsProfile

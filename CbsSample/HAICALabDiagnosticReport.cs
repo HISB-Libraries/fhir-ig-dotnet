@@ -1,8 +1,8 @@
 ﻿using System;
-using GaTech.Chai.Share.Extensions;
+using GaTech.Chai.Share;
 using Hl7.Fhir.Model;
 using GaTech.Chai.UsCbs.LabDiagnosticReportProfile;
-using GaTech.Chai.UsCore.DiagnosticReportLabProfile;
+using GaTech.Chai.UsCore;
 
 namespace CbsProfileInitialization
 {

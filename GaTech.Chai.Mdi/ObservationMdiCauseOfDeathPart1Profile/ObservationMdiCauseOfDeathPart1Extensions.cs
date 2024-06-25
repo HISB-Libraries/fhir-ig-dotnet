@@ -1,7 +1,7 @@
 ﻿using System;
 using Hl7.Fhir.Model;
 
-namespace GaTech.Chai.Mdi.ObservationMdiCauseOfDeathPart1Profile
+namespace GaTech.Chai.Mdi
 {
     /// <summary>
     /// Class with Observation extensions for ObservationCauseOfDeathPart1Profile

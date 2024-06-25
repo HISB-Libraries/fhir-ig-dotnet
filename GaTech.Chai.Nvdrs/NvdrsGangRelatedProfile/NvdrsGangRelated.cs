@@ -1,7 +1,5 @@
 ﻿using Hl7.Fhir.Model;
-using GaTech.Chai.Share.Extensions;
-using GaTech.Chai.Nvdrs.Common;
-using System.ComponentModel;
+using GaTech.Chai.Share;
 
 namespace GaTech.Chai.Nvdrs;
 
@@ -16,10 +14,9 @@ public class NvdrsGangRelated
 
     public static Observation Create()
     {
-        Observation observation = new()
-        {
-            Code = NvdrsCustomCs.GangRelated
-        };
+        Observation observation = NvdrsCircumstances.Create();
+        observation.NvdrsCircumstances().RemoveProfile();
+        observation.Code = NvdrsCustomCs.GangRelated;
 
         observation.NvdrsGangRelated().AddProfile();
 

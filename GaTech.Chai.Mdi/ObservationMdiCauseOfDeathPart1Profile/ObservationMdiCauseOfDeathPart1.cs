@@ -1,12 +1,10 @@
 ﻿using System;
 using Hl7.Fhir.Model;
-using GaTech.Chai.Share.Extensions;
+using GaTech.Chai.Share;
 using System.Collections.Generic;
-using GaTech.Chai.Mdi.Common;
-using static GaTech.Chai.Mdi.Common.MdiCodeSystem;
-using GaTech.Chai.Vrdr.Common;
+using GaTech.Chai.Vrdr;
 
-namespace GaTech.Chai.Mdi.ObservationMdiCauseOfDeathPart1Profile
+namespace GaTech.Chai.Mdi
 {
     /// <summary>
     /// ObservationMdiCauseOfDeathPart1Profile

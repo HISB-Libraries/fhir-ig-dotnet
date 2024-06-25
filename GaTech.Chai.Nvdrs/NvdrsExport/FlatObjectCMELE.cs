@@ -1,10 +1,6 @@
-﻿using System.ComponentModel;
-using System.Text.Json.Nodes;
-using GaTech.Chai.Nvdrs.Common;
-using GaTech.Chai.Share.Common;
-using GaTech.Chai.Share.Extensions;
+﻿using System.Text.Json.Nodes;
+using GaTech.Chai.Share;
 using Hl7.Fhir.Model;
-using Hl7.Fhir.Specification.Snapshot;
 using Hl7.Fhir.Utility;
 
 namespace GaTech.Chai.Nvdrs;
@@ -13,7 +9,7 @@ public class FlatObjectCMELE : FlatObject
 {
     public FlatObjectCMELE(string filename) : base(filename)
     {
-        if (!"LECMEFormat".Equals(FlatType))
+        if (!"CMELEFormat".Equals(FlatType))
         {
             throw new NotSupportedException("This flat object only support CMELE flat format");
         }
@@ -101,6 +97,9 @@ public class FlatObjectCMELE : FlatObject
             {
                 firearmObservation = null;
             }
+
+            // get the list of entries in the circumstance section
+            List<Resource> circumstanceResources = composition.NvdrsComposition().GetSectionByCode(NvdrsCustomCs.Circumstances);
 
             // Mapping Process with a simple iteration over the data array.
             foreach (JsonNode? data in DataArray)
@@ -200,7 +199,53 @@ public class FlatObjectCMELE : FlatObject
                 {
 
                 }
-                else if ("Weapon Type".Equals(data!["name"]!.GetValue<string>()))
+                else if ("DeathAbuseCME".Equals(data!["name"]!.GetValue<string>()))
+                {
+                    foreach (Resource resource in circumstanceResources)
+                    {
+                        if (resource is Observation obs)
+                        {
+                            if (NvdrsCustomCs.DeathAbuse.Matches(obs.Code))
+                            {
+                                if (obs.Value is CodeableConcept cc)
+                                {
+                                    if (cc.Coding[0].Code.Equals("Y"))
+                                    {
+                                        data["value"] = "1";
+                                    }
+                                    else
+                                    {
+                                        data["value"] = "0";
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                else if ("DeathFriendOrFamilyOtherCME".Equals(data!["name"]!.GetValue<string>()))
+                {
+                    foreach (Resource resource in circumstanceResources)
+                    {
+                        if (resource is Observation obs)
+                        {
+                            if (NvdrsCustomCs.CurrentDepressedMood.Matches(obs.Code))
+                            {
+                                if (obs.Value is CodeableConcept cc)
+                                {
+                                    if (cc.Coding[0].Code.Equals("Y"))
+                                    {
+                                        data["value"] = "1";
+                                    }
+                                    else
+                                    {
+                                        data["value"] = "0";
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                else if ("WeaponType".Equals(data!["name"]!.GetValue<string>()))
                 {
                     if (weaponTypeObservation != null)
                     {
@@ -211,7 +256,7 @@ public class FlatObjectCMELE : FlatObject
                         }
                     }
                 }
-                else if ("Firearm Type".Equals(data!["name"]!.GetValue<string>()))
+                else if ("FirearmType".Equals(data!["name"]!.GetValue<string>()))
                 {
                     if (firearmObservation != null)
                     {
