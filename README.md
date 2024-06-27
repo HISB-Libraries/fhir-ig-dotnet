@@ -2,6 +2,7 @@
 A .NET Library for the following FHIR Implementation Guides (IG)
 * Case Based Surveillance (CBS) FHIR IG | https://cbsig.chai.gatech.edu/
 * Medicolegal Death Investigation (MDI) FHIR IG | https://build.fhir.org/ig/HL7/fhir-mdi-ig/
+* National Violent Death Reporting System (NVDRS) FHIR IG | https://mortalityreporting.github.io/nvdrs-ig/
 * US Public Health (US PH) FHIR IG | https://build.fhir.org/ig/HL7/fhir-us-ph-common-library-ig/
 * US Core FHIR IG | https://www.hl7.org/fhir/us/core/
 * Occupational Data for Health (ODH) FHIR IG | http://hl7.org/fhir/us/odh/STU1.1/
@@ -9,8 +10,8 @@ A .NET Library for the following FHIR Implementation Guides (IG)
 All profiles built on top of standard .NET FHIR classes (https://github.com/FirelyTeam/firely-net-sdk). Only referenced profiles of US PH, US Core, and ODH by CBS and MDI are implemented. Rest of profiles will be added based on the needs. 
 
 ## Authors
-**Brian Ritchie, GTRI (@dotnetpowered)**<br/>
-**Myung Choi, GTRI (@myungchoi)**
+**Myung Choi, GTRI (@myungchoi)**<br/>
+**Brian Ritchie, GTRI (@dotnetpowered)**
 
 ## Development Note
 Firely .net FHIR classes are used as a basis for FHIR objects. All profiles are implemented using C# extensions. Invidual profiles can be used to extend the basic FHIR objects. Whenever the profile extensions are used, the profile names are automatically added to the meta section of FHIR resources that are being implemeted. The class extensions that are used create the fixed elements as defined in the IG. However, any fixed values that are not required (with cardinality 0..) will not be created. Instead, the fixed values should be available as a static value or C# property.
