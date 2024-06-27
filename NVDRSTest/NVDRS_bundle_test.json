@@ -7,16 +7,16 @@
   },
   "identifier": {
     "system": "urn:gtri:heat-hisp:nvdrs-testing",
-    "value": "urn:uuid:40c1e15d-038a-4ae4-a8d4-9a020e4161f9"
+    "value": "urn:uuid:8f2f913d-b977-47ea-b248-94c6c732332f"
   },
   "type": "document",
-  "timestamp": "2024-06-27T17:00:18.167434-04:00",
+  "timestamp": "2024-06-27T19:04:54.027221-04:00",
   "entry": [
     {
-      "fullUrl": "urn:uuid:f801e6c7-a1af-4b60-b2a2-af6d0f32b234",
+      "fullUrl": "urn:uuid:09b42290-4950-4b12-b8ba-04df4a3039e6",
       "resource": {
         "resourceType": "Composition",
-        "id": "f801e6c7-a1af-4b60-b2a2-af6d0f32b234",
+        "id": "09b42290-4950-4b12-b8ba-04df4a3039e6",
         "meta": {
           "profile": [
             "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-composition"
@@ -45,7 +45,7 @@
         "subject": {
           "reference": "urn:uuid:956c53c0-a993-11ed-afa1-0242ac120002"
         },
-        "date": "2024-06-27T17:00:18.14153-04:00",
+        "date": "2024-06-27T19:04:54.007573-04:00",
         "author": [
           {
             "extension": [
@@ -71,7 +71,7 @@
             },
             "entry": [
               {
-                "reference": "urn:uuid:ac46cc5f-6e73-451c-bfa3-119a6af2bb4f"
+                "reference": "urn:uuid:dca3ca7a-2106-4f59-9da1-938704ada6d6"
               }
             ]
           },
@@ -88,10 +88,10 @@
             },
             "entry": [
               {
-                "reference": "urn:uuid:4c84dcb9-3148-4ba2-be48-192cb6d8bfa8"
+                "reference": "urn:uuid:5378c339-998d-41ae-a829-811d12e58c31"
               },
               {
-                "reference": "urn:uuid:3a54fb1d-3155-49e7-9dc9-f990d212d685"
+                "reference": "urn:uuid:cb3a7738-bf6c-41ef-a145-08e58344ba94"
               }
             ]
           },
@@ -108,7 +108,7 @@
             },
             "entry": [
               {
-                "reference": "urn:uuid:ba22ec14-7139-4540-a92d-d4cc371e90de"
+                "reference": "urn:uuid:b775a302-14c7-4e42-baf7-41af9cd5740c"
               }
             ]
           }
@@ -121,7 +121,7 @@
         "resourceType": "Patient",
         "id": "956c53c0-a993-11ed-afa1-0242ac120002",
         "meta": {
-          "lastUpdated": "2024-06-27T17:00:18.116462-04:00",
+          "lastUpdated": "2024-06-27T19:04:53.982637-04:00",
           "profile": [
             "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-decedent"
           ]
@@ -252,10 +252,10 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:ac46cc5f-6e73-451c-bfa3-119a6af2bb4f",
+      "fullUrl": "urn:uuid:dca3ca7a-2106-4f59-9da1-938704ada6d6",
       "resource": {
         "resourceType": "Observation",
-        "id": "ac46cc5f-6e73-451c-bfa3-119a6af2bb4f",
+        "id": "dca3ca7a-2106-4f59-9da1-938704ada6d6",
         "meta": {
           "profile": [
             "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-weapon-type"
@@ -270,9 +270,12 @@
             }
           ]
         },
+        "subject": {
+          "reference": "urn:uuid:956c53c0-a993-11ed-afa1-0242ac120002"
+        },
         "focus": [
           {
-            "reference": "urn:uuid:5c893203-11fd-4d12-964a-b4f725412369"
+            "reference": "urn:uuid:20c254c6-0382-4279-a88f-d387ea8740e7"
           }
         ],
         "valueCodeableConcept": {
@@ -287,12 +290,12 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:5c893203-11fd-4d12-964a-b4f725412369",
+      "fullUrl": "urn:uuid:20c254c6-0382-4279-a88f-d387ea8740e7",
       "resource": {
         "resourceType": "Observation",
-        "id": "5c893203-11fd-4d12-964a-b4f725412369",
+        "id": "20c254c6-0382-4279-a88f-d387ea8740e7",
         "meta": {
-          "lastUpdated": "2024-06-27T17:00:18.138487-04:00",
+          "lastUpdated": "2024-06-27T19:04:54.004526-04:00",
           "profile": [
             "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-firearm"
           ]
@@ -338,6 +341,9 @@
               "display": "Details on Firearm"
             }
           ]
+        },
+        "subject": {
+          "reference": "urn:uuid:956c53c0-a993-11ed-afa1-0242ac120002"
         },
         "component": [
           {
@@ -400,12 +406,12 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:4c84dcb9-3148-4ba2-be48-192cb6d8bfa8",
+      "fullUrl": "urn:uuid:5378c339-998d-41ae-a829-811d12e58c31",
       "resource": {
         "resourceType": "Observation",
-        "id": "4c84dcb9-3148-4ba2-be48-192cb6d8bfa8",
+        "id": "5378c339-998d-41ae-a829-811d12e58c31",
         "meta": {
-          "lastUpdated": "2024-06-27T17:00:18.154217-04:00",
+          "lastUpdated": "2024-06-27T19:04:54.017966-04:00",
           "profile": [
             "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-number-of-bullets"
           ]
@@ -438,12 +444,12 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:3a54fb1d-3155-49e7-9dc9-f990d212d685",
+      "fullUrl": "urn:uuid:cb3a7738-bf6c-41ef-a145-08e58344ba94",
       "resource": {
         "resourceType": "Observation",
-        "id": "3a54fb1d-3155-49e7-9dc9-f990d212d685",
+        "id": "cb3a7738-bf6c-41ef-a145-08e58344ba94",
         "meta": {
-          "lastUpdated": "2024-06-27T17:00:18.154529-04:00",
+          "lastUpdated": "2024-06-27T19:04:54.018147-04:00",
           "profile": [
             "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-wound-location"
           ]
@@ -469,6 +475,9 @@
             }
           ]
         },
+        "subject": {
+          "reference": "urn:uuid:956c53c0-a993-11ed-afa1-0242ac120002"
+        },
         "valueCodeableConcept": {
           "coding": [
             {
@@ -481,12 +490,12 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:ba22ec14-7139-4540-a92d-d4cc371e90de",
+      "fullUrl": "urn:uuid:b775a302-14c7-4e42-baf7-41af9cd5740c",
       "resource": {
         "resourceType": "Observation",
-        "id": "ba22ec14-7139-4540-a92d-d4cc371e90de",
+        "id": "b775a302-14c7-4e42-baf7-41af9cd5740c",
         "meta": {
-          "lastUpdated": "2024-06-27T17:00:18.154915-04:00",
+          "lastUpdated": "2024-06-27T19:04:54.01849-04:00",
           "profile": [
             "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-random-violence"
           ]

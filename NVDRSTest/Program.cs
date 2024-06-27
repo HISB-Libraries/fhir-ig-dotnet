@@ -72,11 +72,13 @@ public class Program
         firearmObs.NvdrsFirearm().FirearmMake = new FhirString("64");
         firearmObs.NvdrsFirearm().FirearmModel = "512";
         firearmObs.NvdrsFirearm().FirearmCaliber = "556";
+        firearmObs.FhirSubject(patient);
 
         // Weapon Type
         Observation weaponTypeObs = NvdrsWeaponType.Create();
         weaponTypeObs.NvdrsWeaponType().FocusOnFirearm = firearmObs;
         weaponTypeObs.Value = NvdrsWeaponTypeVs.Firearm;
+        weaponTypeObs.FhirSubject(patient);
 
         // Meta information.
         Composition nvdrsTestComp = NvdrsComposition.Create(patient, null, ValueSets.Hl7VsDataAbsentReason.NotAsked, NvdrsDocTypesVs.CMEReport);
@@ -96,6 +98,7 @@ public class Program
         Observation woundLocation = NvdrsWoundLocation.Create();
         woundLocation.Code = NvdrsWoundLocationVs.WoundToSpine;
         woundLocation.Value = NvdrsWoundLocationValuesVs.PresentWounded;
+        woundLocation.FhirSubject(patient);
 
         nvdrsTestComp.NvdrsComposition().AddSectionEntryByCode(NvdrsCustomCs.InjuryAndDeath, [numOfBulletObs, woundLocation]);
 
