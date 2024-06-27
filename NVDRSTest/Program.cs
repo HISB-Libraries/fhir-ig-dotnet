@@ -87,6 +87,25 @@ public class Program
         // Add firearm object to composition's weapon section.
         nvdrsTestComp.NvdrsComposition().AddSectionEntryByCode(NvdrsCustomCs.Weapons, [weaponTypeObs]);
 
+        // Add Number of Bullets to composition's Injury and death section.
+        Observation numOfBulletObs = NvdrsNumberOfBullets.Create();
+        numOfBulletObs.NvdrsNumberOfBullets().NumOfBullets = 3;
+        numOfBulletObs.FhirSubject(patient);
+
+        // Add Wound location to composition's Injury and death section.
+        Observation woundLocation = NvdrsWoundLocation.Create();
+        woundLocation.Code = NvdrsWoundLocationVs.WoundToSpine;
+        woundLocation.Value = NvdrsWoundLocationValuesVs.PresentWounded;
+
+        nvdrsTestComp.NvdrsComposition().AddSectionEntryByCode(NvdrsCustomCs.InjuryAndDeath, [numOfBulletObs, woundLocation]);
+
+        // Add Wound location to composition's Circumstances.
+        Observation randomViolenceIncident = NvdrsRandomViolence.Create();
+        randomViolenceIncident.FhirSubject(patient);
+        randomViolenceIncident.Value = VrclCodeSystemsValueSets.VrclValueSetYesNoUnknownVr.YES;
+
+        nvdrsTestComp.NvdrsComposition().AddSectionEntryByCode(NvdrsCustomCs.Circumstances, [randomViolenceIncident]);
+
         // Create NVDRS Bundle using the composition created above
         Bundle nvdrsTestBundle = NvdrsDocumentBundle.Create(nvdrsTestComp);
 
