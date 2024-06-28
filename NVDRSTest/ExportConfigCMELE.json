@@ -1228,7 +1228,7 @@
             "value": ""
         },
         {
-            "name": "Random Violence CME",
+            "name": "RandomViolenceCME",
             "firstColumn": 824,
             "lastColumn": 824,
             "value": ""
@@ -1960,49 +1960,49 @@
             "value": ""
         },
         {
-            "name": "Firearm Caliber",
+            "name": "FirearmCaliber",
             "firstColumn": 1255,
             "lastColumn": 1258,
             "value": ""
         },
         {
-            "name": "Firearm Gauge",
+            "name": "FirearmGauge",
             "firstColumn": 1259,
             "lastColumn": 1261,
             "value": ""
         },
         {
-            "name": "Firearm Make",
+            "name": "FirearmMake",
             "firstColumn": 1262,
             "lastColumn": 1265,
             "value": ""
         },
         {
-            "name": "Firearm Model",
+            "name": "FirearmModel",
             "firstColumn": 1266,
             "lastColumn": 1269,
             "value": ""
         },
         {
-            "name": "Gun Stored Loaded",
+            "name": "GunLoaded",
             "firstColumn": 1270,
             "lastColumn": 1270,
             "value": ""
         },
         {
-            "name": "Gun Owner",
+            "name": "GunOwner",
             "firstColumn": 1271,
             "lastColumn": 1272,
             "value": ""
         },
         {
-            "name": "Gun Stored Locked",
+            "name": "GunStoredLocked",
             "firstColumn": 1273,
             "lastColumn": 1273,
             "value": ""
         },
         {
-            "name": "Firearm Stolen",
+            "name": "FirearmStolen",
             "firstColumn": 1274,
             "lastColumn": 1274,
             "value": ""

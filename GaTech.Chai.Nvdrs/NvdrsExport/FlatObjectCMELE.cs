@@ -65,6 +65,56 @@ public class FlatObjectCMELE : FlatObject
         return null;
     }
 
+    protected void SetWoundResponse(JsonNode data, List<Resource> injuryAndDeathResources, CodeableConcept WoundTypeCode)
+    {
+        foreach (Resource resource in injuryAndDeathResources)
+        {
+            if (resource is Observation obs)
+            {
+                if (WoundTypeCode.Matches(obs.Code))
+                {
+                    CodeableConcept? cc = obs.Value as CodeableConcept;
+                    if (cc != null)
+                    {
+                        if (cc == NvdrsWoundLocationValuesVs.Unknown)
+                        {
+                            StringWriteToData(data, "9");
+                        }
+                        else
+                        {
+                            string resp = cc.Coding[0].Code;
+                            StringWriteToData(data, resp[resp.Length - 1].ToString());
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    protected void SetCircumstanceYN(JsonNode data, List<Resource> circumstanceResources, CodeableConcept YNTypeCode)
+    {
+        foreach (Resource resource in circumstanceResources)
+        {
+            if (resource is Observation obs)
+            {
+                if (YNTypeCode.Matches(obs.Code))
+                {
+                    if (obs.Value is CodeableConcept cc)
+                    {
+                        if (cc.Coding[0].Code.Equals("Y"))
+                        {
+                            data["value"] = "1";
+                        }
+                        else
+                        {
+                            data["value"] = "0";
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     public override void MapToNVDRS(Bundle bundle)
     {
         if (bundle.Meta != null && bundle.Meta.Profile != null && bundle.Meta.Profile.Any())
@@ -100,6 +150,9 @@ public class FlatObjectCMELE : FlatObject
 
             // get the list of entries in the circumstance section
             List<Resource> circumstanceResources = composition.NvdrsComposition().GetSectionByCode(NvdrsCustomCs.Circumstances);
+
+            // get the list of entries in the Injury and Death section
+            List<Resource> injuryAndDeathResources = composition.NvdrsComposition().GetSectionByCode(NvdrsCustomCs.InjuryAndDeath);
 
             // Mapping Process with a simple iteration over the data array.
             foreach (JsonNode? data in DataArray)
@@ -195,57 +248,80 @@ public class FlatObjectCMELE : FlatObject
                 {
 
                 }
-                else if ("DeathDateDay".Equals(data!["name"]!.GetValue<string>()))
+                else if ("DeathDateDay".Equals(data!["name"]!.GetValue<string>())) //43
                 {
 
                 }
-                else if ("DeathAbuseCME".Equals(data!["name"]!.GetValue<string>()))
+                else if ("NumberBullets".Equals(data!["name"]!.GetValue<string>())) // 423
                 {
-                    foreach (Resource resource in circumstanceResources)
+                    foreach (Resource resource in injuryAndDeathResources)
                     {
                         if (resource is Observation obs)
                         {
-                            if (NvdrsCustomCs.DeathAbuse.Matches(obs.Code))
+                            if (NvdrsCustomCs.NumberOfBullets.Matches(obs.Code))
                             {
-                                if (obs.Value is CodeableConcept cc)
+                                int? numBullets = obs.NvdrsNumberOfBullets().NumOfBullets;
+                                if (numBullets != null)
                                 {
-                                    if (cc.Coding[0].Code.Equals("Y"))
-                                    {
-                                        data["value"] = "1";
-                                    }
-                                    else
-                                    {
-                                        data["value"] = "0";
-                                    }
+                                    StringWriteToData(data, numBullets.ToString());
+                                    break;
                                 }
                             }
                         }
                     }
                 }
-                else if ("DeathFriendOrFamilyOtherCME".Equals(data!["name"]!.GetValue<string>()))
+                else if ("WoundToHead".Equals(data!["name"]!.GetValue<string>()))
                 {
-                    foreach (Resource resource in circumstanceResources)
-                    {
-                        if (resource is Observation obs)
-                        {
-                            if (NvdrsCustomCs.CurrentDepressedMood.Matches(obs.Code))
-                            {
-                                if (obs.Value is CodeableConcept cc)
-                                {
-                                    if (cc.Coding[0].Code.Equals("Y"))
-                                    {
-                                        data["value"] = "1";
-                                    }
-                                    else
-                                    {
-                                        data["value"] = "0";
-                                    }
-                                }
-                            }
-                        }
-                    }
+                    SetWoundResponse(data, injuryAndDeathResources, NvdrsCustomCs.WoundToHead);
                 }
-                else if ("WeaponType".Equals(data!["name"]!.GetValue<string>()))
+                else if ("WoundToFace".Equals(data!["name"]!.GetValue<string>()))
+                {
+                    SetWoundResponse(data, injuryAndDeathResources, NvdrsCustomCs.WoundToFace);
+                }
+                else if ("WoundToNeck".Equals(data!["name"]!.GetValue<string>()))
+                {
+                    SetWoundResponse(data, injuryAndDeathResources, NvdrsCustomCs.WoundToNeck);
+                }
+                else if ("WoundToUpperExtremity".Equals(data!["name"]!.GetValue<string>()))
+                {
+                    SetWoundResponse(data, injuryAndDeathResources, NvdrsCustomCs.WoundToUpperExtremity);
+                }
+                else if ("WoundToSpine".Equals(data!["name"]!.GetValue<string>()))
+                {
+                    SetWoundResponse(data, injuryAndDeathResources, NvdrsCustomCs.WoundToSpine);
+                }
+                else if ("WoundToThorax".Equals(data!["name"]!.GetValue<string>()))
+                {
+                    SetWoundResponse(data, injuryAndDeathResources, NvdrsCustomCs.WoundToThorax);
+                }
+                else if ("WoundToAbdomen".Equals(data!["name"]!.GetValue<string>()))
+                {
+                    SetWoundResponse(data, injuryAndDeathResources, NvdrsCustomCs.WoundToAbdomen);
+                }
+                else if ("WoundToLowerExtremity".Equals(data!["name"]!.GetValue<string>()))
+                {
+                    SetWoundResponse(data, injuryAndDeathResources, NvdrsCustomCs.WoundToLowerExtremity);
+                }
+                else if ("CircumstancesKnownCME".Equals(data!["name"]!.GetValue<string>())) // 433
+                {
+
+                }
+                else if ("DeathAbuseCME".Equals(data!["name"]!.GetValue<string>())) // 719
+                {
+                    SetCircumstanceYN(data, circumstanceResources, NvdrsCustomCs.DeathAbuse);
+                }
+                else if ("DeathFriendOrFamilyOtherCME".Equals(data!["name"]!.GetValue<string>())) // 720
+                {
+                }
+                else if ("DepressedMoodCME".Equals(data!["name"]!.GetValue<string>())) // 721
+                {
+                    SetCircumstanceYN(data, circumstanceResources, NvdrsCustomCs.CurrentDepressedMood);
+                }
+                else if ("RandomViolenceCME".Equals(data!["name"]!.GetValue<string>())) // 824
+                {
+                    SetCircumstanceYN(data, circumstanceResources, NvdrsCustomCs.RandomViolence);
+                }
+                else if ("WeaponType".Equals(data!["name"]!.GetValue<string>())) // 1251
                 {
                     if (weaponTypeObservation != null)
                     {
@@ -267,7 +343,7 @@ public class FlatObjectCMELE : FlatObject
                         }
                     }
                 }
-                else if ("Firearm Caliber".Equals(data!["name"]!.GetValue<string>()))
+                else if ("FirearmCaliber".Equals(data!["name"]!.GetValue<string>()))
                 {
                     if (firearmObservation != null)
                     {
@@ -278,7 +354,7 @@ public class FlatObjectCMELE : FlatObject
                         }
                     }
                 }
-                else if ("Firearm Gauge".Equals(data!["name"]!.GetValue<string>()))
+                else if ("FirearmGauge".Equals(data!["name"]!.GetValue<string>()))
                 {
                     if (firearmObservation != null)
                     {
@@ -289,7 +365,7 @@ public class FlatObjectCMELE : FlatObject
                         }
                     }
                 }
-                else if ("Firearm Make".Equals(data!["name"]!.GetValue<string>()))
+                else if ("FirearmMake".Equals(data!["name"]!.GetValue<string>()))
                 {
                     if (firearmObservation != null)
                     {
@@ -307,7 +383,7 @@ public class FlatObjectCMELE : FlatObject
                         }
                     }
                 }
-                else if ("Firearm Model".Equals(data!["name"]!.GetValue<string>()))
+                else if ("FirearmModel".Equals(data!["name"]!.GetValue<string>()))
                 {
                     if (firearmObservation != null)
                     {
@@ -318,7 +394,7 @@ public class FlatObjectCMELE : FlatObject
                         }
                     }
                 }
-                else if ("Firearm Stolen".Equals(data!["name"]!.GetValue<string>()))
+                else if ("FirearmStolen".Equals(data!["name"]!.GetValue<string>())) // 1274
                 {
                     if (firearmObservation != null)
                     {

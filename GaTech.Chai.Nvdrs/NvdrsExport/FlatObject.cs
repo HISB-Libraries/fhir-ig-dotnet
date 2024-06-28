@@ -61,8 +61,13 @@ public abstract class FlatObject
         // Implement this in the child class
     }
 
-    protected void StringWriteToData(JsonNode data, string value, Alignment alignment = Alignment.LEFT)
+    protected void StringWriteToData(JsonNode data, string? value, Alignment alignment = Alignment.LEFT)
     {
+        if (value == null)
+        {
+            return;
+        }
+
         int start = data["firstColumn"]!.GetValue<int>();
         int end = data["lastColumn"]!.GetValue<int>();
         int length = end - start + 1;
