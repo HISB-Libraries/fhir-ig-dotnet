@@ -243,27 +243,39 @@ public class FlatObjectCMELE : FlatObject
                 }
                 else if ("IncidentYear".Equals(data!["name"]!.GetValue<string>()))
                 {
-                    if (composition.NvdrsComposition().IncidentYear != null)
+                    if (!composition.NvdrsComposition().ForceNewRecord)
                     {
-                        string incidentYearDate = composition.NvdrsComposition().IncidentYear!.Value;
-                        string[] incidentdatepart = incidentYearDate.Split('-');
-                        StringWriteToData(data, incidentdatepart[0]);
-                        if (!composition.NvdrsComposition().ForceNewRecord)
+                        if (composition.NvdrsComposition().IncidentYear != null)
                         {
+                            string incidentYearDate = composition.NvdrsComposition().IncidentYear!.Value;
+                            string[] incidentdatepart = incidentYearDate.Split('-');
+                            StringWriteToData(data, incidentdatepart[0]);
                             data["value"] = incidentdatepart[0];
                         }
                     }
                 }
                 else if ("IncidentNumber".Equals(data!["name"]!.GetValue<string>()))
                 {
-                    if (composition.NvdrsComposition().IncidentNumber != null)
+                    if (!composition.NvdrsComposition().ForceNewRecord)
                     {
-                        StringWriteToData(data, composition.NvdrsComposition().IncidentNumber, Alignment.RIGHT);
+
+                        if (composition.NvdrsComposition().IncidentNumber != null)
+                        {
+                            StringWriteToData(data, composition.NvdrsComposition().IncidentNumber, Alignment.RIGHT);
+                        }
                     }
                 }
                 else if ("VictimNumber".Equals(data!["name"]!.GetValue<string>()))
                 {
+                    if (!composition.NvdrsComposition().ForceNewRecord)
+                    {
 
+                        Identifier? additionalId = composition.NvdrsComposition().GetAdditionalIdentifier(NvdrsCustomUris.victimnumberIdentifierUrl);
+                        if (additionalId != null)
+                        {
+                            StringWriteToData(data, additionalId.Value, Alignment.RIGHT);
+                        }
+                    }
                 }
                 else if ("LastFourDCNumber".Equals(data!["name"]!.GetValue<string>()))
                 {
@@ -482,7 +494,10 @@ public class FlatObjectCMELE : FlatObject
                 }
                 else if ("CircumstancesKnownCME".Equals(data!["name"]!.GetValue<string>())) // 433
                 {
-
+                    if (circumstanceResources.Count > 0)
+                    {
+                        data["value"] = "1";
+                    }
                 }
                 else if ("AbusedAsChildCME".Equals(data!["name"]!.GetValue<string>())) // 434
                 {

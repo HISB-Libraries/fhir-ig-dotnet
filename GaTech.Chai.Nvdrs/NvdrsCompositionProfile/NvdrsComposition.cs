@@ -169,27 +169,46 @@ public class NvdrsComposition
         }
     }
 
-    public Identifier? AdditionalIdentifier
+    public Identifier? GetAdditionalIdentifier(string system)
     {
-        get
+        IEnumerable<Extension> exts = this.composition.GetExtensions("http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/identifier-extension");
+        foreach (Extension ext in exts)
         {
-            Extension ext = this.composition.GetExtension("http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/identifier-extension");
-            if (ext != null)
+            Identifier? id = ext.Value as Identifier;
+            if (id != null)
             {
-                return ext.Value as Identifier;
+                if (id.System == system)
+                {
+                    return id;
+                }
             }
+        }
 
-            return null;
-        }
-        set
+        return null;
+    }
+
+    public void AddAdditionalIdentifier(Identifier newId)
+    {
+        IEnumerable<Extension> exts = this.composition.GetExtensions("http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/identifier-extension");
+        foreach (Extension ext in exts)
         {
-            Extension ext = new()
+            Identifier? id = ext.Value as Identifier;
+            if (id != null)
             {
-                Url = "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/identifier-extension",
-                Value = value
-            };
-            this.composition.Extension.AddOrUpdateExtension(ext);
+                if (newId.System == id.System)
+                {
+                    id.Value = newId.Value;
+                    return;
+                }
+            }
         }
+
+        Extension newExt = new()
+        {
+            Url = "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/identifier-extension",
+            Value = newId
+        };
+        this.composition.Extension.AddOrUpdateExtension(newExt);
     }
 
     public Date? IncidentYear
@@ -219,7 +238,7 @@ public class NvdrsComposition
     {
         get
         {
-            this.composition.TryGetIdentifier("urn:vdrs:nvdrs:incidentnumber", out Identifier? identifier);
+            this.composition.TryGetIdentifier(NvdrsCustomUris.incidentnumberIdentifierUrl, out Identifier? identifier);
             if (identifier == null)
             {
                 return null;

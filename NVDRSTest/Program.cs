@@ -90,6 +90,7 @@ public class Program
         nvdrsTestComp.NvdrsComposition().OverwriteConflicts = true;
         nvdrsTestComp.NvdrsComposition().IncidentNumber = "107";
         nvdrsTestComp.NvdrsComposition().IncidentYear = new Date(2024);
+        nvdrsTestComp.NvdrsComposition().AddAdditionalIdentifier(new Identifier(NvdrsCustomUris.victimnumberIdentifierUrl, "1"));
 
         // Add firearm object to composition's weapon section.
         nvdrsTestComp.NvdrsComposition().AddSectionEntryByCode(NvdrsCustomCs.Weapons, [weaponTypeObs]);
@@ -116,7 +117,7 @@ public class Program
         playingWithGun.FhirSubject(patient);
         playingWithGun.Value = VrclValueSetYesNoUnknownVr.YES;
 
-        nvdrsTestComp.NvdrsComposition().AddSectionEntryByCode(NvdrsCustomCs.Circumstances, [randomViolenceIncident]);
+        nvdrsTestComp.NvdrsComposition().AddSectionEntryByCode(NvdrsCustomCs.Circumstances, [randomViolenceIncident, playingWithGun]);
 
         // Create NVDRS Bundle using the composition created above
         Bundle nvdrsTestBundle = NvdrsDocumentBundle.Create(nvdrsTestComp);

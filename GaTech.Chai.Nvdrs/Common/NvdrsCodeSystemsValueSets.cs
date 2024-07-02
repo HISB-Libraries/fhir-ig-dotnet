@@ -271,6 +271,11 @@ public class NvdrsWoundLocationValuesVs
     public static CodeableConcept Unknown = new(UriString.SCT, "261665006", "Unknown", null);
 }
 
+public class NvdrsCustomUris
+{
+    public const string incidentnumberIdentifierUrl = "urn:vdrs:nvdrs:incidentnumber";
+    public const string victimnumberIdentifierUrl = "urn:vdrs:nvdrs:victimnumber";
+}
 // public class NvdrsSectionCodes
 // {
 //     public const string officialUrl = "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-custom-code-system";
