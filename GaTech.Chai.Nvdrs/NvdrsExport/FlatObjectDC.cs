@@ -5,7 +5,7 @@ namespace GaTech.Chai.Nvdrs;
 
 public class FlatObjectDC : FlatObject
 {
-    public FlatObjectDC(string filename) : base(filename)
+    public FlatObjectDC() : base("ExportConfigDC.json")
     {
         if (!"DCFormat".Equals(FlatType))
         {

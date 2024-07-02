@@ -1,4 +1,5 @@
-﻿using System.Text.Json;
+﻿using System.Reflection;
+using System.Text.Json;
 using System.Text.Json.Nodes;
 using Hl7.Fhir.Model;
 
@@ -13,8 +14,12 @@ public abstract class FlatObject
 
     public FlatObject(string filename)
     {
+        // Get flatfile configuration file.
+        var buildDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+        var filePath = buildDir + @"/NvdrsExport/" + filename;
+
         // Create an instance of StreamReader to read from a file.
-        FileStream SourceStream = File.Open(filename, FileMode.Open);
+        FileStream SourceStream = File.Open(filePath, FileMode.Open);
         JsonNode? jsonNode = JsonNode.Parse(SourceStream);
 
         if (jsonNode == null)

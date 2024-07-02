@@ -14,10 +14,9 @@ public class NvdrsHistoryAlcoholUse
 
     public static Observation Create()
     {
-        Observation observation = new()
-        {
-            Code = new CodeableConcept(UriString.LOINC, "11331-6", "History of Alcohol Use", null)
-        };
+        Observation observation = NvdrsCircumstances.Create();
+        observation.NvdrsCircumstances().RemoveProfile();
+        observation.Code = new CodeableConcept(UriString.LOINC, "11331-6", "History of Alcohol Use", null);
 
         observation.NvdrsHistoryAlcoholUse().AddProfile();
 

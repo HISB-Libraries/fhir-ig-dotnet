@@ -2,8 +2,10 @@
 using GaTech.Chai.Share;
 using GaTech.Chai.UsCore;
 using GaTech.Chai.Vrcl;
+using GaTech.Chai.Vrdr;
 using Hl7.Fhir.Model;
 using Hl7.Fhir.Serialization;
+using static GaTech.Chai.Vrcl.VrclCodeSystemsValueSets;
 
 public class Program
 {
@@ -38,6 +40,7 @@ public class Program
         patient.BirthDateElement = new Date(1978, 3, 12);
         patient.UsCorePatient().BirthSex.Extension = new Code("F");
         patient.Gender = AdministrativeGender.Female;
+        patient.VrdrDecedent().NVSSSexAtDeath = ValueSetAdministrativeGenderMaxVs.F;
 
         // Address
         patient.Address = new List<Address> { new Address {
@@ -67,6 +70,7 @@ public class Program
         // firearmObs.Category.Add(NvdrsCustomCs.Weapons);
         firearmObs.NvdrsFirearm().FirearmStolen = VrclCodeSystemsValueSets.VrclValueSetYesNoUnknownVr.YES;
         firearmObs.NvdrsFirearm().FirearmType = NvdrsFirearmTypeVs.HandgunPistolBoltAction;
+        firearmObs.NvdrsFirearm().FireamrOwner = (NvdrsGunOwnerCodesVs.Stranger, null, null);
         firearmObs.NvdrsFirearm().SerialNumber = "12345-0987";
         // firearmObs.ObservationFirearm().FirearmMake = NcicFirearmMakeVs.GlockInc;
         firearmObs.NvdrsFirearm().FirearmMake = new FhirString("64");
@@ -82,9 +86,10 @@ public class Program
 
         // Meta information.
         Composition nvdrsTestComp = NvdrsComposition.Create(patient, null, ValueSets.Hl7VsDataAbsentReason.NotAsked, NvdrsDocTypesVs.CMEReport);
-        nvdrsTestComp.NvdrsComposition().ForceNewRecord = true;
-        nvdrsTestComp.NvdrsComposition().OverwriteConflicts = false;
-        // nvdrsTestComp.NvdrsComposition().IncidentYear = new Date(2024);
+        nvdrsTestComp.NvdrsComposition().ForceNewRecord = false;
+        nvdrsTestComp.NvdrsComposition().OverwriteConflicts = true;
+        nvdrsTestComp.NvdrsComposition().IncidentNumber = "107";
+        nvdrsTestComp.NvdrsComposition().IncidentYear = new Date(2024);
 
         // Add firearm object to composition's weapon section.
         nvdrsTestComp.NvdrsComposition().AddSectionEntryByCode(NvdrsCustomCs.Weapons, [weaponTypeObs]);
@@ -105,7 +110,11 @@ public class Program
         // Add Wound location to composition's Circumstances.
         Observation randomViolenceIncident = NvdrsRandomViolence.Create();
         randomViolenceIncident.FhirSubject(patient);
-        randomViolenceIncident.Value = VrclCodeSystemsValueSets.VrclValueSetYesNoUnknownVr.YES;
+        randomViolenceIncident.Value = VrclValueSetYesNoUnknownVr.YES;
+
+        Observation playingWithGun = NvdrsPlayingWithFirearm.Create();
+        playingWithGun.FhirSubject(patient);
+        playingWithGun.Value = VrclValueSetYesNoUnknownVr.YES;
 
         nvdrsTestComp.NvdrsComposition().AddSectionEntryByCode(NvdrsCustomCs.Circumstances, [randomViolenceIncident]);
 
@@ -119,7 +128,7 @@ public class Program
 
         Console.WriteLine("+--------- Export NVDRS Bundle to Web Input file ---------+");
         // Set up if you want to export the NVDRS bundle to NVDRS web input file
-        FlatObjectCMELE flatObject = new("./ExportConfigCMELE.json");
+        FlatObjectCMELE flatObject = new();
         nvdrsTestBundle.NvdrsDocumentBundle().ExportToNVDRS(flatObject);
     }
 

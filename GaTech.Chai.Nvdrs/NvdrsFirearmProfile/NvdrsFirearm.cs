@@ -63,7 +63,7 @@ public class NvdrsFirearm
         }
     }
 
-    public CodeableConcept? StoredLoaded
+    public CodeableConcept? FirearmStoredLoaded
     {
         get
         {
@@ -85,7 +85,7 @@ public class NvdrsFirearm
         }
     }
 
-    public CodeableConcept? StoredLocked
+    public CodeableConcept? FirearmStoredLocked
     {
         get
         {

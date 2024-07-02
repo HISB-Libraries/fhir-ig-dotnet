@@ -7,16 +7,16 @@
   },
   "identifier": {
     "system": "urn:gtri:heat-hisp:nvdrs-testing",
-    "value": "urn:uuid:a6f360c6-1455-4fe1-a7b1-325c5ce57649"
+    "value": "urn:uuid:2d3bdeb1-40c9-47ef-8e3e-284ad7378ca1"
   },
   "type": "document",
-  "timestamp": "2024-06-27T20:45:19.787175-04:00",
+  "timestamp": "2024-07-02T01:40:32.367369-04:00",
   "entry": [
     {
-      "fullUrl": "urn:uuid:49b8836a-d0ca-47cd-b9b4-c96b4a764578",
+      "fullUrl": "urn:uuid:10405f4e-9df7-429d-9f0f-ece48a36063e",
       "resource": {
         "resourceType": "Composition",
-        "id": "49b8836a-d0ca-47cd-b9b4-c96b4a764578",
+        "id": "10405f4e-9df7-429d-9f0f-ece48a36063e",
         "meta": {
           "profile": [
             "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-composition"
@@ -25,13 +25,21 @@
         "extension": [
           {
             "url": "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-force-new-record-extension",
-            "valueBoolean": true
+            "valueBoolean": false
           },
           {
             "url": "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-overwrite-conflicts-extension",
-            "valueBoolean": false
+            "valueBoolean": true
+          },
+          {
+            "url": "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-incident-year-extension",
+            "valueDate": "2024"
           }
         ],
+        "identifier": {
+          "system": "urn:vdrs:nvdrs:incidentnumber",
+          "value": "107"
+        },
         "status": "final",
         "type": {
           "coding": [
@@ -45,7 +53,7 @@
         "subject": {
           "reference": "urn:uuid:956c53c0-a993-11ed-afa1-0242ac120002"
         },
-        "date": "2024-06-27T20:45:19.766466-04:00",
+        "date": "2024-07-02T01:40:32.337123-04:00",
         "author": [
           {
             "extension": [
@@ -71,7 +79,7 @@
             },
             "entry": [
               {
-                "reference": "urn:uuid:17fb0ddb-4bc6-4b61-8e1c-0b872058b8cf"
+                "reference": "urn:uuid:f33f5b83-2010-46ab-9bde-f8be198e8908"
               }
             ]
           },
@@ -88,10 +96,10 @@
             },
             "entry": [
               {
-                "reference": "urn:uuid:31e5b5e0-fe31-4734-bc8e-196cbc05731e"
+                "reference": "urn:uuid:7ed50dc8-f91e-45c7-8560-634faa2d8f82"
               },
               {
-                "reference": "urn:uuid:9d533aa3-994c-430e-9236-32c384008959"
+                "reference": "urn:uuid:99d64157-484d-48d0-980c-74cebd2086ab"
               }
             ]
           },
@@ -108,7 +116,7 @@
             },
             "entry": [
               {
-                "reference": "urn:uuid:dcdd2c01-c27a-4f0e-8ee0-ea8575a4465a"
+                "reference": "urn:uuid:81f9aca1-ad56-4091-b69a-ae8f0804c0a3"
               }
             ]
           }
@@ -121,7 +129,7 @@
         "resourceType": "Patient",
         "id": "956c53c0-a993-11ed-afa1-0242ac120002",
         "meta": {
-          "lastUpdated": "2024-06-27T20:45:19.740591-04:00",
+          "lastUpdated": "2024-07-02T01:40:32.308813-04:00",
           "profile": [
             "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-decedent"
           ]
@@ -180,6 +188,18 @@
           {
             "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex",
             "valueCode": "F"
+          },
+          {
+            "url": "http://hl7.org/fhir/us/vrdr/StructureDefinition/NVSS-SexAtDeath",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v3-AdministrativeGender",
+                  "code": "F",
+                  "display": "Female"
+                }
+              ]
+            }
           },
           {
             "url": "http://hl7.org/fhir/StructureDefinition/patient-birthPlace",
@@ -252,10 +272,10 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:17fb0ddb-4bc6-4b61-8e1c-0b872058b8cf",
+      "fullUrl": "urn:uuid:f33f5b83-2010-46ab-9bde-f8be198e8908",
       "resource": {
         "resourceType": "Observation",
-        "id": "17fb0ddb-4bc6-4b61-8e1c-0b872058b8cf",
+        "id": "f33f5b83-2010-46ab-9bde-f8be198e8908",
         "meta": {
           "profile": [
             "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-weapon-type"
@@ -275,7 +295,7 @@
         },
         "focus": [
           {
-            "reference": "urn:uuid:d3e7401a-e674-49db-9d01-9b7c4f4c2136"
+            "reference": "urn:uuid:35f41677-d3ac-4639-828f-6226e237690e"
           }
         ],
         "valueCodeableConcept": {
@@ -290,12 +310,12 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:d3e7401a-e674-49db-9d01-9b7c4f4c2136",
+      "fullUrl": "urn:uuid:35f41677-d3ac-4639-828f-6226e237690e",
       "resource": {
         "resourceType": "Observation",
-        "id": "d3e7401a-e674-49db-9d01-9b7c4f4c2136",
+        "id": "35f41677-d3ac-4639-828f-6226e237690e",
         "meta": {
-          "lastUpdated": "2024-06-27T20:45:19.763478-04:00",
+          "lastUpdated": "2024-07-02T01:40:32.333611-04:00",
           "profile": [
             "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-firearm"
           ]
@@ -406,12 +426,12 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:31e5b5e0-fe31-4734-bc8e-196cbc05731e",
+      "fullUrl": "urn:uuid:7ed50dc8-f91e-45c7-8560-634faa2d8f82",
       "resource": {
         "resourceType": "Observation",
-        "id": "31e5b5e0-fe31-4734-bc8e-196cbc05731e",
+        "id": "7ed50dc8-f91e-45c7-8560-634faa2d8f82",
         "meta": {
-          "lastUpdated": "2024-06-27T20:45:19.777598-04:00",
+          "lastUpdated": "2024-07-02T01:40:32.35507-04:00",
           "profile": [
             "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-number-of-bullets"
           ]
@@ -444,12 +464,12 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:9d533aa3-994c-430e-9236-32c384008959",
+      "fullUrl": "urn:uuid:99d64157-484d-48d0-980c-74cebd2086ab",
       "resource": {
         "resourceType": "Observation",
-        "id": "9d533aa3-994c-430e-9236-32c384008959",
+        "id": "99d64157-484d-48d0-980c-74cebd2086ab",
         "meta": {
-          "lastUpdated": "2024-06-27T20:45:19.777787-04:00",
+          "lastUpdated": "2024-07-02T01:40:32.355292-04:00",
           "profile": [
             "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-wound-location"
           ]
@@ -490,12 +510,12 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:dcdd2c01-c27a-4f0e-8ee0-ea8575a4465a",
+      "fullUrl": "urn:uuid:81f9aca1-ad56-4091-b69a-ae8f0804c0a3",
       "resource": {
         "resourceType": "Observation",
-        "id": "dcdd2c01-c27a-4f0e-8ee0-ea8575a4465a",
+        "id": "81f9aca1-ad56-4091-b69a-ae8f0804c0a3",
         "meta": {
-          "lastUpdated": "2024-06-27T20:45:19.778151-04:00",
+          "lastUpdated": "2024-07-02T01:40:32.355671-04:00",
           "profile": [
             "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-random-violence"
           ]

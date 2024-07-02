@@ -1234,97 +1234,97 @@
             "value": ""
         },
         {
-            "name": "Recent Criminal Legal Problem CME",
+            "name": "RecentCriminalLegalProblemCME",
             "firstColumn": 825,
             "lastColumn": 825,
             "value": ""
         },
         {
-            "name": "Recent Suicide Friend Family CME",
+            "name": "RecentSuicideFriendFamilyCME",
             "firstColumn": 826,
             "lastColumn": 826,
             "value": ""
         },
         {
-            "name": "Relationship Problem Other CME",
+            "name": "RelationshipProblemOtherCME",
             "firstColumn": 827,
             "lastColumn": 827,
             "value": ""
         },
         {
-            "name": "School Problem CME",
+            "name": "SchoolProblemCME",
             "firstColumn": 828,
             "lastColumn": 828,
             "value": ""
         },
         {
-            "name": "Self Defense CME",
+            "name": "SelfDefenseCME",
             "firstColumn": 829,
             "lastColumn": 829,
             "value": ""
         },
         {
-            "name": "Stalking CME",
+            "name": "StalkingCME",
             "firstColumn": 830,
             "lastColumn": 830,
             "value": ""
         },
         {
-            "name": "Substance Abuse Other CME",
+            "name": "SubstanceAbuseOtherCME",
             "firstColumn": 831,
             "lastColumn": 831,
             "value": ""
         },
         {
-            "name": "Suicide Attempt History CME",
+            "name": "SuicideAttemptHistoryCME",
             "firstColumn": 832,
             "lastColumn": 832,
             "value": ""
         },
         {
-            "name": "Suicide Intent Disclosed CME",
+            "name": "SuicideIntentDisclosedCME",
             "firstColumn": 833,
             "lastColumn": 833,
             "value": ""
         },
         {
-            "name": "Suicide Note CME",
+            "name": "SuicideNoteCME",
             "firstColumn": 834,
             "lastColumn": 834,
             "value": ""
         },
         {
-            "name": "Suicide Thought History CME",
+            "name": "SuicideThoughtHistoryCME",
             "firstColumn": 835,
             "lastColumn": 835,
             "value": ""
         },
         {
-            "name": "Target Shooting CME",
+            "name": "TargetShootingCME",
             "firstColumn": 836,
             "lastColumn": 836,
             "value": ""
         },
         {
-            "name": "Terrorist Attack CME",
+            "name": "TerroristAttackCME",
             "firstColumn": 837,
             "lastColumn": 837,
             "value": ""
         },
         {
-            "name": "Traumatic Anniversary CME",
+            "name": "TraumaticAnniversaryCME",
             "firstColumn": 838,
             "lastColumn": 838,
             "value": ""
         },
         {
-            "name": "Victim Police Officer On Duty CME",
+            "name": "VictimPoliceOfficeOnDutyCME",
             "firstColumn": 839,
             "lastColumn": 839,
             "value": ""
         },
         {
-            "name": "Victim Used Weapon CME",
+            "name": "VictimUsedWeaponCME",
             "firstColumn": 840,
             "lastColumn": 840,
             "value": ""
@@ -1336,19 +1336,19 @@
             "value": ""
         },
         {
-            "name": "Circumstances Other LE",
+            "name": "CircumstancesOtherLE",
             "firstColumn": 842,
             "lastColumn": 842,
             "value": ""
         },
         {
-            "name": "Abused As Child LE",
+            "name": "AbusedAsChildLE",
             "firstColumn": 843,
             "lastColumn": 843,
             "value": ""
         },
         {
-            "name": "Alcohol Problem LE",
+            "name": "AlcoholProblemLE",
             "firstColumn": 844,
             "lastColumn": 844,
             "value": ""
@@ -2008,193 +2008,193 @@
             "value": ""
         },
         {
-            "name": "Sex",
+            "name": "SuspectSex",
             "firstColumn": 1275,
             "lastColumn": 1275,
             "value": ""
         },
         {
-            "name": "Victim to Suspect Relationship 1",
+            "name": "VictimSuspectRelationshipPrimary",
             "firstColumn": 1276,
             "lastColumn": 1277,
             "value": ""
         },
         {
-            "name": "Victim to Suspect Relationship 2",
+            "name": "VictimSuspectRelationshipSecondary",
             "firstColumn": 1278,
             "lastColumn": 1279,
             "value": ""
         },
         {
-            "name": "History of Abuse of Victim by This Suspect",
+            "name": "HasAbuseHistory",
             "firstColumn": 1280,
             "lastColumn": 1280,
             "value": ""
         },
         {
-            "name": "This Suspect Was a Caregiver for the Victim",
+            "name": "IsCareTaker",
             "firstColumn": 1281,
             "lastColumn": 1281,
             "value": ""
         },
         {
-            "name": "Suspect Attempted Suicide After Incident",
+            "name": "HasAttemptedSuicide",
             "firstColumn": 1282,
             "lastColumn": 1282,
             "value": ""
         },
         {
-            "name": "This Suspect is Also a Victim in the Incident",
+            "name": "IsSuspectAlsoVictim",
             "firstColumn": 1283,
             "lastColumn": 1283,
             "value": ""
         },
         {
-            "name": "Suspect Mentally Ill",
+            "name": "IsSuspectMentallyIll",
             "firstColumn": 1284,
             "lastColumn": 1284,
             "value": ""
         },
         {
-            "name": "Suspect Had Developmental Disability",
+            "name": "HasSuspectDevelopmentDisability",
             "firstColumn": 1285,
             "lastColumn": 1285,
             "value": ""
         },
         {
-            "name": "Suspected Alcohol Use by Suspect",
+            "name": "IsSuspectAlcoholUseSuspected",
             "firstColumn": 1286,
             "lastColumn": 1286,
             "value": ""
         },
         {
-            "name": "Suspected Substance Use by Suspect",
+            "name": "IsSuspectSubstanceUseSuspected",
             "firstColumn": 1287,
             "lastColumn": 1287,
             "value": ""
         },
         {
-            "name": "Suspect Had Been in Contact with Law Enforcement",
+            "name": "IsSuspectContactPolice",
             "firstColumn": 1288,
             "lastColumn": 1288,
             "value": ""
         },
         {
-            "name": "Suspect Was Recently Released from an Institution",
+            "name": "SuspectRecentRelease",
             "firstColumn": 1289,
             "lastColumn": 1290,
             "value": ""
         },
         {
-            "name": "White",
+            "name": "IsSuspectCaucasian",
             "firstColumn": 1291,
             "lastColumn": 1291,
             "value": ""
         },
         {
-            "name": "Black or African American",
+            "name": "IsSuspectAfricanAmerican",
             "firstColumn": 1292,
             "lastColumn": 1292,
             "value": ""
         },
         {
-            "name": "Asian",
+            "name": "IsSuspectAsian",
             "firstColumn": 1293,
             "lastColumn": 1293,
             "value": ""
         },
         {
-            "name": "Native Hawaiian or Other Pacific Islander",
+            "name": "IsSuspectPacificIslander",
             "firstColumn": 1294,
             "lastColumn": 1294,
             "value": ""
         },
         {
-            "name": "American Indian or Alaska Native",
+            "name": "IsSuspectAmericanIndian",
             "firstColumn": 1295,
             "lastColumn": 1295,
             "value": ""
         },
         {
-            "name": "American Indian or Alaska Native",
+            "name": "IsSuspectRaceUnspecified",
             "firstColumn": 1296,
             "lastColumn": 1296,
             "value": ""
         },
         {
-            "name": "Race",
+            "name": "SuspectEthnicity",
             "firstColumn": 1297,
             "lastColumn": 1297,
             "value": ""
         },
         {
-            "name": "Non-adherence to Mental Health/Substance Abuse Treatment",
+            "name": "IsTreatmentNonAdherenceCME",
             "firstColumn": 1298,
             "lastColumn": 1298,
             "value": ""
         },
         {
-            "name": "History of Traumatic Brain Injury (TBI)",
+            "name": "IsTraumaticBrainInjuryHistoryCME",
             "firstColumn": 1299,
             "lastColumn": 1299,
             "value": ""
         },
         {
-            "name": "Family Relationship Problem",
+            "name": "IsFamilyStressorsCME",
             "firstColumn": 1300,
             "lastColumn": 1300,
             "value": ""
         },
         {
-            "name": "Family Relationship Problem Was Crisis",
+            "name": "IsCrisisFamilyStressorCME",
             "firstColumn": 1301,
             "lastColumn": 1301,
             "value": ""
         },
         {
-            "name": "Caregiver Burden",
+            "name": "IsCaregiverBurdenCME",
             "firstColumn": 1302,
             "lastColumn": 1302,
             "value": ""
         },
         {
-            "name": "Family Stressors",
+            "name": "IsFamilyStressorCME",
             "firstColumn": 1303,
             "lastColumn": 1303,
             "value": ""
         },
         {
-            "name": "Household Known to Local Authorities",
+            "name": "IsHouseholdKnownCME",
             "firstColumn": 1304,
             "lastColumn": 1304,
             "value": ""
         },
         {
-            "name": "Prior Child Protective Services (CPS) Report on a Child Victim's Household",
+            "name": "IsPriorCPSReportCME",
             "firstColumn": 1305,
             "lastColumn": 1305,
             "value": ""
         },
         {
-            "name": "Substance Abuse in Child Victim's Household",
+            "name": "IsHouseholdSubstanceAbuseCME",
             "firstColumn": 1306,
             "lastColumn": 1306,
             "value": ""
         },
         {
-            "name": "Loss of Independent Living",
+            "name": "IsLivingTransitionCME",
             "firstColumn": 1307,
             "lastColumn": 1307,
             "value": ""
         },
         {
-            "name": "Caregiver Use of Corporal Punishment Contributed to Child Death",
+            "name": "IsCorporalPunishmentCME",
             "firstColumn": 1308,
             "lastColumn": 1308,
             "value": ""
         },
         {
-            "name": "History of Non-suicidal Self-Injury/Self-Harm",
+            "name": "IsHistorySelfHarmCME",
             "firstColumn": 1309,
             "lastColumn": 1309,
             "value": ""

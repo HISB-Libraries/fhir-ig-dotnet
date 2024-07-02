@@ -34,5 +34,32 @@ public class VrdrDecedent
     {
         this.patient.RemoveProfile(ProfileUrl);
     }
+
+    public CodeableConcept NVSSSexAtDeath
+    {
+        get
+        {
+            Extension ext = this.patient.GetExtension("http://hl7.org/fhir/us/vrdr/StructureDefinition/NVSS-SexAtDeath");
+            if (ext != null)
+            {
+                return ext.Value as CodeableConcept;
+            }
+
+            return null;
+        }
+
+        set
+        {
+            Extension ext = this.patient.GetExtension(VrdrUrls.NVSSSexAtDeathUrl);
+            if (ext != null)
+            {
+                ext.Value = value;
+            }
+            else 
+            {
+                this.patient.AddExtension(VrdrUrls.NVSSSexAtDeathUrl, value);
+            }
+        }
+    }
 }
 

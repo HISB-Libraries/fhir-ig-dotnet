@@ -3,8 +3,8 @@ using Hl7.Fhir.Model;
 
 namespace GaTech.Chai.UsCore
 {
-	public class CodeSystemsValueSets
-	{
+    public class CodeSystemsValueSets
+    {
         public class UsCoreDocumentReferenceType
         {
             public static string officialUrl = "http://terminology.hl7.org/CodeSystem/v3-NullFlavor";

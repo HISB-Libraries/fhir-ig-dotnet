@@ -1,5 +1,8 @@
 ﻿using System;
+using GaTech.Chai.Share;
 using Hl7.Fhir.Model;
+using Hl7.Fhir.Utility;
+using static GaTech.Chai.Share.CodeSystems;
 
 namespace GaTech.Chai.Vrdr 
 {
@@ -84,6 +87,18 @@ namespace GaTech.Chai.Vrdr
         public static CodeableConcept OTH = new("http://terminology.hl7.org/CodeSystem/v3-NullFlavor", "OTH", "Other", null);
         public static CodeableConcept UNK = new("http://terminology.hl7.org/CodeSystem/v3-NullFlavor", "UNK", "unknown", null);
         public static CodeableConcept NA = new("http://terminology.hl7.org/CodeSystem/v3-NullFlavor", "NA", "not applicable", null);
+    }
+
+    public class ValueSetAdministrativeGenderMaxVs
+    {
+        public const string officialUrl = "http://hl7.org/fhir/us/vrdr/ValueSet/ValueSet-administrative-gender-max-vs";
+
+        public static CodeableConcept F = V3AdministrativeGender.F;
+        public static CodeableConcept M = V3AdministrativeGender.M;
+        public static CodeableConcept UNK = V3NullFlavor.UNK;
+        public static CodeableConcept Female = new(AdministrativeGender.Female.GetEnumSystem(), AdministrativeGender.Female.GetEnumCode(), AdministrativeGender.Female.GetEnumDescription(), null);
+        public static CodeableConcept Mail = new(AdministrativeGender.Male.GetEnumSystem(), AdministrativeGender.Male.GetEnumCode(), AdministrativeGender.Male.GetEnumDescription(), null);
+        public static CodeableConcept Unknown = new(AdministrativeGender.Unknown.GetEnumSystem(), AdministrativeGender.Unknown.GetEnumCode(), AdministrativeGender.Unknown.GetEnumDescription(), null);
     }
 
 }
