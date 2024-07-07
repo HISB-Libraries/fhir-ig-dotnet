@@ -126,6 +126,23 @@ public class NvdrsCustomCs
 }
 
 /*
+ * NVDRS Section Codes.
+ */
+ public class NvdrsCompositionSections
+ {
+    public static CodeableConcept Demographics = NvdrsCustomCs.Demographics;
+    public static CodeableConcept InjuryAndDeath = NvdrsCustomCs.InjuryAndDeath;
+    public static CodeableConcept Toxicology = NvdrsCustomCs.Toxicology;
+    public static CodeableConcept Circumstances = NvdrsCustomCs.Circumstances;
+    public static CodeableConcept Weapons = NvdrsCustomCs.Weapons;
+    public static CodeableConcept Suspects = NvdrsCustomCs.Suspects;
+    public static CodeableConcept Overdose = NvdrsCustomCs.Overdose;
+    // Below is not in the IG. Provided as a courtesy if one wants to add references that
+    // do not fit in any NVDRS, MDI, or VRDR sections to a section for management.
+    public static CodeableConcept Appendix = new CodeableConcept("urn:vdrs:document-sections", "appenddix", "Appendix", null); 
+ }
+
+/*
  * ValueSets
  */
 public class NcicFirearmMakeVs
@@ -172,7 +189,7 @@ public class NvdrsGunOwnerCodesVs
     public static CodeableConcept FriendAcquaintance = NvdrsCodingManualCs.FriendAcquaintance;
     public static CodeableConcept Stranger = NvdrsCodingManualCs.Stranger;
     public static CodeableConcept OtherSpecify = NvdrsCodingManualCs.OtherSpecify;
-    public static CodeableConcept Unknown = new("http://snomed.info/sct", "261665006", "Unknown", null);
+    public static CodeableConcept Unknown = new(UriString.SCT, "261665006", "Unknown", null);
 }
 
 public class NvdrsDocTypesVs

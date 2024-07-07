@@ -322,12 +322,12 @@ namespace GaTech.Chai.Mdi
         {
             get
             {
-                return GetOrAddSection("demographics", MdiCodeSystem.MdiCodes.AdditionalDemographics.Coding[0].Display).Text;
+                return GetOrAddSection("demographics", MdiCompositionSections.AdditionalDemographics.Coding[0].Display).Text;
             }
             set
             {
-                SectionComponent sectionComponent = new() { Code = MdiCodeSystem.MdiCodes.AdditionalDemographics, Text = value };
-                AddOrUpdateSection("demographics", MdiCodeSystem.MdiCodes.AdditionalDemographics.Coding[0].Display, sectionComponent);
+                SectionComponent sectionComponent = new() { Code = MdiCompositionSections.AdditionalDemographics, Text = value };
+                AddOrUpdateSection("demographics", MdiCompositionSections.AdditionalDemographics.Coding[0].Display, sectionComponent);
             }
         }
 
@@ -346,12 +346,12 @@ namespace GaTech.Chai.Mdi
         {
             get
             {
-                return GetSectionAndEntry("circumstances", MdiCodeSystem.MdiCodes.Circumstances);
+                return GetSectionAndEntry("circumstances", MdiCompositionSections.Circumstances);
             }
 
             set
             {
-                SetSectionAndEntry("circumstances", MdiCodeSystem.MdiCodes.Circumstances, value);
+                SetSectionAndEntry("circumstances", MdiCompositionSections.Circumstances, value);
             }
         }
 
@@ -368,18 +368,18 @@ namespace GaTech.Chai.Mdi
         {
             get
             {
-                return GetSectionAndEntry("jurisdiction", MdiCodeSystem.MdiCodes.Jurisdiction);
+                return GetSectionAndEntry("jurisdiction", MdiCompositionSections.Jurisdiction);
             }
 
             set
             {
-                SetSectionAndEntry("jurisdiction", MdiCodeSystem.MdiCodes.Jurisdiction, value);
+                SetSectionAndEntry("jurisdiction", MdiCompositionSections.Jurisdiction, value);
             }
         }
 
         private Observation GetCOD1(int lineNumber)
         {
-            SectionComponent sectionComponent = GetOrAddSection("cause-manner", MdiCodeSystem.MdiCodes.CauseManner.Coding[0].Display);
+            SectionComponent sectionComponent = GetOrAddSection("cause-manner", MdiCompositionSections.CauseManner.Coding[0].Display);
             foreach (ResourceReference reference in sectionComponent.Entry)
             {
                 if (Record.GetResources().TryGetValue(reference.Reference, out Resource entryResource))
@@ -415,7 +415,7 @@ namespace GaTech.Chai.Mdi
 
             Observation cod1 = null;
             
-            SectionComponent sectionComponent = GetOrAddSection("cause-manner", MdiCodeSystem.MdiCodes.CauseManner.Coding[0].Display);
+            SectionComponent sectionComponent = GetOrAddSection("cause-manner", MdiCompositionSections.CauseManner.Coding[0].Display);
             foreach (ResourceReference reference in sectionComponent.Entry)
             {
                 if (Record.GetResources().TryGetValue(reference.Reference, out Resource entryResource))
@@ -477,7 +477,7 @@ namespace GaTech.Chai.Mdi
 
             Observation cod1 = null;
             
-            SectionComponent sectionComponent = GetOrAddSection("cause-manner", MdiCodeSystem.MdiCodes.CauseManner.Coding[0].Display);
+            SectionComponent sectionComponent = GetOrAddSection("cause-manner", MdiCompositionSections.CauseManner.Coding[0].Display);
             foreach (ResourceReference reference in sectionComponent.Entry)
             {
                 if (Record.GetResources().TryGetValue(reference.Reference, out Resource entryResource))
@@ -538,7 +538,7 @@ namespace GaTech.Chai.Mdi
 
             Observation cod1 = null;
             
-            SectionComponent sectionComponent = GetOrAddSection("cause-manner", MdiCodeSystem.MdiCodes.CauseManner.Coding[0].Display);
+            SectionComponent sectionComponent = GetOrAddSection("cause-manner", MdiCompositionSections.CauseManner.Coding[0].Display);
             foreach (ResourceReference reference in sectionComponent.Entry)
             {
                 if (Record.GetResources().TryGetValue(reference.Reference, out Resource entryResource))
@@ -738,7 +738,7 @@ namespace GaTech.Chai.Mdi
 
         public Observation GetCOD2()
         {
-            SectionComponent sectionComponent = GetOrAddSection("cause-manner", MdiCodeSystem.MdiCodes.CauseManner.Coding[0].Display);
+            SectionComponent sectionComponent = GetOrAddSection("cause-manner", MdiCompositionSections.CauseManner.Coding[0].Display);
             foreach (ResourceReference reference in sectionComponent.Entry)
             {
                 if (Record.GetResources().TryGetValue(reference.Reference, out Resource entryResource))
@@ -761,7 +761,7 @@ namespace GaTech.Chai.Mdi
 
             Observation cod2 = null;
             
-            SectionComponent sectionComponent = GetOrAddSection("cause-manner", MdiCodeSystem.MdiCodes.CauseManner.Coding[0].Display);
+            SectionComponent sectionComponent = GetOrAddSection("cause-manner", MdiCompositionSections.CauseManner.Coding[0].Display);
             foreach (ResourceReference reference in sectionComponent.Entry)
             {
                 if (Record.GetResources().TryGetValue(reference.Reference, out Resource entryResource))
@@ -820,7 +820,7 @@ namespace GaTech.Chai.Mdi
 
             Observation mannerOfDeath = null;
             
-            SectionComponent sectionComponent = GetOrAddSection("cause-manner", MdiCodeSystem.MdiCodes.CauseManner.Coding[0].Display);
+            SectionComponent sectionComponent = GetOrAddSection("cause-manner", MdiCompositionSections.CauseManner.Coding[0].Display);
             foreach (ResourceReference reference in sectionComponent.Entry)
             {
                 if (Record.GetResources().TryGetValue(reference.Reference, out Resource entryResource))
@@ -858,7 +858,7 @@ namespace GaTech.Chai.Mdi
         {
             get
             {
-                SectionComponent sectionComponent = GetOrAddSection("cause-manner", MdiCodeSystem.MdiCodes.CauseManner.Coding[0].Display);
+                SectionComponent sectionComponent = GetOrAddSection("cause-manner", MdiCompositionSections.CauseManner.Coding[0].Display);
                 foreach (ResourceReference reference in sectionComponent.Entry)
                 {
                     if (Record.GetResources().TryGetValue(reference.Reference, out Resource entryResource))
@@ -875,7 +875,7 @@ namespace GaTech.Chai.Mdi
             set
             {
                 Observation mannerOfDeath = null;
-                SectionComponent sectionComponent = GetOrAddSection("cause-manner", MdiCodeSystem.MdiCodes.CauseManner.Coding[0].Display);
+                SectionComponent sectionComponent = GetOrAddSection("cause-manner", MdiCompositionSections.CauseManner.Coding[0].Display);
                 foreach (ResourceReference reference in sectionComponent.Entry)
                 {
                     if (Record.GetResources().TryGetValue(reference.Reference, out Resource entryResource))
@@ -918,7 +918,7 @@ namespace GaTech.Chai.Mdi
                 Observation mannerOfDeath = null;
                 Observation deathInjuryOccurred = null;
 
-                SectionComponent sectionComponent = GetOrAddSection("cause-manner", MdiCodeSystem.MdiCodes.CauseManner.Coding[0].Display);
+                SectionComponent sectionComponent = GetOrAddSection("cause-manner", MdiCompositionSections.CauseManner.Coding[0].Display);
                 foreach (ResourceReference reference in sectionComponent.Entry)
                 {
                     if (Record.GetResources().TryGetValue(reference.Reference, out Resource resource))
@@ -955,8 +955,8 @@ namespace GaTech.Chai.Mdi
 
             set
             {
-                SectionComponent sectionComponent = GetOrAddSection("cause-manner", MdiCodeSystem.MdiCodes.CauseManner.Coding[0].Display);
-                AddOrUpdateSection("cause-manner", MdiCodeSystem.MdiCodes.CauseManner.Coding[0].Display, sectionComponent);
+                SectionComponent sectionComponent = GetOrAddSection("cause-manner", MdiCompositionSections.CauseManner.Coding[0].Display);
+                AddOrUpdateSection("cause-manner", MdiCompositionSections.CauseManner.Coding[0].Display, sectionComponent);
 
                 // Cause of Death Part 1
                 if (value.Item1 != null)
@@ -1056,12 +1056,12 @@ namespace GaTech.Chai.Mdi
         {
             get
             {
-                return GetSectionAndEntry("medical-history", MdiCodeSystem.MdiCodes.MedicalHistory);
+                return GetSectionAndEntry("medical-history", MdiCompositionSections.MedicalHistory);
             }
 
             set
             {
-                SetSectionAndEntry("medical-history", MdiCodeSystem.MdiCodes.MedicalHistory, value);
+                SetSectionAndEntry("medical-history", MdiCompositionSections.MedicalHistory, value);
             }
         }
 
@@ -1078,12 +1078,12 @@ namespace GaTech.Chai.Mdi
         {
             get
             {
-                return GetSectionAndEntry("exam-autopsy", MdiCodeSystem.MdiCodes.ExamAutopsy);
+                return GetSectionAndEntry("exam-autopsy", MdiCompositionSections.ExamAutopsy);
             }
 
             set
             {
-                SetSectionAndEntry("exam-autopsy", MdiCodeSystem.MdiCodes.ExamAutopsy, value);
+                SetSectionAndEntry("exam-autopsy", MdiCompositionSections.ExamAutopsy, value);
             }
         }
 
@@ -1094,14 +1094,14 @@ namespace GaTech.Chai.Mdi
         {
             get
             {
-                return GetOrAddSection("narratives", MdiCodeSystem.MdiCodes.Narratives.Coding[0].Display).Text;
+                return GetOrAddSection("narratives", MdiCompositionSections.Narratives.Coding[0].Display).Text;
             }
 
             set
             {
-                SectionComponent sectionComponent = GetOrAddSection("narratives", MdiCodeSystem.MdiCodes.Narratives.Coding[0].Display);
+                SectionComponent sectionComponent = GetOrAddSection("narratives", MdiCompositionSections.Narratives.Coding[0].Display);
                 sectionComponent.Text = value;
-                AddOrUpdateSection("narratives", MdiCodeSystem.MdiCodes.Narratives.Coding[0].Display, sectionComponent);
+                AddOrUpdateSection("narratives", MdiCompositionSections.Narratives.Coding[0].Display, sectionComponent);
             }
         }
 

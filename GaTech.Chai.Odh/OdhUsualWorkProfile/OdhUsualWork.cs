@@ -16,8 +16,6 @@ namespace GaTech.Chai.Odh.UsualWorkProfile
         internal OdhUsualWork(Observation observation)
         {
             this.observation = observation;
-            this.observation.Category.SetCategory(new Coding("http://terminology.hl7.org/CodeSystem/observation-category", "social-history"));
-            this.observation.Code = new CodeableConcept("http://loinc.org", "21843-8", "History of Usual occupation", null);
         }
 
         /// <summary>
@@ -26,6 +24,8 @@ namespace GaTech.Chai.Odh.UsualWorkProfile
         public static Observation Create()
         {
             var observation = new Observation();
+            observation.Category.SetCategory(new Coding("http://terminology.hl7.org/CodeSystem/observation-category", "social-history"));
+            observation.Code = new CodeableConcept("http://loinc.org", "21843-8", "History of Usual occupation", null);
             observation.OdhUsualWork().AddProfile();
 
             return observation;

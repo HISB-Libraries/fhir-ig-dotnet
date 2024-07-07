@@ -120,4 +120,15 @@ namespace GaTech.Chai.Mdi
         public static CodeableConcept Approximate = new("http://hl7.org/fhir/us/mdi/CodeSystem/CodeSystem-mdi-codes", "approximate", "Approximate", null);
         public static CodeableConcept CourtAppointed = new ("http://hl7.org/fhir/us/mdi/CodeSystem/CodeSystem-mdi-codes", "court-appointed", "Court Appointed", null);
     }
+
+    public class MdiCompositionSections
+    {
+        public static CodeableConcept AdditionalDemographics = MdiCodeSystem.MdiCodes.AdditionalDemographics;
+        public static CodeableConcept Circumstances = MdiCodeSystem.MdiCodes.Circumstances;
+        public static CodeableConcept Jurisdiction = MdiCodeSystem.MdiCodes.Jurisdiction;
+        public static CodeableConcept CauseManner = MdiCodeSystem.MdiCodes.CauseManner;
+        public static CodeableConcept MedicalHistory = MdiCodeSystem.MdiCodes.MedicalHistory;
+        public static CodeableConcept ExamAutopsy = MdiCodeSystem.MdiCodes.ExamAutopsy;
+        public static CodeableConcept Narratives = MdiCodeSystem.MdiCodes.Narratives;
+    }
 }

@@ -35,24 +35,23 @@ namespace GaTech.Chai.Share
         {
             public static string officialUrl = "http://terminology.hl7.org/CodeSystem/v3-NullFlavor";
 
-            public static CodeableConcept NI = new(officialUrl, "NI", "NoInformation", null);
-            public static CodeableConcept INV = new(officialUrl, "INV", "invalid", null);
-            public static CodeableConcept DER = new(officialUrl, "DER", "derived", null);
-            public static CodeableConcept OTH = new(officialUrl, "OTH", "other", null);
-            public static CodeableConcept NINF = new(officialUrl, "NINF", "negative infinity", null);
-            public static CodeableConcept PINF = new(officialUrl, "PINF", "positive infinity", null);
-            public static CodeableConcept UNC = new(officialUrl, "UNC", "un-encoded", null);
-            public static CodeableConcept MSK = new(officialUrl, "MSK", "masked", null);
-            public static CodeableConcept NA = new(officialUrl, "NA", "not applicable", null);
-            public static CodeableConcept UNK = new(officialUrl, "UNK", "unknown", null);
-            public static CodeableConcept ASKU = new(officialUrl, "ASKU", "asked but unknown", null);
-            public static CodeableConcept NAV = new(officialUrl, "NAV", "temporarily unavailable", null);
-            public static CodeableConcept NASK = new(officialUrl, "NASK", "not asked", null);
-            public static CodeableConcept NAVU = new(officialUrl, "NAVU", "Not available", null);
-            public static CodeableConcept QS = new(officialUrl, "QS", "Sufficient Quantity", null);
-            public static CodeableConcept TRC = new(officialUrl, "TRC", "trace", null);
-            public static CodeableConcept NP = new(officialUrl, "NP", "not present", null);
-
+            public static CodeableConcept NoInformation = new(officialUrl, "NI", "NoInformation", null);
+            public static CodeableConcept Invalid = new(officialUrl, "INV", "invalid", null);
+            public static CodeableConcept Derived = new(officialUrl, "DER", "derived", null);
+            public static CodeableConcept Other = new(officialUrl, "OTH", "other", null);
+            public static CodeableConcept NegativeInfinity = new(officialUrl, "NINF", "negative infinity", null);
+            public static CodeableConcept PositiveInfinity = new(officialUrl, "PINF", "positive infinity", null);
+            public static CodeableConcept UnEncoded = new(officialUrl, "UNC", "un-encoded", null);
+            public static CodeableConcept Masked = new(officialUrl, "MSK", "masked", null);
+            public static CodeableConcept NotApplicable = new(officialUrl, "NA", "not applicable", null);
+            public static CodeableConcept Unknown = new(officialUrl, "UNK", "unknown", null);
+            public static CodeableConcept AskedButUnknown = new(officialUrl, "ASKU", "asked but unknown", null);
+            public static CodeableConcept TemporarilyUnavailable = new(officialUrl, "NAV", "temporarily unavailable", null);
+            public static CodeableConcept NotAsked = new(officialUrl, "NASK", "not asked", null);
+            public static CodeableConcept NotAvailable = new(officialUrl, "NAVU", "Not available", null);
+            public static CodeableConcept SufficientQuantity = new(officialUrl, "QS", "Sufficient Quantity", null);
+            public static CodeableConcept Trace = new(officialUrl, "TRC", "trace", null);
+            public static CodeableConcept NotPresent = new(officialUrl, "NP", "not present", null);
         }
     }
 
@@ -129,6 +128,20 @@ namespace GaTech.Chai.Share
 
     public class Hl7V2Tables
     {
+
+        public class V20203
+        {
+            public const string officialUrl = "http://terminology.hl7.org/CodeSystem/v2-0203";
+
+            public static Coding DC = new(officialUrl, "DC", "Death Certificate ID");
+            public static Coding DCFN = new(officialUrl, "DCFN", "Death Certificate File Number");
+            public static Coding DL = new(officialUrl, "DL", "Driver's license number");
+            public static Coding LN = new(officialUrl, "LN", "License number");
+            public static Coding MD = new(officialUrl, "MD", "Medical License number");
+            public static Coding MRN = new(officialUrl, "MR", "Medical record number");
+            public static Coding SS = new(officialUrl, "SS", "Social Security number");
+        }
+
         public class V20493
         {
             public static string officialUrl = "http://terminology.hl7.org/CodeSystem/v2-0493";
@@ -145,18 +158,19 @@ namespace GaTech.Chai.Share
             public static Coding Centrifuged = new(officialUrl, "CFU", "Centrifuged");
         }
 
-
-        public class V20203
+        public class V20532
         {
-            public const string officialUrl = "http://terminology.hl7.org/CodeSystem/v2-0203";
+            public static string officialUrl = "http://terminology.hl7.org/CodeSystem/v2-0532";
 
-            public static Coding DC = new(officialUrl, "DC", "Death Certificate ID");
-            public static Coding DCFN = new(officialUrl, "DCFN", "Death Certificate File Number");
-            public static Coding DL = new(officialUrl, "DL", "Driver's license number");
-            public static Coding LN = new(officialUrl, "LN", "License number");
-            public static Coding MD = new(officialUrl, "MD", "Medical License number");
-            public static Coding MRN = new(officialUrl, "MR", "Medical record number");
-            public static Coding SS = new(officialUrl, "SS", "Social Security number");
+            public static Coding Yes = new(officialUrl, "Y", "Yes");
+            public static Coding No = new(officialUrl, "N", "No");
+            public static Coding NoInformation = new(officialUrl, "NI", "No Information");
+            public static Coding NotApplicable = new(officialUrl, "NA", "not applicable");
+            public static Coding Unknown = new(officialUrl, "UNK", "unknown");
+            public static Coding NotAsked = new(officialUrl, "NASK", "not asked");
+            public static Coding AskedButUnknown = new(officialUrl, "ASKU", "asked but unknown");
+            public static Coding TemporarilyUnavailable = new(officialUrl, "NAV", "temporarily unavailable");
+            public static Coding NotPresent = new(officialUrl, "NP", "not present");
         }
     }
 

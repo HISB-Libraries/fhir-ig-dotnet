@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using GaTech.Chai.Share;
 using Hl7.Fhir.Model;
 
@@ -72,6 +73,48 @@ namespace GaTech.Chai.UsCore
         /// </summary>
         ///
         public UsCorePatientBirthSex BirthSex => patientBirthSex;
+
+
+        public List<CodeableConcept> GenderIdentity
+        {
+            get
+            {
+                List<CodeableConcept> ccs = new();
+
+                IEnumerable<Extension> exts = this.patient.GetExtensions("http://hl7.org/fhir/us/core/StructureDefinition/us-core-genderIdentity");
+                foreach (Extension ext in exts)
+                {
+                    ccs.Add(ext.Value as CodeableConcept);
+                }
+
+                return ccs;
+            }
+
+            set
+            {
+                foreach (CodeableConcept cc in value)
+                {
+                    bool found = false;
+                    IEnumerable<Extension> exts = this.patient.GetExtensions("http://hl7.org/fhir/us/core/StructureDefinition/us-core-genderIdentity");
+                    foreach (Extension ext in exts)
+                    {
+                        if (ext.Value is CodeableConcept cc_)
+                        {
+                            if (cc_.Matches(cc))
+                            {
+                                found = true;
+                                break;
+                            }
+                        }
+                    }
+
+                    if (!found)
+                    {
+                        Extension ext = new("http://hl7.org/fhir/us/core/StructureDefinition/us-core-genderIdentity", cc);
+                    }
+                }
+            }
+        }
 
         /// <summary>
         /// Sex (MFU) (2.16.840.1.114222.4.11.1038)

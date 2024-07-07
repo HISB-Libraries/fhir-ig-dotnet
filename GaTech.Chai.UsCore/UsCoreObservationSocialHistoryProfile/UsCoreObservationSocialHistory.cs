@@ -23,9 +23,11 @@ namespace GaTech.Chai.UsCore
         /// </summary>
         public static Observation Create()
         {
-            var observation = new Observation();
-            observation.Category = new List<CodeableConcept>() {
+            Observation observation = new Observation
+            {
+                Category = new List<CodeableConcept>() {
                 CodeSystemsValueSets.UsCoreSocialHistoryCategory
+            }
             };
 
             observation.UsCoreObservationSocialHistory().AddProfile();
@@ -52,6 +54,11 @@ namespace GaTech.Chai.UsCore
         public void RemoveProfile()
         {
             this.observation.RemoveProfile(ProfileUrl);
+        }
+
+        public void SetSdohCategory()
+        {
+            this.observation.Category.Add(CodeSystemsValueSets.SDoHCategory);
         }
     }
 }

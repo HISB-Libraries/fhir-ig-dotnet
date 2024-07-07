@@ -7,16 +7,16 @@
   },
   "identifier": {
     "system": "urn:gtri:heat-hisp:nvdrs-testing",
-    "value": "urn:uuid:5bd6661e-7a62-4210-a8e5-a4942c83fcf3"
+    "value": "urn:uuid:e2e9886b-e91e-451b-bbad-326d3e3d8fd8"
   },
   "type": "document",
-  "timestamp": "2024-07-02T03:56:04.178603-04:00",
+  "timestamp": "2024-07-02T16:24:12.010129-04:00",
   "entry": [
     {
-      "fullUrl": "urn:uuid:6e054d00-706a-4573-911c-4f6011939178",
+      "fullUrl": "urn:uuid:93836af0-2aff-48cd-98c9-4d301e2b6034",
       "resource": {
         "resourceType": "Composition",
-        "id": "6e054d00-706a-4573-911c-4f6011939178",
+        "id": "93836af0-2aff-48cd-98c9-4d301e2b6034",
         "meta": {
           "profile": [
             "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-composition"
@@ -60,7 +60,7 @@
         "subject": {
           "reference": "urn:uuid:956c53c0-a993-11ed-afa1-0242ac120002"
         },
-        "date": "2024-07-02T03:56:04.155838-04:00",
+        "date": "2024-07-02T16:24:11.985111-04:00",
         "author": [
           {
             "extension": [
@@ -86,7 +86,7 @@
             },
             "entry": [
               {
-                "reference": "urn:uuid:da153e9d-bcc6-4147-97f5-476933467215"
+                "reference": "urn:uuid:aeacbfe2-6985-433b-b524-f5174496a45d"
               }
             ]
           },
@@ -103,10 +103,10 @@
             },
             "entry": [
               {
-                "reference": "urn:uuid:520fffc8-13b6-4673-a6a3-47a11608651c"
+                "reference": "urn:uuid:87992632-0fc8-41fc-a0b8-ca9587a5ba13"
               },
               {
-                "reference": "urn:uuid:fcd1b10f-9b04-4db7-9cef-74fd847a1f3a"
+                "reference": "urn:uuid:f4789d51-200a-44a3-be15-8fbea7eca686"
               }
             ]
           },
@@ -123,10 +123,27 @@
             },
             "entry": [
               {
-                "reference": "urn:uuid:816c9276-f1fe-4444-ae93-f45824477b02"
+                "reference": "urn:uuid:93e54cf2-d670-436f-b40f-eceedc6e48ed"
               },
               {
-                "reference": "urn:uuid:e8d0fd53-82da-455d-a9a1-27626a9b86b1"
+                "reference": "urn:uuid:70d2a8e7-bbf0-43f7-a678-74adb901599c"
+              }
+            ]
+          },
+          {
+            "title": "Cause and Manner of Death Section",
+            "code": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/us/mdi/CodeSystem/CodeSystem-vr-codes",
+                  "code": "cause-manner",
+                  "display": "Cause and Manner of Death Section"
+                }
+              ]
+            },
+            "entry": [
+              {
+                "reference": "urn:uuid:ae67f66f-3460-46b0-8202-44e629ede1a6"
               }
             ]
           }
@@ -139,7 +156,7 @@
         "resourceType": "Patient",
         "id": "956c53c0-a993-11ed-afa1-0242ac120002",
         "meta": {
-          "lastUpdated": "2024-07-02T03:56:04.128343-04:00",
+          "lastUpdated": "2024-07-02T16:24:11.960413-04:00",
           "profile": [
             "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-decedent"
           ]
@@ -282,10 +299,10 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:da153e9d-bcc6-4147-97f5-476933467215",
+      "fullUrl": "urn:uuid:aeacbfe2-6985-433b-b524-f5174496a45d",
       "resource": {
         "resourceType": "Observation",
-        "id": "da153e9d-bcc6-4147-97f5-476933467215",
+        "id": "aeacbfe2-6985-433b-b524-f5174496a45d",
         "meta": {
           "profile": [
             "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-weapon-type"
@@ -305,7 +322,7 @@
         },
         "focus": [
           {
-            "reference": "urn:uuid:d9b275ad-b097-4dfc-943a-3508a3581145"
+            "reference": "urn:uuid:9841cb1d-7e5b-4671-9f70-11d0f0cc6ebf"
           }
         ],
         "valueCodeableConcept": {
@@ -320,12 +337,12 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:d9b275ad-b097-4dfc-943a-3508a3581145",
+      "fullUrl": "urn:uuid:9841cb1d-7e5b-4671-9f70-11d0f0cc6ebf",
       "resource": {
         "resourceType": "Observation",
-        "id": "d9b275ad-b097-4dfc-943a-3508a3581145",
+        "id": "9841cb1d-7e5b-4671-9f70-11d0f0cc6ebf",
         "meta": {
-          "lastUpdated": "2024-07-02T03:56:04.152684-04:00",
+          "lastUpdated": "2024-07-02T16:24:11.982124-04:00",
           "profile": [
             "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-firearm"
           ]
@@ -436,12 +453,12 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:520fffc8-13b6-4673-a6a3-47a11608651c",
+      "fullUrl": "urn:uuid:87992632-0fc8-41fc-a0b8-ca9587a5ba13",
       "resource": {
         "resourceType": "Observation",
-        "id": "520fffc8-13b6-4673-a6a3-47a11608651c",
+        "id": "87992632-0fc8-41fc-a0b8-ca9587a5ba13",
         "meta": {
-          "lastUpdated": "2024-07-02T03:56:04.167561-04:00",
+          "lastUpdated": "2024-07-02T16:24:11.995608-04:00",
           "profile": [
             "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-number-of-bullets"
           ]
@@ -474,12 +491,12 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:fcd1b10f-9b04-4db7-9cef-74fd847a1f3a",
+      "fullUrl": "urn:uuid:f4789d51-200a-44a3-be15-8fbea7eca686",
       "resource": {
         "resourceType": "Observation",
-        "id": "fcd1b10f-9b04-4db7-9cef-74fd847a1f3a",
+        "id": "f4789d51-200a-44a3-be15-8fbea7eca686",
         "meta": {
-          "lastUpdated": "2024-07-02T03:56:04.167784-04:00",
+          "lastUpdated": "2024-07-02T16:24:11.99579-04:00",
           "profile": [
             "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-wound-location"
           ]
@@ -520,12 +537,12 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:816c9276-f1fe-4444-ae93-f45824477b02",
+      "fullUrl": "urn:uuid:93e54cf2-d670-436f-b40f-eceedc6e48ed",
       "resource": {
         "resourceType": "Observation",
-        "id": "816c9276-f1fe-4444-ae93-f45824477b02",
+        "id": "93e54cf2-d670-436f-b40f-eceedc6e48ed",
         "meta": {
-          "lastUpdated": "2024-07-02T03:56:04.168205-04:00",
+          "lastUpdated": "2024-07-02T16:24:11.996134-04:00",
           "profile": [
             "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-random-violence"
           ]
@@ -566,10 +583,10 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:e8d0fd53-82da-455d-a9a1-27626a9b86b1",
+      "fullUrl": "urn:uuid:70d2a8e7-bbf0-43f7-a678-74adb901599c",
       "resource": {
         "resourceType": "Observation",
-        "id": "e8d0fd53-82da-455d-a9a1-27626a9b86b1",
+        "id": "70d2a8e7-bbf0-43f7-a678-74adb901599c",
         "meta": {
           "profile": [
             "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-playing-with-firearm"
@@ -594,6 +611,44 @@
               "system": "http://terminology.hl7.org/CodeSystem/v2-0136",
               "code": "Y",
               "display": "Yes"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ae67f66f-3460-46b0-8202-44e629ede1a6",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "ae67f66f-3460-46b0-8202-44e629ede1a6",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/vrdr/StructureDefinition/vrdr-manner-of-death"
+          ]
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "69449-7"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:956c53c0-a993-11ed-afa1-0242ac120002"
+        },
+        "performer": [
+          {
+            "reference": "urn:uuid:ac069540-a993-11ed-afa1-0242ac120002"
+          }
+        ],
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "7878000",
+              "display": "Accidental death"
             }
           ]
         }

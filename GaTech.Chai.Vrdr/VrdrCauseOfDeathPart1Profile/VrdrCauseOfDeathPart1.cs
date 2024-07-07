@@ -6,15 +6,11 @@ using GaTech.Chai.Vrdr;
 
 namespace GaTech.Chai.Mdi
 {
-    /// <summary>
-    /// ObservationMdiCauseOfDeathPart1Profile
-    /// http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-mdi-cause-of-death-part1
-    /// </summary>
-    public class ObservationMdiCauseOfDeathPart1
+    public class VrdrCauseOfDeathPart1
     {
         readonly Observation observation;
 
-        internal ObservationMdiCauseOfDeathPart1(Observation observation)
+        internal VrdrCauseOfDeathPart1(Observation observation)
         {
             this.observation = observation;
         }
@@ -27,15 +23,15 @@ namespace GaTech.Chai.Mdi
         {
             var observation = new Observation();
 
-            observation.ObservationMdiCauseOfDeathPart1().AddProfile();
-            observation.Code = new CodeableConcept(UriString.LOINC, "69453-9", "Cause of death [US Standard Certificate of Death]", null);
+            observation.VrdrCauseOfDeathPart1().AddProfile();
+            observation.Code = VrdrCs.CauseOfDeath;
 
-            observation.ObservationMdiCauseOfDeathPart1().SubjectAsResource = subjectResource;
-            observation.ObservationMdiCauseOfDeathPart1().PerformerAsResource = performerResource;
+            observation.VrdrCauseOfDeathPart1().SubjectAsResource = subjectResource;
+            observation.VrdrCauseOfDeathPart1().PerformerAsResource = performerResource;
 
-            observation.ObservationMdiCauseOfDeathPart1().ValueText = conceptText;
-            observation.ObservationMdiCauseOfDeathPart1().LineNumber = new Integer(lineNumber);
-            observation.ObservationMdiCauseOfDeathPart1().Interval = interval;
+            observation.VrdrCauseOfDeathPart1().ValueText = conceptText;
+            observation.VrdrCauseOfDeathPart1().LineNumber = new Integer(lineNumber);
+            observation.VrdrCauseOfDeathPart1().Interval = interval;
 
             return observation;
         }
@@ -49,9 +45,9 @@ namespace GaTech.Chai.Mdi
         {
             var observation = new Observation();
 
-            observation.ObservationMdiCauseOfDeathPart1().AddProfile();
-            observation.Code = new CodeableConcept(UriString.LOINC, "69453-9", "Cause of death [US Standard Certificate of Death]", null);
-            observation.ObservationMdiCauseOfDeathPart1().SubjectAsResource = subject;
+            observation.VrdrCauseOfDeathPart1().AddProfile();
+            observation.Code = VrdrCs.CauseOfDeath;
+            observation.VrdrCauseOfDeathPart1().SubjectAsResource = subject;
 
             return observation;
         }
@@ -64,8 +60,8 @@ namespace GaTech.Chai.Mdi
         public static Observation Create()
         {
             var observation = new Observation();
-            observation.ObservationMdiCauseOfDeathPart1().AddProfile();
-            observation.Code = new CodeableConcept(UriString.LOINC, "69453-9", "Cause of death [US Standard Certificate of Death]", null);
+            observation.VrdrCauseOfDeathPart1().AddProfile();
+            observation.Code = VrdrCs.CauseOfDeath;
 
             return observation;
         }
@@ -73,7 +69,7 @@ namespace GaTech.Chai.Mdi
         /// <summary>
         /// The official URL for the ObservationMdiCauseOfDeathPart1Profile, used to assert conformance.
         /// </summary>
-        public const string ProfileUrl = "http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-mdi-cause-of-death-part1";
+        public const string ProfileUrl = "http://hl7.org/fhir/us/vrdr/StructureDefinition/vrdr-cause-of-death-part1";
 
         /// <summary>
         /// Set profile for the ObservationMdiCauseOfDeathPart1Profile

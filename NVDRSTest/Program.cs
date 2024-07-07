@@ -1,4 +1,5 @@
-﻿using GaTech.Chai.Nvdrs;
+﻿using GaTech.Chai.Mdi;
+using GaTech.Chai.Nvdrs;
 using GaTech.Chai.Share;
 using GaTech.Chai.UsCore;
 using GaTech.Chai.Vrcl;
@@ -68,7 +69,7 @@ public class Program
         // Firearm 
         Observation firearmObs = NvdrsFirearm.Create();
         // firearmObs.Category.Add(NvdrsCustomCs.Weapons);
-        firearmObs.NvdrsFirearm().FirearmStolen = VrclCodeSystemsValueSets.VrclValueSetYesNoUnknownVr.YES;
+        firearmObs.NvdrsFirearm().FirearmStolen = VrclCodeSystemsValueSets.VrclValueSetYesNoUnknownVr.Yes;
         firearmObs.NvdrsFirearm().FirearmType = NvdrsFirearmTypeVs.HandgunPistolBoltAction;
         firearmObs.NvdrsFirearm().FireamrOwner = (NvdrsGunOwnerCodesVs.Stranger, null, null);
         firearmObs.NvdrsFirearm().SerialNumber = "12345-0987";
@@ -111,13 +112,38 @@ public class Program
         // Add Wound location to composition's Circumstances.
         Observation randomViolenceIncident = NvdrsRandomViolence.Create();
         randomViolenceIncident.FhirSubject(patient);
-        randomViolenceIncident.Value = VrclValueSetYesNoUnknownVr.YES;
+        randomViolenceIncident.Value = VrclValueSetYesNoUnknownVr.Yes;
 
         Observation playingWithGun = NvdrsPlayingWithFirearm.Create();
         playingWithGun.FhirSubject(patient);
-        playingWithGun.Value = VrclValueSetYesNoUnknownVr.YES;
+        playingWithGun.Value = VrclValueSetYesNoUnknownVr.Yes;
 
         nvdrsTestComp.NvdrsComposition().AddSectionEntryByCode(NvdrsCustomCs.Circumstances, [randomViolenceIncident, playingWithGun]);
+
+        // Add VRDR Manner of Death. Follow the MDI FHIR IG Composition section pattern.
+        // Us Core Practitioner (ME)
+        Practitioner practitioner = UsCorePractitioner.Create();
+        practitioner.Id = "ac069540-a993-11ed-afa1-0242ac120002";
+
+        practitioner.Name = new List<HumanName> { new HumanName() { Use = HumanName.NameUse.Official, Family = "Jones", GivenElement = new List<FhirString> { new FhirString("Sam") }, PrefixElement = new List<FhirString> { new FhirString("Dr") } } };
+        practitioner.UsCorePractitioner().NPI = "3333445555";
+        practitioner.Telecom = new List<ContactPoint> { new ContactPoint(ContactPoint.ContactPointSystem.Phone, ContactPoint.ContactPointUse.Work, "134-456-7890") };
+        practitioner.Address = new List<Address> { new Address {
+                Use = Address.AddressUse.Work,
+                Type = Address.AddressType.Physical,
+                Line = new List<string> { "567 Coda Blvd" },
+                City = "Atlanta",
+                District = "Fulton County",
+                State = "GA",
+                PostalCode = "30318",
+                Country = "USA" }
+            };
+        practitioner.Address[0].SetDistrictCode(04000);
+        practitioner.Address[0].SetStreetNameExt("Olympic Blvd");
+        Observation vrdrMannerOfDeath = VrdrMannerOfDeath.Create(patient, practitioner);
+        vrdrMannerOfDeath.Value = VrdrMannerOfDeathVs.AccidentalDeath;
+
+        nvdrsTestComp.NvdrsComposition().AddSectionEntryByCode(MdiCodeSystem.MdiCodes.CauseManner, [vrdrMannerOfDeath]);
 
         // Create NVDRS Bundle using the composition created above
         Bundle nvdrsTestBundle = NvdrsDocumentBundle.Create(nvdrsTestComp);

@@ -27,6 +27,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GaTech.Chai.Nvdrs", "GaTech
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NVDRSTest", "NVDRSTest\NVDRSTest.csproj", "{227C4EEE-BBD4-4C4A-A501-BD04C046D512}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClarkCoTest", "ClarkCoTest\ClarkCoTest.csproj", "{B6A50B20-6118-49F0-9242-AC2AA4157A83}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -81,6 +83,10 @@ Global
 		{227C4EEE-BBD4-4C4A-A501-BD04C046D512}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{227C4EEE-BBD4-4C4A-A501-BD04C046D512}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{227C4EEE-BBD4-4C4A-A501-BD04C046D512}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6A50B20-6118-49F0-9242-AC2AA4157A83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6A50B20-6118-49F0-9242-AC2AA4157A83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6A50B20-6118-49F0-9242-AC2AA4157A83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6A50B20-6118-49F0-9242-AC2AA4157A83}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

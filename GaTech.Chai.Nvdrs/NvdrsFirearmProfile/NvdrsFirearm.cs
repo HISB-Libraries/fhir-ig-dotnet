@@ -107,13 +107,13 @@ public class NvdrsFirearm
         }
     }
 
-    public (CodeableConcept?, string?, ResourceReference?) FireamrOwner
+    public (CodeableConcept?, string?, Resource?) FireamrOwner
     {
         get
         {
             CodeableConcept? firearmOwnerCode = null;
             FhirString? firearmOwnerNarrative = null;
-            ResourceReference? firearmOwnerReference = null;
+            Resource? firearmOwnerResource = null;
 
             IEnumerable<Extension> exts = this.observation.GetExtensions("http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-firearm-owner-extension");
             foreach (Extension ext in exts)
@@ -128,11 +128,18 @@ public class NvdrsFirearm
                 }
                 else if ("reference".Equals(ext.Url))
                 {
-                    firearmOwnerReference = ext.Value as ResourceReference;
+                    if (ext.Value != null && ext.Value is ResourceReference reference)
+                    {
+                        if (reference != null) 
+                        {
+                            Record.GetResources().TryGetValue(reference.Reference, out Resource? ownerResource);
+                            firearmOwnerResource = ownerResource;
+                        }
+                    }
                 }
             }
 
-            return (firearmOwnerCode, firearmOwnerNarrative?.Value, firearmOwnerReference);
+            return (firearmOwnerCode, firearmOwnerNarrative?.Value, firearmOwnerResource);
         }
         set
         {
@@ -140,6 +147,7 @@ public class NvdrsFirearm
             {
                 Url = "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-firearm-owner-extension"
             };
+
             if (value.Item1 != null)
             {
                 ext.AddExtension("code", value.Item1);
@@ -152,8 +160,11 @@ public class NvdrsFirearm
 
             if (value.Item3 != null)
             {
-                ext.AddExtension("reference", value.Item3);
+                Record.GetResources()[value.Item3.AsReference().Reference] = value.Item3;
+                ext.AddExtension("reference", value.Item3.AsReference());
             }
+
+            this.observation.Extension.AddOrUpdateExtension(ext);
         }
     }
 

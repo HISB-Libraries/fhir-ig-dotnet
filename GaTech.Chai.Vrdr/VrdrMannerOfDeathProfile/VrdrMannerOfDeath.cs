@@ -56,7 +56,7 @@ namespace GaTech.Chai.Vrdr
 
         public void AddFixedValue()
         {
-            this.observation.Code = new CodeableConcept("http://loinc.org", "69449-7", "Manner of death", null);
+            this.observation.Code = VrdrCs.MannerOfDeathLoinc; 
         }
 
         /// <summary>

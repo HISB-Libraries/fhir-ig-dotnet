@@ -4,7 +4,7 @@ using Hl7.Fhir.Model;
 using Hl7.Fhir.Utility;
 using static GaTech.Chai.Share.CodeSystems;
 
-namespace GaTech.Chai.Vrdr 
+namespace GaTech.Chai.Vrdr
 {
 
     public class VrdrComponentCs
@@ -81,12 +81,12 @@ namespace GaTech.Chai.Vrdr
     {
         public const string officialUrl = "http://hl7.org/fhir/us/vrdr/ValueSet/vrdr-transportation-incident-role-vs";
 
-        public static CodeableConcept VehicleDriver = new("http://snomed.info/sct", "236320001", "Vehicle driver", null);
-        public static CodeableConcept Passenger = new("http://snomed.info/sct", "257500003", "Passenger", null);
-        public static CodeableConcept Pedestrian = new("http://snomed.info/sct", "257518000", "Pedestrian", null);
-        public static CodeableConcept OTH = new("http://terminology.hl7.org/CodeSystem/v3-NullFlavor", "OTH", "Other", null);
-        public static CodeableConcept UNK = new("http://terminology.hl7.org/CodeSystem/v3-NullFlavor", "UNK", "unknown", null);
-        public static CodeableConcept NA = new("http://terminology.hl7.org/CodeSystem/v3-NullFlavor", "NA", "not applicable", null);
+        public static CodeableConcept VehicleDriver = new(UriString.SCT, "236320001", "Vehicle driver", null);
+        public static CodeableConcept Passenger = new(UriString.SCT, "257500003", "Passenger", null);
+        public static CodeableConcept Pedestrian = new(UriString.SCT, "257518000", "Pedestrian", null);
+        public static CodeableConcept Other = V3NullFlavor.Other; 
+        public static CodeableConcept Unknown = V3NullFlavor.Unknown;
+        public static CodeableConcept NotApplicable = V3NullFlavor.NotApplicable;
     }
 
     public class ValueSetAdministrativeGenderMaxVs
@@ -95,10 +95,49 @@ namespace GaTech.Chai.Vrdr
 
         public static CodeableConcept F = V3AdministrativeGender.F;
         public static CodeableConcept M = V3AdministrativeGender.M;
-        public static CodeableConcept UNK = V3NullFlavor.UNK;
+        public static CodeableConcept UnknownV3 = V3NullFlavor.Unknown;
         public static CodeableConcept Female = new(AdministrativeGender.Female.GetEnumSystem(), AdministrativeGender.Female.GetEnumCode(), AdministrativeGender.Female.GetEnumDescription(), null);
         public static CodeableConcept Mail = new(AdministrativeGender.Male.GetEnumSystem(), AdministrativeGender.Male.GetEnumCode(), AdministrativeGender.Male.GetEnumDescription(), null);
-        public static CodeableConcept Unknown = new(AdministrativeGender.Unknown.GetEnumSystem(), AdministrativeGender.Unknown.GetEnumCode(), AdministrativeGender.Unknown.GetEnumDescription(), null);
+        public static CodeableConcept UnknownAdministrative = new(AdministrativeGender.Unknown.GetEnumSystem(), AdministrativeGender.Unknown.GetEnumCode(), AdministrativeGender.Unknown.GetEnumDescription(), null);
     }
 
+    public class VrdrMannerOfDeathVs
+    {
+        public static CodeableConcept NaturalDeath = new(UriString.SCT, "38605008", "Natural death", null);
+        public static CodeableConcept AccidentalDeath = new(UriString.SCT, "7878000", "Accidental death", null);
+        public static CodeableConcept Suicide = new(UriString.SCT, "44301001", "Suicide", null);
+        public static CodeableConcept Homicide = new(UriString.SCT, "27935005", "Homicide", null);
+        public static CodeableConcept PatientAwaitingInvestigation = new(UriString.SCT, "185973002", "Patient awaiting investigation", null);
+        public static CodeableConcept DeathMannerUndetermined = new(UriString.SCT, "65037004", "Death, manner undetermined", null);
+    }
+
+    public class VrdrCs {
+        public static CodeableConcept MannerOfDeathLoinc = new(UriString.LOINC, "69449-7");
+        public static CodeableConcept DeathCertificationSCT = new(UriString.SCT, "308646001");
+        public static CodeableConcept CauseOfDeath = new(UriString.LOINC, "69453-9");
+        public static CodeableConcept AgeAtDeath = new(UriString.LOINC, "39016-1");
+        public static CodeableConcept InjuryIncident = new(UriString.LOINC, "11374-6");
+    }
+
+    public class VrdrCertifierTypesVs
+    {
+        public static CodeableConcept DeathCertByCME = new(UriString.SCT, "455381000124109", "Death certification by medical examiner or coroner (procedure)", null);
+        public static CodeableConcept DeathCertAndVerifByPhysician = new(UriString.SCT, "434641000124105", "Death certification and verification by physician (procedure)", null);
+        public static CodeableConcept DeathCertByPhysician = new(UriString.SCT, "434651000124107", "Death certification by physician (procedure)", null);
+        public static CodeableConcept Other = V3NullFlavor.Other;
+    }
+
+    public class VrdrLocationTypeCs
+    {
+        public static CodeableConcept InjuryLocation = new("http://hl7.org/fhir/us/vrdr/CodeSystem/vrdr-location-type-cs", "injury", "Injury Location", null);
+        public static CodeableConcept DispositionLocation = new("http://hl7.org/fhir/us/vrdr/CodeSystem/vrdr-location-type-cs", "disposition", "Disposition Location", null);
+        public static CodeableConcept DeathLocation = new("http://hl7.org/fhir/us/vrdr/CodeSystem/vrdr-location-type-cs", "death", "Death Location", null);
+    }
+
+    public class VrdrInjuryIncidentComponentsCs
+    {
+        public static CodeableConcept PlaceOfInjury = new(UriString.LOINC, "69450-5");
+        public static CodeableConcept WorkInjuryIndicator = new(UriString.LOINC, "69444-8");
+        public static CodeableConcept TransportationRole = new(UriString.LOINC, "69451-3");
+    }
 }

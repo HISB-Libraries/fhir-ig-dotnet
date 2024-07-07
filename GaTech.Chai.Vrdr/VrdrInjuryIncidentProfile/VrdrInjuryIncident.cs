@@ -46,7 +46,7 @@ namespace GaTech.Chai.Vrdr
         }
 
         public void AddFixedValues() {
-            observation.Code = new CodeableConcept("http://loinc.org", "11374-6", "Injury incident description Narrative", null);
+            observation.Code = VrdrCs.InjuryIncident;
         }
 
         /// <summary>
@@ -135,13 +135,15 @@ namespace GaTech.Chai.Vrdr
         {
             get
             {
-                Observation.ComponentComponent placeOfInjuryComponent = this.observation.Component.GetComponent("http://loinc.org", "69450-5");
+                Observation.ComponentComponent placeOfInjuryComponent 
+                    = this.observation.Component.GetComponent(VrdrInjuryIncidentComponentsCs.PlaceOfInjury.Coding[0].System, VrdrInjuryIncidentComponentsCs.PlaceOfInjury.Coding[0].Code);
                 return placeOfInjuryComponent?.Value;
             }
 
             set
             {
-                Observation.ComponentComponent placeOfInjuryComponent = this.observation.Component.GetOrAddComponent("http://loinc.org", "69450-5", null);
+                Observation.ComponentComponent placeOfInjuryComponent 
+                    = this.observation.Component.GetOrAddComponent(VrdrInjuryIncidentComponentsCs.PlaceOfInjury.Coding[0].System, VrdrInjuryIncidentComponentsCs.PlaceOfInjury.Coding[0].Code, null);
                 placeOfInjuryComponent.Value = value;
             }
         }
@@ -153,13 +155,15 @@ namespace GaTech.Chai.Vrdr
         {
             get
             {
-                Observation.ComponentComponent workInjuryIndicator = this.observation.Component.GetComponent("http://loinc.org", "69444-8");
+                Observation.ComponentComponent workInjuryIndicator = 
+                    this.observation.Component.GetComponent(VrdrInjuryIncidentComponentsCs.WorkInjuryIndicator.Coding[0].System, VrdrInjuryIncidentComponentsCs.WorkInjuryIndicator.Coding[0].Code);
                 return workInjuryIndicator?.Value as CodeableConcept;
             }
 
             set
             {
-                Observation.ComponentComponent workInjuryIndicator = this.observation.Component.GetOrAddComponent("http://loinc.org", "69444-8", null);
+                Observation.ComponentComponent workInjuryIndicator = 
+                    this.observation.Component.GetOrAddComponent(VrdrInjuryIncidentComponentsCs.WorkInjuryIndicator.Coding[0].System, VrdrInjuryIncidentComponentsCs.WorkInjuryIndicator.Coding[0].Code, null);
                 workInjuryIndicator.Value = value;
             }
         }
@@ -171,16 +175,16 @@ namespace GaTech.Chai.Vrdr
         {
             get
             {
-                Observation.ComponentComponent transportationRole = this.observation.Component.GetComponent("http://loinc.org", "69451-3");
+                Observation.ComponentComponent transportationRole = this.observation.Component.GetComponent(VrdrInjuryIncidentComponentsCs.TransportationRole.Coding[0].System, VrdrInjuryIncidentComponentsCs.TransportationRole.Coding[0].Code);
                 CodeableConcept retValue = transportationRole?.Value as CodeableConcept;
                 return (retValue, retValue?.Text);
             }
 
             set
             {
-                Observation.ComponentComponent transportationRole = this.observation.Component.GetOrAddComponent("http://loinc.org", "69451-3", null);
+                Observation.ComponentComponent transportationRole = this.observation.Component.GetOrAddComponent(VrdrInjuryIncidentComponentsCs.TransportationRole.Coding[0].System, VrdrInjuryIncidentComponentsCs.TransportationRole.Coding[0].Code, null);
                 transportationRole.Value = value.Item1;
-                if (VrdrTransportationIncidentRoleVs.OTH.Matches(value.Item1))
+                if (VrdrTransportationIncidentRoleVs.Other.Matches(value.Item1))
                 {
                     (transportationRole.Value as CodeableConcept).Text = value.Item2;
                 }

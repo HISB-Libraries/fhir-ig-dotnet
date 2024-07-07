@@ -329,19 +329,59 @@ public class FlatObjectCMELE : FlatObject
                 }
                 else if ("DeathMannerCME".Equals(data!["name"]!.GetValue<string>()))
                 {
-
+                    foreach (Bundle.EntryComponent entry in bundle.Entry)
+                    {
+                        if (entry.Resource is Observation obs)
+                        {
+                            if (VrdrCs.MannerOfDeathLoinc.Matches(obs.Code))
+                            {
+                                if (VrdrMannerOfDeathVs.NaturalDeath.Matches(obs.Value))
+                                {
+                                    data["value"] = "1";
+                                }
+                                else if (VrdrMannerOfDeathVs.AccidentalDeath.Matches(obs.Value))
+                                {
+                                    data["value"] = "2";
+                                }
+                                else if (VrdrMannerOfDeathVs.Suicide.Matches(obs.Value))
+                                {
+                                    data["value"] = "3";
+                                }
+                                else if (VrdrMannerOfDeathVs.Homicide.Matches(obs.Value))
+                                {
+                                    data["value"] = "4";
+                                }
+                                else if (VrdrMannerOfDeathVs.PatientAwaitingInvestigation.Matches(obs.Value))
+                                {
+                                    data["value"] = "5";
+                                }
+                                else if (VrdrMannerOfDeathVs.DeathMannerUndetermined.Matches(obs.Value))
+                                {
+                                    data["value"] = "6";
+                                }
+                            }
+                        }
+                    }
                 }
                 else if ("DeathDateYear".Equals(data!["name"]!.GetValue<string>()))
                 {
 
                 }
-                else if ("DeathDateMonth".Equals(data!["name"]!.GetValue<string>()))
+                else if ("DeathDateMonth".Equals(data!["name"]!.GetValue<string>())) // 41
                 {
 
                 }
                 else if ("DeathDateDay".Equals(data!["name"]!.GetValue<string>())) // 43
                 {
 
+                }
+                else if ("InjuryLocation".Equals(data!["name"]!.GetValue<string>())) // 106-107
+                {
+
+                }
+                else if ("InjuredAtWork".Equals(data!["name"]!.GetValue<string>())) // 108
+                {
+                    SetInjuryAndDeathYNUnk(data, injuryAndDeathResources, VrdrInjuryIncidentComponentsCs.WorkInjuryIndicator);
                 }
                 else if ("EMSPresent".Equals(data!["name"]!.GetValue<string>())) // 110
                 {
@@ -672,7 +712,7 @@ public class FlatObjectCMELE : FlatObject
                     if (firearmObservation != null)
                     {
 
-                        (CodeableConcept? ownerCC, string? ownerNarr, ResourceReference? ownerReference) = firearmObservation.NvdrsFirearm().FireamrOwner;
+                        (CodeableConcept? ownerCC, string? ownerNarr, Resource? ownerResource) = firearmObservation.NvdrsFirearm().FireamrOwner;
                         if (ownerCC != null)
                         {
                             string ownerCode = ownerCC.Coding[0].Code;

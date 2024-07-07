@@ -12,8 +12,6 @@ namespace GaTech.Chai.Mdi
     public class SpecimenToxicologyLab
     {
         readonly Specimen specimen;
-        readonly static Dictionary<string, Resource> resources = new();
-
         internal SpecimenToxicologyLab(Specimen specimen)
         {
             this.specimen = specimen;
@@ -25,9 +23,6 @@ namespace GaTech.Chai.Mdi
         /// </summary>
         public static Specimen Create()
         {
-            // clear static resource container.
-            resources.Clear();
-
             var specimen = new Specimen();
             specimen.SpecimenToxicologyLab().AddProfile();
 
@@ -40,9 +35,6 @@ namespace GaTech.Chai.Mdi
         /// </summary>
         public static Specimen Create(string typeText, Patient subject)
         {
-            // clear static resource container.
-            resources.Clear();
-
             var specimen = new Specimen();
 
             specimen.SpecimenToxicologyLab().AddProfile();
@@ -81,14 +73,14 @@ namespace GaTech.Chai.Mdi
             get
             {
                 Resource value;
-                resources.TryGetValue(this.specimen.Subject.Reference, out value);
+                Record.GetResources().TryGetValue(this.specimen.Subject.Reference, out value);
 
                 return (Patient)value;
             }
             set
             {
                 this.specimen.Subject = value.AsReference();
-                resources[value.AsReference().Reference] = value;
+                Record.GetResources()[value.AsReference().Reference] = value;
             }
         }
 
@@ -105,11 +97,6 @@ namespace GaTech.Chai.Mdi
             {
                 this.specimen.Type = new CodeableConcept { Text = value };
             }
-        }
-
-        public Dictionary<String, Resource> GetReferencedResources()
-        {
-            return resources;
         }
     }
 }

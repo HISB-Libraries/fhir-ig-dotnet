@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Hl7.Fhir.Model;
 using Hl7.Fhir.Utility;
@@ -82,11 +83,47 @@ public static class FhirAddReferencesToBundleEntryExtensions
                                 {
                                     Resource focusResource = Record.GetResources()[reference.Reference];
                                     bundle.AddResourceEntry(focusResource, focusResource.AsReference().Reference);
+
+                                    if (focusResource is Observation obs_)
+                                    {
+                                        foreach (Extension ext in obs_.Extension)
+                                        {
+                                            if (ext.Extension.Count > 0)
+                                            {
+                                                AddExtensionReferenceToEntry(ext, bundle);
+                                            }
+                                        }
+                                    }
                                 }
+                            }
+                        }
+
+                        foreach (Extension ext in obs.Extension)
+                        {
+                            if (ext.Extension.Count > 0)
+                            {
+                                AddExtensionReferenceToEntry(ext, bundle);
                             }
                         }
                     }
                 }
+            }
+        }
+    }
+
+    static void AddExtensionReferenceToEntry(Extension ext, Bundle bundle)
+    {
+        if (ext.Value is ResourceReference reference)
+        {
+            Resource resource = Record.GetResources()[reference.Reference];
+            bundle.AddResourceEntry(resource, resource.AsReference().Reference);
+        }
+
+        if (ext.Extension.Count > 0)
+        {
+            foreach (Extension ext_ in ext.Extension)
+            {
+                AddExtensionReferenceToEntry(ext_, bundle);
             }
         }
     }
