@@ -141,6 +141,7 @@ clarkTestComp.NvdrsComposition().AddSectionEntryByCode(NvdrsCompositionSections.
  * - Random Violence
  * - School Problem
  * - History of suicide attempts
+ * - Suicide Note
  * - Alcohol problem
  * - Clark co specific - drug involvement
  * - Death Abuse
@@ -176,6 +177,11 @@ schoolProblemObs.Value = VrclValueSetYesNoUnknownVr.Yes;
 Observation suicideAttempts = NvdrsHistoryOfSuicideAttempts.Create();
 suicideAttempts.FhirSubject(patient);
 suicideAttempts.Value = VrclValueSetYesNoUnknownVr.Yes;
+
+ // Suicide Note
+Observation suicideNoteObs = VdrsSuicideNote.Create();
+suicideNoteObs.FhirSubject(patient);   
+suicideNoteObs.VdrsSuicideNote().SuicideNote = "Sorry.. I am ...";
 
 // Alcohol problem
 Observation alcoholProblemObs = NvdrsHistoryAlcoholUse.Create();
@@ -216,6 +222,7 @@ clarkTestComp.NvdrsComposition().AddSectionEntryByCode(NvdrsCompositionSections.
         randomViolenceObs, 
         schoolProblemObs, 
         suicideAttempts, 
+        suicideNoteObs,
         alcoholProblemObs,
         drugInvolvementObs,
         deathAbuseObs,
@@ -290,7 +297,7 @@ ageAtDeathObs.Value = new Hl7.Fhir.Model.Quantity()
     Unit = "a"
 };
 
-// Occupation of decedent. We must have occumation if we create this. If occupation is
+// Occupation of decedent. We must have occupation if we create this. If occupation is
 // unknown, we just do not create this. "Occupation" is not an occupation....
 Observation usualWorkObs = OdhUsualWork.Create();
 usualWorkObs.FhirSubject(patient);
@@ -439,13 +446,8 @@ clarkTestComp.NvdrsComposition().AddSectionEntryByCode(MdiCompositionSections.Me
  *
  * For anything that we can't find from the existing code, we put them in the appendix.
  *
- * - Suicide Note  
  * - Number of victims
   */
- // Suicide Note
-Observation suicideNoteObs = VdrsSuicideNote.Create();
-suicideNoteObs.FhirSubject(patient);   
-suicideNoteObs.VdrsSuicideNote().SuicideNote = "Sorry.. I am ...";
 
 // Number of victims
 // This is auto-generated in NVDRS (see 1.8 in NVDRS Coding Manual)
@@ -456,7 +458,6 @@ numOfVictimObs.VdrsNumberOfVictims().NumOfVictims = 34;
 // Add these resources to Appendix section.
 clarkTestComp.NvdrsComposition().AddSectionEntryByCode(NvdrsCompositionSections.Appendix, 
     [
-        suicideNoteObs, 
         numOfVictimObs
     ]);
 
