@@ -318,11 +318,11 @@ heightObs.Category =
 [
     new("http://terminology.hl7.org/CodeSystem/observation-category", "vital-signs")
 ];
-heightObs.Code = new(UriString.LOINC, "8302-2");
+heightObs.Code = CodeSystemsValueSets.VitalHeight;
 heightObs.Effective = new Hl7.Fhir.Model.Date(2024, 7, 2);
 heightObs.Value = new Hl7.Fhir.Model.Quantity() 
 {
-    Value = (decimal?)2590.8,
+    Value = (decimal?)259.8,
     Unit = "cm",
     System = "http://unitsofmeasure.org ",
     Code = "cm"
@@ -335,7 +335,7 @@ weightObs.Category =
 [
     new("http://terminology.hl7.org/CodeSystem/observation-category", "vital-signs")
 ];
-weightObs.Code = new(UriString.LOINC, "29463-7");
+weightObs.Code = CodeSystemsValueSets.VitalWeight;
 weightObs.Effective = new Hl7.Fhir.Model.Date(2024, 7, 2);
 weightObs.Value = new Hl7.Fhir.Model.Quantity() 
 {

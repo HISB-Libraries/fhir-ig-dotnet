@@ -7,16 +7,16 @@
   },
   "identifier": {
     "system": "urn:gtri:heat-hisp:nvdrs-testing",
-    "value": "urn:uuid:e62ad721-0033-4f7f-a6e7-d0fcb47d9c01"
+    "value": "urn:uuid:6ed56cca-f53f-4b82-90a4-6233bf55ecc4"
   },
   "type": "document",
-  "timestamp": "2024-07-09T14:17:42.633501-04:00",
+  "timestamp": "2024-07-09T18:23:17.250904-04:00",
   "entry": [
     {
-      "fullUrl": "urn:uuid:b4c446ee-9291-445e-9e8e-bd4d972182cb",
+      "fullUrl": "urn:uuid:6241b137-3000-4719-91b5-26df13772cda",
       "resource": {
         "resourceType": "Composition",
-        "id": "b4c446ee-9291-445e-9e8e-bd4d972182cb",
+        "id": "6241b137-3000-4719-91b5-26df13772cda",
         "meta": {
           "profile": [
             "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-composition"
@@ -39,9 +39,9 @@
           ]
         },
         "subject": {
-          "reference": "urn:uuid:76efdf00-7b64-48b3-82b0-27a51f5c9655"
+          "reference": "urn:uuid:84738fac-c4d6-4f3b-aacb-88d45b08ea7f"
         },
-        "date": "2024-07-09T14:17:42.581125-04:00",
+        "date": "2024-07-09T18:23:17.212927-04:00",
         "author": [
           {
             "reference": "urn:uuid:ac069540-a993-11ed-afa1-0242ac120002"
@@ -62,22 +62,22 @@
             },
             "entry": [
               {
-                "reference": "urn:uuid:ab216578-f33f-44a9-b955-7cd0e6dc2e7c"
+                "reference": "urn:uuid:cbd56894-c5a4-4ac2-9eb5-fdf871f67776"
               },
               {
-                "reference": "urn:uuid:2bf26a07-bcde-42aa-a84f-2a41b256ee29"
+                "reference": "urn:uuid:91bdc05e-eb32-4081-a119-3a9dd5f8e14c"
               },
               {
-                "reference": "urn:uuid:57fcd0a4-71e6-4dc4-9847-a7eca14f4b48"
+                "reference": "urn:uuid:e2f9d018-6fa2-4eac-82ca-56d865a55f35"
               },
               {
-                "reference": "urn:uuid:b8b67e51-dde9-4f93-9897-7ec6fb6c641f"
+                "reference": "urn:uuid:7f6a3282-5757-4472-84b0-bd6be3a519cc"
               },
               {
-                "reference": "urn:uuid:46f0d7c8-49e2-4386-b38d-a84b65cdfa62"
+                "reference": "urn:uuid:1e874e43-bff6-4e1c-ab87-17a098ecce8c"
               },
               {
-                "reference": "urn:uuid:ac0e94da-cbb8-4f9f-81de-f045dde6e80b"
+                "reference": "urn:uuid:f6179627-3c3b-444f-9875-46affca2579d"
               }
             ]
           },
@@ -94,43 +94,43 @@
             },
             "entry": [
               {
-                "reference": "urn:uuid:9c1f71be-7431-4a73-8fd8-d015fe0a5f27"
+                "reference": "urn:uuid:78e8a60c-edd9-48f6-bbda-36d3d10c6624"
               },
               {
-                "reference": "urn:uuid:e5a6a51c-fdac-43e6-9542-1b5081045793"
+                "reference": "urn:uuid:7ae713f3-9457-43eb-999a-3b0db2cec3fa"
               },
               {
-                "reference": "urn:uuid:019f6c49-19ad-4a92-88b3-695ccad34038"
+                "reference": "urn:uuid:ff2965af-2aa1-43ff-be98-8f23f5c7ea17"
               },
               {
-                "reference": "urn:uuid:0eadaf52-dc29-434a-ba18-a3c150da2a39"
+                "reference": "urn:uuid:824a7752-c39d-4378-88cb-323a1c02947d"
               },
               {
-                "reference": "urn:uuid:5582a1c1-487c-4284-9feb-907471061ad4"
+                "reference": "urn:uuid:b23f714e-3b80-4fc3-aa25-6f2ff4846469"
               },
               {
-                "reference": "urn:uuid:aae37997-a721-49b6-b435-cc321539f0a1"
+                "reference": "urn:uuid:4089891b-9fe0-4a17-8b89-f57a5a76699a"
               },
               {
-                "reference": "urn:uuid:49d04fdf-120b-46f1-ade8-66bcc53fe464"
+                "reference": "urn:uuid:07cf2d47-01a2-4395-9648-6a851c1a1da9"
               },
               {
-                "reference": "urn:uuid:40f936b9-e186-41b3-b138-fc8985ca8632"
+                "reference": "urn:uuid:877c7d33-35e5-4684-a50f-42d9c1555192"
               },
               {
-                "reference": "urn:uuid:b0ae1d79-3b40-401b-b23e-386ef3c63db6"
+                "reference": "urn:uuid:0656a23c-0d12-4631-9391-6057d44c91f9"
               },
               {
-                "reference": "urn:uuid:cd89792b-0552-4702-903c-80ede7e8f054"
+                "reference": "urn:uuid:db3ee97e-af94-4372-be04-e02598cdd5b2"
               },
               {
-                "reference": "urn:uuid:fdb3b961-5271-4b35-8ec3-7368b13d8470"
+                "reference": "urn:uuid:08345ae9-6ead-49ed-9692-8d13e9d77a22"
               },
               {
-                "reference": "urn:uuid:01b05820-06c3-497c-af7c-76960b6b4fb8"
+                "reference": "urn:uuid:0b60eed5-086e-42db-9173-f7ccae843d1c"
               },
               {
-                "reference": "urn:uuid:7bc6c476-e53c-4ee8-b642-470b94a872be"
+                "reference": "urn:uuid:4cb14167-8000-43e0-bcd9-cfdf27c3589d"
               }
             ]
           },
@@ -147,22 +147,22 @@
             },
             "entry": [
               {
-                "reference": "urn:uuid:79885e20-d47d-4d2c-acc7-dccc80e16932"
+                "reference": "urn:uuid:85b0d3c3-9371-48f4-b20a-39887fc8a39f"
               },
               {
-                "reference": "urn:uuid:184e119a-f2b9-4792-9aaf-88375c607d08"
+                "reference": "urn:uuid:8141a115-b480-4c14-a621-71f65e66b21a"
               },
               {
-                "reference": "urn:uuid:fbcc3510-72f5-4833-b03f-1fa02ce9fdaa"
+                "reference": "urn:uuid:efe3ec4d-5e30-4750-8349-44798140c76c"
               },
               {
-                "reference": "urn:uuid:5026af22-019d-420a-8194-e73060a23602"
+                "reference": "urn:uuid:19fd9bc9-274b-4493-964e-3d2ccb75b7a5"
               },
               {
-                "reference": "urn:uuid:78449ae9-3dc8-4f83-8d51-d3526fba0327"
+                "reference": "urn:uuid:b661fbf7-cd9e-45c8-b581-dfc9243e83e6"
               },
               {
-                "reference": "urn:uuid:69571e2f-c5cb-4c48-8153-7828deb60f09"
+                "reference": "urn:uuid:a69bfdd9-9a2a-409c-bc5f-7d0a936648b9"
               }
             ]
           },
@@ -179,19 +179,19 @@
             },
             "entry": [
               {
-                "reference": "urn:uuid:139c632f-0b6d-468f-bf1b-ab92f306d21f"
+                "reference": "urn:uuid:663c4a7f-bfbe-40b6-b329-d538b879a676"
               },
               {
-                "reference": "urn:uuid:ea41f534-5b22-4b56-a48e-4739e8cd6b47"
+                "reference": "urn:uuid:6b1782ad-6907-41ef-aeae-f9ca3eefba27"
               },
               {
-                "reference": "urn:uuid:d33b0518-b43e-45d4-aaed-f18748d1781f"
+                "reference": "urn:uuid:f66213d0-73e9-4739-a657-7a03a73b01d0"
               },
               {
-                "reference": "urn:uuid:9133be3f-fe3d-4869-947d-f37dd8b53b6f"
+                "reference": "urn:uuid:d8e2827b-4d23-4f87-9730-5cc11a97d23f"
               },
               {
-                "reference": "urn:uuid:43edfdca-498a-4399-82d5-d58ca7bade0c"
+                "reference": "urn:uuid:6b77b362-de1d-4c8b-9735-e0e2d14f8c4a"
               }
             ]
           },
@@ -208,7 +208,7 @@
             },
             "entry": [
               {
-                "reference": "urn:uuid:7a46f996-bab8-4d15-badd-38a9e0dabfe0"
+                "reference": "urn:uuid:fe9cbd4b-ebeb-4449-8dc4-8c9c4247279d"
               }
             ]
           },
@@ -225,19 +225,19 @@
             },
             "entry": [
               {
-                "reference": "urn:uuid:7e3199f6-3b47-4858-a16f-3fae3841ff6d"
+                "reference": "urn:uuid:2fcd18fe-1276-42fa-be77-e8e5f5d01f49"
               },
               {
-                "reference": "urn:uuid:26358d97-10e7-4060-affa-136633a2f799"
+                "reference": "urn:uuid:5d284bef-fd6c-4c8e-b254-b4d506890a69"
               },
               {
-                "reference": "urn:uuid:f082a03d-1e28-4ea2-936f-4cf0b812aa62"
+                "reference": "urn:uuid:31523d6a-2110-4539-8689-506ad04c2983"
               },
               {
-                "reference": "urn:uuid:9867669a-d120-4e2c-93d6-c7476ba1629a"
+                "reference": "urn:uuid:1e3e4cf5-b0d7-490b-b005-57a9e57a3e95"
               },
               {
-                "reference": "urn:uuid:e425510c-99be-4d36-83e8-c4b6fea8dea0"
+                "reference": "urn:uuid:d9236edd-9c84-41b1-b5a9-e35fd3bd8414"
               }
             ]
           },
@@ -254,7 +254,7 @@
             },
             "entry": [
               {
-                "reference": "urn:uuid:ad9d461b-183b-4c0c-ae77-4dbcade23161"
+                "reference": "urn:uuid:5c8fd358-8d78-46e3-b01c-fd69ce9d52b2"
               }
             ]
           },
@@ -271,7 +271,7 @@
             },
             "entry": [
               {
-                "reference": "urn:uuid:0ca5763f-2269-4c8c-88e3-5b9f58e82469"
+                "reference": "urn:uuid:3a580c3b-1fca-4689-8ff3-ee4914caff40"
               }
             ]
           }
@@ -279,12 +279,12 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:76efdf00-7b64-48b3-82b0-27a51f5c9655",
+      "fullUrl": "urn:uuid:84738fac-c4d6-4f3b-aacb-88d45b08ea7f",
       "resource": {
         "resourceType": "Patient",
-        "id": "76efdf00-7b64-48b3-82b0-27a51f5c9655",
+        "id": "84738fac-c4d6-4f3b-aacb-88d45b08ea7f",
         "meta": {
-          "lastUpdated": "2024-07-09T14:17:42.554447-04:00",
+          "lastUpdated": "2024-07-09T18:23:17.185738-04:00",
           "profile": [
             "http://hl7.org/fhir/us/vrdr/StructureDefinition/vrdr-cause-of-death-part2"
           ]
@@ -450,12 +450,12 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:ab216578-f33f-44a9-b955-7cd0e6dc2e7c",
+      "fullUrl": "urn:uuid:cbd56894-c5a4-4ac2-9eb5-fdf871f67776",
       "resource": {
         "resourceType": "Observation",
-        "id": "ab216578-f33f-44a9-b955-7cd0e6dc2e7c",
+        "id": "cbd56894-c5a4-4ac2-9eb5-fdf871f67776",
         "meta": {
-          "lastUpdated": "2024-07-09T14:17:42.602292-04:00",
+          "lastUpdated": "2024-07-09T18:23:17.224063-04:00",
           "profile": [
             "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-ems-at-scene"
           ]
@@ -482,7 +482,7 @@
           ]
         },
         "subject": {
-          "reference": "urn:uuid:76efdf00-7b64-48b3-82b0-27a51f5c9655"
+          "reference": "urn:uuid:84738fac-c4d6-4f3b-aacb-88d45b08ea7f"
         },
         "valueCodeableConcept": {
           "coding": [
@@ -496,12 +496,12 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:2bf26a07-bcde-42aa-a84f-2a41b256ee29",
+      "fullUrl": "urn:uuid:91bdc05e-eb32-4081-a119-3a9dd5f8e14c",
       "resource": {
         "resourceType": "Observation",
-        "id": "2bf26a07-bcde-42aa-a84f-2a41b256ee29",
+        "id": "91bdc05e-eb32-4081-a119-3a9dd5f8e14c",
         "meta": {
-          "lastUpdated": "2024-07-09T14:17:42.602515-04:00",
+          "lastUpdated": "2024-07-09T18:23:17.224279-04:00",
           "profile": [
             "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-number-of-bullets"
           ]
@@ -528,18 +528,18 @@
           ]
         },
         "subject": {
-          "reference": "urn:uuid:76efdf00-7b64-48b3-82b0-27a51f5c9655"
+          "reference": "urn:uuid:84738fac-c4d6-4f3b-aacb-88d45b08ea7f"
         },
         "valueInteger": 3
       }
     },
     {
-      "fullUrl": "urn:uuid:57fcd0a4-71e6-4dc4-9847-a7eca14f4b48",
+      "fullUrl": "urn:uuid:e2f9d018-6fa2-4eac-82ca-56d865a55f35",
       "resource": {
         "resourceType": "Observation",
-        "id": "57fcd0a4-71e6-4dc4-9847-a7eca14f4b48",
+        "id": "e2f9d018-6fa2-4eac-82ca-56d865a55f35",
         "meta": {
-          "lastUpdated": "2024-07-09T14:17:42.602704-04:00",
+          "lastUpdated": "2024-07-09T18:23:17.22447-04:00",
           "profile": [
             "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-victim-in-custody-when-injured"
           ]
@@ -566,7 +566,7 @@
           ]
         },
         "subject": {
-          "reference": "urn:uuid:76efdf00-7b64-48b3-82b0-27a51f5c9655"
+          "reference": "urn:uuid:84738fac-c4d6-4f3b-aacb-88d45b08ea7f"
         },
         "valueCodeableConcept": {
           "coding": [
@@ -580,10 +580,10 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:b8b67e51-dde9-4f93-9897-7ec6fb6c641f",
+      "fullUrl": "urn:uuid:7f6a3282-5757-4472-84b0-bd6be3a519cc",
       "resource": {
         "resourceType": "Observation",
-        "id": "b8b67e51-dde9-4f93-9897-7ec6fb6c641f",
+        "id": "7f6a3282-5757-4472-84b0-bd6be3a519cc",
         "meta": {
           "profile": [
             "http://hl7.org/fhir/us/vrdr/StructureDefinition/vrdr-injury-incident"
@@ -598,7 +598,7 @@
           ]
         },
         "subject": {
-          "reference": "urn:uuid:76efdf00-7b64-48b3-82b0-27a51f5c9655"
+          "reference": "urn:uuid:84738fac-c4d6-4f3b-aacb-88d45b08ea7f"
         },
         "component": [
           {
@@ -655,10 +655,10 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:46f0d7c8-49e2-4386-b38d-a84b65cdfa62",
+      "fullUrl": "urn:uuid:1e874e43-bff6-4e1c-ab87-17a098ecce8c",
       "resource": {
         "resourceType": "Location",
-        "id": "46f0d7c8-49e2-4386-b38d-a84b65cdfa62",
+        "id": "1e874e43-bff6-4e1c-ab87-17a098ecce8c",
         "meta": {
           "profile": [
             "http://hl7.org/fhir/us/vr-common-library/StructureDefinition/Location-vr"
@@ -688,10 +688,10 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:ac0e94da-cbb8-4f9f-81de-f045dde6e80b",
+      "fullUrl": "urn:uuid:f6179627-3c3b-444f-9875-46affca2579d",
       "resource": {
         "resourceType": "Observation",
-        "id": "ac0e94da-cbb8-4f9f-81de-f045dde6e80b",
+        "id": "f6179627-3c3b-444f-9875-46affca2579d",
         "meta": {
           "profile": [
             "http://hl7.org/fhir/us/vr-common-library/StructureDefinition/Observation-autopsy-performed-indicator-vr"
@@ -707,7 +707,7 @@
           ]
         },
         "subject": {
-          "reference": "urn:uuid:76efdf00-7b64-48b3-82b0-27a51f5c9655"
+          "reference": "urn:uuid:84738fac-c4d6-4f3b-aacb-88d45b08ea7f"
         },
         "valueCodeableConcept": {
           "coding": [
@@ -721,10 +721,10 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:9c1f71be-7431-4a73-8fd8-d015fe0a5f27",
+      "fullUrl": "urn:uuid:78e8a60c-edd9-48f6-bbda-36d3d10c6624",
       "resource": {
         "resourceType": "Observation",
-        "id": "9c1f71be-7431-4a73-8fd8-d015fe0a5f27",
+        "id": "78e8a60c-edd9-48f6-bbda-36d3d10c6624",
         "meta": {
           "profile": [
             "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-circumstances",
@@ -753,7 +753,7 @@
           ]
         },
         "subject": {
-          "reference": "urn:uuid:76efdf00-7b64-48b3-82b0-27a51f5c9655"
+          "reference": "urn:uuid:84738fac-c4d6-4f3b-aacb-88d45b08ea7f"
         },
         "valueCodeableConcept": {
           "coding": [
@@ -767,10 +767,10 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:e5a6a51c-fdac-43e6-9542-1b5081045793",
+      "fullUrl": "urn:uuid:7ae713f3-9457-43eb-999a-3b0db2cec3fa",
       "resource": {
         "resourceType": "Observation",
-        "id": "e5a6a51c-fdac-43e6-9542-1b5081045793",
+        "id": "7ae713f3-9457-43eb-999a-3b0db2cec3fa",
         "meta": {
           "profile": [
             "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/vdrs-history-of-mental-illness"
@@ -786,7 +786,7 @@
           ]
         },
         "subject": {
-          "reference": "urn:uuid:76efdf00-7b64-48b3-82b0-27a51f5c9655"
+          "reference": "urn:uuid:84738fac-c4d6-4f3b-aacb-88d45b08ea7f"
         },
         "valueCodeableConcept": {
           "coding": [
@@ -800,12 +800,12 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:019f6c49-19ad-4a92-88b3-695ccad34038",
+      "fullUrl": "urn:uuid:ff2965af-2aa1-43ff-be98-8f23f5c7ea17",
       "resource": {
         "resourceType": "Observation",
-        "id": "019f6c49-19ad-4a92-88b3-695ccad34038",
+        "id": "ff2965af-2aa1-43ff-be98-8f23f5c7ea17",
         "meta": {
-          "lastUpdated": "2024-07-09T14:17:42.607897-04:00",
+          "lastUpdated": "2024-07-09T18:23:17.228737-04:00",
           "profile": [
             "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-history-of-self-harm"
           ]
@@ -833,7 +833,7 @@
           "text": "History of non-suicidal self-Injury/self-harm"
         },
         "subject": {
-          "reference": "urn:uuid:76efdf00-7b64-48b3-82b0-27a51f5c9655"
+          "reference": "urn:uuid:84738fac-c4d6-4f3b-aacb-88d45b08ea7f"
         },
         "valueCodeableConcept": {
           "coding": [
@@ -847,12 +847,12 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:0eadaf52-dc29-434a-ba18-a3c150da2a39",
+      "fullUrl": "urn:uuid:824a7752-c39d-4378-88cb-323a1c02947d",
       "resource": {
         "resourceType": "Observation",
-        "id": "0eadaf52-dc29-434a-ba18-a3c150da2a39",
+        "id": "824a7752-c39d-4378-88cb-323a1c02947d",
         "meta": {
-          "lastUpdated": "2024-07-09T14:17:42.607993-04:00",
+          "lastUpdated": "2024-07-09T18:23:17.228825-04:00",
           "profile": [
             "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-random-violence"
           ]
@@ -879,7 +879,7 @@
           ]
         },
         "subject": {
-          "reference": "urn:uuid:76efdf00-7b64-48b3-82b0-27a51f5c9655"
+          "reference": "urn:uuid:84738fac-c4d6-4f3b-aacb-88d45b08ea7f"
         },
         "valueCodeableConcept": {
           "coding": [
@@ -893,12 +893,12 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:5582a1c1-487c-4284-9feb-907471061ad4",
+      "fullUrl": "urn:uuid:b23f714e-3b80-4fc3-aa25-6f2ff4846469",
       "resource": {
         "resourceType": "Observation",
-        "id": "5582a1c1-487c-4284-9feb-907471061ad4",
+        "id": "b23f714e-3b80-4fc3-aa25-6f2ff4846469",
         "meta": {
-          "lastUpdated": "2024-07-09T14:17:42.608084-04:00",
+          "lastUpdated": "2024-07-09T18:23:17.228907-04:00",
           "profile": [
             "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-school-problem"
           ]
@@ -925,7 +925,7 @@
           ]
         },
         "subject": {
-          "reference": "urn:uuid:76efdf00-7b64-48b3-82b0-27a51f5c9655"
+          "reference": "urn:uuid:84738fac-c4d6-4f3b-aacb-88d45b08ea7f"
         },
         "valueCodeableConcept": {
           "coding": [
@@ -939,12 +939,12 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:aae37997-a721-49b6-b435-cc321539f0a1",
+      "fullUrl": "urn:uuid:4089891b-9fe0-4a17-8b89-f57a5a76699a",
       "resource": {
         "resourceType": "Observation",
-        "id": "aae37997-a721-49b6-b435-cc321539f0a1",
+        "id": "4089891b-9fe0-4a17-8b89-f57a5a76699a",
         "meta": {
-          "lastUpdated": "2024-07-09T14:17:42.60817-04:00",
+          "lastUpdated": "2024-07-09T18:23:17.228988-04:00",
           "profile": [
             "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-history-of-suicide-attempts"
           ]
@@ -971,7 +971,7 @@
           ]
         },
         "subject": {
-          "reference": "urn:uuid:76efdf00-7b64-48b3-82b0-27a51f5c9655"
+          "reference": "urn:uuid:84738fac-c4d6-4f3b-aacb-88d45b08ea7f"
         },
         "valueCodeableConcept": {
           "coding": [
@@ -985,10 +985,10 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:49d04fdf-120b-46f1-ade8-66bcc53fe464",
+      "fullUrl": "urn:uuid:07cf2d47-01a2-4395-9648-6a851c1a1da9",
       "resource": {
         "resourceType": "Observation",
-        "id": "49d04fdf-120b-46f1-ade8-66bcc53fe464",
+        "id": "07cf2d47-01a2-4395-9648-6a851c1a1da9",
         "meta": {
           "profile": [
             "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/vdrs-suicide-note"
@@ -1004,18 +1004,18 @@
           ]
         },
         "subject": {
-          "reference": "urn:uuid:76efdf00-7b64-48b3-82b0-27a51f5c9655"
+          "reference": "urn:uuid:84738fac-c4d6-4f3b-aacb-88d45b08ea7f"
         },
         "valueString": "Sorry.. I am ..."
       }
     },
     {
-      "fullUrl": "urn:uuid:40f936b9-e186-41b3-b138-fc8985ca8632",
+      "fullUrl": "urn:uuid:877c7d33-35e5-4684-a50f-42d9c1555192",
       "resource": {
         "resourceType": "Observation",
-        "id": "40f936b9-e186-41b3-b138-fc8985ca8632",
+        "id": "877c7d33-35e5-4684-a50f-42d9c1555192",
         "meta": {
-          "lastUpdated": "2024-07-09T14:17:42.608374-04:00",
+          "lastUpdated": "2024-07-09T18:23:17.229176-04:00",
           "profile": [
             "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-history-alcohol-use"
           ]
@@ -1042,7 +1042,7 @@
           ]
         },
         "subject": {
-          "reference": "urn:uuid:76efdf00-7b64-48b3-82b0-27a51f5c9655"
+          "reference": "urn:uuid:84738fac-c4d6-4f3b-aacb-88d45b08ea7f"
         },
         "valueCodeableConcept": {
           "coding": [
@@ -1056,10 +1056,10 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:b0ae1d79-3b40-401b-b23e-386ef3c63db6",
+      "fullUrl": "urn:uuid:0656a23c-0d12-4631-9391-6057d44c91f9",
       "resource": {
         "resourceType": "Observation",
-        "id": "b0ae1d79-3b40-401b-b23e-386ef3c63db6",
+        "id": "0656a23c-0d12-4631-9391-6057d44c91f9",
         "meta": {
           "profile": [
             "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-circumstances"
@@ -1087,7 +1087,7 @@
           ]
         },
         "subject": {
-          "reference": "urn:uuid:76efdf00-7b64-48b3-82b0-27a51f5c9655"
+          "reference": "urn:uuid:84738fac-c4d6-4f3b-aacb-88d45b08ea7f"
         },
         "valueCodeableConcept": {
           "coding": [
@@ -1101,12 +1101,12 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:cd89792b-0552-4702-903c-80ede7e8f054",
+      "fullUrl": "urn:uuid:db3ee97e-af94-4372-be04-e02598cdd5b2",
       "resource": {
         "resourceType": "Observation",
-        "id": "cd89792b-0552-4702-903c-80ede7e8f054",
+        "id": "db3ee97e-af94-4372-be04-e02598cdd5b2",
         "meta": {
-          "lastUpdated": "2024-07-09T14:17:42.608464-04:00",
+          "lastUpdated": "2024-07-09T18:23:17.229256-04:00",
           "profile": [
             "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-death-abuse"
           ]
@@ -1144,12 +1144,12 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:fdb3b961-5271-4b35-8ec3-7368b13d8470",
+      "fullUrl": "urn:uuid:08345ae9-6ead-49ed-9692-8d13e9d77a22",
       "resource": {
         "resourceType": "Observation",
-        "id": "fdb3b961-5271-4b35-8ec3-7368b13d8470",
+        "id": "08345ae9-6ead-49ed-9692-8d13e9d77a22",
         "meta": {
-          "lastUpdated": "2024-07-09T14:17:42.608549-04:00",
+          "lastUpdated": "2024-07-09T18:23:17.229334-04:00",
           "profile": [
             "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-gang-related"
           ]
@@ -1177,7 +1177,7 @@
           "text": "Death was gang related"
         },
         "subject": {
-          "reference": "urn:uuid:76efdf00-7b64-48b3-82b0-27a51f5c9655"
+          "reference": "urn:uuid:84738fac-c4d6-4f3b-aacb-88d45b08ea7f"
         },
         "valueCodeableConcept": {
           "coding": [
@@ -1191,12 +1191,12 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:01b05820-06c3-497c-af7c-76960b6b4fb8",
+      "fullUrl": "urn:uuid:0b60eed5-086e-42db-9173-f7ccae843d1c",
       "resource": {
         "resourceType": "Observation",
-        "id": "01b05820-06c3-497c-af7c-76960b6b4fb8",
+        "id": "0b60eed5-086e-42db-9173-f7ccae843d1c",
         "meta": {
-          "lastUpdated": "2024-07-09T14:17:42.609137-04:00",
+          "lastUpdated": "2024-07-09T18:23:17.229842-04:00",
           "profile": [
             "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-drive-by-shooting"
           ]
@@ -1223,7 +1223,7 @@
           ]
         },
         "subject": {
-          "reference": "urn:uuid:76efdf00-7b64-48b3-82b0-27a51f5c9655"
+          "reference": "urn:uuid:84738fac-c4d6-4f3b-aacb-88d45b08ea7f"
         },
         "valueCodeableConcept": {
           "coding": [
@@ -1237,10 +1237,10 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:7bc6c476-e53c-4ee8-b642-470b94a872be",
+      "fullUrl": "urn:uuid:4cb14167-8000-43e0-bcd9-cfdf27c3589d",
       "resource": {
         "resourceType": "Observation",
-        "id": "7bc6c476-e53c-4ee8-b642-470b94a872be",
+        "id": "4cb14167-8000-43e0-bcd9-cfdf27c3589d",
         "meta": {
           "profile": [
             "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-playing-with-firearm"
@@ -1257,7 +1257,7 @@
           "text": "Playing with Firearm"
         },
         "subject": {
-          "reference": "urn:uuid:76efdf00-7b64-48b3-82b0-27a51f5c9655"
+          "reference": "urn:uuid:84738fac-c4d6-4f3b-aacb-88d45b08ea7f"
         },
         "valueCodeableConcept": {
           "coding": [
@@ -1271,10 +1271,10 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:79885e20-d47d-4d2c-acc7-dccc80e16932",
+      "fullUrl": "urn:uuid:85b0d3c3-9371-48f4-b20a-39887fc8a39f",
       "resource": {
         "resourceType": "Observation",
-        "id": "79885e20-d47d-4d2c-acc7-dccc80e16932",
+        "id": "85b0d3c3-9371-48f4-b20a-39887fc8a39f",
         "meta": {
           "profile": [
             "http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-toxicology-lab-result"
@@ -1295,16 +1295,16 @@
           "text": "Alcohol"
         },
         "subject": {
-          "reference": "urn:uuid:76efdf00-7b64-48b3-82b0-27a51f5c9655"
+          "reference": "urn:uuid:84738fac-c4d6-4f3b-aacb-88d45b08ea7f"
         },
         "valueString": "4"
       }
     },
     {
-      "fullUrl": "urn:uuid:184e119a-f2b9-4792-9aaf-88375c607d08",
+      "fullUrl": "urn:uuid:8141a115-b480-4c14-a621-71f65e66b21a",
       "resource": {
         "resourceType": "Observation",
-        "id": "184e119a-f2b9-4792-9aaf-88375c607d08",
+        "id": "8141a115-b480-4c14-a621-71f65e66b21a",
         "meta": {
           "profile": [
             "http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-toxicology-lab-result"
@@ -1325,16 +1325,16 @@
           "text": "Amphetamine"
         },
         "subject": {
-          "reference": "urn:uuid:76efdf00-7b64-48b3-82b0-27a51f5c9655"
+          "reference": "urn:uuid:84738fac-c4d6-4f3b-aacb-88d45b08ea7f"
         },
         "valueString": "8 mg"
       }
     },
     {
-      "fullUrl": "urn:uuid:fbcc3510-72f5-4833-b03f-1fa02ce9fdaa",
+      "fullUrl": "urn:uuid:efe3ec4d-5e30-4750-8349-44798140c76c",
       "resource": {
         "resourceType": "Observation",
-        "id": "fbcc3510-72f5-4833-b03f-1fa02ce9fdaa",
+        "id": "efe3ec4d-5e30-4750-8349-44798140c76c",
         "meta": {
           "profile": [
             "http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-toxicology-lab-result"
@@ -1355,16 +1355,16 @@
           "text": "Benzodiazepines"
         },
         "subject": {
-          "reference": "urn:uuid:76efdf00-7b64-48b3-82b0-27a51f5c9655"
+          "reference": "urn:uuid:84738fac-c4d6-4f3b-aacb-88d45b08ea7f"
         },
         "valueString": "10 mg"
       }
     },
     {
-      "fullUrl": "urn:uuid:5026af22-019d-420a-8194-e73060a23602",
+      "fullUrl": "urn:uuid:19fd9bc9-274b-4493-964e-3d2ccb75b7a5",
       "resource": {
         "resourceType": "Observation",
-        "id": "5026af22-019d-420a-8194-e73060a23602",
+        "id": "19fd9bc9-274b-4493-964e-3d2ccb75b7a5",
         "meta": {
           "profile": [
             "http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-toxicology-lab-result"
@@ -1385,16 +1385,16 @@
           "text": "Cocaine"
         },
         "subject": {
-          "reference": "urn:uuid:76efdf00-7b64-48b3-82b0-27a51f5c9655"
+          "reference": "urn:uuid:84738fac-c4d6-4f3b-aacb-88d45b08ea7f"
         },
         "valueString": "9 mg"
       }
     },
     {
-      "fullUrl": "urn:uuid:78449ae9-3dc8-4f83-8d51-d3526fba0327",
+      "fullUrl": "urn:uuid:b661fbf7-cd9e-45c8-b581-dfc9243e83e6",
       "resource": {
         "resourceType": "Observation",
-        "id": "78449ae9-3dc8-4f83-8d51-d3526fba0327",
+        "id": "b661fbf7-cd9e-45c8-b581-dfc9243e83e6",
         "meta": {
           "profile": [
             "http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-toxicology-lab-result"
@@ -1415,16 +1415,16 @@
           "text": "Opiate"
         },
         "subject": {
-          "reference": "urn:uuid:76efdf00-7b64-48b3-82b0-27a51f5c9655"
+          "reference": "urn:uuid:84738fac-c4d6-4f3b-aacb-88d45b08ea7f"
         },
         "valueString": "11 mg"
       }
     },
     {
-      "fullUrl": "urn:uuid:69571e2f-c5cb-4c48-8153-7828deb60f09",
+      "fullUrl": "urn:uuid:a69bfdd9-9a2a-409c-bc5f-7d0a936648b9",
       "resource": {
         "resourceType": "Specimen",
-        "id": "69571e2f-c5cb-4c48-8153-7828deb60f09",
+        "id": "a69bfdd9-9a2a-409c-bc5f-7d0a936648b9",
         "meta": {
           "profile": [
             "http://hl7.org/fhir/us/mdi/StructureDefinition/Specimen-toxicology-lab"
@@ -1436,12 +1436,12 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:139c632f-0b6d-468f-bf1b-ab92f306d21f",
+      "fullUrl": "urn:uuid:663c4a7f-bfbe-40b6-b329-d538b879a676",
       "resource": {
         "resourceType": "Observation",
-        "id": "139c632f-0b6d-468f-bf1b-ab92f306d21f",
+        "id": "663c4a7f-bfbe-40b6-b329-d538b879a676",
         "meta": {
-          "lastUpdated": "2024-07-09T14:17:42.610545-04:00",
+          "lastUpdated": "2024-07-09T18:23:17.231119-04:00",
           "profile": [
             "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-homeless-at-death"
           ]
@@ -1476,7 +1476,7 @@
           ]
         },
         "subject": {
-          "reference": "urn:uuid:76efdf00-7b64-48b3-82b0-27a51f5c9655"
+          "reference": "urn:uuid:84738fac-c4d6-4f3b-aacb-88d45b08ea7f"
         },
         "valueCodeableConcept": {
           "coding": [
@@ -1490,10 +1490,10 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:ea41f534-5b22-4b56-a48e-4739e8cd6b47",
+      "fullUrl": "urn:uuid:6b1782ad-6907-41ef-aeae-f9ca3eefba27",
       "resource": {
         "resourceType": "Observation",
-        "id": "ea41f534-5b22-4b56-a48e-4739e8cd6b47",
+        "id": "6b1782ad-6907-41ef-aeae-f9ca3eefba27",
         "meta": {
           "profile": [
             "http://hl7.org/fhir/us/vrdr/StructureDefinition/vrdr-decedent-age"
@@ -1508,7 +1508,7 @@
           ]
         },
         "subject": {
-          "reference": "urn:uuid:76efdf00-7b64-48b3-82b0-27a51f5c9655"
+          "reference": "urn:uuid:84738fac-c4d6-4f3b-aacb-88d45b08ea7f"
         },
         "valueQuantity": {
           "value": 24,
@@ -1517,10 +1517,10 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:d33b0518-b43e-45d4-aaed-f18748d1781f",
+      "fullUrl": "urn:uuid:f66213d0-73e9-4739-a657-7a03a73b01d0",
       "resource": {
         "resourceType": "Observation",
-        "id": "d33b0518-b43e-45d4-aaed-f18748d1781f",
+        "id": "f66213d0-73e9-4739-a657-7a03a73b01d0",
         "meta": {
           "profile": [
             "http://hl7.org/fhir/us/odh/StructureDefinition/odh-UsualWork"
@@ -1546,7 +1546,7 @@
           ]
         },
         "subject": {
-          "reference": "urn:uuid:76efdf00-7b64-48b3-82b0-27a51f5c9655"
+          "reference": "urn:uuid:84738fac-c4d6-4f3b-aacb-88d45b08ea7f"
         },
         "valueCodeableConcept": {
           "text": "Occupation"
@@ -1570,10 +1570,10 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:9133be3f-fe3d-4869-947d-f37dd8b53b6f",
+      "fullUrl": "urn:uuid:d8e2827b-4d23-4f87-9730-5cc11a97d23f",
       "resource": {
         "resourceType": "Observation",
-        "id": "9133be3f-fe3d-4869-947d-f37dd8b53b6f",
+        "id": "d8e2827b-4d23-4f87-9730-5cc11a97d23f",
         "meta": {
           "profile": [
             "http://hl7.org/fhir/us/core/StructureDefinition/us-core-body-height"
@@ -1599,7 +1599,7 @@
         },
         "effectiveDate": "2024-07-02",
         "valueQuantity": {
-          "value": 2590.8,
+          "value": 259.8,
           "unit": "cm",
           "system": "http://unitsofmeasure.org",
           "code": "cm"
@@ -1607,10 +1607,10 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:43edfdca-498a-4399-82d5-d58ca7bade0c",
+      "fullUrl": "urn:uuid:6b77b362-de1d-4c8b-9735-e0e2d14f8c4a",
       "resource": {
         "resourceType": "Observation",
-        "id": "43edfdca-498a-4399-82d5-d58ca7bade0c",
+        "id": "6b77b362-de1d-4c8b-9735-e0e2d14f8c4a",
         "meta": {
           "profile": [
             "http://hl7.org/fhir/us/core/StructureDefinition/us-core-body-weight"
@@ -1644,10 +1644,10 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:7a46f996-bab8-4d15-badd-38a9e0dabfe0",
+      "fullUrl": "urn:uuid:fe9cbd4b-ebeb-4449-8dc4-8c9c4247279d",
       "resource": {
         "resourceType": "Observation",
-        "id": "7a46f996-bab8-4d15-badd-38a9e0dabfe0",
+        "id": "fe9cbd4b-ebeb-4449-8dc4-8c9c4247279d",
         "meta": {
           "profile": [
             "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-weapon-type"
@@ -1663,11 +1663,11 @@
           ]
         },
         "subject": {
-          "reference": "urn:uuid:76efdf00-7b64-48b3-82b0-27a51f5c9655"
+          "reference": "urn:uuid:84738fac-c4d6-4f3b-aacb-88d45b08ea7f"
         },
         "focus": [
           {
-            "reference": "urn:uuid:00f418b6-636f-4354-babe-4ed1b4b302c7"
+            "reference": "urn:uuid:33c1e452-b945-4fd9-8df2-013bd0e7b404"
           }
         ],
         "valueCodeableConcept": {
@@ -1682,12 +1682,12 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:00f418b6-636f-4354-babe-4ed1b4b302c7",
+      "fullUrl": "urn:uuid:33c1e452-b945-4fd9-8df2-013bd0e7b404",
       "resource": {
         "resourceType": "Observation",
-        "id": "00f418b6-636f-4354-babe-4ed1b4b302c7",
+        "id": "33c1e452-b945-4fd9-8df2-013bd0e7b404",
         "meta": {
-          "lastUpdated": "2024-07-09T14:17:42.611827-04:00",
+          "lastUpdated": "2024-07-09T18:23:17.232336-04:00",
           "profile": [
             "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-firearm"
           ]
@@ -1734,7 +1734,7 @@
               {
                 "url": "reference",
                 "valueReference": {
-                  "reference": "urn:uuid:5dbe327d-803a-4030-b304-16291baad4b3"
+                  "reference": "urn:uuid:87c0ab41-5980-4586-8b91-d60f2438fbb8"
                 }
               }
             ]
@@ -1762,7 +1762,7 @@
           ]
         },
         "subject": {
-          "reference": "urn:uuid:76efdf00-7b64-48b3-82b0-27a51f5c9655"
+          "reference": "urn:uuid:84738fac-c4d6-4f3b-aacb-88d45b08ea7f"
         },
         "component": [
           {
@@ -1825,10 +1825,10 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:5dbe327d-803a-4030-b304-16291baad4b3",
+      "fullUrl": "urn:uuid:87c0ab41-5980-4586-8b91-d60f2438fbb8",
       "resource": {
         "resourceType": "Person",
-        "id": "5dbe327d-803a-4030-b304-16291baad4b3",
+        "id": "87c0ab41-5980-4586-8b91-d60f2438fbb8",
         "name": [
           {
             "family": "Brown",
@@ -1840,10 +1840,10 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:7e3199f6-3b47-4858-a16f-3fae3841ff6d",
+      "fullUrl": "urn:uuid:2fcd18fe-1276-42fa-be77-e8e5f5d01f49",
       "resource": {
         "resourceType": "Observation",
-        "id": "7e3199f6-3b47-4858-a16f-3fae3841ff6d",
+        "id": "2fcd18fe-1276-42fa-be77-e8e5f5d01f49",
         "meta": {
           "profile": [
             "http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-mdi-cause-of-death-part1"
@@ -1860,7 +1860,7 @@
           ]
         },
         "subject": {
-          "reference": "urn:uuid:76efdf00-7b64-48b3-82b0-27a51f5c9655"
+          "reference": "urn:uuid:84738fac-c4d6-4f3b-aacb-88d45b08ea7f"
         },
         "performer": [
           {
@@ -1899,10 +1899,10 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:26358d97-10e7-4060-affa-136633a2f799",
+      "fullUrl": "urn:uuid:5d284bef-fd6c-4c8e-b254-b4d506890a69",
       "resource": {
         "resourceType": "Observation",
-        "id": "26358d97-10e7-4060-affa-136633a2f799",
+        "id": "5d284bef-fd6c-4c8e-b254-b4d506890a69",
         "meta": {
           "profile": [
             "http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-mdi-cause-of-death-part1"
@@ -1919,7 +1919,7 @@
           ]
         },
         "subject": {
-          "reference": "urn:uuid:76efdf00-7b64-48b3-82b0-27a51f5c9655"
+          "reference": "urn:uuid:84738fac-c4d6-4f3b-aacb-88d45b08ea7f"
         },
         "performer": [
           {
@@ -1958,10 +1958,10 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:f082a03d-1e28-4ea2-936f-4cf0b812aa62",
+      "fullUrl": "urn:uuid:31523d6a-2110-4539-8689-506ad04c2983",
       "resource": {
         "resourceType": "Observation",
-        "id": "f082a03d-1e28-4ea2-936f-4cf0b812aa62",
+        "id": "31523d6a-2110-4539-8689-506ad04c2983",
         "meta": {
           "profile": [
             "http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-mdi-cause-of-death-part1"
@@ -1978,7 +1978,7 @@
           ]
         },
         "subject": {
-          "reference": "urn:uuid:76efdf00-7b64-48b3-82b0-27a51f5c9655"
+          "reference": "urn:uuid:84738fac-c4d6-4f3b-aacb-88d45b08ea7f"
         },
         "performer": [
           {
@@ -2017,10 +2017,10 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:9867669a-d120-4e2c-93d6-c7476ba1629a",
+      "fullUrl": "urn:uuid:1e3e4cf5-b0d7-490b-b005-57a9e57a3e95",
       "resource": {
         "resourceType": "Observation",
-        "id": "9867669a-d120-4e2c-93d6-c7476ba1629a",
+        "id": "1e3e4cf5-b0d7-490b-b005-57a9e57a3e95",
         "meta": {
           "profile": [
             "http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-mdi-cause-of-death-part1"
@@ -2037,7 +2037,7 @@
           ]
         },
         "subject": {
-          "reference": "urn:uuid:76efdf00-7b64-48b3-82b0-27a51f5c9655"
+          "reference": "urn:uuid:84738fac-c4d6-4f3b-aacb-88d45b08ea7f"
         },
         "performer": [
           {
@@ -2076,10 +2076,10 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:e425510c-99be-4d36-83e8-c4b6fea8dea0",
+      "fullUrl": "urn:uuid:d9236edd-9c84-41b1-b5a9-e35fd3bd8414",
       "resource": {
         "resourceType": "Observation",
-        "id": "e425510c-99be-4d36-83e8-c4b6fea8dea0",
+        "id": "d9236edd-9c84-41b1-b5a9-e35fd3bd8414",
         "meta": {
           "profile": [
             "http://hl7.org/fhir/us/vrdr/StructureDefinition/vrdr-cause-of-death-part2"
@@ -2096,7 +2096,7 @@
           ]
         },
         "subject": {
-          "reference": "urn:uuid:76efdf00-7b64-48b3-82b0-27a51f5c9655"
+          "reference": "urn:uuid:84738fac-c4d6-4f3b-aacb-88d45b08ea7f"
         },
         "performer": [
           {
@@ -2109,10 +2109,10 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:ad9d461b-183b-4c0c-ae77-4dbcade23161",
+      "fullUrl": "urn:uuid:5c8fd358-8d78-46e3-b01c-fd69ce9d52b2",
       "resource": {
         "resourceType": "Procedure",
-        "id": "ad9d461b-183b-4c0c-ae77-4dbcade23161",
+        "id": "5c8fd358-8d78-46e3-b01c-fd69ce9d52b2",
         "meta": {
           "profile": [
             "http://hl7.org/fhir/us/vrdr/StructureDefinition/vrdr-death-certification"
@@ -2127,7 +2127,7 @@
           ]
         },
         "subject": {
-          "reference": "urn:uuid:76efdf00-7b64-48b3-82b0-27a51f5c9655"
+          "reference": "urn:uuid:84738fac-c4d6-4f3b-aacb-88d45b08ea7f"
         },
         "performer": [
           {
@@ -2148,10 +2148,10 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:0ca5763f-2269-4c8c-88e3-5b9f58e82469",
+      "fullUrl": "urn:uuid:3a580c3b-1fca-4689-8ff3-ee4914caff40",
       "resource": {
         "resourceType": "Observation",
-        "id": "0ca5763f-2269-4c8c-88e3-5b9f58e82469",
+        "id": "3a580c3b-1fca-4689-8ff3-ee4914caff40",
         "meta": {
           "profile": [
             "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/vdrs-number-of-victims"
@@ -2167,7 +2167,7 @@
           ]
         },
         "subject": {
-          "reference": "urn:uuid:76efdf00-7b64-48b3-82b0-27a51f5c9655"
+          "reference": "urn:uuid:84738fac-c4d6-4f3b-aacb-88d45b08ea7f"
         },
         "valueInteger": 34
       }

@@ -22,6 +22,9 @@ namespace GaTech.Chai.UsCore
         public static CodeableConcept UsCoreSocialHistoryCategory = new("http://terminology.hl7.org/CodeSystem/observation-category", "social-history");
         public static CodeableConcept SDoHCategory = new("http://hl7.org/fhir/us/core/CodeSystem/us-core-tags", "sdoh");
 
+        public static CodeableConcept VitalHeight = new(UriString.LOINC, "8302-2");
+        public static CodeableConcept VitalWeight = new(UriString.LOINC, "29463-7");
+
         public class UsCoreVsOmbRaceCategory
         {
             public static string officialUrl = "urn:oid:2.16.840.1.113883.6.238";

@@ -213,8 +213,8 @@ public class FlatObjectCMELE : FlatObject
             // get the list of entries in the Injury and Death section
             List<Resource> injuryAndDeathResources = composition.NvdrsComposition().GetSectionByCode(NvdrsCustomCs.InjuryAndDeath);
 
-            // get the list of entries in the Injury and Death section
-            List<Resource> deomgraphidwResources = composition.NvdrsComposition().GetSectionByCode(NvdrsCustomCs.Demographics);
+            // get the list of entries in the Demographics section
+            List<Resource> deomgraphicsResources = composition.NvdrsComposition().GetSectionByCode(NvdrsCustomCs.Demographics);
 
             // Mapping Process with a simple iteration over the data array.
             foreach (JsonNode? data in DataArray)
@@ -478,9 +478,139 @@ public class FlatObjectCMELE : FlatObject
                         }
                     }
                 }
+                else if ("HeightFeet".Equals(data!["name"]!.GetValue<string>())) // 151
+                {
+                    foreach (Resource resource in deomgraphicsResources)
+                    {
+                        if (resource is Observation obs)
+                        {
+                            if (CodeSystemsValueSets.VitalHeight.Matches(obs.Code))
+                            {
+                                Quantity? value = obs.Value as Quantity;
+                                if (value != null)
+                                {
+                                    double feet;
+                                    if (value.Value != null)
+                                    {
+                                        if ("cm".Equals(value.Code))
+                                        {
+                                            feet = ((double)value.Value) * 0.0328084;
+                                        }
+                                        else if ("m".Equals(value.Code))
+                                        {
+                                            feet = ((double)value.Value) * 3.28084;
+                                        }
+                                        else if ("[ft_us]".Equals(value.Code))
+                                        {
+                                            feet = (double)value.Value;
+                                        }
+                                        else if ("[in_us]".Equals(value.Code))
+                                        {
+                                            feet = ((double)value.Value) * 0.0833333;
+                                        }
+                                        else
+                                        {
+                                            break;
+                                        }
+
+                                        StringWriteToData(data, Double.Truncate(feet).ToString());
+                                        break;
+                                    }
+
+                                }
+                            }
+                        }
+                    }
+                }
+                else if ("HeightInches".Equals(data!["name"]!.GetValue<string>())) // 152
+                {
+                    foreach (Resource resource in deomgraphicsResources)
+                    {
+                        if (resource is Observation obs)
+                        {
+                            if (CodeSystemsValueSets.VitalHeight.Matches(obs.Code))
+                            {
+                                Quantity? value = obs.Value as Quantity;
+                                if (value != null)
+                                {
+                                    double feet;
+                                    if (value.Value != null)
+                                    {
+                                        if ("cm".Equals(value.Code))
+                                        {
+                                            feet = ((double)value.Value) * 0.0328084;
+                                        }
+                                        else if ("m".Equals(value.Code))
+                                        {
+                                            feet = ((double)value.Value) * 3.28084;
+                                        }
+                                        else if ("[ft_us]".Equals(value.Code))
+                                        {
+                                            feet = (double)value.Value;
+                                        }
+                                        else if ("[in_us]".Equals(value.Code))
+                                        {
+                                            feet = ((double)value.Value) * 0.0833333;
+                                        }
+                                        else
+                                        {
+                                            break;
+                                        }
+
+                                        double only_feet = Double.Truncate(feet);
+                                        double feet_decimal = feet - only_feet;
+                                        double only_inch = feet_decimal * 12.0;
+
+                                        StringWriteToData(data, Double.Truncate(only_inch).ToString(), Alignment.RIGHT);
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                else if ("Weight".Equals(data!["name"]!.GetValue<string>())) // 154
+                {
+                    foreach (Resource resource in deomgraphicsResources)
+                    {
+                        if (resource is Observation obs)
+                        {
+                            if (CodeSystemsValueSets.VitalWeight.Matches(obs.Code))
+                            {
+                                Quantity? value = obs.Value as Quantity;
+                                if (value != null)
+                                {
+                                    double weight;
+                                    if (value.Value != null)
+                                    {
+                                        if ("[lb_av]".Equals(value.Code))
+                                        {
+                                            weight = (double)value.Value;
+                                        }
+                                        else if ("kg".Equals(value.Code))
+                                        {
+                                            weight = (double)value.Value * 2.20462;
+                                        }
+                                        else if ("g".Equals(value.Code))
+                                        {
+                                            weight = (double)value.Value * 0.00220462;
+                                        }
+                                        else
+                                        {
+                                            break;
+                                        }
+
+                                        StringWriteToData(data, Double.Truncate(weight).ToString(), Alignment.RIGHT);
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
                 else if ("Homeless".Equals(data!["name"]!.GetValue<string>())) // 160
                 {
-                    SetDemographicsYNUnk(data, deomgraphidwResources, NvdrsCustomCs.HomelessAtDeath);
+                    SetDemographicsYNUnk(data, deomgraphicsResources, NvdrsCustomCs.HomelessAtDeath);
                 }
                 else if ("NumberBullets".Equals(data!["name"]!.GetValue<string>())) // 423
                 {
