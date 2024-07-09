@@ -283,6 +283,8 @@ clarkTestComp.NvdrsComposition().AddSectionEntryByCode(NvdrsCompositionSections.
  * - Homeless status
  * - Age at Death
  * - Occupation of decedent
+ * - Height
+ * - Weight
  */
 // Homeless status
 Observation homelessObs = NvdrsHomelessAtDeath.Create();
@@ -309,8 +311,48 @@ usualWorkObs.Value = new CodeableConcept()
 Observation.ComponentComponent usualWorkComp = usualWorkObs.Component.GetOrAddComponent("http://loinc.org", "21844-6", "History of Usual industry");
 usualWorkComp.Value = new CodeableConcept() { Text = "Occupation"};
 
+// Height
+Observation heightObs = new();
+heightObs.AddProfile("http://hl7.org/fhir/us/core/StructureDefinition/us-core-body-height");
+heightObs.Category =
+[
+    new("http://terminology.hl7.org/CodeSystem/observation-category", "vital-signs")
+];
+heightObs.Code = new(UriString.LOINC, "8302-2");
+heightObs.Effective = new Hl7.Fhir.Model.Date(2024, 7, 2);
+heightObs.Value = new Hl7.Fhir.Model.Quantity() 
+{
+    Value = (decimal?)2590.8,
+    Unit = "cm",
+    System = "http://unitsofmeasure.org ",
+    Code = "cm"
+};
+
+// Weight
+Observation weightObs = new();
+weightObs.AddProfile("http://hl7.org/fhir/us/core/StructureDefinition/us-core-body-weight");
+weightObs.Category =
+[
+    new("http://terminology.hl7.org/CodeSystem/observation-category", "vital-signs")
+];
+weightObs.Code = new(UriString.LOINC, "29463-7");
+weightObs.Effective = new Hl7.Fhir.Model.Date(2024, 7, 2);
+weightObs.Value = new Hl7.Fhir.Model.Quantity() 
+{
+    Value = (decimal?)185,
+    Unit = "lb_av",
+    System = "http://unitsofmeasure.org ",
+    Code = "[lb_av]"
+};
 // Add these resources to Demographics section
-clarkTestComp.NvdrsComposition().AddSectionEntryByCode(NvdrsCompositionSections.Demographics, [homelessObs, ageAtDeathObs, usualWorkObs]);
+clarkTestComp.NvdrsComposition().AddSectionEntryByCode(NvdrsCompositionSections.Demographics, 
+    [
+        homelessObs, 
+        ageAtDeathObs, 
+        usualWorkObs,
+        heightObs,
+        weightObs
+    ]);
 
 
 /*******************
@@ -399,44 +441,14 @@ clarkTestComp.NvdrsComposition().AddSectionEntryByCode(MdiCompositionSections.Ju
  * - Height
  * - Weight
  */
-Observation heightObs = new();
-heightObs.AddProfile("http://hl7.org/fhir/us/core/StructureDefinition/us-core-body-height");
-heightObs.Category =
-[
-    new("http://terminology.hl7.org/CodeSystem/observation-category", "vital-signs")
-];
-heightObs.Code = new(UriString.LOINC, "8302-2");
-heightObs.Effective = new Hl7.Fhir.Model.Date(2024, 7, 2);
-heightObs.Value = new Hl7.Fhir.Model.Quantity() 
-{
-    Value = (decimal?)2590.8,
-    Unit = "cm",
-    System = "http://unitsofmeasure.org ",
-    Code = "cm"
-};
 
-Observation weightObs = new();
-weightObs.AddProfile("http://hl7.org/fhir/us/core/StructureDefinition/us-core-body-weight");
-weightObs.Category =
-[
-    new("http://terminology.hl7.org/CodeSystem/observation-category", "vital-signs")
-];
-weightObs.Code = new(UriString.LOINC, "29463-7");
-weightObs.Effective = new Hl7.Fhir.Model.Date(2024, 7, 2);
-weightObs.Value = new Hl7.Fhir.Model.Quantity() 
-{
-    Value = (decimal?)185,
-    Unit = "lb_av",
-    System = "http://unitsofmeasure.org ",
-    Code = "[lb_av]"
-};
 
 // Put these to the medical-history section. Use MDI FHIR IG code. 
-clarkTestComp.NvdrsComposition().AddSectionEntryByCode(MdiCompositionSections.MedicalHistory, 
-    [
-        heightObs, 
-        weightObs
-    ]);
+// clarkTestComp.NvdrsComposition().AddSectionEntryByCode(MdiCompositionSections.MedicalHistory, 
+//     [
+//         heightObs, 
+//         weightObs
+//     ]);
 
 /*******************
  * For another data that are related to death but we do not have sections defined for.
