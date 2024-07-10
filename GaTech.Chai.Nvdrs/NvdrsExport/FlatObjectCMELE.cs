@@ -819,15 +819,16 @@ public class FlatObjectCMELE : FlatObject
                 {
                     if (firearmObservation != null)
                     {
-                        if ("Y".Equals(firearmObservation.NvdrsFirearm().FirearmStoredLoaded?.Coding[0].Code))
+                        string? answer = firearmObservation.NvdrsFirearm().FirearmStoredLoaded?.Coding[0].Code;
+                        if ("Y".Equals(answer))
                         {
                             data["value"] = "1";
                         }
-                        else if ("N".Equals(firearmObservation.NvdrsFirearm().FirearmStoredLoaded?.Coding[0].Code))
+                        else if ("N".Equals(answer))
                         {
                             data["value"] = "0";
                         }
-                        else if ("UNK".Equals(firearmObservation.NvdrsFirearm().FirearmStoredLoaded?.Coding[0].Code))
+                        else if ("UNK".Equals(answer))
                         {
                             data["value"] = "9";
                         }

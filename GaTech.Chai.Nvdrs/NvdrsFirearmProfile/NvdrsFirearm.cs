@@ -79,7 +79,7 @@ public class NvdrsFirearm
         {
             if (value != null)
             {
-                Extension ext = new("http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-gun-stored-loaded-extension", value);
+                Extension ext = new("http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-firearm-stored-loaded-extension", value);
                 this.observation.Extension.AddOrUpdateExtension(ext);
             }
         }
@@ -115,8 +115,8 @@ public class NvdrsFirearm
             FhirString? firearmOwnerNarrative = null;
             Resource? firearmOwnerResource = null;
 
-            IEnumerable<Extension> exts = this.observation.GetExtensions("http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-firearm-owner-extension");
-            foreach (Extension ext in exts)
+            Extension ownerExt = this.observation.GetExtension("http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-firearm-owner-extension");
+            foreach (Extension ext in ownerExt.Extension)
             {
                 if ("code".Equals(ext.Url))
                 {
