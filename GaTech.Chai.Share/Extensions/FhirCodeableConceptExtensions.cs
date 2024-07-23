@@ -7,7 +7,7 @@ namespace GaTech.Chai.Share
     /// <summary>
     /// CodeableConcept extension for Category with DataAbsentReason
     /// </summary>
-    public static class FhirCodeableConceptCategoryExtensions
+    public static class FhirCodeableConceptExtensions
     {
         public static void SetCategory(this List<CodeableConcept> codeableConcepts, Coding coding)
         {
@@ -47,6 +47,22 @@ namespace GaTech.Chai.Share
         public static Code GetDataAbsentReason(this CodeableConcept codeableConcept)
         {
             return codeableConcept.GetExtension("http://hl7.org/fhir/StructureDefinition/data-absent-reason")?.Value as Code;
+        }
+
+        public static bool CodingExist(this CodeableConcept codeableConcept_, CodeableConcept codeableConcept)
+        {
+            foreach(Coding coding_ in codeableConcept_.Coding)
+            {
+                foreach (Coding coding in codeableConcept.Coding)
+                {
+                    if (coding_.System == coding.System && coding_.Code == coding.Code)
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            return false;
         }
     }
 }

@@ -487,3 +487,12 @@ Console.WriteLine("+--------- Export NVDRS Bundle to Web Input file ---------+")
 FlatObjectCMELE flatObject = new();
 nvdrsTestBundle.NvdrsDocumentBundle().ExportToNVDRS(flatObject);
 
+// Read FHIR Bundle
+var parser = new FhirJsonParser();
+
+string bundleText = System.IO.File.ReadAllText("FHIRMessage-CaseId-436160-V5.json");
+var bundle = parser.Parse<Bundle>(bundleText);
+
+bundle.ImportToLibrary();
+bundle.NvdrsDocumentBundle().ExportToNVDRS(flatObject, "from_clarkco_data.txt");
+

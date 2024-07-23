@@ -74,7 +74,7 @@ public class FlatObjectCMELE : FlatObject
         {
             if (resource is Observation obs)
             {
-                if (WoundTypeCode.Matches(obs.Code))
+                if (WoundTypeCode.CodingExist(obs.Code))
                 {
                     CodeableConcept? cc = obs.Value as CodeableConcept;
                     if (cc != null)
@@ -100,7 +100,7 @@ public class FlatObjectCMELE : FlatObject
         {
             if (resource is Observation obs)
             {
-                if (YNUnkTypeCode.Matches(obs.Code))
+                if (YNUnkTypeCode.CodingExist(obs.Code))
                 {
                     if (obs.Value is CodeableConcept cc)
                     {
@@ -128,7 +128,7 @@ public class FlatObjectCMELE : FlatObject
         {
             if (resource is Observation obs)
             {
-                if (YNTypeCode.Matches(obs.Code))
+                if (YNTypeCode.CodingExist(obs.Code))
                 {
                     if (obs.Value is CodeableConcept cc)
                     {
@@ -152,7 +152,7 @@ public class FlatObjectCMELE : FlatObject
         {
             if (resource is Observation obs)
             {
-                if (YNUnkTypeCode.Matches(obs.Code))
+                if (YNUnkTypeCode.CodingExist(obs.Code))
                 {
                     if (obs.Value is CodeableConcept cc)
                     {
@@ -333,31 +333,34 @@ public class FlatObjectCMELE : FlatObject
                     {
                         if (entry.Resource is Observation obs)
                         {
-                            if (VrdrCs.MannerOfDeathLoinc.Matches(obs.Code))
+                            if (VrdrCs.MannerOfDeathLoinc.CodingExist(obs.Code))
                             {
-                                if (VrdrMannerOfDeathVs.NaturalDeath.Matches(obs.Value))
+                                if (obs.Value is CodeableConcept cc)
                                 {
-                                    data["value"] = "1";
-                                }
-                                else if (VrdrMannerOfDeathVs.AccidentalDeath.Matches(obs.Value))
-                                {
-                                    data["value"] = "2";
-                                }
-                                else if (VrdrMannerOfDeathVs.Suicide.Matches(obs.Value))
-                                {
-                                    data["value"] = "3";
-                                }
-                                else if (VrdrMannerOfDeathVs.Homicide.Matches(obs.Value))
-                                {
-                                    data["value"] = "4";
-                                }
-                                else if (VrdrMannerOfDeathVs.PatientAwaitingInvestigation.Matches(obs.Value))
-                                {
-                                    data["value"] = "5";
-                                }
-                                else if (VrdrMannerOfDeathVs.DeathMannerUndetermined.Matches(obs.Value))
-                                {
-                                    data["value"] = "6";
+                                    if (VrdrMannerOfDeathVs.NaturalDeath.CodingExist(cc))
+                                    {
+                                        StringWriteToData(data, "1", Alignment.RIGHT);
+                                    }
+                                    else if (VrdrMannerOfDeathVs.AccidentalDeath.CodingExist(cc))
+                                    {
+                                        StringWriteToData(data, "2", Alignment.RIGHT);
+                                    }
+                                    else if (VrdrMannerOfDeathVs.Suicide.CodingExist(cc))
+                                    {
+                                        StringWriteToData(data, "3", Alignment.RIGHT);
+                                    }
+                                    else if (VrdrMannerOfDeathVs.Homicide.CodingExist(cc))
+                                    {
+                                        StringWriteToData(data, "4", Alignment.RIGHT);
+                                    }
+                                    else if (VrdrMannerOfDeathVs.PatientAwaitingInvestigation.CodingExist(cc))
+                                    {
+                                        StringWriteToData(data, "5", Alignment.RIGHT);
+                                    }
+                                    else if (VrdrMannerOfDeathVs.DeathMannerUndetermined.CodingExist(cc))
+                                    {
+                                        StringWriteToData(data, "6", Alignment.RIGHT);
+                                    }
                                 }
                             }
                         }
@@ -484,7 +487,7 @@ public class FlatObjectCMELE : FlatObject
                     {
                         if (resource is Observation obs)
                         {
-                            if (CodeSystemsValueSets.VitalHeight.Matches(obs.Code))
+                            if (CodeSystemsValueSets.VitalHeight.CodingExist(obs.Code))
                             {
                                 Quantity? value = obs.Value as Quantity;
                                 if (value != null)
@@ -528,7 +531,7 @@ public class FlatObjectCMELE : FlatObject
                     {
                         if (resource is Observation obs)
                         {
-                            if (CodeSystemsValueSets.VitalHeight.Matches(obs.Code))
+                            if (CodeSystemsValueSets.VitalHeight.CodingExist(obs.Code))
                             {
                                 Quantity? value = obs.Value as Quantity;
                                 if (value != null)
@@ -575,7 +578,7 @@ public class FlatObjectCMELE : FlatObject
                     {
                         if (resource is Observation obs)
                         {
-                            if (CodeSystemsValueSets.VitalWeight.Matches(obs.Code))
+                            if (CodeSystemsValueSets.VitalWeight.CodingExist(obs.Code))
                             {
                                 Quantity? value = obs.Value as Quantity;
                                 if (value != null)
@@ -618,7 +621,7 @@ public class FlatObjectCMELE : FlatObject
                     {
                         if (resource is Observation obs)
                         {
-                            if (NvdrsCustomCs.NumberOfBullets.Matches(obs.Code))
+                            if (NvdrsCustomCs.NumberOfBullets.CodingExist(obs.Code))
                             {
                                 int? numBullets = obs.NvdrsNumberOfBullets().NumOfBullets;
                                 if (numBullets != null)
@@ -698,7 +701,7 @@ public class FlatObjectCMELE : FlatObject
                     {
                         if (resource is Observation obs)
                         {
-                            if (NvdrsCustomCs.GangRelated.Matches(obs.Code))
+                            if (NvdrsCustomCs.GangRelated.CodingExist(obs.Code))
                             {
                                 if (obs.Value is CodeableConcept cc)
                                 {
@@ -731,7 +734,7 @@ public class FlatObjectCMELE : FlatObject
                     {
                         if (entry.Resource is Observation obs)
                         {
-                            if (NvdrsCustomCs.SuicideNote.Matches(obs.Code))
+                            if (NvdrsCustomCs.SuicideNote.CodingExist(obs.Code))
                             {
                                 if (obs.VdrsSuicideNote().SuicideNote != null && obs.VdrsSuicideNote().SuicideNote.Trim().Length > 0)
                                 {

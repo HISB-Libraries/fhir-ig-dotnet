@@ -202,9 +202,16 @@ public class NvdrsDocumentBundle
     }
 
     // Below is to support NVDRS raw data export.
-    public void ExportToNVDRS(FlatObject myFlatObject)
+    public void ExportToNVDRS(FlatObject myFlatObject, string? filename = null)
     {
         myFlatObject.MapToNVDRS(bundle);
-        myFlatObject.ExportToFile();
+        if (filename == null)
+        {
+            myFlatObject.ExportToFile();
+        }
+        else
+        {
+            myFlatObject.ExportToFile(filename);
+        }
     }
 }
