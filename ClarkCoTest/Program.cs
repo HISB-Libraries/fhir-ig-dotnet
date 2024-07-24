@@ -72,6 +72,7 @@ practitioner.Address[0].SetStreetNameExt("Olympic Blvd");
 
 // Get the composition ready. This is like table of contents for the Bundle.
 Composition clarkTestComp = NvdrsComposition.Create(patient, practitioner, null, NvdrsDocTypesVs.CMEReport);
+clarkTestComp.Subject = patient.AsReference();
 
 // Set this to true if this data is a new record in NVDRS Web.
 clarkTestComp.NvdrsComposition().ForceNewRecord = true;
@@ -106,6 +107,7 @@ injuryWhenCustodyObs.Value = VrclValueSetYesNoUnknownVr.Yes;
 // Injury Incident
 Observation injuryIncident = VrdrInjuryIncident.Create(patient);
 injuryIncident.Status = ObservationStatus.Final;
+injuryIncident.FhirSubject(patient);
 injuryIncident.VrdrInjuryIncident().WorkInjuryIndicator = VrclValueSetYesNoUnknownVr.Yes;
 injuryIncident.VrdrInjuryIncident().PlaceOfInjury = new FhirString("company");
 injuryIncident.VrdrInjuryIncident().TransportationRole = (VrdrTransportationIncidentRoleVs.Other, "Rear Right");
@@ -125,6 +127,7 @@ injuryLocation.Address = new Address()
 // Autopsy Performed
 Observation autopsyPerformedObs = ObservationAutopsyPerformedIndicatorVr.Create(patient);
 autopsyPerformedObs.Status = ObservationStatus.Final;
+autopsyPerformedObs.FhirSubject(patient);
 autopsyPerformedObs.ObservationAutopsyPerformedIndicatorVr().Value = VrclValueSetYesNoUnknownVr.No;
 
 // Add these resources to Injury and Death section.
@@ -211,6 +214,7 @@ drugInvolvementObs.Value = VrclValueSetYesNoUnknownVr.Yes;
 // DeathAbuse
 Observation deathAbuseObs = NvdrsDeathAbuse.Create();
 deathAbuseObs.Status = ObservationStatus.Final;
+deathAbuseObs.FhirSubject(patient);
 deathAbuseObs.Value = VrclValueSetYesNoUnknownVr.No;
 
 // Gang related observation
@@ -252,6 +256,7 @@ clarkTestComp.NvdrsComposition().AddSectionEntryByCode(NvdrsCompositionSections.
 
 /*******************
  * For Toxicology section
+ * - Lab Results
  * - Specimen
  */
  // Lab Results for Alcohol, Amphetamine, Benzodiazepines, Cocaine, Opiate
@@ -287,6 +292,7 @@ opiateObs.ObservationToxicologyLabResult().ValueText = "11 mg";
 
 // Specimen
 Specimen specimen = SpecimenToxicologyLab.Create();
+specimen.Subject = patient.AsReference();
 specimen.SpecimenToxicologyLab().SpecimenTypeText = "Bile specimen (specimen)";
 
 // Add these resources to Toxicology section.
@@ -318,6 +324,7 @@ homelessObs.Value = VrclValueSetYesNoUnknownVr.Yes;
 // Age at Death
 Observation ageAtDeathObs = VrdrDecedentAge.Create(patient);
 ageAtDeathObs.Status = ObservationStatus.Final;
+ageAtDeathObs.FhirSubject(patient);
 ageAtDeathObs.Value = new Hl7.Fhir.Model.Quantity() 
 { 
     Value = 24,
@@ -405,6 +412,7 @@ Person firearmOwnerPerson = new()
  // Firearm
 Observation firearmObs = NvdrsFirearm.Create();
 firearmObs.Status = ObservationStatus.Final;
+firearmObs.FhirSubject(patient);
 // firearmObs.Category.Add(NvdrsCustomCs.Weapons);
 firearmObs.NvdrsFirearm().FirearmStolen = VrclValueSetYesNoUnknownVr.Yes;
 firearmObs.NvdrsFirearm().FirearmStoredLoaded = VrclValueSetYesNoUnknownVr.Yes;
@@ -415,14 +423,13 @@ firearmObs.NvdrsFirearm().FirearmType = NvdrsFirearmTypeVs.ShotgunUnknownType;
 firearmObs.NvdrsFirearm().FirearmMake = new FhirString("64");
 firearmObs.NvdrsFirearm().FirearmModel = "512";
 firearmObs.NvdrsFirearm().FirearmCaliber = "556";
-firearmObs.FhirSubject(patient);
 
 // Weapon Type
 Observation weaponTypeObs = NvdrsWeaponType.Create();
 weaponTypeObs.Status = ObservationStatus.Final;
+weaponTypeObs.FhirSubject(patient);
 weaponTypeObs.NvdrsWeaponType().FocusOnFirearm = firearmObs;
 weaponTypeObs.Value = NvdrsWeaponTypeVs.Firearm;
-weaponTypeObs.FhirSubject(patient);
 
 // Add these resources to weapon section.
 clarkTestComp.NvdrsComposition().AddSectionEntryByCode(NvdrsCompositionSections.Weapons, [weaponTypeObs]);
@@ -436,16 +443,24 @@ clarkTestComp.NvdrsComposition().AddSectionEntryByCode(NvdrsCompositionSections.
 // Causes of Death 1 - 4
 Observation causeOfDeathPart1 = ObservationMdiCauseOfDeathPart1.Create(patient, practitioner, "Airway Occlusion - Chemical", 1, "minutes");
 causeOfDeathPart1.Status = ObservationStatus.Final;
+causeOfDeathPart1.FhirSubject(patient);
+
 Observation causeOfDeathPart2 = ObservationMdiCauseOfDeathPart1.Create(patient, practitioner, "Aspiration of Food - Chemical", 2, "minutes");
 causeOfDeathPart2.Status = ObservationStatus.Final;
+causeOfDeathPart2.FhirSubject(patient);
+
 Observation causeOfDeathPart3 = ObservationMdiCauseOfDeathPart1.Create(patient, practitioner, "Burns - Thermal", 3, "minutes");
 causeOfDeathPart3.Status = ObservationStatus.Final;
+causeOfDeathPart3.FhirSubject(patient);
+
 Observation causeOfDeathPart4 = ObservationMdiCauseOfDeathPart1.Create(patient, practitioner, "Cardiac - Ruptured Aortic Aneurysm", 4, "minutes");
 causeOfDeathPart4.Status = ObservationStatus.Final;
+causeOfDeathPart4.FhirSubject(patient);
 
 // Other contributing factor
 Observation conditionContributingToDeath = VrdrCauseOfDeathPart2.Create(patient, practitioner);
 conditionContributingToDeath.Status = ObservationStatus.Final;
+conditionContributingToDeath.FhirSubject(patient);
 conditionContributingToDeath.VrdrCauseOfDeathPart2().Value = new CodeableConcept(null, null, "other cause");
 
 // Add these resources to cause-manner section.
@@ -465,6 +480,7 @@ clarkTestComp.NvdrsComposition().AddSectionEntryByCode(MdiCompositionSections.Ca
  */
 Procedure deathCertificationProcedure = VrdrDeathCertification.Create();
 deathCertificationProcedure.Performed = new FhirDateTime(2024, 7, 23);;
+deathCertificationProcedure.Subject = patient.AsReference();
 deathCertificationProcedure.VrdrDeathCertification().SubjectAsResource = patient;
 deathCertificationProcedure.VrdrDeathCertification().AddPerformer(practitioner, VrdrCertifierTypesVs.DeathCertByCME);
 
@@ -516,7 +532,7 @@ clarkTestComp.NvdrsComposition().AddSectionEntryByCode(NvdrsCompositionSections.
 
 // Create NVDRS Bundle using the composition created above
 Bundle nvdrsTestBundle = NvdrsDocumentBundle.Create(clarkTestComp);
-
+nvdrsTestBundle.Id = "6d9beb96-3edd-4344-8976-e8e46796c26c";
 FhirJsonSerializer serializer = new(new SerializerSettings() { Pretty = true });
 string outputPath = "./";
 string output = serializer.SerializeToString(nvdrsTestBundle);

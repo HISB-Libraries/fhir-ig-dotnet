@@ -1534,55 +1534,55 @@
             "value": ""
         },
         {
-            "name": "Death Friend Or Family Other LE",
+            "name": "DeathFriendOrFamilyOtherLE",
             "firstColumn": 1129,
             "lastColumn": 1129,
             "value": ""
         },
         {
-            "name": "Depressed Mood LE",
+            "name": "DepressedMoodLE",
             "firstColumn": 1130,
             "lastColumn": 1130,
             "value": ""
         },
         {
-            "name": "Disaster Exposure LE",
+            "name": "DisasterExposureLE",
             "firstColumn": 1131,
             "lastColumn": 1131,
             "value": ""
         },
         {
-            "name": "Disclosed Intent To Whom LE",
+            "name": "DisclosedIntentToWhomLE",
             "firstColumn": 1132,
             "lastColumn": 1132,
             "value": ""
         },
         {
-            "name": "Drive By Shooting LE",
+            "name": "DriveByShootingLE",
             "firstColumn": 1133,
             "lastColumn": 1133,
             "value": ""
         },
         {
-            "name": "Drug Involvement LE",
+            "name": "DrugInvolvementLE",
             "firstColumn": 1134,
             "lastColumn": 1134,
             "value": ""
         },
         {
-            "name": "Eviction Or Loss Of Home LE",
+            "name": "EvictionOrLossOfHomeLE",
             "firstColumn": 1135,
             "lastColumn": 1135,
             "value": ""
         },
         {
-            "name": "Fight Between Two People LE",
+            "name": "FightBetweenTwoPeopleLE",
             "firstColumn": 1136,
             "lastColumn": 1136,
             "value": ""
         },
         {
-            "name": "Financial Problem LE",
+            "name": "FinancialProblemLE",
             "firstColumn": 1137,
             "lastColumn": 1137,
             "value": ""
@@ -1594,175 +1594,175 @@
             "value": ""
         },
         {
-            "name": "Gang Related LE",
+            "name": "GangRelatedLE",
             "firstColumn": 1139,
             "lastColumn": 1139,
             "value": ""
         },
         {
-            "name": "Gun Cleaning LE",
+            "name": "GunCleaningLE",
             "firstColumn": 1140,
             "lastColumn": 1140,
             "value": ""
         },
         {
-            "name": "Gun Defect Malfunction LE",
+            "name": "GunDefectMalfunctionLE",
             "firstColumn": 1141,
             "lastColumn": 1141,
             "value": ""
         },
         {
-            "name": "Gun Dropped LE",
+            "name": "GunDroppedLE",
             "firstColumn": 1142,
             "lastColumn": 1142,
             "value": ""
         },
         {
-            "name": "Gun Fired Holstering LE",
+            "name": "GunFiredHolsteringLE",
             "firstColumn": 1143,
             "lastColumn": 1143,
             "value": ""
         },
         {
-            "name": "Gun Fired Loading Unloading LE",
+            "name": "GunFiredLoadingUnloadingLE",
             "firstColumn": 1144,
             "lastColumn": 1144,
             "value": ""
         },
         {
-            "name": "Gun Fired Operating Safety Lock LE",
+            "name": "GunFiredOperatingSafetyLockLE",
             "firstColumn": 1145,
             "lastColumn": 1145,
             "value": ""
         },
         {
-            "name": "Gun Playing LE",
+            "name": "GunPlayingLE",
             "firstColumn": 1146,
             "lastColumn": 1146,
             "value": ""
         },
         {
-            "name": "Gun Showing LE",
+            "name": "GunShowingLE",
             "firstColumn": 1147,
             "lastColumn": 1147,
             "value": ""
         },
         {
-            "name": "Gun Thought Safety Engaged LE",
+            "name": "GunThoughtSafetyEngagedLE",
             "firstColumn": 1148,
             "lastColumn": 1148,
             "value": ""
         },
         {
-            "name": "Gun Thought Toy LE",
+            "name": "GunThoughtToyLE",
             "firstColumn": 1149,
             "lastColumn": 1149,
             "value": ""
         },
         {
-            "name": "Gun Thought Unloaded Magazine Disengaged LE",
+            "name": "GunThoughtUnloadedMagazineDisengagedLE",
             "firstColumn": 1150,
             "lastColumn": 1150,
             "value": ""
         },
         {
-            "name": "Gun Thought Unloaded Other LE",
+            "name": "GunThoughtUnloadedOtherLE",
             "firstColumn": 1151,
             "lastColumn": 1151,
             "value": ""
         },
         {
-            "name": "Gun Unintentionally Pulled Trigger LE",
+            "name": "GunUnintentionallyPulledTriggerLE",
             "firstColumn": 1152,
             "lastColumn": 1152,
             "value": ""
         },
         {
-            "name": "Hate Crime LE",
+            "name": "HateCrimeLE",
             "firstColumn": 1153,
             "lastColumn": 1153,
             "value": ""
         },
         {
-            "name": "History Mental Illness Treatment LE",
+            "name": "HistoryMentalIllnessTreatmentLE",
             "firstColumn": 1154,
             "lastColumn": 1154,
             "value": ""
         },
         {
-            "name": "Hunting LE",
+            "name": "HuntingLE",
             "firstColumn": 1155,
             "lastColumn": 1155,
             "value": ""
         },
         {
-            "name": "Interpersonal Violence Perpetrator LE",
+            "name": "InterpersonalViolencePerpetratorLE",
             "firstColumn": 1156,
             "lastColumn": 1156,
             "value": ""
         },
         {
-            "name": "Interpersonal Violence Victim LE",
+            "name": "InterpersonalViolenceVictimLE",
             "firstColumn": 1157,
             "lastColumn": 1157,
             "value": ""
         },
         {
-            "name": "Intervener Assisting Victim LE",
+            "name": "IntervenerAssistingVictimLE",
             "firstColumn": 1158,
             "lastColumn": 1158,
             "value": ""
         },
         {
-            "name": "Intimate Partner Problem LE",
+            "name": "IntimatePartnerProblemLE",
             "firstColumn": 1159,
             "lastColumn": 1159,
             "value": ""
         },
         {
-            "name": "Intimate Partner Violence LE",
+            "name": "IntimatePartnerViolenceLE",
             "firstColumn": 1160,
             "lastColumn": 1160,
             "value": ""
         },
         {
-            "name": "Jealously LE",
+            "name": "JealouslyLE",
             "firstColumn": 1161,
             "lastColumn": 1161,
             "value": ""
         },
         {
-            "name": "Job Problem LE",
+            "name": "JobProblemLE",
             "firstColumn": 1162,
             "lastColumn": 1162,
             "value": ""
         },
         {
-            "name": "Justifiable Self Defense LE",
+            "name": "JustifiableSelfDefenseLE",
             "firstColumn": 1163,
             "lastColumn": 1163,
             "value": ""
         },
         {
-            "name": "Legal Problem Other LE",
+            "name": "LegalProblemOtherLE",
             "firstColumn": 1164,
             "lastColumn": 1164,
             "value": ""
         },
         {
-            "name": "Mental Health Diagnosis 1 LE",
+            "name": "MentalHealthDiagnosis1LE",
             "firstColumn": 1165,
             "lastColumn": 1166,
             "value": ""
         },
         {
-            "name": "Mental Health Diagnosis 2 LE",
+            "name": "MentalHealthDiagnosis2LE",
             "firstColumn": 1167,
             "lastColumn": 1168,
             "value": ""
         },
         {
-            "name": "Mental Health Diagnosis Other LE",
+            "name": "MentalHealthDiagnosisOtherLE",
             "firstColumn": 1169,
             "lastColumn": 1218,
             "value": ""
