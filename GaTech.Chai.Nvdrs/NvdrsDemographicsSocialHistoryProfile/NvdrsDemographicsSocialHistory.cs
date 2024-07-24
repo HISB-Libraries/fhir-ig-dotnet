@@ -24,7 +24,7 @@ public class NvdrsDemographicsSocialHistory
         observation.NvdrsDemographicsSocialHistory().AddProfile();
 
         // We need to set the Category for NVDRS Demographics Social History Profile.
-        observation.Category.Add(NvdrsCustomCs.Demographics);
+        observation.Category.Insert(0, NvdrsCustomCs.Demographics);
 
         return observation;
     }

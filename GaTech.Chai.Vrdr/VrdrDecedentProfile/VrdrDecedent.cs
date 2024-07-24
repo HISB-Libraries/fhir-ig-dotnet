@@ -23,7 +23,7 @@ public class VrdrDecedent
         return patient;
     }
 
-    public const string ProfileUrl = "http://hl7.org/fhir/us/vrdr/StructureDefinition/vrdr-cause-of-death-part2";
+    public const string ProfileUrl = "http://hl7.org/fhir/us/vrdr/StructureDefinition/vrdr-decedent";
 
     public void AddProfile()
     {

@@ -14,7 +14,7 @@ using static GaTech.Chai.Vrcl.VrclCodeSystemsValueSets;
 Console.WriteLine("+--------- Create NVDRS Bundle for Clark County ---------+");
 
 // Create a patient
-Patient patient = VrdrDecedent.Create();
+Patient patient = NvdrsDecedent.Create();
 patient.UsCorePatient().Race.Category = UsCoreVsOmbRaceCategory.Unknown;
 patient.UsCorePatient().Race.ExtendedRaceCodes = [UsCoreVSDetailedRace.Unknown];
 patient.UsCorePatient().Race.RaceText = UsCoreVSDetailedRace.Unknown.Display;
@@ -33,11 +33,11 @@ patient.Identifier.Add(new Identifier()
     Value = "55555555"
 });
 
-patient.Name = new List<HumanName>
-{
+patient.Name =
+[
     new() { Use = HumanName.NameUse.Official, Family = "Cane", GivenElement = [new("Jhon"), new("Michael")], SuffixElement = [new("First")] },
     new() { Use = HumanName.NameUse.Nickname, Family = "NameAKA"}
-};
+];
 
 patient.BirthDateElement = new Hl7.Fhir.Model.Date(2000, 4, 23);
 patient.Gender = AdministrativeGender.Male;
@@ -45,13 +45,13 @@ patient.Gender = AdministrativeGender.Male;
 patient.Address = [ new Address {
     Line = ["9127 Katy Freeway"],
     City = "Houston",
-    State = "Texas",
+    State = "TX",
     PostalCode = "77024",
-    Country = "United States"}
+    Country = "US"}
 ];
 
 // Practitioner who will be used for assigner/performer
-Practitioner practitioner = UsCorePractitioner.Create();
+Practitioner practitioner = VrdrCertifier.Create();
 practitioner.Id = "ac069540-a993-11ed-afa1-0242ac120002";
 
 practitioner.Name = [new HumanName() { Use = HumanName.NameUse.Official, Family = "Jones", GivenElement = new List<FhirString> { new FhirString("Sam") }, PrefixElement = new List<FhirString> { new FhirString("Dr") } }];
@@ -60,12 +60,12 @@ practitioner.Telecom = [new ContactPoint(ContactPoint.ContactPointSystem.Phone, 
 practitioner.Address = [ new Address {
     Use = Address.AddressUse.Work,
     Type = Address.AddressType.Physical,
-    Line = new List<string> { "567 Coda Blvd" },
+    Line = ["567 Coda Blvd"],
     City = "Atlanta",
     District = "Fulton County",
     State = "GA",
     PostalCode = "30318",
-    Country = "USA" }
+    Country = "US" }
 ];
 practitioner.Address[0].SetDistrictCode(04000);
 practitioner.Address[0].SetStreetNameExt("Olympic Blvd");
@@ -87,21 +87,25 @@ clarkTestComp.NvdrsComposition().ForceNewRecord = true;
  */
 // EMS at scene
 Observation emsAtSceneObs = NvdrsEmsAtScene.Create();
+emsAtSceneObs.Status = ObservationStatus.Final;
 emsAtSceneObs.FhirSubject(patient);
 emsAtSceneObs.Value = VrclValueSetYesNoUnknownVr.Yes;
 
 // Add Number of Bullets to composition's Injury and death section.
 Observation numOfBulletObs = NvdrsNumberOfBullets.Create();
+numOfBulletObs.Status = ObservationStatus.Final;
 numOfBulletObs.NvdrsNumberOfBullets().NumOfBullets = 3;
 numOfBulletObs.FhirSubject(patient);
 
 // injuryWhenCustody
 Observation injuryWhenCustodyObs = NvdrsVictimInCustodyWhenInjured.Create();
+injuryWhenCustodyObs.Status = ObservationStatus.Final;
 injuryWhenCustodyObs.FhirSubject(patient);
 injuryWhenCustodyObs.Value = VrclValueSetYesNoUnknownVr.Yes;
 
 // Injury Incident
 Observation injuryIncident = VrdrInjuryIncident.Create(patient);
+injuryIncident.Status = ObservationStatus.Final;
 injuryIncident.VrdrInjuryIncident().WorkInjuryIndicator = VrclValueSetYesNoUnknownVr.Yes;
 injuryIncident.VrdrInjuryIncident().PlaceOfInjury = new FhirString("company");
 injuryIncident.VrdrInjuryIncident().TransportationRole = (VrdrTransportationIncidentRoleVs.Other, "Rear Right");
@@ -120,6 +124,7 @@ injuryLocation.Address = new Address()
 
 // Autopsy Performed
 Observation autopsyPerformedObs = ObservationAutopsyPerformedIndicatorVr.Create(patient);
+autopsyPerformedObs.Status = ObservationStatus.Final;
 autopsyPerformedObs.ObservationAutopsyPerformedIndicatorVr().Value = VrclValueSetYesNoUnknownVr.No;
 
 // Add these resources to Injury and Death section.
@@ -150,66 +155,79 @@ clarkTestComp.NvdrsComposition().AddSectionEntryByCode(NvdrsCompositionSections.
  */
 // Depressed Mode
 Observation depressedObs = NvdrsCurrentDepressedMood.Create();
+depressedObs.Status = ObservationStatus.Final;
 depressedObs.FhirSubject(patient); 
 depressedObs.Value = VrclValueSetYesNoUnknownVr.Yes;
 
 // Mental Illness
 Observation mentalIllnessObs = VdrsHistoryOfMentalIllness.Create();
+mentalIllnessObs.Status = ObservationStatus.Final;
 mentalIllnessObs.FhirSubject(patient); 
 mentalIllnessObs.Value = VrclValueSetYesNoUnknownVr.Yes;
 
 // Selfharm
 Observation selfharmObs = NvdrsHistoryOfSelfHarm.Create();
+selfharmObs.Status = ObservationStatus.Final;
 selfharmObs.FhirSubject(patient);
 selfharmObs.Value = VrclValueSetYesNoUnknownVr.Yes;
 
 // Random Vielence
 Observation randomViolenceObs = NvdrsRandomViolence.Create();
+randomViolenceObs.Status = ObservationStatus.Final;
 randomViolenceObs.FhirSubject(patient);
 randomViolenceObs.Value = VrclValueSetYesNoUnknownVr.Yes;
 
 // School Problem
 Observation schoolProblemObs = NvdrsSchoolProblem.Create();
+schoolProblemObs.Status = ObservationStatus.Final;
 schoolProblemObs.FhirSubject(patient);
 schoolProblemObs.Value = VrclValueSetYesNoUnknownVr.Yes;
 
 // History of suicide attempts
 Observation suicideAttempts = NvdrsHistoryOfSuicideAttempts.Create();
+suicideAttempts.Status = ObservationStatus.Final;
 suicideAttempts.FhirSubject(patient);
 suicideAttempts.Value = VrclValueSetYesNoUnknownVr.Yes;
 
  // Suicide Note
 Observation suicideNoteObs = VdrsSuicideNote.Create();
+suicideNoteObs.Status = ObservationStatus.Final;
 suicideNoteObs.FhirSubject(patient);   
 suicideNoteObs.VdrsSuicideNote().SuicideNote = "Sorry.. I am ...";
 
 // Alcohol problem
 Observation alcoholProblemObs = NvdrsHistoryAlcoholUse.Create();
+alcoholProblemObs.Status = ObservationStatus.Final;
 alcoholProblemObs.FhirSubject(patient);
 alcoholProblemObs.Value = VrclValueSetYesNoUnknownVr.Yes;
 
 // Clark co specific - drug involvement
 Observation drugInvolvementObs = NvdrsCircumstances.Create();
+drugInvolvementObs.Status = ObservationStatus.Final;
 drugInvolvementObs.FhirSubject(patient);
 drugInvolvementObs.Code = new(NvdrsCustomCs.officialUrl, "drug-involvement", "Drug Involvement", null);
 drugInvolvementObs.Value = VrclValueSetYesNoUnknownVr.Yes;
 
 // DeathAbuse
 Observation deathAbuseObs = NvdrsDeathAbuse.Create();
+deathAbuseObs.Status = ObservationStatus.Final;
 deathAbuseObs.Value = VrclValueSetYesNoUnknownVr.No;
 
 // Gang related observation
 Observation gangRelatedObs = NvdrsGangRelated.Create();
+gangRelatedObs.Status = ObservationStatus.Final;
 gangRelatedObs.FhirSubject(patient);
 gangRelatedObs.Value = NvdrsGangRelatedVs.YesGangMotivated;
 
 // Firearm Drive by shooting
 Observation driveByShootingObs = NvdrsDriveByShooting.Create();
+driveByShootingObs.Status = ObservationStatus.Final;
 driveByShootingObs.FhirSubject(patient);
 driveByShootingObs.Value = VrclValueSetYesNoUnknownVr.Yes;
 
 // Firearm Related observation
 Observation playWithFirearmObs = NvdrsPlayingWithFirearm.Create();
+playWithFirearmObs.Status = ObservationStatus.Final;
 playWithFirearmObs.FhirSubject(patient);
 playWithFirearmObs.Value = VrclValueSetYesNoUnknownVr.Yes;
 
@@ -238,26 +256,31 @@ clarkTestComp.NvdrsComposition().AddSectionEntryByCode(NvdrsCompositionSections.
  */
  // Lab Results for Alcohol, Amphetamine, Benzodiazepines, Cocaine, Opiate
 Observation alcoholObs = ObservationToxicologyLabResult.Create();
+alcoholObs.Status = ObservationStatus.Final;
 alcoholObs.FhirSubject(patient);
 alcoholObs.ObservationToxicologyLabResult().CodeText = "Alcohol";
 alcoholObs.ObservationToxicologyLabResult().ValueText = "4";
 
 Observation amphetamineObs = ObservationToxicologyLabResult.Create();
+amphetamineObs.Status = ObservationStatus.Final;
 amphetamineObs.FhirSubject(patient);
 amphetamineObs.ObservationToxicologyLabResult().CodeText = "Amphetamine";
 amphetamineObs.ObservationToxicologyLabResult().ValueText = "8 mg";
 
 Observation benzodiazepinesObs = ObservationToxicologyLabResult.Create();
+benzodiazepinesObs.Status = ObservationStatus.Final;
 benzodiazepinesObs.FhirSubject(patient);
 benzodiazepinesObs.ObservationToxicologyLabResult().CodeText = "Benzodiazepines";
 benzodiazepinesObs.ObservationToxicologyLabResult().ValueText = "10 mg";
 
 Observation cocaineObs = ObservationToxicologyLabResult.Create();
+cocaineObs.Status = ObservationStatus.Final;
 cocaineObs.FhirSubject(patient);
 cocaineObs.ObservationToxicologyLabResult().CodeText = "Cocaine";
 cocaineObs.ObservationToxicologyLabResult().ValueText = "9 mg";
 
 Observation opiateObs = ObservationToxicologyLabResult.Create();
+opiateObs.Status = ObservationStatus.Final;
 opiateObs.FhirSubject(patient);
 opiateObs.ObservationToxicologyLabResult().CodeText = "Opiate";
 opiateObs.ObservationToxicologyLabResult().ValueText = "11 mg";
@@ -288,20 +311,25 @@ clarkTestComp.NvdrsComposition().AddSectionEntryByCode(NvdrsCompositionSections.
  */
 // Homeless status
 Observation homelessObs = NvdrsHomelessAtDeath.Create();
+homelessObs.Status = ObservationStatus.Final;
 homelessObs.FhirSubject(patient);
 homelessObs.Value = VrclValueSetYesNoUnknownVr.Yes;
 
 // Age at Death
 Observation ageAtDeathObs = VrdrDecedentAge.Create(patient);
+ageAtDeathObs.Status = ObservationStatus.Final;
 ageAtDeathObs.Value = new Hl7.Fhir.Model.Quantity() 
 { 
     Value = 24,
-    Unit = "a"
+    Unit = "a",
+    System = UriString.UnitsOfMeasure,
+    Code = "a"
 };
 
 // Occupation of decedent. We must have occupation if we create this. If occupation is
 // unknown, we just do not create this. "Occupation" is not an occupation....
 Observation usualWorkObs = OdhUsualWork.Create();
+usualWorkObs.Status = ObservationStatus.Final;
 usualWorkObs.FhirSubject(patient);
 usualWorkObs.Value = new CodeableConcept() 
 {
@@ -312,14 +340,18 @@ Observation.ComponentComponent usualWorkComp = usualWorkObs.Component.GetOrAddCo
 usualWorkComp.Value = new CodeableConcept() { Text = "Occupation"};
 
 // Height
-Observation heightObs = new();
+Observation heightObs = new()
+{
+    Status = ObservationStatus.Final
+};
+heightObs.FhirSubject(patient);
 heightObs.AddProfile("http://hl7.org/fhir/us/core/StructureDefinition/us-core-body-height");
 heightObs.Category =
 [
     new("http://terminology.hl7.org/CodeSystem/observation-category", "vital-signs")
 ];
-heightObs.Code = CodeSystemsValueSets.VitalHeight;
-heightObs.Effective = new Hl7.Fhir.Model.Date(2024, 7, 2);
+heightObs.Code = VitalHeight;
+heightObs.Effective = new FhirDateTime(2024, 7, 2);
 heightObs.Value = new Hl7.Fhir.Model.Quantity() 
 {
     Value = (decimal?)259.8,
@@ -329,14 +361,18 @@ heightObs.Value = new Hl7.Fhir.Model.Quantity()
 };
 
 // Weight
-Observation weightObs = new();
+Observation weightObs = new()
+{
+    Status = ObservationStatus.Final
+};
+weightObs.FhirSubject(patient);
 weightObs.AddProfile("http://hl7.org/fhir/us/core/StructureDefinition/us-core-body-weight");
 weightObs.Category =
 [
     new("http://terminology.hl7.org/CodeSystem/observation-category", "vital-signs")
 ];
-weightObs.Code = CodeSystemsValueSets.VitalWeight;
-weightObs.Effective = new Hl7.Fhir.Model.Date(2024, 7, 2);
+weightObs.Code = VitalWeight;
+weightObs.Effective = new FhirDateTime(2024, 7, 2);
 weightObs.Value = new Hl7.Fhir.Model.Quantity() 
 {
     Value = (decimal?)185,
@@ -368,6 +404,7 @@ Person firearmOwnerPerson = new()
 
  // Firearm
 Observation firearmObs = NvdrsFirearm.Create();
+firearmObs.Status = ObservationStatus.Final;
 // firearmObs.Category.Add(NvdrsCustomCs.Weapons);
 firearmObs.NvdrsFirearm().FirearmStolen = VrclValueSetYesNoUnknownVr.Yes;
 firearmObs.NvdrsFirearm().FirearmStoredLoaded = VrclValueSetYesNoUnknownVr.Yes;
@@ -382,6 +419,7 @@ firearmObs.FhirSubject(patient);
 
 // Weapon Type
 Observation weaponTypeObs = NvdrsWeaponType.Create();
+weaponTypeObs.Status = ObservationStatus.Final;
 weaponTypeObs.NvdrsWeaponType().FocusOnFirearm = firearmObs;
 weaponTypeObs.Value = NvdrsWeaponTypeVs.Firearm;
 weaponTypeObs.FhirSubject(patient);
@@ -426,6 +464,7 @@ clarkTestComp.NvdrsComposition().AddSectionEntryByCode(MdiCompositionSections.Ca
  * Death Certification is in the Jurisdication section of MDI composition
  */
 Procedure deathCertificationProcedure = VrdrDeathCertification.Create();
+deathCertificationProcedure.Performed = new FhirDateTime(2024, 7, 23);;
 deathCertificationProcedure.VrdrDeathCertification().SubjectAsResource = patient;
 deathCertificationProcedure.VrdrDeathCertification().AddPerformer(practitioner, VrdrCertifierTypesVs.DeathCertByCME);
 
@@ -464,6 +503,7 @@ clarkTestComp.NvdrsComposition().AddSectionEntryByCode(MdiCompositionSections.Ju
 // Number of victims
 // This is auto-generated in NVDRS (see 1.8 in NVDRS Coding Manual)
 Observation numOfVictimObs = VdrsNumberOfVictims.Create();
+numOfVictimObs.Status = ObservationStatus.Final;
 numOfVictimObs.FhirSubject(patient);
 numOfVictimObs.VdrsNumberOfVictims().NumOfVictims = 34;
 
@@ -485,7 +525,7 @@ File.WriteAllText(outputPath + "ClarkCounty_NVDRS_bundle_test.json", output);
 Console.WriteLine("+--------- Export NVDRS Bundle to Web Input file ---------+");
 // Set up if you want to export the NVDRS bundle to NVDRS web input file
 FlatObjectCMELE flatObject = new();
-nvdrsTestBundle.NvdrsDocumentBundle().ExportToNVDRS(flatObject);
+nvdrsTestBundle.NvdrsDocumentBundle().ExportToNVDRS(flatObject, "clarkson_data_gtri_flat.txt");
 
 // Read FHIR Bundle
 var parser = new FhirJsonParser();
@@ -494,5 +534,5 @@ string bundleText = System.IO.File.ReadAllText("FHIRMessage-CaseId-436160-V5.jso
 var bundle = parser.Parse<Bundle>(bundleText);
 
 bundle.ImportToLibrary();
-bundle.NvdrsDocumentBundle().ExportToNVDRS(flatObject, "from_clarkco_data.txt");
+bundle.NvdrsDocumentBundle().ExportToNVDRS(flatObject, "from_clarkco_data_flat.txt");
 

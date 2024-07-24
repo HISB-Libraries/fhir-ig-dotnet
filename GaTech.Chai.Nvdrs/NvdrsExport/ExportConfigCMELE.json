@@ -1354,169 +1354,169 @@
             "value": ""
         },
         {
-            "name": "Argument LE",
+            "name": "ArgumentLE",
             "firstColumn": 845,
             "lastColumn": 845,
             "value": ""
         },
         {
-            "name": "Argument Other LE",
+            "name": "ArgumentOtherLE",
             "firstColumn": 846,
             "lastColumn": 846,
             "value": ""
         },
         {
-            "name": "Argument Timing LE",
+            "name": "ArgumentTimingLE",
             "firstColumn": 847,
             "lastColumn": 847,
             "value": ""
         },
         {
-            "name": "Brawl LE",
+            "name": "BrawlLE",
             "firstColumn": 848,
             "lastColumn": 848,
             "value": ""
         },
         {
-            "name": "Bullet Ricochet LE",
+            "name": "BulletRicochetLE",
             "firstColumn": 849,
             "lastColumn": 849,
             "value": ""
         },
         {
-            "name": "Bystander LE",
+            "name": "BystanderLE",
             "firstColumn": 850,
             "lastColumn": 850,
             "value": ""
         },
         {
-            "name": "Celebratory Firing LE",
+            "name": "CelebratoryFiringLE",
             "firstColumn": 851,
             "lastColumn": 851,
             "value": ""
         },
         {
-            "name": "Is Circumstances Known",
+            "name": "IsCircumstancesKnown",
             "firstColumn": 852,
             "lastColumn": 852,
             "value": ""
         },
         {
-            "name": "Circumstances Other Text LE",
+            "name": "CircumstancesOtherTextLE",
             "firstColumn": 853,
             "lastColumn": 1107,
             "value": ""
         },
         {
-            "name": "Crisis Prostitution LE",
+            "name": "CririsProstitutionLE",
             "firstColumn": 1108,
             "lastColumn": 1108,
             "value": ""
         },
         {
-            "name": "Crisis Alcohol Problem LE",
+            "name": "CrisisAlcoholProblemLE",
             "firstColumn": 1109,
             "lastColumn": 1109,
             "value": ""
         },
         {
-            "name": "Crisis Civil Legal LE",
+            "name": "CrisisCivilLegalLE",
             "firstColumn": 1110,
             "lastColumn": 1110,
             "value": ""
         },
         {
-            "name": "Crisis Criminal LE",
+            "name": "CrisisCriminalLE",
             "firstColumn": 1111,
             "lastColumn": 1111,
             "value": ""
         },
         {
-            "name": "Crisis Disaster Exposure LE",
+            "name": "CrisisDisasterExposureLE",
             "firstColumn": 1112,
             "lastColumn": 1112,
             "value": ""
         },
         {
-            "name": "Crisis Eviction LE",
+            "name": "CrisisEvictionLE",
             "firstColumn": 1113,
             "lastColumn": 1113,
             "value": ""
         },
         {
-            "name": "Crisis Family Stressor LE",
+            "name": "CrisisFamilyStressorLE",
             "firstColumn": 1114,
             "lastColumn": 1114,
             "value": ""
         },
         {
-            "name": "Crisis Financial LE",
+            "name": "CrisisFinancialLE",
             "firstColumn": 1115,
             "lastColumn": 1115,
             "value": ""
         },
         {
-            "name": "Crisis Intimate Partner Problem LE",
+            "name": "CrisisIntimatePartnerProblemLE",
             "firstColumn": 1116,
             "lastColumn": 1116,
             "value": ""
         },
         {
-            "name": "Crisis Jealousy LE",
+            "name": "CrisisJealousyLE",
             "firstColumn": 1117,
             "lastColumn": 1117,
             "value": ""
         },
         {
-            "name": "Crisis Job LE",
+            "name": "CrisisJobLE",
             "firstColumn": 1118,
             "lastColumn": 1118,
             "value": ""
         },
         {
-            "name": "Crisis Mental Health LE",
+            "name": "CrisisMentalHealthLE",
             "firstColumn": 1119,
             "lastColumn": 1119,
             "value": ""
         },
         {
-            "name": "Crisis Other Addiction LE",
+            "name": "CrisisOtherAddictionLE",
             "firstColumn": 1120,
             "lastColumn": 1120,
             "value": ""
         },
         {
-            "name": "Crisis Physical Health LE",
+            "name": "CrisisPhysicalHealthLE",
             "firstColumn": 1121,
             "lastColumn": 1121,
             "value": ""
         },
         {
-            "name": "Crisis Related Death Friend Or Family Other LE",
+            "name": "CrisisRelatedDeathFriendOrFamilyOtherLE",
             "firstColumn": 1122,
             "lastColumn": 1122,
             "value": ""
         },
         {
-            "name": "Crisis Related Suicide Friend Or Family LE",
+            "name": "CrisisRelatedSuicideFriendOrFamilyLE",
             "firstColumn": 1123,
             "lastColumn": 1123,
             "value": ""
         },
         {
-            "name": "Crisis Relationship Problem Other LE",
+            "name": "CrisisRelationshipProblemOtherLE",
             "firstColumn": 1124,
             "lastColumn": 1124,
             "value": ""
         },
         {
-            "name": "Crisis School LE",
+            "name": "CrisisSchoolLE",
             "firstColumn": 1125,
             "lastColumn": 1125,
             "value": ""
         },
         {
-            "name": "Crisis Stalking LE",
+            "name": "CrisisStalkingLE",
             "firstColumn": 1126,
             "lastColumn": 1126,
             "value": ""

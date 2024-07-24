@@ -92,7 +92,7 @@ public class NvdrsCustomCs
     public static CodeableConcept Overdose = new(NvdrsCustomCs.officialUrl, "overdose", "Overdose", null);
     public static CodeableConcept WeaponType = new(NvdrsCustomCs.officialUrl, "weapon-type", "Type of Weapon", null);
     public static CodeableConcept Firearm = new(NvdrsCustomCs.officialUrl, "firearm", "Details on Firearm", null);
-    public static CodeableConcept FirearmType = new(NvdrsCustomCs.officialUrl, "firearm-type", "Firearm - Type", "The type of the firearm");
+    public static CodeableConcept FirearmType = new(NvdrsCustomCs.officialUrl, "firearm-type", "Firearm - Firearm Type", "The type of the firearm");
     public static CodeableConcept FirearmMake = new(NvdrsCustomCs.officialUrl, "firearm-make", "Firearm - Gun Make or NCIC Code", "The make of the firearm");
     public static CodeableConcept FirearmModel = new(NvdrsCustomCs.officialUrl, "firearm-model", "Firearm - Gun Model", "The model of the firearm");
     public static CodeableConcept FirearmCaliber = new(NvdrsCustomCs.officialUrl, "firearm-caliber", "Firearm - Caliber", "The caliber of the firearm");
@@ -123,6 +123,7 @@ public class NvdrsCustomCs
     public static CodeableConcept NumberOfVictims = new(NvdrsCustomCs.officialUrl, "number-of-victims", "Number of Victims (Non Fatal)", null);
     public static CodeableConcept SuicideNote = new(NvdrsCustomCs.officialUrl, "suicide-note", "Suicide Note", null);
     public static CodeableConcept DeathAbuse = new(NvdrsCustomCs.officialUrl, "death-abuse", "Abuse or neglect led to death", null);
+    public static CodeableConcept DrugInvolvement = new(NvdrsCustomCs.officialUrl, "drug-involvement", "Drug Involvement", null);
 }
 
 /*

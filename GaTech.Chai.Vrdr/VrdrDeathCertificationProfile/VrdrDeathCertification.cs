@@ -1,7 +1,6 @@
 ﻿using System;
 using Hl7.Fhir.Model;
 using GaTech.Chai.Share;
-using System.Collections.Generic;
 
 namespace GaTech.Chai.Vrdr
 {
@@ -23,6 +22,10 @@ namespace GaTech.Chai.Vrdr
             var procedure = new Procedure();
             procedure.VrdrDeathCertification().AddProfile();
             procedure.VrdrDeathCertification().AddFixedValue();
+
+            procedure.Status = EventStatus.Completed;
+            procedure.Category = new (UriString.SCT, "103693007");
+            procedure.Code = new (UriString.SCT, "308646001");
 
             return procedure;
         }
@@ -69,7 +72,7 @@ namespace GaTech.Chai.Vrdr
             }
         }
 
-        public void AddPerformer(Resource actorAsResource, CodeableConcept function)
+        public void AddPerformer(Practitioner actorAsResource, CodeableConcept function)
         {
             if (actorAsResource is not Practitioner)
             {

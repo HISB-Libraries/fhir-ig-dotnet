@@ -695,6 +695,10 @@ public class FlatObjectCMELE : FlatObject
                 {
                     SetCircumstanceYN(data, circumstanceResources, NvdrsCustomCs.DriveByShooting);
                 }
+                else if ("DrugInvolvementCME".Equals(data!["name"]!.GetValue<string>())) // 725
+                {
+                    SetCircumstanceYN(data, circumstanceResources, NvdrsCustomCs.DrugInvolvement);
+                }
                 else if ("GangRelatedCME".Equals(data!["name"]!.GetValue<string>())) // 730
                 {
                     foreach (Resource resource in circumstanceResources)

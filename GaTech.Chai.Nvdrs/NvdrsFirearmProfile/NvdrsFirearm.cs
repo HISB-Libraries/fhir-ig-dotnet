@@ -172,7 +172,7 @@ public class NvdrsFirearm
     {
         get
         {
-            Extension ext = this.observation.GetExtension("http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/firearm-serial-number");
+            Extension ext = this.observation.GetExtension("http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/vdrs-firearm-serial-number");
             if (ext == null || ext.Value is not Identifier)
             {
                 return null;
@@ -186,7 +186,7 @@ public class NvdrsFirearm
             if (value != null)
             {
                 Identifier identifierValue = new("urn:vdrs:ncic:serialnumber", value);
-                Extension ext = new("http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/firearm-serial-number", identifierValue);
+                Extension ext = new("http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/vdrs-firearm-serial-number", identifierValue);
                 this.observation.Extension.AddOrUpdateExtension(ext);
             }
         }
