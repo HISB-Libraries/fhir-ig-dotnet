@@ -141,9 +141,9 @@ namespace GaTech.Chai.Mdi
         {
             get
             {
-                foreach (Extension ext in this.diagnosticReport.GetExtensions("http://hl7.org/fhir/us/mdi/StructureDefinition/Extension-tracking-number"))
+                foreach (Extension ext in this.diagnosticReport.GetExtensions(MdiStructureDefinition.ExtensionTrackingNumberUrl))
                 {
-                    Coding coding = (ext.Value as Identifier).Type?.Coding?.Find(e => e.System == "http://hl7.org/fhir/us/mdi/CodeSystem/CodeSystem-mdi-codes" && e.Code == "edrs-file-number");
+                    Coding coding = (ext.Value as Identifier).Type?.Coding?.Find(e => e.System == MdiCodeSystem.MdiCodes.officialUrl && e.Code == MdiCodeSystem.MdiCodes.EdrsFileNumber.Coding[0].Code);
                     if (coding != null)
                     {
                         return ((ext.Value as Identifier).System, (ext.Value as Identifier).Value);
@@ -155,7 +155,7 @@ namespace GaTech.Chai.Mdi
 
             set
             {
-                Extension ext = new Extension() { Url = "http://hl7.org/fhir/us/mdi/StructureDefinition/Extension-tracking-number" };
+                Extension ext = new Extension() { Url = MdiStructureDefinition.ExtensionTrackingNumberUrl };
                 ext.Value = new Identifier() { Type = MdiCodeSystem.MdiCodes.EdrsFileNumber, System = value.Item1, Value = value.Item2 };
                 this.diagnosticReport.Extension.AddOrUpdateExtension(ext, true);
             }
@@ -168,9 +168,9 @@ namespace GaTech.Chai.Mdi
         {
             get
             {
-                foreach (Extension ext in this.diagnosticReport.GetExtensions("http://hl7.org/fhir/us/mdi/StructureDefinition/Extension-tracking-number"))
+                foreach (Extension ext in this.diagnosticReport.GetExtensions(MdiStructureDefinition.ExtensionTrackingNumberUrl))
                 {
-                    Coding coding = (ext.Value as Identifier).Type?.Coding?.Find(e => e.System == "http://hl7.org/fhir/us/mdi/CodeSystem/CodeSystem-mdi-codes" && e.Code == "mdi-case-number");
+                    Coding coding = (ext.Value as Identifier).Type?.Coding?.Find(e => e.System == MdiCodeSystem.MdiCodes.officialUrl && e.Code == MdiCodeSystem.MdiCodes.MdiCaseNumber.Coding[0].Code);
                     if (coding != null)
                     {
                         return ((ext.Value as Identifier).System, (ext.Value as Identifier).Value);
@@ -184,7 +184,7 @@ namespace GaTech.Chai.Mdi
             {
                 Extension ext = new()
                 {
-                    Url = "http://hl7.org/fhir/us/mdi/StructureDefinition/Extension-tracking-number",
+                    Url = MdiStructureDefinition.ExtensionTrackingNumberUrl,
                     Value = new Identifier() { Type = MdiCodeSystem.MdiCodes.MdiCaseNumber, System = value.Item1, Value = value.Item2 }
                 };
                 this.diagnosticReport.Extension.AddOrUpdateExtension(ext, true);
@@ -199,9 +199,9 @@ namespace GaTech.Chai.Mdi
         {
             get
             {
-                foreach (Extension ext in this.diagnosticReport.GetExtensions("http://hl7.org/fhir/us/mdi/StructureDefinition/Extension-tracking-number"))
+                foreach (Extension ext in this.diagnosticReport.GetExtensions(MdiStructureDefinition.ExtensionTrackingNumberUrl))
                 {
-                    Coding coding = (ext.Value as Identifier).Type?.Coding?.Find(e => e.System == "http://hl7.org/fhir/us/mdi/CodeSystem/CodeSystem-mdi-codes" && e.Code == "tox-lab-case-number");
+                    Coding coding = (ext.Value as Identifier).Type?.Coding?.Find(e => e.System == MdiCodeSystem.MdiCodes.officialUrl && e.Code == MdiCodeSystem.MdiCodes.ToxLabCaseNumber.Coding[0].Code);
                     if (coding != null)
                     {
                         return ((ext.Value as Identifier).System, (ext.Value as Identifier).Value);
@@ -215,7 +215,7 @@ namespace GaTech.Chai.Mdi
             {
                 Extension ext = new()
                 {
-                    Url = "http://hl7.org/fhir/us/mdi/StructureDefinition/Extension-tracking-number",
+                    Url = MdiStructureDefinition.ExtensionTrackingNumberUrl,
                     Value = new Identifier() { Type = MdiCodeSystem.MdiCodes.ToxLabCaseNumber, System = value.Item1, Value = value.Item2 }
                 };
                 this.diagnosticReport.Extension.AddOrUpdateExtension(ext);

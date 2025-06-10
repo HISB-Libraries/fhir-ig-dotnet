@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 using GaTech.Chai.Share;
 using Hl7.Fhir.Model;
 using static GaTech.Chai.Share.CodeSystems;
@@ -24,6 +25,10 @@ namespace GaTech.Chai.UsCore
 
         public static CodeableConcept VitalHeight = new(UriString.LOINC, "8302-2");
         public static CodeableConcept VitalWeight = new(UriString.LOINC, "29463-7");
+
+        public static CodeableConcept SexualOrientation = new(UriString.LOINC, "76690-7");
+
+        public static string UsCoreGenderIdentityUri = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-genderIdentity";
 
         public class UsCoreVsOmbRaceCategory
         {
@@ -411,6 +416,18 @@ namespace GaTech.Chai.UsCore
             public static CodeableConcept IdentifiesAsNonConformingGender = new(UriString.SCT, "446131000124102", "Identifies as non-conforming gender (finding)", null);
             public static CodeableConcept IdentifiesAsFemaleGender = new(UriString.SCT, "446141000124107", "Identifies as female gender (finding)", null);
             public static CodeableConcept IdentifiesAsMaleGender = new(UriString.SCT, "446151000124109", "Identifies as male gender (finding)", null);
+            public static CodeableConcept Other = V3NullFlavor.Other;
+            public static CodeableConcept Unknown = V3NullFlavor.Unknown;
+            public static CodeableConcept AskedButDeclined = new("http://terminology.hl7.org/CodeSystem/data-absent-reason", "asked-declined", "Asked But Declined", null);
+        }
+
+        public class UsCoreVsSexualOrientation
+        {
+            public static string officialUrl = "urn:oid:2.16.840.1.113762.1.4.1240.11";
+            public static CodeableConcept Heterosexual = new(UriString.SCT, "20430005", "Heterosexual (finding)", null);
+            public static CodeableConcept Homosexual = new(UriString.SCT, "38628009", "Homosexual (finding)", null);
+            public static CodeableConcept Bisexual = new(UriString.SCT, "42035005", "Bisexual (finding)", null);
+            public static CodeableConcept SexuallyAttractedToNeitherMaleNorFemaleSex = new(UriString.SCT, "765288000", "Sexually attracted to neither male nor female sex (finding)", null);
             public static CodeableConcept Other = V3NullFlavor.Other;
             public static CodeableConcept Unknown = V3NullFlavor.Unknown;
             public static CodeableConcept AskedButDeclined = new("http://terminology.hl7.org/CodeSystem/data-absent-reason", "asked-declined", "Asked But Declined", null);

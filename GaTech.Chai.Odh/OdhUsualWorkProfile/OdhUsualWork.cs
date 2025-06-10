@@ -3,7 +3,7 @@ using Hl7.Fhir.Model;
 using GaTech.Chai.Share;
 using System.Collections.Generic;
 
-namespace GaTech.Chai.Odh.UsualWorkProfile
+namespace GaTech.Chai.Odh
 {
     /// <summary>
     /// UsualWorkProfile
@@ -25,7 +25,7 @@ namespace GaTech.Chai.Odh.UsualWorkProfile
         {
             var observation = new Observation();
             observation.Category.SetCategory(new Coding("http://terminology.hl7.org/CodeSystem/observation-category", "social-history"));
-            observation.Code = new CodeableConcept("http://loinc.org", "21843-8", "History of Usual occupation", null);
+            observation.Code = OdhCodeSystemsValueSets.HistoryOfUsualOccupation;
             observation.OdhUsualWork().AddProfile();
 
             return observation;
@@ -59,23 +59,24 @@ namespace GaTech.Chai.Odh.UsualWorkProfile
         {
             get
             {
-                return (this.observation.Value as CodeableConcept)?.Coding?.Find(c => c.System == OccupationCdcCensus2010Oid);
+                return (this.observation.Value as CodeableConcept)?.Coding?.Find(c => c.System == OdhCodeSystemsValueSets.OccupationCdcCensus2010Oid);
             }
             set
             {
-                if (value.System != OccupationCdcCensus2010Oid)
+                if (value.System != OdhCodeSystemsValueSets.OccupationCdcCensus2010Oid)
                 {
-                    throw(new ArgumentException("System must be " + OccupationCdcCensus2010Oid));
+                    throw (new ArgumentException("System must be " + OdhCodeSystemsValueSets.OccupationCdcCensus2010Oid));
                 }
 
-                Coding coding = (this.observation.Value as CodeableConcept)?.Coding?.Find(c => c.System == OccupationCdcCensus2010Oid);
+                Coding coding = (this.observation.Value as CodeableConcept)?.Coding?.Find(c => c.System == OdhCodeSystemsValueSets.OccupationCdcCensus2010Oid);
                 if (coding == null)
                 {
                     CodeableConcept valueCodeable = this.observation.Value as CodeableConcept;
                     if (valueCodeable == null)
                     {
                         this.observation.Value = new CodeableConcept() { Coding = new List<Coding> { value } };
-                    } else
+                    }
+                    else
                     {
                         valueCodeable.Coding.Add(value);
                     }
@@ -91,20 +92,54 @@ namespace GaTech.Chai.Odh.UsualWorkProfile
         /// <summary>
         /// Occupation ONETSOC Detail. Only one coding is allowed.
         /// </summary>
-        public Coding OccupationCdcOnetSdc2010
+        public Coding OccupationONETSOCDetailODH
         {
             get
             {
-                return (this.observation.Value as CodeableConcept)?.Coding?.Find(c => c.System == OccupationOdhOid);
+                return (this.observation.Value as CodeableConcept)?.Coding?.Find(c => c.System == OdhCodeSystemsValueSets.OccupationONETSOCDetailODHOid);
             }
             set
             {
-                if (value.System != OccupationOdhOid)
+                if (value.System != OdhCodeSystemsValueSets.OccupationONETSOCDetailODHOid)
                 {
-                    throw (new ArgumentException("System must be " + OccupationOdhOid));
+                    throw (new ArgumentException("System must be " + OdhCodeSystemsValueSets.OccupationONETSOCDetailODHOid));
                 }
 
-                Coding coding = (this.observation.Value as CodeableConcept)?.Coding?.Find(c => c.System == OccupationOdhOid);
+                Coding coding = (this.observation.Value as CodeableConcept)?.Coding?.Find(c => c.System == OdhCodeSystemsValueSets.OccupationONETSOCDetailODHOid);
+                if (coding == null)
+                {
+                    CodeableConcept valueCodeable = this.observation.Value as CodeableConcept;
+                    if (valueCodeable == null)
+                    {
+                        this.observation.Value = new CodeableConcept() { Coding = new List<Coding> { value } };
+                    }
+                    else
+                    {
+                        valueCodeable.Coding.Add(value);
+                    }
+                }
+                else
+                {
+                    coding.Code = value.Code;
+                    coding.Display = value.Display;
+                }
+            }
+        }
+
+        public Coding OccupationCdcCensus2018
+        {
+            get
+            {
+                return (this.observation.Value as CodeableConcept)?.Coding?.Find(c => c.System == OdhCodeSystemsValueSets.OccupationCdcCensus2018Oid);
+            }
+            set
+            {
+                if (value.System != OdhCodeSystemsValueSets.OccupationCdcCensus2018Oid)
+                {
+                    throw (new ArgumentException("System must be " + OdhCodeSystemsValueSets.OccupationCdcCensus2010Oid));
+                }
+
+                Coding coding = (this.observation.Value as CodeableConcept)?.Coding?.Find(c => c.System == OdhCodeSystemsValueSets.OccupationCdcCensus2018Oid);
                 if (coding == null)
                 {
                     CodeableConcept valueCodeable = this.observation.Value as CodeableConcept;
@@ -128,28 +163,50 @@ namespace GaTech.Chai.Odh.UsualWorkProfile
         /// <summary>
         /// Usual Industry component
         /// </summary>
-        public Coding IndustryCdcCensus2010
+        public CodeableConcept OdhUsualIndustry
         {
             get
             {
-                Observation.ComponentComponent component = this.observation.Component.GetComponent("http://loinc.org", "21844-6");
+                Observation.ComponentComponent component = this.observation.Component.GetComponent(OdhCodeSystemsValueSets.HistoryOfUsualIndustry.Coding[0].System, OdhCodeSystemsValueSets.HistoryOfUsualIndustry.Coding[0].Code);
                 if (component != null)
                 {
-                    return (component.Value as CodeableConcept)?.Coding?.Find(c => c.System == IndustryCdcCensus2010Oid);
-                } else
+                    return component.Value as CodeableConcept;
+                }
+                else
                 {
                     return null;
                 }
             }
             set
             {
-                if (value.System != IndustryCdcCensus2010Oid)
+                Observation.ComponentComponent component = this.observation.Component.GetOrAddComponent(OdhCodeSystemsValueSets.HistoryOfUsualIndustry.Coding[0].System, OdhCodeSystemsValueSets.HistoryOfUsualIndustry.Coding[0].Code, null);
+                component.Value = value;
+            }
+        }
+
+        public Coding IndustryCdcCensus2010
+        {
+            get
+            {
+                Observation.ComponentComponent component = this.observation.Component.GetComponent(OdhCodeSystemsValueSets.HistoryOfUsualIndustry.Coding[0].System, OdhCodeSystemsValueSets.HistoryOfUsualIndustry.Coding[0].Code);
+                if (component != null)
                 {
-                    throw (new ArgumentException("System must be " + IndustryCdcCensus2010Oid));
+                    return (component.Value as CodeableConcept)?.Coding?.Find(c => c.System == OdhCodeSystemsValueSets.IndustryCdcCensus2010Oid);
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            set
+            {
+                if (value.System != OdhCodeSystemsValueSets.IndustryCdcCensus2010Oid)
+                {
+                    throw (new ArgumentException("System must be " + OdhCodeSystemsValueSets.IndustryCdcCensus2010Oid));
                 }
 
-                Observation.ComponentComponent component = this.observation.Component.GetOrAddComponent("http://loinc.org", "21844-6", "History of Usual industry");
-                Coding coding = (component.Value as CodeableConcept)?.Coding?.Find(c => c.System == IndustryCdcCensus2010Oid);
+                Observation.ComponentComponent component = this.observation.Component.GetOrAddComponent(OdhCodeSystemsValueSets.HistoryOfUsualIndustry.Coding[0].System, OdhCodeSystemsValueSets.HistoryOfUsualIndustry.Coding[0].Code, null);
+                Coding coding = (component.Value as CodeableConcept)?.Coding?.Find(c => c.System == OdhCodeSystemsValueSets.IndustryCdcCensus2010Oid);
                 if (coding == null)
                 {
                     component.Value = new CodeableConcept() { Coding = new List<Coding> { value } };
@@ -161,17 +218,14 @@ namespace GaTech.Chai.Odh.UsualWorkProfile
             }
         }
 
-        /// <summary
-        /// Usual Indstry component
-        /// <summary>
-        public Coding IndustryNaicsDetail
+        public Coding IndustryONETSOCDetailODH
         {
             get
             {
-                Observation.ComponentComponent component = this.observation.Component.GetComponent("http://loinc.org", "21844-6");
+                Observation.ComponentComponent component = this.observation.Component.GetComponent(OdhCodeSystemsValueSets.HistoryOfUsualIndustry.Coding[0].System, OdhCodeSystemsValueSets.HistoryOfUsualIndustry.Coding[0].Code);
                 if (component != null)
                 {
-                    return (component.Value as CodeableConcept)?.Coding?.Find(c => c.System == IndustryCdcNaics2012Oid);
+                    return (component.Value as CodeableConcept)?.Coding?.Find(c => c.System == OdhCodeSystemsValueSets.IndustryONETSOCDetailODHOid);
                 }
                 else
                 {
@@ -180,13 +234,47 @@ namespace GaTech.Chai.Odh.UsualWorkProfile
             }
             set
             {
-                if (value.System != IndustryCdcNaics2012Oid)
+                if (value.System != OdhCodeSystemsValueSets.IndustryONETSOCDetailODHOid)
                 {
-                    throw (new ArgumentException("System must be " + IndustryCdcNaics2012Oid));
+                    throw (new ArgumentException("System must be " + OdhCodeSystemsValueSets.IndustryONETSOCDetailODHOid));
                 }
 
-                Observation.ComponentComponent component = this.observation.Component.GetOrAddComponent("http://loinc.org", "21844-6", "History of Usual industry");
-                Coding coding = (component.Value as CodeableConcept)?.Coding?.Find(c => c.System == IndustryCdcNaics2012Oid);
+                Observation.ComponentComponent component = this.observation.Component.GetOrAddComponent(OdhCodeSystemsValueSets.HistoryOfUsualIndustry.Coding[0].System, OdhCodeSystemsValueSets.HistoryOfUsualIndustry.Coding[0].Code, null);
+                Coding coding = (component.Value as CodeableConcept)?.Coding?.Find(c => c.System == OdhCodeSystemsValueSets.IndustryONETSOCDetailODHOid);
+                if (coding == null)
+                {
+                    component.Value = new CodeableConcept() { Coding = new List<Coding> { value } };
+                }
+                else
+                {
+                    (component.Value as CodeableConcept).Coding.Add(value);
+                }
+            }
+        }
+
+        public Coding IndustryCdcCensus2018
+        {
+            get
+            {
+                Observation.ComponentComponent component = this.observation.Component.GetComponent(OdhCodeSystemsValueSets.HistoryOfUsualIndustry.Coding[0].System, OdhCodeSystemsValueSets.HistoryOfUsualIndustry.Coding[0].Code);
+                if (component != null)
+                {
+                    return (component.Value as CodeableConcept)?.Coding?.Find(c => c.System == OdhCodeSystemsValueSets.IndustryCdcCensus2018Oid);
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            set
+            {
+                if (value.System != OdhCodeSystemsValueSets.IndustryCdcCensus2018Oid)
+                {
+                    throw (new ArgumentException("System must be " + OdhCodeSystemsValueSets.IndustryCdcCensus2018Oid));
+                }
+
+                Observation.ComponentComponent component = this.observation.Component.GetOrAddComponent(OdhCodeSystemsValueSets.HistoryOfUsualIndustry.Coding[0].System, OdhCodeSystemsValueSets.HistoryOfUsualIndustry.Coding[0].Code, null);
+                Coding coding = (component.Value as CodeableConcept)?.Coding?.Find(c => c.System == OdhCodeSystemsValueSets.IndustryCdcCensus2018Oid);
                 if (coding == null)
                 {
                     component.Value = new CodeableConcept() { Coding = new List<Coding> { value } };
@@ -205,12 +293,12 @@ namespace GaTech.Chai.Odh.UsualWorkProfile
         {
             get
             {
-                return (this.observation.Component?.GetComponent("http://loinc.org", "74163-7")?.Value as Quantity)?.Value;
+                return (this.observation.Component?.GetComponent(OdhCodeSystemsValueSets.UsualOccupationDuration.Coding[0].System, OdhCodeSystemsValueSets.UsualOccupationDuration.Coding[0].Code)?.Value as Quantity)?.Value;
             }
             set
             {
-                Observation.ComponentComponent component = this.observation.Component.GetOrAddComponent("http://loinc.org", "74163-7", "Usual occupation duration");
-                component.Value = new Quantity() { System = "http://unitsofmeasure.org", Code = "a", Unit = "year", Value = value };
+                Observation.ComponentComponent component = this.observation.Component.GetOrAddComponent(OdhCodeSystemsValueSets.UsualOccupationDuration.Coding[0].System, OdhCodeSystemsValueSets.UsualOccupationDuration.Coding[0].Code, null);
+                component.Value = new Quantity() { System = UriString.UnitsOfMeasure, Code = "a", Unit = "year", Value = value };
             }
         }
 
@@ -221,11 +309,11 @@ namespace GaTech.Chai.Odh.UsualWorkProfile
         {
             get
             {
-                return this.observation.Component?.GetComponent("http://loinc.org", "74163-7")?.ReferenceRange?[0].Type;
+                return this.observation.Component?.GetComponent(OdhCodeSystemsValueSets.UsualOccupationDuration.Coding[0].System, OdhCodeSystemsValueSets.UsualOccupationDuration.Coding[0].Code)?.ReferenceRange?[0].Type;
             }
             set
             {
-                Observation.ComponentComponent component = this.observation.Component.GetOrAddComponent("http://loinc.org", "74163-7", "Usual occupation duration");
+                Observation.ComponentComponent component = this.observation.Component.GetOrAddComponent(OdhCodeSystemsValueSets.UsualOccupationDuration.Coding[0].System, OdhCodeSystemsValueSets.UsualOccupationDuration.Coding[0].Code, null);
                 if (component.ReferenceRange == null)
                 {
                     component.ReferenceRange = new List<Observation.ReferenceRangeComponent> { new Observation.ReferenceRangeComponent() { Type = value } };
@@ -240,11 +328,11 @@ namespace GaTech.Chai.Odh.UsualWorkProfile
         {
             get
             {
-                return this.observation.Component?.GetComponent("http://loinc.org", "74163-7")?.ReferenceRange?[0].AppliesTo?[0];
+                return this.observation.Component?.GetComponent(OdhCodeSystemsValueSets.UsualOccupationDuration.Coding[0].System, OdhCodeSystemsValueSets.UsualOccupationDuration.Coding[0].Code)?.ReferenceRange?[0].AppliesTo?[0];
             }
             set
             {
-                Observation.ComponentComponent component = this.observation.Component.GetOrAddComponent("http://loinc.org", "74163-7", "Usual occupation duration");
+                Observation.ComponentComponent component = this.observation.Component.GetOrAddComponent(OdhCodeSystemsValueSets.UsualOccupationDuration.Coding[0].System, OdhCodeSystemsValueSets.UsualOccupationDuration.Coding[0].Code, null);
                 if (component.ReferenceRange == null)
                 {
                     component.ReferenceRange = new List<Observation.ReferenceRangeComponent> { new Observation.ReferenceRangeComponent() { AppliesTo = new List<CodeableConcept> { value } } };
@@ -255,12 +343,5 @@ namespace GaTech.Chai.Odh.UsualWorkProfile
                 }
             }
         }
-
-        /// OID for PHIN VADS code systems for ODH
-        /// </summary>
-        public const string OccupationOdhOid = "urn:oid:2.16.840.1.114222.4.5.327";
-        public const string OccupationCdcCensus2010Oid = "urn:oid:2.16.840.1.114222.4.5.314";
-        public const string IndustryCdcCensus2010Oid = "urn:oid:2.16.840.1.114222.4.5.315";
-        public const string IndustryCdcNaics2012Oid = "urn:oid:2.16.840.1.114222.4.5.315";
     }
 }

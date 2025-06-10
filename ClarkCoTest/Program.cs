@@ -1,6 +1,6 @@
 ﻿using GaTech.Chai.Mdi;
 using GaTech.Chai.Nvdrs;
-using GaTech.Chai.Odh.UsualWorkProfile;
+using GaTech.Chai.Odh;
 using GaTech.Chai.Share;
 using GaTech.Chai.UsCore;
 using GaTech.Chai.Vrcl;
@@ -387,6 +387,12 @@ weightObs.Value = new Hl7.Fhir.Model.Quantity()
     System = "http://unitsofmeasure.org ",
     Code = "[lb_av]"
 };
+
+Observation sexualOrientationObs = UsCoreObservationSexualOrientation.Create();
+sexualOrientationObs.Status = ObservationStatus.Final;
+sexualOrientationObs.FhirSubject(patient);
+sexualOrientationObs.Value = UsCoreVsSexualOrientation.Bisexual;
+
 // Add these resources to Demographics section
 clarkTestComp.NvdrsComposition().AddSectionEntryByCode(NvdrsCompositionSections.Demographics, 
     [
@@ -394,7 +400,8 @@ clarkTestComp.NvdrsComposition().AddSectionEntryByCode(NvdrsCompositionSections.
         ageAtDeathObs, 
         usualWorkObs,
         heightObs,
-        weightObs
+        weightObs,
+        sexualOrientationObs
     ]);
 
 

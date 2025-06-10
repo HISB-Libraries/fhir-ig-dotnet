@@ -45,7 +45,7 @@ namespace GaTech.Chai.Mdi
             if (identifier != null) bundle.Identifier = identifier;
             if (messageHeader != null)
             {
-                bundle.BundleMessageToxicologyToMdi().ToxicologyToMdiMessageHeader = messageHeader;
+                bundle.BundleMessageToxicologyToMdi().ToxToMdiMessage = messageHeader;
             }
 
 
@@ -73,7 +73,7 @@ namespace GaTech.Chai.Mdi
             bundle.RemoveProfile(ProfileUrl);
         }
 
-        public MessageHeader ToxicologyToMdiMessageHeader
+        public MessageHeader ToxToMdiMessage
         {
             get
             {
@@ -94,7 +94,7 @@ namespace GaTech.Chai.Mdi
                 bundle.AddResourceEntry(value, value.AsReference().Reference);
                 //bundle.Entry.Add(new Bundle.EntryComponent() { FullUrl = value.AsReference().Reference, Resource = value });
 
-                // We have sections in the composition. Add them to entries if we have them.
+                // We have focus in messageheader. Add resource(s) in the focus to entries if we have them.
                 Dictionary<string, Resource> entryResources = value.MessageHeaderToxicologyToMdi().GetResourcesInFocus();
                 foreach (var urlAndResource in entryResources)
                 {

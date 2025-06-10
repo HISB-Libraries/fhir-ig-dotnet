@@ -24,17 +24,28 @@ namespace GaTech.Chai.Share
             return componentComponent.GetExtension("http://hl7.org/fhir/StructureDefinition/data-absent-reason")?.Value as Code;
         }
 
-        public static Observation.ComponentComponent GetOrAddComponent(this List<Observation.ComponentComponent> componentComponents, string system, string code, string display)
+        public static Observation.ComponentComponent GetOrAddComponent(this List<Observation.ComponentComponent> componentComponents, string system, string code, string? display)
         {
             var component = componentComponents.Find(
                 c => c.Code.Coding.Exists(coding => coding.Code == code && coding.System == system));
 
             if (component == null)
             {
-                component = new Observation.ComponentComponent()
+                if (display == null)
                 {
-                    Code = new CodeableConcept(system, code, display, null)
-                };
+                    component = new Observation.ComponentComponent()
+                    {
+
+                        Code = new CodeableConcept(system, code)
+                    };
+                }
+                else
+                {
+                    component = new Observation.ComponentComponent()
+                    {
+                        Code = new CodeableConcept(system, code, display, null)
+                    };
+                }
                 componentComponents.Add(component);
             }
 

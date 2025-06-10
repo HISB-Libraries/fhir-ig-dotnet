@@ -6,6 +6,18 @@ using static GaTech.Chai.Share.CodeSystems;
 
 namespace GaTech.Chai.Vrdr
 {
+    public class CodeSystemDeathPregnancyStatus
+    {
+        public const string officialUrl = "http://hl7.org/fhir/us/vrdr/CodeSystem/CodeSystem-death-pregnancy-status";
+
+        public static CodeableConcept NotPregnantPastYear = new(officialUrl, "1", "Not pregnant within past year", null);
+        public static CodeableConcept PregnantAtTimeOfDeath = new(officialUrl, "2", "Pregnant at time of death", null);
+        public static CodeableConcept NotpregnantButPregnant42DaysOfDeath = new(officialUrl, "3", "Not pregnant, but pregnant within 42 days of death", null);
+        public static CodeableConcept NotPregnantButPregnant43DaysTo1YearBeforeDeath = new(officialUrl, "4", "Not pregnant, but pregnant 43 days to 1 year before death", null);
+        public static CodeableConcept NotReportedOnCertificate = new(officialUrl, "7", "Not reported on certificate", null);
+        public static CodeableConcept UnknownIfPregnantPastYear = new(officialUrl, "9", "Unknown if pregnant within the past year", null);
+        public static CodeableConcept NA = new("http://terminology.hl7.org/CodeSystem/v3-NullFlavor", "NA", "Not applicable", null);
+    }
 
     public class VrdrComponentCs
     {
@@ -77,6 +89,31 @@ namespace GaTech.Chai.Vrdr
         public static CodeableConcept SecondOtherRaceLiteral = new(officialUrl, "SecondOtherRaceLiteral", "Second Other Race Literal", null);
     }
 
+    public class VrdrDocumentSectionCs
+    {
+        public const string officialUrl = "http://hl7.org/fhir/us/vrdr/CodeSystem/vrdr-document-section-cs";
+
+        public static CodeableConcept DecedentDemographics = new(officialUrl, "DecedentDemographics", "Decedent Demographics", null);
+        public static CodeableConcept DeathInvestigation = new(officialUrl, "DeathInvestigation", "Death Investigation", null);
+        public static CodeableConcept DeathCertification = new(officialUrl, "DeathCertification", "Death Certification", null);
+        public static CodeableConcept DecedentDisposition = new(officialUrl, "DecedentDisposition", "Decedent Disposition", null);
+        public static CodeableConcept CodedContent = new(officialUrl, "CodedContent", "Coded Content", null);
+    }
+
+    public class VrdrDeathPregnancyStatusVs
+    {
+        public const string officialUrl = "http://hl7.org/fhir/us/vrdr/ValueSet/vrdr-death-pregnancy-status-vs";
+
+        public static CodeableConcept NotPregnantPastYear = CodeSystemDeathPregnancyStatus.NotPregnantPastYear;
+        public static CodeableConcept PregnantAtTimeOfDeath = CodeSystemDeathPregnancyStatus.PregnantAtTimeOfDeath;
+        public static CodeableConcept NotpregnantButPregnant42DaysOfDeath = CodeSystemDeathPregnancyStatus.NotpregnantButPregnant42DaysOfDeath;
+        public static CodeableConcept NotPregnantButPregnant43DaysTo1YearBeforeDeath = CodeSystemDeathPregnancyStatus.NotPregnantButPregnant43DaysTo1YearBeforeDeath;
+        public static CodeableConcept NotReportedOnCertificate = CodeSystemDeathPregnancyStatus.NotReportedOnCertificate;
+        public static CodeableConcept UnknownIfPregnantPastYear = CodeSystemDeathPregnancyStatus.UnknownIfPregnantPastYear;
+        public static CodeableConcept NA = CodeSystemDeathPregnancyStatus.NA;
+    }
+
+
     public class VrdrTransportationIncidentRoleVs
     {
         public const string officialUrl = "http://hl7.org/fhir/us/vrdr/ValueSet/vrdr-transportation-incident-role-vs";
@@ -84,7 +121,7 @@ namespace GaTech.Chai.Vrdr
         public static CodeableConcept VehicleDriver = new(UriString.SCT, "236320001", "Vehicle driver", null);
         public static CodeableConcept Passenger = new(UriString.SCT, "257500003", "Passenger", null);
         public static CodeableConcept Pedestrian = new(UriString.SCT, "257518000", "Pedestrian", null);
-        public static CodeableConcept Other = V3NullFlavor.Other; 
+        public static CodeableConcept Other = V3NullFlavor.Other;
         public static CodeableConcept Unknown = V3NullFlavor.Unknown;
         public static CodeableConcept NotApplicable = V3NullFlavor.NotApplicable;
     }

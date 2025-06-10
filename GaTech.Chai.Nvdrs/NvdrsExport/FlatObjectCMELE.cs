@@ -3,8 +3,10 @@ using System.Text.Json.Nodes;
 using GaTech.Chai.Share;
 using GaTech.Chai.UsCore;
 using GaTech.Chai.Vrdr;
+using GaTech.Chai.Odh;
 using Hl7.Fhir.Model;
 using Hl7.Fhir.Utility;
+using GaTech.Chai.Mdi;
 
 namespace GaTech.Chai.Nvdrs;
 
@@ -215,6 +217,9 @@ public class FlatObjectCMELE : FlatObject
 
             // get the list of entries in the Demographics section
             List<Resource> deomgraphicsResources = composition.NvdrsComposition().GetSectionByCode(NvdrsCustomCs.Demographics);
+
+            // get the List of entries in the Toxicology section
+            List<Resource> toxicologyResources = composition.NvdrsComposition().GetSectionByCode(NvdrsCustomCs.Toxicology);
 
             // Mapping Process with a simple iteration over the data array.
             foreach (JsonNode? data in DataArray)
@@ -433,6 +438,73 @@ public class FlatObjectCMELE : FlatObject
                         }
                     }
                 }
+                else if ("SexualOrientation".Equals(data!["name"]!.GetValue<string>())) // 137
+                {
+                    foreach (Resource resource in deomgraphicsResources)
+                    {
+                        if (resource is Observation obs)
+                        {
+                            if (CodeSystemsValueSets.SexualOrientation.CodingExist(obs.Code))
+                            {
+                                CodeableConcept? value = obs.Value as CodeableConcept;
+                                if (value != null)
+                                {
+                                    if (CodeSystemsValueSets.UsCoreVsSexualOrientation.Heterosexual.CodingExist(value))
+                                    {
+                                        StringWriteToData(data, "0", Alignment.RIGHT);
+                                        break;
+                                    }
+
+                                    if (CodeSystemsValueSets.UsCoreVsSexualOrientation.Bisexual.CodingExist(value))
+                                    {
+                                        StringWriteToData(data, "3", Alignment.RIGHT);
+                                        break;
+                                    }
+
+                                    if (CodeSystemsValueSets.UsCoreVsSexualOrientation.Bisexual.CodingExist(value))
+                                    {
+                                        StringWriteToData(data, "4", Alignment.RIGHT);
+                                        break;
+                                    }
+
+                                    if (CodeSystemsValueSets.UsCoreVsSexualOrientation.Unknown.CodingExist(value))
+                                    {
+                                        StringWriteToData(data, "9", Alignment.RIGHT);
+                                        break;
+                                    }
+
+                                }
+                            }
+                        }
+                    }
+                }
+                else if ("Transgender".Equals(data!["name"]!.GetValue<string>())) // 138
+                {
+                    if (Record.GetResources().TryGetValue(composition.Subject.Reference, out Resource? resource))
+                    {
+                        Patient patient = (Patient)resource;
+                        List<CodeableConcept> genderIdCCs = patient.UsCorePatient().GenderIdentity;
+                        string transgender = null;
+                        foreach (CodeableConcept genderIdCC in genderIdCCs)
+                        {
+                            if (CodeSystemsValueSets.UsCoreVsGenderIdentity.MaleToFemaleTranssexual.CodingExist(genderIdCC)
+                                || CodeSystemsValueSets.UsCoreVsGenderIdentity.FemaleToMaleTranssexual.CodingExist(genderIdCC))
+                            {
+                                transgender = "1";
+                                break;
+                            }
+                            else
+                            {
+                                transgender = "0";
+                            }
+                        }
+
+                        if (transgender != null)
+                        {
+                            StringWriteToData(data, transgender, Alignment.RIGHT);
+                        }
+                    }
+                }
                 else if ("EthnicityVictim".Equals(data!["name"]!.GetValue<string>())) // 143
                 {
                     if (Record.GetResources().TryGetValue(composition.Subject.Reference, out Resource? resource))
@@ -614,6 +686,139 @@ public class FlatObjectCMELE : FlatObject
                 else if ("Homeless".Equals(data!["name"]!.GetValue<string>())) // 160
                 {
                     SetDemographicsYNUnk(data, deomgraphicsResources, NvdrsCustomCs.HomelessAtDeath);
+                }
+                else if ("IndustryText".Equals(data!["name"]!.GetValue<string>())) // 169 - 218
+                {
+                    foreach (Resource resource in deomgraphicsResources)
+                    {
+                        if (resource is Observation obs)
+                        {
+                            if (OdhCodeSystemsValueSets.HistoryOfUsualOccupation.CodingExist(obs.Code))
+                            {
+                                // Get ODH History of Usual Industry
+                                if (obs.Value is CodeableConcept cc)
+                                {
+                                    if (cc != null)
+                                    {
+                                        if (cc.Text != null)
+                                        {
+                                            if (cc.Text.Length > 50)
+                                            {
+                                                StringWriteToData(data, cc.Text[..50]);
+                                            }
+                                            else
+                                            {
+                                                StringWriteToData(data, cc.Text);
+                                            }
+                                            break;
+                                        }
+                                        else
+                                        {
+                                            string? text = null;
+                                            foreach (Coding coding in cc.Coding)
+                                            {
+                                                if (text == null)
+                                                {
+                                                    text = coding.System + " " + coding.Code + " " + coding.Display;
+                                                }
+                                                else
+                                                {
+                                                    text += ", " + coding.System + " " + coding.Code + " " + coding.Display;
+                                                }
+                                            }
+
+                                            if (text != null)
+                                            {
+                                                if (text.Length > 50)
+                                                {
+                                                    StringWriteToData(data, text[..50]);
+                                                }
+                                                else
+                                                {
+                                                    StringWriteToData(data, text);
+                                                }
+                                                break;
+                                            }
+                                        }
+                                    }
+                                }
+
+                                cc = obs.OdhUsualWork().OdhUsualIndustry;
+                                if (cc != null)
+                                {
+                                    if (cc.Text != null)
+                                    {
+                                        if (cc.Text.Length > 50)
+                                        {
+                                            StringWriteToData(data, cc.Text[..50]);
+                                        }
+                                        else
+                                        {
+                                            StringWriteToData(data, cc.Text);
+                                        }
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        string? text = null;
+                                        foreach (Coding coding in cc.Coding)
+                                        {
+                                            if (text == null)
+                                            {
+                                                text = coding.System + " " + coding.Code + " " + coding.Display;
+                                            }
+                                            else
+                                            {
+                                                text += ", " + coding.System + " " + coding.Code + " " + coding.Display;
+                                            }
+                                        }
+
+                                        if (text != null)
+                                        {
+                                            if (text.Length > 50)
+                                            {
+                                                StringWriteToData(data, text[..50]);
+                                            }
+                                            else
+                                            {
+                                                StringWriteToData(data, text);
+                                            }
+                                            break;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                else if ("AlcoholTested".Equals(data!["name"]!.GetValue<string>())) // 393
+                {
+                    foreach (Resource resource in toxicologyResources)
+                    {
+                        if (resource is Observation obs)
+                        {
+                            if ("Alcohol".Equals(obs.ObservationToxicologyLabResult().CodeText, StringComparison.OrdinalIgnoreCase))
+                            {
+                                StringWriteToData(data, "1", Alignment.RIGHT);
+                                break;
+                            }
+                        }
+                    }
+                }
+                else if ("AlcoholResult".Equals(data!["name"]!.GetValue<string>())) // 394
+                {
+                    foreach (Resource resource in toxicologyResources)
+                    {
+                        if (resource is Observation obs)
+                        {
+                            if ("Alcohol".Equals(obs.ObservationToxicologyLabResult().CodeText, StringComparison.OrdinalIgnoreCase) &&
+                                !String.IsNullOrEmpty(obs.ObservationToxicologyLabResult().ValueText))
+                            {
+                                StringWriteToData(data, "1", Alignment.RIGHT);
+                                break;
+                            }
+                        }
+                    }
                 }
                 else if ("NumberBullets".Equals(data!["name"]!.GetValue<string>())) // 423
                 {

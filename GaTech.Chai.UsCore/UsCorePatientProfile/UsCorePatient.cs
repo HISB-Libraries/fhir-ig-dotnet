@@ -81,7 +81,7 @@ namespace GaTech.Chai.UsCore
             {
                 List<CodeableConcept> ccs = new();
 
-                IEnumerable<Extension> exts = this.patient.GetExtensions("http://hl7.org/fhir/us/core/StructureDefinition/us-core-genderIdentity");
+                IEnumerable<Extension> exts = this.patient.GetExtensions(CodeSystemsValueSets.UsCoreGenderIdentityUri);
                 foreach (Extension ext in exts)
                 {
                     ccs.Add(ext.Value as CodeableConcept);
@@ -95,12 +95,12 @@ namespace GaTech.Chai.UsCore
                 foreach (CodeableConcept cc in value)
                 {
                     bool found = false;
-                    IEnumerable<Extension> exts = this.patient.GetExtensions("http://hl7.org/fhir/us/core/StructureDefinition/us-core-genderIdentity");
+                    IEnumerable<Extension> exts = this.patient.GetExtensions(CodeSystemsValueSets.UsCoreGenderIdentityUri);
                     foreach (Extension ext in exts)
                     {
                         if (ext.Value is CodeableConcept cc_)
                         {
-                            if (cc_.Matches(cc))
+                            if (cc_.CodingExist(cc))
                             {
                                 found = true;
                                 break;

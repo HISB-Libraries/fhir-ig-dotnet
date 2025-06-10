@@ -3,10 +3,10 @@
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
     <PackageId>fhir-ig-nvdrs-dotnet</PackageId>
-    <PackageVersion>1.0.0</PackageVersion>
+    <PackageVersion>0.1.0</PackageVersion>
     <Authors>Myung Choi</Authors>
     <PackageProjectUrl>https://github.com/HISB-Libraries/fhir-ig-dotnet</PackageProjectUrl>
-    <Description>.NET Library for HL7 FHIR® Implementation Guide: Vital Records Medicolegal Death Investigation (MDI), 2.0.0-ci-build STU 2</Description>
+    <Description>.NET Library for HL7 FHIR® Implementation Guide: Violent Death Reporting For MDI 2.0.0-ci-build STU 2</Description>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <NeutralLanguage>en-US</NeutralLanguage>
     <PackageTags>FHIR, MDI, VRDR, VRCL, IG, NVDRS</PackageTags>
@@ -21,6 +21,7 @@
   <ItemGroup>
     <ProjectReference Include="..\GaTech.Chai.Share\GaTech.Chai.Share.csproj" />
     <ProjectReference Include="..\GaTech.Chai.Mdi\GaTech.Chai.Mdi.csproj" />
+    <ProjectReference Include="..\GaTech.Chai.Odh\GaTech.Chai.Odh.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="NvdrsExport\*.json">

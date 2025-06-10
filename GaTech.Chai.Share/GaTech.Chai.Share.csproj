@@ -9,7 +9,7 @@
 	<Description>.NET Library for Commonly Shared Definitions in FHIR MDI and CBS IG</Description>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <NeutralLanguage>en-US</NeutralLanguage>
-    <PackageTags>FHIR, Share, IG, MDI, VRDR, VRCL, CBS</PackageTags>
+    <PackageTags>FHIR, Share, IG, MDI, VRDR, VRCL, CBS, NVDRS</PackageTags>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
@@ -27,8 +27,8 @@
     <Folder Include="Extensions\" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Hl7.Fhir.R4" Version="5.8.1" />
-    <PackageReference Include="Hl7.Fhir.Specification.R4" Version="5.8.1" />
+    <PackageReference Include="Hl7.Fhir.R4" Version="5.9.1" />
+    <PackageReference Include="Hl7.Fhir.Specification.R4" Version="5.9.1" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\LICENSE" Pack="true" PackagePath="" />

@@ -1,7 +1,7 @@
 ﻿using System;
 using Hl7.Fhir.Model;
 
-namespace GaTech.Chai.Odh.UsualWorkProfile
+namespace GaTech.Chai.Odh
 {
     /// <summary>
     /// Class with Observation extensions for UsualWorkProfile

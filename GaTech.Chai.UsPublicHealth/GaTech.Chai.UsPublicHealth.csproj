@@ -9,7 +9,7 @@
     <Authors>Myung Choi</Authors>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <NeutralLanguage>en-US</NeutralLanguage>
-    <PackageTags>FHIR, US Public Health, PH, IG, CBS</PackageTags>
+    <PackageTags>FHIR, US Public Health, PH, IG</PackageTags>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
