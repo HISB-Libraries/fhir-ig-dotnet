@@ -1,16 +1,16 @@
 ﻿using Hl7.Fhir.Model;
 
-namespace GaTech.Chai.Mdi
+namespace GaTech.Chai.Vrdr
 {
     /// <summary>
     /// Class with Observation extensions for ObservationDeathDateProfile
     /// http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-death-date
     /// </summary>
-    public static class ObservationDeathDateExtensions
+    public static class VrdrDeathDateExtensions
     {
-        public static ObservationDeathDate ObservationDeathDate(this Observation observation)
+        public static VrdrDeathDate VrdrDeathDate(this Observation observation)
         {
-            return new ObservationDeathDate(observation);
+            return new VrdrDeathDate(observation);
         }
     }
 }

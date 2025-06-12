@@ -13,29 +13,35 @@ namespace GaTech.Chai.Mdi
         {
             public const string officialUrl = "http://hl7.org/fhir/us/mdi/CodeSystem/cs-mdi-codes";
 
-            public static CodeableConcept AdditionalDemographics = new(officialUrl, "demographics", "Additional Demographics Section", null);
+            public static CodeableConcept DeathCertificateDataReviewDoc = new(officialUrl, "death-certificate-data-review-doc", "Death Certificate Data Review Document", null);
+            public static CodeableConcept AdditionalDemographics = new(officialUrl, "demographics", "Demographics Section", null);
             public static CodeableConcept Circumstances = new(officialUrl, "circumstances", "Circumstances of the Death Section", null);
             public static CodeableConcept Jurisdiction = new(officialUrl, "jurisdiction", "Jurisdiction Section", null);
             public static CodeableConcept CauseManner = new(officialUrl, "cause-manner", "Cause and Manner of Death Section", null);
             public static CodeableConcept MedicalHistory = new(officialUrl, "medical-history", "Medical History Section", null);
             public static CodeableConcept ExamAutopsy = new(officialUrl, "exam-autopsy", "Exam/Autopsy Section", null);
+            public static CodeableConcept Narratives = new(officialUrl, "narratives", "Narratives Section", null);
+            public static CodeableConcept CremationClearanceInfo = new(officialUrl, "cremation-clearance-info", "Cremation Clearance Information Section", null);
+            public static CodeableConcept DeathCertificateDataReview = new(officialUrl, "death-certificate-data-review", "Death Certificate Data Review Results Section", null);
             public static CodeableConcept MdiCaseNumber = new(officialUrl, "mdi-case-number", "MDI Case Number", null);
             public static CodeableConcept EdrsFileNumber = new(officialUrl, "edrs-file-number", "EDRS File Number", null);
             public static CodeableConcept ToxLabCaseNumber = new(officialUrl, "tox-lab-case-number", "Toxicology Laboratory Case Number", null);
             public static CodeableConcept FuneralHomeCaseNumber = new(officialUrl, "funeral-home-case-number", "Funeral Home Case Number", null);
-            public static CodeableConcept MdiCaseNotesSummary = new(officialUrl, "mdi-case-notes-summary", "MDI Case Notes Summary", null);
-            public static CodeableConcept MdiCaseHistory = new(officialUrl, "mdi-case-history", "MDI Case History", null);
             public static Coding ToxResultReport = new(officialUrl, "tox-result-report", "Toxicology Lab Results");
-            public static CodeableConcept Narratives = new(officialUrl, "narratives", "Narratives", null);
-            public static CodeableConcept Exact = new(officialUrl, "exact", "Exact", null);
-            public static CodeableConcept Approximate = new(officialUrl, "approximate", "Approximate", null);
-            public static CodeableConcept CourtAppointed = new(officialUrl, "court-appointed", "Court Appointed", null);
-            public static CodeableConcept Injury = new(officialUrl, "injury", "Injury Location", null);
-            public static CodeableConcept Death = new(officialUrl, "death", "Death Location", null);
             public static Coding DeathCertificateReviewEvent = new(officialUrl, "death-certificate-review-event");
-            public static CodeableConcept DeathCertificateDataReview = new(officialUrl, "death-certificate-data-review", "Death Certificate Data Review Results Section", null);
-            public static CodeableConcept DeathCertificateDataReviewDoc = new(officialUrl, "death-certificate-data-review-doc", "Death Certificate Data Review Document", null);
-            public static CodeableConcept CremationClearanceInfo = new(officialUrl, "cremation-clearance-info", "Cremation Clearance Information Section", null);
+            public static CodeableConcept EmbalmedObs = new(officialUrl, "embalmed-obs", "Embalmed Observation", null);
+            public static CodeableConcept CommunicableDiseaseObs = new(officialUrl, "communicable-disease-obs", "Communicable Disease Observation", null);
+            public static CodeableConcept MedInfoDataQualityObs = new(officialUrl, "med-info-data-quality-obs", "Medical Information Data Quality Observation", null);
+            public static CodeableConcept PersonalInfoDataQualityObs = new(officialUrl, "personal-info-data-quality-obs", "Personal Information Data Quality Observation", null);
+            public static CodeableConcept Crematorium = new(officialUrl, "crematorium", "Crematorium", null);
+            // 
+            // public static CodeableConcept MdiCaseNotesSummary = new(officialUrl, "mdi-case-notes-summary", "MDI Case Notes Summary", null);
+            // public static CodeableConcept MdiCaseHistory = new(officialUrl, "mdi-case-history", "MDI Case History", null);
+            // public static CodeableConcept Exact = new(officialUrl, "exact", "Exact", null);
+            // public static CodeableConcept Approximate = new(officialUrl, "approximate", "Approximate", null);
+            // public static CodeableConcept CourtAppointed = new(officialUrl, "court-appointed", "Court Appointed", null);
+            // public static CodeableConcept Injury = new(officialUrl, "injury", "Injury Location", null);
+            // public static CodeableConcept Death = new(officialUrl, "death", "Death Location", null);
         }
 
         // Moved to VRDR
@@ -222,5 +228,23 @@ namespace GaTech.Chai.Mdi
 
         public static CodeableConcept CremCSigned = MdiCodeSystem.CsDeathCertReviewExample.CremCSigned;
         public static CodeableConcept CremCUnsigned = MdiCodeSystem.CsDeathCertReviewExample.CremCUnsigned;
+    }
+
+    public class VsMedDqReview
+    {
+        public const string officialUrl = "http://hl7.org/fhir/us/mdi/ValueSet/vs-med-dq-review";
+
+        public static CodeableConcept MedInfDqMedicalValid = MdiCodeSystem.CsDeathCertReviewExample.MedInfDqMedicalValid;
+        public static CodeableConcept MedInfDqMedicalValidWithExceptions = MdiCodeSystem.CsDeathCertReviewExample.MedInfDqMedicalValidWithExceptions;
+        public static CodeableConcept MedInfDqMedicalInvalid = MdiCodeSystem.CsDeathCertReviewExample.MedInfDqMedicalInvalid;
+    }
+
+    public class VsPerDqReview
+    {
+        public const string officialUrl = "http://hl7.org/fhir/us/mdi/ValueSet/vs-per-dq-review";
+
+        public static CodeableConcept PerInfDqPersonalValid = MdiCodeSystem.CsDeathCertReviewExample.PerInfDqPersonalValid;
+        public static CodeableConcept PerInfDqPersonalValidWithExceptions = MdiCodeSystem.CsDeathCertReviewExample.PerInfDqPersonalValidWithExceptions;
+        public static CodeableConcept PerInfDqPersonalInvalid = MdiCodeSystem.CsDeathCertReviewExample.PerInfDqPersonalInvalid;
     }
 }

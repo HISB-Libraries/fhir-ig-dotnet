@@ -23,6 +23,19 @@ namespace GaTech.Chai.UsCore
         public static Organization Create()
         {
             var organization = new Organization();
+            organization.UsCoreOrganization().AddProfile();
+            organization.Active = true;
+
+            return organization;
+        }
+
+        public static Organization Create(string name)
+        {
+            var organization = new Organization();
+            organization.UsCoreOrganization().AddProfile();
+            organization.Active = true;
+            organization.Name = name;
+            
             return organization;
         }
 

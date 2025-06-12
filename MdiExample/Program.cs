@@ -125,7 +125,7 @@ namespace MdiExample
             observationHowDeathInjuryOccurred.VrdrInjuryIncident().PlaceOfInjury = new CodeableConcept { Text = "Private House" };
 
             // Location Death
-            Location deathLocation = LocationDeath.Create();
+            Location deathLocation = VrdrDeathLocation.Create();
             deathLocation.Id = "00c78cce-a994-11ed-afa1-0242ac120002";
             deathLocation.Identifier.Add(new Identifier("http://www.acme.org/location", "29"));
             deathLocation.Status = Location.LocationStatus.Active;
@@ -134,7 +134,7 @@ namespace MdiExample
                     "400 Windstream Street" }, City = "Atlanta", District = "Fulton County", State = "GA", Country = "USA" };
 
             // Location Injury
-            Location injuryLocation = LocationInjury.Create();
+            Location injuryLocation = VrdrInjuryLocation.Create();
             injuryLocation.Id = "0affba40-a994-11ed-afa1-0242ac120002";
             injuryLocation.Name = "Atlanta GA Injury Location";
             injuryLocation.Address = new Address() {
@@ -146,19 +146,19 @@ namespace MdiExample
                 State = "GA", PostalCode = "30318", Country = "USA" };
 
             // Observation Death Date
-            Observation observationDeathDate = ObservationDeathDate.Create(patient);
+            Observation observationDeathDate = VrdrDeathDate.Create(patient);
             observationDeathDate.Id = "19026d5e-a994-11ed-afa1-0242ac120002";
             observationDeathDate.Status = ObservationStatus.Final;
             observationDeathDate.Effective = new FhirDateTime("2022-01-08T15:30:00-05:00");
             observationDeathDate.Value = new FhirDateTime("2022-01-08T14:04:00-05:00");
-            observationDeathDate.ObservationDeathDate().DateTimePronouncedDead = new FhirDateTime("2022-01-08T15:30:00-05:00");
-            observationDeathDate.ObservationDeathDate().PlaceOfDeath = MdiVsPlaceOfDeath.DeadOnArrivalAtHospital;
-            observationDeathDate.ObservationDeathDate().PartialDateTime = (
+            observationDeathDate.VrdrDeathDate().DateTimePronouncedDead = new FhirDateTime("2022-01-08T15:30:00-05:00");
+            observationDeathDate.VrdrDeathDate().PlaceOfDeath = MdiVsPlaceOfDeath.DeadOnArrivalAtHospital;
+            observationDeathDate.VrdrDeathDate().PartialDateTime = (
                 new UnsignedInt(2022),
                 new UnsignedInt(1),
                 new UnsignedInt(30),
                 new Time("17:30:25"));
-            observationDeathDate.Method = MdiCodeSystem.MdiCodes.Exact;
+            observationDeathDate.Method = VrdrDateOfDeathDeterminationMethodsVs.Exact;
 
             // Death Certification
             Procedure procedureDeathCertification = ProcedureDeathCertification.Create(patient);
@@ -168,9 +168,9 @@ namespace MdiExample
             procedureDeathCertification.Performed = new FhirDateTime("2022-01-08T15:30:00-05:00");
 
             // Observation Decedent Pregnancy
-            Observation observationDecedentPregnancy = ObservationDecedentPregnancy.Create(patient);
+            Observation observationDecedentPregnancy = VrdrDecedentPregnancyStatus.Create(patient);
             observationDecedentPregnancy.Id = "2ce05796-a994-11ed-afa1-0242ac120002";
-            observationDecedentPregnancy.Value = MdiCodeSystem.DeathPregnancyStatus.NA;
+            observationDecedentPregnancy.Value = VrdrDeathPregnancyStatusVs.NA;
 
             // Observation Tobacco Use Contributed To Death
             Observation observationTobaccoUseContributedToDeath = ObservationTobaccoUseContributedToDeath.Create(patient);

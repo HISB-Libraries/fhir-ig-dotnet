@@ -14,12 +14,20 @@ namespace GaTech.Chai.UsCore
 
         internal UsCoreLocation(Location location)
         {
-            if (String.IsNullOrEmpty(location.Name))
-            {
-                throw new ArgumentException("Location.name cannot be null or empty in US Core Location");
-            }
+            // if (String.IsNullOrEmpty(location.Name))
+            // {
+            //     throw new ArgumentException("Location.name cannot be null or empty in US Core Location");
+            // }
 
             this.location = location;
+        }
+
+        public static Location Create()
+        {
+            var location = new Location();
+            location.UsCoreLocation().AddProfile();
+
+            return location;
         }
 
         /// <summary>
@@ -34,6 +42,7 @@ namespace GaTech.Chai.UsCore
             }
             var location = new Location() { Name = name };
             location.UsCoreLocation().AddProfile();
+            
             return location;
         }
 

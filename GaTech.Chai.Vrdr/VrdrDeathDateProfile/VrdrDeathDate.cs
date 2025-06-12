@@ -1,58 +1,57 @@
 ﻿using System;
 using Hl7.Fhir.Model;
 using GaTech.Chai.Share;
-using GaTech.Chai.Vrdr;
 
-namespace GaTech.Chai.Mdi
+namespace GaTech.Chai.Vrdr
 {
     /// <summary>
-    /// ObservationDeathDateProfile
+    /// VrdrDeathDateProfile
     /// http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-death-date
     /// </summary>
-    public class ObservationDeathDate
+    public class VrdrDeathDate
     {
         readonly Observation observation;
 
-        internal ObservationDeathDate(Observation observation)
+        internal VrdrDeathDate(Observation observation)
         {
             this.observation = observation;
         }
 
         /// <summary>
-        /// Factory for ObservationDeathDateProfile
-        /// http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-death-date
+        /// Factory for VrdrDeathDateProfile
+        /// http://hl7.org/fhir/us/vrdr/StructureDefinition/vrdr-death-date
         /// </summary>
         public static Observation Create()
         {
             var observation = new Observation();
-            observation.ObservationDeathDate().AddProfile();
+            observation.VrdrDeathDate().AddProfile();
             observation.Code = new CodeableConcept("http://loinc.org", "81956-5", "Date and time of death [TimeStamp]", null);
 
             return observation;
         }
 
         /// <summary>
-        /// Factory for ObservationDeathDateProfile with Subject patient
-        /// http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-death-date
+        /// Factory for VrdrDeathDateProfile with Subject patient
+        /// http://hl7.org/fhir/us/vrdr/StructureDefinition/vrdr-death-date
         /// </summary>
         public static Observation Create(Patient subject)
         {
             var observation = new Observation();
 
-            observation.ObservationDeathDate().AddProfile();
+            observation.VrdrDeathDate().AddProfile();
             observation.Code = new CodeableConcept("http://loinc.org", "81956-5", "Date and time of death [TimeStamp]", null);
-            observation.ObservationDeathDate().SubjectAsResource = subject;
+            observation.VrdrDeathDate().SubjectAsResource = subject;
 
             return observation;
         }
 
         /// <summary>
-        /// The official URL for ObservationDeathDateProfile, used to assert conformance.
+        /// The official URL for VrdrDeathDateProfile, used to assert conformance.
         /// </summary>
-        public const string ProfileUrl = "http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-death-date";
+        public const string ProfileUrl = "http://hl7.org/fhir/us/vrdr/StructureDefinition/vrdr-death-date";
 
         /// <summary>
-        /// Set profile for the ObservationDeathDateProfile
+        /// Set profile for the VrdrDeathDateProfile
         /// </summary>
         public void AddProfile()
         {

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using GaTech.Chai.Share;
+using GaTech.Chai.UsCore;
 using GaTech.Chai.Vrcl;
 using Hl7.Fhir.Model;
 
@@ -16,16 +17,29 @@ public class VrdrInjuryLocation
 
     public static Location Create()
     {
-        Location location = new Location
-        {
-            Type = new List<CodeableConcept>() {VrdrLocationTypeCs.InjuryLocation}
-        };
+        Location location = UsCoreLocation.Create();
+        location.UsCoreLocation().RemoveProfile();
+
+        location.Type = new List<CodeableConcept>() { VrdrLocationTypeCs.InjuryLocation };
         location.VrdrInjuryLocation().AddProfile();
 
         return location;
     }
 
-    public const string ProfileUrl = "http://hl7.org/fhir/us/vr-common-library/StructureDefinition/Location-vr";
+    public static Location Create(string name)
+    {
+        Location location = UsCoreLocation.Create();
+        location.UsCoreLocation().RemoveProfile();
+
+        location.Type = new List<CodeableConcept>() { VrdrLocationTypeCs.InjuryLocation };
+        location.VrdrInjuryLocation().AddProfile();
+
+        location.Name = name;
+
+        return location;
+    }
+
+    public const string ProfileUrl = "http://hl7.org/fhir/us/vrdr/StructureDefinition/vrdr-injury-location";
 
     public void AddProfile()
     {
@@ -36,5 +50,21 @@ public class VrdrInjuryLocation
     {
         this.location.RemoveProfile(ProfileUrl);
     }
+    
+    /// <summary>
+    /// (float Latitude, float Longitutde)
+    /// </summary>
+    public (float, float) Position
+    {
+        get
+        {
+            return (((float)this.location.Position?.Latitude), ((float)this.location.Position?.Latitude));
+        }
+        set
+        {
+            this.location.Position = new Location.PositionComponent { Latitude = new decimal(value.Item1), Longitude = new decimal(value.Item2)};
+        }
+    }
+
 }
 

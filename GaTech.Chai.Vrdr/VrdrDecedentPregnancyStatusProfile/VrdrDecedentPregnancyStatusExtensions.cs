@@ -1,6 +1,6 @@
 ﻿using Hl7.Fhir.Model;
 
-namespace GaTech.Chai.Mdi
+namespace GaTech.Chai.Vrdr
 {
     /// <summary>
     /// Class with Observation extensions for ObservationDecedentPregnancyProfile
@@ -8,9 +8,9 @@ namespace GaTech.Chai.Mdi
     /// </summary>
     public static class ObservationDecedentPregnancyExtensions
     {
-        public static ObservationDecedentPregnancy ObservationDecedentPregnancy(this Observation observation)
+        public static VrdrDecedentPregnancyStatus VrdrDecedentPregnancyStatus(this Observation observation)
         {
-            return new ObservationDecedentPregnancy(observation);
+            return new VrdrDecedentPregnancyStatus(observation);
         }
     }
 }

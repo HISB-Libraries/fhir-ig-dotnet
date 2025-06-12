@@ -148,7 +148,8 @@ namespace GaTech.Chai.Vrdr
         public static CodeableConcept DeathMannerUndetermined = new(UriString.SCT, "65037004", "Death, manner undetermined", null);
     }
 
-    public class VrdrCs {
+    public class VrdrCs
+    {
         public static CodeableConcept MannerOfDeathLoinc = new(UriString.LOINC, "69449-7");
         public static CodeableConcept DeathCertificationSCT = new(UriString.SCT, "308646001");
         public static CodeableConcept CauseOfDeath = new(UriString.LOINC, "69453-9");
@@ -164,6 +165,26 @@ namespace GaTech.Chai.Vrdr
         public static CodeableConcept Other = V3NullFlavor.Other;
     }
 
+    public class VrdrDateOfDeathDeterminationMethodsCs
+    {
+        public const string officialUrl = "http://hl7.org/fhir/us/vrdr/ValueSet/vrdr-date-of-death-determination-methods-vs";
+
+        public static CodeableConcept Exact = new(officialUrl, "exact", "Exact", null);
+        public static CodeableConcept Approximate = new(officialUrl, "approximate", "Approximate", null);
+        public static CodeableConcept Presumed = new(officialUrl, "presumed", "Presumed Date of Death", null);
+        public static CodeableConcept CourtAppointed = new(officialUrl, "court-appointed", "Court Appointed", null);
+    }
+
+    public class VrdrDateOfDeathDeterminationMethodsVs
+    {
+        public const string officialUrl = "http://hl7.org/fhir/us/vrdr/ValueSet/vrdr-date-of-death-determination-methods-vs";
+
+        public static CodeableConcept Exact = VrdrDateOfDeathDeterminationMethodsCs.Exact;
+        public static CodeableConcept Approximate = VrdrDateOfDeathDeterminationMethodsCs.Approximate;
+        public static CodeableConcept Presumed = VrdrDateOfDeathDeterminationMethodsCs.Presumed;
+        public static CodeableConcept CourtAppointed = VrdrDateOfDeathDeterminationMethodsCs.CourtAppointed;
+    }
+
     public class VrdrLocationTypeCs
     {
         public static CodeableConcept InjuryLocation = new("http://hl7.org/fhir/us/vrdr/CodeSystem/vrdr-location-type-cs", "injury", "Injury Location", null);
@@ -177,4 +198,5 @@ namespace GaTech.Chai.Vrdr
         public static CodeableConcept WorkInjuryIndicator = new(UriString.LOINC, "69444-8");
         public static CodeableConcept TransportationRole = new(UriString.LOINC, "69451-3");
     }
+    
 }

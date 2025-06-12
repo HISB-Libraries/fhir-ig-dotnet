@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
     <PackageId>fhir-ig-vrdr-dotnet</PackageId>
-    <PackageVersion>1.0.1</PackageVersion>
+    <PackageVersion>1.1.0</PackageVersion>
     <Authors>Myung Choi</Authors>
     <PackageProjectUrl>https://github.com/HISB-Libraries/fhir-ig-dotnet</PackageProjectUrl>
     <Description>.NET Library for HL7 FHIR® Implementation Guide: Vital Records Death Reporting (VRDR), 3.0.0-ci-build STU 2</Description>

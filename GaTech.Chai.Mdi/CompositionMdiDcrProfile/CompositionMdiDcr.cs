@@ -5,8 +5,6 @@ using static Hl7.Fhir.Model.Composition;
 using System.Collections.Generic;
 using Code = Hl7.Fhir.Model.Code;
 using GaTech.Chai.Vrdr;
-using System.Threading;
-using System.Diagnostics.CodeAnalysis;
 using GaTech.Chai.Vrcl;
 
 namespace GaTech.Chai.Mdi

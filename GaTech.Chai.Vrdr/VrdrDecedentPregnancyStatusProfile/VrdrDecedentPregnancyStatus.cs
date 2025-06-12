@@ -3,25 +3,25 @@ using Hl7.Fhir.Model;
 using GaTech.Chai.Share;
 using System.Collections.Generic;
 
-namespace GaTech.Chai.Mdi
+namespace GaTech.Chai.Vrdr
 {
     /// <summary>
-    /// ObservationDecedentPregnancyProfile
-    /// http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-decedent-pregnancy
+    /// VrdrDecedentPregnancyStatusProfile
+    /// http://hl7.org/fhir/us/vrdr/StructureDefinition/vrdr-decedent-pregnancy-status
     /// </summary>
-    public class ObservationDecedentPregnancy
+    public class VrdrDecedentPregnancyStatus
     {
         readonly Observation observation;
         readonly static Dictionary<string, Resource> resources = new();
 
-        internal ObservationDecedentPregnancy(Observation observation)
+        internal VrdrDecedentPregnancyStatus(Observation observation)
         {
             this.observation = observation;
         }
 
         /// <summary>
-        /// Factory for ObservationDecedentPregnancyProfile
-        /// http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-decedent-pregnancy
+        /// Factory for VrdrDecedentPregnancyStatusProfile
+        /// http://hl7.org/fhir/us/vrdr/StructureDefinition/vrdr-decedent-pregnancy-status
         /// </summary>
         public static Observation Create()
         {
@@ -30,7 +30,7 @@ namespace GaTech.Chai.Mdi
 
             var observation = new Observation();
 
-            observation.ObservationDecedentPregnancy().AddProfile();
+            observation.VrdrDecedentPregnancyStatus().AddProfile();
             observation.Status = ObservationStatus.Final;
             observation.Code = new CodeableConcept("http://loinc.org", "69442-2", "Timing of recent pregnancy in relation to death", null);
 
@@ -38,8 +38,8 @@ namespace GaTech.Chai.Mdi
         }
 
         /// <summary>
-        /// Factory for ObservationDecedentPregnancyProfile with Subject
-        /// http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-decedent-pregnancy
+        /// Factory for VrdrDecedentPregnancyStatusProfile with Subject
+        /// http://hl7.org/fhir/us/vrdr/StructureDefinition/vrdr-decedent-pregnancy-status
         /// </summary>
         public static Observation Create(Patient subject)
         {
@@ -48,21 +48,21 @@ namespace GaTech.Chai.Mdi
 
             var observation = new Observation();
 
-            observation.ObservationDecedentPregnancy().AddProfile();
+            observation.VrdrDecedentPregnancyStatus().AddProfile();
             observation.Status = ObservationStatus.Final;
             observation.Code = new CodeableConcept("http://loinc.org", "69442-2", "Timing of recent pregnancy in relation to death", null);
-            observation.ObservationDecedentPregnancy().SubjectAsResource = subject;
+            observation.VrdrDecedentPregnancyStatus().SubjectAsResource = subject;
 
             return observation;
         }
 
         /// <summary>
-        /// The official URL for the ObservationDecedentPregnancyProfile, used to assert conformance.
+        /// The official URL for the VrdrDecedentPregnancyStatusProfile, used to assert conformance.
         /// </summary>
-        public const string ProfileUrl = "http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-decedent-pregnancy";
+        public const string ProfileUrl = "http://hl7.org/fhir/us/vrdr/StructureDefinition/vrdr-decedent-pregnancy-status";
 
         /// <summary>
-        /// Set profile for ObservationDecedentPregnancyProfile
+        /// Set profile for VrdrDecedentPregnancyStatusProfile
         /// </summary>
         public void AddProfile()
         {
@@ -70,7 +70,7 @@ namespace GaTech.Chai.Mdi
         }
 
         /// <summary>
-        /// Clear profile for ObservationDecedentPregnancyProfile
+        /// Clear profile for VrdrDecedentPregnancyStatusProfile
         /// </summary>
         public void RemoveProfile()
         {
