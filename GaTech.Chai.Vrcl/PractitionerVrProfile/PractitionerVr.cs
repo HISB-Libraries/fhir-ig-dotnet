@@ -15,7 +15,8 @@ namespace GaTech.Chai.Vrcl
 
         public static Practitioner Create()
         {
-            var practitioner = new Practitioner();
+            var practitioner = UsCorePractitioner.Create();
+            practitioner.UsCorePractitioner().RemoveProfile();
             practitioner.PractitionerVr().AddProfile();
 
             return practitioner;

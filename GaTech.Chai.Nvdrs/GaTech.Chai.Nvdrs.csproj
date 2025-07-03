@@ -1,9 +1,9 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFramework>net9.0</TargetFramework>
     <PackageId>fhir-ig-nvdrs-dotnet</PackageId>
-    <PackageVersion>0.1.0</PackageVersion>
+    <PackageVersion>0.1.1</PackageVersion>
     <Authors>Myung Choi</Authors>
     <PackageProjectUrl>https://github.com/HISB-Libraries/fhir-ig-dotnet</PackageProjectUrl>
     <Description>.NET Library for HL7 FHIR® Implementation Guide: Violent Death Reporting For MDI 2.0.0-ci-build STU 2</Description>

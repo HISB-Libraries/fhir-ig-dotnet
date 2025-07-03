@@ -12,7 +12,7 @@ namespace GaTech.Chai.Mdi
     public class ObservationTobaccoUseContributedToDeath
     {
         readonly Observation observation;
-        readonly static Dictionary<string, Resource> resources = new();
+        // readonly static Dictionary<string, Resource> resources = new();
 
         internal ObservationTobaccoUseContributedToDeath(Observation observation)
         {
@@ -26,7 +26,7 @@ namespace GaTech.Chai.Mdi
         public static Observation Create()
         {
             // clear static resource container.
-            resources.Clear();
+            // resources.Clear();
 
             var observation = new Observation();
             observation.ObservationTobaccoUseContributedToDeath().AddProfile();
@@ -43,7 +43,7 @@ namespace GaTech.Chai.Mdi
         public static Observation Create(Patient subject)
         {
             // clear static resource container.
-            resources.Clear();
+            // resources.Clear();
 
             var observation = new Observation();
 
@@ -84,14 +84,14 @@ namespace GaTech.Chai.Mdi
             get
             {
                 Resource value;
-                resources.TryGetValue(this.observation.Subject.Reference, out value);
+                Record.GetResources().TryGetValue(this.observation.Subject.Reference, out value);
 
                 return (Patient)value;
             }
             set
             {
                 this.observation.Subject = value.AsReference();
-                resources[value.AsReference().Reference] = value;
+                Record.GetResources()[value.AsReference().Reference] = value;
             }
         }
 
@@ -110,9 +110,9 @@ namespace GaTech.Chai.Mdi
             }
         }
 
-        public Dictionary<String, Resource> GetReferencedResources()
-        {
-            return resources;
-        }
+        // public Dictionary<String, Resource> GetReferencedResources()
+        // {
+        //     return resources;
+        // }
     }
 }

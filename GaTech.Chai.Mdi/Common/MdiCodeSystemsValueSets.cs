@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Buffers.Text;
+using GaTech.Chai.Vrdr;
 using Hl7.Fhir.Model;
 
 /// <summary>
@@ -172,6 +173,16 @@ namespace GaTech.Chai.Mdi
         public static CodeableConcept MedicalHistory = MdiCodeSystem.MdiCodes.MedicalHistory;
         public static CodeableConcept ExamAutopsy = MdiCodeSystem.MdiCodes.ExamAutopsy;
         public static CodeableConcept Narratives = MdiCodeSystem.MdiCodes.Narratives;
+    }
+
+    public class MdiDcrCompositionSections
+    {
+        public static CodeableConcept DecedentDemographics = VrdrDocumentSectionCs.DecedentDemographics;
+        public static CodeableConcept DeathInvestigation = VrdrDocumentSectionCs.DeathInvestigation;
+        public static CodeableConcept DeathCertification = VrdrDocumentSectionCs.DeathCertification;
+        public static CodeableConcept DecedentDisposition = VrdrDocumentSectionCs.DecedentDisposition;
+        public static CodeableConcept DeathCertificateDataReview = MdiCodeSystem.MdiCodes.DeathCertificateDataReview;
+        public static CodeableConcept CremationClearanceInfo = MdiCodeSystem.MdiCodes.CremationClearanceInfo;
     }
 
     public class VsTrackingNumberType

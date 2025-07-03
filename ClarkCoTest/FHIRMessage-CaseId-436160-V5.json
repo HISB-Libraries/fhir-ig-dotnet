@@ -1,0 +1,2469 @@
+{
+  "resourceType": "Bundle",
+  "id": "34ee9fa3-de44-4fd9-ac2a-4d4560772cdf",
+  "meta": {
+    "profile": [
+      "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-document-bundle"
+    ]
+  },
+  "identifier": {
+    "system": "urn:vdrs:nvdrs:last4cme",
+    "value": "00002"
+  },
+  "type": "document",
+  "timestamp": "2024-07-22T10:26:12.5157797-03:00",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:b9e17089-1d35-40ff-81e4-9bd6108bf3b4",
+      "resource": {
+        "resourceType": "Composition",
+        "id": "b9e17089-1d35-40ff-81e4-9bd6108bf3b4",
+        "meta": {
+          "profile": [
+            "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-composition"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-force-new-record-extension",
+            "valueBoolean": true
+          },
+          {
+            "url": "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-overwrite-conflicts-extension",
+            "valueBoolean": true
+          },
+          {
+            "url": "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-incident-year-extension",
+            "valueDateTime": "2024"
+          }
+        ],
+        "identifier": {
+          "system": "urn:vdrs:nvdrs:incidentnumber",
+          "value": "24-00002"
+        },
+        "status": "final",
+        "type": {
+          "coding": [
+            {
+              "system": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-custom-code-system",
+              "code": "cme-report",
+              "display": "C/ME Report"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:99ec1835-c252-4257-ac59-e3509c1ed774"
+        },
+        "date": "2024-07-22",
+        "author": [
+          {
+            "reference": "urn:uuid:1049b415-236c-4f82-8b8e-6e8de90d3725"
+          }
+        ],
+        "title": "NVDRS Document",
+        "attester": [
+          {
+            "mode": "professional",
+            "party": {
+              "reference": "urn:uuid:1049b415-236c-4f82-8b8e-6e8de90d3725"
+            }
+          }
+        ],
+        "section": [
+          {
+            "title": "Demographics",
+            "code": {
+              "coding": [
+                {
+                  "system": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-custom-code-system",
+                  "code": "demographics"
+                }
+              ],
+              "text": "Demographics"
+            },
+            "text": {
+              "status": "generated",
+              "div": "Demographics"
+            },
+            "entry": [
+              {
+                "reference": "urn:uuid:f491d3ed-6b3f-46e0-8308-13ce788190dd"
+              },
+              {
+                "reference": "urn:uuid:78d8812b-b200-496c-b0bd-9c191f72492b"
+              },
+              {
+                "reference": "urn:uuid:0946fcf1-9f7d-4396-8f4d-fb1411100296"
+              },
+              {
+                "reference": "urn:uuid:e2f1318e-446a-4e1a-8195-088ea896f043"
+              }
+            ]
+          },
+          {
+            "title": "Injury and Death",
+            "code": {
+              "coding": [
+                {
+                  "system": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-custom-code-system",
+                  "code": "injury-and-death",
+                  "display": "Injury and Death"
+                }
+              ],
+              "text": "Injury and Death"
+            },
+            "text": {
+              "status": "generated",
+              "div": "Injury and Death"
+            },
+            "entry": [
+              {
+                "reference": "urn:uuid:6f5097dc-1be9-4afd-bf33-8d8007b8e940"
+              },
+              {
+                "reference": "urn:uuid:d3aa4f82-2a5e-42c5-8102-6aedcee5ed1b"
+              },
+              {
+                "reference": "urn:uuid:bde9833d-a5ae-4317-a1d7-b87a3229c3fa"
+              },
+              {
+                "reference": "urn:uuid:bcd4223f-1f10-4964-a791-ee430da1acbf"
+              },
+              {
+                "reference": "urn:uuid:831bca97-e5b4-4fed-8dd3-b2a91cd5cd81"
+              },
+              {
+                "reference": "urn:uuid:c7929e31-d60c-4b0c-bd21-7e8d3651cc8b"
+              }
+            ]
+          },
+          {
+            "title": "Toxicology",
+            "code": {
+              "coding": [
+                {
+                  "system": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-custom-code-system",
+                  "code": "toxicology"
+                }
+              ],
+              "text": "Toxicology"
+            },
+            "text": {
+              "status": "generated",
+              "div": "Toxicology"
+            },
+            "entry": [
+              {
+                "reference": "urn:uuid:b6b127e0-57bb-4e93-a71f-cc33e6abe457"
+              },
+              {
+                "reference": "urn:uuid:1c127899-6afa-4564-baad-25bcaf2af6f5"
+              },
+              {
+                "reference": "urn:uuid:45d01b9a-8534-420c-b032-fc4736fc0bed"
+              },
+              {
+                "reference": "urn:uuid:84651097-a0ed-48a6-b491-1cba7ea76bc3"
+              },
+              {
+                "reference": "urn:uuid:306ee0e3-d015-4a47-a038-b8a9631cb6c7"
+              },
+              {
+                "reference": "urn:uuid:ea6c18fc-2db6-47c3-87a9-809acf097e12"
+              }
+            ]
+          },
+          {
+            "title": "Circumstances",
+            "code": {
+              "coding": [
+                {
+                  "system": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-custom-code-system",
+                  "code": "circumstances"
+                }
+              ],
+              "text": "Circumstances"
+            },
+            "text": {
+              "status": "generated",
+              "div": "Circumstances"
+            },
+            "entry": [
+              {
+                "reference": "urn:uuid:f5f34fc8-fe63-4b68-bdb0-4875451e6a58"
+              },
+              {
+                "reference": "urn:uuid:d8a7432c-4583-44e8-a27c-a49c44f56a77"
+              },
+              {
+                "reference": "urn:uuid:39ea643d-0673-4fa9-9cdc-aa416fc874d1"
+              },
+              {
+                "reference": "urn:uuid:d775b996-a4fe-44b3-8445-493f4a8d5ad6"
+              },
+              {
+                "reference": "urn:uuid:85627641-59ab-4253-baa3-68135ed56158"
+              },
+              {
+                "reference": "urn:uuid:a5fe7f39-ccee-49e3-b77b-56db765bb76c"
+              },
+              {
+                "reference": "urn:uuid:29a87b75-02ff-4450-bc04-4a764dba9598"
+              },
+              {
+                "reference": "urn:uuid:a74def83-86c4-4320-b0cb-a909fd52d4ed"
+              },
+              {
+                "reference": "urn:uuid:cef2ff3f-cc2f-469b-a20e-725c2a302bec"
+              },
+              {
+                "reference": "urn:uuid:45c6c25d-8ef2-47f4-ae2a-4e8a16f5d1b7"
+              },
+              {
+                "reference": "urn:uuid:cb22dd32-2ca5-459e-87bf-1ed88364ee10"
+              },
+              {
+                "reference": "urn:uuid:6a3eb0a9-9fa9-45f7-ac5b-3e36337778b1"
+              },
+              {
+                "reference": "urn:uuid:b75c49c1-21e4-482b-a22e-6675169b8ca0"
+              },
+              {
+                "reference": "urn:uuid:dbd6f6d8-233d-47be-8bd7-13197430aed0"
+              },
+              {
+                "reference": "urn:uuid:21d9c514-af63-4bce-b809-3c332fe4f1f6"
+              },
+              {
+                "reference": "urn:uuid:7451d093-5c8e-4842-bb02-d4348652fd6c"
+              }
+            ]
+          },
+          {
+            "title": "Weapon(s)",
+            "code": {
+              "coding": [
+                {
+                  "system": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-custom-code-system",
+                  "code": "weapons"
+                }
+              ],
+              "text": "Weapons"
+            },
+            "text": {
+              "status": "generated",
+              "div": "Weapons"
+            },
+            "entry": [
+              {
+                "reference": "urn:uuid:d07791aa-a921-41dd-9279-90025b7ce807"
+              },
+              {
+                "reference": "urn:uuid:199ca787-9c19-47d3-adeb-ebf2baeeeda3"
+              }
+            ]
+          },
+          {
+            "title": "Suspect(s)",
+            "code": {
+              "coding": [
+                {
+                  "system": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-custom-code-system",
+                  "code": "suspects"
+                }
+              ],
+              "text": "Suspects"
+            },
+            "text": {
+              "status": "generated",
+              "div": "Suspects"
+            }
+          },
+          {
+            "title": "Jurisdiction Section",
+            "code": {
+              "coding": [
+                {
+                  "system": "https://hl7.org/fhir/us/mdi/CodeSystem/CodeSystem-vr-codes",
+                  "code": "jurisdiction"
+                }
+              ]
+            },
+            "text": {
+              "status": "generated",
+              "div": "Jurisdiction"
+            },
+            "entry": [
+              {
+                "reference": "urn:uuid:e817b9d4-36eb-4468-bc08-4ac75482fd6c"
+              },
+              {
+                "reference": "urn:uuid:c0110304-a75e-46f7-a2a9-7d7ed666dbe4"
+              }
+            ]
+          },
+          {
+            "title": "Cause and Manner of Death Section",
+            "code": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/us/mdi/CodeSystem/CodeSystem-vr-codes",
+                  "code": "cause-manner"
+                }
+              ]
+            },
+            "text": {
+              "status": "generated",
+              "div": "Cause and Manner of Death"
+            },
+            "entry": [
+              {
+                "reference": "urn:uuid:8809afa9-d0f4-4bde-8087-b1e4fd3c1a6f"
+              },
+              {
+                "reference": "urn:uuid:735cbace-1dd6-445c-ad0e-f173bac0bab3"
+              },
+              {
+                "reference": "urn:uuid:aeb4a7e5-4f69-41fa-b73c-905dcc2cccb9"
+              },
+              {
+                "reference": "urn:uuid:f127b3e0-8e78-464e-93cd-5ef2d3044051"
+              },
+              {
+                "reference": "urn:uuid:0c818e1f-f7b3-4ee8-baac-ca0cfc1cb0fe"
+              },
+              {
+                "reference": "urn:uuid:207e5c94-2a94-49e1-8127-6df4303d15ba"
+              }
+            ]
+          },
+          {
+            "title": "Overdose",
+            "code": {
+              "coding": [
+                {
+                  "system": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-custom-code-system",
+                  "code": "overdose"
+                }
+              ],
+              "text": "Overdose"
+            },
+            "text": {
+              "status": "generated",
+              "div": "Overdose"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:99ec1835-c252-4257-ac59-e3509c1ed774",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "99ec1835-c252-4257-ac59-e3509c1ed774",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/vrdr/StructureDefinition/VRDR-Decedent"
+          ]
+        },
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "ombCategory",
+                "valueCoding": {
+                  "system": "urn:oid:2.16.840.1.113883.6.238",
+                  "code": "2135-2",
+                  "display": "Hispanic or Latino"
+                }
+              },
+              {
+                "url": "text",
+                "valueString": "Hispanic or Latino"
+              }
+            ],
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity"
+          },
+          {
+            "extension": [
+              {
+                "url": "ombCategory",
+                "valueCoding": {
+                  "system": "http://terminology.hl7.org/CodeSystem/v3-NullFlavor",
+                  "code": "UNK",
+                  "display": "Unknown"
+                }
+              },
+              {
+                "url": "text",
+                "valueString": "Unknown"
+              }
+            ],
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race"
+          },
+          {
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-genderIdentity",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/gender-identity",
+                  "code": "transgender-male"
+                }
+              ],
+              "text": "transgender male"
+            }
+          }
+        ],
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "code": "BR",
+                  "display": "Social Beneficiary Identifier"
+                }
+              ]
+            },
+            "system": "http://hl7.org/fhir/sid/us-ssn",
+            "value": "55555555"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Cane",
+            "given": [
+              "Jhon",
+              "Michael"
+            ],
+            "suffix": [
+              "First"
+            ]
+          },
+          {
+            "use": "nickname",
+            "family": "NameAKA",
+            "given": [
+              ""
+            ]
+          }
+        ],
+        "gender": "male",
+        "birthDate": "2000-04-23",
+        "address": [
+          {
+            "line": [
+              "9127 Katy Freeway"
+            ],
+            "city": "Houston",
+            "district": "Harris",
+            "state": "Texas",
+            "postalCode": "77024",
+            "country": "United States"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:1049b415-236c-4f82-8b8e-6e8de90d3725",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "1049b415-236c-4f82-8b8e-6e8de90d3725",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/vrdr/StructureDefinition/VRDR-Certifier"
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:e817b9d4-36eb-4468-bc08-4ac75482fd6c",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "e817b9d4-36eb-4468-bc08-4ac75482fd6c",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/vrdr/StructureDefinition/VRDR-Death-Certification"
+          ]
+        },
+        "status": "completed",
+        "category": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "103693007",
+              "display": "Diagnostic procedure"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "308646001",
+              "display": "Death certification"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:99ec1835-c252-4257-ac59-e3509c1ed774"
+        },
+        "performer": [
+          {
+            "actor": {
+              "reference": "urn:uuid:1049b415-236c-4f82-8b8e-6e8de90d3725"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:c0110304-a75e-46f7-a2a9-7d7ed666dbe4",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "c0110304-a75e-46f7-a2a9-7d7ed666dbe4",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/vrdr/StructureDefinition/VRDR-Death-Date"
+          ]
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "urn:oid:2.16.840.1.113883.6.1",
+              "code": "81956-5",
+              "display": "Date and time of death"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:99ec1835-c252-4257-ac59-e3509c1ed774"
+        },
+        "effectiveDateTime": "2024-04-23T11:29:00-03:00",
+        "performer": [
+          {
+            "reference": "urn:uuid:2b161f08-71b5-4984-aad1-af05709288a4"
+          }
+        ],
+        "method": {
+          "coding": [
+            {
+              "system": "urn:oid:2.16.840.1.113883.6.96",
+              "code": "414135002",
+              "display": "Actual"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:f5f34fc8-fe63-4b68-bdb0-4875451e6a58",
+      "resource": {
+        "resourceType": "Location",
+        "id": "f5f34fc8-fe63-4b68-bdb0-4875451e6a58",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/vrdr/StructureDefinition/VRDR-death-location"
+          ]
+        },
+        "name": "Watts School of Nursing",
+        "description": "Watts School of Nursing",
+        "address": {
+          "line": [
+            "3643 North Roxboro Street"
+          ],
+          "city": "Durham",
+          "district": "Durham",
+          "state": "North Carolina",
+          "postalCode": "27704",
+          "country": "United States"
+        },
+        "physicalType": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-NullFlavor",
+              "code": "OTH",
+              "display": "Other"
+            }
+          ],
+          "text": "Other (Specify)"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:8809afa9-d0f4-4bde-8087-b1e4fd3c1a6f",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "8809afa9-d0f4-4bde-8087-b1e4fd3c1a6f",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/vrdr/StructureDefinition/VRDR-Manner-of-Death"
+          ]
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "69449-7",
+              "display": "Manner of death"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:99ec1835-c252-4257-ac59-e3509c1ed774"
+        },
+        "performer": [
+          {
+            "reference": "urn:uuid:1049b415-236c-4f82-8b8e-6e8de90d3725"
+          }
+        ],
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "27935005"
+            }
+          ],
+          "text": "Homicide"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d07791aa-a921-41dd-9279-90025b7ce807",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "d07791aa-a921-41dd-9279-90025b7ce807",
+        "meta": {
+          "profile": [
+            "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-firearm"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-firearm-stolen-extension",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0136",
+                  "code": "Y",
+                  "display": "Yes"
+                }
+              ]
+            }
+          },
+          {
+            "url": "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-gun-stored-loaded-extension",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0136",
+                  "code": "Y",
+                  "display": "Yes"
+                }
+              ]
+            }
+          },
+          {
+            "url": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-custom-code-system/Serial-Number",
+            "valueIdentifier": {
+              "system": "urn:vdrs:ncic:serialnumber",
+              "value": "5555555f"
+            }
+          },
+          {
+            "extension": [
+              {
+                "url": "reference",
+                "valueReference": {
+                  "reference": "urn:uuid:d775b996-a4fe-44b3-8445-493f4a8d5ad6"
+                }
+              },
+              {
+                "url": "code",
+                "valueCodeableConcept": {
+                  "coding": [
+                    {
+                      "system": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-custom-code-system",
+                      "code": "GunOwner1",
+                      "display": "Shooter"
+                    }
+                  ]
+                }
+              }
+            ],
+            "url": "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-firearm-owner-extension"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-custom-code-system",
+                "code": "weapons",
+                "display": "Weapon(s)"
+              }
+            ],
+            "text": "Data elements that fall under the weapon(s) category"
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-custom-code-system",
+              "code": "firearm",
+              "display": "Details on Firearm"
+            }
+          ],
+          "text": "Details on Firearm"
+        },
+        "subject": {
+          "reference": "urn:uuid:99ec1835-c252-4257-ac59-e3509c1ed774"
+        },
+        "component": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-custom-code-system",
+                  "code": "firearm-make",
+                  "display": "Firearm - Make"
+                }
+              ],
+              "text": "Firearm - Make"
+            },
+            "valueString": "64"
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-custom-code-system",
+                  "code": "firearm-caliber",
+                  "display": "Firearm - Caliber"
+                }
+              ],
+              "text": "Firearm - Caliber"
+            },
+            "valueString": "357"
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-custom-code-system",
+                  "code": "firearm-model",
+                  "display": "Firearm - Model"
+                }
+              ],
+              "text": "Firearm - Model"
+            },
+            "valueString": "512"
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-custom-code-system",
+                  "code": "firearm-type",
+                  "display": "Firearm - Type"
+                }
+              ],
+              "text": "Firearm - Type"
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-coding-manual-cs",
+                  "code": "FirearmType16",
+                  "display": "Shotgun, Unknown Type"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:b6b127e0-57bb-4e93-a71f-cc33e6abe457",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "b6b127e0-57bb-4e93-a71f-cc33e6abe457",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-toxicology-lab-result"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ],
+            "text": "Laboratory"
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-custom-code-system",
+              "code": "laboratory",
+              "display": "Laboratory"
+            }
+          ],
+          "text": "Laboratory"
+        },
+        "subject": {
+          "reference": "urn:uuid:99ec1835-c252-4257-ac59-e3509c1ed774"
+        },
+        "component": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-custom-code-system",
+                  "code": "drug-involvement",
+                  "display": "Drug Involvement"
+                }
+              ],
+              "text": "Drug Involvement"
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0136",
+                  "code": "Y",
+                  "display": "Yes"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d8a7432c-4583-44e8-a27c-a49c44f56a77",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "d8a7432c-4583-44e8-a27c-a49c44f56a77",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/vrdr/StructureDefinition/VRDR-Decedent-Age"
+          ]
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "30525-0",
+              "display": "Age"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:99ec1835-c252-4257-ac59-e3509c1ed774"
+        },
+        "valueQuantity": {
+          "value": 24,
+          "unit": "a"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:735cbace-1dd6-445c-ad0e-f173bac0bab3",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "735cbace-1dd6-445c-ad0e-f173bac0bab3",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-mdi-cause-of-death-part1"
+          ]
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "69453-9",
+              "display": "Cause of death [US Standard Certificate of Death]"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:99ec1835-c252-4257-ac59-e3509c1ed774"
+        },
+        "valueCodeableConcept": {
+          "text": "Airway Occlusion - Chemical"
+        },
+        "component": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/us/vrdr/CodeSystem/vrdr-component-cs",
+                  "code": "lineNumber",
+                  "display": "line number"
+                }
+              ]
+            },
+            "valueInteger": 1
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "69440-6",
+                  "display": "Disease onset to death interval"
+                }
+              ]
+            },
+            "valueString": "Minutes"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:aeb4a7e5-4f69-41fa-b73c-905dcc2cccb9",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "aeb4a7e5-4f69-41fa-b73c-905dcc2cccb9",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-mdi-cause-of-death-part1"
+          ]
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "69453-9",
+              "display": "Cause of death [US Standard Certificate of Death]"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:99ec1835-c252-4257-ac59-e3509c1ed774"
+        },
+        "valueCodeableConcept": {
+          "text": "Aspiration of Food"
+        },
+        "component": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/us/vrdr/CodeSystem/vrdr-component-cs",
+                  "code": "lineNumber",
+                  "display": "line number"
+                }
+              ]
+            },
+            "valueInteger": 2
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "69440-6",
+                  "display": "Disease onset to death interval"
+                }
+              ]
+            },
+            "valueString": "Minutes"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:f127b3e0-8e78-464e-93cd-5ef2d3044051",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "f127b3e0-8e78-464e-93cd-5ef2d3044051",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-mdi-cause-of-death-part1"
+          ]
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "69453-9",
+              "display": "Cause of death [US Standard Certificate of Death]"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:99ec1835-c252-4257-ac59-e3509c1ed774"
+        },
+        "valueCodeableConcept": {
+          "text": "Burns - Thermal"
+        },
+        "component": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/us/vrdr/CodeSystem/vrdr-component-cs",
+                  "code": "lineNumber",
+                  "display": "line number"
+                }
+              ]
+            },
+            "valueInteger": 3
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "69440-6",
+                  "display": "Disease onset to death interval"
+                }
+              ]
+            },
+            "valueString": "Hours"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:0c818e1f-f7b3-4ee8-baac-ca0cfc1cb0fe",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "0c818e1f-f7b3-4ee8-baac-ca0cfc1cb0fe",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-mdi-cause-of-death-part1"
+          ]
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "69453-9",
+              "display": "Cause of death [US Standard Certificate of Death]"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:99ec1835-c252-4257-ac59-e3509c1ed774"
+        },
+        "valueCodeableConcept": {
+          "text": "Cardiac - Ruptured Aortic Aneurysm"
+        },
+        "component": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/us/vrdr/CodeSystem/vrdr-component-cs",
+                  "code": "lineNumber",
+                  "display": "line number"
+                }
+              ]
+            },
+            "valueInteger": 4
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "69440-6",
+                  "display": "Disease onset to death interval"
+                }
+              ]
+            },
+            "valueString": "Days"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:207e5c94-2a94-49e1-8127-6df4303d15ba",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "207e5c94-2a94-49e1-8127-6df4303d15ba",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/vrdr/StructureDefinition/vrdr-cause-of-death-part2"
+          ]
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "69441-4",
+              "display": "Other significant causes or conditions of death"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:99ec1835-c252-4257-ac59-e3509c1ed774"
+        },
+        "valueCodeableConcept": {
+          "text": "other cause"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:a37fbc80-ea89-423a-b4ea-ce7237b56db5",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "a37fbc80-ea89-423a-b4ea-ce7237b56db5",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/vrdr/StructureDefinition/VRDR-Autopsy-Performed-Indicator"
+          ]
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "85699-7",
+              "display": "Autopsy was performed"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:99ec1835-c252-4257-ac59-e3509c1ed774"
+        },
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v2-0136",
+              "code": "N",
+              "display": "No"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:6f5097dc-1be9-4afd-bf33-8d8007b8e940",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "6f5097dc-1be9-4afd-bf33-8d8007b8e940",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/vrdr/StructureDefinition/VRDR-Injury-Incident"
+          ]
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "urn:oid:2.16.840.1.113883.3.290.2.1.19",
+              "code": "11374-6",
+              "display": "Injury incident description"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:99ec1835-c252-4257-ac59-e3509c1ed774"
+        },
+        "effectiveDateTime": "2024-04-10T09:05:00-03:00",
+        "valueString": "circunstance of death",
+        "component": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "urn:oid:2.16.840.1.113883.6.1",
+                  "code": "69444-8",
+                  "display": "Did death result from injury at work"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0136",
+                  "code": "Y",
+                  "display": "Yes"
+                }
+              ]
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "urn:oid:2.16.840.1.113883.6.1",
+                  "code": "69444-8",
+                  "display": "Did death result from injury at work"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0136",
+                  "code": "N",
+                  "display": "No"
+                }
+              ]
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "69450-5",
+                  "display": "Place of injury Facility"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "urn:oid:2.16.840.1.114222.4.5.320",
+                  "code": "8",
+                  "display": "Other Specified Place"
+                }
+              ],
+              "text": "company"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "69451-3"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v3-NullFlavor",
+                  "code": "OTH",
+                  "display": "Other"
+                }
+              ],
+              "text": "Rear Right"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:39ea643d-0673-4fa9-9cdc-aa416fc874d1",
+      "resource": {
+        "resourceType": "Location",
+        "id": "39ea643d-0673-4fa9-9cdc-aa416fc874d1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/vrdr/StructureDefinition/VRDR-Injury-Location"
+          ]
+        },
+        "address": {
+          "line": [
+            "27421 Valley Center Road"
+          ],
+          "city": "Valley Center",
+          "district": "San Diego",
+          "state": "California",
+          "postalCode": "92082",
+          "country": "United States"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:199ca787-9c19-47d3-adeb-ebf2baeeeda3",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "199ca787-9c19-47d3-adeb-ebf2baeeeda3",
+        "meta": {
+          "profile": [
+            "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-weapon-type"
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-custom-code-system",
+                "code": "weapons",
+                "display": "Weapon(s)"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-custom-code-system",
+              "code": "weapon-type",
+              "display": "Type of Weapon"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:99ec1835-c252-4257-ac59-e3509c1ed774"
+        },
+        "focus": [
+          {
+            "reference": "urn:uuid:d07791aa-a921-41dd-9279-90025b7ce807"
+          }
+        ],
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-coding-manual-cs",
+              "code": "WeaponType1",
+              "display": "Firearm"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d775b996-a4fe-44b3-8445-493f4a8d5ad6",
+      "resource": {
+        "resourceType": "Person",
+        "id": "d775b996-a4fe-44b3-8445-493f4a8d5ad6",
+        "meta": {
+          "profile": [
+            "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-firearm-owner-extension"
+          ]
+        },
+        "name": [
+          {
+            "family": "Brown",
+            "given": [
+              "Tiffany",
+              ""
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:f491d3ed-6b3f-46e0-8308-13ce788190dd",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "f491d3ed-6b3f-46e0-8308-13ce788190dd",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-body-height"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "vital-signs",
+                "display": "Vital Signs"
+              }
+            ],
+            "text": "Vital Signs"
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8302-2",
+              "display": "Body height"
+            }
+          ],
+          "text": "height"
+        },
+        "subject": {
+          "reference": "urn:uuid:99ec1835-c252-4257-ac59-e3509c1ed774"
+        },
+        "effectiveDateTime": "2024-07-22",
+        "valueQuantity": {
+          "value": 243.84,
+          "unit": "cm",
+          "system": "http://unitsofmeasure.org",
+          "code": "cm"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:78d8812b-b200-496c-b0bd-9c191f72492b",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "78d8812b-b200-496c-b0bd-9c191f72492b",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-body-weight"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "vital-signs",
+                "display": "Vital Signs"
+              }
+            ],
+            "text": "Vital Signs"
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "29463-7",
+              "display": "Body Weight"
+            }
+          ],
+          "text": "weight"
+        },
+        "subject": {
+          "reference": "urn:uuid:99ec1835-c252-4257-ac59-e3509c1ed774"
+        },
+        "effectiveDateTime": "2024-07-22",
+        "valueQuantity": {
+          "value": 185,
+          "unit": "[lb_av]",
+          "system": "http://unitsofmeasure.org",
+          "code": "[lb_av]"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:0946fcf1-9f7d-4396-8f4d-fb1411100296",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "0946fcf1-9f7d-4396-8f4d-fb1411100296",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/odh/StructureDefinition/odh-UsualWork"
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "social-history"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "21843-8",
+              "display": "History of Usual occupation"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:99ec1835-c252-4257-ac59-e3509c1ed774"
+        },
+        "valueCodeableConcept": {
+          "text": "occupation"
+        },
+        "component": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "21844-6",
+                  "display": "History of Usual industry"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "text": "occupation"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:85627641-59ab-4253-baa3-68135ed56158",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "85627641-59ab-4253-baa3-68135ed56158",
+        "meta": {
+          "profile": [
+            "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/NVDRS-Gang-Related"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-custom-code-system",
+                "code": "circumstances",
+                "display": "Circumstances"
+              }
+            ],
+            "text": "Circumstances"
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-custom-code-system",
+              "code": "gang-related",
+              "display": "Gang Related"
+            }
+          ],
+          "text": "Gang Related"
+        },
+        "subject": {
+          "reference": "urn:uuid:99ec1835-c252-4257-ac59-e3509c1ed774"
+        },
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-custom-code-system",
+              "code": "GangRelated1"
+            }
+          ],
+          "text": "Yes, gang motivated"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:a5fe7f39-ccee-49e3-b77b-56db765bb76c",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "a5fe7f39-ccee-49e3-b77b-56db765bb76c",
+        "meta": {
+          "profile": [
+            "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/NVDRS-playing-with-firearm"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-custom-code-system",
+                "code": "circumstances",
+                "display": "Circumstances"
+              }
+            ],
+            "text": "Circumstances"
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-custom-code-system",
+              "code": "playing-with-firearm",
+              "display": "Playing with Firearm"
+            }
+          ],
+          "text": "Playing with Firearm"
+        },
+        "subject": {
+          "reference": "urn:uuid:99ec1835-c252-4257-ac59-e3509c1ed774"
+        },
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v2-0136",
+              "code": "Y",
+              "display": "Yes"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:29a87b75-02ff-4450-bc04-4a764dba9598",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "29a87b75-02ff-4450-bc04-4a764dba9598",
+        "meta": {
+          "profile": [
+            "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/NVDRS-drive-by-shooting"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-custom-code-system",
+                "code": "circumstances",
+                "display": "Circumstances"
+              }
+            ],
+            "text": "Circumstances"
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-custom-code-system",
+              "code": "drive-by-shooting",
+              "display": "Drive-by Shooting"
+            }
+          ],
+          "text": "Drive-by Shooting"
+        },
+        "subject": {
+          "reference": "urn:uuid:99ec1835-c252-4257-ac59-e3509c1ed774"
+        },
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v2-0136",
+              "code": "Y",
+              "display": "Yes"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d3aa4f82-2a5e-42c5-8102-6aedcee5ed1b",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "d3aa4f82-2a5e-42c5-8102-6aedcee5ed1b",
+        "meta": {
+          "profile": [
+            "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/NVDRS-number-of-bullets"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-custom-code-system",
+                "code": "injury-and-death",
+                "display": "Injury and Death"
+              }
+            ],
+            "text": "Injury and Death"
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-custom-code-system",
+              "code": "number-of-bullets",
+              "display": "Number of Bullets"
+            }
+          ],
+          "text": "Number of Bullets"
+        },
+        "subject": {
+          "reference": "urn:uuid:99ec1835-c252-4257-ac59-e3509c1ed774"
+        },
+        "valueInteger": 3
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:bde9833d-a5ae-4317-a1d7-b87a3229c3fa",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "bde9833d-a5ae-4317-a1d7-b87a3229c3fa",
+        "meta": {
+          "profile": [
+            "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/NVDRS-number-of-victims"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-custom-code-system",
+                "code": "injury-and-death",
+                "display": "Injury and Death"
+              }
+            ],
+            "text": "Injury and Death"
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-custom-code-system",
+              "code": "number-of-victims",
+              "display": "Number of Victims (Non Fatal)"
+            }
+          ],
+          "text": "Number of Victims (Non Fatal)"
+        },
+        "subject": {
+          "reference": "urn:uuid:99ec1835-c252-4257-ac59-e3509c1ed774"
+        },
+        "valueInteger": 34
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:bcd4223f-1f10-4964-a791-ee430da1acbf",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "bcd4223f-1f10-4964-a791-ee430da1acbf",
+        "meta": {
+          "profile": [
+            "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/NVDRS-ems-at-scene"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-custom-code-system",
+                "code": "injury-and-death",
+                "display": "Injury and Death"
+              }
+            ],
+            "text": "Injury and Death"
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-custom-code-system",
+              "code": "ems-at-scene",
+              "display": "EMS at Scene"
+            }
+          ],
+          "text": "EMS at Scene"
+        },
+        "subject": {
+          "reference": "urn:uuid:99ec1835-c252-4257-ac59-e3509c1ed774"
+        },
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v2-0136",
+              "code": "Y",
+              "display": "Yes"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:831bca97-e5b4-4fed-8dd3-b2a91cd5cd81",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "831bca97-e5b4-4fed-8dd3-b2a91cd5cd81",
+        "meta": {
+          "profile": [
+            "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/vdrs-suicide-note"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-custom-code-system",
+                "code": "circumstances",
+                "display": "Circumstances"
+              }
+            ],
+            "text": "Circumstances"
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-custom-code-system",
+              "code": "suicide-note",
+              "display": "Suicide Note"
+            }
+          ],
+          "text": "Suicide Note"
+        },
+        "subject": {
+          "reference": "urn:uuid:99ec1835-c252-4257-ac59-e3509c1ed774"
+        },
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v2-0136",
+              "code": "Y",
+              "display": "Yes"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:c7929e31-d60c-4b0c-bd21-7e8d3651cc8b",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "c7929e31-d60c-4b0c-bd21-7e8d3651cc8b",
+        "meta": {
+          "profile": [
+            "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-victim-in-custody-when-injured"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-custom-code-system",
+                "code": "injury-and-death",
+                "display": "Injury and Death"
+              }
+            ],
+            "text": "Injury and Death"
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-custom-code-system",
+              "code": "victim-in-custody-when-injured",
+              "display": "Victim in custody when injured"
+            }
+          ],
+          "text": "Victim in custody when injured"
+        },
+        "subject": {
+          "reference": "urn:uuid:99ec1835-c252-4257-ac59-e3509c1ed774"
+        },
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v2-0136",
+              "code": "Y",
+              "display": "Yes"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:a74def83-86c4-4320-b0cb-a909fd52d4ed",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "a74def83-86c4-4320-b0cb-a909fd52d4ed",
+        "meta": {
+          "profile": [
+            "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/NVDRS-death-abuse"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-custom-code-system",
+                "code": "circumstances",
+                "display": "Circumstances"
+              }
+            ],
+            "text": "Circumstances"
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-custom-code-system",
+              "code": "death-abuse",
+              "display": "Abuse or neglect led to death"
+            }
+          ],
+          "text": "Abuse or neglect led to death"
+        },
+        "subject": {
+          "reference": "urn:uuid:99ec1835-c252-4257-ac59-e3509c1ed774"
+        },
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v2-0136",
+              "code": "N",
+              "display": "No"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:cef2ff3f-cc2f-469b-a20e-725c2a302bec",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "cef2ff3f-cc2f-469b-a20e-725c2a302bec",
+        "meta": {
+          "profile": [
+            "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/NVDRS-current-depressed-mood"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-custom-code-system",
+                "code": "circumstances",
+                "display": "Circumstances"
+              }
+            ],
+            "text": "Circumstances"
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-custom-code-system",
+              "code": "-current-depressed-mood",
+              "display": "Current depressed mood"
+            }
+          ],
+          "text": "Current depressed mood"
+        },
+        "subject": {
+          "reference": "urn:uuid:99ec1835-c252-4257-ac59-e3509c1ed774"
+        },
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v2-0136",
+              "code": "Y",
+              "display": "Yes"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:45c6c25d-8ef2-47f4-ae2a-4e8a16f5d1b7",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "45c6c25d-8ef2-47f4-ae2a-4e8a16f5d1b7",
+        "meta": {
+          "profile": [
+            "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/vdrs-history-of-mental-illness"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-custom-code-system",
+                "code": "circumstances",
+                "display": "Circumstances"
+              }
+            ],
+            "text": "Circumstances"
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-custom-code-system",
+              "code": "history-of-mental-illness",
+              "display": "History of Mental Illness"
+            }
+          ],
+          "text": "History of Mental Illness"
+        },
+        "subject": {
+          "reference": "urn:uuid:99ec1835-c252-4257-ac59-e3509c1ed774"
+        },
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v2-0136",
+              "code": "Y",
+              "display": "Yes"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:cb22dd32-2ca5-459e-87bf-1ed88364ee10",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "cb22dd32-2ca5-459e-87bf-1ed88364ee10",
+        "meta": {
+          "profile": [
+            "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/NVDRS-history-of-self-harm"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-custom-code-system",
+                "code": "circumstances",
+                "display": "Circumstances"
+              }
+            ],
+            "text": "Circumstances"
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-custom-code-system",
+              "code": "self-harm",
+              "display": "Non-suicidal self-Injury/self-harm"
+            }
+          ],
+          "text": "Non-suicidal self-Injury/self-harm"
+        },
+        "subject": {
+          "reference": "urn:uuid:99ec1835-c252-4257-ac59-e3509c1ed774"
+        },
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v2-0136",
+              "code": "Y",
+              "display": "Yes"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:6a3eb0a9-9fa9-45f7-ac5b-3e36337778b1",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "6a3eb0a9-9fa9-45f7-ac5b-3e36337778b1",
+        "meta": {
+          "profile": [
+            "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/NVDRS-random-violence"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-custom-code-system",
+                "code": "circumstances",
+                "display": "Circumstances"
+              }
+            ],
+            "text": "Circumstances"
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-custom-code-system",
+              "code": "random-violence",
+              "display": "Incident is Random Violence"
+            }
+          ],
+          "text": "Incident is Random Violence"
+        },
+        "subject": {
+          "reference": "urn:uuid:99ec1835-c252-4257-ac59-e3509c1ed774"
+        },
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v2-0136",
+              "code": "Y",
+              "display": "Yes"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:b75c49c1-21e4-482b-a22e-6675169b8ca0",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "b75c49c1-21e4-482b-a22e-6675169b8ca0",
+        "meta": {
+          "profile": [
+            "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/NVDRS-school-problem"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-custom-code-system",
+                "code": "circumstances",
+                "display": "Circumstances"
+              }
+            ],
+            "text": "Circumstances"
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-custom-code-system",
+              "code": "school-problem",
+              "display": "School Problem"
+            }
+          ],
+          "text": "School Problem"
+        },
+        "subject": {
+          "reference": "urn:uuid:99ec1835-c252-4257-ac59-e3509c1ed774"
+        },
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v2-0136",
+              "code": "Y",
+              "display": "Yes"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:dbd6f6d8-233d-47be-8bd7-13197430aed0",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "dbd6f6d8-233d-47be-8bd7-13197430aed0",
+        "meta": {
+          "profile": [
+            "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/NVDRS-history-of-suicide-attempts"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-custom-code-system",
+                "code": "circumstances",
+                "display": "Circumstances"
+              }
+            ],
+            "text": "Circumstances"
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-custom-code-system",
+              "code": "history-of-suicide-attempts",
+              "display": "History of Suicide Attempts"
+            }
+          ],
+          "text": "History of Suicide Attempts"
+        },
+        "subject": {
+          "reference": "urn:uuid:99ec1835-c252-4257-ac59-e3509c1ed774"
+        },
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v2-0136",
+              "code": "Y",
+              "display": "Yes"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:e2f1318e-446a-4e1a-8195-088ea896f043",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "e2f1318e-446a-4e1a-8195-088ea896f043",
+        "meta": {
+          "profile": [
+            "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-homeless-at-death"
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "social-history",
+                "display": "Social History"
+              }
+            ]
+          },
+          {
+            "coding": [
+              {
+                "system": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-custom-code-system",
+                "code": "demographics",
+                "display": "Demographics"
+              }
+            ],
+            "text": "Data elements that fall under the demographics category"
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-custom-code-system",
+              "code": "homeless-at-death",
+              "display": "Homeless (at time of death)"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:99ec1835-c252-4257-ac59-e3509c1ed774"
+        },
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v2-0136",
+              "code": "Y",
+              "display": "Yes"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:21d9c514-af63-4bce-b809-3c332fe4f1f6",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "21d9c514-af63-4bce-b809-3c332fe4f1f6",
+        "meta": {
+          "profile": [
+            "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-history-alcohol-use"
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-custom-code-system",
+                "code": "circumstances"
+              }
+            ],
+            "text": "Circumstances"
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "11331-6",
+              "display": "History of Alcohol Use"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:99ec1835-c252-4257-ac59-e3509c1ed774"
+        },
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v2-0136",
+              "code": "Y",
+              "display": "Yes"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:1c127899-6afa-4564-baad-25bcaf2af6f5",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "1c127899-6afa-4564-baad-25bcaf2af6f5",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-toxicology-lab-result"
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "text": "Alcohol"
+        },
+        "subject": {
+          "reference": "urn:uuid:99ec1835-c252-4257-ac59-e3509c1ed774"
+        },
+        "valueString": "4"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:45d01b9a-8534-420c-b032-fc4736fc0bed",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "45d01b9a-8534-420c-b032-fc4736fc0bed",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-toxicology-lab-result"
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "text": "Amphetamine"
+        },
+        "subject": {
+          "reference": "urn:uuid:99ec1835-c252-4257-ac59-e3509c1ed774"
+        },
+        "valueString": "8 mg"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:84651097-a0ed-48a6-b491-1cba7ea76bc3",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "84651097-a0ed-48a6-b491-1cba7ea76bc3",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-toxicology-lab-result"
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "text": "Benzodiazepines"
+        },
+        "subject": {
+          "reference": "urn:uuid:99ec1835-c252-4257-ac59-e3509c1ed774"
+        },
+        "valueString": "10 mg"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:306ee0e3-d015-4a47-a038-b8a9631cb6c7",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "306ee0e3-d015-4a47-a038-b8a9631cb6c7",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-toxicology-lab-result"
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "text": "Cocaine"
+        },
+        "subject": {
+          "reference": "urn:uuid:99ec1835-c252-4257-ac59-e3509c1ed774"
+        },
+        "valueString": "9 mg"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ea6c18fc-2db6-47c3-87a9-809acf097e12",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "ea6c18fc-2db6-47c3-87a9-809acf097e12",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-toxicology-lab-result"
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "text": "Opiate"
+        },
+        "subject": {
+          "reference": "urn:uuid:99ec1835-c252-4257-ac59-e3509c1ed774"
+        },
+        "valueString": "11 mg"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:7451d093-5c8e-4842-bb02-d4348652fd6c",
+      "resource": {
+        "resourceType": "Specimen",
+        "id": "7451d093-5c8e-4842-bb02-d4348652fd6c",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/mdi/StructureDefinition/Specimen-toxicology-lab"
+          ]
+        },
+        "status": "available",
+        "type": {
+          "coding": [
+            {
+              "system": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-custom-code-system",
+              "code": "specimen",
+              "display": "Specimen"
+            }
+          ],
+          "text": "Specimen"
+        },
+        "subject": {
+          "reference": "urn:uuid:99ec1835-c252-4257-ac59-e3509c1ed774"
+        },
+        "collection": {
+          "collectedDateTime": "2024-05-01T08:52:00-03:00"
+        }
+      }
+    }
+  ]
+}

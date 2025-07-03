@@ -187,9 +187,11 @@ namespace GaTech.Chai.Vrdr
 
     public class VrdrLocationTypeCs
     {
-        public static CodeableConcept InjuryLocation = new("http://hl7.org/fhir/us/vrdr/CodeSystem/vrdr-location-type-cs", "injury", "Injury Location", null);
-        public static CodeableConcept DispositionLocation = new("http://hl7.org/fhir/us/vrdr/CodeSystem/vrdr-location-type-cs", "disposition", "Disposition Location", null);
-        public static CodeableConcept DeathLocation = new("http://hl7.org/fhir/us/vrdr/CodeSystem/vrdr-location-type-cs", "death", "Death Location", null);
+        public static string officialUrl = "http://hl7.org/fhir/us/vrdr/CodeSystem/vrdr-location-type-cs";
+
+        public static CodeableConcept InjuryLocation = new(officialUrl, "injury", "Injury Location", null);
+        public static CodeableConcept DispositionLocation = new(officialUrl, "disposition", "Disposition Location", null);
+        public static CodeableConcept DeathLocation = new(officialUrl, "death", "Death Location", null);
     }
 
     public class VrdrInjuryIncidentComponentsCs
@@ -198,5 +200,49 @@ namespace GaTech.Chai.Vrdr
         public static CodeableConcept WorkInjuryIndicator = new(UriString.LOINC, "69444-8");
         public static CodeableConcept TransportationRole = new(UriString.LOINC, "69451-3");
     }
-    
+
+    public class VrdrOrganizationTypeCs
+    {
+        public static string officialUrl = "http://hl7.org/fhir/us/vrdr/CodeSystem/vrdr-organization-type-cs";
+
+        public static CodeableConcept FuneralHome = new(officialUrl, "funeralhome", "Funeral Home", null);
+    }
+
+    public class VrdrMethodOfDispositionVs
+    {
+        public static string officialUrl = "http://hl7.org/fhir/us/vrdr/ValueSet/vrdr-method-of-disposition-vs";
+
+        public static CodeableConcept Entombment = new(UriString.SCT, "449931000124108", "Entombment", null);
+
+        public static CodeableConcept RemovalFromState = new(UriString.SCT, "449941000124103", "Removal from state", null);
+        public static CodeableConcept Donation = new(UriString.SCT, "449951000124101", "Donation", null);
+        public static CodeableConcept Cremation = new(UriString.SCT, "449961000124104", "Cremation", null);
+        public static CodeableConcept Burial = new(UriString.SCT, "449971000124106", "Burial", null);
+        public static CodeableConcept Other = V3NullFlavor.Other;
+        public static CodeableConcept Unknown = V3NullFlavor.Unknown;
+    }
+
+    public class VrdrCodeSystemsValueSets
+    {
+        public const string OccupationCdcSoc2018Oid = "urn:oid:2.16.840.1.114222.4.5.338";
+        public const string IndustryCdcNaics2017Oid = "urn:oid:2.16.840.1.114222.4.5.337";
+    }
+
+    public class VrdrFilingFormatCs
+    {
+        public static string officialUrl = "http://hl7.org/fhir/us/vrdr/CodeSystem/vrdr-filing-format-cs";
+
+        public static CodeableConcept Electronic = new(officialUrl, "electronic", "Electronic", null);
+        public static CodeableConcept Paper = new(officialUrl, "paper", "Paper", null);
+        public static CodeableConcept Mixed = new(officialUrl, "mixed", "Mixed", null);
+    }
+
+    public class VrdrReplaceStatusCs
+    {
+        public static string officialUrl = "http://hl7.org/fhir/us/vrdr/CodeSystem/vrdr-replace-status-cs";
+
+        public static CodeableConcept Original = new(officialUrl, "original", "original record", null);
+        public static CodeableConcept Updated = new(officialUrl, "updated", "updated record", null);
+        public static CodeableConcept UpdatedNotforNCHS = new(officialUrl, "updated_notforNCHS", "updated record not for nchs", null);
+    }
 }

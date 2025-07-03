@@ -2,6 +2,7 @@ using System;
 using Hl7.Fhir.Model;
 using GaTech.Chai.Share;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace GaTech.Chai.Mdi
 {
@@ -22,11 +23,11 @@ namespace GaTech.Chai.Mdi
         /// Factory for BundleMessageDeathCertificateReviewProfile with composition and identifier
         /// http://hl7.org/fhir/us/mdi/StructureDefinition/Bundle-message-death-certificate-review
         /// </summary>
-        public static Bundle Create(MessageHeader messageheader, Bundle bundleDocumentMDIDCR)
+        public static Bundle Create(MessageHeader messageheader)
         {
             Bundle bundle = new();
             bundle.BundleMessageDeathCertificateReview().DCRMessage = messageheader ?? throw new Exception("MessageHeader cannot be null for Message DCR Bundle entry[0].");
-            bundle.BundleMessageDeathCertificateReview().DCRDocument = bundleDocumentMDIDCR ?? throw new Exception("DocumentBundle cannot be null for Message DCR Bundle entry[1].");
+            // bundle.BundleMessageDeathCertificateReview().DCRDocument = bundleDocumentMDIDCR ?? throw new Exception("DocumentBundle cannot be null for Message DCR Bundle entry[1].");
             bundle.BundleMessageDeathCertificateReview().AddProfile();
             bundle.BundleMessageDeathCertificateReview().AddFixedValues();
 
@@ -119,32 +120,37 @@ namespace GaTech.Chai.Mdi
         {
             get
             {
-                if (this.bundle.Entry?.Count < 2)
+                if (this.bundle.Entry?.Count >= 1)
                 {
-                    return null;
+                    MessageHeader mh = this.bundle.Entry[0].Resource as MessageHeader;
+                    return mh.MessageHeaderDeathCertificateReview().BundleDocumentDeathCertificateReview;
                 }
 
-                return this.bundle.Entry[1].Resource as Bundle;
+                return null;
             }
-            set
-            {
-                if (!value.hasProfile(BundleDocumentMdiDcr.ProfileUrl))
-                {
-                    throw (new ArgumentException("Bundle-message-death-certificate-review requires the Document to be http://hl7.org/fhir/us/mdi/StructureDefinition/Bundle-document-mdi-dcr profile"));
-                }
+            // set
+            // {
+            //     if (!value.hasProfile(BundleDocumentMdiDcr.ProfileUrl))
+            //     {
+            //         throw (new ArgumentException("Bundle-message-death-certificate-review requires the Document to be http://hl7.org/fhir/us/mdi/StructureDefinition/Bundle-document-mdi-dcr profile"));
+            //     }
 
-                // First entry MUST be MessageHeader. Clear the entry
-                if (this.bundle.Entry?.Count < 1)
-                {
-                    throw (new ArgumentException("Bundle-message-death-certificate-review requires the first entry to be MessageHeader. But, the entry is empty"));
-                }
+            //     // First entry MUST be MessageHeader. Clear the entry
+            //     if (this.bundle.Entry?.Count < 1)
+            //     {
+            //         throw (new ArgumentException("Bundle-message-death-certificate-review requires the first entry to be MessageHeader. But, the entry is empty"));
+            //     }
 
-                bundle.AddResourceEntry(value, value.AsReference().Reference);
+            //     IEnumerable<Bundle.EntryComponent> foundResourceRefs = bundle.FindEntry(value.AsReference().Reference);
+            //     if (!foundResourceRefs.Any())
+            //     {
+            //         bundle.AddResourceEntry(value, value.AsReference().Reference);
+            //     }
 
-                // Get the messageHeader so that we can put this bundle document in the focus.
-                MessageHeader mh = this.bundle.Entry[0].Resource as MessageHeader;
-                mh.MessageHeaderDeathCertificateReview().BundleDocumentMdiDcr = value;
-            }
+            //     // Get the messageHeader so that we can put this bundle document in the focus.
+            //     MessageHeader mh = this.bundle.Entry[0].Resource as MessageHeader;
+            //     mh.MessageHeaderDeathCertificateReview().BundleDocumentDeathCertificateReview = value;
+            // }
         }
     }
 }

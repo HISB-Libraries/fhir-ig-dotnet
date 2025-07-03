@@ -9,6 +9,9 @@ namespace GaTech.Chai.Vrdr
         public const string partialDateTimeDayUrl = "day";
         public const string partialDateTimeTimeUrl = "time";
         public const string NVSSSexAtDeathUrl = "http://hl7.org/fhir/us/vrdr/StructureDefinition/NVSS-SexAtDeath";
+        public const string FilingFormatUrl = "http://hl7.org/fhir/us/vrdr/StructureDefinition/FilingFormat";
+        public const string ReplaceStatusUrl = "http://hl7.org/fhir/us/vrdr/StructureDefinition/ReplaceStatus";
+        public const string StateSpecificFieldUrl = "http://hl7.org/fhir/us/vrdr/StructureDefinition/StateSpecificField";
     }
 }
 

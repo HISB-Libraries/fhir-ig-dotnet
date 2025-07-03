@@ -1,9 +1,9 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFramework>net9.0</TargetFramework>
     <PackageId>fhir-ig-vrcl-dotnet</PackageId>
-    <PackageVersion>1.1.0</PackageVersion>
+    <PackageVersion>1.1.1</PackageVersion>
     <Authors>Myung Choi</Authors>
     <PackageProjectUrl>https://github.com/HISB-Libraries/fhir-ig-dotnet</PackageProjectUrl>
     <Description>.NET Library for HL7 FHIR® Implementation Guide: Vital Records Common Library (VRCL), 2.0.0-trial-use</Description>

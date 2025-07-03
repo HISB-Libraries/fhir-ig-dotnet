@@ -2,7 +2,7 @@
 using Hl7.Fhir.Model;
 using GaTech.Chai.Share;
 using System.Collections.Generic;
-using GaTech.Chai.UsCore;
+using GaTech.Chai.Vrcl;
 
 namespace GaTech.Chai.Vrdr
 {
@@ -20,8 +20,8 @@ namespace GaTech.Chai.Vrdr
         /// </summary>
         public static Location Create()
         {
-            var location = UsCoreLocation.Create();
-            location.UsCoreLocation().RemoveProfile();
+            var location = LocationVr.Create();
+            location.LocationVr().RemoveProfile();
 
             location.Type = new List<CodeableConcept> { VrdrLocationTypeCs.DeathLocation };
             location.VrdrDeathLocation().AddProfile();
@@ -31,8 +31,8 @@ namespace GaTech.Chai.Vrdr
 
         public static Location Create(string name)
         {
-            var location = UsCoreLocation.Create();
-            location.UsCoreLocation().RemoveProfile();
+            var location = LocationVr.Create();
+            location.LocationVr().RemoveProfile();
 
             location.Type = new List<CodeableConcept> { VrdrLocationTypeCs.DeathLocation };
             location.VrdrDeathLocation().AddProfile();

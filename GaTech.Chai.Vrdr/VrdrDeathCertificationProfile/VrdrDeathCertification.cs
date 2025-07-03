@@ -23,9 +23,15 @@ namespace GaTech.Chai.Vrdr
             procedure.VrdrDeathCertification().AddProfile();
             procedure.VrdrDeathCertification().AddFixedValue();
 
-            procedure.Status = EventStatus.Completed;
-            procedure.Category = new (UriString.SCT, "103693007");
-            procedure.Code = new (UriString.SCT, "308646001");
+            return procedure;
+        }
+
+        public static Procedure Create(Patient patient)
+        {
+            var procedure = new Procedure();
+            procedure.VrdrDeathCertification().AddProfile();
+            procedure.VrdrDeathCertification().AddFixedValue();
+            procedure.VrdrDeathCertification().SubjectAsResource = patient;
 
             return procedure;
         }
@@ -35,6 +41,9 @@ namespace GaTech.Chai.Vrdr
         public void AddFixedValue()
         {
             this.procedure.Code = VrdrCs.DeathCertificationSCT;
+            this.procedure.Status = EventStatus.Completed;
+            this.procedure.Category = new (UriString.SCT, "103693007");
+            this.procedure.Code = new (UriString.SCT, "308646001");
         }
 
         /// <summary>

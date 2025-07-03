@@ -4,8 +4,8 @@ using GaTech.Chai.Share;
 using static Hl7.Fhir.Model.Composition;
 using System.Collections.Generic;
 using Code = Hl7.Fhir.Model.Code;
-using GaTech.Chai.Vrdr;
 using GaTech.Chai.Vrcl;
+using System.Linq;
 
 namespace GaTech.Chai.Mdi
 {
@@ -131,6 +131,7 @@ namespace GaTech.Chai.Mdi
 
         /// <summary>
         /// MDI Case Number:
+        /// (string cms-system-url, string cms-caseid)
         /// </summary>
         public (string, string) MdiCaseNumber
         {
@@ -161,6 +162,7 @@ namespace GaTech.Chai.Mdi
 
         /// <summary>
         /// EDRS File Number
+        /// (string edrs-system-url, string edrs-caseid)
         /// </summary>
         public (string, string) EdrsFileNumber
         {
@@ -284,10 +286,10 @@ namespace GaTech.Chai.Mdi
             }
             set
             {
-                if (!VsCremationClearanceStatus.CremCRequested.Matches(value) &&
-                    !VsCremationClearanceStatus.CremCPending.Matches(value) &&
-                    !VsCremationClearanceStatus.CremCRejected.Matches(value) &&
-                    !VsCremationClearanceStatus.CremCApproved.Matches(value))
+                if (!VsCremationClearanceStatus.CremCRequested.CodingExist(value) &&
+                    !VsCremationClearanceStatus.CremCPending.CodingExist(value) &&
+                    !VsCremationClearanceStatus.CremCRejected.CodingExist(value) &&
+                    !VsCremationClearanceStatus.CremCApproved.CodingExist(value))
                 {
                     throw new Exception("The value for Cremation Clearance Status must be either CREM_C_REQUESTED, CREM_C_PENDING, CREM_C_REJECTED, or CREM_C_APPROVED");
                 }
@@ -320,8 +322,8 @@ namespace GaTech.Chai.Mdi
             }
             set
             {
-                if (!VsMeCertAffirmation.MeAffirmCertificationAffirmed.Matches(value) &&
-                    !VsMeCertAffirmation.MeAffirmCertificationNotAffirmed.Matches(value))
+                if (!VsMeCertAffirmation.MeAffirmCertificationAffirmed.CodingExist(value) &&
+                    !VsMeCertAffirmation.MeAffirmCertificationNotAffirmed.CodingExist(value))
                 {
                     throw new Exception("The value for Cremation Clearance Status must be either ME_AFFIRM_CERTIFICATION_AFFIRMED or ME_AFFIRM_CERTIFICATION_NOT_AFFIRMED");
                 }
@@ -354,9 +356,9 @@ namespace GaTech.Chai.Mdi
             }
             set
             {
-                if (!VrclCodeSystemsValueSets.VrclValueSetYesNoUnknownVr.Yes.Matches(value) &&
-                    !VrclCodeSystemsValueSets.VrclValueSetYesNoUnknownVr.No.Matches(value) &&
-                    !VrclCodeSystemsValueSets.VrclValueSetYesNoUnknownVr.Unknown.Matches(value))
+                if (!VrclCodeSystemsValueSets.VrclValueSetYesNoUnknownVr.Yes.CodingExist(value) &&
+                    !VrclCodeSystemsValueSets.VrclValueSetYesNoUnknownVr.No.CodingExist(value) &&
+                    !VrclCodeSystemsValueSets.VrclValueSetYesNoUnknownVr.Unknown.CodingExist(value))
                 {
                     throw new Exception("The value for Cremation Clearance Coroner must be either Yes, No or Unknown");
                 }
@@ -389,8 +391,8 @@ namespace GaTech.Chai.Mdi
             }
             set
             {
-                if (!VsSignatureStatus.CremCSigned.Matches(value) &&
-                    !VsSignatureStatus.CremCUnsigned.Matches(value))
+                if (!VsSignatureStatus.CremCSigned.CodingExist(value) &&
+                    !VsSignatureStatus.CremCUnsigned.CodingExist(value))
                 {
                     throw new Exception("The value for Cremation Clearance Signature must be either CREM_C_SIGNED or CREM_C_UNSIGNED");
                 }
@@ -409,11 +411,11 @@ namespace GaTech.Chai.Mdi
         {
             get
             {
-                return GetSectionAndEntry(VrdrDocumentSectionCs.DecedentDemographics);
+                return GetSectionAndEntry(MdiDcrCompositionSections.DecedentDemographics);
             }
             set
             {
-                SetSectionAndEntry(VrdrDocumentSectionCs.DecedentDemographics, value);
+                SetSectionAndEntry(MdiDcrCompositionSections.DecedentDemographics, value);
             }
         }
 
@@ -421,11 +423,11 @@ namespace GaTech.Chai.Mdi
         {
             get
             {
-                return GetSectionAndEntry(VrdrDocumentSectionCs.DeathInvestigation);
+                return GetSectionAndEntry(MdiDcrCompositionSections.DeathInvestigation);
             }
             set
             {
-                SetSectionAndEntry(VrdrDocumentSectionCs.DeathInvestigation, value);
+                SetSectionAndEntry(MdiDcrCompositionSections.DeathInvestigation, value);
             }
         }
 
@@ -433,11 +435,11 @@ namespace GaTech.Chai.Mdi
         {
             get
             {
-                return GetSectionAndEntry(VrdrDocumentSectionCs.DeathCertification);
+                return GetSectionAndEntry(MdiDcrCompositionSections.DeathCertification);
             }
             set
             {
-                SetSectionAndEntry(VrdrDocumentSectionCs.DeathCertification, value);
+                SetSectionAndEntry(MdiDcrCompositionSections.DeathCertification, value);
             }
         }
 
@@ -445,11 +447,11 @@ namespace GaTech.Chai.Mdi
         {
             get
             {
-                return GetSectionAndEntry(VrdrDocumentSectionCs.DecedentDisposition);
+                return GetSectionAndEntry(MdiDcrCompositionSections.DecedentDisposition);
             }
             set
             {
-                SetSectionAndEntry(VrdrDocumentSectionCs.DecedentDisposition, value);
+                SetSectionAndEntry(MdiDcrCompositionSections.DecedentDisposition, value);
             }
         }
 
@@ -483,9 +485,9 @@ namespace GaTech.Chai.Mdi
         /// <param name="code"></param>
         /// <param name="mdiCodeSystem"></param>
         /// <returns></returns>
-        private (List<Resource>, CodeableConcept) GetSectionAndEntry(CodeableConcept vrdrDocumentSectionCs)
+        private (List<Resource>, CodeableConcept) GetSectionAndEntry(CodeableConcept mdiDocumentSectionCs)
         {
-            SectionComponent sectionComponent = GetOrAddSection(vrdrDocumentSectionCs.Coding[0].Code, vrdrDocumentSectionCs.Coding[0].Display);
+            SectionComponent sectionComponent = GetOrAddSection(mdiDocumentSectionCs.Coding[0].Code, mdiDocumentSectionCs.Coding[0].Display);
             List<Resource> valueResource = new();
             foreach (ResourceReference reference in sectionComponent.Entry)
             {
@@ -550,12 +552,28 @@ namespace GaTech.Chai.Mdi
 
         protected void AddOrUpdateSection(string code, string display, Composition.SectionComponent section)
         {
-            composition.Section.AddOrUpdateSection(MdiCodeSystem.MdiCodes.officialUrl, code, display, display, section);
+            string system = MdiCodeSystem.MdiCodes.officialUrl;
+            if (section.Code != null)
+            {
+                if (section.Code.Coding.Count != 0)
+                {
+                    system = section.Code.Coding[0].System;
+                }
+            }
+            composition.Section.AddOrUpdateSection(system, code, display, display, section);
         }
 
         protected void AddOrUpdateSection(string code, string display, string title, Composition.SectionComponent section)
         {
-            composition.Section.AddOrUpdateSection(MdiCodeSystem.MdiCodes.officialUrl, code, title, display, section);
+            string system = MdiCodeSystem.MdiCodes.officialUrl;
+            if (section.Code != null)
+            {
+                if (section.Code.Coding.Count != 0)
+                {
+                    system = section.Code.Coding[0].System;
+                }
+            }
+            composition.Section.AddOrUpdateSection(system, code, title, display, section);
         }
     }
 }

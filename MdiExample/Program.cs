@@ -71,7 +71,7 @@ namespace MdiExample
             patient.PatientVr().BirthPlace.CityCode = 42425;
 
             // Us Core Practitioner (ME)
-            Practitioner practitioner = UsCorePractitioner.Create();
+            Practitioner practitioner = VrdrCertifier.Create();
             practitioner.Id = "ac069540-a993-11ed-afa1-0242ac120002";
 
             practitioner.Name = new List<HumanName> { new HumanName() { Use = HumanName.NameUse.Official, Family = "Jones", GivenElement = new List<FhirString> { new FhirString("Sam") }, PrefixElement = new List<FhirString> { new FhirString("Dr") } } };
@@ -130,20 +130,33 @@ namespace MdiExample
             deathLocation.Identifier.Add(new Identifier("http://www.acme.org/location", "29"));
             deathLocation.Status = Location.LocationStatus.Active;
             deathLocation.Name = "Atlanta GA Death Location - Freeman";
-            deathLocation.Address = new Address() { Use = Address.AddressUse.Home, Type = Address.AddressType.Physical, Line = new List<string>{
-                    "400 Windstream Street" }, City = "Atlanta", District = "Fulton County", State = "GA", Country = "USA" };
+            deathLocation.Address = new Address()
+            {
+                Use = Address.AddressUse.Home,
+                Type = Address.AddressType.Physical,
+                Line = new List<string>{
+                    "400 Windstream Street" },
+                City = "Atlanta",
+                District = "Fulton County",
+                State = "GA",
+                Country = "USA"
+            };
 
             // Location Injury
             Location injuryLocation = VrdrInjuryLocation.Create();
             injuryLocation.Id = "0affba40-a994-11ed-afa1-0242ac120002";
             injuryLocation.Name = "Atlanta GA Injury Location";
-            injuryLocation.Address = new Address() {
+            injuryLocation.Address = new Address()
+            {
                 Use = Address.AddressUse.Home,
                 Type = Address.AddressType.Physical,
                 Line = new List<string> { "400 Windstream Street" },
                 City = "Atlanta",
                 District = "Fulton County",
-                State = "GA", PostalCode = "30318", Country = "USA" };
+                State = "GA",
+                PostalCode = "30318",
+                Country = "USA"
+            };
 
             // Observation Death Date
             Observation observationDeathDate = VrdrDeathDate.Create(patient);
@@ -206,9 +219,11 @@ namespace MdiExample
 
             // Demo: Tracking numbers - one with library. the other for custom type
             composition.CompositionMdiAndEdrs().MdiCaseNumber = ("urn:connectathon_jan22:test", "ME21-113");
-            composition.CompositionMdiAndEdrs().AdditionalDemographics = new Narrative {
+            composition.CompositionMdiAndEdrs().AdditionalDemographics = new Narrative
+            {
                 Div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n  <p>No additional demographic information</p>\n  </div>",
-                Status = Narrative.NarrativeStatus.Additional };
+                Status = Narrative.NarrativeStatus.Additional
+            };
             composition.CompositionMdiAndEdrs().Circumstances = (new List<Resource> { deathLocation, observationTobaccoUseContributedToDeath, observationDecedentPregnancy, injuryLocation }, null, null);
             composition.CompositionMdiAndEdrs().Jurisdiction = (new List<Resource> { observationDeathDate, procedureDeathCertification }, null, null);
             composition.CompositionMdiAndEdrs().CauseManner = (
@@ -222,7 +237,7 @@ namespace MdiExample
             // Since we have no entry and no subsection, must include text.
             composition.CompositionMdiAndEdrs().MedicalHistory = (
                 null,
-                new Narrative { Div="Medical History is not available", Status=Narrative.NarrativeStatus.Generated },
+                new Narrative { Div = "Medical History is not available", Status = Narrative.NarrativeStatus.Generated },
                 ListEmptyReason.Unavailable);
 
             // exam and autopsy information
@@ -435,7 +450,8 @@ namespace MdiExample
             diagnosticReport.DiagnosticReportToxicologyLabResultToMdi().AddResult(toxLabResultNotTestedStomachContents);
             diagnosticReport.DiagnosticReportToxicologyLabResultToMdi().AddResult(toxLabResultNotTestedLiver);
 
-            diagnosticReport.Text = new Narrative {
+            diagnosticReport.Text = new Narrative
+            {
                 Div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">\n  <p>It may be appropriate to include interpretive information to help the reader understand the meaning of detected analytes. Interpretive information is not considered a mandatory part of the toxicological report, but is based on jurisdictional or laboratory preference to include such. This information may be included in the body of the report.</p>\n  </div>",
                 Status = Narrative.NarrativeStatus.Additional
             };
@@ -1057,6 +1073,123 @@ namespace MdiExample
             output = serializer.SerializeToString(bundleMessageToxToMDI);
             File.WriteAllText(outputPath + "Tox_with_UAB_2018_1811.json", output);
             //Console.WriteLine(output);
+
+            ///////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
+            // Death Certificate Review ...
+            //
+            // Create Funeral Home Director
+            Practitioner funeralDirector = new Practitioner();
+            practitioner.Id = System.Guid.NewGuid().ToString();
+
+            funeralDirector.Name = new List<HumanName> { new() { Use = HumanName.NameUse.Official, Family = "DotNet", GivenElement = new List<FhirString> { new FhirString("Example") }, PrefixElement = new List<FhirString> { new FhirString("Mr") } } };
+            funeralDirector.Telecom = [new ContactPoint(ContactPoint.ContactPointSystem.Phone, ContactPoint.ContactPointUse.Work, "999-888-7777")];
+            funeralDirector.Address = [ new() {
+                Use = Address.AddressUse.Work,
+                Type = Address.AddressType.Physical,
+                Line = new List<string> { "123 Heaven Blvd" },
+                City = "Atlanta",
+                District = "Fulton County",
+                State = "GA",
+                PostalCode = "30318",
+                Country = "USA" }
+            ];
+
+            // Create DCR Composition.
+            Composition dcrComposition = CompositionMdiDcr.Create(
+                new Identifier() { Value = System.Guid.NewGuid().ToString() },
+                CompositionStatus.Final,
+                patient,
+                funeralDirector
+            );
+
+            dcrComposition.CompositionMdiDcr().FuneralHomeCaseNumber = ("urn:example:funeral-system", "10293847");
+            dcrComposition.CompositionMdiDcr().MdiCaseNumber = ("urn:example:cms", "ME25-123");
+
+            // Create sections within dcr composition.
+            // DecedentDemographics:
+            // - Decedent, UsualWork
+            Observation usualWorkObs = VrdrDecedentUsualWork.Create(patient);
+            usualWorkObs.VrdrDecedentUsualWork().OccupationCdcSoc2018 = new Coding(VrdrCodeSystemsValueSets.OccupationCdcSoc2018Oid, "13-2011", "Accountants and Auditors");
+            usualWorkObs.VrdrDecedentUsualWork().IndustryCDCNaics2017 = new Coding(VrdrCodeSystemsValueSets.IndustryCdcNaics2017Oid, "54121", "Accounting, Tax Preparation, Bookkeeping, and Payroll Services");
+
+            dcrComposition.CompositionMdiDcr().DecedentDemographics = ([patient, usualWorkObs], null);
+
+            // DeathInvestigation
+            // - DeathLocation, DeathDate
+            dcrComposition.CompositionMdiDcr().DeathInvestigation = ([deathLocation, observationHowDeathInjuryOccurred, observationDeathDate], null);
+
+            // DeathCertification
+            // - Manner of Death, Cause of Death 1, Cause of Death 2
+            dcrComposition.CompositionMdiDcr().DeathCertification = ([observationMannerOfDeath, causeOfDeath1, causeOfDeath2], null);
+
+            // DeathDisposition
+            // - Funeral Home
+            Organization funeralHome = VrdrFuneralHome.Create("Heaven Funeral");
+            funeralHome.Address = new() { new()
+                {
+                    Use = Address.AddressUse.Work,
+                    Type = Address.AddressType.Physical,
+                    Line = ["123 Heaven Blvd"],
+                    City = "Atlanta",
+                    District = "Fulton County",
+                    State = "GA",
+                    PostalCode = "30318",
+                    Country = "USA"
+                }
+            };
+
+            Observation vrdrDecedentDispositionMethod = VrdrDecedentDispositionMethod.Create(patient);
+            vrdrDecedentDispositionMethod.Value = VrdrMethodOfDispositionVs.Cremation;
+
+            dcrComposition.CompositionMdiDcr().DecedentDisposition = ([funeralHome, vrdrDecedentDispositionMethod], null);
+
+            // death-certificate-data-review
+            // create death certificate
+            Composition vrdrDeathCertificate = VrdrDeathCertificate.Create(
+                new Identifier() { Value = System.Guid.NewGuid().ToString() },
+                CompositionStatus.Final,
+                patient,
+                practitioner,
+                practitioner
+            );
+            Observation medInfoDataQuqlObs = ObservationMedicalInformationDataQuality.Create(patient, vrdrDeathCertificate);
+            medInfoDataQuqlObs.Value = VsMedDqReview.MedInfDqMedicalValid;
+
+            dcrComposition.CompositionMdiDcr().DeathCertificateDataReview = ([medInfoDataQuqlObs], null);
+
+            // cremation-clearance-info
+            Organization orgCrematorium = OrganizationCrematorium.Create("Atlanta Hill Crematorium");
+            orgCrematorium.Address = new() { new()
+                {
+                    Use = Address.AddressUse.Work,
+                    Type = Address.AddressType.Physical,
+                    Line = ["123 Heaven Blvd"],
+                    City = "Atlanta",
+                    District = "Fulton County",
+                    State = "GA",
+                    PostalCode = "30318",
+                    Country = "USA"
+                }
+            };
+            
+            dcrComposition.CompositionMdiDcr().CremationClearanceInfo = ([practitioner, funeralHome, orgCrematorium], null);
+            
+            // Create DCR Bundle Document.
+            Bundle dcrBundleDocument = BundleDocumentMdiDcr.Create(
+                new Identifier() { Value = System.Guid.NewGuid().ToString() },
+                dcrComposition
+            );
+
+            MessageHeader dcrMessageHeader = MessageHeaderDeathCertificateReview.Create(
+                "http://test.example.org/dcr",
+                VsDcrReason.CremCReq,
+                dcrBundleDocument);
+
+            dcrMessageHeader.Destination = new List<MessageHeader.MessageDestinationComponent>() { new() { Endpoint = "https://dcr-endpoint.example.org/fhir/$message" } };
+            Bundle dcrBundleMessage = BundleMessageDeathCertificateReview.Create(dcrMessageHeader);
+
+            output = serializer.SerializeToString(dcrBundleMessage);
+            File.WriteAllText(outputPath + "dcr_example.json", output);
         }
     }
 }

@@ -4,11 +4,11 @@ using Hl7.Fhir.Model;
 
 namespace GaTech.Chai.Vrdr;
 
-public class VrdrDecedentAge
+public class VrdrDecedentDispositionMethod
 {
     readonly Observation observation;
 
-    internal VrdrDecedentAge(Observation observation)
+    internal VrdrDecedentDispositionMethod(Observation observation)
     {
         this.observation = observation;
     }
@@ -16,8 +16,8 @@ public class VrdrDecedentAge
     public static Observation Create()
     {
         Observation observation = new();
-        observation.VrdrDecedentAge().AddProfile();
-        observation.Code = VrdrCs.AgeAtDeath;
+        observation.VrdrDecedentDispositionMethod().AddProfile();
+        observation.Code = new CodeableConcept(UriString.LOINC, "80905-3", "Body disposition method", null);
 
         return observation;
     }
@@ -25,14 +25,14 @@ public class VrdrDecedentAge
     public static Observation Create(Patient patient)
     {
         Observation observation = new();
-        observation.VrdrDecedentAge().AddProfile();
-        observation.VrdrDecedentAge().SubjectAsResource = patient;
-        observation.Code = VrdrCs.AgeAtDeath;
+        observation.VrdrDecedentDispositionMethod().AddProfile();
+        observation.Code = new CodeableConcept(UriString.LOINC, "80905-3", "Body disposition method", null);
+        observation.VrdrDecedentDispositionMethod().SubjectAsResource = patient;
 
         return observation;
     }
 
-    public const string ProfileUrl = "http://hl7.org/fhir/us/vrdr/StructureDefinition/vrdr-decedent-age";
+    public const string ProfileUrl = "http://hl7.org/fhir/us/vrdr/StructureDefinition/vrdr-decedent-disposition-method";
 
     public void AddProfile()
     {
@@ -58,6 +58,5 @@ public class VrdrDecedentAge
             Record.GetResources()[value.AsReference().Reference] = value;
         }
     }
-
 }
 

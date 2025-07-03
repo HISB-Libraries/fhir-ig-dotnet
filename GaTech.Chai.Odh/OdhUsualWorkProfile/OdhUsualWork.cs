@@ -136,7 +136,7 @@ namespace GaTech.Chai.Odh
             {
                 if (value.System != OdhCodeSystemsValueSets.OccupationCdcCensus2018Oid)
                 {
-                    throw (new ArgumentException("System must be " + OdhCodeSystemsValueSets.OccupationCdcCensus2010Oid));
+                    throw (new ArgumentException("System must be " + OdhCodeSystemsValueSets.OccupationCdcCensus2018Oid));
                 }
 
                 Coding coding = (this.observation.Value as CodeableConcept)?.Coding?.Find(c => c.System == OdhCodeSystemsValueSets.OccupationCdcCensus2018Oid);

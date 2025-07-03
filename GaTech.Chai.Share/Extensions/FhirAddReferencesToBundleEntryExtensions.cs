@@ -94,6 +94,10 @@ public static class FhirAddReferencesToBundleEntryExtensions
                                             }
                                         }
                                     }
+                                    else if (focusResource is Composition comp_)
+                                    {
+                                        bundle.AddRefsInCompositionToEntry(comp_);
+                                    }
                                 }
                             }
                         }
@@ -105,6 +109,10 @@ public static class FhirAddReferencesToBundleEntryExtensions
                                 AddExtensionReferenceToEntry(ext, bundle);
                             }
                         }
+                    }
+                    else if (resource is Composition comp)
+                    {
+                        bundle.AddRefsInCompositionToEntry(comp);
                     }
                 }
             }

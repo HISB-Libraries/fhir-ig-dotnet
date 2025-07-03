@@ -39,7 +39,7 @@ namespace GaTech.Chai.Mdi
         /// Factory for MessageHeaderDeathCertificateReviewProfile with sourceEndPointUrl and DiagnosticReport
         /// http://hl7.org/fhir/us/mdi/StructureDefinition/MessageHeader-toxicology-to-mdi
         /// </summary>
-        public static MessageHeader Create(string sourceEndpointUrlString, CodeableConcept reason, ResourceReference BundleDCRRef)
+        public static MessageHeader Create(string sourceEndpointUrlString, CodeableConcept reason, Bundle BundleDCRDocument)
         {
             // clear static resource container.
             resources.Clear();
@@ -50,7 +50,7 @@ namespace GaTech.Chai.Mdi
             messageHeader.Event = MdiCodeSystem.MdiCodes.DeathCertificateReviewEvent;
             messageHeader.Source = new MessageHeader.MessageSourceComponent { Endpoint = sourceEndpointUrlString };
             messageHeader.Reason = reason;
-            messageHeader.Focus = new List<ResourceReference> { BundleDCRRef }; 
+            messageHeader.MessageHeaderDeathCertificateReview().BundleDocumentDeathCertificateReview = BundleDCRDocument; 
 
             return messageHeader;
         }
@@ -79,7 +79,7 @@ namespace GaTech.Chai.Mdi
         /// <summary>
         /// adding or getting Focus
         /// </summary>
-        public Bundle BundleDocumentMdiDcr
+        public Bundle BundleDocumentDeathCertificateReview
         {
             get
             {

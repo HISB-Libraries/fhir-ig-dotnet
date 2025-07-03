@@ -141,9 +141,9 @@ namespace GaTech.Chai.Mdi
         {
             get
             {
-                foreach (Extension ext in this.composition.GetExtensions("http://hl7.org/fhir/us/mdi/StructureDefinition/Extension-tracking-number"))
+                foreach (Extension ext in this.composition.GetExtensions(MdiStructureDefinition.ExtensionTrackingNumberUrl))
                 {
-                    Coding coding = (ext.Value as Identifier).Type?.Coding?.Find(e => e.System == "http://hl7.org/fhir/us/mdi/CodeSystem/CodeSystem-mdi-codes" && e.Code == "mdi-case-number");
+                    Coding coding = (ext.Value as Identifier).Type?.Coding?.Find(e => e.System == VsTrackingNumberType.MdiCaseNumber.Coding[0].System && e.Code == VsTrackingNumberType.MdiCaseNumber.Coding[0].Code);
                     if (coding != null)
                     {
                         return ((ext.Value as Identifier).System, (ext.Value as Identifier).Value);
@@ -157,7 +157,7 @@ namespace GaTech.Chai.Mdi
             {
                 Extension ext = new ()
                 {
-                    Url = "http://hl7.org/fhir/us/mdi/StructureDefinition/Extension-tracking-number",
+                    Url = MdiStructureDefinition.ExtensionTrackingNumberUrl,
                     Value = new Identifier() { Type = MdiCodeSystem.MdiCodes.MdiCaseNumber, System = value.Item1, Value = value.Item2 }
                 };
                 this.composition.Extension.AddOrUpdateExtension(ext, true);
@@ -171,9 +171,9 @@ namespace GaTech.Chai.Mdi
         {
             get
             {
-                foreach (Extension ext in this.composition.GetExtensions("http://hl7.org/fhir/us/mdi/StructureDefinition/Extension-tracking-number"))
+                foreach (Extension ext in this.composition.GetExtensions(MdiStructureDefinition.ExtensionTrackingNumberUrl))
                 {
-                    Coding coding = (ext.Value as Identifier).Type?.Coding?.Find(e => e.System == "http://hl7.org/fhir/us/mdi/CodeSystem/CodeSystem-mdi-codes" && e.Code == "edrs-file-number");
+                    Coding coding = (ext.Value as Identifier).Type?.Coding?.Find(e => e.System == VsTrackingNumberType.EdrsFileNumber.Coding[0].System && e.Code == VsTrackingNumberType.EdrsFileNumber.Coding[0].Code);
                     if (coding != null)
                     {
                         return ((ext.Value as Identifier).System, (ext.Value as Identifier).Value);
@@ -187,7 +187,7 @@ namespace GaTech.Chai.Mdi
             {
                 Extension ext = new()
                 {
-                    Url = "http://hl7.org/fhir/us/mdi/StructureDefinition/Extension-tracking-number",
+                    Url = MdiStructureDefinition.ExtensionTrackingNumberUrl,
                     Value = new Identifier() { Type = MdiCodeSystem.MdiCodes.EdrsFileNumber, System = value.Item1, Value = value.Item2 }
                 };
                 this.composition.Extension.AddOrUpdateExtension(ext, true);
@@ -197,6 +197,8 @@ namespace GaTech.Chai.Mdi
         /// <summary>
         /// Certifier: sets or gets certifier information
         /// DC certifier is set in Attester. Only one certifiier can exist.
+        /// Value = (Attester.Mode, Practitioner, data-absent-reason code)
+        ///   Attester.Mode and Practitioner should be null if data-absent-reason present. 
         /// </summary>
         public (CompositionAttestationMode?, Practitioner, Code) Certifier
         {
@@ -1123,12 +1125,30 @@ namespace GaTech.Chai.Mdi
 
         protected void AddOrUpdateSection(string code, string display, Composition.SectionComponent section)
         {
-            composition.Section.AddOrUpdateSection(MdiCodeSystem.MdiCodes.officialUrl, code, display, display, section);
+            string system = MdiCodeSystem.MdiCodes.officialUrl;
+            if (section.Code != null)
+            {
+                if (section.Code.Coding.Count != 0)
+                {
+                    system = section.Code.Coding[0].System;
+                }
+            }
+
+            composition.Section.AddOrUpdateSection(system, code, display, display, section);
         }
 
         protected void AddOrUpdateSection(string code, string display, string title, Composition.SectionComponent section)
         {
-            composition.Section.AddOrUpdateSection(MdiCodeSystem.MdiCodes.officialUrl, code, title, display, section);
+            string system = MdiCodeSystem.MdiCodes.officialUrl;
+            if (section.Code != null)
+            {
+                if (section.Code.Coding.Count != 0)
+                {
+                    system = section.Code.Coding[0].System;
+                }
+            }
+
+            composition.Section.AddOrUpdateSection(system, code, title, display, section);
         }
     }
 }

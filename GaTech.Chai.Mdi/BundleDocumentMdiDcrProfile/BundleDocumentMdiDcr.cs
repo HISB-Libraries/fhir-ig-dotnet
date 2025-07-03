@@ -121,7 +121,7 @@ namespace GaTech.Chai.Mdi
 
                 // First entry MUST be composition
                 // Check if composition already exists.
-                if (bundle.Entry.Any<Bundle.EntryComponent>())
+                if (bundle.Entry.Count != 0)
                 {
                     Resource resource = this.bundle.Entry[0].Resource;
                     if (resource is Composition)
