@@ -167,7 +167,7 @@ namespace GaTech.Chai.Vrdr
 
     public class VrdrDateOfDeathDeterminationMethodsCs
     {
-        public const string officialUrl = "http://hl7.org/fhir/us/vrdr/ValueSet/vrdr-date-of-death-determination-methods-vs";
+        public const string officialUrl = "http://hl7.org/fhir/us/vrdr/CodeSystem/vrdr-date-of-death-determination-methods-cs";
 
         public static CodeableConcept Exact = new(officialUrl, "exact", "Exact", null);
         public static CodeableConcept Approximate = new(officialUrl, "approximate", "Approximate", null);
@@ -244,5 +244,20 @@ namespace GaTech.Chai.Vrdr
         public static CodeableConcept Original = new(officialUrl, "original", "original record", null);
         public static CodeableConcept Updated = new(officialUrl, "updated", "updated record", null);
         public static CodeableConcept UpdatedNotforNCHS = new(officialUrl, "updated_notforNCHS", "updated record not for nchs", null);
+    }
+
+    public class VrdrDeathCertificationEventVs
+    {
+        public static string officialUrl = "http://hl7.org/fhir/us/vrdr/ValueSet/vrdr-death-certification-event-vs";
+
+        public static CodeableConcept DeathCertificate = new(UriString.SCT, "307930005", "Death certificate");
+    }
+
+    public class VrdrDeathCertificationEventMaxVs
+    {
+        public static string officialUrl = "http://hl7.org/fhir/us/vrdr/ValueSet/vrdr-death-certification-event-max-vs";
+
+        public static CodeableConcept DeathCertificate = new(UriString.SCT, "307930005", "Death certificate");
+        public static CodeableConcept DiagnosticProcedure = new(UriString.SCT, "103693007", "Death procedure");
     }
 }

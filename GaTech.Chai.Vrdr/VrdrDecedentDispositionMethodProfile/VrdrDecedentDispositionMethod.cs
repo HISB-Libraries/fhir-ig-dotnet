@@ -17,6 +17,7 @@ public class VrdrDecedentDispositionMethod
     {
         Observation observation = new();
         observation.VrdrDecedentDispositionMethod().AddProfile();
+        observation.Status = ObservationStatus.Final;
         observation.Code = new CodeableConcept(UriString.LOINC, "80905-3", "Body disposition method", null);
 
         return observation;
@@ -26,6 +27,7 @@ public class VrdrDecedentDispositionMethod
     {
         Observation observation = new();
         observation.VrdrDecedentDispositionMethod().AddProfile();
+        observation.Status = ObservationStatus.Final;
         observation.Code = new CodeableConcept(UriString.LOINC, "80905-3", "Body disposition method", null);
         observation.VrdrDecedentDispositionMethod().SubjectAsResource = patient;
 

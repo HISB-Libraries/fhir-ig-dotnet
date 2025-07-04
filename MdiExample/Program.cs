@@ -55,7 +55,7 @@ namespace MdiExample
                 City = "Atlanta",
                 State = "GA",
                 PostalCode = "09090",
-                Country = "USA"}
+                Country = "US"}
             };
 
             // Contact
@@ -85,7 +85,7 @@ namespace MdiExample
                 District = "Fulton County",
                 State = "GA",
                 PostalCode = "30318",
-                Country = "USA" }
+                Country = "US" }
             };
 
             practitioner.Address[0].SetDistrictCode(04000);
@@ -139,7 +139,7 @@ namespace MdiExample
                 City = "Atlanta",
                 District = "Fulton County",
                 State = "GA",
-                Country = "USA"
+                Country = "US"
             };
 
             // Location Injury
@@ -155,7 +155,7 @@ namespace MdiExample
                 District = "Fulton County",
                 State = "GA",
                 PostalCode = "30318",
-                Country = "USA"
+                Country = "US"
             };
 
             // Observation Death Date
@@ -174,9 +174,9 @@ namespace MdiExample
             observationDeathDate.Method = VrdrDateOfDeathDeterminationMethodsVs.Exact;
 
             // Death Certification
-            Procedure procedureDeathCertification = ProcedureDeathCertification.Create(patient);
+            Procedure procedureDeathCertification = VrdrDeathCertification.Create(patient);
             procedureDeathCertification.Id = "23145afa-a994-11ed-afa1-0242ac120002";
-            procedureDeathCertification.ProcedureDeathCertification().Certifier = (MdiVsCertifierTypes.MedicalExaminerCornerExamination, practitioner);
+            procedureDeathCertification.VrdrDeathCertification().AddPerformer(practitioner, VrdrCertifierTypesVs.DeathCertByCME);
             procedureDeathCertification.Status = EventStatus.Completed;
             procedureDeathCertification.Performed = new FhirDateTime("2022-01-08T15:30:00-05:00");
 
@@ -280,7 +280,7 @@ namespace MdiExample
             organizationLab.Type.Add(new CodeableConcept("http://terminology.hl7.org/CodeSystem/organization-type", "prov", "Healthcare Provider", null));
             organizationLab.Name = "UF Health Pathology Labs, Forensic Toxicology Laboratory";
             organizationLab.Telecom.AddTelecom(ContactPoint.ContactPointSystem.Phone, ContactPoint.ContactPointUse.Work, "(352) 265-9900");
-            organizationLab.Address.Add(new Address() { Line = new List<String> { "4800 SW 35th Drive" }, City = "Gainesville", State = "FL", PostalCode = "32608", Country = "USA" });
+            organizationLab.Address.Add(new Address() { Line = new List<String> { "4800 SW 35th Drive" }, City = "Gainesville", State = "FL", PostalCode = "32608", Country = "US" });
 
             Specimen specimenBlood = SpecimenToxicologyLab.Create("Blood", patient);
             specimenBlood.Id = "8d129084-a994-11ed-afa1-0242ac120002";
@@ -513,7 +513,7 @@ namespace MdiExample
                 City = "Midwell",
                 State = "GA",
                 PostalCode = "22090",
-                Country = "USA"}
+                Country = "US"}
             };
 
             // Contact
@@ -745,7 +745,7 @@ namespace MdiExample
                 City = "Peachcity",
                 State = "GA",
                 PostalCode = "12098",
-                Country = "USA"}
+                Country = "US"}
             };
 
             // Contact
@@ -926,7 +926,7 @@ namespace MdiExample
                 City = "HL7",
                 State = "GA",
                 PostalCode = "00001",
-                Country = "USA"}
+                Country = "US"}
             };
 
             // Contact
@@ -1079,7 +1079,7 @@ namespace MdiExample
             //
             // Create Funeral Home Director
             Practitioner funeralDirector = new Practitioner();
-            practitioner.Id = System.Guid.NewGuid().ToString();
+            funeralDirector.Id = System.Guid.NewGuid().ToString();
 
             funeralDirector.Name = new List<HumanName> { new() { Use = HumanName.NameUse.Official, Family = "DotNet", GivenElement = new List<FhirString> { new FhirString("Example") }, PrefixElement = new List<FhirString> { new FhirString("Mr") } } };
             funeralDirector.Telecom = [new ContactPoint(ContactPoint.ContactPointSystem.Phone, ContactPoint.ContactPointUse.Work, "999-888-7777")];
@@ -1091,7 +1091,7 @@ namespace MdiExample
                 District = "Fulton County",
                 State = "GA",
                 PostalCode = "30318",
-                Country = "USA" }
+                Country = "US" }
             ];
 
             // Create DCR Composition.
@@ -1102,7 +1102,7 @@ namespace MdiExample
                 funeralDirector
             );
 
-            dcrComposition.CompositionMdiDcr().FuneralHomeCaseNumber = ("urn:example:funeral-system", "10293847");
+            dcrComposition.CompositionMdiDcr().FuneralHomeCaseNumber = ("urn:example:funeralsystem", "10293847");
             dcrComposition.CompositionMdiDcr().MdiCaseNumber = ("urn:example:cms", "ME25-123");
 
             // Create sections within dcr composition.
@@ -1125,7 +1125,7 @@ namespace MdiExample
             // DeathDisposition
             // - Funeral Home
             Organization funeralHome = VrdrFuneralHome.Create("Heaven Funeral");
-            funeralHome.Address = new() { new()
+            funeralHome.Address = [ new()
                 {
                     Use = Address.AddressUse.Work,
                     Type = Address.AddressType.Physical,
@@ -1134,9 +1134,9 @@ namespace MdiExample
                     District = "Fulton County",
                     State = "GA",
                     PostalCode = "30318",
-                    Country = "USA"
+                    Country = "US"
                 }
-            };
+            ];
 
             Observation vrdrDecedentDispositionMethod = VrdrDecedentDispositionMethod.Create(patient);
             vrdrDecedentDispositionMethod.Value = VrdrMethodOfDispositionVs.Cremation;
@@ -1150,8 +1150,13 @@ namespace MdiExample
                 CompositionStatus.Final,
                 patient,
                 practitioner,
-                practitioner
+                practitioner,
+                VrdrDeathCertificationEventVs.DeathCertificate,
+                procedureDeathCertification
             );
+
+            vrdrDeathCertificate.DateElement = new FhirDateTime("2022-02-08T14:04:00-05:00");
+
             Observation medInfoDataQuqlObs = ObservationMedicalInformationDataQuality.Create(patient, vrdrDeathCertificate);
             medInfoDataQuqlObs.Value = VsMedDqReview.MedInfDqMedicalValid;
 
@@ -1168,7 +1173,7 @@ namespace MdiExample
                     District = "Fulton County",
                     State = "GA",
                     PostalCode = "30318",
-                    Country = "USA"
+                    Country = "US"
                 }
             };
             
@@ -1176,16 +1181,16 @@ namespace MdiExample
             
             // Create DCR Bundle Document.
             Bundle dcrBundleDocument = BundleDocumentMdiDcr.Create(
-                new Identifier() { Value = System.Guid.NewGuid().ToString() },
+                new Identifier() { System = "urn:example:dcr", Value = System.Guid.NewGuid().ToString() },
                 dcrComposition
             );
 
             MessageHeader dcrMessageHeader = MessageHeaderDeathCertificateReview.Create(
-                "http://test.example.org/dcr",
+                "http://test.raven.org/dcr",
                 VsDcrReason.CremCReq,
                 dcrBundleDocument);
 
-            dcrMessageHeader.Destination = new List<MessageHeader.MessageDestinationComponent>() { new() { Endpoint = "https://dcr-endpoint.example.org/fhir/$message" } };
+            dcrMessageHeader.Destination = new List<MessageHeader.MessageDestinationComponent>() { new() { Endpoint = "https://dcr-endpoint.raven.org/fhir/$message" } };
             Bundle dcrBundleMessage = BundleMessageDeathCertificateReview.Create(dcrMessageHeader);
 
             output = serializer.SerializeToString(dcrBundleMessage);

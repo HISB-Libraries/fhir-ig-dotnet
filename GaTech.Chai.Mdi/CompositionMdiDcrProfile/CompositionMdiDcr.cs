@@ -60,6 +60,7 @@ namespace GaTech.Chai.Mdi
             this.composition.Type = MdiCodeSystem.MdiCodes.DeathCertificateDataReviewDoc;
             this.composition.Title = "Death Certification Data Review Document";
             this.composition.DateElement = FhirDateTime.Now();
+            this.composition.Status = CompositionStatus.Final;
         }
 
         /// <summary>

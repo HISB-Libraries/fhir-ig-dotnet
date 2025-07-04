@@ -36,6 +36,7 @@ namespace GaTech.Chai.Mdi
             bundle.BundleDocumentMdiDcr().CompositionMDIDCR = composition ?? throw new Exception("Composition cannot be null for MDI DCR Document Bundle entry[0].");
             bundle.BundleDocumentMdiDcr().AddProfile();
             bundle.BundleDocumentMdiDcr().AddFixedValues();
+            bundle.Timestamp = DateTime.Now;
 
             return bundle;
         }
@@ -45,6 +46,7 @@ namespace GaTech.Chai.Mdi
             Bundle bundle = new();
             bundle.BundleDocumentMdiDcr().AddProfile();
             bundle.BundleDocumentMdiDcr().AddFixedValues();
+            bundle.Timestamp = DateTime.Now;
 
             return bundle;
         }

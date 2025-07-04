@@ -1,6 +1,7 @@
 ﻿using System;
 using Hl7.Fhir.Model;
 using GaTech.Chai.Share;
+using GaTech.Chai.UsCore;
 
 namespace GaTech.Chai.Vrdr
 {
@@ -19,7 +20,8 @@ namespace GaTech.Chai.Vrdr
         /// </summary>
         public static Procedure Create()
         {
-            var procedure = new Procedure();
+            var procedure = UsCoreProcedure.Create();
+            procedure.UsCoreProcedure().RemoveProfile();
             procedure.VrdrDeathCertification().AddProfile();
             procedure.VrdrDeathCertification().AddFixedValue();
 
@@ -28,7 +30,8 @@ namespace GaTech.Chai.Vrdr
 
         public static Procedure Create(Patient patient)
         {
-            var procedure = new Procedure();
+            var procedure = UsCoreProcedure.Create(patient);
+            procedure.UsCoreProcedure().RemoveProfile();
             procedure.VrdrDeathCertification().AddProfile();
             procedure.VrdrDeathCertification().AddFixedValue();
             procedure.VrdrDeathCertification().SubjectAsResource = patient;

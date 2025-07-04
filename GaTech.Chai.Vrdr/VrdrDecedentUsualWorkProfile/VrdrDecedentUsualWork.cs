@@ -27,7 +27,8 @@ public class VrdrDecedentUsualWork
 
     public static Observation Create(Patient patient)
     {
-        Observation observation = new();
+        Observation observation = OdhUsualWork.Create();
+        observation.OdhUsualWork().RemoveProfile();
         observation.VrdrDecedentUsualWork().AddProfile();
         observation.VrdrDecedentUsualWork().SubjectAsResource = patient;
 
@@ -46,13 +47,13 @@ public class VrdrDecedentUsualWork
         this.observation.RemoveProfile(ProfileUrl);
     }
 
-   public Patient SubjectAsResource
+    public Patient SubjectAsResource
     {
         get
         {
-        Record.GetResources().TryGetValue(this.observation.Subject.Reference, out Resource value);
+            Record.GetResources().TryGetValue(this.observation.Subject.Reference, out Resource value);
 
-        return (Patient)value;
+            return (Patient)value;
         }
         set
         {
@@ -123,7 +124,15 @@ public class VrdrDecedentUsualWork
     {
         get
         {
-            return (this.observation.Value as CodeableConcept)?.Coding?.Find(c => c.System == VrdrCodeSystemsValueSets.IndustryCdcNaics2017Oid);
+            Observation.ComponentComponent component = this.observation.Component.GetComponent(OdhCodeSystemsValueSets.HistoryOfUsualIndustry.Coding[0].System, OdhCodeSystemsValueSets.HistoryOfUsualIndustry.Coding[0].Code);
+            if (component != null)
+            {
+                return (component.Value as CodeableConcept)?.Coding?.Find(c => c.System == VrdrCodeSystemsValueSets.IndustryCdcNaics2017Oid);
+            }
+            else
+            {
+                return null;
+            }
         }
         set
         {
@@ -132,23 +141,15 @@ public class VrdrDecedentUsualWork
                 throw (new ArgumentException("System must be " + VrdrCodeSystemsValueSets.IndustryCdcNaics2017Oid));
             }
 
-            Coding coding = (this.observation.Value as CodeableConcept)?.Coding?.Find(c => c.System == VrdrCodeSystemsValueSets.IndustryCdcNaics2017Oid);
+            Observation.ComponentComponent component = this.observation.Component.GetOrAddComponent(OdhCodeSystemsValueSets.HistoryOfUsualIndustry.Coding[0].System, OdhCodeSystemsValueSets.HistoryOfUsualIndustry.Coding[0].Code, null);
+            Coding coding = (component.Value as CodeableConcept)?.Coding?.Find(c => c.System == VrdrCodeSystemsValueSets.IndustryCdcNaics2017Oid);
             if (coding == null)
             {
-                CodeableConcept valueCodeable = this.observation.Value as CodeableConcept;
-                if (valueCodeable == null)
-                {
-                    this.observation.Value = new CodeableConcept() { Coding = new List<Coding> { value } };
-                }
-                else
-                {
-                    valueCodeable.Coding.Add(value);
-                }
+                component.Value = new CodeableConcept() { Coding = [value] };
             }
             else
             {
-                coding.Code = value.Code;
-                coding.Display = value.Display;
+                (component.Value as CodeableConcept).Coding.Add(value);
             }
         }
     }

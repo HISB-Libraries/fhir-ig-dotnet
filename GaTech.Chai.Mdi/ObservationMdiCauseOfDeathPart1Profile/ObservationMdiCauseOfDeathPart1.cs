@@ -25,7 +25,8 @@ namespace GaTech.Chai.Mdi
         /// </summary>
         public static Observation Create(Patient subjectResource, Practitioner performerResource, string conceptText, int lineNumber, string interval)
         {
-            var observation = new Observation();
+            var observation = VrdrCauseOfDeathPart1.Create();
+            observation.VrdrCauseOfDeathPart1().RemoveProfile();
 
             observation.ObservationMdiCauseOfDeathPart1().AddProfile();
             observation.Code = new CodeableConcept(UriString.LOINC, "69453-9", "Cause of death [US Standard Certificate of Death]", null);
@@ -47,7 +48,8 @@ namespace GaTech.Chai.Mdi
         /// </summary>
         public static Observation Create(Patient subject)
         {
-            var observation = new Observation();
+            var observation = VrdrCauseOfDeathPart1.Create();
+            observation.VrdrCauseOfDeathPart1().RemoveProfile();
 
             observation.ObservationMdiCauseOfDeathPart1().AddProfile();
             observation.Code = new CodeableConcept(UriString.LOINC, "69453-9", "Cause of death [US Standard Certificate of Death]", null);
@@ -63,7 +65,9 @@ namespace GaTech.Chai.Mdi
         /// </summary>
         public static Observation Create()
         {
-            var observation = new Observation();
+            var observation = VrdrCauseOfDeathPart1.Create();
+            observation.VrdrCauseOfDeathPart1().RemoveProfile();
+            
             observation.ObservationMdiCauseOfDeathPart1().AddProfile();
             observation.Code = new CodeableConcept(UriString.LOINC, "69453-9", "Cause of death [US Standard Certificate of Death]", null);
 

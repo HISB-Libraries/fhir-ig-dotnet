@@ -135,9 +135,9 @@ namespace GaTech.Chai.Mdi
     {
         public const string officialUrl = "http://hl7.org/fhir/us/mdi/ValueSet/ValueSet-certifier-types";
 
-        public static CodeableConcept MedicalExaminerCornerExamination = new("http://snomed.info/sct", "455381000124109", "Medical Examiner/Coroner-On the basis of examination, and/or investigation, in my opinion, death occurred at the time, date, and place, and due to the cause(s) and manner stated", null);
-        public static CodeableConcept PronouncingAndCertifyingPhysican = new("http://snomed.info/sct", "434641000124105", "Pronouncing & Certifying physician-To the best of my knowledge, death occurred at the time, date, and place, and due to the cause(s) and manner stated", null);
-        public static CodeableConcept CertifyingPhysician = new("http://snomed.info/sct", "434651000124107", "Certifying physician-To the best of my knowledge, death occurred due to the cause(s) and manner stated", null);
+        public static CodeableConcept MedicalExaminerCornerExamination = new("http://snomed.info/sct", "455381000124109", "Death certification by medical examiner or coroner (procedure)", null);
+        public static CodeableConcept PronouncingAndCertifyingPhysican = new("http://snomed.info/sct", "434641000124105", "Death certification and verification by physician (procedure)", null);
+        public static CodeableConcept CertifyingPhysician = new("http://snomed.info/sct", "434651000124107", "Death certification by physician (procedure)", null);
         public static CodeableConcept Other = new("http://terminology.hl7.org/CodeSystem/v3-NullFlavor", "OTH", "Other", null);
     }
 

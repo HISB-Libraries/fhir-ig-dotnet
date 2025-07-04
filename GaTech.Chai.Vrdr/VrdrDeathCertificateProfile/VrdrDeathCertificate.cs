@@ -25,9 +25,10 @@ namespace GaTech.Chai.Mdi
         /// Factory for VrdrDeathCertificateProfile
         /// http://hl7.org/fhir/us/vrdr/StructureDefinition/vrdr-death-certificate
         /// </summary>
-        public static Composition Create(Identifier identifier, CompositionStatus status, Patient subject, Practitioner author, Practitioner certifier)
+        public static Composition Create(Identifier identifier, CompositionStatus status, Patient subject, Practitioner author, Practitioner certifier, CodeableConcept eventCode, Procedure eventDetail)
         {
             var composition = new Composition();
+            composition.DateElement = FhirDateTime.Now();
             composition.Type = new CodeableConcept(UriString.LOINC, "64297-5", "Death certificate", null);
 
             if (identifier != null) composition.Identifier = identifier;
@@ -45,6 +46,8 @@ namespace GaTech.Chai.Mdi
             composition.VrdrDeathCertificate().AddProfile();
             composition.Title = "Death Certficate";
 
+            composition.VrdrDeathCertificate().Event = (eventCode, eventDetail);
+
             return composition;
         }
 
@@ -56,9 +59,12 @@ namespace GaTech.Chai.Mdi
         public static Composition Create()
         {
             var composition = new Composition();
+            composition.DateElement = FhirDateTime.Now();
             composition.Type = new CodeableConcept(UriString.LOINC, "64297-5", "Death certificate", null);
             composition.VrdrDeathCertificate().AddProfile();
             composition.Title = "Death Certficate";
+            composition.DateElement = FhirDateTime.Now();
+            composition.Status = CompositionStatus.Final;
 
             return composition;
         }
@@ -503,6 +509,28 @@ namespace GaTech.Chai.Mdi
                 sectionComponent.Entry.Add(value.AsReference());
                 Record.GetResources().Add(value.AsReference().Reference, value);
 
+            }
+        }
+
+        public (CodeableConcept, Procedure) Event
+        {
+            get
+            {
+                if (this.composition.Event != null)
+                {
+                    EventComponent myEvent = this.composition.Event[0];
+                    Record.GetResources().TryGetValue(myEvent.Detail[0].Reference, out Resource deathCertification);
+                    return (myEvent.Code[0], deathCertification as Procedure);
+                }
+
+                return (null, null);
+            }
+            set
+            {
+                EventComponent myEvent = new() { Code = [value.Item1], Detail = [value.Item2.AsReference()] };
+                this.composition.Event = [myEvent];
+
+                Record.GetResources()[value.Item2.AsReference().Reference] = value.Item2;
             }
         }
 

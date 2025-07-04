@@ -26,6 +26,7 @@ namespace GaTech.Chai.Vrdr
             var observation = new Observation();
 
             observation.VrdrCauseOfDeathPart2().AddProfile();
+            observation.Status = ObservationStatus.Final;
             observation.Code = new CodeableConcept("http://loinc.org", "69441-4", "Other significant causes or conditions of death", null);
 
             observation.VrdrCauseOfDeathPart2().SubjectAsResource = subjectResource;
@@ -45,6 +46,7 @@ namespace GaTech.Chai.Vrdr
         {
             var observation = new Observation();
             observation.VrdrCauseOfDeathPart2().AddProfile();
+            observation.Status = ObservationStatus.Final;
             observation.Code = new CodeableConcept("http://loinc.org", "69441-4", "Other significant causes or conditions of death", null);
 
             return observation;

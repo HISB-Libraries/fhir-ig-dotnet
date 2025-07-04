@@ -26,6 +26,7 @@ namespace GaTech.Chai.Odh
             var observation = new Observation();
             observation.Category.SetCategory(new Coding("http://terminology.hl7.org/CodeSystem/observation-category", "social-history"));
             observation.Code = OdhCodeSystemsValueSets.HistoryOfUsualOccupation;
+            observation.Status = ObservationStatus.Final;
             observation.OdhUsualWork().AddProfile();
 
             return observation;

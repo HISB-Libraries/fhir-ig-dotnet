@@ -6,7 +6,7 @@ namespace GaTech.Chai.Share;
 
 public class Record
 {
-    readonly static Dictionary<string, Resource> resources = new ();
+    readonly static Dictionary<string, Resource> resources = [];
 
     public static Dictionary<string, Resource> GetResources()
     {

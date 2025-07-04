@@ -24,6 +24,7 @@ namespace GaTech.Chai.Mdi
             var observation = new Observation();
 
             observation.VrdrCauseOfDeathPart1().AddProfile();
+            observation.Status = ObservationStatus.Final;
             observation.Code = VrdrCs.CauseOfDeath;
 
             observation.VrdrCauseOfDeathPart1().SubjectAsResource = subjectResource;
@@ -46,6 +47,7 @@ namespace GaTech.Chai.Mdi
             var observation = new Observation();
 
             observation.VrdrCauseOfDeathPart1().AddProfile();
+            observation.Status = ObservationStatus.Final;
             observation.Code = VrdrCs.CauseOfDeath;
             observation.VrdrCauseOfDeathPart1().SubjectAsResource = subject;
 
@@ -61,6 +63,7 @@ namespace GaTech.Chai.Mdi
         {
             var observation = new Observation();
             observation.VrdrCauseOfDeathPart1().AddProfile();
+            observation.Status = ObservationStatus.Final;
             observation.Code = VrdrCs.CauseOfDeath;
 
             return observation;

@@ -12,10 +12,29 @@ public static class FhirAddReferencesToBundleEntryExtensions
     public static void AddRefsInCompositionToEntry(this Bundle bundle, Composition composition)
     {
         Resource resource = Record.GetResources()[composition.Subject.Reference] ?? throw (new MissingMemberException("Subject resource is not available in Record."));
+
         bool exists = bundle.FindEntry(resource.AsReference()).Any<Bundle.EntryComponent>();
         if (!exists)
         {
             bundle.AddResourceEntry(resource, resource.AsReference().Reference);
+        }
+
+        // Get Event
+        if (!composition.Event.IsNullOrEmpty())
+        {
+            EventComponent myEvent = composition.Event[0];
+            if (!myEvent.Detail.IsNullOrEmpty())
+            {
+                ResourceReference myDetail = myEvent.Detail[0];
+                if (!myDetail.IsNullOrEmpty())
+                {
+                    Resource myDetailResource = Record.GetResources()[myDetail.Reference];
+                    if (myDetailResource != null)
+                    {
+                        bundle.AddResourceEntry(myDetailResource, myDetailResource.AsReference().Reference);
+                    }
+                }
+            }
         }
 
         if (!composition.Author.IsNullOrEmpty() && composition.Author[0].Reference != null)

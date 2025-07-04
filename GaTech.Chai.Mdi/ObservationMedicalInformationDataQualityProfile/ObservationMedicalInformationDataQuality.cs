@@ -26,6 +26,7 @@ namespace GaTech.Chai.Mdi
         {
             var observation = new Observation();
             observation.ObservationMedicalInformationDataQuality().AddProfile();
+            observation.Status = ObservationStatus.Final;
             observation.Code = MdiCodeSystem.MdiCodes.MedInfoDataQualityObs;
 
             return observation;
@@ -40,6 +41,7 @@ namespace GaTech.Chai.Mdi
             var observation = new Observation();
 
             observation.ObservationMedicalInformationDataQuality().AddProfile();
+            observation.Status = ObservationStatus.Final;
             observation.Code = MdiCodeSystem.MdiCodes.MedInfoDataQualityObs;
             observation.ObservationMedicalInformationDataQuality().SubjectAsResource = subject;
             observation.ObservationMedicalInformationDataQuality().DeathCertificate = deathCertificate;
