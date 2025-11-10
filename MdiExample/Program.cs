@@ -477,48 +477,48 @@ namespace MdiExample
             // - Oxycodone & Alprazolam OD
 
             // US Core PatientProfile for Decedent
-            patient = UsCorePatient.Create();
-            patient.Id = "604702aa-a9a4-11ed-afa1-0242ac120002";
+            // patient = UsCorePatient.Create();
+            // patient.Id = "604702aa-a9a4-11ed-afa1-0242ac120002";
 
-            // Name
-            patient.Name = new List<HumanName> { new HumanName() { Family = "Rogers", GivenElement = new List<FhirString> { new FhirString("Jasmine"), new FhirString("M") } } };
-            patient.Identifier.Add(new Identifier()
-            {
-                Use = Identifier.IdentifierUse.Usual,
-                Type = new CodeableConcept("http://terminology.hl7.org/CodeSystem/v2-0203", "SB", "Social Beneficiary Identifier", null),
-                System = "http://hl7.org/fhir/sid/us-ssn",
-                Value = "789012345"
-            });
+            // // Name
+            // patient.Name = new List<HumanName> { new HumanName() { Family = "Rogers", GivenElement = new List<FhirString> { new FhirString("Jasmine"), new FhirString("M") } } };
+            // patient.Identifier.Add(new Identifier()
+            // {
+            //     Use = Identifier.IdentifierUse.Usual,
+            //     Type = new CodeableConcept("http://terminology.hl7.org/CodeSystem/v2-0203", "SB", "Social Beneficiary Identifier", null),
+            //     System = "http://hl7.org/fhir/sid/us-ssn",
+            //     Value = "789012345"
+            // });
 
-            // Race
-            patient.UsCorePatient().Race.Category = UsCorePatientRace.RaceCoding.Encode("2106-3", "White");
-            patient.UsCorePatient().Race.ExtendedRaceCodes = new Coding[] { UsCorePatientRace.RaceCoding.Encode("2108-9", "European") };
-            patient.UsCorePatient().Race.RaceText = "White European";
+            // // Race
+            // patient.UsCorePatient().Race.Category = UsCorePatientRace.RaceCoding.Encode("2106-3", "White");
+            // patient.UsCorePatient().Race.ExtendedRaceCodes = new Coding[] { UsCorePatientRace.RaceCoding.Encode("2108-9", "European") };
+            // patient.UsCorePatient().Race.RaceText = "White European";
 
-            // Ethnicity
-            patient.UsCorePatient().Ethnicity.Category = UsCorePatientEthnicity.EthnicityCoding.Encode("2186-5", "Not Hispanic or Latino");
-            patient.UsCorePatient().Ethnicity.ExtendedEthnicityCodes = new Coding[] { UsCorePatientEthnicity.EthnicityCoding.Encode("2180-8", "Puerto Rican") };
-            patient.UsCorePatient().Ethnicity.EthnicityText = "Puerto Rican";
+            // // Ethnicity
+            // patient.UsCorePatient().Ethnicity.Category = UsCorePatientEthnicity.EthnicityCoding.Encode("2186-5", "Not Hispanic or Latino");
+            // patient.UsCorePatient().Ethnicity.ExtendedEthnicityCodes = new Coding[] { UsCorePatientEthnicity.EthnicityCoding.Encode("2180-8", "Puerto Rican") };
+            // patient.UsCorePatient().Ethnicity.EthnicityText = "Puerto Rican";
 
-            // Birth Related
-            patient.BirthDateElement = new Date(1966, 6, 15);
-            patient.UsCorePatient().BirthSex.Extension = new Code("F");
-            patient.Gender = AdministrativeGender.Female;
+            // // Birth Related
+            // patient.BirthDateElement = new Date(1966, 6, 15);
+            // patient.UsCorePatient().BirthSex.Extension = new Code("F");
+            // patient.Gender = AdministrativeGender.Female;
 
-            // Address
-            patient.Address = new List<Address> { new Address {
-                Use = Address.AddressUse.Home,
-                Type = Address.AddressType.Physical,
-                Line = new List<string> { "901 Piedmont Street", "Suite 200" },
-                City = "Midwell",
-                State = "GA",
-                PostalCode = "22090",
-                Country = "US"}
-            };
+            // // Address
+            // patient.Address = new List<Address> { new Address {
+            //     Use = Address.AddressUse.Home,
+            //     Type = Address.AddressType.Physical,
+            //     Line = new List<string> { "901 Piedmont Street", "Suite 200" },
+            //     City = "Midwell",
+            //     State = "GA",
+            //     PostalCode = "22090",
+            //     Country = "US"}
+            // };
 
-            // Contact
-            patient.Telecom.AddTelecom(ContactPoint.ContactPointSystem.Phone, ContactPoint.ContactPointUse.Home, "678-121-9989");
-            patient.Telecom.AddTelecom(ContactPoint.ContactPointSystem.Email, ContactPoint.ContactPointUse.Work, "bluejay@mdi-case.org");
+            // // Contact
+            // patient.Telecom.AddTelecom(ContactPoint.ContactPointSystem.Phone, ContactPoint.ContactPointUse.Home, "678-121-9989");
+            // patient.Telecom.AddTelecom(ContactPoint.ContactPointSystem.Email, ContactPoint.ContactPointUse.Work, "bluejay@mdi-case.org");
 
             specimenBlood = SpecimenToxicologyLab.Create("Blood", patient);
             specimenBlood.Id = "71427f58-a9a4-11ed-afa1-0242ac120002";
@@ -708,49 +708,49 @@ namespace MdiExample
             // - MVA with Alcohol
 
             // US Core PatientProfile for Decedent
-            patient = UsCorePatient.Create();
-            patient.Id = "41ea4c26-a9af-11ed-afa1-0242ac120002";
+            // patient = UsCorePatient.Create();
+            // patient.Id = "41ea4c26-a9af-11ed-afa1-0242ac120002";
 
-            // Name
-            patient.Name = new List<HumanName> { new HumanName() { Family = "Ramirez", GivenElement = new List<FhirString> { new FhirString("Joseph"), new FhirString("S") } } };
-            patient.Identifier.Add(new Identifier()
-            {
-                Use = Identifier.IdentifierUse.Usual,
-                Type = new CodeableConcept("http://terminology.hl7.org/CodeSystem/v2-0203", "SB", "Social Beneficiary Identifier", null),
-                System = "http://hl7.org/fhir/sid/us-ssn",
-                Value = "456789012"
-            });
+            // // Name
+            // patient.Name = new List<HumanName> { new HumanName() { Family = "Ramirez", GivenElement = new List<FhirString> { new FhirString("Joseph"), new FhirString("S") } } };
+            // patient.Identifier.Add(new Identifier()
+            // {
+            //     Use = Identifier.IdentifierUse.Usual,
+            //     Type = new CodeableConcept("http://terminology.hl7.org/CodeSystem/v2-0203", "SB", "Social Beneficiary Identifier", null),
+            //     System = "http://hl7.org/fhir/sid/us-ssn",
+            //     Value = "456789012"
+            // });
 
-            // Race
-            patient.UsCorePatient().Race.Category = UsCorePatientRace.RaceCoding.Encode("2106-3", "White");
-            patient.UsCorePatient().Race.Category = UsCorePatientRace.RaceCoding.Encode("2054-5", "Black or African American");
-            patient.UsCorePatient().Race.ExtendedRaceCodes = new Coding[] { UsCorePatientRace.RaceCoding.Encode("2058-6", "African American") };
-            patient.UsCorePatient().Race.RaceText = "White, Black";
+            // // Race
+            // patient.UsCorePatient().Race.Category = UsCorePatientRace.RaceCoding.Encode("2106-3", "White");
+            // patient.UsCorePatient().Race.Category = UsCorePatientRace.RaceCoding.Encode("2054-5", "Black or African American");
+            // patient.UsCorePatient().Race.ExtendedRaceCodes = new Coding[] { UsCorePatientRace.RaceCoding.Encode("2058-6", "African American") };
+            // patient.UsCorePatient().Race.RaceText = "White, Black";
 
-            // Ethnicity
-            patient.UsCorePatient().Ethnicity.Category = UsCorePatientEthnicity.EthnicityCoding.Encode("2186-5", "Not Hispanic or Latino");
-            patient.UsCorePatient().Ethnicity.ExtendedEthnicityCodes = new Coding[] { UsCorePatientEthnicity.EthnicityCoding.Encode("2182-4", "Cuban") };
-            patient.UsCorePatient().Ethnicity.EthnicityText = "Cuban";
+            // // Ethnicity
+            // patient.UsCorePatient().Ethnicity.Category = UsCorePatientEthnicity.EthnicityCoding.Encode("2186-5", "Not Hispanic or Latino");
+            // patient.UsCorePatient().Ethnicity.ExtendedEthnicityCodes = new Coding[] { UsCorePatientEthnicity.EthnicityCoding.Encode("2182-4", "Cuban") };
+            // patient.UsCorePatient().Ethnicity.EthnicityText = "Cuban";
 
-            // Birth Related
-            patient.BirthDateElement = new Date(1964, 2, 24);
-            patient.UsCorePatient().BirthSex.Extension = new Code("M");
-            patient.Gender = AdministrativeGender.Male;
+            // // Birth Related
+            // patient.BirthDateElement = new Date(1964, 2, 24);
+            // patient.UsCorePatient().BirthSex.Extension = new Code("M");
+            // patient.Gender = AdministrativeGender.Male;
 
-            // Address
-            patient.Address = new List<Address> { new Address {
-                Use = Address.AddressUse.Home,
-                Type = Address.AddressType.Physical,
-                Line = new List<string> { "45 Coda Street" },
-                City = "Peachcity",
-                State = "GA",
-                PostalCode = "12098",
-                Country = "US"}
-            };
+            // // Address
+            // patient.Address = new List<Address> { new Address {
+            //     Use = Address.AddressUse.Home,
+            //     Type = Address.AddressType.Physical,
+            //     Line = new List<string> { "45 Coda Street" },
+            //     City = "Peachcity",
+            //     State = "GA",
+            //     PostalCode = "12098",
+            //     Country = "US"}
+            // };
 
-            // Contact
-            patient.Telecom.AddTelecom(ContactPoint.ContactPointSystem.Phone, ContactPoint.ContactPointUse.Home, "770-541-9012");
-            patient.Telecom.AddTelecom(ContactPoint.ContactPointSystem.Email, ContactPoint.ContactPointUse.Work, "ravejay@mdi-case.org");
+            // // Contact
+            // patient.Telecom.AddTelecom(ContactPoint.ContactPointSystem.Phone, ContactPoint.ContactPointUse.Home, "770-541-9012");
+            // patient.Telecom.AddTelecom(ContactPoint.ContactPointSystem.Email, ContactPoint.ContactPointUse.Work, "ravejay@mdi-case.org");
 
             specimenBlood = SpecimenToxicologyLab.Create("Blood", patient);
             specimenBlood.Id = "51534cbc-a9af-11ed-afa1-0242ac120002";
@@ -889,49 +889,49 @@ namespace MdiExample
             // - UAB Example - accident (2018-1811)
 
             // US Core PatientProfile for Decedent
-            patient = UsCorePatient.Create();
-            patient.Id = "d2ab1a9f-9281-4f4b-ac14-2e297209fc33";
+            // patient = UsCorePatient.Create();
+            // patient.Id = "d2ab1a9f-9281-4f4b-ac14-2e297209fc33";
 
-            // Name
-            patient.Name = new List<HumanName> { new HumanName() { Family = "Alpha", GivenElement = new List<FhirString> { new FhirString("Abel"), new FhirString("A") } } };
-            patient.Identifier.Add(new Identifier()
-            {
-                Use = Identifier.IdentifierUse.Usual,
-                Type = new CodeableConcept("http://terminology.hl7.org/CodeSystem/v2-0203", "SB", "Social Beneficiary Identifier", null),
-                System = "http://hl7.org/fhir/sid/us-ssn",
-                Value = "123456789"
-            });
+            // // Name
+            // patient.Name = new List<HumanName> { new HumanName() { Family = "Alpha", GivenElement = new List<FhirString> { new FhirString("Abel"), new FhirString("A") } } };
+            // patient.Identifier.Add(new Identifier()
+            // {
+            //     Use = Identifier.IdentifierUse.Usual,
+            //     Type = new CodeableConcept("http://terminology.hl7.org/CodeSystem/v2-0203", "SB", "Social Beneficiary Identifier", null),
+            //     System = "http://hl7.org/fhir/sid/us-ssn",
+            //     Value = "123456789"
+            // });
 
-            // Race
-            patient.UsCorePatient().Race.Category = UsCorePatientRace.RaceCoding.Encode("2106-3", "White");
-            patient.UsCorePatient().Race.Category = UsCorePatientRace.RaceCoding.Encode("2054-5", "Black or African American");
-            patient.UsCorePatient().Race.ExtendedRaceCodes = new Coding[] { UsCorePatientRace.RaceCoding.Encode("2058-6", "African American") };
-            patient.UsCorePatient().Race.RaceText = "White, Black";
+            // // Race
+            // patient.UsCorePatient().Race.Category = UsCorePatientRace.RaceCoding.Encode("2106-3", "White");
+            // patient.UsCorePatient().Race.Category = UsCorePatientRace.RaceCoding.Encode("2054-5", "Black or African American");
+            // patient.UsCorePatient().Race.ExtendedRaceCodes = new Coding[] { UsCorePatientRace.RaceCoding.Encode("2058-6", "African American") };
+            // patient.UsCorePatient().Race.RaceText = "White, Black";
 
-            // Ethnicity
-            patient.UsCorePatient().Ethnicity.Category = UsCorePatientEthnicity.EthnicityCoding.Encode("2186-5", "Not Hispanic or Latino");
-            patient.UsCorePatient().Ethnicity.ExtendedEthnicityCodes = new Coding[] { UsCorePatientEthnicity.EthnicityCoding.Encode("2182-4", "Cuban") };
-            patient.UsCorePatient().Ethnicity.EthnicityText = "Cuban";
+            // // Ethnicity
+            // patient.UsCorePatient().Ethnicity.Category = UsCorePatientEthnicity.EthnicityCoding.Encode("2186-5", "Not Hispanic or Latino");
+            // patient.UsCorePatient().Ethnicity.ExtendedEthnicityCodes = new Coding[] { UsCorePatientEthnicity.EthnicityCoding.Encode("2182-4", "Cuban") };
+            // patient.UsCorePatient().Ethnicity.EthnicityText = "Cuban";
 
-            // Birth Related
-            patient.BirthDateElement = new Date(1982, 6, 14);
-            patient.UsCorePatient().BirthSex.Extension = new Code("M");
-            patient.Gender = AdministrativeGender.Male;
+            // // Birth Related
+            // patient.BirthDateElement = new Date(1982, 6, 14);
+            // patient.UsCorePatient().BirthSex.Extension = new Code("M");
+            // patient.Gender = AdministrativeGender.Male;
 
-            // Address
-            patient.Address = new List<Address> { new Address {
-                Use = Address.AddressUse.Home,
-                Type = Address.AddressType.Physical,
-                Line = new List<string> { "120 Healthy Street" },
-                City = "HL7",
-                State = "GA",
-                PostalCode = "00001",
-                Country = "US"}
-            };
+            // // Address
+            // patient.Address = new List<Address> { new Address {
+            //     Use = Address.AddressUse.Home,
+            //     Type = Address.AddressType.Physical,
+            //     Line = new List<string> { "120 Healthy Street" },
+            //     City = "HL7",
+            //     State = "GA",
+            //     PostalCode = "00001",
+            //     Country = "US"}
+            // };
 
-            // Contact
-            patient.Telecom.AddTelecom(ContactPoint.ContactPointSystem.Phone, ContactPoint.ContactPointUse.Home, "404-770-1234");
-            patient.Telecom.AddTelecom(ContactPoint.ContactPointSystem.Email, ContactPoint.ContactPointUse.Work, "abelalpha@tox-case.org");
+            // // Contact
+            // patient.Telecom.AddTelecom(ContactPoint.ContactPointSystem.Phone, ContactPoint.ContactPointUse.Home, "404-770-1234");
+            // patient.Telecom.AddTelecom(ContactPoint.ContactPointSystem.Email, ContactPoint.ContactPointUse.Work, "abelalpha@tox-case.org");
 
             Specimen specimenBlood1 = SpecimenToxicologyLab.Create("Blood", patient);
             specimenBlood1.Id = "419f068e-dd40-11ed-b5ea-0242ac120002";
@@ -1078,25 +1078,27 @@ namespace MdiExample
             // Death Certificate Review ...
             //
             // Create Funeral Home Director
-            Practitioner funeralDirector = new Practitioner();
-            funeralDirector.Id = System.Guid.NewGuid().ToString();
+            Practitioner funeralDirector = new()
+            {
+                Id = "3ab81c81-d23f-4a6a-bf21-c07bcad09318", // System.Guid.NewGuid().ToString(),
 
-            funeralDirector.Name = new List<HumanName> { new() { Use = HumanName.NameUse.Official, Family = "DotNet", GivenElement = new List<FhirString> { new FhirString("Example") }, PrefixElement = new List<FhirString> { new FhirString("Mr") } } };
-            funeralDirector.Telecom = [new ContactPoint(ContactPoint.ContactPointSystem.Phone, ContactPoint.ContactPointUse.Work, "999-888-7777")];
-            funeralDirector.Address = [ new() {
-                Use = Address.AddressUse.Work,
-                Type = Address.AddressType.Physical,
-                Line = new List<string> { "123 Heaven Blvd" },
-                City = "Atlanta",
-                District = "Fulton County",
-                State = "GA",
-                PostalCode = "30318",
-                Country = "US" }
-            ];
+                Name = new List<HumanName> { new() { Use = HumanName.NameUse.Official, Family = "DotNet", GivenElement = new List<FhirString> { new FhirString("Example") }, PrefixElement = new List<FhirString> { new FhirString("Mr") } } },
+                Telecom = [new ContactPoint(ContactPoint.ContactPointSystem.Phone, ContactPoint.ContactPointUse.Work, "999-888-7777")],
+                Address = [ new() {
+                    Use = Address.AddressUse.Work,
+                    Type = Address.AddressType.Physical,
+                    Line = new List<string> { "123 Heaven Blvd" },
+                    City = "Atlanta",
+                    District = "Fulton County",
+                    State = "GA",
+                    PostalCode = "30318",
+                    Country = "US" }
+                ]
+            };
 
             // Create DCR Composition.
             Composition dcrComposition = CompositionMdiDcr.Create(
-                new Identifier() { Value = System.Guid.NewGuid().ToString() },
+                new Identifier() { Value = "8756b458-b56a-43c7-9689-7b772aac9573" },
                 CompositionStatus.Final,
                 patient,
                 funeralDirector
@@ -1146,7 +1148,7 @@ namespace MdiExample
             // death-certificate-data-review
             // create death certificate
             Composition vrdrDeathCertificate = VrdrDeathCertificate.Create(
-                new Identifier() { Value = System.Guid.NewGuid().ToString() },
+                new Identifier() { Value = "bae4b9c5-4c6d-4c44-8253-0cb8bc5dca3a" },
                 CompositionStatus.Final,
                 patient,
                 practitioner,
@@ -1181,7 +1183,7 @@ namespace MdiExample
             
             // Create DCR Bundle Document.
             Bundle dcrBundleDocument = BundleDocumentMdiDcr.Create(
-                new Identifier() { System = "urn:example:dcr", Value = System.Guid.NewGuid().ToString() },
+                new Identifier() { System = "urn:example:dcr", Value = "fe3bd95d-3831-4575-8857-4fc81fc14872" },
                 dcrComposition
             );
 
@@ -1192,6 +1194,9 @@ namespace MdiExample
 
             dcrMessageHeader.Destination = new List<MessageHeader.MessageDestinationComponent>() { new() { Endpoint = "https://dcr-endpoint.raven.org/fhir/$message" } };
             Bundle dcrBundleMessage = BundleMessageDeathCertificateReview.Create(dcrMessageHeader);
+
+            // create message bundle.id
+            dcrBundleMessage.Id = "3e9eb0d5-8979-4861-a52e-a3473b18eb67";
 
             output = serializer.SerializeToString(dcrBundleMessage);
             File.WriteAllText(outputPath + "dcr_example.json", output);
