@@ -23,7 +23,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GaTech.Chai.Vrdr", "GaTech.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GaTech.Chai.Vrcl", "GaTech.Chai.Vrcl\GaTech.Chai.Vrcl.csproj", "{28D22E49-239C-4C4B-84D2-C66B9377DA83}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GaTech.Chai.Nvdrs", "GaTech.Chai.Nvdrs\GaTech.Chai.Nvdrs.csproj", "{DFB7B2B7-AC1E-4DD1-A90F-41401D7003C1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GaTech.Chai.Vdor", "GaTech.Chai.Vdor\GaTech.Chai.Vdor.csproj", "{DFB7B2B7-AC1E-4DD1-A90F-41401D7003C1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NVDRSTest", "NVDRSTest\NVDRSTest.csproj", "{227C4EEE-BBD4-4C4A-A501-BD04C046D512}"
 EndProject

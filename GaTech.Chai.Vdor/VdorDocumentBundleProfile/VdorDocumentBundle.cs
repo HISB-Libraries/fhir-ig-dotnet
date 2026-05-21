@@ -1,0 +1,217 @@
+using Hl7.Fhir.Model;
+using GaTech.Chai.Share;
+
+namespace GaTech.Chai.Vdor;
+
+/// <summary>
+/// </summary>
+public class VdorDocumentBundle
+{
+    readonly Bundle bundle;
+
+    internal VdorDocumentBundle(Bundle bundle)
+    {
+        this.bundle = bundle;
+    }
+
+    /// <summary>
+    /// Factory for VdorDocumentBundle with fixed values for Type and Identifier, and the profile URL.
+    /// http://hl7.org/fhir/us/vdor/StructureDefinition/vdor-document-bundle
+    /// </summary>
+    public static Bundle Create()
+    {
+        Bundle bundle = new();
+        bundle.VdorDocumentBundle().AddFixedValues();
+        bundle.VdorDocumentBundle().AddProfile();
+
+        return bundle;
+    }
+
+    /// <summary>
+    /// Factory for VdorDocumentBundle with Composition
+    /// http://hl7.org/fhir/us/vdor/StructureDefinition/vdor-document-bundle
+    /// </summary>
+    public static Bundle Create(Composition composition)
+    {
+        Bundle bundle = new();
+        bundle.VdorDocumentBundle().VdorComposition = composition ?? throw new Exception("Composition cannot be null for MDIandEdrs Bundle entry[0].");
+        bundle.VdorDocumentBundle().AddProfile();
+        bundle.VdorDocumentBundle().AddFixedValues();
+
+        return bundle;
+    }
+
+    public void AddFixedValues()
+    {
+        bundle.Type = Bundle.BundleType.Document;
+        if (bundle.Timestamp == null)
+        {
+            bundle.Timestamp = DateTime.Now;
+        }
+
+        bundle.Identifier ??= new("urn:gtri:heat-hisp:nvdrs-testing", Uuid.Generate().Value);
+    }
+
+    /// <summary>
+    /// The official URL for the BundleDocumentNvdrsProfile, used to assert conformance.
+    /// </summary>
+    public const string ProfileUrl = "http://hl7.org/fhir/us/vdor/StructureDefinition/vdor-document-bundle";
+
+    /// <summary>
+    /// Set the profile URL.
+    /// </summary>
+    public void AddProfile()
+    {
+        bundle.AddProfile(ProfileUrl);
+    }
+
+    /// <summary>
+    /// Clear the profile URL.
+    /// </summary>
+    public void RemoveProfile()
+    {
+        bundle.RemoveProfile(ProfileUrl);
+    }
+
+    // private void AddReferencesInCompositionToEntry(Composition composition)
+    // {
+    //     Resource resource = Record.GetResources()[composition.Subject.Reference];
+    //     if (resource == null)
+    //     {
+    //         throw (new MissingMemberException("Subject resource is not available in Record."));
+    //     }
+
+    //     if (resource != null)
+    //     {
+    //         bool exists = bundle.FindEntry(resource.AsReference()).Any<Bundle.EntryComponent>();
+    //         if (!exists)
+    //         {
+    //             bundle.AddResourceEntry(resource, resource.AsReference().Reference);
+    //         }
+    //     }
+
+    //     if (!composition.Author.IsNullOrEmpty() && composition.Author[0].Reference != null)
+    //     {
+    //         resource = Record.GetResources()[composition.Author[0].Reference];
+    //         if (resource == null)
+    //         {
+    //             throw (new MissingMemberException("Author[0] resource is not available in Record."));
+    //         }
+
+    //         if (resource != null)
+    //         {
+    //             bool exists = bundle.FindEntry(resource.AsReference()).Any<Bundle.EntryComponent>();
+    //             if (!exists)
+    //             {
+    //                 bundle.AddResourceEntry(resource, resource.AsReference().Reference);
+    //             }
+    //         }
+    //     }
+
+    //     if (!composition.Attester.IsNullOrEmpty() && composition.Attester[0].Party != null && composition.Attester[0].Party.Reference != null)
+    //     {
+    //         resource = Record.GetResources()[composition.Attester[0].Party.Reference];
+    //         if (resource == null)
+    //         {
+    //             throw (new MissingMemberException("Attester[0] resource is not available in Record."));
+    //         }
+
+    //         if (resource != null)
+    //         {
+    //             bool exists = bundle.FindEntry(resource.AsReference()).Any<Bundle.EntryComponent>();
+    //             if (!exists)
+    //             {
+    //                 bundle.AddResourceEntry(resource, resource.AsReference().Reference);
+    //             }
+    //         }
+    //     }
+
+    //     foreach (SectionComponent section in composition.Section)
+    //     {
+    //         foreach (ResourceReference sectionEntryReference in section.Entry)
+    //         {
+    //             resource = Record.GetResources()[sectionEntryReference.Reference];
+    //             if (resource == null)
+    //             {
+    //                 throw (new MissingMemberException(sectionEntryReference.Reference + " resource is not available in Record."));
+    //             }
+    //             if (resource != null)
+    //             {
+    //                 bool exists = bundle.FindEntry(resource.AsReference()).Any<Bundle.EntryComponent>();
+    //                 if (!exists)
+    //                 {
+    //                     bundle.AddResourceEntry(resource, resource.AsReference().Reference);
+    //                 }
+
+    //                 // if the resource is observation, we may have focus being used.
+    //                 if (resource is Observation obs)
+    //                 {
+    //                     if (!obs.Focus.IsNullOrEmpty())
+    //                     {
+    //                         exists = bundle.FindEntry(obs.Focus[0]).Any<Bundle.EntryComponent>();
+    //                         if (!exists)
+    //                         {
+    //                             Resource focusResource = Record.GetResources()[obs.Focus[0].Reference];
+    //                             bundle.AddResourceEntry(focusResource, focusResource.AsReference().Reference);
+    //                         }
+    //                     }
+    //                 }
+    //             }
+    //         }
+    //     }
+    // }
+
+    public Composition? VdorComposition
+    {
+        get
+        {
+            return this.bundle.Entry?[0].Resource as Composition;
+        }
+        set
+        {
+            // First check if the composition is
+            // a http://hl7.org/fhir/us/vdor/StructureDefinition/vdor-composition profile.
+            if (!value.hasProfile(Vdor.VdorComposition.ProfileUrl))
+            {
+                throw (new ArgumentException("The composition must have Composition-mdi-to-edrs as a profile."));
+            }
+
+            // First entry MUST be composition
+            // Check if composition already exists.
+            if (bundle.Entry.Any<Bundle.EntryComponent>())
+            {
+                Resource resource = this.bundle.Entry[0].Resource;
+                if (resource is Composition)
+                {
+                    // There exists one.... we will be replacing this.
+                    this.bundle.Entry.RemoveAt(0);
+                }
+            }
+
+            Bundle.EntryComponent entryComponent = new()
+            {
+                Resource = value,
+                FullUrl = value.AsReference().Reference
+            };
+
+            bundle.Entry.Insert(0, entryComponent);
+
+            // Add references in composition to bundle entry.
+            bundle.AddRefsInCompositionToEntry(value);
+        }
+    }
+
+    // Below is to support NVDRS raw data export.
+    public void ExportToNVDRS(Nvdrs.FlatObject myFlatObject, string? filename = null)
+    {
+        myFlatObject.MapToNVDRS(bundle);
+        if (filename == null)
+        {
+            myFlatObject.ExportToFile();
+        }
+        else
+        {
+            myFlatObject.ExportToFile(filename);
+        }
+    }
+}

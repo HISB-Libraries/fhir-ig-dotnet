@@ -290,7 +290,7 @@ namespace GaTech.Chai.Mdi
         /// <param name="value"></param>
         private void SetSectionAndEntry(string code, CodeableConcept mdiCodeSystem, (List<Resource>, Narrative, CodeableConcept) value)
         {
-            List<ResourceReference> references = new();
+            List<ResourceReference> references = [];
 
             if (value.Item1 != null)
             {
@@ -915,7 +915,7 @@ namespace GaTech.Chai.Mdi
         {
             get
             {
-                List<Observation> causeOfDeathPart1 = new();
+                List<Observation> causeOfDeathPart1 = [];
                 Observation contributingCauseOfDeathPart2 = null;
                 Observation mannerOfDeath = null;
                 Observation deathInjuryOccurred = null;
