@@ -5,7 +5,6 @@ using static Hl7.Fhir.Model.Composition;
 using System.Collections.Generic;
 using Code = Hl7.Fhir.Model.Code;
 using GaTech.Chai.Vrcl;
-using System.Linq;
 
 namespace GaTech.Chai.Mdi
 {
@@ -361,7 +360,7 @@ namespace GaTech.Chai.Mdi
                     !VrclCodeSystemsValueSets.VrclValueSetYesNoUnknownVr.No.CodingExist(value) &&
                     !VrclCodeSystemsValueSets.VrclValueSetYesNoUnknownVr.Unknown.CodingExist(value))
                 {
-                    throw new Exception("The value for Cremation Clearance Coroner must be either Yes, No or Unknown");
+                    throw new Exception("The value for Cremation Clearance Coroner must be either Yes, No, Unknown or Not Applicable");
                 }
 
                 Extension ext = new()

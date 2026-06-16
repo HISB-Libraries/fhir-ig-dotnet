@@ -1,13 +1,14 @@
 ﻿using System.Text.Json.Nodes;
+using GaTech.Chai.Vdor;
 using Hl7.Fhir.Model;
 
 namespace GaTech.Chai.Nvdrs;
 
 public class FlatObjectDC : FlatObject
 {
-    public FlatObjectDC() : base("ExportConfigDC.json")
+    public FlatObjectDC() : base("DC_2026.json")
     {
-        if (!"DCFormat".Equals(FlatType))
+        if (!"DC".Equals(FlatType))
         {
             throw new NotSupportedException("This flat object only support DC flat format");
         }
@@ -20,7 +21,7 @@ public class FlatObjectDC : FlatObject
             Boolean isOk = false;
             foreach (string profile in bundle.Meta.Profile)
             {
-                if (NvdrsDocumentBundle.ProfileUrl.Equals(profile))
+                if (VdorDocumentBundle.ProfileUrl.Equals(profile))
                 {
                     isOk = true;
                     break;
@@ -34,7 +35,7 @@ public class FlatObjectDC : FlatObject
             }
 
             // Now Map the NVDRS FHIR CME Document to NVDRS. This is manual mapping.
-            Composition? composition = bundle.NvdrsDocumentBundle().NVDRSComposition;
+            Composition? composition = bundle.VdorDocumentBundle().VdorComposition;
 
             // Mapping Process with a simple iteration over the data array.
             foreach (JsonNode? data in DataArray)

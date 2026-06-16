@@ -2,6 +2,8 @@
 using System.Text.Json;
 using System.Text.Json.Nodes;
 using Hl7.Fhir.Model;
+using GaTech.Chai.Vdor;
+using System.Text;
 
 namespace GaTech.Chai.Nvdrs;
 
@@ -9,6 +11,9 @@ public abstract class FlatObject
 {
     JsonNode rootNode;
     byte[] flatSequence;
+    readonly Dictionary<string, string[]> csvValues = [];
+    protected string outputFileFormat = "flat";
+
 
     public enum Alignment { LEFT, RIGHT };
 
@@ -80,7 +85,7 @@ public abstract class FlatObject
 
         if (valueLength > length)
         {
-            throw new OverflowException(value + " is larger than field size (" + valueLength + ")");
+            throw new OverflowException(value + " is larger than field size (" + length + ")");
         }
 
         if (alignment == Alignment.LEFT)
@@ -93,7 +98,7 @@ public abstract class FlatObject
         }
     }
 
-    public void PopulateSequence()
+    public virtual void PopulateSequence()
     {
         // loop through data and populate the byte sequence.
         foreach (JsonNode? data in DataArray)
@@ -103,14 +108,22 @@ public abstract class FlatObject
 
             string? nodeName = data["name"]!.GetValue<string>();
             string? value = data["value"]!.GetValue<string>();
+            string? dataType = data["dataType"]!.GetValue<string>();
             if (value != null && value != "")
             {
                 try
                 {
-                    char[] valueCharacters = value.ToCharArray();
-                    for (int i = startIndex; i < endIndex; i++)
+                    if (outputFileFormat.Equals("csv"))
                     {
-                        flatSequence[i] = Convert.ToByte(valueCharacters[i - startIndex]);
+                        csvValues[nodeName] = [value.Trim(), dataType.Trim()];
+                    }
+                    else
+                    {
+                        char[] valueCharacters = value.ToCharArray();
+                        for (int i = startIndex; i < endIndex; i++)
+                        {
+                            flatSequence[i] = Convert.ToByte(valueCharacters[i - startIndex]);
+                        }
                     }
                 }
                 catch (Exception ex)
@@ -121,16 +134,86 @@ public abstract class FlatObject
         }
     }
 
-    public void ExportToFile(string? filename = null)
+    public virtual void ExportToFile(string? filename = null)
     {
         if (filename == null || filename == "")
         {
             string dateTimeTag = DateTime.Now.ToString("MMddyyyyhmmtt");
-            filename = FlatType + "_" + dateTimeTag + ".txt";
+            if (outputFileFormat.Equals("csv"))
+            {
+                filename = FlatType + "_" + dateTimeTag + ".csv";
+            }
+            else
+            {
+                filename = FlatType + "_" + dateTimeTag + ".txt";
+            }
         }
 
+        // Populate data to flatsequnce or csvValues.
         PopulateSequence();
-        File.WriteAllBytes(filename, flatSequence);
+
+        if (outputFileFormat.Equals("csv"))
+        {
+            // Export csvValues to csv file.
+            // using (var writer = new StreamWriter(filename))
+            // {
+            //     // Write data type header
+            //     writer.WriteLine(string.Join(",", csvValues.Select(kv => kv.Key + " (" + kv.Value[1] + ")")));
+            //     // Write header
+            //     writer.WriteLine(string.Join(",",csvValues.Keys));
+
+            //     // Write values
+            //     writer.WriteLine(string.Join(",", csvValues.Values));
+            // }
+
+            using (var writer = new StreamWriter(filename, false, Encoding.UTF8))
+            {
+                // --- ROW 1: Second element of the array (Index 1) ---
+                var row1SecondValues = new List<string>();
+                foreach (var kvp in csvValues)
+                {
+                    // Verify index exists to prevent crashes
+                    string val = (kvp.Value != null && kvp.Value.Length > 1) ? kvp.Value[1] : string.Empty;
+                    row1SecondValues.Add(EscapeCsvField(val));
+                }
+                writer.WriteLine(string.Join(",", row1SecondValues));
+
+                // --- ROW 2: Dictionary Keys ---
+                var row2Keys = new List<string>();
+                foreach (var kvp in csvValues)
+                {
+                    row2Keys.Add(EscapeCsvField(kvp.Key));
+                }
+                writer.WriteLine(string.Join(",", row2Keys));
+
+                // --- ROW 3: First element of the array (Index 0) ---
+                var row3FirstValues = new List<string>();
+                foreach (var kvp in csvValues)
+                {
+                    string val = (kvp.Value != null && kvp.Value.Length > 0) ? kvp.Value[0] : string.Empty;
+                    row3FirstValues.Add(EscapeCsvField(val));
+                }
+                writer.WriteLine(string.Join(",", row3FirstValues));
+            }
+        }
+        else
+        {
+            File.WriteAllBytes(filename, flatSequence);
+        }
+    }
+
+    public static string EscapeCsvField(string field)
+    {
+        if (string.IsNullOrEmpty(field)) return string.Empty;
+
+        // If field contains commas, quotes, or newlines, wrap it in double quotes
+        if (field.Contains(",") || field.Contains("\"") || field.Contains("\n") || field.Contains("\r"))
+        {
+            // Duplicate any existing internal double quotes to escape them
+            return $"\"{field.Replace("\"", "\"\"")}\"";
+        }
+
+        return field;
     }
 }
 

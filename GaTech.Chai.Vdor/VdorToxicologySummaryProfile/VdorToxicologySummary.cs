@@ -16,7 +16,9 @@ public class VdorToxicologySummary
 
     public static Observation Create()
     {
-        Observation observation = new();
+        Observation observation = VdorToxicology.Create();
+        observation.VdorToxicology().RemoveProfile();
+
         observation.VdorToxicologySummary().AddFixedValues();
         observation.VdorToxicologySummary().AddProfile();
 
@@ -25,7 +27,9 @@ public class VdorToxicologySummary
 
     public static Observation Create(Patient decedent)
     {
-        Observation observation = new();
+        Observation observation = VdorToxicology.Create();
+        observation.VdorToxicology().RemoveProfile();
+
         observation.VdorToxicologySummary().AddFixedValues();
         observation.VdorToxicologySummary().AddProfile();
         observation.VdorToxicologySummary().SubjectAsResource = decedent;
@@ -82,7 +86,7 @@ public class VdorToxicologySummary
             if (value != null &&
                 (VdorToxSummaryTestedVs.Tested.Matches(value) 
                 || VdorToxSummaryTestedVs.NotTested.Matches(value)
-                || VdorToxSummaryTestedVs.UnknownToxSummaryTested.Matches(value)))
+                || VdorToxSummaryTestedVs.Unknown.Matches(value)))
             {
                 this.observation.Component.Add(new Observation.ComponentComponent()
                 {
@@ -110,7 +114,7 @@ public class VdorToxicologySummary
                 (VdorToxSummaryResultsVs.Present.Matches(value) 
                 || VdorToxSummaryResultsVs.NotPresent.Matches(value)
                 || VdorToxSummaryResultsVs.NotApplicableToxSummaryResult.Matches(value)
-                || VdorToxSummaryResultsVs.UnknownToxSummaryResult.Matches(value)))
+                || VdorToxSummaryResultsVs.Unknown.Matches(value)))
             {
                 this.observation.Component.Add(new Observation.ComponentComponent()
                 {

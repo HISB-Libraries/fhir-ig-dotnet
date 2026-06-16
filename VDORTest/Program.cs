@@ -1,20 +1,20 @@
 ﻿using GaTech.Chai.Mdi;
-using GaTech.Chai.Nvdrs;
+using GaTech.Chai.Vdor;
 using GaTech.Chai.Share;
 using GaTech.Chai.UsCore;
 using GaTech.Chai.Vrcl;
 using GaTech.Chai.Vrdr;
+using GaTech.Chai.Nvdrs;
 using Hl7.Fhir.Model;
 using Hl7.Fhir.Serialization;
-using static GaTech.Chai.Vrcl.VrclCodeSystemsValueSets;
 
 public class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("+--------- Create NVDRS Bundle ---------+");
+        Console.WriteLine("+--------- Create VDOR Bundle ---------+");
         // Decedent. the Vitim
-        Patient patient = NvdrsDecedent.Create();
+        Patient patient = VdorDecedent.Create();
         patient.Id = "956c53c0-a993-11ed-afa1-0242ac120002";
 
         // Name
@@ -56,8 +56,6 @@ public class Program
 
         // Contact
         patient.Telecom.AddTelecom(ContactPoint.ContactPointSystem.Phone, ContactPoint.ContactPointUse.Home, "404-123-0022");
-        //patient.Telecom.AddTelecom(ContactPoint.ContactPointSystem.Phone, ContactPoint.ContactPointUse.Home, "212-867-5310");
-        //patient.Telecom.AddTelecom(ContactPoint.ContactPointSystem.Phone, ContactPoint.ContactPointUse.Home, "212-867-5310"); // duplicate entry demo
         patient.Telecom.AddTelecom(ContactPoint.ContactPointSystem.Email, ContactPoint.ContactPointUse.Work, "raven@mdi.org");
 
         // Deceased
@@ -67,58 +65,57 @@ public class Program
         patient.PatientVr().BirthPlace.CityCode = 42425;
 
         // Firearm 
-        Observation firearmObs = NvdrsFirearm.Create();
-        // firearmObs.Category.Add(NvdrsCustomCs.Weapons);
-        firearmObs.NvdrsFirearm().FirearmStolen = VrclCodeSystemsValueSets.VrclValueSetYesNoUnknownVr.Yes;
-        firearmObs.NvdrsFirearm().FirearmType = NvdrsFirearmTypeVs.HandgunPistolBoltAction;
-        firearmObs.NvdrsFirearm().FireamrOwner = (NvdrsGunOwnerCodesVs.Stranger, null, null);
-        firearmObs.NvdrsFirearm().SerialNumber = "12345-0987";
+        Observation firearmObs = VdorFirearm.Create();
+        firearmObs.VdorFirearm().FirearmStolen = VrclCodeSystemsValueSets.VrclValueSetYesNoUnknownNotApplicableVr.Yes;
+        firearmObs.VdorFirearm().FirearmType = NvdrsFirearmTypeVs.HandgunPistolBoltAction;
+        firearmObs.VdorFirearm().FireamrOwner = (VdorGunOwnerCodesVs.Stranger, null, null);
+        firearmObs.VdorFirearm().SerialNumber = "12345-0987";
         // firearmObs.ObservationFirearm().FirearmMake = NcicFirearmMakeVs.GlockInc;
-        firearmObs.NvdrsFirearm().FirearmMake = new FhirString("64");
-        firearmObs.NvdrsFirearm().FirearmModel = "512";
-        firearmObs.NvdrsFirearm().FirearmCaliber = "556";
+        firearmObs.VdorFirearm().FirearmMake = new FhirString("64");
+        firearmObs.VdorFirearm().FirearmModel = "512";
+        firearmObs.VdorFirearm().FirearmCaliber = NvdrsFirearmCaliberVs.FirearmCaliber556;;
         firearmObs.FhirSubject(patient);
 
         // Weapon Type
-        Observation weaponTypeObs = NvdrsWeaponType.Create();
-        weaponTypeObs.NvdrsWeaponType().FocusOnFirearm = firearmObs;
+        Observation weaponTypeObs = VdorWeaponType.Create();
+        weaponTypeObs.VdorWeaponType().FocusOnFirearm = firearmObs;
         weaponTypeObs.Value = NvdrsWeaponTypeVs.Firearm;
         weaponTypeObs.FhirSubject(patient);
 
         // Meta information.
-        Composition nvdrsTestComp = NvdrsComposition.Create(patient, null, ValueSets.Hl7VsDataAbsentReason.NotAsked, NvdrsDocTypesVs.CMEReport);
-        nvdrsTestComp.NvdrsComposition().ForceNewRecord = false;
-        nvdrsTestComp.NvdrsComposition().OverwriteConflicts = true;
-        nvdrsTestComp.NvdrsComposition().IncidentNumber = "107";
-        nvdrsTestComp.NvdrsComposition().IncidentYear = new Date(2024);
-        nvdrsTestComp.NvdrsComposition().AddAdditionalIdentifier(new Identifier(NvdrsCustomUris.victimnumberIdentifierUrl, "1"));
+        Composition nvdrsTestComp = VdorComposition.Create(patient, null, ValueSets.Hl7VsDataAbsentReason.NotAsked, NvdrsDocTypesVs.CMEReport);
+        nvdrsTestComp.VdorComposition().ForceNewRecord = false;
+        nvdrsTestComp.VdorComposition().OverwriteConflicts = true;
+        nvdrsTestComp.VdorComposition().IncidentNumber = "107";
+        nvdrsTestComp.VdorComposition().IncidentYear = new Date(2024);
+        nvdrsTestComp.VdorComposition().AddAdditionalIdentifier(new Identifier(VdorCustomUris.victimnumberIdentifierUrl, "1"));
 
         // Add firearm object to composition's weapon section.
-        nvdrsTestComp.NvdrsComposition().AddSectionEntryByCode(NvdrsCustomCs.Weapons, [weaponTypeObs]);
+        nvdrsTestComp.VdorComposition().AddSectionEntryByCode(VdorCustomCs.Weapons, [weaponTypeObs]);
 
         // Add Number of Bullets to composition's Injury and death section.
-        Observation numOfBulletObs = NvdrsNumberOfBullets.Create();
-        numOfBulletObs.NvdrsNumberOfBullets().NumOfBullets = 3;
+        Observation numOfBulletObs = VdorNumberOfBullets.Create();
+        numOfBulletObs.VdorNumberOfBullets().NumOfBullets = 3;
         numOfBulletObs.FhirSubject(patient);
 
         // Add Wound location to composition's Injury and death section.
-        Observation woundLocation = NvdrsWoundLocation.Create();
-        woundLocation.Code = NvdrsWoundLocationVs.WoundToSpine;
+        Observation woundLocation = VdorWoundLocation.Create();
+        woundLocation.Code = VdorWoundLocationVs.WoundToSpine;
         woundLocation.Value = NvdrsWoundLocationValuesVs.PresentWounded;
         woundLocation.FhirSubject(patient);
 
-        nvdrsTestComp.NvdrsComposition().AddSectionEntryByCode(NvdrsCustomCs.InjuryAndDeath, [numOfBulletObs, woundLocation]);
+        nvdrsTestComp.VdorComposition().AddSectionEntryByCode(VdorCustomCs.InjuryAndDeath, [numOfBulletObs, woundLocation]);
 
         // Add Wound location to composition's Circumstances.
-        Observation randomViolenceIncident = NvdrsRandomViolence.Create();
+        Observation randomViolenceIncident = VdorRandomViolence.Create();
         randomViolenceIncident.FhirSubject(patient);
-        randomViolenceIncident.Value = VrclValueSetYesNoUnknownVr.Yes;
+        randomViolenceIncident.Value = VrclCodeSystemsValueSets.VrclValueSetYesNoUnknownNotApplicableVr.Yes;
 
-        Observation playingWithGun = NvdrsPlayingWithFirearm.Create();
+        Observation playingWithGun = VdorPlayingWithFirearm.Create();
         playingWithGun.FhirSubject(patient);
-        playingWithGun.Value = VrclValueSetYesNoUnknownVr.Yes;
+        playingWithGun.Value = VrclCodeSystemsValueSets.VrclValueSetYesNoUnknownNotApplicableVr.Yes;
 
-        nvdrsTestComp.NvdrsComposition().AddSectionEntryByCode(NvdrsCustomCs.Circumstances, [randomViolenceIncident, playingWithGun]);
+        nvdrsTestComp.VdorComposition().AddSectionEntryByCode(VdorCustomCs.Circumstances, [randomViolenceIncident, playingWithGun]);
 
         // Add VRDR Manner of Death. Follow the MDI FHIR IG Composition section pattern.
         // Us Core Practitioner (ME)
@@ -131,7 +128,7 @@ public class Program
         practitioner.Address = new List<Address> { new Address {
                 Use = Address.AddressUse.Work,
                 Type = Address.AddressType.Physical,
-                Line = new List<string> { "567 Coda Blvd" },
+                Line = ["567 Coda Blvd"],
                 City = "Atlanta",
                 District = "Fulton County",
                 State = "GA",
@@ -143,20 +140,20 @@ public class Program
         Observation vrdrMannerOfDeath = VrdrMannerOfDeath.Create(patient, practitioner);
         vrdrMannerOfDeath.Value = VrdrMannerOfDeathVs.AccidentalDeath;
 
-        nvdrsTestComp.NvdrsComposition().AddSectionEntryByCode(MdiCodeSystem.MdiCodes.CauseManner, [vrdrMannerOfDeath]);
+        nvdrsTestComp.VdorComposition().AddSectionEntryByCode(MdiCodeSystem.MdiCodes.CauseManner, [vrdrMannerOfDeath]);
 
         // Create NVDRS Bundle using the composition created above
-        Bundle nvdrsTestBundle = NvdrsDocumentBundle.Create(nvdrsTestComp);
+        Bundle nvdrsTestBundle = VdorDocumentBundle.Create(nvdrsTestComp);
 
         FhirJsonSerializer serializer = new(new SerializerSettings() { Pretty = true });
         string outputPath = "./";
         string output = serializer.SerializeToString(nvdrsTestBundle);
         File.WriteAllText(outputPath + "NVDRS_bundle_test.json", output);
-
+ 
         Console.WriteLine("+--------- Export NVDRS Bundle to Web Input file ---------+");
         // Set up if you want to export the NVDRS bundle to NVDRS web input file
         FlatObjectCMELE flatObject = new();
-        nvdrsTestBundle.NvdrsDocumentBundle().ExportToNVDRS(flatObject);
+        nvdrsTestBundle.VdorDocumentBundle().ExportToNVDRS(flatObject);
     }
 
 }

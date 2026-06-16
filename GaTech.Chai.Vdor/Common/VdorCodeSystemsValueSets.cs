@@ -55,6 +55,12 @@ public class NvdrsCodingManualCs
     public const string officialUrl = "http://hl7.org/fhir/us/vdor/CodeSystem/nvdrs-coding-manual-cs";
 
     public static CodeableConcept AbsentNotWounded = new(NvdrsCodingManualCs.officialUrl, "WoundLocation0", "Absent (not wounded)", null);
+    public static CodeableConcept DrugObtainedFor1 = new(NvdrsCodingManualCs.officialUrl, "DrugObtainedFor1", "Self", null);
+    public static CodeableConcept DrugObtainedFor2 = new(NvdrsCodingManualCs.officialUrl, "DrugObtainedFor2", "Intimate Partner", null);
+    public static CodeableConcept DrugObtainedFor3 = new(NvdrsCodingManualCs.officialUrl, "DrugObtainedFor3", "Family", "(non-intimate partner)");
+    public static CodeableConcept DrugObtainedFor4 = new(NvdrsCodingManualCs.officialUrl, "DrugObtainedFor4", "Other", null);
+    public static CodeableConcept DrugObtainedFor8 = new(NvdrsCodingManualCs.officialUrl, "DrugObtainedFor8", "Not applicable", "e.g., not a prescribed drug");
+    public static CodeableConcept DrugObtainedFor9 = new(NvdrsCodingManualCs.officialUrl, "DrugObtainedFor9", "Relationship unknown", "Relationship between decedent and the individual the drug was obtained for is not known");
     public static CodeableConcept PresentWounded = new(NvdrsCodingManualCs.officialUrl, "WoundLocation1", "Present (wounded)", null);
     public static CodeableConcept NotApplicable = new(NvdrsCodingManualCs.officialUrl, "WoundLocation8", "Not applicable", null);
     public static CodeableConcept NoNotAvailableUnknown = new(NvdrsCodingManualCs.officialUrl, "GangRelated0", "No, Not available, Unknown", null);
@@ -175,9 +181,14 @@ public class NvdrsCodingManualCs
     public static CodeableConcept Parent = new(NvdrsCodingManualCs.officialUrl, "GunOwner2", "Parent of shooter", null);
     public static CodeableConcept OtherFamilyMember = new(NvdrsCodingManualCs.officialUrl, "GunOwner3", "Other family member of shooter", null);
     public static CodeableConcept SpouseIntimatePartner = new(NvdrsCodingManualCs.officialUrl, "GunOwner4", "Spouse/Intimate partner of shooter", null);
+    public static CodeableConcept SubstanceResult1 = new(VdorCustomCs.officialUrl, "SubstanceResult1", "Present", null);
+    public static CodeableConcept SubstanceResult2 = new(VdorCustomCs.officialUrl, "SubstanceResult2", "Not present", null);
+    public static CodeableConcept SubstanceResult8 = new(VdorCustomCs.officialUrl, "SubstanceResult8", "Not applicable", "e.g., Testing was not done");
     public static CodeableConcept FriendAcquaintance = new(NvdrsCodingManualCs.officialUrl, "GunOwner6", "Friend/Acquaintance of shooter", null);
     public static CodeableConcept Stranger = new(NvdrsCodingManualCs.officialUrl, "GunOwner7", "Stranger to shooter", null);
     public static CodeableConcept OtherSpecify = new(NvdrsCodingManualCs.officialUrl, "GunOwner66", "Other (specify in gun access narrative)", null);
+    public static CodeableConcept ToxTested1 = new(NvdrsCodingManualCs.officialUrl, "ToxTested1", "Tested", null);
+    public static CodeableConcept ToxTested2 = new(NvdrsCodingManualCs.officialUrl, "ToxTested2", "Not tested", null);
 }
 
 public class VdorCustomCs
@@ -190,6 +201,7 @@ public class VdorCustomCs
     public static CodeableConcept Demographics = new(VdorCustomCs.officialUrl, "demographics", "Demographics", "Data elements that fall under the demographics category");
     public static CodeableConcept InjuryAndDeath = new(VdorCustomCs.officialUrl, "injury-and-death", "Injury and Death", "Data elements that fall under the injury and death category");
     public static CodeableConcept Toxicology = new(VdorCustomCs.officialUrl, "toxicology", "Toxicology", "Data elements that fall under the toxicology category");
+    public static CodeableConcept ToxicologyFindings = new(VdorCustomCs.officialUrl, "toxicology-findings", "Toxicology Findings", null);
     public static CodeableConcept Circumstances = new(VdorCustomCs.officialUrl, "circumstances", "Circumstances", "Data elements that fall under the circumstances category");
     public static CodeableConcept Weapons = new(VdorCustomCs.officialUrl, "weapons", "Weapon(s)", "Data elements that fall under the weapon(s) category");
     public static CodeableConcept Suspects = new(VdorCustomCs.officialUrl, "suspects", "Suspect(s)", null);
@@ -205,6 +217,7 @@ public class VdorCustomCs
     public static CodeableConcept GangRelated = new(VdorCustomCs.officialUrl, "gang-related", "Gang Related", "Death was gang related");
     public static CodeableConcept SelfHarm = new(VdorCustomCs.officialUrl, "self-harm", "Non-suicidal self-Injury/self-harm", "History of non-suicidal self-Injury/self-harm");
     public static CodeableConcept Amphetamines = new(VdorCustomCs.officialUrl, "amphetamines", "Amphetamines Tested", "Decedent was tested for presence of amphetamines");
+    public static CodeableConcept CurrentOrPastPrescriptionDrugMisuseOrIllicitDrugUse = new(VdorCustomCs.officialUrl, "od-current-or-past-drug-misuse", "Current or Past Prescription Drug Misuse or Illicit Drug Use", null);
     public static CodeableConcept WoundToHead = new(VdorCustomCs.officialUrl, "wound-to-the-head", "Wound to the head", null);
     public static CodeableConcept WoundToFace = new(VdorCustomCs.officialUrl, "wound-to-the-face", "Wound to the face", null);
     public static CodeableConcept WoundToNeck = new(VdorCustomCs.officialUrl, "wound-to-the-neck", "Wound to the neck", null);
@@ -251,7 +264,6 @@ public class VdorCustomCs
     public static CodeableConcept EvidenceOfDrugUse = new(VdorCustomCs.officialUrl, "od-evidence-of-drug-use", "Evidence of Drug Use", null);
     public static CodeableConcept BystandersPresent = new(VdorCustomCs.officialUrl, "od-bystanders-present", "Bystander(s) Present", null);
     public static CodeableConcept UseOfPrescriptionMorphine = new(VdorCustomCs.officialUrl, "od-use-of-prescription-morphine", "Use of Prescription Morphine", null);
-    public static CodeableConcept CurrentOrPastPrescriptionDrugMisuseOrIllicitDrugUse = new(VdorCustomCs.officialUrl, "od-current-or-past-drug-misuse", "Current or Past Prescription Drug Misuse or Illicit Drug Use", null);
     public static CodeableConcept RecentEmergencyDepartmentVisitOrUrgentCareVisit = new(VdorCustomCs.officialUrl, "od-recent-emergency-department-visit", "Recent Emergency Department Visit or Urgent Care Visit", null);
     public static CodeableConcept OverdoseRelatedToSubstanceUseOrMisuse = new(VdorCustomCs.officialUrl, "od-type-of-od-1", "Overdose related to substance use/misuse", null);
     public static CodeableConcept VictimUnintentionallyTakesADrugOrWrongDosage = new(VdorCustomCs.officialUrl, "od-type-of-od-2", "Victim unintentionally takes a drug or wrong dosage", null);
@@ -307,6 +319,11 @@ public class VdorCustomCs
     public static CodeableConcept EdOrUrgentCareVisitBetweenThreeAndSixMonthsBeforeDeath = new(VdorCustomCs.officialUrl, "od-recent-emergency-department-visit-3", "ED or urgent care visit between three and six months before death", null);
     public static CodeableConcept EdOrUrgentCareVisitBetweenSixMonthsAndOneYearBeforeDeath = new(VdorCustomCs.officialUrl, "od-recent-emergency-department-visit-4", "ED or urgent care visit between six months and one year before death", null);
     public static CodeableConcept RecentEdOrUrgentCareVisitNotedTimingUnknown = new(VdorCustomCs.officialUrl, "od-recent-emergency-department-visit-5", "Recent ED or urgent care visit noted, timing unknown", null);
+    public static CodeableConcept SubstanceName = new(VdorCustomCs.officialUrl, "substance-name", "Substance Name", null);
+    public static CodeableConcept SubstanceTested = new(VdorCustomCs.officialUrl, "substance-tested", "Substance Tested", null);
+    public static CodeableConcept SubstanceResult = new(VdorCustomCs.officialUrl, "substance-result", "Substance Result", null);
+    public static CodeableConcept SubstanceCausedDeath = new(VdorCustomCs.officialUrl, "substance-caused-death", "Substance Caused Death", null);
+    public static CodeableConcept DrugObtainedFor = new(VdorCustomCs.officialUrl, "substance-obtained-for", "Drug Obtained For", null);
     public static CodeableConcept TestPerformed = new(VdorCustomCs.officialUrl, "tox-summary-component-tested", "Test Performed", null);
     public static CodeableConcept TestResults = new(VdorCustomCs.officialUrl, "tox-summary-component-results", "Results", null);
     public static CodeableConcept BloodAlcoholContent = new(VdorCustomCs.officialUrl, "tox-summary-component-bac", "Blood Alcohol Content", null);
@@ -593,7 +610,38 @@ public class NvdrsWeaponTypeVs
     public static CodeableConcept IntentionalNeglect = NvdrsCodingManualCs.IntentionalNeglect;
     public static CodeableConcept BiologicalWeapons = NvdrsCodingManualCs.BiologicalWeapons;
     public static CodeableConcept Other = NvdrsCodingManualCs.OtherWeaponType;
-    public static CodeableConcept Unknown = new("http://snomed.info/sct", "261665006", "Unknown", null);
+    public static CodeableConcept Unknown = new(UriString.SCT, "261665006", "Unknown", null);
+}
+
+public class VdorToxSubstanceTestedVs
+{
+    public const string officialUrl = "http://hl7.org/fhir/us/vdor/ValueSet/vdor-tox-substance-tested-vs";
+
+    public static CodeableConcept Tested = NvdrsCodingManualCs.ToxTested1;
+    public static CodeableConcept NotTested = NvdrsCodingManualCs.ToxTested2;
+    public static CodeableConcept Unknown = new(UriString.SCT, "261665006", "Unknown", null);
+}
+
+public class VdorToxFindingsSubstanceResultsVs
+{
+    public const string officialUrl = "http://hl7.org/fhir/us/vdor/ValueSet/vdor-tox-findings-substance-results-vs";
+
+    public static CodeableConcept Present = NvdrsCodingManualCs.SubstanceResult1;
+    public static CodeableConcept NotPresent = NvdrsCodingManualCs.SubstanceResult2;
+    public static CodeableConcept NotApplicable = NvdrsCodingManualCs.SubstanceResult8;
+    public static CodeableConcept Unknown = new(UriString.SCT, "261665006", "Unknown", null);
+}
+
+public class VdorToxFindingsDrugObtainedForVs
+{
+    public const string officialUrl = "http://hl7.org/fhir/us/vdor/ValueSet/vdor-tox-findings-drug-obtained-for-vs";
+
+    public static CodeableConcept Self = NvdrsCodingManualCs.DrugObtainedFor1;
+    public static CodeableConcept IntimatePartner = NvdrsCodingManualCs.DrugObtainedFor2;
+    public static CodeableConcept Family = NvdrsCodingManualCs.DrugObtainedFor3;
+    public static CodeableConcept Other = NvdrsCodingManualCs.DrugObtainedFor4;
+    public static CodeableConcept NotApplicable = NvdrsCodingManualCs.DrugObtainedFor8;
+    public static CodeableConcept RelationshipUnknown = NvdrsCodingManualCs.DrugObtainedFor9;
 }
 
 public class VdorWeaponsCategoryVs
@@ -705,22 +753,21 @@ public class VdorToxicologySummaryCarbonMonoxideSourceVs
     public const string officialUrl = "http://hl7.org/fhir/us/vdor/ValueSet/vdor-tox-summary-carbon-monoxide-source-vs";
 
     public static CodeableConcept MotorizedVehicle = VdorCustomCs.MotorizedVehicle;
-    public static CodeableConcept OtherToxSummaryCarbonMonoxide = VdorCustomCs.OtherToxSummaryCarbonMonoxide;
+    public static CodeableConcept Other = VdorCustomCs.OtherToxSummaryCarbonMonoxide;
     public static CodeableConcept GasToolApplianceHeater = VdorCustomCs.GasToolApplianceHeater;
     public static CodeableConcept GrillOrBarbeque = VdorCustomCs.GrillOrBarbeque;
     public static CodeableConcept Fire = VdorCustomCs.Fire;
-    public static CodeableConcept NotApplicableToxSummaryCarbonMonoxide = VdorCustomCs.NotApplicableToxSummaryCarbonMonoxide;
-    public static CodeableConcept UnknownToxSummaryCarbonMonoxide = VdorCustomCs.UnknownToxSummaryCarbonMonoxide;
+    public static CodeableConcept NotApplicable = VdorCustomCs.NotApplicableToxSummaryCarbonMonoxide;
+    public static CodeableConcept Unknown = VdorCustomCs.UnknownToxSummaryCarbonMonoxide;
 }
 
 public class VdorToxSummaryResultsVs
 {
     public const string officialUrl = "http://hl7.org/fhir/us/vdor/ValueSet/vdor-tox-summary-results-vs";
-
     public static CodeableConcept Present = VdorCustomCs.Present;
     public static CodeableConcept NotPresent = VdorCustomCs.NotPresent;
     public static CodeableConcept NotApplicableToxSummaryResult = VdorCustomCs.NotApplicableToxSummaryResult;
-    public static CodeableConcept UnknownToxSummaryResult = VdorCustomCs.UnknownToxSummaryResult;
+    public static CodeableConcept Unknown = VdorCustomCs.UnknownToxSummaryResult;
 }
 
 public class VdorToxSummaryTestedVs
@@ -729,7 +776,7 @@ public class VdorToxSummaryTestedVs
 
     public static CodeableConcept Tested = VdorCustomCs.Tested;
     public static CodeableConcept NotTested = VdorCustomCs.NotTested;
-    public static CodeableConcept UnknownToxSummaryTested = VdorCustomCs.UnknownToxSummaryTested;
+    public static CodeableConcept Unknown = VdorCustomCs.UnknownToxSummaryTested;
 }
 
 public class VdorToxicologySummaryTestsVs
@@ -795,8 +842,8 @@ public class NvdrsWoundLocationValuesVs
 
 public class VdorCustomUris
 {
-    public const string incidentnumberIdentifierUrl = "urn:vdrs:Vdor:incidentnumber";
-    public const string victimnumberIdentifierUrl = "urn:vdrs:Vdor:victimnumber";
+    public const string incidentnumberIdentifierUrl = "urn:vdrs:incidentnumber";
+    public const string victimnumberIdentifierUrl = "urn:vdrs:victimnumber";
 }
 // public class VdorSectionCodes
 // {

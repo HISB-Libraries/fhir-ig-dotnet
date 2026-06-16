@@ -12,7 +12,6 @@
     <ProjectReference Include="..\GaTech.Chai.Share\GaTech.Chai.Share.csproj" />
     <ProjectReference Include="..\GaTech.Chai.Vrcl\GaTech.Chai.Vrcl.csproj" />
     <ProjectReference Include="..\GaTech.Chai.Vrdr\GaTech.Chai.Vrdr.csproj" />
-    <ProjectReference Include="..\GaTech.Chai.Nvdrs\GaTech.Chai.Nvdrs.csproj" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="VRDR" />

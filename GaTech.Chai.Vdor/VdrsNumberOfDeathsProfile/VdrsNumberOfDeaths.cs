@@ -1,5 +1,6 @@
 ﻿using Hl7.Fhir.Model;
 using GaTech.Chai.Share;
+using GaTech.Chai.Vdor;
 
 namespace GaTech.Chai.Nvdrs;
 
@@ -16,7 +17,7 @@ public class VdrsNumberOfDeaths
     {
         Observation observation = new()
         {
-            Code = NvdrsCustomCs.NumberOfDeaths
+            Code = VdorCustomCs.NumberOfDeaths
         };
 
         observation.VdrsNumberOfDeaths().AddProfile();

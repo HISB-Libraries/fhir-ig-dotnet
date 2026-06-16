@@ -461,6 +461,7 @@ namespace GaTech.Chai.Mdi
                 cod1.Performer = new List<ResourceReference>() { certifierReference };
             }
 
+            cod1.ObservationMdiCauseOfDeathPart1().LineNumber = new Integer(lineNumber);
             cod1.ObservationMdiCauseOfDeathPart1().ValueText = valueText;
             cod1.ObservationMdiCauseOfDeathPart1().Interval = interval;
 

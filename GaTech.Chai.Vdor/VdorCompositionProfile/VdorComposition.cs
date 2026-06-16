@@ -253,10 +253,10 @@ public class VdorComposition
         {
             if (value != null)
             {
-                this.composition.TryGetIdentifier("urn:vdrs:nvdrs:incidentnumber", out Identifier? identifer);
+                this.composition.TryGetIdentifier(VdorCustomUris.incidentnumberIdentifierUrl, out Identifier? identifer);
                 if (identifer == null)
                 {
-                    this.composition.Identifier = new Identifier("urn:vdrs:nvdrs:incidentnumber", value);
+                    this.composition.Identifier = new Identifier(VdorCustomUris.incidentnumberIdentifierUrl, value);
                 }
                 else
                 {
@@ -266,6 +266,27 @@ public class VdorComposition
         }
     }
 
+    public string? VictimNumber
+    {
+        get
+        {
+            Identifier? additionalId = GetAdditionalIdentifier(VdorCustomUris.victimnumberIdentifierUrl);
+            if (additionalId != null)
+            {
+                return additionalId.Value;
+            }
+
+            return null;
+        }
+        set
+        {
+            if (value != null)
+            {
+                AddAdditionalIdentifier(new Identifier(VdorCustomUris.victimnumberIdentifierUrl, value));
+            }
+        }
+    }
+    
     private (List<Resource>, Narrative, CodeableConcept) GetSectionAndEntry(string code, CodeableConcept mdiCodeSystem)
     {
         SectionComponent sectionComponent = GetOrAddSection(code, mdiCodeSystem.Coding[0].Display);

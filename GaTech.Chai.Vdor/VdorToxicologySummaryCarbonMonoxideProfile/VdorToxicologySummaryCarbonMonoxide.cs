@@ -49,8 +49,20 @@ public class VdorToxicologySummaryCarbonMonoxide
         }
         set
         {
-            var component = this.observation.Component.GetOrAddComponent(VdorCustomCs.SourceOfCarbonMonoxide.Coding.First().System, VdorCustomCs.SourceOfCarbonMonoxide.Coding.First().Code, null);
-            component.Value = value;
+            if (VdorToxicologySummaryCarbonMonoxideSourceVs.MotorizedVehicle.Matches(value) 
+                || VdorToxicologySummaryCarbonMonoxideSourceVs.Other.Matches(value)
+                || VdorToxicologySummaryCarbonMonoxideSourceVs.GasToolApplianceHeater.Matches(value)
+                || VdorToxicologySummaryCarbonMonoxideSourceVs.GrillOrBarbeque.Matches(value)
+                || VdorToxicologySummaryCarbonMonoxideSourceVs.Fire.Matches(value)
+                || VdorToxicologySummaryCarbonMonoxideSourceVs.NotApplicable.Matches(value)
+                || VdorToxicologySummaryCarbonMonoxideSourceVs.Unknown.Matches(value))
+            {
+                var component = this.observation.Component.GetOrAddComponent(VdorCustomCs.SourceOfCarbonMonoxide.Coding.First().System, VdorCustomCs.SourceOfCarbonMonoxide.Coding.First().Code, null);
+                component.Value = value;
+            } else
+            {
+                throw new ArgumentException($"Value must be one of the codes from {VdorToxicologySummaryCarbonMonoxideSourceVs.officialUrl}");
+            }
         }
     }
 }

@@ -1,13 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <ProjectReference Include="..\GaTech.Chai.Share\GaTech.Chai.Share.csproj" />
-    <ProjectReference Include="..\GaTech.Chai.Vrcl\GaTech.Chai.Vrcl.csproj" />
-    <ProjectReference Include="..\GaTech.Chai.Vrdr\GaTech.Chai.Vrdr.csproj" />
     <ProjectReference Include="..\GaTech.Chai.UsCore\GaTech.Chai.UsCore.csproj" />
-    <ProjectReference Include="..\GaTech.Chai.Mdi\GaTech.Chai.Mdi.csproj" />
+    <ProjectReference Include="..\GaTech.Chai.Share\GaTech.Chai.Share.csproj" />
     <ProjectReference Include="..\GaTech.Chai.Vdor\GaTech.Chai.Vdor.csproj" />
-    <ProjectReference Include="..\GaTech.Chai.Odh\GaTech.Chai.Odh.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

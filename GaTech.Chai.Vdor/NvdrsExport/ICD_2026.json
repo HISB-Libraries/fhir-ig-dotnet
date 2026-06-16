@@ -1,0 +1,170 @@
+{
+  "version": "2026",
+  "type": "ICD",
+  "length": 123,
+  "data": [
+    {
+      "name": "ForceNewRecord",
+      "firstColumn": 1,
+      "lastColumn": 1,
+      "dataType": "Text(1)",
+      "value": ""
+    },
+    {
+      "name": "OverwriteConflicts",
+      "firstColumn": 2,
+      "lastColumn": 2,
+      "dataType": "Text(1)",
+      "value": ""
+    },
+    {
+      "name": "IncidentYear",
+      "firstColumn": 3,
+      "lastColumn": 6,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "IncidentNumber",
+      "firstColumn": 7,
+      "lastColumn": 16,
+      "dataType": "Text",
+      "value": ""
+    },
+    {
+      "name": "VictimNumber",
+      "firstColumn": 17,
+      "lastColumn": 20,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "DCNumberLastFour",
+      "firstColumn": 21,
+      "lastColumn": 24,
+      "dataType": "Text(4)",
+      "value": ""
+    },
+    {
+      "name": "CMENumberLastFour",
+      "firstColumn": 25,
+      "lastColumn": 28,
+      "dataType": "Text(4)",
+      "value": ""
+    },
+    {
+      "name": "LastNameFirstInitial",
+      "firstColumn": 29,
+      "lastColumn": 29,
+      "dataType": "Text(1)",
+      "value": ""
+    },
+    {
+      "name": "BirthDayofMonth",
+      "firstColumn": 30,
+      "lastColumn": 31,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "UnderlyingCauseCode",
+      "firstColumn": 32,
+      "lastColumn": 39,
+      "dataType": "Text(8)",
+      "value": ""
+    },
+    {
+      "name": "UnderlyingCauseCode5thDigit",
+      "firstColumn": 40,
+      "lastColumn": 40,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "InjuryLocation",
+      "firstColumn": 41,
+      "lastColumn": 42,
+      "dataType": "Text",
+      "value": ""
+    },
+    {
+      "name": "UnderlyingCauseCode4thDigit",
+      "firstColumn": 43,
+      "lastColumn": 43,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "MultiCondition01ICD10",
+      "firstColumn": 44,
+      "lastColumn": 51,
+      "dataType": "Text(8)",
+      "value": ""
+    },
+    {
+      "name": "MultiCondition02ICD10",
+      "firstColumn": 52,
+      "lastColumn": 59,
+      "dataType": "Text(8)",
+      "value": ""
+    },
+    {
+      "name": "MultiCondition03ICD10",
+      "firstColumn": 60,
+      "lastColumn": 67,
+      "dataType": "Text(8)",
+      "value": ""
+    },
+    {
+      "name": "MultiCondition04ICD10",
+      "firstColumn": 68,
+      "lastColumn": 75,
+      "dataType": "Text(8)",
+      "value": ""
+    },
+    {
+      "name": "MultiCondition05ICD10",
+      "firstColumn": 76,
+      "lastColumn": 83,
+      "dataType": "Text(8)",
+      "value": ""
+    },
+    {
+      "name": "MultiCondition06ICD10",
+      "firstColumn": 84,
+      "lastColumn": 91,
+      "dataType": "Text(8)",
+      "value": ""
+    },
+    {
+      "name": "MultiCondition07ICD10",
+      "firstColumn": 92,
+      "lastColumn": 99,
+      "dataType": "Text(8)",
+      "value": ""
+    },
+    {
+      "name": "MultiCondition08ICD10",
+      "firstColumn": 100,
+      "lastColumn": 107,
+      "dataType": "Text(8)",
+      "value": ""
+    },
+    {
+      "name": "MultiCondition09ICD10",
+      "firstColumn": 108,
+      "lastColumn": 115,
+      "dataType": "Text(8)",
+      "value": ""
+    },
+    {
+      "name": "MultiCondition10ICD10",
+      "firstColumn": 116,
+      "lastColumn": 123,
+      "dataType": "Text(8)",
+      "value": ""
+    }
+  ],
+  "serializedFormat": "",
+  "errors": []
+}

@@ -1,0 +1,4601 @@
+{
+  "version": "2026",
+  "type": "CME",
+  "length": 5516,
+  "data": [
+    {
+      "name": "ForceNewRecord",
+      "firstColumn": 1,
+      "lastColumn": 1,
+      "dataType": "Text(1)",
+      "value": ""
+    },
+    {
+      "name": "OverwriteConflicts",
+      "firstColumn": 2,
+      "lastColumn": 2,
+      "dataType": "Text(1)",
+      "value": ""
+    },
+    {
+      "name": "IncidentYear",
+      "firstColumn": 3,
+      "lastColumn": 6,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "IncidentNumber",
+      "firstColumn": 7,
+      "lastColumn": 16,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "VictimNumber",
+      "firstColumn": 17,
+      "lastColumn": 20,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "LastFourDCNumber",
+      "firstColumn": 21,
+      "lastColumn": 24,
+      "dataType": "Text(4)",
+      "value": ""
+    },
+    {
+      "name": "LastFourCMENumber",
+      "firstColumn": 25,
+      "lastColumn": 28,
+      "dataType": "Text(4)",
+      "value": ""
+    },
+    {
+      "name": "InitialOfLastName",
+      "firstColumn": 29,
+      "lastColumn": 29,
+      "dataType": "Text(1)",
+      "value": ""
+    },
+    {
+      "name": "BirthDayofMonth",
+      "firstColumn": 30,
+      "lastColumn": 31,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "DeathMannerAbstractor",
+      "firstColumn": 32,
+      "lastColumn": 33,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "DeathMannerDC",
+      "firstColumn": 34,
+      "lastColumn": 34,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "DeathMannerCME",
+      "firstColumn": 35,
+      "lastColumn": 35,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "DeathMannerLE",
+      "firstColumn": 36,
+      "lastColumn": 36,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "DeathDateYear",
+      "firstColumn": 37,
+      "lastColumn": 40,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "DeathDateMonth",
+      "firstColumn": 41,
+      "lastColumn": 42,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "DeathDateDay",
+      "firstColumn": 43,
+      "lastColumn": 44,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "DeathState",
+      "firstColumn": 45,
+      "lastColumn": 46,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "DeathCounty",
+      "firstColumn": 47,
+      "lastColumn": 49,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "DeathPronouncedDateYear",
+      "firstColumn": 50,
+      "lastColumn": 53,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "DeathPronouncedDateMonth",
+      "firstColumn": 54,
+      "lastColumn": 55,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "DeathPronouncedDateDay",
+      "firstColumn": 56,
+      "lastColumn": 57,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "DeathPlace",
+      "firstColumn": 58,
+      "lastColumn": 58,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "DeathPlaceText",
+      "firstColumn": 59,
+      "lastColumn": 88,
+      "dataType": "Text(30)",
+      "value": ""
+    },
+    {
+      "name": "AutopsyPerformed",
+      "firstColumn": 89,
+      "lastColumn": 89,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "InjuryDateYear",
+      "firstColumn": 90,
+      "lastColumn": 93,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "InjuryDateMonth",
+      "firstColumn": 94,
+      "lastColumn": 95,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "InjuryDateDay",
+      "firstColumn": 96,
+      "lastColumn": 97,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "InjuryTime",
+      "firstColumn": 98,
+      "lastColumn": 101,
+      "dataType": "Text(4)",
+      "value": ""
+    },
+    {
+      "name": "SurvivalTime",
+      "firstColumn": 102,
+      "lastColumn": 104,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "SurvivalTimeUnit",
+      "firstColumn": 105,
+      "lastColumn": 105,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "InjuryLocation",
+      "firstColumn": 106,
+      "lastColumn": 107,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "InjuredAtWork",
+      "firstColumn": 108,
+      "lastColumn": 108,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "InjuredAtVictimHome",
+      "firstColumn": 109,
+      "lastColumn": 109,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "EMSPresent",
+      "firstColumn": 110,
+      "lastColumn": 110,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "VictimInCustody",
+      "firstColumn": 111,
+      "lastColumn": 111,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "AlcoholUseSuspected",
+      "firstColumn": 112,
+      "lastColumn": 112,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "InjuryState",
+      "firstColumn": 113,
+      "lastColumn": 114,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "InjuryCounty",
+      "firstColumn": 115,
+      "lastColumn": 117,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "InjuryCity",
+      "firstColumn": 118,
+      "lastColumn": 122,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "InjuryZip",
+      "firstColumn": 123,
+      "lastColumn": 127,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "CensusTract",
+      "firstColumn": 128,
+      "lastColumn": 134,
+      "dataType": "Text(7)",
+      "value": ""
+    },
+    {
+      "name": "CensusBlock",
+      "firstColumn": 135,
+      "lastColumn": 135,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "SexVictim",
+      "firstColumn": 136,
+      "lastColumn": 136,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "SexualOrientation",
+      "firstColumn": 137,
+      "lastColumn": 137,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "UNUSED",
+      "firstColumn": 138,
+      "lastColumn": 138,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "Age",
+      "firstColumn": 139,
+      "lastColumn": 141,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "AgeUnit",
+      "firstColumn": 142,
+      "lastColumn": 142,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "EthnicityVictim",
+      "firstColumn": 143,
+      "lastColumn": 143,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "RaceWhiteVictim",
+      "firstColumn": 144,
+      "lastColumn": 144,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "RaceBlackVictim",
+      "firstColumn": 145,
+      "lastColumn": 145,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "RaceAmericanIndianVictim",
+      "firstColumn": 146,
+      "lastColumn": 146,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "RaceAsianVictim",
+      "firstColumn": 147,
+      "lastColumn": 147,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "RacePacificIslanderVictim",
+      "firstColumn": 148,
+      "lastColumn": 148,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "RaceOtherVictim",
+      "firstColumn": 149,
+      "lastColumn": 149,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "RaceUnspecifiedVictim",
+      "firstColumn": 150,
+      "lastColumn": 150,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "HeightFeet",
+      "firstColumn": 151,
+      "lastColumn": 151,
+      "dataType": "Text(1)",
+      "value": ""
+    },
+    {
+      "name": "HeightInches",
+      "firstColumn": 152,
+      "lastColumn": 153,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "Weight",
+      "firstColumn": 154,
+      "lastColumn": 156,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "Pregnant",
+      "firstColumn": 157,
+      "lastColumn": 157,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "MaritalStatus",
+      "firstColumn": 158,
+      "lastColumn": 158,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "Military",
+      "firstColumn": 159,
+      "lastColumn": 159,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "Homeless",
+      "firstColumn": 160,
+      "lastColumn": 160,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "RecentRelease",
+      "firstColumn": 161,
+      "lastColumn": 161,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "EducationLevel",
+      "firstColumn": 162,
+      "lastColumn": 162,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "EducationYears",
+      "firstColumn": 163,
+      "lastColumn": 164,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "Industry",
+      "firstColumn": 165,
+      "lastColumn": 168,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "IndustryText",
+      "firstColumn": 169,
+      "lastColumn": 218,
+      "dataType": "Text(50)",
+      "value": ""
+    },
+    {
+      "name": "OccupationText",
+      "firstColumn": 219,
+      "lastColumn": 268,
+      "dataType": "Text(50)",
+      "value": ""
+    },
+    {
+      "name": "UsualOccupation",
+      "firstColumn": 269,
+      "lastColumn": 272,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "OccupationCurrentText",
+      "firstColumn": 273,
+      "lastColumn": 322,
+      "dataType": "Text(50)",
+      "value": ""
+    },
+    {
+      "name": "BirthPlace",
+      "firstColumn": 323,
+      "lastColumn": 324,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "BirthCountryOther",
+      "firstColumn": 325,
+      "lastColumn": 354,
+      "dataType": "Text(30)",
+      "value": ""
+    },
+    {
+      "name": "Country",
+      "firstColumn": 355,
+      "lastColumn": 356,
+      "dataType": "Text",
+      "value": ""
+    },
+    {
+      "name": "ResidenceState",
+      "firstColumn": 357,
+      "lastColumn": 358,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "ResidenceCounty",
+      "firstColumn": 359,
+      "lastColumn": 361,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "ResidenceCity",
+      "firstColumn": 362,
+      "lastColumn": 366,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "ResidenceZip",
+      "firstColumn": 367,
+      "lastColumn": 371,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "ResidenceCensusTract",
+      "firstColumn": 372,
+      "lastColumn": 378,
+      "dataType": "Text(7)",
+      "value": ""
+    },
+    {
+      "name": "ResidenceCensusBlock",
+      "firstColumn": 379,
+      "lastColumn": 379,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "ToxicologyNotAvailable",
+      "firstColumn": 380,
+      "lastColumn": 380,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "SpecimensDateYear",
+      "firstColumn": 381,
+      "lastColumn": 384,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "SpecimensDateMonth",
+      "firstColumn": 385,
+      "lastColumn": 386,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "SpecimensDateDay",
+      "firstColumn": 387,
+      "lastColumn": 388,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "SpecimensTime",
+      "firstColumn": 389,
+      "lastColumn": 392,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "AlcoholTested",
+      "firstColumn": 393,
+      "lastColumn": 393,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "AlcoholResult",
+      "firstColumn": 394,
+      "lastColumn": 394,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "AlcoholLevel",
+      "firstColumn": 395,
+      "lastColumn": 397,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "AmphetamineTested",
+      "firstColumn": 398,
+      "lastColumn": 398,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "AmphetamineResult",
+      "firstColumn": 399,
+      "lastColumn": 399,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "AnticonvulsantsTested",
+      "firstColumn": 400,
+      "lastColumn": 400,
+      "dataType": "integer",
+      "value": ""
+    },
+    {
+      "name": "AnticonvulsantsResult",
+      "firstColumn": 401,
+      "lastColumn": 401,
+      "dataType": "integer",
+      "value": ""
+    },
+    {
+      "name": "AntiDepressantTested",
+      "firstColumn": 402,
+      "lastColumn": 402,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "AntiDepressantResult",
+      "firstColumn": 403,
+      "lastColumn": 403,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "AntiPsychoticTested",
+      "firstColumn": 404,
+      "lastColumn": 404,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "AntiPsychoticResult",
+      "firstColumn": 405,
+      "lastColumn": 405,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "BarbituratesTested",
+      "firstColumn": 406,
+      "lastColumn": 406,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "BarbituratesResult",
+      "firstColumn": 407,
+      "lastColumn": 407,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "BenzodiazepinesTested",
+      "firstColumn": 408,
+      "lastColumn": 408,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "BenzodiazepinesResult",
+      "firstColumn": 409,
+      "lastColumn": 409,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "CarbonMonoxideTested",
+      "firstColumn": 410,
+      "lastColumn": 410,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "CarbonMonoxideResult",
+      "firstColumn": 411,
+      "lastColumn": 411,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "CarbonMonoxideSource",
+      "firstColumn": 412,
+      "lastColumn": 412,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "CocaineTested",
+      "firstColumn": 413,
+      "lastColumn": 413,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "CocaineResult",
+      "firstColumn": 414,
+      "lastColumn": 414,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "MarijuanaTested",
+      "firstColumn": 415,
+      "lastColumn": 415,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "MarijuanaResult",
+      "firstColumn": 416,
+      "lastColumn": 416,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "MuscleRelaxorTested",
+      "firstColumn": 417,
+      "lastColumn": 417,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "MuscleRelaxorResult",
+      "firstColumn": 418,
+      "lastColumn": 418,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "OpiateTested",
+      "firstColumn": 419,
+      "lastColumn": 419,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "OpiateResult",
+      "firstColumn": 420,
+      "lastColumn": 420,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "NumberWounds",
+      "firstColumn": 421,
+      "lastColumn": 422,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "NumberBullets",
+      "firstColumn": 423,
+      "lastColumn": 424,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "WoundToHead",
+      "firstColumn": 425,
+      "lastColumn": 425,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "WoundToFace",
+      "firstColumn": 426,
+      "lastColumn": 426,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "WoundToNeck",
+      "firstColumn": 427,
+      "lastColumn": 427,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "WoundToUpperExtremity",
+      "firstColumn": 428,
+      "lastColumn": 428,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "WoundToSpine",
+      "firstColumn": 429,
+      "lastColumn": 429,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "WoundToThorax",
+      "firstColumn": 430,
+      "lastColumn": 430,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "WoundToAbdomen",
+      "firstColumn": 431,
+      "lastColumn": 431,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "WoundToLowerExtremity",
+      "firstColumn": 432,
+      "lastColumn": 432,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "CircumstancesKnownCME",
+      "firstColumn": 433,
+      "lastColumn": 433,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "AbusedAsChildCME",
+      "firstColumn": 434,
+      "lastColumn": 434,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "AlcoholProblemCME",
+      "firstColumn": 435,
+      "lastColumn": 435,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "ArgumentCME",
+      "firstColumn": 436,
+      "lastColumn": 436,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "UNUSED",
+      "firstColumn": 437,
+      "lastColumn": 437,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "ArgumentTimingCME",
+      "firstColumn": 438,
+      "lastColumn": 438,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "BrawlCME",
+      "firstColumn": 439,
+      "lastColumn": 439,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "BulletRicochetCME",
+      "firstColumn": 440,
+      "lastColumn": 440,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "BystanderCME",
+      "firstColumn": 441,
+      "lastColumn": 441,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "CelebratoryFiringCME",
+      "firstColumn": 442,
+      "lastColumn": 442,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "CircumstancesOtherCME",
+      "firstColumn": 443,
+      "lastColumn": 443,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "CircumstancesOtherTextCME",
+      "firstColumn": 444,
+      "lastColumn": 698,
+      "dataType": "Text(50)",
+      "value": ""
+    },
+    {
+      "name": "CrisisProstitutionCME",
+      "firstColumn": 699,
+      "lastColumn": 699,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "CrisisAlcoholProblemCME",
+      "firstColumn": 700,
+      "lastColumn": 700,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "CrisisCivilLegalCME",
+      "firstColumn": 701,
+      "lastColumn": 701,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "CrisisCriminalCME",
+      "firstColumn": 702,
+      "lastColumn": 702,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "CrisisDisasterExposureCME",
+      "firstColumn": 703,
+      "lastColumn": 703,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "CrisisEvictionCME",
+      "firstColumn": 704,
+      "lastColumn": 704,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "UNUSED",
+      "firstColumn": 705,
+      "lastColumn": 705,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "CrisisFinancialCME",
+      "firstColumn": 706,
+      "lastColumn": 706,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "CrisisIntimatePartnerProblemCME",
+      "firstColumn": 707,
+      "lastColumn": 707,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "CrisisJealousyCME",
+      "firstColumn": 708,
+      "lastColumn": 708,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "CrisisJobCME",
+      "firstColumn": 709,
+      "lastColumn": 709,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "CrisisMentalHealthCME",
+      "firstColumn": 710,
+      "lastColumn": 710,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "CrisisOtherAddictionCME",
+      "firstColumn": 711,
+      "lastColumn": 711,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "CrisisPhysicalHealthCME",
+      "firstColumn": 712,
+      "lastColumn": 712,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "CrisisRelatedDeathFriendOrFamilyOtherCME",
+      "firstColumn": 713,
+      "lastColumn": 713,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "CrisisRelatedSuicideFriendOrFamilyCME",
+      "firstColumn": 714,
+      "lastColumn": 714,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "CrisisRelationshipProblemOtherCME",
+      "firstColumn": 715,
+      "lastColumn": 715,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "CrisisSchoolCME",
+      "firstColumn": 716,
+      "lastColumn": 716,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "CrisisStalkingCME",
+      "firstColumn": 717,
+      "lastColumn": 717,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "CrisisSubstanceAbuseCME",
+      "firstColumn": 718,
+      "lastColumn": 718,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "DeathAbuseCME",
+      "firstColumn": 719,
+      "lastColumn": 719,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "DeathFriendOrFamilyOtherCME",
+      "firstColumn": 720,
+      "lastColumn": 720,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "DepressedMoodCME",
+      "firstColumn": 721,
+      "lastColumn": 721,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "DisasterExposureCME",
+      "firstColumn": 722,
+      "lastColumn": 722,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "UNUSED",
+      "firstColumn": 723,
+      "lastColumn": 723,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "DriveByShootingCME",
+      "firstColumn": 724,
+      "lastColumn": 724,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "DrugInvolvementCME",
+      "firstColumn": 725,
+      "lastColumn": 725,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "EvictionOrLossOfHomeCME",
+      "firstColumn": 726,
+      "lastColumn": 726,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "FightBetweenTwoPeopleCME",
+      "firstColumn": 727,
+      "lastColumn": 727,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "FinancialProblemCME",
+      "firstColumn": 728,
+      "lastColumn": 728,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "UNUSED",
+      "firstColumn": 729,
+      "lastColumn": 729,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "GangRelatedCME",
+      "firstColumn": 730,
+      "lastColumn": 730,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "GunCleaningCME",
+      "firstColumn": 731,
+      "lastColumn": 731,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "GunDefectMalfunctionCME",
+      "firstColumn": 732,
+      "lastColumn": 732,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "GunDroppedCME",
+      "firstColumn": 733,
+      "lastColumn": 733,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "GunFiredHolsteringCME",
+      "firstColumn": 734,
+      "lastColumn": 734,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "GunFiredLoadingUnloadingCME",
+      "firstColumn": 735,
+      "lastColumn": 735,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "GunFiredOperatingSafetyLockCME",
+      "firstColumn": 736,
+      "lastColumn": 736,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "GunPlayingCME",
+      "firstColumn": 737,
+      "lastColumn": 737,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "GunShowingCME",
+      "firstColumn": 738,
+      "lastColumn": 738,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "GunThoughtSafetyEngagedCME",
+      "firstColumn": 739,
+      "lastColumn": 739,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "GunThoughtToyCME",
+      "firstColumn": 740,
+      "lastColumn": 740,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "GunThoughtUnloadedMagazineDisengagedCME",
+      "firstColumn": 741,
+      "lastColumn": 741,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "GunThoughtUnloadedOtherCME",
+      "firstColumn": 742,
+      "lastColumn": 742,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "GunUnintentionallyPulledTriggerCME",
+      "firstColumn": 743,
+      "lastColumn": 743,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "HateCrimeCME",
+      "firstColumn": 744,
+      "lastColumn": 744,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "HistoryMentalIllnessTreatmentCME",
+      "firstColumn": 745,
+      "lastColumn": 745,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "HuntingCME",
+      "firstColumn": 746,
+      "lastColumn": 746,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "InterpersonalViolencePerpetratorCME",
+      "firstColumn": 747,
+      "lastColumn": 747,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "InterpersonalViolenceVictimCME",
+      "firstColumn": 748,
+      "lastColumn": 748,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IntervenerAssistingVictimCME",
+      "firstColumn": 749,
+      "lastColumn": 749,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IntimatePartnerProblemCME",
+      "firstColumn": 750,
+      "lastColumn": 750,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IntimatePartnerViolenceCME",
+      "firstColumn": 751,
+      "lastColumn": 751,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "JealouslyCME",
+      "firstColumn": 752,
+      "lastColumn": 752,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "JobProblemCME",
+      "firstColumn": 753,
+      "lastColumn": 753,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "JustifiableSelfDefenseCME",
+      "firstColumn": 754,
+      "lastColumn": 754,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "LegalProblemOtherCME",
+      "firstColumn": 755,
+      "lastColumn": 755,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "MentalHealthDiagnosis1CME",
+      "firstColumn": 756,
+      "lastColumn": 757,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "MentalHealthDiagnosis2CME",
+      "firstColumn": 758,
+      "lastColumn": 759,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "MentalHealthDiagnosisOtherCME",
+      "firstColumn": 760,
+      "lastColumn": 809,
+      "dataType": "Text(50)",
+      "value": ""
+    },
+    {
+      "name": "MentalHealthProblemCME",
+      "firstColumn": 810,
+      "lastColumn": 810,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "MentalIllnessTreatmentCurrentCME",
+      "firstColumn": 811,
+      "lastColumn": 811,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "MercyKillingCME",
+      "firstColumn": 812,
+      "lastColumn": 812,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "NatureOtherCrime1CME",
+      "firstColumn": 813,
+      "lastColumn": 814,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "NatureOtherCrime2CME",
+      "firstColumn": 815,
+      "lastColumn": 816,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "OtherAddictionCME",
+      "firstColumn": 817,
+      "lastColumn": 817,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "OtherContextInjuryCME",
+      "firstColumn": 818,
+      "lastColumn": 818,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "OtherCrimeInProgressCME",
+      "firstColumn": 819,
+      "lastColumn": 819,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "OtherMechanismInjuryCME",
+      "firstColumn": 820,
+      "lastColumn": 820,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "PrecipitatedbyOtherCrimeCME",
+      "firstColumn": 821,
+      "lastColumn": 821,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "PhysicalHealthProblemCME",
+      "firstColumn": 822,
+      "lastColumn": 822,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "ProstitutionCME",
+      "firstColumn": 823,
+      "lastColumn": 823,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "RandomViolenceCME",
+      "firstColumn": 824,
+      "lastColumn": 824,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "RecentCriminalLegalProblemCME",
+      "firstColumn": 825,
+      "lastColumn": 825,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "RecentSuicideFriendFamilyCME",
+      "firstColumn": 826,
+      "lastColumn": 826,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "RelationshipProblemOtherCME",
+      "firstColumn": 827,
+      "lastColumn": 827,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "SchoolProblemCME",
+      "firstColumn": 828,
+      "lastColumn": 828,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "SelfDefenseCME",
+      "firstColumn": 829,
+      "lastColumn": 829,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "StalkingCME",
+      "firstColumn": 830,
+      "lastColumn": 830,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "SubstanceAbuseOtherCME",
+      "firstColumn": 831,
+      "lastColumn": 831,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "SuicideAttemptHistoryCME",
+      "firstColumn": 832,
+      "lastColumn": 832,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "SuicideIntentDisclosedCME",
+      "firstColumn": 833,
+      "lastColumn": 833,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "SuicideNoteCME",
+      "firstColumn": 834,
+      "lastColumn": 834,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "SuicideThoughtHistoryCME",
+      "firstColumn": 835,
+      "lastColumn": 835,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "TargetShootingCME",
+      "firstColumn": 836,
+      "lastColumn": 836,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "TerroristAttackCME",
+      "firstColumn": 837,
+      "lastColumn": 837,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "TraumaticAnniversaryCME",
+      "firstColumn": 838,
+      "lastColumn": 838,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "VictimPoliceOfficeOnDutyCME",
+      "firstColumn": 839,
+      "lastColumn": 839,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "VictimUsedWeaponCME",
+      "firstColumn": 840,
+      "lastColumn": 840,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "WalkByAssaultCME",
+      "firstColumn": 841,
+      "lastColumn": 841,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "CircumstancesOtherLE",
+      "firstColumn": 842,
+      "lastColumn": 842,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "AbusedAsChildLE",
+      "firstColumn": 843,
+      "lastColumn": 843,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "AlcoholProblemLE",
+      "firstColumn": 844,
+      "lastColumn": 844,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "ArgumentLE",
+      "firstColumn": 845,
+      "lastColumn": 845,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "UNUSED",
+      "firstColumn": 846,
+      "lastColumn": 846,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "ArgumentTimingLE",
+      "firstColumn": 847,
+      "lastColumn": 847,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "BrawlLE",
+      "firstColumn": 848,
+      "lastColumn": 848,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "BulletRicochetLE",
+      "firstColumn": 849,
+      "lastColumn": 849,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "BystanderLE",
+      "firstColumn": 850,
+      "lastColumn": 850,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "CelebratoryFiringLE",
+      "firstColumn": 851,
+      "lastColumn": 851,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsCircumstancesKnown",
+      "firstColumn": 852,
+      "lastColumn": 852,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "CircumstancesOtherTextLE",
+      "firstColumn": 853,
+      "lastColumn": 1107,
+      "dataType": "Text(50)",
+      "value": ""
+    },
+    {
+      "name": "CrisisProstitutionLE",
+      "firstColumn": 1108,
+      "lastColumn": 1108,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "CrisisAlcoholProblemLE",
+      "firstColumn": 1109,
+      "lastColumn": 1109,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "CrisisCivilLegalLE",
+      "firstColumn": 1110,
+      "lastColumn": 1110,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "CrisisCriminalLE",
+      "firstColumn": 1111,
+      "lastColumn": 1111,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "CrisisDisasterExposureLE",
+      "firstColumn": 1112,
+      "lastColumn": 1112,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "CrisisEvictionLE",
+      "firstColumn": 1113,
+      "lastColumn": 1113,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "UNUSED",
+      "firstColumn": 1114,
+      "lastColumn": 1114,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "CrisisFinancialLE",
+      "firstColumn": 1115,
+      "lastColumn": 1115,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "CrisisIntimatePartnerProblemLE",
+      "firstColumn": 1116,
+      "lastColumn": 1116,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "CrisisJealousyLE",
+      "firstColumn": 1117,
+      "lastColumn": 1117,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "CrisisJobLE",
+      "firstColumn": 1118,
+      "lastColumn": 1118,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "CrisisMentalHealthLE",
+      "firstColumn": 1119,
+      "lastColumn": 1119,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "CrisisOtherAddictionLE",
+      "firstColumn": 1120,
+      "lastColumn": 1120,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "CrisisPhysicalHealthLE",
+      "firstColumn": 1121,
+      "lastColumn": 1121,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "CrisisRelatedDeathFriendOrFamilyOtherLE",
+      "firstColumn": 1122,
+      "lastColumn": 1122,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "CrisisRelatedSuicideFriendOrFamilyLE",
+      "firstColumn": 1123,
+      "lastColumn": 1123,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "CrisisRelationshipProblemOtherLE",
+      "firstColumn": 1124,
+      "lastColumn": 1124,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "CrisisSchoolLE",
+      "firstColumn": 1125,
+      "lastColumn": 1125,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "CrisisStalkingLE",
+      "firstColumn": 1126,
+      "lastColumn": 1126,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "CrisisSubstanceAbuseLE",
+      "firstColumn": 1127,
+      "lastColumn": 1127,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "DeathAbuseLE",
+      "firstColumn": 1128,
+      "lastColumn": 1128,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "DeathFriendOrFamilyOtherLE",
+      "firstColumn": 1129,
+      "lastColumn": 1129,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "DepressedMoodLE",
+      "firstColumn": 1130,
+      "lastColumn": 1130,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "DisasterExposureLE",
+      "firstColumn": 1131,
+      "lastColumn": 1131,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "UNUSED",
+      "firstColumn": 1132,
+      "lastColumn": 1132,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "DriveByShootingLE",
+      "firstColumn": 1133,
+      "lastColumn": 1133,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "DrugInvolvementLE",
+      "firstColumn": 1134,
+      "lastColumn": 1134,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "EvictionOrLossOfHomeLE",
+      "firstColumn": 1135,
+      "lastColumn": 1135,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "FightBetweenTwoPeopleLE",
+      "firstColumn": 1136,
+      "lastColumn": 1136,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "FinancialProblemLE",
+      "firstColumn": 1137,
+      "lastColumn": 1137,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "UNUSED",
+      "firstColumn": 1138,
+      "lastColumn": 1138,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "GangRelatedLE",
+      "firstColumn": 1139,
+      "lastColumn": 1139,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "GunCleaningLE",
+      "firstColumn": 1140,
+      "lastColumn": 1140,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "GunDefectMalfunctionLE",
+      "firstColumn": 1141,
+      "lastColumn": 1141,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "GunDroppedLE",
+      "firstColumn": 1142,
+      "lastColumn": 1142,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "GunFiredHolsteringLE",
+      "firstColumn": 1143,
+      "lastColumn": 1143,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "GunFiredLoadingUnloadingLE",
+      "firstColumn": 1144,
+      "lastColumn": 1144,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "GunFiredOperatingSafetyLockLE",
+      "firstColumn": 1145,
+      "lastColumn": 1145,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "GunPlayingLE",
+      "firstColumn": 1146,
+      "lastColumn": 1146,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "GunShowingLE",
+      "firstColumn": 1147,
+      "lastColumn": 1147,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "GunThoughtSafetyEngagedLE",
+      "firstColumn": 1148,
+      "lastColumn": 1148,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "GunThoughtToyLE",
+      "firstColumn": 1149,
+      "lastColumn": 1149,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "GunThoughtUnloadedMagazineDisengagedLE",
+      "firstColumn": 1150,
+      "lastColumn": 1150,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "GunThoughtUnloadedOtherLE",
+      "firstColumn": 1151,
+      "lastColumn": 1151,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "GunUnintentionallyPulledTriggerLE",
+      "firstColumn": 1152,
+      "lastColumn": 1152,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "HateCrimeLE",
+      "firstColumn": 1153,
+      "lastColumn": 1153,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "HistoryMentalIllnessTreatmentLE",
+      "firstColumn": 1154,
+      "lastColumn": 1154,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "HuntingLE",
+      "firstColumn": 1155,
+      "lastColumn": 1155,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "InterpersonalViolencePerpetratorLE",
+      "firstColumn": 1156,
+      "lastColumn": 1156,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "InterpersonalViolenceVictimLE",
+      "firstColumn": 1157,
+      "lastColumn": 1157,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IntervenerAssistingVictimLE",
+      "firstColumn": 1158,
+      "lastColumn": 1158,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IntimatePartnerProblemLE",
+      "firstColumn": 1159,
+      "lastColumn": 1159,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IntimatePartnerViolenceLE",
+      "firstColumn": 1160,
+      "lastColumn": 1160,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "JealouslyLE",
+      "firstColumn": 1161,
+      "lastColumn": 1161,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "JobProblemLE",
+      "firstColumn": 1162,
+      "lastColumn": 1162,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "JustifiableSelfDefenseLE",
+      "firstColumn": 1163,
+      "lastColumn": 1163,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "LegalProblemOtherLE",
+      "firstColumn": 1164,
+      "lastColumn": 1164,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "MentalHealthDiagnosis1LE",
+      "firstColumn": 1165,
+      "lastColumn": 1166,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "MentalHealthDiagnosis2LE",
+      "firstColumn": 1167,
+      "lastColumn": 1168,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "MentalHealthDiagnosisOtherLE",
+      "firstColumn": 1169,
+      "lastColumn": 1218,
+      "dataType": "Text(50)",
+      "value": ""
+    },
+    {
+      "name": "MentalHealthProblemLE",
+      "firstColumn": 1219,
+      "lastColumn": 1219,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "MentalIllnessTreatmentCurrentLE",
+      "firstColumn": 1220,
+      "lastColumn": 1220,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "MercyKillingLE",
+      "firstColumn": 1221,
+      "lastColumn": 1221,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "NatureOtherCrime1LE",
+      "firstColumn": 1222,
+      "lastColumn": 1223,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "NatureOtherCrime2LE",
+      "firstColumn": 1224,
+      "lastColumn": 1225,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "OtherAddictionLE",
+      "firstColumn": 1226,
+      "lastColumn": 1226,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "OtherContextInjuryLE",
+      "firstColumn": 1227,
+      "lastColumn": 1227,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "OtherCrimeInProgressLE",
+      "firstColumn": 1228,
+      "lastColumn": 1228,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "OtherMechanismInjuryLE",
+      "firstColumn": 1229,
+      "lastColumn": 1229,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "PrecipitatedbyOtherCrimeLE",
+      "firstColumn": 1230,
+      "lastColumn": 1230,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "PhysicalHealthProblemLE",
+      "firstColumn": 1231,
+      "lastColumn": 1231,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "ProstitutionLE",
+      "firstColumn": 1232,
+      "lastColumn": 1232,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "RandomViolenceLE",
+      "firstColumn": 1233,
+      "lastColumn": 1233,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "RecentCriminalLegalProblemLE",
+      "firstColumn": 1234,
+      "lastColumn": 1234,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "RecentSuicideFriendFamilyLE",
+      "firstColumn": 1235,
+      "lastColumn": 1235,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "RelationshipProblemOtherLE",
+      "firstColumn": 1236,
+      "lastColumn": 1236,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "SchoolProblemLE",
+      "firstColumn": 1237,
+      "lastColumn": 1237,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "SelfDefenseLE",
+      "firstColumn": 1238,
+      "lastColumn": 1238,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "StalkingLE",
+      "firstColumn": 1239,
+      "lastColumn": 1239,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "SubstanceAbuseOtherLE",
+      "firstColumn": 1240,
+      "lastColumn": 1240,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "SuicideAttemptHistoryLE",
+      "firstColumn": 1241,
+      "lastColumn": 1241,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "SuicideIntentDisclosedLE",
+      "firstColumn": 1242,
+      "lastColumn": 1242,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "SuicideNoteLE",
+      "firstColumn": 1243,
+      "lastColumn": 1243,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "SuicideThoughtHistoryLE",
+      "firstColumn": 1244,
+      "lastColumn": 1244,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "TargetShootingLE",
+      "firstColumn": 1245,
+      "lastColumn": 1245,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "TerroristAttackLE",
+      "firstColumn": 1246,
+      "lastColumn": 1246,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "TraumaticAnniversaryLE",
+      "firstColumn": 1247,
+      "lastColumn": 1247,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "VictimPoliceOfficeOnDutyLE",
+      "firstColumn": 1248,
+      "lastColumn": 1248,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "VictimUsedWeaponLE",
+      "firstColumn": 1249,
+      "lastColumn": 1249,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "WalkByAssaultLE",
+      "firstColumn": 1250,
+      "lastColumn": 1250,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "WeaponType",
+      "firstColumn": 1251,
+      "lastColumn": 1252,
+      "dataType": "Integer (2)",
+      "value": ""
+    },
+    {
+      "name": "FirearmType",
+      "firstColumn": 1253,
+      "lastColumn": 1254,
+      "dataType": "Integer (2)",
+      "value": ""
+    },
+    {
+      "name": "FirearmCaliber",
+      "firstColumn": 1255,
+      "lastColumn": 1258,
+      "dataType": "Integer (4)",
+      "value": ""
+    },
+    {
+      "name": "FirearmGauge",
+      "firstColumn": 1259,
+      "lastColumn": 1261,
+      "dataType": "Integer (3)",
+      "value": ""
+    },
+    {
+      "name": "FirearmMake",
+      "firstColumn": 1262,
+      "lastColumn": 1265,
+      "dataType": "Integer (4)",
+      "value": ""
+    },
+    {
+      "name": "FirearmModel",
+      "firstColumn": 1266,
+      "lastColumn": 1269,
+      "dataType": "Integer (4)",
+      "value": ""
+    },
+    {
+      "name": "GunLoaded",
+      "firstColumn": 1270,
+      "lastColumn": 1270,
+      "dataType": "Integer (1)",
+      "value": ""
+    },
+    {
+      "name": "GunOwner",
+      "firstColumn": 1271,
+      "lastColumn": 1272,
+      "dataType": "Integer (2)",
+      "value": ""
+    },
+    {
+      "name": "GunStoredLocked",
+      "firstColumn": 1273,
+      "lastColumn": 1273,
+      "dataType": "Integer (1)",
+      "value": ""
+    },
+    {
+      "name": "FirearmStolen",
+      "firstColumn": 1274,
+      "lastColumn": 1274,
+      "dataType": "Integer (1)",
+      "value": ""
+    },
+    {
+      "name": "SuspectSex",
+      "firstColumn": 1275,
+      "lastColumn": 1275,
+      "dataType": "Integer (1)",
+      "value": ""
+    },
+    {
+      "name": "VictimSuspectRelationshipPrimary",
+      "firstColumn": 1276,
+      "lastColumn": 1277,
+      "dataType": "Integer (2)",
+      "value": ""
+    },
+    {
+      "name": "VictimSuspectRelationshipSecondary",
+      "firstColumn": 1278,
+      "lastColumn": 1279,
+      "dataType": "Integer (2)",
+      "value": ""
+    },
+    {
+      "name": "HasAbuseHistory",
+      "firstColumn": 1280,
+      "lastColumn": 1280,
+      "dataType": "Integer (1)",
+      "value": ""
+    },
+    {
+      "name": "IsCareTaker",
+      "firstColumn": 1281,
+      "lastColumn": 1281,
+      "dataType": "Integer (1)",
+      "value": ""
+    },
+    {
+      "name": "HasAttemptedSuicide",
+      "firstColumn": 1282,
+      "lastColumn": 1282,
+      "dataType": "Integer (1)",
+      "value": ""
+    },
+    {
+      "name": "IsSuspectAlsoVictim",
+      "firstColumn": 1283,
+      "lastColumn": 1283,
+      "dataType": "Integer (1)",
+      "value": ""
+    },
+    {
+      "name": "IsSuspectMentallyIll",
+      "firstColumn": 1284,
+      "lastColumn": 1284,
+      "dataType": "Integer (1)",
+      "value": ""
+    },
+    {
+      "name": "HasSuspectDevelopmentDisability",
+      "firstColumn": 1285,
+      "lastColumn": 1285,
+      "dataType": "Integer (1)",
+      "value": ""
+    },
+    {
+      "name": "IsSuspectAlcoholUseSuspected",
+      "firstColumn": 1286,
+      "lastColumn": 1286,
+      "dataType": "Integer (1)",
+      "value": ""
+    },
+    {
+      "name": "IsSuspectSubstanceUseSuspected",
+      "firstColumn": 1287,
+      "lastColumn": 1287,
+      "dataType": "Integer (1)",
+      "value": ""
+    },
+    {
+      "name": "IsSuspectContactPolice",
+      "firstColumn": 1288,
+      "lastColumn": 1288,
+      "dataType": "Integer (1)",
+      "value": ""
+    },
+    {
+      "name": "SuspectRecentRelease",
+      "firstColumn": 1289,
+      "lastColumn": 1290,
+      "dataType": "Integer (2)",
+      "value": ""
+    },
+    {
+      "name": "IsSuspectCaucasian",
+      "firstColumn": 1291,
+      "lastColumn": 1291,
+      "dataType": "Integer (1)",
+      "value": ""
+    },
+    {
+      "name": "IsSuspectAfricanAmerican",
+      "firstColumn": 1292,
+      "lastColumn": 1292,
+      "dataType": "Integer (1)",
+      "value": ""
+    },
+    {
+      "name": "IsSuspectAsian",
+      "firstColumn": 1293,
+      "lastColumn": 1293,
+      "dataType": "Integer (1)",
+      "value": ""
+    },
+    {
+      "name": "IsSuspectPacificIslander",
+      "firstColumn": 1294,
+      "lastColumn": 1294,
+      "dataType": "Integer (1)",
+      "value": ""
+    },
+    {
+      "name": "IsSuspectAmericanIndian",
+      "firstColumn": 1295,
+      "lastColumn": 1295,
+      "dataType": "Integer (1)",
+      "value": ""
+    },
+    {
+      "name": "SuspectEthnicity",
+      "firstColumn": 1296,
+      "lastColumn": 1296,
+      "dataType": "Integer (1)",
+      "value": ""
+    },
+    {
+      "name": "IsSuspectRaceUnspecified",
+      "firstColumn": 1297,
+      "lastColumn": 1297,
+      "dataType": "Integer (1)",
+      "value": ""
+    },
+    {
+      "name": "IsTreatmentNonAdherenceCME",
+      "firstColumn": 1298,
+      "lastColumn": 1298,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsTraumaticBrainInjuryHistoryCME",
+      "firstColumn": 1299,
+      "lastColumn": 1299,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsFamilyStressorsCME",
+      "firstColumn": 1300,
+      "lastColumn": 1300,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsCrisisFamilyStressorCME",
+      "firstColumn": 1301,
+      "lastColumn": 1301,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsCaregiverBurdenCME",
+      "firstColumn": 1302,
+      "lastColumn": 1302,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsFamilyStressorCME",
+      "firstColumn": 1303,
+      "lastColumn": 1303,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsHouseholdKnownCME",
+      "firstColumn": 1304,
+      "lastColumn": 1304,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsPriorCPSReportCME",
+      "firstColumn": 1305,
+      "lastColumn": 1305,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsHouseholdSubstanceAbuseCME",
+      "firstColumn": 1306,
+      "lastColumn": 1306,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsLivingTransitionCME",
+      "firstColumn": 1307,
+      "lastColumn": 1307,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsCorporalPunishmentCME",
+      "firstColumn": 1308,
+      "lastColumn": 1308,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsHistorySelfHarmCME",
+      "firstColumn": 1309,
+      "lastColumn": 1309,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsTreatmentNonAdherenceLE",
+      "firstColumn": 1310,
+      "lastColumn": 1310,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsTraumaticBrainInjuryHistoryLE",
+      "firstColumn": 1311,
+      "lastColumn": 1311,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsFamilyStressorsLE",
+      "firstColumn": 1312,
+      "lastColumn": 1312,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsCrisisFamilyStressorLE",
+      "firstColumn": 1313,
+      "lastColumn": 1313,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsCaregiverBurdenLE",
+      "firstColumn": 1314,
+      "lastColumn": 1314,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsFamilyStressorLE",
+      "firstColumn": 1315,
+      "lastColumn": 1315,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsHouseholdKnownLE",
+      "firstColumn": 1316,
+      "lastColumn": 1316,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsPriorCPSReportLE",
+      "firstColumn": 1317,
+      "lastColumn": 1317,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsHouseholdSubstanceAbuseLE",
+      "firstColumn": 1318,
+      "lastColumn": 1318,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsLivingTransitionLE",
+      "firstColumn": 1319,
+      "lastColumn": 1319,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsCorporalPunishmentLE",
+      "firstColumn": 1320,
+      "lastColumn": 1320,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsHistorySelfHarmLE",
+      "firstColumn": 1321,
+      "lastColumn": 1321,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "TypeOfPoisoning",
+      "firstColumn": 1322,
+      "lastColumn": 1322,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "LastSeenAliveTime",
+      "firstColumn": 1323,
+      "lastColumn": 1326,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "FoundUnresponsiveTime",
+      "firstColumn": 1327,
+      "lastColumn": 1330,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "LastSeenAliveMonth",
+      "firstColumn": 1331,
+      "lastColumn": 1332,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "LastSeenAliveDay",
+      "firstColumn": 1333,
+      "lastColumn": 1334,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "LastSeenAliveYear",
+      "firstColumn": 1335,
+      "lastColumn": 1338,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "FoundUnresponsiveMonth",
+      "firstColumn": 1339,
+      "lastColumn": 1340,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "FoundUnresponsiveDay",
+      "firstColumn": 1341,
+      "lastColumn": 1342,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "FoundUnresponsiveYear",
+      "firstColumn": 1343,
+      "lastColumn": 1346,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "PreviousOverdose",
+      "firstColumn": 1347,
+      "lastColumn": 1347,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "Overdose0to2DaysPrior",
+      "firstColumn": 1348,
+      "lastColumn": 1348,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "Overdose3to7DaysPrior",
+      "firstColumn": 1349,
+      "lastColumn": 1349,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "RecentOpioidUse",
+      "firstColumn": 1350,
+      "lastColumn": 1350,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "RecentEmergencyDept",
+      "firstColumn": 1351,
+      "lastColumn": 1351,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "HistDrugNoEvidence",
+      "firstColumn": 1352,
+      "lastColumn": 1352,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "HistHeroin",
+      "firstColumn": 1353,
+      "lastColumn": 1353,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "HistRxOpioid",
+      "firstColumn": 1354,
+      "lastColumn": 1354,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "HistAnyOpioid",
+      "firstColumn": 1355,
+      "lastColumn": 1355,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "HistFentanyl",
+      "firstColumn": 1356,
+      "lastColumn": 1356,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "HistCocaine",
+      "firstColumn": 1357,
+      "lastColumn": 1357,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "HistMeth",
+      "firstColumn": 1358,
+      "lastColumn": 1358,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "HistBenzo",
+      "firstColumn": 1359,
+      "lastColumn": 1359,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "HistCannabis",
+      "firstColumn": 1360,
+      "lastColumn": 1360,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "HistUnspecified",
+      "firstColumn": 1361,
+      "lastColumn": 1361,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "HistOther",
+      "firstColumn": 1362,
+      "lastColumn": 1362,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "HistOtherDesc",
+      "firstColumn": 1363,
+      "lastColumn": 1490,
+      "dataType": "Text (128 )",
+      "value": ""
+    },
+    {
+      "name": "TreatmentForSubstanceAbuse",
+      "firstColumn": 1491,
+      "lastColumn": 1491,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "SubstanceTreatmentRehab",
+      "firstColumn": 1492,
+      "lastColumn": 1492,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "UNUSED",
+      "firstColumn": 1493,
+      "lastColumn": 1493,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "UNUSED",
+      "firstColumn": 1494,
+      "lastColumn": 1494,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "UNUSED",
+      "firstColumn": 1495,
+      "lastColumn": 1495,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "SubstanceTreatmentCogTherapy",
+      "firstColumn": 1496,
+      "lastColumn": 1496,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "SubstanceTreatmentNA",
+      "firstColumn": 1497,
+      "lastColumn": 1497,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "SubstanceTreatmentOther",
+      "firstColumn": 1498,
+      "lastColumn": 1498,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "SubstanceTreatmentOtherSpecify",
+      "firstColumn": 1499,
+      "lastColumn": 1626,
+      "dataType": "Text (128 )",
+      "value": ""
+    },
+    {
+      "name": "InvolveCriminalJustice",
+      "firstColumn": 1627,
+      "lastColumn": 1627,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "HasIndicationsDrugPara",
+      "firstColumn": 1628,
+      "lastColumn": 1628,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "HasIndicationsNone",
+      "firstColumn": 1629,
+      "lastColumn": 1629,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "HasIndicationsNonSpecific",
+      "firstColumn": 1630,
+      "lastColumn": 1630,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "HasRapidOverdoseEvidence",
+      "firstColumn": 1631,
+      "lastColumn": 1631,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsTourniquetAroundArm",
+      "firstColumn": 1632,
+      "lastColumn": 1632,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "BodyPosition",
+      "firstColumn": 1633,
+      "lastColumn": 1633,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "NeedleLocation",
+      "firstColumn": 1634,
+      "lastColumn": 1634,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "RapidOverdoseWitnessReport",
+      "firstColumn": 1635,
+      "lastColumn": 1635,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "HasRapidOverdoseOther",
+      "firstColumn": 1636,
+      "lastColumn": 1636,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "RapidOverdoseOtherDescription",
+      "firstColumn": 1637,
+      "lastColumn": 1764,
+      "dataType": "Text (128 )",
+      "value": ""
+    },
+    {
+      "name": "HasRouteUnknown",
+      "firstColumn": 1765,
+      "lastColumn": 1765,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "HasRouteInjection",
+      "firstColumn": 1766,
+      "lastColumn": 1766,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "HasIndicationsTracks",
+      "firstColumn": 1767,
+      "lastColumn": 1767,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "HasEvidenceOfInjectionTourniquet",
+      "firstColumn": 1768,
+      "lastColumn": 1768,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "HasEvidenceOfInjectionCooker",
+      "firstColumn": 1769,
+      "lastColumn": 1769,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "HasEvidenceOfinjectionNeedle",
+      "firstColumn": 1770,
+      "lastColumn": 1770,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "HasEvidenceOfInjectionFilter",
+      "firstColumn": 1771,
+      "lastColumn": 1771,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "HasEvidenceOfInjectionWitnessReport",
+      "firstColumn": 1772,
+      "lastColumn": 1772,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "HasEvidenceOfInjectionOther",
+      "firstColumn": 1773,
+      "lastColumn": 1773,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "HasEvidenceOfInjectionOtherDescription",
+      "firstColumn": 1774,
+      "lastColumn": 1901,
+      "dataType": "Text (128 )",
+      "value": ""
+    },
+    {
+      "name": "HasRouteSnorting",
+      "firstColumn": 1902,
+      "lastColumn": 1902,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "SnortingStraw",
+      "firstColumn": 1903,
+      "lastColumn": 1903,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "SnortingRolled",
+      "firstColumn": 1904,
+      "lastColumn": 1904,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "SnortingRazor",
+      "firstColumn": 1905,
+      "lastColumn": 1905,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "SnortingPowderMirror",
+      "firstColumn": 1906,
+      "lastColumn": 1906,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "SnortingPowderNose",
+      "firstColumn": 1907,
+      "lastColumn": 1907,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "SnortingWitness",
+      "firstColumn": 1908,
+      "lastColumn": 1908,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "SnortingOther",
+      "firstColumn": 1909,
+      "lastColumn": 1909,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "SnortingOtherDesc",
+      "firstColumn": 1910,
+      "lastColumn": 2037,
+      "dataType": "Text (128 )",
+      "value": ""
+    },
+    {
+      "name": "HasRouteSmoking",
+      "firstColumn": 2038,
+      "lastColumn": 2038,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "SmokingPipe",
+      "firstColumn": 2039,
+      "lastColumn": 2039,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "SmokingTinfoil",
+      "firstColumn": 2040,
+      "lastColumn": 2040,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "SmokingVape",
+      "firstColumn": 2041,
+      "lastColumn": 2041,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "SmokingBongBowl",
+      "firstColumn": 2042,
+      "lastColumn": 2042,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "SmokingWItness",
+      "firstColumn": 2043,
+      "lastColumn": 2043,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "SmokingOther",
+      "firstColumn": 2044,
+      "lastColumn": 2044,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "SmokingOtherDesc",
+      "firstColumn": 2045,
+      "lastColumn": 2172,
+      "dataType": "Text (128)",
+      "value": ""
+    },
+    {
+      "name": "HasRouteTransdermal",
+      "firstColumn": 2173,
+      "lastColumn": 2173,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "HasRouteIngestion",
+      "firstColumn": 2174,
+      "lastColumn": 2174,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "HasRouteSuppository",
+      "firstColumn": 2175,
+      "lastColumn": 2175,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "HasRouteSublingual",
+      "firstColumn": 2176,
+      "lastColumn": 2176,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "HasRouteBuccal",
+      "firstColumn": 2177,
+      "lastColumn": 2177,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "NonSpecificRx",
+      "firstColumn": 2178,
+      "lastColumn": 2178,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "HasEvidenceOfPrescriptionDrug",
+      "firstColumn": 2179,
+      "lastColumn": 2179,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsPrescribedToVictim",
+      "firstColumn": 2180,
+      "lastColumn": 2180,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsUnknownWhoPrescribed",
+      "firstColumn": 2181,
+      "lastColumn": 2181,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "HasIndicationsRxDrugs",
+      "firstColumn": 2182,
+      "lastColumn": 2182,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsPrescriptionPill",
+      "firstColumn": 2183,
+      "lastColumn": 2183,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsPrescriptionBottle",
+      "firstColumn": 2184,
+      "lastColumn": 2184,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsPrescriptionLozenge",
+      "firstColumn": 2185,
+      "lastColumn": 2185,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "HasEvidenceOfInjectionReportRxUse",
+      "firstColumn": 2186,
+      "lastColumn": 2186,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsPrescriptionPatch",
+      "firstColumn": 2187,
+      "lastColumn": 2187,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsPrescriptionLiquid",
+      "firstColumn": 2188,
+      "lastColumn": 2188,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsPrescriptionVial",
+      "firstColumn": 2189,
+      "lastColumn": 2189,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsPrescriptionFentanyl",
+      "firstColumn": 2190,
+      "lastColumn": 2190,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsPrescriptionOther",
+      "firstColumn": 2191,
+      "lastColumn": 2191,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "PrescriptionOtherDescription",
+      "firstColumn": 2192,
+      "lastColumn": 2319,
+      "dataType": "Text (128)",
+      "value": ""
+    },
+    {
+      "name": "HasIndicationsDrugatScene",
+      "firstColumn": 2320,
+      "lastColumn": 2320,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "HaveEvidenceIllicitPowder",
+      "firstColumn": 2321,
+      "lastColumn": 2321,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "HasEvidenceIllicitTar",
+      "firstColumn": 2322,
+      "lastColumn": 2322,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "HasEvidenceOfIllicitWitnessReport",
+      "firstColumn": 2323,
+      "lastColumn": 2323,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "HasEvidenceCrystal",
+      "firstColumn": 2324,
+      "lastColumn": 2324,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsPrescriptionCounterfeit",
+      "firstColumn": 2325,
+      "lastColumn": 2325,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "HasEvidenceOfIllicitPackage",
+      "firstColumn": 2326,
+      "lastColumn": 2326,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "HasIndicationsOther",
+      "firstColumn": 2327,
+      "lastColumn": 2327,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IndicationsOtherNarrative",
+      "firstColumn": 2328,
+      "lastColumn": 2455,
+      "dataType": "Text (128)",
+      "value": ""
+    },
+    {
+      "name": "BystandersPresent",
+      "firstColumn": 2456,
+      "lastColumn": 2456,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "BystanderUser",
+      "firstColumn": 2457,
+      "lastColumn": 2457,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "BystanderPartner",
+      "firstColumn": 2458,
+      "lastColumn": 2458,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "BystanderFamily",
+      "firstColumn": 2459,
+      "lastColumn": 2459,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "BystanderFriend",
+      "firstColumn": 2460,
+      "lastColumn": 2460,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "BystanderStranger",
+      "firstColumn": 2461,
+      "lastColumn": 2461,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "BystanderRoomate",
+      "firstColumn": 2462,
+      "lastColumn": 2462,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "BystanderMedical",
+      "firstColumn": 2463,
+      "lastColumn": 2463,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "BystanderOther",
+      "firstColumn": 2464,
+      "lastColumn": 2464,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "BystanderOtherSpecify",
+      "firstColumn": 2465,
+      "lastColumn": 2592,
+      "dataType": "Text (128)",
+      "value": ""
+    },
+    {
+      "name": "WitnessedDrugUse",
+      "firstColumn": 2593,
+      "lastColumn": 2593,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "BystanderCPR",
+      "firstColumn": 2594,
+      "lastColumn": 2594,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "BystanderBreathing",
+      "firstColumn": 2595,
+      "lastColumn": 2595,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "BystanderSternal",
+      "firstColumn": 2596,
+      "lastColumn": 2596,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "BystanderStimulation",
+      "firstColumn": 2597,
+      "lastColumn": 2597,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "BystanderIntrvOther",
+      "firstColumn": 2598,
+      "lastColumn": 2598,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "BystanderIntrvOtherSpecify",
+      "firstColumn": 2599,
+      "lastColumn": 2726,
+      "dataType": "Text (128)",
+      "value": ""
+    },
+    {
+      "name": "WasNaloxoneAdministered",
+      "firstColumn": 2727,
+      "lastColumn": 2727,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsNaloxoneNotAdmin",
+      "firstColumn": 2728,
+      "lastColumn": 2728,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsNaloxoneUnknown",
+      "firstColumn": 2729,
+      "lastColumn": 2729,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "NaloxoneTotalResponder",
+      "firstColumn": 2730,
+      "lastColumn": 2731,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "NaloxoneTotalBystander",
+      "firstColumn": 2732,
+      "lastColumn": 2733,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "IsNaloxoneAdminUnknown",
+      "firstColumn": 2734,
+      "lastColumn": 2734,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsNaloxoneAdminLaw",
+      "firstColumn": 2735,
+      "lastColumn": 2735,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsNaloxoneAdminEms",
+      "firstColumn": 2736,
+      "lastColumn": 2736,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsNaloxoneAdminHospital",
+      "firstColumn": 2737,
+      "lastColumn": 2737,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsNaloxoneAdminOther",
+      "firstColumn": 2738,
+      "lastColumn": 2738,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsNaloxoneAdminBystander",
+      "firstColumn": 2739,
+      "lastColumn": 2739,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsNaloxoneWhoPerson",
+      "firstColumn": 2740,
+      "lastColumn": 2740,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsNaloxoneWhoPartner",
+      "firstColumn": 2741,
+      "lastColumn": 2741,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsNaloxoneWhoFriend",
+      "firstColumn": 2742,
+      "lastColumn": 2742,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsNaloxoneWhoOtherFamily",
+      "firstColumn": 2743,
+      "lastColumn": 2743,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsNaloxoneWhoRoomate",
+      "firstColumn": 2744,
+      "lastColumn": 2744,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsNaloxoneWhoStranger",
+      "firstColumn": 2745,
+      "lastColumn": 2745,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsNaloxoneWhoOther",
+      "firstColumn": 2746,
+      "lastColumn": 2746,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsNaloxoneWhoOtherDescription",
+      "firstColumn": 2747,
+      "lastColumn": 2874,
+      "dataType": "Text (128)",
+      "value": ""
+    },
+    {
+      "name": "HadPulse",
+      "firstColumn": 2875,
+      "lastColumn": 2875,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "IntrvCPR",
+      "firstColumn": 2876,
+      "lastColumn": 2876,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IntrvBreathing",
+      "firstColumn": 2877,
+      "lastColumn": 2877,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IntrvEpinephrine",
+      "firstColumn": 2878,
+      "lastColumn": 2878,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IntrvTransport",
+      "firstColumn": 2879,
+      "lastColumn": 2879,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IntrvOxygen",
+      "firstColumn": 2880,
+      "lastColumn": 2880,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IntrvOther",
+      "firstColumn": 2881,
+      "lastColumn": 2881,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IntrvOtherSpecify",
+      "firstColumn": 2882,
+      "lastColumn": 3009,
+      "dataType": "Text (128)",
+      "value": ""
+    },
+    {
+      "name": "BystanderNotRecognize",
+      "firstColumn": 3010,
+      "lastColumn": 3010,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "BystanderUsing",
+      "firstColumn": 3011,
+      "lastColumn": 3011,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "BystanderPublic",
+      "firstColumn": 3012,
+      "lastColumn": 3012,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "BystanderNoOverdose",
+      "firstColumn": 3013,
+      "lastColumn": 3013,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "BystanderSeperated",
+      "firstColumn": 3014,
+      "lastColumn": 3014,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "BystanderUnaware",
+      "firstColumn": 3015,
+      "lastColumn": 3015,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "BystanderReasonOther",
+      "firstColumn": 3016,
+      "lastColumn": 3016,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "BystanderReasonOtherSpecify",
+      "firstColumn": 3017,
+      "lastColumn": 3144,
+      "dataType": "Text (128)",
+      "value": ""
+    },
+    {
+      "name": "TreatedforPain",
+      "firstColumn": 3145,
+      "lastColumn": 3145,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "MedHistCopd",
+      "firstColumn": 3146,
+      "lastColumn": 3146,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "MedHistAsthma",
+      "firstColumn": 3147,
+      "lastColumn": 3147,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "MedHistApnea",
+      "firstColumn": 3148,
+      "lastColumn": 3148,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "MedHistHeart",
+      "firstColumn": 3149,
+      "lastColumn": 3149,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "MedHistObesity",
+      "firstColumn": 3150,
+      "lastColumn": 3150,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "MedHistInjury",
+      "firstColumn": 3151,
+      "lastColumn": 3151,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "MedHistMigraine",
+      "firstColumn": 3152,
+      "lastColumn": 3152,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "MedHistBackpain",
+      "firstColumn": 3153,
+      "lastColumn": 3153,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "MedicalHistHepc",
+      "firstColumn": 3154,
+      "lastColumn": 3154,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "MedicalHistHIV",
+      "firstColumn": 3155,
+      "lastColumn": 3155,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "MedHistOtherpain",
+      "firstColumn": 3156,
+      "lastColumn": 3156,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "MedHistOtherbreathing",
+      "firstColumn": 3157,
+      "lastColumn": 3157,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "PrescriptionMorphine",
+      "firstColumn": 3158,
+      "lastColumn": 3158,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "PrescriptionMorphineNarrative",
+      "firstColumn": 3159,
+      "lastColumn": 3414,
+      "dataType": "Text",
+      "value": ""
+    },
+    {
+      "name": "BuprenorphineRx",
+      "firstColumn": 3415,
+      "lastColumn": 3415,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "BuprenorphineRxForPain",
+      "firstColumn": 3416,
+      "lastColumn": 3416,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "BuprenorphineRxForMat",
+      "firstColumn": 3417,
+      "lastColumn": 3417,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "BuprenorphineRxForUnk",
+      "firstColumn": 3418,
+      "lastColumn": 3418,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "MethadonRx",
+      "firstColumn": 3419,
+      "lastColumn": 3419,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "MethadonRxForPain",
+      "firstColumn": 3420,
+      "lastColumn": 3420,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "MethadonRxfForMat",
+      "firstColumn": 3421,
+      "lastColumn": 3421,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "MehadonRxUnk",
+      "firstColumn": 3422,
+      "lastColumn": 3422,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "NaltrexoneRx",
+      "firstColumn": 3423,
+      "lastColumn": 3423,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "FentanylRx",
+      "firstColumn": 3424,
+      "lastColumn": 3424,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "NumScripsPast30Days",
+      "firstColumn": 3425,
+      "lastColumn": 3426,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "NumPharmaciesPast30Days",
+      "firstColumn": 3427,
+      "lastColumn": 3428,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "NumDoctorsPrescribing30Days",
+      "firstColumn": 3429,
+      "lastColumn": 3430,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "IsAsianIndian",
+      "firstColumn": 3431,
+      "lastColumn": 3431,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsAsianChinese",
+      "firstColumn": 3432,
+      "lastColumn": 3432,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsAsianFilipino",
+      "firstColumn": 3433,
+      "lastColumn": 3433,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsAsianJapanese",
+      "firstColumn": 3434,
+      "lastColumn": 3434,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsAsianKorean",
+      "firstColumn": 3435,
+      "lastColumn": 3435,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsAsianVietnamese",
+      "firstColumn": 3436,
+      "lastColumn": 3436,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsAsianOther",
+      "firstColumn": 3437,
+      "lastColumn": 3437,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsAsianOtherText",
+      "firstColumn": 3438,
+      "lastColumn": 3557,
+      "dataType": "Text",
+      "value": ""
+    },
+    {
+      "name": "IsPacificIslanderHawaii",
+      "firstColumn": 3558,
+      "lastColumn": 3558,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsPacificIslanderGuam",
+      "firstColumn": 3559,
+      "lastColumn": 3559,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsPacificIslanderSamoa",
+      "firstColumn": 3560,
+      "lastColumn": 3560,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsPacificIslanderOther",
+      "firstColumn": 3561,
+      "lastColumn": 3561,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsPacificIslanderOtherText",
+      "firstColumn": 3562,
+      "lastColumn": 3681,
+      "dataType": "Text",
+      "value": ""
+    },
+    {
+      "name": "AmericanIndianTribe",
+      "firstColumn": 3682,
+      "lastColumn": 3801,
+      "dataType": "Text",
+      "value": ""
+    },
+    {
+      "name": "IsRaceOtherText",
+      "firstColumn": 3802,
+      "lastColumn": 3921,
+      "dataType": "Text",
+      "value": ""
+    },
+    {
+      "name": "IsCurrentTreatmentMentalHealthLE",
+      "firstColumn": 3922,
+      "lastColumn": 3922,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsCurrentTreatmentSubstanceAbuseLE",
+      "firstColumn": 3923,
+      "lastColumn": 3923,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsCurrentTreatmentMentalHealthCME",
+      "firstColumn": 3924,
+      "lastColumn": 3924,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsCurrentTreatmentSubstanceAbuseCME",
+      "firstColumn": 3925,
+      "lastColumn": 3925,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsHistoryTreatmentMentalHealthLE",
+      "firstColumn": 3926,
+      "lastColumn": 3926,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsHistoryTreatmentSubstanceAbuseLE",
+      "firstColumn": 3927,
+      "lastColumn": 3927,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsHistoryTreatmentMentalHealthCME",
+      "firstColumn": 3928,
+      "lastColumn": 3928,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsHistoryTreatmentSubstanceAbuseCME",
+      "firstColumn": 3929,
+      "lastColumn": 3929,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsNonAdherenceMentalHealthLE",
+      "firstColumn": 3930,
+      "lastColumn": 3930,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsNonAdherenceSubstanceAbuseLE",
+      "firstColumn": 3931,
+      "lastColumn": 3931,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsNonAdherenceMentalHealthCME",
+      "firstColumn": 3932,
+      "lastColumn": 3932,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsNonAdherenceSubstanceAbuseCME",
+      "firstColumn": 3933,
+      "lastColumn": 3933,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsPrescriptionUnspecifiedDrug",
+      "firstColumn": 3934,
+      "lastColumn": 3934,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsInterventionUnspecified",
+      "firstColumn": 3935,
+      "lastColumn": 3935,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "BystanderAsleep",
+      "firstColumn": 3936,
+      "lastColumn": 3936,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "NonSpecificRxDescription",
+      "firstColumn": 3937,
+      "lastColumn": 4064,
+      "dataType": "Text",
+      "value": ""
+    },
+    {
+      "name": "IsNaloxoneAdminResponder",
+      "firstColumn": 4065,
+      "lastColumn": 4065,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "HasIndicationsNonSpecificDescription",
+      "firstColumn": 4066,
+      "lastColumn": 4193,
+      "dataType": "Text",
+      "value": ""
+    },
+    {
+      "name": "NaloxoneTotalUnitResponder",
+      "firstColumn": 4194,
+      "lastColumn": 4194,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "NaloxoneTotalUnitBystander",
+      "firstColumn": 4195,
+      "lastColumn": 4195,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "NaloxoneWhoOtherResponderDescription",
+      "firstColumn": 4196,
+      "lastColumn": 4323,
+      "dataType": "Text",
+      "value": ""
+    },
+    {
+      "name": "BystanderUnknown",
+      "firstColumn": 4324,
+      "lastColumn": 4324,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "MedHistHypertension",
+      "firstColumn": 4325,
+      "lastColumn": 4325,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "MedHistDiabetes",
+      "firstColumn": 4326,
+      "lastColumn": 4326,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "SubstanceTreatmentMOUD",
+      "firstColumn": 4327,
+      "lastColumn": 4327,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "NaltrexoneRxForAlcohol",
+      "firstColumn": 4328,
+      "lastColumn": 4328,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "NaltrexoneRxForMat",
+      "firstColumn": 4329,
+      "lastColumn": 4329,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "NaltrexoneRxForUnk",
+      "firstColumn": 4330,
+      "lastColumn": 4330,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "SUDORSCase",
+      "firstColumn": 4331,
+      "lastColumn": 4331,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "BystanderCoworker",
+      "firstColumn": 4332,
+      "lastColumn": 4332,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsNaloxoneWhoCoworker",
+      "firstColumn": 4333,
+      "lastColumn": 4333,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "RecentNonOpioidUse",
+      "firstColumn": 4334,
+      "lastColumn": 4334,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "RecentReturnCocaine",
+      "firstColumn": 4335,
+      "lastColumn": 4335,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "RecentReturnMeth",
+      "firstColumn": 4336,
+      "lastColumn": 4336,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "RecentReturnBenzo",
+      "firstColumn": 4337,
+      "lastColumn": 4337,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "RecentReturnUnspec",
+      "firstColumn": 4338,
+      "lastColumn": 4338,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "RecentReturnOther",
+      "firstColumn": 4339,
+      "lastColumn": 4339,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "RecentReturnOtherDesc",
+      "firstColumn": 4340,
+      "lastColumn": 4467,
+      "dataType": "Text (128)",
+      "value": ""
+    },
+    {
+      "name": "RelationshipStatus",
+      "firstColumn": 4468,
+      "lastColumn": 4468,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "SexofPartner",
+      "firstColumn": 4469,
+      "lastColumn": 4469,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "HousingInstability",
+      "firstColumn": 4470,
+      "lastColumn": 4470,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "ChildWitnesses",
+      "firstColumn": 4471,
+      "lastColumn": 4471,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "IsCircumstancesKnownCME",
+      "firstColumn": 4472,
+      "lastColumn": 4472,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsCircumstancesKnownLE",
+      "firstColumn": 4473,
+      "lastColumn": 4473,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "OtherCrisisLE",
+      "firstColumn": 4474,
+      "lastColumn": 4728,
+      "dataType": "Text(255)",
+      "value": ""
+    },
+    {
+      "name": "OtherCrisisCME",
+      "firstColumn": 4729,
+      "lastColumn": 4983,
+      "dataType": "Text(255)",
+      "value": ""
+    },
+    {
+      "name": "IsDiscloseToIntimatePartnerLE",
+      "firstColumn": 4984,
+      "lastColumn": 4984,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsDiscloseToOtherFamilyMemberLE",
+      "firstColumn": 4985,
+      "lastColumn": 4985,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsDiscloseToHealthCareWorkerLE",
+      "firstColumn": 4986,
+      "lastColumn": 4986,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsDiscloseToFriendLE",
+      "firstColumn": 4987,
+      "lastColumn": 4987,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsDisloseToNeighborLE",
+      "firstColumn": 4988,
+      "lastColumn": 4988,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsDiscloseToSocialMediaLE",
+      "firstColumn": 4989,
+      "lastColumn": 4989,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsDiscloseToOtherLE",
+      "firstColumn": 4990,
+      "lastColumn": 4990,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsDisloseToUnknownLE",
+      "firstColumn": 4991,
+      "lastColumn": 4991,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "DiscloseToOtherDescLE",
+      "firstColumn": 4992,
+      "lastColumn": 5116,
+      "dataType": "Text(125)",
+      "value": ""
+    },
+    {
+      "name": "IsDiscloseToIntimatePartnerCME",
+      "firstColumn": 5117,
+      "lastColumn": 5117,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsDiscloseToOtherFamilyMemberCME",
+      "firstColumn": 5118,
+      "lastColumn": 5118,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsDiscloseToHealthCareWorkerCME",
+      "firstColumn": 5119,
+      "lastColumn": 5119,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsDiscloseToFriendCME",
+      "firstColumn": 5120,
+      "lastColumn": 5120,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsDisloseToNeighborCME",
+      "firstColumn": 5121,
+      "lastColumn": 5121,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsDiscloseToSocialMediaCME",
+      "firstColumn": 5122,
+      "lastColumn": 5122,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsDiscloseToOtherCME",
+      "firstColumn": 5123,
+      "lastColumn": 5123,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsDisloseToUnknownCME",
+      "firstColumn": 5124,
+      "lastColumn": 5124,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "DiscloseToOtherDescCME",
+      "firstColumn": 5125,
+      "lastColumn": 5249,
+      "dataType": "Text(125)",
+      "value": ""
+    },
+    {
+      "name": "IsHealthProblemTerminalIllnessLE",
+      "firstColumn": 5250,
+      "lastColumn": 5250,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsHealthProblemOtherLE",
+      "firstColumn": 5251,
+      "lastColumn": 5251,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsHealthProblemUnknownLE",
+      "firstColumn": 5252,
+      "lastColumn": 5252,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsHealthProblemChronicPainLE",
+      "firstColumn": 5253,
+      "lastColumn": 5253,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsHealthProblemAcuteLE",
+      "firstColumn": 5254,
+      "lastColumn": 5254,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsHealthProblemPainUnknownDurationLE",
+      "firstColumn": 5255,
+      "lastColumn": 5255,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "HealthProblemTypeDescLE",
+      "firstColumn": 5256,
+      "lastColumn": 5380,
+      "dataType": "Text(125)",
+      "value": ""
+    },
+    {
+      "name": "IsHealthProblemTerminalIllnessCME",
+      "firstColumn": 5381,
+      "lastColumn": 5381,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsHealthProblemOtherCME",
+      "firstColumn": 5382,
+      "lastColumn": 5382,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsHealthProblemUnknownCME",
+      "firstColumn": 5383,
+      "lastColumn": 5383,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsHealthProblemChronicPainCME",
+      "firstColumn": 5384,
+      "lastColumn": 5384,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsHealthProblemAcuteCME",
+      "firstColumn": 5385,
+      "lastColumn": 5385,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "IsHealthProblemPainUnknownDurationCME",
+      "firstColumn": 5386,
+      "lastColumn": 5386,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "HealthProblemTypeDescCME",
+      "firstColumn": 5387,
+      "lastColumn": 5511,
+      "dataType": "Text(125)",
+      "value": ""
+    },
+    {
+      "name": "AgeYears",
+      "firstColumn": 5512,
+      "lastColumn": 5514,
+      "dataType": "Integer (3)",
+      "value": ""
+    },
+    {
+      "name": "IsNoSubstanceAsCauseOfDeath",
+      "firstColumn": 5515,
+      "lastColumn": 5515,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    },
+    {
+      "name": "NoCMEReportAvailable",
+      "firstColumn": 5516,
+      "lastColumn": 5516,
+      "dataType": "Integer (0/1)",
+      "value": ""
+    }
+  ],
+  "serializedFormat": "",
+  "errors": []
+}

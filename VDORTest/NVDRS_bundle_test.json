@@ -2,43 +2,43 @@
   "resourceType": "Bundle",
   "meta": {
     "profile": [
-      "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-document-bundle"
+      "http://hl7.org/fhir/us/vdor/StructureDefinition/vdor-document-bundle"
     ]
   },
   "identifier": {
     "system": "urn:gtri:heat-hisp:nvdrs-testing",
-    "value": "urn:uuid:e2e9886b-e91e-451b-bbad-326d3e3d8fd8"
+    "value": "urn:uuid:5cc503ed-d51f-43d1-914c-0e6abdad3599"
   },
   "type": "document",
-  "timestamp": "2024-07-02T16:24:12.010129-04:00",
+  "timestamp": "2026-06-09T00:30:36.52354-04:00",
   "entry": [
     {
-      "fullUrl": "urn:uuid:93836af0-2aff-48cd-98c9-4d301e2b6034",
+      "fullUrl": "urn:uuid:5cdb926f-7d55-4397-8609-4672fdae6a66",
       "resource": {
         "resourceType": "Composition",
-        "id": "93836af0-2aff-48cd-98c9-4d301e2b6034",
+        "id": "5cdb926f-7d55-4397-8609-4672fdae6a66",
         "meta": {
           "profile": [
-            "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-composition"
+            "http://hl7.org/fhir/us/vdor/StructureDefinition/vdor-composition"
           ]
         },
         "extension": [
           {
-            "url": "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-force-new-record-extension",
+            "url": "http://hl7.org/fhir/us/vdor/StructureDefinition/nvdrs-force-new-record-extension",
             "valueBoolean": false
           },
           {
-            "url": "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-overwrite-conflicts-extension",
+            "url": "http://hl7.org/fhir/us/vdor/StructureDefinition/nvdrs-overwrite-conflicts-extension",
             "valueBoolean": true
           },
           {
-            "url": "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-incident-year-extension",
+            "url": "http://hl7.org/fhir/us/vdor/StructureDefinition/nvdrs-incident-year-extension",
             "valueDate": "2024"
           },
           {
-            "url": "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/identifier-extension",
+            "url": "http://hl7.org/fhir/us/vdor/StructureDefinition/identifier-extension",
             "valueIdentifier": {
-              "system": "urn:vdrs:nvdrs:victimnumber",
+              "system": "urn:vdrs:Vdor:victimnumber",
               "value": "1"
             }
           }
@@ -51,16 +51,17 @@
         "type": {
           "coding": [
             {
-              "system": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-custom-code-system",
+              "system": "http://hl7.org/fhir/us/vdor/CodeSystem/vdor-custom-code-system",
               "code": "cme-report",
               "display": "C/ME Report"
             }
-          ]
+          ],
+          "text": ""
         },
         "subject": {
           "reference": "urn:uuid:956c53c0-a993-11ed-afa1-0242ac120002"
         },
-        "date": "2024-07-02T16:24:11.985111-04:00",
+        "date": "2026-06-09T00:30:36.501973-04:00",
         "author": [
           {
             "extension": [
@@ -71,14 +72,14 @@
             ]
           }
         ],
-        "title": "NVDRS Document",
+        "title": "VDOR Document",
         "section": [
           {
             "title": "Weapon(s)",
             "code": {
               "coding": [
                 {
-                  "system": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-custom-code-system",
+                  "system": "http://hl7.org/fhir/us/vdor/CodeSystem/vdor-custom-code-system",
                   "code": "weapons",
                   "display": "Weapon(s)"
                 }
@@ -86,7 +87,7 @@
             },
             "entry": [
               {
-                "reference": "urn:uuid:aeacbfe2-6985-433b-b524-f5174496a45d"
+                "reference": "urn:uuid:1ed9d213-1dd8-45c4-846f-750ff54d69f8"
               }
             ]
           },
@@ -95,7 +96,7 @@
             "code": {
               "coding": [
                 {
-                  "system": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-custom-code-system",
+                  "system": "http://hl7.org/fhir/us/vdor/CodeSystem/vdor-custom-code-system",
                   "code": "injury-and-death",
                   "display": "Injury and Death"
                 }
@@ -103,10 +104,10 @@
             },
             "entry": [
               {
-                "reference": "urn:uuid:87992632-0fc8-41fc-a0b8-ca9587a5ba13"
+                "reference": "urn:uuid:d378b884-0e6b-4d73-9fdd-9c5ead0ac634"
               },
               {
-                "reference": "urn:uuid:f4789d51-200a-44a3-be15-8fbea7eca686"
+                "reference": "urn:uuid:b5135bf2-f29d-49a0-abed-1e8bdec9dec9"
               }
             ]
           },
@@ -115,7 +116,7 @@
             "code": {
               "coding": [
                 {
-                  "system": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-custom-code-system",
+                  "system": "http://hl7.org/fhir/us/vdor/CodeSystem/vdor-custom-code-system",
                   "code": "circumstances",
                   "display": "Circumstances"
                 }
@@ -123,10 +124,10 @@
             },
             "entry": [
               {
-                "reference": "urn:uuid:93e54cf2-d670-436f-b40f-eceedc6e48ed"
+                "reference": "urn:uuid:5562c439-9290-47c9-856c-edc73b8483ca"
               },
               {
-                "reference": "urn:uuid:70d2a8e7-bbf0-43f7-a678-74adb901599c"
+                "reference": "urn:uuid:81d0ab44-992f-4fb1-bc3f-b717fa2d4a9c"
               }
             ]
           },
@@ -135,7 +136,7 @@
             "code": {
               "coding": [
                 {
-                  "system": "http://hl7.org/fhir/us/mdi/CodeSystem/CodeSystem-vr-codes",
+                  "system": "http://hl7.org/fhir/us/mdi/CodeSystem/cs-mdi-codes",
                   "code": "cause-manner",
                   "display": "Cause and Manner of Death Section"
                 }
@@ -143,7 +144,7 @@
             },
             "entry": [
               {
-                "reference": "urn:uuid:ae67f66f-3460-46b0-8202-44e629ede1a6"
+                "reference": "urn:uuid:76e000ab-5444-427e-a596-e0d704ca4b56"
               }
             ]
           }
@@ -156,14 +157,13 @@
         "resourceType": "Patient",
         "id": "956c53c0-a993-11ed-afa1-0242ac120002",
         "meta": {
-          "lastUpdated": "2024-07-02T16:24:11.960413-04:00",
+          "lastUpdated": "2026-06-09T00:30:36.47674-04:00",
           "profile": [
-            "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-decedent"
+            "http://hl7.org/fhir/us/vdor/StructureDefinition/vdor-decedent"
           ]
         },
         "extension": [
           {
-            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
             "extension": [
               {
                 "url": "ombCategory",
@@ -185,10 +185,10 @@
                 "url": "text",
                 "valueString": "Asian Indian"
               }
-            ]
+            ],
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race"
           },
           {
-            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
             "extension": [
               {
                 "url": "ombCategory",
@@ -210,7 +210,8 @@
                 "url": "text",
                 "valueString": "Not Hispanic or Latino"
               }
-            ]
+            ],
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity"
           },
           {
             "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex",
@@ -299,57 +300,59 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:aeacbfe2-6985-433b-b524-f5174496a45d",
+      "fullUrl": "urn:uuid:1ed9d213-1dd8-45c4-846f-750ff54d69f8",
       "resource": {
         "resourceType": "Observation",
-        "id": "aeacbfe2-6985-433b-b524-f5174496a45d",
+        "id": "1ed9d213-1dd8-45c4-846f-750ff54d69f8",
         "meta": {
           "profile": [
-            "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-weapon-type"
+            "http://hl7.org/fhir/us/vdor/StructureDefinition/vdor-weapon-type"
           ]
         },
         "code": {
           "coding": [
             {
-              "system": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-custom-code-system",
+              "system": "http://hl7.org/fhir/us/vdor/CodeSystem/vdor-custom-code-system",
               "code": "weapon-type",
               "display": "Type of Weapon"
             }
-          ]
+          ],
+          "text": ""
         },
         "subject": {
           "reference": "urn:uuid:956c53c0-a993-11ed-afa1-0242ac120002"
         },
         "focus": [
           {
-            "reference": "urn:uuid:9841cb1d-7e5b-4671-9f70-11d0f0cc6ebf"
+            "reference": "urn:uuid:be523fa4-177c-449f-b93d-114f1a1ea4ba"
           }
         ],
         "valueCodeableConcept": {
           "coding": [
             {
-              "system": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-coding-manual-cs",
+              "system": "http://hl7.org/fhir/us/vdor/CodeSystem/nvdrs-coding-manual-cs",
               "code": "WeaponType1",
               "display": "Firearm"
             }
-          ]
+          ],
+          "text": ""
         }
       }
     },
     {
-      "fullUrl": "urn:uuid:9841cb1d-7e5b-4671-9f70-11d0f0cc6ebf",
+      "fullUrl": "urn:uuid:be523fa4-177c-449f-b93d-114f1a1ea4ba",
       "resource": {
         "resourceType": "Observation",
-        "id": "9841cb1d-7e5b-4671-9f70-11d0f0cc6ebf",
+        "id": "be523fa4-177c-449f-b93d-114f1a1ea4ba",
         "meta": {
-          "lastUpdated": "2024-07-02T16:24:11.982124-04:00",
+          "lastUpdated": "2026-06-09T00:30:36.497171-04:00",
           "profile": [
-            "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-firearm"
+            "http://hl7.org/fhir/us/vdor/StructureDefinition/vdor-firearm"
           ]
         },
         "extension": [
           {
-            "url": "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-firearm-stolen-extension",
+            "url": "http://hl7.org/fhir/us/vdor/StructureDefinition/vdor-firearm-stolen-extension",
             "valueCodeableConcept": {
               "coding": [
                 {
@@ -361,7 +364,25 @@
             }
           },
           {
-            "url": "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/firearm-serial-number",
+            "extension": [
+              {
+                "url": "code",
+                "valueCodeableConcept": {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/us/vdor/CodeSystem/nvdrs-coding-manual-cs",
+                      "code": "GunOwner7",
+                      "display": "Stranger to shooter"
+                    }
+                  ],
+                  "text": ""
+                }
+              }
+            ],
+            "url": "http://hl7.org/fhir/us/vdor/StructureDefinition/vdor-firearm-owner-extension"
+          },
+          {
+            "url": "http://hl7.org/fhir/us/vdor/StructureDefinition/vdor-firearm-serial-number",
             "valueIdentifier": {
               "system": "urn:vdrs:ncic:serialnumber",
               "value": "12345-0987"
@@ -372,7 +393,7 @@
           {
             "coding": [
               {
-                "system": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-custom-code-system",
+                "system": "http://hl7.org/fhir/us/vdor/CodeSystem/vdor-custom-code-system",
                 "code": "weapons",
                 "display": "Weapon(s)"
               }
@@ -383,11 +404,12 @@
         "code": {
           "coding": [
             {
-              "system": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-custom-code-system",
+              "system": "http://hl7.org/fhir/us/vdor/CodeSystem/vdor-custom-code-system",
               "code": "firearm",
               "display": "Details on Firearm"
             }
-          ]
+          ],
+          "text": ""
         },
         "subject": {
           "reference": "urn:uuid:956c53c0-a993-11ed-afa1-0242ac120002"
@@ -397,27 +419,28 @@
             "code": {
               "coding": [
                 {
-                  "system": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-custom-code-system",
+                  "system": "http://hl7.org/fhir/us/vdor/CodeSystem/vdor-custom-code-system",
                   "code": "firearm-type",
-                  "display": "Firearm - Type"
+                  "display": "Firearm - Firearm Type"
                 }
               ]
             },
             "valueCodeableConcept": {
               "coding": [
                 {
-                  "system": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-coding-manual-cs",
+                  "system": "http://hl7.org/fhir/us/vdor/CodeSystem/nvdrs-coding-manual-cs",
                   "code": "FirearmType3",
                   "display": "Handgun, Pistol- Bolt Action"
                 }
-              ]
+              ],
+              "text": ""
             }
           },
           {
             "code": {
               "coding": [
                 {
-                  "system": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-custom-code-system",
+                  "system": "http://hl7.org/fhir/us/vdor/CodeSystem/vdor-custom-code-system",
                   "code": "firearm-make",
                   "display": "Firearm - Gun Make or NCIC Code"
                 }
@@ -429,7 +452,7 @@
             "code": {
               "coding": [
                 {
-                  "system": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-custom-code-system",
+                  "system": "http://hl7.org/fhir/us/vdor/CodeSystem/vdor-custom-code-system",
                   "code": "firearm-model",
                   "display": "Firearm - Gun Model"
                 }
@@ -441,33 +464,42 @@
             "code": {
               "coding": [
                 {
-                  "system": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-custom-code-system",
+                  "system": "http://hl7.org/fhir/us/vdor/CodeSystem/vdor-custom-code-system",
                   "code": "firearm-caliber",
                   "display": "Firearm - Caliber"
                 }
               ]
             },
-            "valueString": "556"
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/us/vdor/CodeSystem/nvdrs-coding-manual-cs",
+                  "code": "FirearmCaliber556",
+                  "display": "5.56 mm"
+                }
+              ],
+              "text": ""
+            }
           }
         ]
       }
     },
     {
-      "fullUrl": "urn:uuid:87992632-0fc8-41fc-a0b8-ca9587a5ba13",
+      "fullUrl": "urn:uuid:d378b884-0e6b-4d73-9fdd-9c5ead0ac634",
       "resource": {
         "resourceType": "Observation",
-        "id": "87992632-0fc8-41fc-a0b8-ca9587a5ba13",
+        "id": "d378b884-0e6b-4d73-9fdd-9c5ead0ac634",
         "meta": {
-          "lastUpdated": "2024-07-02T16:24:11.995608-04:00",
+          "lastUpdated": "2026-06-09T00:30:36.511106-04:00",
           "profile": [
-            "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-number-of-bullets"
+            "http://hl7.org/fhir/us/vdor/StructureDefinition/vdor-number-of-bullets"
           ]
         },
         "category": [
           {
             "coding": [
               {
-                "system": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-custom-code-system",
+                "system": "http://hl7.org/fhir/us/vdor/CodeSystem/vdor-custom-code-system",
                 "code": "injury-and-death",
                 "display": "Injury and Death"
               }
@@ -478,11 +510,12 @@
         "code": {
           "coding": [
             {
-              "system": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-custom-code-system",
+              "system": "http://hl7.org/fhir/us/vdor/CodeSystem/vdor-custom-code-system",
               "code": "number-of-bullets",
               "display": "Number of Bullets"
             }
-          ]
+          ],
+          "text": ""
         },
         "subject": {
           "reference": "urn:uuid:956c53c0-a993-11ed-afa1-0242ac120002"
@@ -491,21 +524,21 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:f4789d51-200a-44a3-be15-8fbea7eca686",
+      "fullUrl": "urn:uuid:b5135bf2-f29d-49a0-abed-1e8bdec9dec9",
       "resource": {
         "resourceType": "Observation",
-        "id": "f4789d51-200a-44a3-be15-8fbea7eca686",
+        "id": "b5135bf2-f29d-49a0-abed-1e8bdec9dec9",
         "meta": {
-          "lastUpdated": "2024-07-02T16:24:11.99579-04:00",
+          "lastUpdated": "2026-06-09T00:30:36.511252-04:00",
           "profile": [
-            "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-wound-location"
+            "http://hl7.org/fhir/us/vdor/StructureDefinition/vdor-wound-location"
           ]
         },
         "category": [
           {
             "coding": [
               {
-                "system": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-custom-code-system",
+                "system": "http://hl7.org/fhir/us/vdor/CodeSystem/vdor-custom-code-system",
                 "code": "injury-and-death",
                 "display": "Injury and Death"
               }
@@ -516,11 +549,12 @@
         "code": {
           "coding": [
             {
-              "system": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-custom-code-system",
+              "system": "http://hl7.org/fhir/us/vdor/CodeSystem/vdor-custom-code-system",
               "code": "wound-to-the-spine",
               "display": "Wound to the spine"
             }
-          ]
+          ],
+          "text": ""
         },
         "subject": {
           "reference": "urn:uuid:956c53c0-a993-11ed-afa1-0242ac120002"
@@ -528,30 +562,31 @@
         "valueCodeableConcept": {
           "coding": [
             {
-              "system": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-coding-manual-cs",
+              "system": "http://hl7.org/fhir/us/vdor/CodeSystem/nvdrs-coding-manual-cs",
               "code": "WoundLocation1",
               "display": "Present (wounded)"
             }
-          ]
+          ],
+          "text": ""
         }
       }
     },
     {
-      "fullUrl": "urn:uuid:93e54cf2-d670-436f-b40f-eceedc6e48ed",
+      "fullUrl": "urn:uuid:5562c439-9290-47c9-856c-edc73b8483ca",
       "resource": {
         "resourceType": "Observation",
-        "id": "93e54cf2-d670-436f-b40f-eceedc6e48ed",
+        "id": "5562c439-9290-47c9-856c-edc73b8483ca",
         "meta": {
-          "lastUpdated": "2024-07-02T16:24:11.996134-04:00",
+          "lastUpdated": "2026-06-09T00:30:36.511541-04:00",
           "profile": [
-            "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-random-violence"
+            "http://hl7.org/fhir/us/vdor/StructureDefinition/vdor-random-violence"
           ]
         },
         "category": [
           {
             "coding": [
               {
-                "system": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-custom-code-system",
+                "system": "http://hl7.org/fhir/us/vdor/CodeSystem/vdor-custom-code-system",
                 "code": "circumstances",
                 "display": "Circumstances"
               }
@@ -562,11 +597,12 @@
         "code": {
           "coding": [
             {
-              "system": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-custom-code-system",
+              "system": "http://hl7.org/fhir/us/vdor/CodeSystem/vdor-custom-code-system",
               "code": "random-violence",
               "display": "Incident is Random Violence"
             }
-          ]
+          ],
+          "text": ""
         },
         "subject": {
           "reference": "urn:uuid:956c53c0-a993-11ed-afa1-0242ac120002"
@@ -583,19 +619,32 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:70d2a8e7-bbf0-43f7-a678-74adb901599c",
+      "fullUrl": "urn:uuid:81d0ab44-992f-4fb1-bc3f-b717fa2d4a9c",
       "resource": {
         "resourceType": "Observation",
-        "id": "70d2a8e7-bbf0-43f7-a678-74adb901599c",
+        "id": "81d0ab44-992f-4fb1-bc3f-b717fa2d4a9c",
         "meta": {
+          "lastUpdated": "2026-06-09T00:30:36.511601-04:00",
           "profile": [
-            "http://mortalityreporting.github.io/nvdrs-ig/StructureDefinition/nvdrs-playing-with-firearm"
+            "http://hl7.org/fhir/us/vdor/StructureDefinition/vdor-playing-with-firearm"
           ]
         },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/us/vdor/CodeSystem/vdor-custom-code-system",
+                "code": "circumstances",
+                "display": "Circumstances"
+              }
+            ],
+            "text": "Data elements that fall under the circumstances category"
+          }
+        ],
         "code": {
           "coding": [
             {
-              "system": "http://mortalityreporting.github.io/nvdrs-ig/CodeSystem/nvdrs-custom-code-system",
+              "system": "http://hl7.org/fhir/us/vdor/CodeSystem/vdor-custom-code-system",
               "code": "playing-with-firearm",
               "display": "Playing with Firearm"
             }
@@ -617,10 +666,10 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:ae67f66f-3460-46b0-8202-44e629ede1a6",
+      "fullUrl": "urn:uuid:76e000ab-5444-427e-a596-e0d704ca4b56",
       "resource": {
         "resourceType": "Observation",
-        "id": "ae67f66f-3460-46b0-8202-44e629ede1a6",
+        "id": "76e000ab-5444-427e-a596-e0d704ca4b56",
         "meta": {
           "profile": [
             "http://hl7.org/fhir/us/vrdr/StructureDefinition/vrdr-manner-of-death"

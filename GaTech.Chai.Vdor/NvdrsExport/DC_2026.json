@@ -1,0 +1,751 @@
+{
+  "version": "2026",
+  "type": "DC",
+  "length": 1985,
+  "data": [
+    {
+      "name": "ForceNewRecord",
+      "firstColumn": 1,
+      "lastColumn": 1,
+      "dataType": "Text(1)",
+      "value": ""
+    },
+    {
+      "name": "OverwriteConflicts",
+      "firstColumn": 2,
+      "lastColumn": 2,
+      "dataType": "Text(1)",
+      "value": ""
+    },
+    {
+      "name": "IncidentYear",
+      "firstColumn": 3,
+      "lastColumn": 6,
+      "dataType": "Text",
+      "value": ""
+    },
+    {
+      "name": "IncidentNumber",
+      "firstColumn": 7,
+      "lastColumn": 16,
+      "dataType": "Text",
+      "value": ""
+    },
+    {
+      "name": "Victim Number (SortOrder)",
+      "firstColumn": 17,
+      "lastColumn": 20,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "DCNumberLastFour",
+      "firstColumn": 21,
+      "lastColumn": 24,
+      "dataType": "Text(4)",
+      "value": ""
+    },
+    {
+      "name": "CMENumberLastFour",
+      "firstColumn": 25,
+      "lastColumn": 28,
+      "dataType": "Text(4)",
+      "value": ""
+    },
+    {
+      "name": "LastNameFirstInitial",
+      "firstColumn": 29,
+      "lastColumn": 29,
+      "dataType": "Text(1)",
+      "value": ""
+    },
+    {
+      "name": "BirthDayofMonth",
+      "firstColumn": 30,
+      "lastColumn": 31,
+      "dataType": "Text(1)",
+      "value": ""
+    },
+    {
+      "name": "DeathDateYear",
+      "firstColumn": 32,
+      "lastColumn": 35,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "DeathState",
+      "firstColumn": 36,
+      "lastColumn": 37,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "DeathCounty",
+      "firstColumn": 38,
+      "lastColumn": 40,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "Sex",
+      "firstColumn": 41,
+      "lastColumn": 41,
+      "dataType": "Text(1)",
+      "value": ""
+    },
+    {
+      "name": "AgeUnit",
+      "firstColumn": 42,
+      "lastColumn": 42,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "Age",
+      "firstColumn": 43,
+      "lastColumn": 45,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "BirthPlaceCountry",
+      "firstColumn": 46,
+      "lastColumn": 47,
+      "dataType": "Text(2)",
+      "value": ""
+    },
+    {
+      "name": "BirthPlaceState",
+      "firstColumn": 48,
+      "lastColumn": 49,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "ResidenceCity",
+      "firstColumn": 50,
+      "lastColumn": 54,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "ResidenceCounty",
+      "firstColumn": 55,
+      "lastColumn": 57,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "ResidenceState",
+      "firstColumn": 58,
+      "lastColumn": 59,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "Country",
+      "firstColumn": 60,
+      "lastColumn": 61,
+      "dataType": "NULL",
+      "value": ""
+    },
+    {
+      "name": "MaritalStatus",
+      "firstColumn": 62,
+      "lastColumn": 62,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "DeathPlace",
+      "firstColumn": 63,
+      "lastColumn": 63,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "DeathDateMonth",
+      "firstColumn": 64,
+      "lastColumn": 65,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "DeathDateDay",
+      "firstColumn": 66,
+      "lastColumn": 67,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "EducationLevel",
+      "firstColumn": 68,
+      "lastColumn": 68,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "Ethnicity",
+      "firstColumn": 69,
+      "lastColumn": 69,
+      "dataType": "Text(1)",
+      "value": ""
+    },
+    {
+      "name": "Ethnicity",
+      "firstColumn": 70,
+      "lastColumn": 70,
+      "dataType": "Text(1)",
+      "value": ""
+    },
+    {
+      "name": "Ethnicity",
+      "firstColumn": 71,
+      "lastColumn": 71,
+      "dataType": "Text(1)",
+      "value": ""
+    },
+    {
+      "name": "Ethnicity",
+      "firstColumn": 72,
+      "lastColumn": 72,
+      "dataType": "Text(1)",
+      "value": ""
+    },
+    {
+      "name": "IsCaucasion",
+      "firstColumn": 73,
+      "lastColumn": 73,
+      "dataType": "Text(1)",
+      "value": ""
+    },
+    {
+      "name": "IsAfricanAmerican",
+      "firstColumn": 74,
+      "lastColumn": 74,
+      "dataType": "Text(1)",
+      "value": ""
+    },
+    {
+      "name": "IsAmericanIndian",
+      "firstColumn": 75,
+      "lastColumn": 75,
+      "dataType": "Text(1)",
+      "value": ""
+    },
+    {
+      "name": "IsAsian",
+      "firstColumn": 76,
+      "lastColumn": 76,
+      "dataType": "Text(1)",
+      "value": ""
+    },
+    {
+      "name": "IsAsianIndian",
+      "firstColumn": 77,
+      "lastColumn": 77,
+      "dataType": "Text(1)",
+      "value": ""
+    },
+    {
+      "name": "IsAsianChinese",
+      "firstColumn": 78,
+      "lastColumn": 78,
+      "dataType": "Text(1)",
+      "value": ""
+    },
+    {
+      "name": "IsAsianFilipino",
+      "firstColumn": 79,
+      "lastColumn": 79,
+      "dataType": "Text(1)",
+      "value": ""
+    },
+    {
+      "name": "IsAsianJapanese",
+      "firstColumn": 80,
+      "lastColumn": 80,
+      "dataType": "Text(1)",
+      "value": ""
+    },
+    {
+      "name": "IsAsianKorean",
+      "firstColumn": 81,
+      "lastColumn": 81,
+      "dataType": "Text(1)",
+      "value": ""
+    },
+    {
+      "name": "IsAsianVietnamese",
+      "firstColumn": 82,
+      "lastColumn": 82,
+      "dataType": "Text(1)",
+      "value": ""
+    },
+    {
+      "name": "IsPacificIslander",
+      "firstColumn": 83,
+      "lastColumn": 83,
+      "dataType": "Text(1)",
+      "value": ""
+    },
+    {
+      "name": "IsPacificIslanderHawaii",
+      "firstColumn": 84,
+      "lastColumn": 84,
+      "dataType": "Text(1)",
+      "value": ""
+    },
+    {
+      "name": "IsPacificIslanderGuam",
+      "firstColumn": 85,
+      "lastColumn": 85,
+      "dataType": "Text(1)",
+      "value": ""
+    },
+    {
+      "name": "IsPacificIslanderSamoa",
+      "firstColumn": 86,
+      "lastColumn": 86,
+      "dataType": "Text(1)",
+      "value": ""
+    },
+    {
+      "name": "RaceOtherVictim",
+      "firstColumn": 87,
+      "lastColumn": 87,
+      "dataType": "Text(1)",
+      "value": ""
+    },
+    {
+      "name": "IsRaceUnspecified",
+      "firstColumn": 88,
+      "lastColumn": 88,
+      "dataType": "Text(1)",
+      "value": ""
+    },
+    {
+      "name": "OccupationText",
+      "firstColumn": 89,
+      "lastColumn": 128,
+      "dataType": "Text(40)",
+      "value": ""
+    },
+    {
+      "name": "UsualOccupation",
+      "firstColumn": 129,
+      "lastColumn": 132,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "IndustryText",
+      "firstColumn": 133,
+      "lastColumn": 172,
+      "dataType": "Text(40)",
+      "value": ""
+    },
+    {
+      "name": "Industry",
+      "firstColumn": 173,
+      "lastColumn": 176,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "DeathCausePrimary",
+      "firstColumn": 177,
+      "lastColumn": 296,
+      "dataType": "Text(120)",
+      "value": ""
+    },
+    {
+      "name": "DeathCauseSecondary",
+      "firstColumn": 297,
+      "lastColumn": 416,
+      "dataType": "Text(120)",
+      "value": ""
+    },
+    {
+      "name": "DeathCauseTertiary",
+      "firstColumn": 417,
+      "lastColumn": 536,
+      "dataType": "Text(120)",
+      "value": ""
+    },
+    {
+      "name": "DeathCauseQuaternary",
+      "firstColumn": 537,
+      "lastColumn": 656,
+      "dataType": "Text(120)",
+      "value": ""
+    },
+    {
+      "name": "Pregnant",
+      "firstColumn": 657,
+      "lastColumn": 657,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "DeathMannerDC",
+      "firstColumn": 658,
+      "lastColumn": 658,
+      "dataType": "Text(1)",
+      "value": ""
+    },
+    {
+      "name": "InjuryDateMonth",
+      "firstColumn": 659,
+      "lastColumn": 660,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "InjuryDateDay",
+      "firstColumn": 661,
+      "lastColumn": 662,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "InjuryDateYear",
+      "firstColumn": 663,
+      "lastColumn": 666,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "InjuryTime",
+      "firstColumn": 667,
+      "lastColumn": 670,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "InjuryTimeType",
+      "firstColumn": 671,
+      "lastColumn": 671,
+      "dataType": "Text(1)",
+      "value": ""
+    },
+    {
+      "name": "InjuredAtWork",
+      "firstColumn": 672,
+      "lastColumn": 672,
+      "dataType": "Text(1)",
+      "value": ""
+    },
+    {
+      "name": "AutopsyPerformed",
+      "firstColumn": 673,
+      "lastColumn": 673,
+      "dataType": "Text(1)",
+      "value": ""
+    },
+    {
+      "name": "UnderlyingCauseCode",
+      "firstColumn": 674,
+      "lastColumn": 681,
+      "dataType": "Text",
+      "value": ""
+    },
+    {
+      "name": "UnderlyingCauseCode5thDigit",
+      "firstColumn": 682,
+      "lastColumn": 682,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "InjuryLocation",
+      "firstColumn": 683,
+      "lastColumn": 684,
+      "dataType": "Text",
+      "value": ""
+    },
+    {
+      "name": "UnderlyingCauseCode4thDigit",
+      "firstColumn": 685,
+      "lastColumn": 685,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "MultiCondition01ICD10",
+      "firstColumn": 686,
+      "lastColumn": 693,
+      "dataType": "Text(8)",
+      "value": ""
+    },
+    {
+      "name": "MultiCondition02ICD10",
+      "firstColumn": 694,
+      "lastColumn": 701,
+      "dataType": "Text(8)",
+      "value": ""
+    },
+    {
+      "name": "MultiCondition03ICD10",
+      "firstColumn": 702,
+      "lastColumn": 709,
+      "dataType": "Text(8)",
+      "value": ""
+    },
+    {
+      "name": "MultiCondition04ICD10",
+      "firstColumn": 710,
+      "lastColumn": 717,
+      "dataType": "Text(8)",
+      "value": ""
+    },
+    {
+      "name": "MultiCondition05ICD10",
+      "firstColumn": 718,
+      "lastColumn": 725,
+      "dataType": "Text(8)",
+      "value": ""
+    },
+    {
+      "name": "MultiCondition06ICD10",
+      "firstColumn": 726,
+      "lastColumn": 733,
+      "dataType": "Text(8)",
+      "value": ""
+    },
+    {
+      "name": "MultiCondition07ICD10",
+      "firstColumn": 734,
+      "lastColumn": 741,
+      "dataType": "Text(8)",
+      "value": ""
+    },
+    {
+      "name": "MultiCondition08ICD10",
+      "firstColumn": 742,
+      "lastColumn": 749,
+      "dataType": "Text(8)",
+      "value": ""
+    },
+    {
+      "name": "MultiCondition09ICD10",
+      "firstColumn": 750,
+      "lastColumn": 757,
+      "dataType": "Text(8)",
+      "value": ""
+    },
+    {
+      "name": "MultiCondition10ICD10",
+      "firstColumn": 758,
+      "lastColumn": 765,
+      "dataType": "Text(8)",
+      "value": ""
+    },
+    {
+      "name": "ResidenceZip",
+      "firstColumn": 766,
+      "lastColumn": 770,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "EducationYears",
+      "firstColumn": 771,
+      "lastColumn": 772,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "DeathPronouncedDateMonth",
+      "firstColumn": 773,
+      "lastColumn": 774,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "DeathPronouncedDateDay",
+      "firstColumn": 775,
+      "lastColumn": 776,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "DeathPronouncedDateYear",
+      "firstColumn": 777,
+      "lastColumn": 780,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "InjuryState",
+      "firstColumn": 781,
+      "lastColumn": 782,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "InjuryCounty",
+      "firstColumn": 783,
+      "lastColumn": 785,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "Country",
+      "firstColumn": 786,
+      "lastColumn": 830,
+      "dataType": "Text(45)",
+      "value": ""
+    },
+    {
+      "name": "ResidenceCensusTract",
+      "firstColumn": 831,
+      "lastColumn": 837,
+      "dataType": "Text(7)",
+      "value": ""
+    },
+    {
+      "name": "ResidenceCensusBlock",
+      "firstColumn": 838,
+      "lastColumn": 838,
+      "dataType": "Text(1)",
+      "value": ""
+    },
+    {
+      "name": "BirthCountryOther",
+      "firstColumn": 839,
+      "lastColumn": 868,
+      "dataType": "Text(30)",
+      "value": ""
+    },
+    {
+      "name": "Military",
+      "firstColumn": 869,
+      "lastColumn": 869,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "DeathPlaceText",
+      "firstColumn": 870,
+      "lastColumn": 899,
+      "dataType": "Text(30)",
+      "value": ""
+    },
+    {
+      "name": "NULL",
+      "firstColumn": 900,
+      "lastColumn": 999,
+      "dataType": "NULL",
+      "value": ""
+    },
+    {
+      "name": "InjuryCity",
+      "firstColumn": 1000,
+      "lastColumn": 1004,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "CensusBlock",
+      "firstColumn": 1005,
+      "lastColumn": 1005,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "CensusTract",
+      "firstColumn": 1006,
+      "lastColumn": 1012,
+      "dataType": "Text(7)",
+      "value": ""
+    },
+    {
+      "name": "SurvivalTime",
+      "firstColumn": 1013,
+      "lastColumn": 1015,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "SurvivalTimeUnit",
+      "firstColumn": 1016,
+      "lastColumn": 1016,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "InjuryZip",
+      "firstColumn": 1017,
+      "lastColumn": 1021,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "DeathMannerAbstractor",
+      "firstColumn": 1022,
+      "lastColumn": 1023,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "OtherConditions",
+      "firstColumn": 1024,
+      "lastColumn": 1263,
+      "dataType": "Text",
+      "value": ""
+    },
+    {
+      "name": "HowInjuryOccurred",
+      "firstColumn": 1264,
+      "lastColumn": 1503,
+      "dataType": "Text",
+      "value": ""
+    },
+    {
+      "name": "IsAsianOther",
+      "firstColumn": 1504,
+      "lastColumn": 1504,
+      "dataType": "Text(1)",
+      "value": ""
+    },
+    {
+      "name": "IsAsianOtherText",
+      "firstColumn": 1505,
+      "lastColumn": 1624,
+      "dataType": "Text(120)",
+      "value": ""
+    },
+    {
+      "name": "IsPacificIslanderOther",
+      "firstColumn": 1625,
+      "lastColumn": 1625,
+      "dataType": "Text(1)",
+      "value": ""
+    },
+    {
+      "name": "IsPacificIslanderOtherText",
+      "firstColumn": 1626,
+      "lastColumn": 1745,
+      "dataType": "Text(120)",
+      "value": ""
+    },
+    {
+      "name": "AmericanIndianTribe",
+      "firstColumn": 1746,
+      "lastColumn": 1865,
+      "dataType": "Text(120)",
+      "value": ""
+    },
+    {
+      "name": "IsRaceOtherText",
+      "firstColumn": 1866,
+      "lastColumn": 1985,
+      "dataType": "Text(120)",
+      "value": ""
+    }
+  ],
+  "serializedFormat": "",
+  "errors": []
+}

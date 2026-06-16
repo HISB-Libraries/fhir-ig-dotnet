@@ -17,7 +17,7 @@ public class VdorHistoryAlcoholUse
     {
         Observation observation = VdorCircumstances.Create();
         observation.VdorCircumstances().RemoveProfile();
-        observation.Code = new CodeableConcept(UriString.LOINC, "11331-6", "History of Alcohol Use", null);
+        observation.Code = new CodeableConcept(UriString.LOINC, "11331-6", "History of Alcohol Use", "");
 
         observation.VdorHistoryAlcoholUse().AddProfile();
 

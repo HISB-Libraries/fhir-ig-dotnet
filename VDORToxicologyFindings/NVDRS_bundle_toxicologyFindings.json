@@ -1,0 +1,607 @@
+{
+  "resourceType": "Bundle",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/vdor/StructureDefinition/vdor-document-bundle"
+    ]
+  },
+  "identifier": {
+    "system": "urn:gtri:heat-hisp:nvdrs-testing",
+    "value": "urn:uuid:1bde7a39-aef6-4097-93ec-6deb30f9eaca"
+  },
+  "type": "document",
+  "timestamp": "2026-06-16T13:57:39.079663-04:00",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:3f7aa683-ca23-4feb-9294-f925b6199f96",
+      "resource": {
+        "resourceType": "Composition",
+        "id": "3f7aa683-ca23-4feb-9294-f925b6199f96",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/vdor/StructureDefinition/vdor-composition"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/vdor/StructureDefinition/nvdrs-force-new-record-extension",
+            "valueBoolean": false
+          },
+          {
+            "url": "http://hl7.org/fhir/us/vdor/StructureDefinition/nvdrs-overwrite-conflicts-extension",
+            "valueBoolean": true
+          },
+          {
+            "url": "http://hl7.org/fhir/us/vdor/StructureDefinition/nvdrs-incident-year-extension",
+            "valueDate": "2025"
+          },
+          {
+            "url": "http://hl7.org/fhir/us/vdor/StructureDefinition/identifier-extension",
+            "valueIdentifier": {
+              "system": "urn:vdrs:victimnumber",
+              "value": "1"
+            }
+          }
+        ],
+        "identifier": {
+          "system": "urn:vdrs:incidentnumber",
+          "value": "12"
+        },
+        "status": "final",
+        "type": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/us/vdor/CodeSystem/vdor-custom-code-system",
+              "code": "cme-report",
+              "display": "C/ME Report"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:3c8be50e-cb06-402b-b9c0-211495d176b9"
+        },
+        "date": "2026-06-16T13:57:39.018177-04:00",
+        "author": [
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                "valueCode": "not-asked"
+              }
+            ]
+          }
+        ],
+        "title": "VDOR Document",
+        "section": [
+          {
+            "title": "Cause and Manner of Death Section",
+            "code": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/us/mdi/CodeSystem/cs-mdi-codes",
+                  "code": "cause-manner",
+                  "display": "Cause and Manner of Death Section"
+                }
+              ]
+            },
+            "entry": [
+              {
+                "reference": "urn:uuid:92c78b9f-b082-42d8-b4a1-019d956099dc"
+              },
+              {
+                "reference": "urn:uuid:d26200eb-7b6d-402f-9a26-bbd143395c1c"
+              }
+            ]
+          },
+          {
+            "title": "Toxicology",
+            "code": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/us/vdor/CodeSystem/vdor-custom-code-system",
+                  "code": "toxicology",
+                  "display": "Toxicology"
+                }
+              ],
+              "text": "Data elements that fall under the toxicology category"
+            },
+            "entry": [
+              {
+                "reference": "urn:uuid:toxfinding1"
+              },
+              {
+                "reference": "urn:uuid:toxfinding2"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:3c8be50e-cb06-402b-b9c0-211495d176b9",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "3c8be50e-cb06-402b-b9c0-211495d176b9",
+        "meta": {
+          "lastUpdated": "2026-06-16T13:57:39.001019-04:00",
+          "profile": [
+            "http://hl7.org/fhir/us/vdor/StructureDefinition/vdor-decedent"
+          ]
+        },
+        "extension": [
+          {
+            "extension": [
+              {
+                "url": "ombCategory",
+                "valueCoding": {
+                  "system": "urn:oid:2.16.840.1.113883.6.238",
+                  "code": "2106-3",
+                  "display": "White"
+                }
+              },
+              {
+                "url": "detailed",
+                "valueCoding": {
+                  "system": "urn:oid:2.16.840.1.113883.6.238",
+                  "code": "2029-7",
+                  "display": "Asian Indian"
+                }
+              },
+              {
+                "url": "text",
+                "valueString": "Asian Indian"
+              }
+            ],
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race"
+          },
+          {
+            "extension": [
+              {
+                "url": "ombCategory",
+                "valueCoding": {
+                  "system": "urn:oid:2.16.840.1.113883.6.238",
+                  "code": "2186-5",
+                  "display": "Not Hispanic or Latino"
+                }
+              },
+              {
+                "url": "detailed",
+                "valueCoding": {
+                  "system": "urn:oid:2.16.840.1.113883.6.238",
+                  "code": "2162-6",
+                  "display": "Central American Indian"
+                }
+              },
+              {
+                "url": "text",
+                "valueString": "Not Hispanic or Latino"
+              }
+            ],
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity"
+          },
+          {
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex",
+            "valueCode": "M"
+          },
+          {
+            "url": "http://hl7.org/fhir/us/vrdr/StructureDefinition/NVSS-SexAtDeath",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v3-AdministrativeGender",
+                  "code": "M",
+                  "display": "Male"
+                }
+              ]
+            }
+          },
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/patient-birthPlace",
+            "valueAddress": {
+              "_city": {
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/us/vr-common-library/StructureDefinition/CityCode",
+                    "valuePositiveInt": 42425
+                  }
+                ]
+              }
+            }
+          }
+        ],
+        "identifier": [
+          {
+            "use": "usual",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "SB",
+                  "display": "Social Beneficiary Identifier"
+                }
+              ],
+              "text": ""
+            },
+            "system": "http://hl7.org/fhir/sid/us-ssn",
+            "value": "987654321"
+          }
+        ],
+        "name": [
+          {
+            "family": "Skywalker",
+            "given": [
+              "Leia"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "404-770-0022",
+            "use": "home"
+          },
+          {
+            "system": "email",
+            "value": "raven@fhir.org",
+            "use": "work"
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1978-03-12",
+        "deceasedDateTime": "2025-03-02",
+        "address": [
+          {
+            "use": "home",
+            "type": "physical",
+            "line": [
+              "5150 Olympus Street",
+              "Bldg5-12"
+            ],
+            "city": "Atlanta",
+            "state": "GA",
+            "postalCode": "09090",
+            "country": "USA"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:92c78b9f-b082-42d8-b4a1-019d956099dc",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "92c78b9f-b082-42d8-b4a1-019d956099dc",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/vrdr/StructureDefinition/vrdr-manner-of-death"
+          ]
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "69449-7"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:3c8be50e-cb06-402b-b9c0-211495d176b9"
+        },
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "7878000",
+              "display": "Accidental death"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d26200eb-7b6d-402f-9a26-bbd143395c1c",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "d26200eb-7b6d-402f-9a26-bbd143395c1c",
+        "meta": {
+          "lastUpdated": "2026-06-16T13:57:39.057707-04:00",
+          "profile": [
+            "http://hl7.org/fhir/us/mdi/StructureDefinition/Observation-mdi-cause-of-death-part1"
+          ]
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "69453-9",
+              "display": "Cause of death [US Standard Certificate of Death]"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:3c8be50e-cb06-402b-b9c0-211495d176b9"
+        },
+        "performer": [
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason"
+              }
+            ]
+          }
+        ],
+        "valueCodeableConcept": {
+          "text": "Fentanyl toxicity"
+        },
+        "component": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/us/vrdr/CodeSystem/vrdr-component-cs",
+                  "code": "lineNumber",
+                  "display": "line number"
+                }
+              ]
+            },
+            "valueInteger": 1
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://loinc.org",
+                  "code": "69440-6",
+                  "display": "Disease onset to death interval"
+                }
+              ]
+            },
+            "valueString": "minutes to hours"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:toxfinding1",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "toxfinding1",
+        "meta": {
+          "lastUpdated": "2026-06-16T13:57:39.05915-04:00",
+          "profile": [
+            "http://hl7.org/fhir/us/vdor/StructureDefinition/vdor-toxicology-findings"
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/us/vdor/CodeSystem/vdor-custom-code-system",
+                "code": "toxicology",
+                "display": "Toxicology"
+              }
+            ],
+            "text": "Data elements that fall under the toxicology category"
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/us/vdor/CodeSystem/vdor-custom-code-system",
+              "code": "toxicology-findings",
+              "display": "Toxicology Findings"
+            }
+          ]
+        },
+        "component": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/us/vdor/CodeSystem/vdor-custom-code-system",
+                  "code": "substance-name",
+                  "display": "Substance Name"
+                }
+              ]
+            },
+            "valueString": "FENTANYL"
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/us/vdor/CodeSystem/vdor-custom-code-system",
+                  "code": "substance-tested",
+                  "display": "Substance Tested"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/us/vdor/CodeSystem/nvdrs-coding-manual-cs",
+                  "code": "ToxTested1",
+                  "display": "Tested"
+                }
+              ]
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/us/vdor/CodeSystem/vdor-custom-code-system",
+                  "code": "substance-result",
+                  "display": "Substance Result"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/us/vdor/CodeSystem/vdor-custom-code-system",
+                  "code": "SubstanceResult1",
+                  "display": "Present"
+                }
+              ]
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/us/vdor/CodeSystem/vdor-custom-code-system",
+                  "code": "substance-caused-death",
+                  "display": "Substance Caused Death"
+                }
+              ]
+            },
+            "valueBoolean": true
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/us/vdor/CodeSystem/vdor-custom-code-system",
+                  "code": "substance-obtained-for",
+                  "display": "Drug Obtained For"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/us/vdor/CodeSystem/nvdrs-coding-manual-cs",
+                  "code": "DrugObtainedFor3",
+                  "display": "Family"
+                }
+              ],
+              "text": "(non-intimate partner)"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:toxfinding2",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "toxfinding2",
+        "meta": {
+          "lastUpdated": "2026-06-16T13:57:39.061607-04:00",
+          "profile": [
+            "http://hl7.org/fhir/us/vdor/StructureDefinition/vdor-toxicology-findings"
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/us/vdor/CodeSystem/vdor-custom-code-system",
+                "code": "toxicology",
+                "display": "Toxicology"
+              }
+            ],
+            "text": "Data elements that fall under the toxicology category"
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/us/vdor/CodeSystem/vdor-custom-code-system",
+              "code": "toxicology-findings",
+              "display": "Toxicology Findings"
+            }
+          ]
+        },
+        "component": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/us/vdor/CodeSystem/vdor-custom-code-system",
+                  "code": "substance-name",
+                  "display": "Substance Name"
+                }
+              ]
+            },
+            "valueString": "CAFFEINE"
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/us/vdor/CodeSystem/vdor-custom-code-system",
+                  "code": "substance-tested",
+                  "display": "Substance Tested"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/us/vdor/CodeSystem/nvdrs-coding-manual-cs",
+                  "code": "ToxTested1",
+                  "display": "Tested"
+                }
+              ]
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/us/vdor/CodeSystem/vdor-custom-code-system",
+                  "code": "substance-result",
+                  "display": "Substance Result"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/us/vdor/CodeSystem/vdor-custom-code-system",
+                  "code": "SubstanceResult2",
+                  "display": "Not present"
+                }
+              ]
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/us/vdor/CodeSystem/vdor-custom-code-system",
+                  "code": "substance-caused-death",
+                  "display": "Substance Caused Death"
+                }
+              ]
+            },
+            "valueBoolean": false
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/us/vdor/CodeSystem/vdor-custom-code-system",
+                  "code": "substance-obtained-for",
+                  "display": "Drug Obtained For"
+                }
+              ]
+            },
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/us/vdor/CodeSystem/nvdrs-coding-manual-cs",
+                  "code": "DrugObtainedFor2",
+                  "display": "Intimate Partner"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

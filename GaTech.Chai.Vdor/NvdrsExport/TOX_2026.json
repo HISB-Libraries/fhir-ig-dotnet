@@ -1,0 +1,65 @@
+{
+  "version": "2026",
+  "type": "TOX",
+  "length": 122,
+  "data": [
+    {
+      "name": "IncidentYear",
+      "firstColumn": 1,
+      "lastColumn": 4,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "IncidentNumber",
+      "firstColumn": 5,
+      "lastColumn": 14,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "VictimNumber",
+      "firstColumn": 15,
+      "lastColumn": 18,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "SubstanceName",
+      "firstColumn": 19,
+      "lastColumn": 118,
+      "dataType": "Text(100)",
+      "value": ""
+    },
+    {
+      "name": "SubstanceTested",
+      "firstColumn": 119,
+      "lastColumn": 119,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "SubstanceResult",
+      "firstColumn": 120,
+      "lastColumn": 120,
+      "dataType": "Integer",
+      "value": ""
+    },
+    {
+      "name": "IsSubstanceCausedDeath",
+      "firstColumn": 121,
+      "lastColumn": 121,
+      "dataType": "Text(1)",
+      "value": ""
+    },
+    {
+      "name": "DrugObtainedFor",
+      "firstColumn": 122,
+      "lastColumn": 122,
+      "dataType": "Integer",
+      "value": ""
+    }
+  ],
+  "serializedFormat": "",
+  "errors": []
+}

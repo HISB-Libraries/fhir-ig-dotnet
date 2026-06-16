@@ -31,7 +31,7 @@ namespace GaTech.Chai.Share
 
             if (component == null)
             {
-                if (display == null)
+                if (string.IsNullOrWhiteSpace(display))
                 {
                     component = new Observation.ComponentComponent()
                     {

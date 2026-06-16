@@ -13,12 +13,14 @@ namespace GaTech.Chai.Nvdrs;
 
 public class FlatObjectCMELE : FlatObject
 {
-    public FlatObjectCMELE() : base("ExportConfigCMELE.json")
+    public FlatObjectCMELE(string outputFileFormat = "flat") : base("CME_2026.json")
     {
-        if (!"CMELEFormat".Equals(FlatType))
+        if (!"CME".Equals(FlatType))
         {
             throw new NotSupportedException("This flat object only support CMELE flat format");
         }
+
+        this.outputFileFormat = outputFileFormat;
     }
 
     public Observation? FindWeaponTypeObservation(Composition composition)
@@ -59,7 +61,7 @@ public class FlatObjectCMELE : FlatObject
 
                 foreach (string profile in meta.Profile)
                 {
-                    if (NvdrsFirearm.ProfileUrl.Equals(profile))
+                    if (VdorFirearm.ProfileUrl.Equals(profile))
                     {
 
                         return focusObservation;
@@ -82,7 +84,7 @@ public class FlatObjectCMELE : FlatObject
                     CodeableConcept? cc = obs.Value as CodeableConcept;
                     if (cc != null)
                     {
-                        if (cc == NvdrsWoundLocationValuesVs.Unknown)
+                        if (cc.Matches(NvdrsWoundLocationValuesVs.Unknown))
                         {
                             StringWriteToData(data, "9");
                         }
@@ -194,7 +196,7 @@ public class FlatObjectCMELE : FlatObject
             if (!isOk)
             {
 
-                throw new NotSupportedException("This flat object only support MDI FHIR Data");
+                throw new NotSupportedException("This flat object only support VDOR FHIR Document Bundle with profile " + VdorDocumentBundle.ProfileUrl);
             }
 
             // Now Map the NVDRS FHIR CME Document to NVDRS. This is manual mapping.
@@ -485,7 +487,7 @@ public class FlatObjectCMELE : FlatObject
                     {
                         Patient patient = (Patient)resource;
                         List<CodeableConcept> genderIdCCs = patient.UsCorePatient().GenderIdentity;
-                        string transgender = null;
+                        string? transgender = null;
                         foreach (CodeableConcept genderIdCC in genderIdCCs)
                         {
                             if (CodeSystemsValueSets.UsCoreVsGenderIdentity.MaleToFemaleTranssexual.CodingExist(genderIdCC)
@@ -548,7 +550,11 @@ public class FlatObjectCMELE : FlatObject
                             {
                                 if ("2106-3".Equals(raceExtCoding.Code))
                                 {
-                                    data["value"] = "Y";
+                                    data["value"] = "1";
+                                }
+                                else
+                                {
+                                    data["value"] = "0";
                                 }
                             }
                         }
@@ -829,7 +835,7 @@ public class FlatObjectCMELE : FlatObject
                         {
                             if (VdorCustomCs.NumberOfBullets.CodingExist(obs.Code))
                             {
-                                int? numBullets = obs.NvdrsNumberOfBullets().NumOfBullets;
+                                int? numBullets = obs.VdorNumberOfBullets().NumOfBullets;
                                 if (numBullets != null)
                                 {
                                     StringWriteToData(data, numBullets.ToString());
@@ -946,7 +952,7 @@ public class FlatObjectCMELE : FlatObject
                         {
                             if (VdorCustomCs.SuicideNoteContent.CodingExist(obs.Code))
                             {
-                                if (obs.VdrsSuicideNote().SuicideNote != null && obs.VdrsSuicideNote().SuicideNote.Trim().Length > 0)
+                                if (obs.VdorSuicideNoteContent().SuicideNoteContent != null && obs.VdorSuicideNoteContent().SuicideNoteContent?.Trim().Length > 0)
                                 {
                                     data["value"] = "1";
                                     break;
@@ -970,10 +976,16 @@ public class FlatObjectCMELE : FlatObject
                 {
                     if (firearmObservation != null)
                     {
-                        CodeableConcept? firearmType = firearmObservation.NvdrsFirearm().FirearmType;
+                        CodeableConcept? firearmType = firearmObservation.VdorFirearm().FirearmType;
                         if (!firearmType.IsNullOrEmpty())
                         {
-                            StringWriteToData(data, firearmType!.Coding[0].Code.Substring(11));
+                            if (NvdrsFirearmTypeVs.Unknown.Matches(firearmType))
+                            {
+                                StringWriteToData(data, "99");
+                            }
+                            else {
+                                StringWriteToData(data, firearmType!.Coding[0].Code.Substring(11));
+                            }
                         }
                     }
                 }
@@ -981,10 +993,17 @@ public class FlatObjectCMELE : FlatObject
                 {
                     if (firearmObservation != null)
                     {
-                        string? firearmCaliber = firearmObservation.NvdrsFirearm().FirearmCaliber;
-                        if (firearmCaliber != null)
+                        CodeableConcept? firearmCaliber = firearmObservation.VdorFirearm().FirearmCaliber;
+                        if (!firearmCaliber.IsNullOrEmpty())
                         {
-                            StringWriteToData(data, firearmCaliber);
+                            if (NvdrsFirearmCaliberVs.Unknown.Matches(firearmCaliber))
+                            {
+                                StringWriteToData(data, "9999");
+                            }
+                            else
+                            {
+                                StringWriteToData(data, firearmCaliber?.Coding[0].Code[14..]);
+                            }
                         }
                     }
                 }
@@ -992,10 +1011,17 @@ public class FlatObjectCMELE : FlatObject
                 {
                     if (firearmObservation != null)
                     {
-                        string? firearmGauge = firearmObservation.NvdrsFirearm().FirearmGauge;
-                        if (firearmGauge != null)
+                        CodeableConcept? firearmGauge = firearmObservation.VdorFirearm().FirearmGauge;
+                        if (!firearmGauge.IsNullOrEmpty())
                         {
-                            StringWriteToData(data, firearmGauge);
+                            if (NvdrsFirearmGaugeVs.Unknown.Matches(firearmGauge))
+                            {
+                                StringWriteToData(data, "999");
+                            }
+                            else
+                            {
+                                StringWriteToData(data, firearmGauge?.Coding[0].Code.Substring(12));
+                            }
                         }
                     }
                 }
@@ -1003,16 +1029,12 @@ public class FlatObjectCMELE : FlatObject
                 {
                     if (firearmObservation != null)
                     {
-                        DataType? firearmMake = firearmObservation.NvdrsFirearm().FirearmMake;
+                        DataType? firearmMake = firearmObservation.VdorFirearm().FirearmMake;
                         if (!firearmMake.IsNullOrEmpty())
                         {
                             if (firearmMake is CodeableConcept concept)
                             {
                                 StringWriteToData(data, concept!.Coding[0].Code);
-                            }
-                            else
-                            {
-                                StringWriteToData(data, (firearmMake as FhirString)!.ToString()!);
                             }
                         }
                     }
@@ -1021,7 +1043,7 @@ public class FlatObjectCMELE : FlatObject
                 {
                     if (firearmObservation != null)
                     {
-                        string? fireModel = firearmObservation.NvdrsFirearm().FirearmModel;
+                        string? fireModel = firearmObservation.VdorFirearm().FirearmModel;
                         if (fireModel != null)
                         {
                             StringWriteToData(data, fireModel);
@@ -1032,7 +1054,7 @@ public class FlatObjectCMELE : FlatObject
                 {
                     if (firearmObservation != null)
                     {
-                        string? answer = firearmObservation.NvdrsFirearm().FirearmStoredLoaded?.Coding[0].Code;
+                        string? answer = firearmObservation.VdorFirearm().FirearmStoredLoaded?.Coding[0].Code;
                         if ("Y".Equals(answer))
                         {
                             data["value"] = "1";
@@ -1056,7 +1078,7 @@ public class FlatObjectCMELE : FlatObject
                     if (firearmObservation != null)
                     {
 
-                        (CodeableConcept? ownerCC, string? ownerNarr, Resource? ownerResource) = firearmObservation.NvdrsFirearm().FireamrOwner;
+                        (CodeableConcept? ownerCC, string? ownerNarr, Resource? ownerResource) = firearmObservation.VdorFirearm().FireamrOwner;
                         if (ownerCC != null)
                         {
                             string ownerCode = ownerCC.Coding[0].Code;
@@ -1068,15 +1090,15 @@ public class FlatObjectCMELE : FlatObject
                 {
                     if (firearmObservation != null)
                     {
-                        if ("Y".Equals(firearmObservation.NvdrsFirearm().FirearmStoredLocked?.Coding[0].Code))
+                        if ("Y".Equals(firearmObservation.VdorFirearm().FirearmStoredLocked?.Coding[0].Code))
                         {
                             data["value"] = "1";
                         }
-                        else if ("N".Equals(firearmObservation.NvdrsFirearm().FirearmStoredLocked?.Coding[0].Code))
+                        else if ("N".Equals(firearmObservation.VdorFirearm().FirearmStoredLocked?.Coding[0].Code))
                         {
                             data["value"] = "0";
                         }
-                        else if ("UNK".Equals(firearmObservation.NvdrsFirearm().FirearmStoredLocked?.Coding[0].Code))
+                        else if ("UNK".Equals(firearmObservation.VdorFirearm().FirearmStoredLocked?.Coding[0].Code))
                         {
                             data["value"] = "9";
                         }
@@ -1090,15 +1112,15 @@ public class FlatObjectCMELE : FlatObject
                 {
                     if (firearmObservation != null)
                     {
-                        if ("Y".Equals(firearmObservation.NvdrsFirearm().FirearmStolen?.Coding[0].Code))
+                        if ("Y".Equals(firearmObservation.VdorFirearm().FirearmStolen?.Coding[0].Code))
                         {
                             data["value"] = "1";
                         }
-                        else if ("N".Equals(firearmObservation.NvdrsFirearm().FirearmStolen?.Coding[0].Code))
+                        else if ("N".Equals(firearmObservation.VdorFirearm().FirearmStolen?.Coding[0].Code))
                         {
                             data["value"] = "0";
                         }
-                        else if ("UNK".Equals(firearmObservation.NvdrsFirearm().FirearmStolen?.Coding[0].Code))
+                        else if ("UNK".Equals(firearmObservation.VdorFirearm().FirearmStolen?.Coding[0].Code))
                         {
                             data["value"] = "9";
                         }
