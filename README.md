@@ -2,12 +2,12 @@
 A .NET Library for the following FHIR Implementation Guides (IG)
 * Case Based Surveillance (CBS) FHIR IG | https://cbsig.chai.gatech.edu/
 * Medicolegal Death Investigation (MDI) FHIR IG | https://build.fhir.org/ig/HL7/fhir-mdi-ig/
-* National Violent Death Reporting System (NVDRS) FHIR IG | https://mortalityreporting.github.io/nvdrs-ig/
+* Violent Death and Overdose Reporting (VDOR) FHIR IG | https://build.fhir.org/ig/HL7/fhir-vdor/
 * US Public Health (US PH) FHIR IG | https://build.fhir.org/ig/HL7/fhir-us-ph-common-library-ig/
 * US Core FHIR IG | https://www.hl7.org/fhir/us/core/
 * Occupational Data for Health (ODH) FHIR IG | http://hl7.org/fhir/us/odh/STU1.1/
 
-All profiles built on top of standard .NET FHIR classes (https://github.com/FirelyTeam/firely-net-sdk). Only referenced profiles of US PH, US Core, and ODH by CBS and MDI are implemented. Rest of profiles will be added based on the needs. 
+All profiles built on top of standard .NET FHIR classes (https://github.com/FirelyTeam/firely-net-sdk). Only referenced profiles of US PH, US Core, and ODH by MDI, VDOR, and CBS are implemented. Rest of profiles will be added based on the needs. 
 
 ## Authors
 **Myung Choi, GTRI (@myungchoi)**<br/>
@@ -19,12 +19,12 @@ Firely .net FHIR classes are used as a basis for FHIR objects. All profiles are 
 Hl7.Fhir.R4 and Hl7.Fhir.Specification.R4 NuGet Packages are required. 
 
 ## Distribution
-The FHIR IG .net packages are still in the early stage. Once it reaches certain stage, they can be available in the NuGet.org. In the mean time (before they are registered in the NuGet.org), the NuGet packages will be available in the github release page.
+The FHIR IG .net packages are also available in the NuGet.org. Search with keywords (MDI, VDOR, USCore, CBS, etc.).
 
 ## How to use the FHIR IG .net Library
-Pleaase refer to the example codes below to see how to use the library. Name of extensions is in most cases from the name of profile. For any specific values or structures defined in the IG, helper methods in either properties or class functions should be available. Please refer to the source code of the profile to get the list of available helpers. 
+Pleaase refer to the example codes below to see how to use the library. Name of extensions is in most cases from the name of profiles. For any specific values or structures defined in the IG, helper methods in either properties or class functions are available. Please refer to the source code of the profile to get the list of available helpers. 
 
-There are extensions that are applicable to multiple IG profiles. Those are implemented in Gatech.Chai.Share project. Please include this namespace to use those extensions.
+There are extensions applicable to multiple IG profiles. Those are implemented in Gatech.Chai.Share project. Please include this namespace to use those extensions.
 
 First step of using this library is starting from the profile you are trying to use. If Us CBS Patient profile is the one you are trying to implement, then use the static Create() - note that all profiles have a static method called, "Create()". 
 ```
