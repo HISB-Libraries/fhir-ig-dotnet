@@ -7,16 +7,16 @@
   },
   "identifier": {
     "system": "urn:gtri:heat-hisp:nvdrs-testing",
-    "value": "urn:uuid:5cc503ed-d51f-43d1-914c-0e6abdad3599"
+    "value": "urn:uuid:bd1b367a-82f6-4b71-9235-fabd33b1728d"
   },
   "type": "document",
-  "timestamp": "2026-06-09T00:30:36.52354-04:00",
+  "timestamp": "2026-07-21T10:40:37.633261-07:00",
   "entry": [
     {
-      "fullUrl": "urn:uuid:5cdb926f-7d55-4397-8609-4672fdae6a66",
+      "fullUrl": "urn:uuid:6b074c78-8e47-46e9-b229-fe6bbc2f05bd",
       "resource": {
         "resourceType": "Composition",
-        "id": "5cdb926f-7d55-4397-8609-4672fdae6a66",
+        "id": "6b074c78-8e47-46e9-b229-fe6bbc2f05bd",
         "meta": {
           "profile": [
             "http://hl7.org/fhir/us/vdor/StructureDefinition/vdor-composition"
@@ -38,13 +38,13 @@
           {
             "url": "http://hl7.org/fhir/us/vdor/StructureDefinition/identifier-extension",
             "valueIdentifier": {
-              "system": "urn:vdrs:Vdor:victimnumber",
+              "system": "urn:vdrs:victimnumber",
               "value": "1"
             }
           }
         ],
         "identifier": {
-          "system": "urn:vdrs:nvdrs:incidentnumber",
+          "system": "urn:vdrs:incidentnumber",
           "value": "107"
         },
         "status": "final",
@@ -55,13 +55,12 @@
               "code": "cme-report",
               "display": "C/ME Report"
             }
-          ],
-          "text": ""
+          ]
         },
         "subject": {
           "reference": "urn:uuid:956c53c0-a993-11ed-afa1-0242ac120002"
         },
-        "date": "2026-06-09T00:30:36.501973-04:00",
+        "date": "2026-07-21T10:40:37.580995-07:00",
         "author": [
           {
             "extension": [
@@ -87,7 +86,7 @@
             },
             "entry": [
               {
-                "reference": "urn:uuid:1ed9d213-1dd8-45c4-846f-750ff54d69f8"
+                "reference": "urn:uuid:c37288ec-f74f-4ff7-b5fb-82e953e8121e"
               }
             ]
           },
@@ -104,10 +103,10 @@
             },
             "entry": [
               {
-                "reference": "urn:uuid:d378b884-0e6b-4d73-9fdd-9c5ead0ac634"
+                "reference": "urn:uuid:c4f0c671-2003-433f-b6da-de2037efb201"
               },
               {
-                "reference": "urn:uuid:b5135bf2-f29d-49a0-abed-1e8bdec9dec9"
+                "reference": "urn:uuid:da3530fe-c08f-443f-a52b-9162cfac0a23"
               }
             ]
           },
@@ -124,10 +123,10 @@
             },
             "entry": [
               {
-                "reference": "urn:uuid:5562c439-9290-47c9-856c-edc73b8483ca"
+                "reference": "urn:uuid:4f9e1504-03a0-4106-bb6b-7e849616b05e"
               },
               {
-                "reference": "urn:uuid:81d0ab44-992f-4fb1-bc3f-b717fa2d4a9c"
+                "reference": "urn:uuid:619e0615-ae46-4acf-a49a-6f1709ebe585"
               }
             ]
           },
@@ -144,7 +143,7 @@
             },
             "entry": [
               {
-                "reference": "urn:uuid:76e000ab-5444-427e-a596-e0d704ca4b56"
+                "reference": "urn:uuid:799c7cb5-7b17-4b2d-9fbd-2492084fd0a6"
               }
             ]
           }
@@ -157,7 +156,7 @@
         "resourceType": "Patient",
         "id": "956c53c0-a993-11ed-afa1-0242ac120002",
         "meta": {
-          "lastUpdated": "2026-06-09T00:30:36.47674-04:00",
+          "lastUpdated": "2026-07-21T10:40:37.55871-07:00",
           "profile": [
             "http://hl7.org/fhir/us/vdor/StructureDefinition/vdor-decedent"
           ]
@@ -300,10 +299,10 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:1ed9d213-1dd8-45c4-846f-750ff54d69f8",
+      "fullUrl": "urn:uuid:c37288ec-f74f-4ff7-b5fb-82e953e8121e",
       "resource": {
         "resourceType": "Observation",
-        "id": "1ed9d213-1dd8-45c4-846f-750ff54d69f8",
+        "id": "c37288ec-f74f-4ff7-b5fb-82e953e8121e",
         "meta": {
           "profile": [
             "http://hl7.org/fhir/us/vdor/StructureDefinition/vdor-weapon-type"
@@ -316,15 +315,14 @@
               "code": "weapon-type",
               "display": "Type of Weapon"
             }
-          ],
-          "text": ""
+          ]
         },
         "subject": {
           "reference": "urn:uuid:956c53c0-a993-11ed-afa1-0242ac120002"
         },
         "focus": [
           {
-            "reference": "urn:uuid:be523fa4-177c-449f-b93d-114f1a1ea4ba"
+            "reference": "urn:uuid:cc3b9d94-6a29-44d3-9dc3-b8dddf30ccc2"
           }
         ],
         "valueCodeableConcept": {
@@ -334,18 +332,17 @@
               "code": "WeaponType1",
               "display": "Firearm"
             }
-          ],
-          "text": ""
+          ]
         }
       }
     },
     {
-      "fullUrl": "urn:uuid:be523fa4-177c-449f-b93d-114f1a1ea4ba",
+      "fullUrl": "urn:uuid:cc3b9d94-6a29-44d3-9dc3-b8dddf30ccc2",
       "resource": {
         "resourceType": "Observation",
-        "id": "be523fa4-177c-449f-b93d-114f1a1ea4ba",
+        "id": "cc3b9d94-6a29-44d3-9dc3-b8dddf30ccc2",
         "meta": {
-          "lastUpdated": "2026-06-09T00:30:36.497171-04:00",
+          "lastUpdated": "2026-07-21T10:40:37.576457-07:00",
           "profile": [
             "http://hl7.org/fhir/us/vdor/StructureDefinition/vdor-firearm"
           ]
@@ -374,8 +371,7 @@
                       "code": "GunOwner7",
                       "display": "Stranger to shooter"
                     }
-                  ],
-                  "text": ""
+                  ]
                 }
               }
             ],
@@ -408,8 +404,7 @@
               "code": "firearm",
               "display": "Details on Firearm"
             }
-          ],
-          "text": ""
+          ]
         },
         "subject": {
           "reference": "urn:uuid:956c53c0-a993-11ed-afa1-0242ac120002"
@@ -432,8 +427,7 @@
                   "code": "FirearmType3",
                   "display": "Handgun, Pistol- Bolt Action"
                 }
-              ],
-              "text": ""
+              ]
             }
           },
           {
@@ -477,20 +471,19 @@
                   "code": "FirearmCaliber556",
                   "display": "5.56 mm"
                 }
-              ],
-              "text": ""
+              ]
             }
           }
         ]
       }
     },
     {
-      "fullUrl": "urn:uuid:d378b884-0e6b-4d73-9fdd-9c5ead0ac634",
+      "fullUrl": "urn:uuid:c4f0c671-2003-433f-b6da-de2037efb201",
       "resource": {
         "resourceType": "Observation",
-        "id": "d378b884-0e6b-4d73-9fdd-9c5ead0ac634",
+        "id": "c4f0c671-2003-433f-b6da-de2037efb201",
         "meta": {
-          "lastUpdated": "2026-06-09T00:30:36.511106-04:00",
+          "lastUpdated": "2026-07-21T10:40:37.610663-07:00",
           "profile": [
             "http://hl7.org/fhir/us/vdor/StructureDefinition/vdor-number-of-bullets"
           ]
@@ -514,8 +507,7 @@
               "code": "number-of-bullets",
               "display": "Number of Bullets"
             }
-          ],
-          "text": ""
+          ]
         },
         "subject": {
           "reference": "urn:uuid:956c53c0-a993-11ed-afa1-0242ac120002"
@@ -524,12 +516,12 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:b5135bf2-f29d-49a0-abed-1e8bdec9dec9",
+      "fullUrl": "urn:uuid:da3530fe-c08f-443f-a52b-9162cfac0a23",
       "resource": {
         "resourceType": "Observation",
-        "id": "b5135bf2-f29d-49a0-abed-1e8bdec9dec9",
+        "id": "da3530fe-c08f-443f-a52b-9162cfac0a23",
         "meta": {
-          "lastUpdated": "2026-06-09T00:30:36.511252-04:00",
+          "lastUpdated": "2026-07-21T10:40:37.610825-07:00",
           "profile": [
             "http://hl7.org/fhir/us/vdor/StructureDefinition/vdor-wound-location"
           ]
@@ -553,8 +545,7 @@
               "code": "wound-to-the-spine",
               "display": "Wound to the spine"
             }
-          ],
-          "text": ""
+          ]
         },
         "subject": {
           "reference": "urn:uuid:956c53c0-a993-11ed-afa1-0242ac120002"
@@ -566,18 +557,17 @@
               "code": "WoundLocation1",
               "display": "Present (wounded)"
             }
-          ],
-          "text": ""
+          ]
         }
       }
     },
     {
-      "fullUrl": "urn:uuid:5562c439-9290-47c9-856c-edc73b8483ca",
+      "fullUrl": "urn:uuid:4f9e1504-03a0-4106-bb6b-7e849616b05e",
       "resource": {
         "resourceType": "Observation",
-        "id": "5562c439-9290-47c9-856c-edc73b8483ca",
+        "id": "4f9e1504-03a0-4106-bb6b-7e849616b05e",
         "meta": {
-          "lastUpdated": "2026-06-09T00:30:36.511541-04:00",
+          "lastUpdated": "2026-07-21T10:40:37.611131-07:00",
           "profile": [
             "http://hl7.org/fhir/us/vdor/StructureDefinition/vdor-random-violence"
           ]
@@ -601,8 +591,7 @@
               "code": "random-violence",
               "display": "Incident is Random Violence"
             }
-          ],
-          "text": ""
+          ]
         },
         "subject": {
           "reference": "urn:uuid:956c53c0-a993-11ed-afa1-0242ac120002"
@@ -619,12 +608,12 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:81d0ab44-992f-4fb1-bc3f-b717fa2d4a9c",
+      "fullUrl": "urn:uuid:619e0615-ae46-4acf-a49a-6f1709ebe585",
       "resource": {
         "resourceType": "Observation",
-        "id": "81d0ab44-992f-4fb1-bc3f-b717fa2d4a9c",
+        "id": "619e0615-ae46-4acf-a49a-6f1709ebe585",
         "meta": {
-          "lastUpdated": "2026-06-09T00:30:36.511601-04:00",
+          "lastUpdated": "2026-07-21T10:40:37.61119-07:00",
           "profile": [
             "http://hl7.org/fhir/us/vdor/StructureDefinition/vdor-playing-with-firearm"
           ]
@@ -666,10 +655,10 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:76e000ab-5444-427e-a596-e0d704ca4b56",
+      "fullUrl": "urn:uuid:799c7cb5-7b17-4b2d-9fbd-2492084fd0a6",
       "resource": {
         "resourceType": "Observation",
-        "id": "76e000ab-5444-427e-a596-e0d704ca4b56",
+        "id": "799c7cb5-7b17-4b2d-9fbd-2492084fd0a6",
         "meta": {
           "profile": [
             "http://hl7.org/fhir/us/vrdr/StructureDefinition/vrdr-manner-of-death"

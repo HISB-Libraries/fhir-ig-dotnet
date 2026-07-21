@@ -17,15 +17,37 @@ public abstract class FlatObject
 
     public enum Alignment { LEFT, RIGHT };
 
-    public FlatObject(string filename)
+    public FlatObject(string filename, string? path = null)
     {
-        // Get flatfile configuration file.
-        var buildDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-        var filePath = buildDir + @"/NvdrsExport/" + filename;
+        JsonNode? jsonNode = null;
+        if (path != null && path != "")
+        {
+            // Get flatfile configuration file.
+            // var buildDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            // var filePath = buildDir + @"/NvdrsExport/" + filename;
+            var filePath = filename;
+            if (path.EndsWith("/") || path.EndsWith("\\"))
+            {
+                filePath = path + filename;
+            }
+            else
+            {
+                filePath = path + "/" + filename;
+            }
 
-        // Create an instance of StreamReader to read from a file.
-        FileStream SourceStream = File.Open(filePath, FileMode.Open);
-        JsonNode? jsonNode = JsonNode.Parse(SourceStream);
+            // Create an instance of StreamReader to read from a file.
+            FileStream SourceStream = File.Open(filePath, FileMode.Open);
+            jsonNode = JsonNode.Parse(SourceStream);
+        }
+        else
+        {
+            var assembly = Assembly.GetExecutingAssembly();
+            string resourceName = @"GaTech.Chai.Vdor.NvdrsExport." + filename;
+
+            using Stream? stream = assembly.GetManifestResourceStream(resourceName) ?? throw new FileNotFoundException($"Embedded resource '{resourceName}' was not found.");
+            using StreamReader reader = new StreamReader(stream);
+            jsonNode = JsonNode.Parse(reader.ReadToEnd());
+        }
 
         if (jsonNode == null)
         {

@@ -1,0 +1,4 @@
+﻿Integer,Integer,Integer,Text(100),Integer,Integer,Text(1),Integer
+IncidentYear,IncidentNumber,VictimNumber,SubstanceName,SubstanceTested,SubstanceResult,IsSubstanceCausedDeath,DrugObtainedFor
+2025,12,1,FENTANYL,1,1,1,3
+2025,12,1,CAFFEINE,1,2,0,2

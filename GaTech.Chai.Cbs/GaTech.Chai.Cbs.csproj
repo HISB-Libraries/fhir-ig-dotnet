@@ -2,17 +2,22 @@
 
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
-	<PackageId>fhir-ig-cbs-dotnet</PackageId>
-	<PackageVersion>0.2.4</PackageVersion>
-	<Authors>Brian Ritchie, Myung Choi</Authors>
-	<PackageProjectUrl>https://cbsig.chai.gatech.edu/</PackageProjectUrl>
-	<Description>.NET Library for Case Based Surveillance (CBS) FHIR IG v0.2.1</Description>
+    <PackageId>fhir-ig-cbs-dotnet</PackageId>
+    <PackageVersion>0.2.5</PackageVersion>
+    <Authors>Brian Ritchie, Myung Choi</Authors>
+    <PackageProjectUrl>https://cbsig.chai.gatech.edu/</PackageProjectUrl>
+    <Description>.NET Library for Case Based Surveillance (CBS) FHIR IG v0.2.1</Description>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
     <NeutralLanguage>en-US</NeutralLanguage>
     <PackageTags>FHIR, CBS, IG</PackageTags>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <WarningLevel>4</WarningLevel>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
   <ItemGroup>
     <None Remove=".DS_Store" />
     <None Remove="CbsVaccinationIndicationProfile\" />
@@ -57,5 +62,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\LICENSE" Pack="true" PackagePath="" />
+    <None Include="docs\README.md" Pack="true" PackagePath="\"/>
   </ItemGroup>
 </Project>

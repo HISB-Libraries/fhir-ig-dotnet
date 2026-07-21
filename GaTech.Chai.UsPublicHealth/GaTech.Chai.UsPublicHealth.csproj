@@ -3,16 +3,21 @@
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
     <PackageId>fhir-ig-uspublichealth-dotnet</PackageId>
-    <PackageVersion>0.2.6</PackageVersion>
+    <PackageVersion>0.2.7</PackageVersion>
     <PackageProjectUrl>https://github.com/HISB-Libraries/fhir-ig-dotnet</PackageProjectUrl>
     <Description>.NET Library for US Public Health FHIR IG v2.0.0 - not all resource(s)  are implmented. Only reference(s) referred from CBS</Description>
     <Authors>Myung Choi</Authors>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
     <NeutralLanguage>en-US</NeutralLanguage>
     <PackageTags>FHIR, US Public Health, PH, IG</PackageTags>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <WarningLevel>4</WarningLevel>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
   <ItemGroup>
     <None Remove="UsPublicHealthConditionProfile\" />
     <None Remove="UsPublicHealthPatientProfile\" />
@@ -33,5 +38,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\LICENSE" Pack="true" PackagePath="" />
+    <None Include="docs\README.md" Pack="true" PackagePath="\"/>
   </ItemGroup>
 </Project>

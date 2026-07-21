@@ -3,11 +3,12 @@
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
     <PackageId>fhir-ig-vdor-dotnet</PackageId>
-    <PackageVersion>1.0.0</PackageVersion>
+    <PackageVersion>1.0.1</PackageVersion>
     <Authors>Myung Choi</Authors>
     <PackageProjectUrl>https://github.com/HISB-Libraries/fhir-ig-dotnet</PackageProjectUrl>
-    <Description>.NET Library for HL7 FHIR® Implementation Guide: Violent Death Reporting For MDI 2.0.0-ci-build STU 2</Description>
+    <Description>.NET Library for HL7 FHIR® Implementation Guide: Violent Death And Overdose Reporting For MDI 2.0.0-ci-build STU 2</Description>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
     <NeutralLanguage>en-US</NeutralLanguage>
     <PackageTags>FHIR, MDI, VRDR, VRCL, IG, VDOR</PackageTags>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -24,13 +25,19 @@
     <ProjectReference Include="..\GaTech.Chai.Mdi\GaTech.Chai.Mdi.csproj" />
     <ProjectReference Include="..\GaTech.Chai.Odh\GaTech.Chai.Odh.csproj" />
   </ItemGroup>
-  <ItemGroup>
+  <!-- <ItemGroup>
     <Content Include="VdorExport\*.json">
        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
- </ItemGroup>  
+ </ItemGroup>   -->
   <ItemGroup>
     <None Include="..\LICENSE" Pack="true" PackagePath="" />
     <None Include="docs\README.md" Pack="true" PackagePath="\"/>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="NvdrsExport\CME_2026.json" />
+    <EmbeddedResource Include="NvdrsExport\DC_2026.json" />
+    <EmbeddedResource Include="NvdrsExport\ICD_2026.json" />
+    <EmbeddedResource Include="NvdrsExport\TOX_2026.json" />
   </ItemGroup>
 </Project>

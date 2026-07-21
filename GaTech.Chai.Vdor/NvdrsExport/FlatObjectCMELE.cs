@@ -13,7 +13,7 @@ namespace GaTech.Chai.Nvdrs;
 
 public class FlatObjectCMELE : FlatObject
 {
-    public FlatObjectCMELE(string outputFileFormat = "flat") : base("CME_2026.json")
+    public FlatObjectCMELE(string outputFileFormat = "flat", string filename = "CME_2026.json", string? path = null) : base(filename, path)
     {
         if (!"CME".Equals(FlatType))
         {

@@ -126,7 +126,7 @@ public class Program
         Console.WriteLine("+--------- Export NVDRS Bundle to Web Input file ---------+");
         // Set up if you want to export the NVDRS bundle to NVDRS web input file
         FlatObjectCMELE flatCMEObject = new("csv");
-        FlatObjectTox flatToxFindingsObject = new("csv");
+        FlatObjectTox flatToxFindingsObject = new("csv", "TOX_2026.json", "/Users/mc142/Documents/workspace/MMG/FlatFileSpec/");
 
         nvdrsTestBundle.VdorDocumentBundle().ExportToNVDRS(flatCMEObject);
         nvdrsTestBundle.VdorDocumentBundle().ExportToNVDRS(flatToxFindingsObject);

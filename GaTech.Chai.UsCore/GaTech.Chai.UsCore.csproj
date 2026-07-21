@@ -2,17 +2,22 @@
 
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
-	<PackageId>fhir-ig-uscore-dotnet</PackageId>
-	<PackageVersion>1.0.5</PackageVersion>
-	<Authors>Brian Ritchie, Myung Choi</Authors>
-	<PackageProjectUrl>https://github.com/HISB-Libraries/fhir-ig-dotnet</PackageProjectUrl>
-	<Description>.NET Library for US Core FHIR IG v5.0.1 - not all resource(s) are implemented. Only refereced ones from CBS and MDI are implemented</Description>
+    <PackageId>fhir-ig-uscore-dotnet</PackageId>
+    <PackageVersion>1.0.6</PackageVersion>
+    <Authors>Brian Ritchie, Myung Choi</Authors>
+    <PackageProjectUrl>https://github.com/HISB-Libraries/fhir-ig-dotnet</PackageProjectUrl>
+    <Description>.NET Library for US Core FHIR IG v5.0.1 - not all resource(s) are implemented. Only refereced ones from CBS and MDI are implemented</Description>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
     <NeutralLanguage>en-US</NeutralLanguage>
     <PackageTags>FHIR, US Core, USCore, IG</PackageTags>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <WarningLevel>4</WarningLevel>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
   <ItemGroup>
     <None Remove="UsCorePatientProfile\" />
     <None Remove="Hl7.Fhir.R4" />
@@ -44,5 +49,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\LICENSE" Pack="true" PackagePath="" />
+    <None Include="docs\README.md" Pack="true" PackagePath="\"/>
   </ItemGroup>
 </Project>

@@ -6,7 +6,7 @@ namespace GaTech.Chai.Nvdrs;
 
 public class FlatObjectDC : FlatObject
 {
-    public FlatObjectDC() : base("DC_2026.json")
+    public FlatObjectDC(string outputFileFormat = "flat", string filename = "DC_2026.json", string? path = null) : base(filename, path)
     {
         if (!"DC".Equals(FlatType))
         {

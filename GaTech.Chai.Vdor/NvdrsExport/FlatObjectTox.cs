@@ -16,7 +16,7 @@ public class FlatObjectTox : FlatObject
 {
     List<JsonArray> DataArrays = [];
 
-    public FlatObjectTox(string outputFileFormat = "flat") : base("TOX_2026.json")
+    public FlatObjectTox(string outputFileFormat = "flat", string filename = "TOX_2026.json", string? path = null) : base(filename, path)
     {
         if (!"TOX".Equals(FlatType))
         {

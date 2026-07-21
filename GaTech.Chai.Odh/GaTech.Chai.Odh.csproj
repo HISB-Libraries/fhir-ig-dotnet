@@ -4,15 +4,20 @@
     <TargetFramework>net9.0</TargetFramework>
     <PackageId>fhir-ig-odh-dotnet</PackageId>
     <PackageProjectUrl>https://github.com/HISB-Libraries/fhir-ig-dotnet</PackageProjectUrl>
-    <PackageVersion>0.1.5</PackageVersion>
+    <PackageVersion>0.1.6</PackageVersion>
     <Authors>Myung Choi</Authors>
     <Description>.NET Library for FHIR ODH IG v1.1.0 - only Odh Usual Work implemeted</Description>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
     <NeutralLanguage>en-US</NeutralLanguage>
     <PackageTags>FHIR, ODH, IG</PackageTags>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <WarningLevel>4</WarningLevel>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
   <ItemGroup>
     <None Remove="CbsSocialDeterminantsOfHealthProfile\" />
   </ItemGroup>
@@ -24,5 +29,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\LICENSE" Pack="true" PackagePath="" />
+    <None Include="docs\README.md" Pack="true" PackagePath="\"/>
   </ItemGroup>
 </Project>

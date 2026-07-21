@@ -8,6 +8,7 @@
     <PackageProjectUrl>https://github.com/HISB-Libraries/fhir-ig-dotnet</PackageProjectUrl>
     <Description>.NET Library for HL7 FHIR® Implementation Guide: Vital Records Medicolegal Death Investigation (MDI), 2.0.0-ci-build STU 2</Description>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
     <NeutralLanguage>en-US</NeutralLanguage>
     <PackageTags>FHIR, MDI, VRDR, VRCL, IG</PackageTags>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>

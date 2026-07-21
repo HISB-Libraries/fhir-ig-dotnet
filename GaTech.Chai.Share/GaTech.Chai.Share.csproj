@@ -2,12 +2,13 @@
 
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
-	<PackageId>fhir-ig-share-dotnet</PackageId>
-	<PackageVersion>1.0.4</PackageVersion>
-	<Authors>Brian Ritchie, Myung Choi</Authors>
-	<PackageProjectUrl>https://github.com/HISB-Libraries/fhir-ig-dotnet</PackageProjectUrl>
-	<Description>.NET Library for Commonly Shared Definitions in FHIR MDI and CBS IG</Description>
+    <PackageId>fhir-ig-share-dotnet</PackageId>
+    <PackageVersion>1.0.4</PackageVersion>
+    <Authors>Brian Ritchie, Myung Choi</Authors>
+    <PackageProjectUrl>https://github.com/HISB-Libraries/fhir-ig-dotnet</PackageProjectUrl>
+    <Description>.NET Library for Commonly Shared Definitions in FHIR MDI and CBS IG</Description>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
     <NeutralLanguage>en-US</NeutralLanguage>
     <PackageTags>FHIR, Share, IG, MDI, VRDR, VRCL, CBS, NVDRS</PackageTags>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
